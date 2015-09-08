@@ -1,0 +1,222 @@
+<div id="incredible">
+    <section class="container">
+        <p>
+            An incredible <a href="http://php.net">PHP</a> web framework to build modern, API-first web projects!<br>
+            <span class="small">Out of the box <a href="https://en.wikipedia.org/wiki/HATEOAS">hypermedia</a> and <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> support with <a href="http://json-ld.org">JSON-LD</a>, <a href="http://schema.org">Schema.org</a> and <a href="hydra-cg.com">Hydra</a>.</span>
+        </p>
+
+        <a class="btn btn-primary btn-lg" href="#" role="button"><span class="fa fa-plus-circle"></span> Get started</a>
+        <a class="btn btn-primary btn-lg" href="/demo" role="button"><span class="fa fa-mouse-pointer"></span> Demo</a>
+    </section>
+</div>
+
+<div id="toc">
+    <ul class="container">
+        <li><a href="#architecture" du-smooth-scroll>Architecture</a></li>
+        <li><a href="#model" du-smooth-scroll>Data model</a></li>
+        <li><a href="#api" du-smooth-scroll>Linked Data API</a></li>
+        <li><a href="#consume" du-smooth-scroll>Consume</a></li>
+        <li><a href="#interoperability" du-smooth-scroll>SEO and interoperability</a></li>
+        <li><a href="#symfony" du-smooth-scroll><span class="fa fa-heart"></span> Symfony</a></li>
+        <li><a href="#references" du-smooth-scroll>References</a></li>
+    </ul>
+</div>
+
+<div id="architecture" class="slide">
+    <section class="container">
+        <h1>The web has changed!</h1>
+
+        <ul>
+            <li>
+                <b><a href="https://en.wikipedia.org/wiki/Single-page_application">Full-Javascript webapps</a></b> are
+                becoming the standard:
+                <div>awesome frontend technologies such as <a href="http://angularjs.org">AngularJS</a>
+                or <a href="http://facebook.github.io/react/">React</a> help to create them and <a href="http://searchengineland.com/tested-googlebot-crawls-javascript-heres-learned-220157">they
+                are now indexed by Google</a>.</div>
+            </li>
+            <li>
+                Internet users now spend <a href="http://techcrunch.com/2014/08/21/majority-of-digital-media-consumption-now-takes-place-in-mobile-apps/"><b>more
+                time on mobile devices</b> than on desktops</a>:
+                <div>having a responsive website is mandatory and native mobile apps are a must-have.</div>
+            </li>
+            <li>
+                <a href="https://en.wikipedia.org/wiki/Semantic_Web">The semantic web</a> and especially <b>Linked Data
+                is a reality</b>:
+                <div>with the Schema.org initiative and new open web standards such as JSON-LD, search
+                engines (among a bunch of other services and software) consume structured and machine-readable data
+                at web scale. Not exposing such data decrease interoperability and search engine ranking/efficiency
+                (think rich snippets).</div>
+            </li>
+        </ul>
+
+        <p>
+            APIs are the hearth of this new web.
+            They are the central point to query and modify data and encapsulate the whole business logic.
+            They allow to share them in desktop and mobile environments as well that with partners systems.
+        </p>
+
+        <p>
+            API Platform provides <b>a set of loosely but tightly integrated tools to build powerful hypermedia REST APIs</b> exposing
+            structured data.
+        </p>
+
+        <div id="spider-back" class="text-right">
+            <img src="images/spider-back.png" alt="Spider" height="99" class="text-right">
+        </div>
+    </section>
+</div>
+
+<div id="model" class="slide">
+    <section class="container">
+        <h1>Bootstrap the data model from Schema.org</h1>
+
+        <p>
+            <b>Don't reinvent the wheel</b>: Schema.org provides a ton of popular and proved efficient data models.
+            They cover a broad spectrum of topics including creative work, e-commerce, event, medicine, social networking,
+            people, postal address, organization, place or review. Schema.org has its root in a ton of preexisting well
+            designed vocabularies and is successfully used by more and more website and applications.
+        </p>
+
+        <p>
+            <b>Bootstrap</b> a fully featured and working PHP data model from Schema.org types including ORM mappings,
+            validation rules and semantic metadata. Of course you can also handcraft your data model or modify the generated
+            one to fit your needs.
+        </p>
+
+        <p>
+            Pick up schemas applicable to your application, generate your PHP model, then customize and specialize it
+            to fit your needs.
+        </p>
+    </section>
+</div>
+
+<div id="api" class="slide">
+    <section class="container">
+        <h1>Create easily Linked Data <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a> APIs</h1>
+
+        <p>
+            <b>Expose</b> your data model trough a read/write API following JSON-LD and Hydra Core Vocabulary open
+            standards, having Schema.org metadata and provided with a ton of features including:
+        </p>
+
+        <div id="api-desc">
+            <div>
+                <ul id="api-features">
+                    <li><span class="fa fa-check"></span> Validation</li>
+                    <li><span class="fa fa-file-text"></span> Pagination</li>
+                    <li><span class="fa fa-exclamation-triangle"></span> Errors serialization</li>
+                    <li><span class="fa fa-filter"></span> Filtering</li>
+                    <li><span class="fa fa-list-ol"></span> Sorting</li>
+                    <li><span class="fa fa-rocket"></span> And a lot of other awesome features</li>
+                </ul>
+            </div>
+
+            <div>
+                <ul id="api-workflow">
+                    <li>
+                        <img src="images/doc.png" alt="" width="113">
+
+                        <b>Browse</b><br>
+                        a pretty, automatically generated documentation.
+                    </li>
+                    <li>
+                        <img src="images/json.png" alt="" width="113">
+
+                        <b>Specify</b> the API and <b>test it</b><br>
+                        thanks to a system especially suitable for Behavior-Driven Development.
+                    </li>
+                    <li>
+                        <img src="images/code.png" alt="" width="113">
+
+                        <b>Everything is extensible</b><br>
+                        thanks to a powerful event system and strong OOP.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="consume" class="slide">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-3" id="spider-world"><img src="images/spider-world.png" alt="" width="109"></div>
+            <div class="col-md-9">
+                <h1>Consume the API everywhere</h1>
+
+                <p>API Platform is agnostic of the client-side technology. Thanks to open web standards, it is compatible with:</p>
+                <ul>
+                    <li>JavaScript apps (including but not limited to AngularJS and React)</li>
+                    <li>Native mobile apps (iOS, Android...)</li>
+                    <li>All modern programming languages (Java, .NET, Ruby, Python...)</li>
+                </ul>
+
+                <img src="images/consume-schema.png" alt="Schema" width="678">
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="interoperability" class="slide">
+    <section class="container">
+        <h1>Enhance SEO and interoperability</h1>
+
+        <p>
+            Adding Schema.org markup to websites and apps increase their ranking in search engines results and enable
+            awesome features such as Google Rich Snippets and Gmail markup.
+        </p>
+
+        <p>
+            Mapping your app data model to Schema.org structures can be a tedious task. Using the generator, your data
+            model will be a derived from Schema.org. Serializing your data as JSON-LD will not require specific mapping
+            nor adaptation. It’s a matter of minutes.
+        </p>
+
+        <p>
+            Schema.org improves the interoperability of your applications. Used with hypermedia technologies such as
+            Hydra it's a big step towards the semantic and machine readable web. It opens the way to generic web API
+            clients able to extract and process data from any website or app using such technologies.
+        </p>
+    </section>
+</div>
+
+<div id="symfony" class="slide">
+    <section class="container">
+        <h1>API Platform <span class="fa fa-heart"></span> Symfony</h1>
+
+        <p>
+            The default distribution of API Platform is a perfectly valid Symfony full-stack application that follows
+            <a href="http://symfony.com/doc/current/best_practices/index.html">Symfony Best Practices</a>.
+            It also includes the famous <a href="http://www.doctrine-project.org/projects/orm.html">Doctrine ORM</a>
+            and all included tools can leverage it.
+        </p>
+
+        <p><b>It means that you can:</b></p>
+
+        <ul>
+            <li>
+                extend the framework with <a href="http://knpbundles.com/">thousands of exiting Symfony bundles</a>
+                adding features such as authentication (<a href="http://jwt.io">JWT</a> and <a href="http://oauth.net">OAuth</a>),
+                user management, HTTP cache, asynchronous jobs and many more
+            </li>
+            <li>use API Platform in any existing Symfony application</li>
+            <li>
+                reuse all your Symfony skills and benefit of the high quality <a href="http://symfony.com/doc/current/index.html">Symfony
+                documentation</a>
+            </li>
+        </ul>
+
+        <p>However, API Platform is designed as a set of independent and reusable components. You can perfectly use them
+        in raw PHP projects or in projects using other frameworks.</p>
+
+        <div class="text-right"><img src="images/spider-look.png" alt="" width="90"></div>
+    </section>
+</div>
+
+<div id="references" class="slide">
+    <section class="container">
+        <h1>They use API Platform</h1>
+
+        <img src="images/logos.png" alt="The Fork, Smile, ExaqtWorld, Les-Tilleuls.coop" width="686">
+    </section>
+</div>

@@ -1,0 +1,288 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/fontawesome/fonts";
+
+$deeper-blue: #3faab4;
+$lighter-blue: #bee8ec;
+$lighter-blue2: #abe7ec;
+$white: #fff;
+$navbar-inverse-link-color: #2196a1;
+$text-color: #253032;
+$link-color: $deeper-blue;
+$navbar-inverse-bg: $text-color;
+$btn-primary-bg: $text-color;
+$navbar-inverse-border: $navbar-inverse-bg;
+
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "fontawesome/scss/font-awesome.scss";
+// endbower
+
+@mixin list-bullet {
+  content: '>';
+  color: $white;
+  background-color: $deeper-blue;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  a:active {
+    text-decoration: underline;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: normal;
+  }
+}
+
+.slide {
+  padding-top: 30px;
+  padding-bottom: 80px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+#navbar-social {
+  a {
+    color: #566f74;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: $white;
+  }
+}
+
+#incredible {
+  background-color: $lighter-blue;
+  text-align: center;
+
+  p {
+    font-size: 25px;
+
+    a {
+      font-weight: bold;
+    }
+
+    span.small {
+      font-size: 18px;
+    }
+  }
+}
+
+#toc {
+  background-color: $deeper-blue;
+  color: $white;
+  font-size: 20px;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    padding: 10px 0;
+  }
+
+  li::after {
+    content: ' -';
+  }
+
+  li:last-child::after {
+    content: '';
+  }
+
+  a {
+    color: $white;
+    padding: 10px;
+  }
+}
+
+#architecture {
+  padding-bottom: 50px;
+
+  b, a {
+    color: $deeper-blue;
+    font-weight: bold;
+  }
+
+  ul > li {
+    list-style-type: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  ul > li::before {
+      @include list-bullet;
+      width: 27px;
+      height: 27px;
+  }
+
+  li > div {
+    margin-left: 27px;
+    font-size: 14px;
+  }
+
+  #spider-back {
+    position: relative;
+    left: 5%;
+  }
+}
+
+#consume {
+  #spider-world {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+#model, #interoperability, #footer {
+  background-color: $text-color;
+  color: #919ea1;
+}
+
+#api {
+  background-color: $lighter-blue2;
+
+  h1 a {
+    color: $deeper-blue;
+  }
+
+  #api-desc {
+    text-align: center;
+  }
+
+  #api-features {
+    text-align: center;
+    padding: 20px 0;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $deeper-blue;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: 100px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    .fa {
+      background-color: $deeper-blue;
+      color: $white;
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-size: 60px;
+      line-height: 100px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #api-workflow {
+    text-align: center;
+    padding: 20px 0;
+    display: inline-block;
+    margin: auto;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin-right: 10px;
+      margin-left: 10px;
+
+      img {
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+#consume, #symfony {
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+
+  li::before {
+    @include list-bullet;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+}
+
+#references {
+  background-color: $lighter-blue2;
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 17px;
+}
+
+@media (min-width: $screen-sm-min) {
+  #header-container .logo img {
+      width: 197px;
+      transition: width 2s;
+    }
+
+  #header-container.reduced .logo img {
+    width: 60px;
+  }
+
+  .navbar .navbar-nav {
+    display: inline-block;
+    vertical-align: top;
+    float: none;
+    font-size: 19px;
+
+    li {
+      height: 80px;
+      position: relative;
+      top: 10px;
+    }
+
+    li.logo {
+      top: 0;
+    }
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  #navbar-social {
+    position: absolute;
+    right: 150px;
+
+    a {
+      font-size: 35px;
+      padding-left: 0;
+      padding-right: 10px;
+    }
+  }
+
+  #incredible {
+    padding-top: 250px;
+    padding-bottom: 20px;
+  }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>API Platform: API-first PHP framework for modern web projects</title>
+    <meta name="description" content="A PHP framework dedicated to hypermedia API creation.">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="apiPlatformWebsite">
+  <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="HeaderCtrl">
+      <div id="header-container" class="container" ng-class="reducedClass">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                  <li><a href="/download"><span class="fa fa-download"></span> Download</a></li>
+                  <li><a href="/doc"><span class="fa fa-book"></span> Doc</a></li>
+                  <li class="logo"><a href="/"><img src="images/logo-header.png" alt="API Platform"></a></h1></li>
+                  <li><a href="/news"><span class="fa fa-bullhorn"></span> News</a></li>
+                  <li><a href="/support"><span class="fa fa-comments"></span> Support</a></li>
+              </ul>
+
+              <ul id="navbar-social" class="nav navbar-nav navbar-right">
+                  <li><a src="https://github.com/dunglas/api-platform" title="GitHub"><span class="fa fa-github"></span></a></li>
+                  <li><a src="https://twitter.com/ApiPlatform" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+              </ul>
+          </div><!--/.navbar-collapse -->
+      </div>
+  </nav>
+
+  <div ui-view></div>
+
+
+  <div id="footer" class="slide">
+      <footer class="container">
+          <div>
+              <iframe src="https://ghbtns.com/github-btn.html?user=dunglas&repo=api-platform&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+              <a href="https://twitter.com/ApiPlatform" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @ApiPlatform</a>
+          </div>
+
+          <p>
+              &copy; <a href="https://dunglas.fr">Kévin Dunglas</a> 2015. A product by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>.<br>
+              Code licensed under <a href="https://github.com/dunglas/api-platform/blob/master/LICENSE">MIT</a>, documentation under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+          </p>
+      </footer>
+  </div>
+  
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <!-- endbuild -->
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </body>
+</html>
