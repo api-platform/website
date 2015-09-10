@@ -26,6 +26,17 @@ $navbar-inverse-border: $navbar-inverse-bg;
   border-radius: 50%;
 }
 
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -35,6 +46,7 @@ $navbar-inverse-border: $navbar-inverse-bg;
 
 body {
   padding: 0;
+  padding-top: 80px;
   font-family: 'Roboto Condensed', sans-serif;
 
   a:active {
@@ -70,42 +82,19 @@ body {
 #incredible {
   background-color: $lighter-blue;
   text-align: center;
+  padding-bottom: 20px;
 
-  p {
-    font-size: 25px;
-
-    a {
-      font-weight: bold;
-    }
-
-    span.small {
-      font-size: 18px;
-    }
+  p a {
+    font-weight: bold;
   }
 }
 
 #toc {
   background-color: $deeper-blue;
   color: $white;
-  font-size: 20px;
-  text-align: center;
-
-  li {
-    display: inline-block;
-    padding: 10px 0;
-  }
-
-  li::after {
-    content: ' -';
-  }
-
-  li:last-child::after {
-    content: '';
-  }
 
   a {
     color: $white;
-    padding: 10px;
   }
 }
 
@@ -231,6 +220,18 @@ body {
 #references {
   background-color: $lighter-blue2;
   text-align: center;
+
+  img {
+    margin: auto;
+  }
+}
+
+#download {
+  text-align: center;
+
+  p {
+    margin-top: 20px;
+  }
 }
 
 #footer {
@@ -240,10 +241,16 @@ body {
 }
 
 @media (min-width: $screen-sm-min) {
-  #header-container .logo img {
-      width: 197px;
-      transition: width 2s;
+  #header-container {
+    .navbar-brand {
+      display: none;
     }
+
+    .logo img {
+      width: 197px;
+      transition: width 1s;
+    }
+  }
 
   #header-container.reduced .logo img {
     width: 60px;
@@ -279,10 +286,69 @@ body {
       padding-left: 0;
       padding-right: 10px;
     }
+
+    .text {
+      @include sr-only;
+    }
   }
 
   #incredible {
-    padding-top: 250px;
-    padding-bottom: 20px;
+    padding-top: 170px;
+
+    img {
+      display: none;
+    }
+
+    p {
+      font-size: 25px;
+
+      span.small {
+        font-size: 18px;
+      }
+    }
+  }
+
+  #toc ul {
+    color: $white;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px 0;
+    }
+
+    li::after {
+      content: ' -';
+    }
+
+    li:last-child::after {
+      content: '';
+    }
+
+    a {
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  body {
+    padding-top: 51px;
+  }
+
+  #navbar .logo {
+    @include sr-only;
+  }
+
+  #incredible img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #toc ul {
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 }
