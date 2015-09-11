@@ -3,5 +3,11 @@ dist
 .tmp
 .sass-cache
 bower_components
+/app/download.html
+/app/doc.html
+/app/news.html
+/app/support.html
+/app/demo.html
+/app/doc/index.html
 /gowrkspc
 /app/doc

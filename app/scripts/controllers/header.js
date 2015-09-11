@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * @ngdoc function
+ * @name apiPlatformWebsite.controller:HeaderCtrl
+ * @description
+ * # HeaderCtrl
+ * Controller of the apiPlatformWebsite
+ */
 angular.module('apiPlatformWebsite')
     .controller('HeaderCtrl', function ($scope, $document, $location, $timeout, $state, $anchorScroll) {
         var scrollSpy = function () {

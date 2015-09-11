@@ -340,7 +340,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
+          src: ['*.html', 'views/{,*/}*.html', 'doc/**/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -362,7 +362,7 @@ module.exports = function (grunt) {
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/*.html']
+        html: ['<%= yeoman.dist %>/*.html', '<%= yeoman.dist %>/**/*.html']
       }
     },
 
@@ -377,8 +377,11 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
+            '.nojekyll',
             '*.html',
+            '**/*.html',
             'views/{,*/}*.html',
+            'doc/**/*.{jsonld,png}',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]

@@ -22,8 +22,19 @@ angular
           })
           .state('download', {
               url: '/download',
+              controller: 'DownloadCtrl',
               templateUrl: 'views/download.html',
               title: 'Download - API Platform'
+          })
+          .state('support', {
+              url: '/support',
+              templateUrl: 'views/support.html',
+              title: 'Support - API Platform'
+          })
+          .state('demo', {
+              url: '/demo',
+              templateUrl: 'views/demo.html',
+              title: 'Demonstration - API Platform'
           })
           .state('doc', {
               url: '/doc/{path:.*}',

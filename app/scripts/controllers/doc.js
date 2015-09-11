@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * @ngdoc function
+ * @name apiPlatformWebsite.controller:DocCtrl
+ * @description
+ * # DocCtrl
+ * Controller of the apiPlatformWebsite
+ */
 angular.module('apiPlatformWebsite')
     .controller('DocCtrl', function ($scope, $location, $anchorScroll) {
         var path = $location.path();

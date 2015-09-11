@@ -4,10 +4,9 @@
  * @ngdoc directive
  * @name apiPlatformWebsite.directive:calavera
  * @description
- * # calavera
+ * # calavera integration
  */
 angular.module('apiPlatformWebsite')
-  /* jshint unused: false */
   .directive('calavera', function ($document, $http, $anchorScroll) {
     return {
       template: '<div class="calavera"></div>',
@@ -62,4 +61,3 @@ angular.module('apiPlatformWebsite')
       }
     };
   });
-/* jshint unused: true */
