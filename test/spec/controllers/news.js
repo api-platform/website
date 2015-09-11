@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: DownloadCtrl', function () {
+describe('Controller: NewsCtrl', function () {
 
   // load the controller's module
   beforeEach(module('apiPlatformWebsite'));
 
-  var DownloadCtrl,
+  var NewsCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DownloadCtrl = $controller('DownloadCtrl', {
+    NewsCtrl = $controller('NewsCtrl', {
       $scope: scope
       // place here mocked dependencies
     });

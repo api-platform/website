@@ -15,7 +15,7 @@ angular.module('apiPlatformWebsite')
         if ('/doc/' === path) {
             $scope.file = '/doc/1.0/index.jsonld';
         } else {
-            $scope.file = path + '.jsonld';
+            $scope.file = path + ('/' === path.substring(path.length - 1, path.length) ? 'index' : '')  + '.jsonld';
         }
 
         // JSON support

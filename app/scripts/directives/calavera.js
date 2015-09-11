@@ -32,9 +32,12 @@ angular.module('apiPlatformWebsite')
             var $element = angular.element(element);
             var href = $element.attr('href');
 
-            // Convert relative JSON-LD URLs
-            if (!/^(?:[a-z]+:)?\/\//i.test(href)) {
-              $element.attr('href', basePath + href.replace(/\.jsonld/, ''));
+            if (/^(?:[a-z]+:)?\/\//i.test(href)) {
+              // Make absolute URLs in target blank
+              $element.attr('target', '_blank');
+            } else {
+              // Convert relative JSON-LD URLs
+              $element.attr('href', basePath + href.replace(/\.jsonld/, '').replace(/index/, ''));
             }
           });
 

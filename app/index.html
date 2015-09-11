@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width">
     <base href="/">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
+    <!-- build:css(.) /styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/prism/themes/prism.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- build:css(.tmp) /styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
@@ -23,7 +23,7 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="HeaderCtrl">
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="LayoutCtrl">
     <div id="header-container" class="container" ng-class="reducedClass">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" aria-expanded="false" aria-controls="navbar">
@@ -33,21 +33,21 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="/">API Platform</a>
+            <a class="navbar-brand" href="/" ng-click="navCollapsed = true">API Platform</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" collapse="navCollapsed">
             <ul class="nav navbar-nav">
-                <li><a href="/download"><span class="fa fa-download"></span> Download</a></li>
-                <li><a href="/doc/"><span class="fa fa-book"></span> Doc</a></li>
-                <li class="logo"><a href="/"><img src="images/logo-header.png" alt="API Platform"></a></h1></li>
-                <li><a href="/news"><span class="fa fa-bullhorn"></span> News</a></li>
-                <li><a href="/support"><span class="fa fa-comments"></span> Support</a></li>
+                <li><a href="/download" ng-click="navCollapsed = true"><span class="fa fa-download"></span> Download</a></li>
+                <li><a href="/doc/" ng-click="navCollapsed = true"><span class="fa fa-book"></span> Doc</a></li>
+                <li class="logo"><a href="/" ng-click="navCollapsed = true"><img src="images/logo-header.png" alt="API Platform" width="173"></a></h1></li>
+                <li><a href="/news" ng-click="navCollapsed = true"><span class="fa fa-bullhorn"></span> News</a></li>
+                <li><a href="/support" ng-click="navCollapsed = true"><span class="fa fa-comments"></span> Support</a></li>
             </ul>
 
             <ul id="navbar-social" class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/dunglas/api-platform" title="GitHub"><span
+                <li><a href="https://github.com/dunglas/api-platform" title="GitHub" target="_blank" ng-click="navCollapsed = true"><span
                         class="fa fa-github"></span> <span class="text">GitHub</span></a></li>
-                <li><a href="https://twitter.com/ApiPlatform" title="Twitter"><span class="fa fa-twitter"></span> <span class="text">Twitter</span></a>
+                <li><a href="https://twitter.com/ApiPlatform" title="Twitter" target="_blank" ng-click="navCollapsed = true"><span class="fa fa-twitter"></span> <span class="text">Twitter</span></a>
                 </li>
             </ul>
         </div>
@@ -67,10 +67,10 @@
         </div>
 
         <p>
-            &copy; <a href="https://dunglas.fr">Kévin Dunglas</a> 2015. A product by <a
-                href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>.<br>
-            Code licensed under <a href="https://github.com/dunglas/api-platform/blob/master/LICENSE">MIT</a>,
-            documentation under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+            &copy; <a href="https://dunglas.fr" target="_blank">Kévin Dunglas</a> 2015. A product by <a
+                href="https://les-tilleuls.coop" target="_blank">Les-Tilleuls.coop</a>.<br>
+            Code licensed under <a href="https://github.com/dunglas/api-platform/blob/master/LICENSE" target="_blank">MIT</a>,
+            documentation under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
         </p>
     </footer>
 </div>
@@ -88,7 +88,7 @@
     ga('send', 'pageview');
 </script>
 
-<!-- build:js(.) scripts/vendor.js -->
+<!-- build:js(.) /scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/anchor-js/anchor.js"></script>
 <script src="bower_components/angular/angular.js"></script>
@@ -97,19 +97,20 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/prism/prism.js"></script>
 <!-- endbower -->
-<!-- endbuild -->
-
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/prism/components/prism-php.js"></script>
 <script src="bower_components/prism/components/prism-yaml.js"></script>
 <script src="bower_components/prism/components/prism-javascript.js"></script>
 <script src="bower_components/prism/components/prism-markup.js"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) /scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/directives/calavera.js"></script>
-<script src="scripts/controllers/header.js"></script>
+<script src="scripts/controllers/layout.js"></script>
 <script src="scripts/controllers/doc.js"></script>
 <script src="scripts/controllers/download.js"></script>
+<script src="scripts/controllers/news.js"></script>
 <!-- endbuild -->
 
 <script>!function (d, s, id) {

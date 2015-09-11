@@ -1,7 +1,14 @@
-# api-platform-website-client
+# The API Platform website
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+## Dependencies
+
+* Go
+* Python
+* Node.js and NPM
+
+## Build the doc
+
+Run `./calavera.sh`
 
 ## Build & development
 

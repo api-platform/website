@@ -36,6 +36,12 @@ angular
               templateUrl: 'views/demo.html',
               title: 'Demonstration - API Platform'
           })
+          .state('news', {
+              url: '/news',
+              controller: 'NewsCtrl',
+              templateUrl: 'views/news.html',
+              title: 'News - API Platform'
+          })
           .state('doc', {
               url: '/doc/{path:.*}',
               controller: 'DocCtrl',

@@ -201,6 +201,10 @@ body {
       }
     }
   }
+
+  #api-features li, #api-workflow li {
+    margin-top: 10px;
+  }
 }
 
 #consume, #symfony {
@@ -234,13 +238,27 @@ body {
   }
 }
 
+#doc img {
+  @include img-responsive;
+}
+
+#news {
+  text-align: center;
+}
+
 #footer {
   text-align: center;
   padding: 20px;
   font-size: 17px;
 }
 
-@media (min-width: $screen-sm-min) {
+.fixed-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+@media (min-width: $screen-md-max) {
   #header-container {
     .navbar-brand {
       display: none;
@@ -280,6 +298,11 @@ body {
   #navbar-social {
     position: absolute;
     right: 150px;
+
+    li {
+      position: relative;
+      top: 5px;
+    }
 
     a {
       font-size: 35px;
@@ -333,7 +356,7 @@ body {
   }
 }
 
-@media (max-width: $screen-sm-max) {
+@media (max-width: $screen-md-max) {
   body {
     padding-top: 51px;
   }
@@ -350,5 +373,9 @@ body {
   #toc ul {
     margin-bottom: 10px;
     margin-top: 10px;
+  }
+  
+  .slide ul {
+    padding-left: 0;
   }
 }
