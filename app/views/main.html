@@ -32,7 +32,7 @@
 
         <ul>
             <li>
-                <b><a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">Full-Javascript webapps</a></b> are
+                <b><a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">SPA</a></b> (Full Javascript webapps) are
                 becoming the standard:
                 <div>awesome frontend technologies such as <a href="http://angularjs.org" target="_blank">AngularJS</a>
                 or <a href="http://facebook.github.io/react/">React</a> help to create them and <a href="http://searchengineland.com/tested-googlebot-crawls-javascript-heres-learned-220157" target="_blank">they
@@ -40,26 +40,26 @@
             </li>
             <li>
                 Internet users now spend <a href="http://techcrunch.com/2014/08/21/majority-of-digital-media-consumption-now-takes-place-in-mobile-apps/" target="_blank"><b>more
-                time on mobile devices</b> than on desktops</a>:
-                <div>having a responsive website is mandatory and native mobile apps are a must-have.</div>
+                time on mobile devices</b> than on desktops</a> or <a href="http://techcrunch.com/2015/09/10/u-s-consumers-now-spend-more-time-in-apps-than-watching-tv/" target="_blank">TV !</a>
+                <div>Having a responsive website is mandatory and native mobile apps are a must-have.</div>
             </li>
             <li>
-                <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">The semantic web</a> and especially <b>Linked Data
-                is a reality</b>:
-                <div>with the Schema.org initiative and new open web standards such as JSON-LD, search
+                <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">The semantic web</a> and especially <em>Linked Data
+                is a reality</em>:
+                <div>with the Schema.org initiative and new open web standards such as JSON-LD (RDF for web), search
                 engines (among a bunch of other services and software) consume structured and machine-readable data
-                at web scale. Not exposing such data decrease interoperability and search engine ranking/efficiency
-                (think rich snippets).</div>
+                at web scale.<br/>
+                Not exposing such data decrease interoperability and search engine ranking/efficiency
+                (think <a href="https://developers.google.com/structured-data/rich-snippets/products" target="_blank">rich snippets</a>, microformat).</div>
+            </li>
+            <li>
+              <b>API Centric Application</b>, APIs are the hearth of this new web.
+              They are the central point to query and modify data and encapsulate the whole business logic.
+              They allow to share them in desktop and mobile environments as well that with partners systems.
             </li>
         </ul>
-
-        <p>
-            APIs are the hearth of this new web.
-            They are the central point to query and modify data and encapsulate the whole business logic.
-            They allow to share them in desktop and mobile environments as well that with partners systems.
-        </p>
-
-        <p>
+        
+        <p class="text-center">
             API Platform provides <b>a set of loosely but tightly integrated tools to build powerful hypermedia REST APIs</b> exposing
             structured data.
         </p>
@@ -86,6 +86,8 @@
             validation rules and semantic metadata. Of course you can also handcraft your data model or modify the generated
             one to fit your needs.
         </p>
+        
+        <p>Add visual representation of e-commerce offers to database schema</p>
 
         <p>
             Pick up schemas applicable to your application, generate your PHP model, then customize and specialize it
@@ -146,13 +148,13 @@
         <div class="row">
             <div class="col-md-3" id="spider-world"><img src="images/spider-world.png" alt="" width="109" class="img-responsive"></div>
             <div class="col-md-9">
-                <h1>Consume the API everywhere</h1>
+                <h1>Easy to expose, easy to consume !</h1>
 
                 <p>API Platform is agnostic of the client-side technology. Thanks to open web standards, it is compatible with:</p>
                 <ul>
                     <li>JavaScript apps (including but not limited to AngularJS and React)</li>
                     <li>Native mobile apps (iOS, Android...)</li>
-                    <li>All modern programming languages (Java, .NET, Ruby, Python...)</li>
+                    <li>All modern programming languages (PHP, Java, .NET, Ruby, Python...)</li>
                 </ul>
 
                 <img src="images/consume-schema.png" alt="Schema" width="678" class="img-responsive">
@@ -167,19 +169,53 @@
 
         <p>
             Adding Schema.org markup to websites and apps increase their ranking in search engines results and enable
-            awesome features such as Google Rich Snippets and Gmail markup.
+            awesome features such as <a href="https://developers.google.com/structured-data/" target="_blank">Google Rich Snippets</a> and Gmail markup.
         </p>
 
         <p>
             Mapping your app data model to Schema.org structures can be a tedious task. Using the generator, your data
             model will be a derived from Schema.org. Serializing your data as JSON-LD will not require specific mapping
-            nor adaptation. It’s a matter of minutes.
+            nor adaptation.<br/> 
+            Simply include a JSON-LD file in your page instead of enriching the DOM: <b>it’s a matter of minutes before being SEO Ready</b>:
+            <pre>
+              <script type="application/ld+json">
+              {
+                "@context": "http://schema.org/",
+                "@type": "Product",
+                "name": "Executive Anvil",
+                "image": "http://www.example.com/anvil_executive.jpg",
+                "description": "Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height.",
+                "mpn": "925872",
+                "brand": {
+                  "@type": "Thing",
+                  "name": "ACME"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.4",
+                  "reviewCount": "89"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "price": "119.99",
+                  "priceValidUntil": "2020-11-05",
+                  "itemCondition": "http://schema.org/UsedCondition",
+                  "availability": "http://schema.org/InStock",
+                  "seller": {
+                    "@type": "Organization",
+                    "name": "Executive Objects"
+                  }
+                }
+              }
+              </script>
+            </pre>
         </p>
 
         <p>
-            Schema.org improves the interoperability of your applications. Used with hypermedia technologies such as
-            Hydra it's a big step towards the semantic and machine readable web. It opens the way to generic web API
-            clients able to extract and process data from any website or app using such technologies.
+            Schema.org <b>improves the interoperability of your applications</b>. Used with hypermedia technologies such as
+            Hydra it's a big step towards the <em>semantic and machine readable web</em>. It opens the way to <b>generic web API
+            clients</b> able to extract and process data from any website or app using such technologies.
         </p>
     </section>
 </div>
@@ -199,7 +235,7 @@
 
         <ul>
             <li>
-                extend the framework with <a href="http://knpbundles.com" target="_blank">thousands of exiting Symfony bundles</a>
+                extend the framework with <a href="http://knpbundles.com" target="_blank">thousands of exciting Symfony bundles</a>
                 adding features such as authentication (<a href="http://jwt.io" target="_blank">JWT</a> and <a href="http://oauth.net" target="_blank">OAuth</a>),
                 user management, HTTP cache, asynchronous jobs and many more
             </li>
