@@ -5,6 +5,16 @@
     <title>API Platform: API-first PHP framework for modern web projects</title>
     <meta name="description" content="A PHP framework dedicated to hypermedia API creation.">
     <meta name="viewport" content="width=device-width">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ApiPlatform">
+    <meta name="twitter:title" content="API Platform: API-first PHP framework for modern web projects">
+    <meta name="twitter:description" content="A PHP framework dedicated to hypermedia API creation.">
+    <meta name="twitter:image" content="https://api-platform.com/images/api-platform-logo-500x500.02f24cfd.png">
+    <meta property="og:image" content="https://api-platform.com/images/api-platform-logo-500x500.02f24cfd.png">
+    <meta property="og:image:secure_url" content="https://api-platform.com/images/api-platform-logo-500x500.02f24cfd.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
     <base href="/">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) /styles/vendor.css -->
@@ -17,13 +27,13 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body ng-app="apiPlatformWebsite">
+<body ng-app="apiPlatformWebsite" ng-controller="LayoutCtrl">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="LayoutCtrl">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div id="header-container" class="container" ng-class="reducedClass">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" aria-expanded="false" aria-controls="navbar">
@@ -39,7 +49,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/download" ng-click="navCollapsed = true"><span class="fa fa-download"></span> Download</a></li>
                 <li><a href="/doc/" ng-click="navCollapsed = true"><span class="fa fa-book"></span> Doc</a></li>
-                <li class="logo"><a href="/" ng-click="navCollapsed = true"><img src="images/logo-header.png" alt="API Platform" width="173"></a></h1></li>
+                <li class="logo"><a href="/" ng-click="navCollapsed = true"><img src="/images/logo-header.png" alt="API Platform" width="173"></a></h1></li>
                 <li><a href="/news" ng-click="navCollapsed = true"><span class="fa fa-bullhorn"></span> News</a></li>
                 <li><a href="/support" ng-click="navCollapsed = true"><span class="fa fa-comments"></span> Support</a></li>
             </ul>
@@ -60,7 +70,7 @@
 <div id="footer" class="slide">
     <footer class="container">
         <div>
-            <iframe src="https://ghbtns.com/github-btn.html?user=dunglas&repo=api-platform&type=star&count=true&size=small"
+            <iframe src="https://ghbtns.com/github-btn.html?user=api-platform&repo=api-platform&type=star&count=true&size=small"
                     frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
             <a href="https://twitter.com/ApiPlatform" class="twitter-follow-button" data-show-count="true"
                data-show-screen-name="false">Follow @ApiPlatform</a>
@@ -75,16 +85,14 @@
     </footer>
 </div>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<!-- Google Analytics -->
 <script>
-    !function (A, n, g, u, l, a, r) {
-        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-                    (A[l].q = A[l].q || []).push(arguments)
-                }, A[l].l = +new Date, a = n.createElement(g),
-                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-    }(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-XXXXX-X');
+    ga('create', 'UA-67501746-1', 'auto');
     ga('send', 'pageview');
 </script>
 

@@ -15,17 +15,21 @@ angular.module('apiPlatformWebsite')
             });
         };
 
+        var adaptFooter = function () {
+            var $footer = angular.element($document[0].getElementById('footer'));
+
+            if (!$document[0].getElementById('news') && $document[0].body.offsetHeight < $window.innerHeight) {
+                $footer.addClass('fixed-footer');
+            } else {
+                $footer.removeClass('fixed-footer');
+            }
+        };
+
+        $scope.$on('calaveraDocReady', adaptFooter);
+
         $scope.$on('$stateChangeSuccess', function () {
             // Fix the footer for small pages
-            $timeout(function () {
-                var $footer = angular.element($document[0].getElementById('footer'));
-
-                if (!$document[0].getElementById('news') && $document[0].body.offsetHeight < $window.innerHeight) {
-                    $footer.addClass('fixed-footer');
-                } else {
-                    $footer.removeClass('fixed-footer');
-                }
-            });
+            $timeout(adaptFooter);
 
             // Remove previous listener
             $document.off('scroll', scrollSpy);

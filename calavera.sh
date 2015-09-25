@@ -38,6 +38,6 @@ ln -s index.html demo.html
 ln -s index.html news.html
 ln -s ../index.html doc/index.html
 
-# Cleanup Go stuffes
+# Cleanup Go stuffs
 
 rm -Rf $GOPATH

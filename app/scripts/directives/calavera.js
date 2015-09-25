@@ -53,9 +53,13 @@ angular.module('apiPlatformWebsite')
           });
 
           element.append($text);
+          scope.$emit('calaveraDocReady');
+
           Prism.highlightAll();
           anchors.add();
           $anchorScroll();
+
+          scope.$emit('calaveraDocLoaded');
         }, function (response) {
           if (404 === response.status) {
           } else {

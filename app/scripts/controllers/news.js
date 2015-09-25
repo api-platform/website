@@ -8,9 +8,8 @@
  * Controller of the apiPlatformWebsite
  */
 angular.module('apiPlatformWebsite')
-  .controller('NewsCtrl', function ($document, $timeout) {
+  .controller('NewsCtrl', function ($scope, $document, $timeout) {
     $timeout(function () {
-        console.log('Wtf');
         twttr.widgets.load();
     });
   });

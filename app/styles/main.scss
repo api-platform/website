@@ -134,6 +134,10 @@ body {
     margin-top: 20px;
     text-align: center;
   }
+
+  img {
+    margin-top: 20px;
+  }
 }
 
 #model, #interoperability, #footer {
@@ -238,8 +242,12 @@ body {
   }
 }
 
-#doc img {
-  @include img-responsive;
+#doc {
+  font-size: 15px;
+
+  img {
+    @include img-responsive;
+  }
 }
 
 #news {
@@ -266,7 +274,7 @@ body {
 
     .logo img {
       width: 197px;
-      transition: width 1s;
+      transition: width 0.5s;
     }
   }
 
