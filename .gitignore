@@ -1,0 +1,9 @@
+/data
+/data-src
+
+*.log
+
+node_modules
+
+dist
+coverage
