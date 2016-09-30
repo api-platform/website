@@ -5,9 +5,9 @@
     # Install the client
     $ git clone https://github.com/dunglas/calavera-client
     # Clone the Git repository containing Markdown files in the data directory
-    $ git clone https://github.com/api-platform/doc data-src
+    $ git clone https://github.com/api-platform/docs data-src
     # Generate .jsonld files using Calavera
-    $ docker run -v /my/src/directory:$PWD/data-src -v /my/output/directory:$PWD/data calavera data-src data
+    $ docker run -v $PWD/data-src:/in -v $PWD/src/static/data:/out dunglas/calavera /in /out
 
 # React Redux Starter Kit
 

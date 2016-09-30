@@ -12,7 +12,7 @@ export const RECEIVE_PAGE = 'RECEIVE_PAGE'
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function selectPage(pageName = 'index') {
+export function selectPage(pageName) {
     return {
         type: SELECT_PAGE,
         pageName
@@ -34,7 +34,7 @@ export function receivePage(pageName, data) {
     }
 }
 
-export function fetchPage(pageName = 'index') {
+export function fetchPage(pageName) {
     // Thunk middleware knows how to handle functions.
     // It passes the dispatch method as an argument to the function,
     // thus making it able to dispatch actions itself.
@@ -52,7 +52,12 @@ export function fetchPage(pageName = 'index') {
         // In this case, we return a promise to wait for.
         // This is not required by thunk middleware, but it is convenient for us.
 
-        return fetch(`data/${pageName}.jsonld`)
+        let jsonldDoc = pageName
+        if ('' === jsonldDoc || jsonldDoc.endsWith('/')) {
+            jsonldDoc = jsonldDoc + 'index'
+        }
+
+        return fetch(`/data/${jsonldDoc}.jsonld`)
             .then(response => response.json())
             .then(data =>
                 dispatch(receivePage(pageName, data))
@@ -70,7 +75,7 @@ export function fetchPage(pageName = 'index') {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-function selectedPage(state = 'index', action) {
+function selectedPage(state = '', action) {
     switch (action.type) {
         case SELECT_PAGE:
             return action.pageName
