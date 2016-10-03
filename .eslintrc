@@ -11,11 +11,13 @@
     "browser" : true
   },
   "globals" : {
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__COVERAGE__" : false,
-    "__BASENAME__" : false
+    "__DEV__"               : false,
+    "__PROD__"              : false,
+    "__DEBUG__"             : false,
+    "__COVERAGE__"          : false,
+    "__BASENAME__"          : false,
+    "__PRISMJS_LANGUAGES__" : [],
+    "__DATA_PATH__"         : "/data"
   },
   "rules": {
     "semi" : [2, "never"],

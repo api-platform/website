@@ -1,13 +1,19 @@
 import React, { Component, PropTypes } from 'react'
+import Prism from 'prismjs'
 
-// TODO: use https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
+let languages = __PRISMJS_LANGUAGES__
+for (let i = 0; i < languages.length; i++) {
+    require('prismjs/components/prism-' + languages[i])
+}
+
+require('../../../node_modules/prismjs/themes/prism.css')
 
 class Page extends Component {
     componentDidMount() {
         const { selectPage, fetchPage } = this.props
 
         selectPage(this.props.params.splat)
-        fetchPage(this.props.params.splat)
+        fetchPage(this.props.params.splat).then(Prism.highlightAll)
     }
 
     getHtml() {

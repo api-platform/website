@@ -40,6 +40,7 @@ export function fetchPage(pageName) {
     // thus making it able to dispatch actions itself.
 
     return function (dispatch) {
+        let dataPath = __DATA_PATH__
 
         // First dispatch: the app state is updated to inform
         // that the API call is starting.
@@ -57,7 +58,9 @@ export function fetchPage(pageName) {
             jsonldDoc = jsonldDoc + 'index'
         }
 
-        return fetch(`/data/${jsonldDoc}.jsonld`)
+        jsonldDoc = `${dataPath}/${jsonldDoc}.jsonld`
+
+        return fetch(jsonldDoc)
             .then(response => response.json())
             .then(data =>
                 dispatch(receivePage(pageName, data))
