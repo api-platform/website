@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import fetch from 'isomorphic-fetch'
 
-
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -26,7 +25,37 @@ export function requestPage(pageName) {
     }
 }
 
-export function receivePage(pageName, data) {
+export function receivePage(pageName, jsonldDoc, data) {
+    let basePath = jsonldDoc.substring(0, jsonldDoc.lastIndexOf('/') + 1)
+    let doc = (new DOMParser()).parseFromString(data.text, 'text/html')
+
+    // Convert all links pointing to JSON-LD documents
+    let anchors = doc.querySelectorAll('a')
+    for (let i = 0; i < anchors.length; i++) {
+        let href = anchors[i].getAttribute('href')
+
+        if (/^(?:[a-z]+:)?\/\//i.test(href)) {
+            // Make absolute URLs in target blank
+            anchors[i].setAttribute('target', '_blank')
+        } else {
+            // Convert relative JSON-LD URLs
+            anchors[i].setAttribute('href', href.replace(/index\.jsonld/, '').replace(/\.jsonld/, ''))
+        }
+    }
+
+    // Convert all images
+    let images = doc.querySelectorAll('img')
+    for (let i = 0; i < images.length; i++) {
+        let src = images[i].getAttribute('src');
+
+        // Convert relative URLs
+        if (!/^(?:[a-z]+:)?\/\//i.test(src)) {
+            images[i].setAttribute('src', basePath + src)
+        }
+    }
+
+    data.text = doc.getElementsByTagName('body')[0].innerHTML
+
     return {
         type: RECEIVE_PAGE,
         pageName,
@@ -63,7 +92,7 @@ export function fetchPage(pageName) {
         return fetch(jsonldDoc)
             .then(response => response.json())
             .then(data =>
-                dispatch(receivePage(pageName, data))
+                dispatch(receivePage(pageName, jsonldDoc, data))
             )
 
         // In a real world app, you also want to

@@ -8,6 +8,8 @@
     $ git clone https://github.com/api-platform/docs data-src
     # Generate .jsonld files using Calavera
     $ docker run -v $PWD/data-src:/in -v $PWD/src/static/data:/out dunglas/calavera /in /out
+    # Copy assets and images
+    $ cd data-src && find . -not -name '*.md' -exec rsync -R {} ../src/static/data \; && cd -
 
 # React Redux Starter Kit
 
