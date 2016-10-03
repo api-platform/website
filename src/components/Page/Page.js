@@ -11,7 +11,7 @@ class Page extends Component {
     }
 
     getHtml() {
-        if (!this.props.pages[this.props.selectedPage]) {
+        if (!this.props.pages[this.props.selectedPage] || this.props.pages[this.props.selectedPage].isFetching) {
             return {
                 __html: ''
             }
