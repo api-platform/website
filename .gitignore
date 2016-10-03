@@ -1,4 +1,4 @@
-/data
+/data-src
 /src/static/data
 
 *.log
@@ -7,3 +7,4 @@ node_modules
 
 dist
 coverage
+webpack-assets.json
