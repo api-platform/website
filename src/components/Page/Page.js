@@ -1,13 +1,19 @@
 import React, { Component, PropTypes } from 'react'
+import Prism from 'prismjs'
 
-// TODO: use https://github.com/reactjs/react-magic/blob/master/README-htmltojsx.md
+let languages = __PRISMJS_LANGUAGES__
+for (let i = 0; i < languages.length; i++) {
+    require('prismjs/components/prism-' + languages[i])
+}
+
+require('../../../node_modules/prismjs/themes/prism.css')
 
 class Page extends Component {
     componentDidMount() {
         const { selectPage, fetchPage } = this.props
 
         selectPage(this.props.params.splat)
-        fetchPage(this.props.params.splat)
+        fetchPage(this.props.params.splat).then(Prism.highlightAll)
     }
 
     getHtml() {
@@ -17,35 +23,8 @@ class Page extends Component {
             }
         }
 
-        let doc = (new DOMParser()).parseFromString(this.props.pages[this.props.selectedPage].data.text, 'text/html')
-
-        // Convert all links pointing to JSON-LD documents
-        let anchors = doc.querySelectorAll('a')
-        for (let i = 0; i < anchors.length; i++) {
-            let href = anchors[i].getAttribute('href')
-
-            if (/^(?:[a-z]+:)?\/\//i.test(href)) {
-                // Make absolute URLs in target blank
-                anchors[i].setAttribute('target', '_blank')
-            } else {
-                // Convert relative JSON-LD URLs
-                anchors[i].setAttribute('href', href.replace(/index\.jsonld/, '').replace(/\.jsonld/, ''))
-            }
-        }
-
-        // Convert all images
-        let images = doc.querySelectorAll('img')
-        for (let i = 0; i < images.length; i++) {
-            let src = images[i].getAttribute('src');
-
-            // Convert relative URLs
-            if (!/^(?:[a-z]+:)?\/\//i.test(src)) {
-                images[i].setAttribute('src', '/data/' + src)
-            }
-        }
-
         return {
-            __html: doc.getElementsByTagName('body')[0].innerHTML
+            __html: this.props.pages[this.props.selectedPage].data.text
         }
     }
 
