@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Prism from 'prismjs'
+import AnchorJS from 'anchor-js'
 
 let languages = __PRISMJS_LANGUAGES__
 for (let i = 0; i < languages.length; i++) {
@@ -13,7 +14,14 @@ class Page extends Component {
         const { selectPage, fetchPage } = this.props
 
         selectPage(this.props.params.splat)
-        fetchPage(this.props.params.splat).then(Prism.highlightAll)
+        fetchPage(this.props.params.splat).then(() => {
+            (new AnchorJS()).add()
+            Prism.highlightAll()
+
+            if ('undefined' !== typeof window && '' !== window.location.hash) {
+                window.location.href = window.location.hash
+            }
+        })
     }
 
     getHtml() {
