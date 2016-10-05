@@ -3,7 +3,7 @@
 ## Install
 
     # Install the client
-    $ git clone https://github.com/dunglas/calavera-client
+    $ git clone https://github.com/dunglas/calavera-react-client
     # Clone the Git repository containing Markdown files in the data directory
     $ git clone https://github.com/api-platform/docs data-src
     # Generate .jsonld files using Calavera
