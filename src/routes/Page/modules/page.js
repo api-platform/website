@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 import fetch from 'isomorphic-fetch'
+import AnchorJS from 'anchor-js'
+import Prism from 'prismjs'
 
 // ------------------------------------
 // Constants
@@ -29,30 +31,39 @@ export function receivePage(pageName, jsonldDoc, data) {
     let basePath = jsonldDoc.substring(0, jsonldDoc.lastIndexOf('/') + 1)
     let doc = (new DOMParser()).parseFromString(data.text, 'text/html')
 
-    // Convert all links pointing to JSON-LD documents
+    // Convert links pointing to JSON-LD documents
     let anchors = doc.querySelectorAll('a')
-    for (let i = 0; i < anchors.length; i++) {
-        let href = anchors[i].getAttribute('href')
+    for (let i = 0, anchor; anchor = anchors[i++];) {
+        let href = anchor.getAttribute('href')
 
         if (/^(?:[a-z]+:)?\/\//i.test(href)) {
             // Make absolute URLs in target blank
-            anchors[i].setAttribute('target', '_blank')
+            anchor.setAttribute('target', '_blank')
         } else {
             // Convert relative JSON-LD URLs
-            anchors[i].setAttribute('href', href.replace(/index\.jsonld/, '').replace(/\.jsonld/, ''))
+            anchor.setAttribute('href', href.replace(/index\.jsonld/, '').replace(/\.jsonld/, ''))
         }
     }
 
-    // Convert all images
+    // Convert images's URL
     let images = doc.querySelectorAll('img')
-    for (let i = 0; i < images.length; i++) {
-        let src = images[i].getAttribute('src');
+    for (let i = 0, image; image = images[i++];) {
+        let src = image.getAttribute('src');
 
         // Convert relative URLs
         if (!/^(?:[a-z]+:)?\/\//i.test(src)) {
-            images[i].setAttribute('src', basePath + src)
+            image.setAttribute('src', basePath + src)
         }
     }
+
+    // Highlight code blocks
+    let codes = doc.querySelectorAll('code[class*="language-"]')
+    for (let i = 0, code; code = codes[i++];) {
+        Prism.highlightElement(code)
+    }
+
+    // Add anchors
+    (new AnchorJS()).add(doc.querySelectorAll('h2, h3, h4, h5, h6'))
 
     data.text = doc.getElementsByTagName('body')[0].innerHTML
 

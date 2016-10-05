@@ -1,3 +1,14 @@
-.mainContainer {
-  padding-top:20px;
+@import "~bootstrap/scss/bootstrap";
+
+article {
+  img {
+    @extend .img-fluid;
+    @extend .img-rounded;
+  }
+
+  table {
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-striped;
+  }
 }

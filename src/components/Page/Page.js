@@ -1,13 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import Prism from 'prismjs'
-import AnchorJS from 'anchor-js'
+import 'prismjs/themes/prism.css'
 
 let languages = __PRISMJS_LANGUAGES__
 for (let i = 0; i < languages.length; i++) {
     require('prismjs/components/prism-' + languages[i])
 }
-
-require('../../../node_modules/prismjs/themes/prism.css')
 
 class Page extends Component {
     componentDidMount() {
@@ -15,9 +12,6 @@ class Page extends Component {
 
         selectPage(this.props.params.splat)
         fetchPage(this.props.params.splat).then(() => {
-            (new AnchorJS()).add()
-            Prism.highlightAll()
-
             if ('undefined' !== typeof window && '' !== window.location.hash) {
                 window.location.href = window.location.hash
             }
@@ -37,11 +31,9 @@ class Page extends Component {
     }
 
     render() {
+        // The HTML is properly sanitized by the Go JSON-LD generator.
         return (
-            <div>
-                {/* The HTML is properly sanitized by the Go JSON-LD generator. */}
-                <div dangerouslySetInnerHTML={this.getHtml()}></div>
-            </div>
+            <article className="page" dangerouslySetInnerHTML={this.getHtml()}></article>
         )
     }
 }
