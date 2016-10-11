@@ -68,7 +68,7 @@ class Page extends Component {
     const basePath = this.props.selectedPage.substring(0, this.props.selectedPage.lastIndexOf('/') + 1);
 
     // finally use our spa's router
-    this.props.navigateTo(path.join('/', basePath, url));
+    this.props.navigateTo(path.join('/docs/', basePath, url));
   }
 
   render() {

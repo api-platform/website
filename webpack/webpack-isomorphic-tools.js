@@ -17,7 +17,7 @@ module.exports = {
       extensions: [
         'jsonld',
       ],
-      filter: (module) => module.name.match(/jsonld$/),
+      filter: (module) => module.name.match(/\.jsonld$/),
       parser: (module, options, log) => {
         return module.source;
       }

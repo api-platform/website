@@ -3,18 +3,284 @@
  *
  */
 
-.navbar-brand {
+@mixin list-bullet {
+  content: '>';
+  color: $white;
+  background-color: $deeper-blue;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+html {
   position: relative;
-  padding-left: 50px;
+  min-height: 100%;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #33e0ff;
-  background-color: transparent;
+body {
+  padding: 50px 0 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 60px;
+
+  a:active {
+    text-decoration: underline;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: normal;
+  }
 }
 
-.page img {
-  @extend .img-responsive;
+.slide {
+  padding-top: 30px;
+  padding-bottom: 80px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+#navbar-social {
+  a {
+    color: #566f74;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: $white;
+  }
+}
+
+#incredible {
+  background-color: $lighter-blue;
+  text-align: center;
+  padding-bottom: 20px;
+
+  p a {
+    font-weight: bold;
+  }
+
+  .btn {
+    margin: 0 2px;
+  }
+}
+
+#architecture {
+  background-color: $lighter-blue2;
+
+  b, a {
+    color: $deeper-blue;
+    font-weight: bold;
+  }
+
+  ul > li {
+    list-style-type: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  ul > li::before {
+    @include list-bullet;
+    width: 27px;
+    height: 27px;
+    margin-right: 7px;
+  }
+
+  li > div {
+    margin-left: 27px;
+    font-size: 14px;
+  }
+
+  #spider-back {
+    position: relative;
+    left: 5%;
+  }
+}
+
+#consume {
+  #spider-world {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  img {
+    margin-top: 20px;
+  }
+}
+
+#model, #footer, #symfony {
+  background-color: $text-color;
+  color: #919ea1;
+}
+
+#features {
+  h1 a {
+    color: $deeper-blue;
+  }
+
+  #api-desc {
+    text-align: center;
+  }
+
+  #api-features {
+    text-align: center;
+    padding: 20px 0;
+    display: inline-block;
+    margin: auto;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: 100px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+    .fa {
+      background-color: $deeper-blue;
+      color: $white;
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      font-size: 60px;
+      line-height: 100px;
+      margin-bottom: 10px;
+    }
+  }
+
+  #api-workflow {
+    text-align: center;
+    padding: 20px 0;
+    display: inline-block;
+    margin: auto;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      width: 250px;
+      margin-right: 10px;
+      margin-left: 10px;
+
+      img {
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  #api-features li, #api-workflow li {
+    margin-top: 10px;
+  }
+}
+
+#consume, #symfony {
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+
+  li::before {
+    @include list-bullet;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+}
+
+#references {
+  background-color: $lighter-blue2;
+  text-align: center;
+
+  img {
+    margin: auto;
+  }
+}
+
+#download {
+  text-align: center;
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.page {
+  @extend .container;
+
+  font-size: 15px;
+
+  img {
+    @extend .img-responsive;
+  }
+
+  table {
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-striped;
+  }
+}
+
+#news {
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 17px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+@media (min-width: $screen-md-max) {
+  .navbar-brand {
+    img {
+      position: relative;
+      bottom: 14px;
+    }
+  }
+
+  #header {
+    font-size: 15px;
+  }
+
+  #incredible {
+    p {
+      font-size: 25px;
+
+      span.small {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-md-max) {
+  body {
+    padding-top: 51px;
+  }
+
+  #navbar .logo {
+    @include sr-only;
+  }
+
+  .slide ul {
+    padding-left: 0;
+  }
 }

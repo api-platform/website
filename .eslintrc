@@ -32,6 +32,7 @@
     "__DATA_PATH__": true,
     "__GOOGLE_ANALYTICS_ID__": true,
     "socket": true,
-    "webpackIsomorphicTools": true
+    "webpackIsomorphicTools": true,
+    "twttr": true
   }
 }
