@@ -1,10 +1,25 @@
-// NOTE: These options are overriden by the babel-loader configuration
-// for webpack, which can be found in ~/build/webpack.config.
-//
-// Why? The react-transform-hmr plugin depends on HMR (and throws if
-// module.hot is disabled), so keeping it and related plugins contained
-// within webpack helps prevent unexpected errors.
 {
-  "presets": ["es2015", "react", "stage-0"],
-  "plugins": ["transform-runtime"]
+  "presets": ["react", "es2015", "stage-0"],
+
+  "plugins": [
+    "transform-runtime",
+    "add-module-exports",
+    "transform-decorators-legacy",
+    "transform-react-display-name"
+  ],
+
+  "env": {
+    "development": {
+      "plugins": [
+        "typecheck",
+        ["react-transform", {
+            "transforms": [{
+                "transform": "react-transform-catch-errors",
+                "imports": ["react", "redbox-react"]
+              }
+            ]
+        }]
+      ]
+    }
+  }
 }
