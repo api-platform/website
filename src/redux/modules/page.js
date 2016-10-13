@@ -6,15 +6,12 @@ const cheerio = require('cheerio');
 
 // load prismjs (code highlighting) only client side for now
 // Loading it from server side and client side causes double
-// code tokenization. To painful to fix it. rage quit.
+// code tokenization. Too painful to fix it. rage quit.
 let Prism;
 if (!__SERVER__) {
   Prism = require('prismjs');
   (__PRISMJS_LANGUAGES__ || []).forEach(item => require('prismjs/components/prism-' + item));
 }
-
-// disabled (need a real DOMParser instance)
-// const AnchorJS = require('anchor-js');
 
 // ------------------------------------
 // Constants
@@ -42,6 +39,7 @@ export function requestPage(pageName) {
 
 export function receivePage(pageName, jsonldDoc, data) {
   let baseHtml = data.text;
+  const basePath = jsonldDoc.substring(0, jsonldDoc.lastIndexOf('/') + 1);
 
   // Doing some stuff that require browser only API (chiefly DOM things)
   if ( !__SERVER__) {
@@ -52,15 +50,10 @@ export function receivePage(pageName, jsonldDoc, data) {
     for (iterator = 0; iterator < codeBlocks.length; iterator++) {
       Prism.highlightElement(codeBlocks[iterator]);
     }
-
-    // Add anchors
-    // Does not work with cheerio. We need to instantiate a DOMParser
-    // (new AnchorJS()).add(wrap('h2, h3, h4, h5, h6'));
-
     baseHtml = doc.body.innerHTML;
   }
 
-  const wrap = cheerio.load('' + baseHtml);// data.text);
+  const wrap = cheerio.load(baseHtml);
 
   wrap('a').each((index, anchor) => {
     const $anchor = wrap(anchor);
@@ -79,12 +72,10 @@ export function receivePage(pageName, jsonldDoc, data) {
     const src = $image.attr('src');
         // Convert relative URLs
     if (!/^(?:[a-z]+:)?\/\//i.test(src)) {
-      const separator = (/\/$/.test(pageName)) ? '.' : '..';
-      const picUrl = path.join('/data/', pageName, separator, src);
-      $image.attr('src', picUrl);// '/data/' + src);
+      const picUrl = path.join('/data', basePath, src);
+      $image.attr('src', picUrl);
     }
   });
-
 
   return {
     type: RECEIVE_PAGE,
