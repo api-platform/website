@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import path from 'path';
+import AnchorJS from 'anchor-js';
 
 if (!__SERVER__) {
   // @TODO: Find a way to load prisms css during server side rendering
@@ -15,6 +16,14 @@ class Page extends Component {
       this.captureClicks = this.captureClicks.bind(this);
     }
 
+    componentWillMount() {
+      this.addAnchors();
+    }
+
+    componentDidUpdate() {
+      this.addAnchors();
+    }
+
     getHtml() {
       if (!this.props.pages[this.props.selectedPage] || this.props.pages.isFetching ) {
         return {
@@ -25,6 +34,12 @@ class Page extends Component {
       return {
         __html: this.props.pages[this.props.selectedPage].data.text,
       };
+    }
+
+    addAnchors() {
+      if (!__SERVER__) {
+        (new AnchorJS()).add();
+      }
     }
 
     /**
@@ -40,8 +55,8 @@ class Page extends Component {
 
       const url = target.getAttribute('href');
 
-      // handle relative urls only
-      if (/^(?:[a-z]+:)?\/\//i.test(url)) {
+      // handle relative urls only and page anchors
+      if (/^(?:[a-z]+:)?\/\//i.test(url) || /^#/.test(url)) {
         return;
       }
 
@@ -49,10 +64,10 @@ class Page extends Component {
       event.preventDefault();
 
       // handle the case where last fragment is wether a directory or a file basename
-      const separator = (this.props.selectedPage.match(/\/$/)) ? '.' : '..';
+      const basePath = this.props.selectedPage.substring(0, this.props.selectedPage.lastIndexOf('/') + 1);
 
       // finally use our spa's router
-      this.props.navigateTo(path.join('/', this.props.selectedPage, separator, url));
+      this.props.navigateTo(path.join('/', basePath, url));
     }
 
     render() {

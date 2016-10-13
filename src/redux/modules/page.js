@@ -1,19 +1,17 @@
 import { combineReducers } from 'redux';
 import { getPage } from 'helpers/DataClient';
+import path from 'path';
 const cheerio = require('cheerio');
 
 
 // load prismjs (code highlighting) only client side for now
 // Loading it from server side and client side causes double
-// code tokenization. To painful to fix it. rage quit.
+// code tokenization. Too painful to fix it. rage quit.
 let Prism;
 if (!__SERVER__) {
   Prism = require('prismjs');
   (__PRISMJS_LANGUAGES__ || []).forEach(item => require('prismjs/components/prism-' + item));
 }
-
-// disabled (need a real DOMParser instance)
-// const AnchorJS = require('anchor-js');
 
 // ------------------------------------
 // Constants
@@ -40,7 +38,22 @@ export function requestPage(pageName) {
 }
 
 export function receivePage(pageName, jsonldDoc, data) {
-  const wrap = cheerio.load('' + data.text);
+  let baseHtml = data.text;
+  const basePath = jsonldDoc.substring(0, jsonldDoc.lastIndexOf('/') + 1);
+
+  // Doing some stuff that require browser only API (chiefly DOM things)
+  if ( !__SERVER__) {
+    // Highlight code blocks
+    const doc = (new DOMParser).parseFromString(baseHtml, 'text/html');
+    const codeBlocks = doc.querySelectorAll('code[class*="language-"]');
+    let iterator;
+    for (iterator = 0; iterator < codeBlocks.length; iterator++) {
+      Prism.highlightElement(codeBlocks[iterator]);
+    }
+    baseHtml = doc.body.innerHTML;
+  }
+
+  const wrap = cheerio.load(baseHtml);
 
   wrap('a').each((index, anchor) => {
     const $anchor = wrap(anchor);
@@ -59,31 +72,10 @@ export function receivePage(pageName, jsonldDoc, data) {
     const src = $image.attr('src');
         // Convert relative URLs
     if (!/^(?:[a-z]+:)?\/\//i.test(src)) {
-      $image.attr('src', '/data/' + src);
+      const picUrl = path.join('/data', basePath, src);
+      $image.attr('src', picUrl);
     }
   });
-
-  // Highlight code blocks
-  if ( !__SERVER__) {
-    wrap('code[class*="language-"]').each((index, code) => {
-      const element = cheerio(code);
-      const initialHtml = element.html();
-
-      const language = element.attr('class')
-                              .split(/\s+/)
-                              .find(item => item.match(/^language-/))
-                              .match(/-(.+)$/)[1]
-                              ;
-
-      if (__PRISMJS_LANGUAGES__.indexOf(language) >= 0) {
-        element.html(Prism.highlight(initialHtml, Prism.languages[language]));
-      }
-    });
-
-    // Add anchors
-    // Does not work with cheerio. We need to instantiate a DOMParser
-    // (new AnchorJS()).add(wrap('h2, h3, h4, h5, h6'));
-  }
 
   return {
     type: RECEIVE_PAGE,
