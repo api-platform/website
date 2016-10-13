@@ -11,6 +11,21 @@
     # Copy assets and images
     $ cd data-src && find . -not -name '*.md' -exec rsync -R {} ../src/static/data \; && cd -
 
+## Features
+
+  * Edit on github link
+
+## Configuration
+
+### Enable “Edit on github” link
+
+You can define two environment variables to enable the “edit on github” link:
+
+  * `CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY`: the path of the github repo (eg. `api-platform/docs`), with no trailing slash. If present, the “edit on github” link will be displayed.
+  * `CALAVERA_GITHUB_DOCUMENTATION_BRANCH`: the branch of the repo to link to (default to `master`)
+
+
+
 # React Redux Starter Kit
 
 [![Join the chat at https://gitter.im/davezuko/react-redux-starter-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/davezuko/react-redux-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

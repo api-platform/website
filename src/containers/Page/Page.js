@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import path from 'path';
 import AnchorJS from 'anchor-js';
+import EditOnGithub from 'components/EditOnGithub';
 
 if (!__SERVER__) {
   // @TODO: Find a way to load prisms css during server side rendering
@@ -73,13 +74,17 @@ class Page extends Component {
     render() {
       return (
           // The HTML is properly sanitized by the Go JSON-LD generator.
-          <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
+          <section>
+            <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
+            <EditOnGithub pagepath={this.props.currentDocumentPath} />
+          </section>
         );
     }
 }
 
 Page.propTypes = {
   selectedPage: PropTypes.string.isRequired,
+  currentDocumentPath: PropTypes.string,
   params: PropTypes.object,
   pages: PropTypes.object,
   navigateTo: PropTypes.func.isRequired,

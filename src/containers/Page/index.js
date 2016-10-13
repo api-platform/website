@@ -20,7 +20,8 @@ const mapActionCreators = (dispatch) => ({
 const mapStateToProps = (state) => {
   return {
     selectedPage: state.page.selectedPage,
-    pages: state.page.pages
+    pages: state.page.pages,
+    currentDocumentPath: state.page.currentDocument.path
   };
 };
 
@@ -44,7 +45,6 @@ Page.reduxAsyncConnect = [{
       dispatch(selectPage(params.splat || '')),
       dispatch(fetchPage(params.splat || '')),
     ];
-
     return Promise.all(promises);
   }
 }];
