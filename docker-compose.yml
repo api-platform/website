@@ -8,6 +8,9 @@ services:
         volumes:
             - ./:/app
             - node_modules:/app/node_modules
+        environment:
+           CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY: api-platform/docs
+           CALAVERA_GITHUB_DOCUMENTATION_BRANCH: master
         ports:
             - "3000:3000"
             - "3030:3030"

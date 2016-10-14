@@ -110,8 +110,10 @@ module.exports = {
       __SERVER__: false,
       __DEVELOPMENT__: true,
       __DEVTOOLS__: false, // <-------- ENABLE redux-devtools HERE
-      __PRISMJS_LANGUAGES__: JSON.stringify(['php', 'yaml', 'json']),
-      __DATA_PATH__: JSON.stringify('/data')
+      __PRISMJS_LANGUAGES__: JSON.stringify(['php', 'yaml', 'json', 'javascript']),
+      __DATA_PATH__: JSON.stringify('/data'),
+      __GITHUB_DOCUMENTATION_REPOSITORY__ : JSON.stringify(process.env.CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY || null),
+      __GITHUB_DOCUMENTATION_BRANCH__ : JSON.stringify(process.env.CALAVERA_GITHUB_DOCUMENTATION_BRANCH || 'master')
     }),
     webpackIsomorphicToolsPlugin.development()
   ]

@@ -27,7 +27,9 @@
     "__DISABLE_SSR__": true,
     "__DEVTOOLS__": true,
     "__PRISMJS_LANGUAGES__": true,
-    "__DATA_PATH__": "/data",
+    "__GITHUB_DOCUMENTATION_REPOSITORY__": true,
+    "__GITHUB_DOCUMENTATION_BRANCH__": true,
+    "__DATA_PATH__": true,
     "socket": true,
     "webpackIsomorphicTools": true
   }

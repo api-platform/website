@@ -3,7 +3,6 @@ import { getPage } from 'helpers/DataClient';
 import path from 'path';
 const cheerio = require('cheerio');
 
-
 // load prismjs (code highlighting) only client side for now
 // Loading it from server side and client side causes double
 // code tokenization. Too painful to fix it. rage quit.
@@ -17,6 +16,7 @@ if (!__SERVER__) {
 // Constants
 // ------------------------------------
 export const SELECT_PAGE = 'SELECT_PAGE';
+export const CURRENT_DOCUMENT_PATH = 'CURRENT_DOCUMENT_PATH';
 export const REQUEST_PAGE = 'REQUEST_PAGE';
 export const RECEIVE_PAGE = 'RECEIVE_PAGE';
 
@@ -27,6 +27,13 @@ export function selectPage(pageName) {
   return {
     type: SELECT_PAGE,
     pageName
+  };
+}
+
+function currentDocumentPath(documentPath) {
+  return {
+    type: CURRENT_DOCUMENT_PATH,
+    documentPath
   };
 }
 
@@ -96,6 +103,8 @@ export function fetchPage(pageName) {
       jsonldDoc = jsonldDoc + 'index';
     }
 
+    dispatch(currentDocumentPath(jsonldDoc));
+
     return getPage(`/data/${jsonldDoc}.jsonld`)
               .then(data => {
                 dispatch(receivePage(pageName, jsonldDoc, data));
@@ -120,6 +129,21 @@ function selectedPage(state = '', action) {
   }
 }
 
+
+const initialCurrentDocumentState = {
+  path: null
+};
+
+function currentDocument(state = initialCurrentDocumentState, action) {
+  switch (action.type) {
+    case CURRENT_DOCUMENT_PATH:
+      return {...state, path: action.documentPath || null};
+
+    default:
+      return state;
+  }
+}
+
 function pages(state = {}, action) {
   switch (action.type) {
     case REQUEST_PAGE:
@@ -137,7 +161,8 @@ function pages(state = {}, action) {
 
 const pageReducer = combineReducers({
   pages,
-  selectedPage
+  selectedPage,
+  currentDocument
 });
 
 export default pageReducer;

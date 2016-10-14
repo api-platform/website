@@ -10,6 +10,8 @@ global.__SERVER__ = true;
 global.__DISABLE_SSR__ = false;  // <----- DISABLES SERVER SIDE RENDERING FOR ERROR DEBUGGING
 global.__DEVELOPMENT__ = process.env.NODE_ENV !== 'production';
 global.__PRISMJS_LANGUAGES__ = ['yaml', 'php', 'json', 'javascript'];
+global.__GITHUB_DOCUMENTATION_REPOSITORY__ = process.env.CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY;
+global.__GITHUB_DOCUMENTATION_BRANCH__ = process.env.CALAVERA_GITHUB_DOCUMENTATION_BRANCH || 'master';
 
 if (__DEVELOPMENT__) {
   if (!require('piping')({
