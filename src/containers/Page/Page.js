@@ -26,14 +26,14 @@ class Page extends Component {
     }
 
     getHtml() {
-      if (!this.props.pages[this.props.selectedPage] || this.props.pages.isFetching ) {
+      if (!this.props.currentPage || this.props.currentPage.isFetching ) {
         return {
           __html: ''
         };
       }
 
       return {
-        __html: this.props.pages[this.props.selectedPage].data.text,
+        __html: this.props.currentPage.data.text,
       };
     }
 
@@ -72,21 +72,25 @@ class Page extends Component {
     }
 
     render() {
+      if (this.props.currentPage.notFound) {
+        return (<div className="error">Document not found.</div>);
+      }
+
       return (
-          // The HTML is properly sanitized by the Go JSON-LD generator.
-          <section>
-            <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
-            <EditOnGithub pagepath={this.props.currentDocumentPath} />
-          </section>
-        );
+        // The HTML is properly sanitized by the Go JSON-LD generator.
+        <section>
+          <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
+          <EditOnGithub pagepath={this.props.currentDocumentPath} />
+        </section>
+      );
     }
 }
 
 Page.propTypes = {
   selectedPage: PropTypes.string.isRequired,
+  currentPage: PropTypes.any.isRequired,
   currentDocumentPath: PropTypes.string,
   params: PropTypes.object,
-  pages: PropTypes.object,
   navigateTo: PropTypes.func.isRequired,
 };
 

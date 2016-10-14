@@ -8,9 +8,12 @@ function formatUrl(path) {
 
 export function getPage(path) {
   return new Promise((resolve, reject) => {
-    const toto = require('../static' + path);
+    const doc = require('../static' + path);
     if (__SERVER__) {
-      return resolve(toto);
+      if (!doc) {
+        return reject(`Document "${path}" not found.`);
+      }
+      return resolve(doc);
     }
     const request = superagent.get(formatUrl(path));
     request.end((err, { text } = {}) => {
