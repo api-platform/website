@@ -13,9 +13,9 @@ export function getPage(path) {
       return resolve(toto);
     }
     const request = superagent.get(formatUrl(path));
-    request.end((err, { body, text } = {}) => {
-      if (err) return reject(body || err);
-      return resolve(JSON.parse(body || text));
+    request.end((err, { text } = {}) => {
+      if (err) return reject(err);
+      return resolve(JSON.parse(text));
     });
   });
 }
