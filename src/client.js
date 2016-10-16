@@ -10,6 +10,20 @@ import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { ReduxAsyncConnect } from 'redux-async-connect';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
+import ReactGA from 'react-ga';
+
+if (__GOOGLE_ANALYTICS_ID__) {
+  ReactGA.initialize(__GOOGLE_ANALYTICS_ID__);
+}
+
+function logPageView() {
+  if (!__GOOGLE_ANALYTICS_ID__) {
+    return;
+  }
+
+  ReactGA.set({page: window.location.pathname});
+  ReactGA.pageview(window.location.pathname);
+}
 
 import getRoutes from './routes';
 
@@ -21,7 +35,7 @@ const history = syncHistoryWithStore(_browserHistory, store);
 const component = (
   <Router render={(props) =>
         <ReduxAsyncConnect {...props} helpers={{}} filter={item => !item.deferred} />
-      } history={history}>
+      } history={history} onUpdate={logPageView}>
     {getRoutes(store)}
   </Router>
 );

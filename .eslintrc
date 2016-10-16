@@ -30,6 +30,7 @@
     "__GITHUB_DOCUMENTATION_REPOSITORY__": true,
     "__GITHUB_DOCUMENTATION_BRANCH__": true,
     "__DATA_PATH__": true,
+    "__GOOGLE_ANALYTICS_ID__": true,
     "socket": true,
     "webpackIsomorphicTools": true
   }
