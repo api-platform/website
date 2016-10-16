@@ -19,6 +19,7 @@ export const SELECT_PAGE = 'SELECT_PAGE';
 export const CURRENT_DOCUMENT_PATH = 'CURRENT_DOCUMENT_PATH';
 export const REQUEST_PAGE = 'REQUEST_PAGE';
 export const RECEIVE_PAGE = 'RECEIVE_PAGE';
+export const PAGE_NOT_FOUND = 'PAGE_NOT_FOUND';
 
 // ------------------------------------
 // Actions
@@ -40,6 +41,13 @@ function currentDocumentPath(documentPath) {
 export function requestPage(pageName) {
   return {
     type: REQUEST_PAGE,
+    pageName
+  };
+}
+
+function pageNotFound(pageName) {
+  return {
+    type: PAGE_NOT_FOUND,
     pageName
   };
 }
@@ -108,6 +116,8 @@ export function fetchPage(pageName) {
     return getPage(`/data/${jsonldDoc}.jsonld`)
               .then(data => {
                 dispatch(receivePage(pageName, jsonldDoc, data));
+              }, () => {
+                dispatch(pageNotFound(pageName));
               })
               ;
   };
@@ -146,13 +156,17 @@ function currentDocument(state = initialCurrentDocumentState, action) {
 
 function pages(state = {}, action) {
   switch (action.type) {
+    case PAGE_NOT_FOUND:
+      return Object.assign({}, state, {
+        [action.pageName]: { isFetching: false, data: {}, notFound: true }
+      });
     case REQUEST_PAGE:
       return Object.assign({}, state, {
-        [action.pageName]: { isFetching: true, data: {} }
+        [action.pageName]: { isFetching: true, data: {}, notFound: false}
       });
     case RECEIVE_PAGE:
       return Object.assign({}, state, {
-        [action.pageName]: { isFetching: false, data: action.data }
+        [action.pageName]: { isFetching: false, data: action.data, notFound: false }
       });
     default:
       return state;
