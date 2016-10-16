@@ -11,6 +11,7 @@ services:
         environment:
            CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY: api-platform/docs
            CALAVERA_GITHUB_DOCUMENTATION_BRANCH: master
+           CALAVERA_GOOGLE_ANALYTICS_ID: UA-67501746-1
         ports:
             - "3000:3000"
             - "3030:3030"
@@ -27,4 +28,3 @@ services:
 volumes:
     node_modules:
         ~
-
