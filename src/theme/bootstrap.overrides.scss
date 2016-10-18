@@ -14,3 +14,7 @@
   color: #33e0ff;
   background-color: transparent;
 }
+
+.page img {
+  @extend .img-responsive;
+}
