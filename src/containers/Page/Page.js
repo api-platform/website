@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import path from 'path';
 import AnchorJS from 'anchor-js';
 import EditOnGithub from 'components/EditOnGithub';
@@ -72,12 +73,19 @@ class Page extends Component {
 
   render() {
     if (this.props.currentPage.notFound) {
-      return (<div className="error">Document not found.</div>);
+      return (
+        <div className="error">
+          <Helmet title="Not Found"/>
+          Document not found.
+        </div>
+      );
     }
 
     return (
       // The HTML is properly sanitized by the Go JSON-LD generator.
       <section>
+        <Helmet title={this.props.currentPage.data.name} />
+
         <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
         <EditOnGithub pagepath={this.props.currentDocumentPath} />
       </section>
