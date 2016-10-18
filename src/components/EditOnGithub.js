@@ -1,10 +1,10 @@
 import React from 'react';
-import { documentPathToGithubMarkdown } from 'helpers/docpath';
+import pathToGitHubMarkdown from 'helpers/PathToGitHubMarkdown';
 import { Glyphicon } from 'react-bootstrap';
 
 export default function({ pagepath }) {
   try {
-    const url = documentPathToGithubMarkdown(pagepath);
+    const url = pathToGitHubMarkdown(pagepath);
     return (
       <span className="editongithub">
         <a className="editongithub__link" href={url} target="_blank" >
@@ -14,7 +14,7 @@ export default function({ pagepath }) {
       </span>
     );
   } catch (error) {
-    // most probably, the Github repo has not be configured
+    // most probably, the GitHub repo has not be configured
     return (<span></span>);
   }
 }

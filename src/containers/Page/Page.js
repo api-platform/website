@@ -63,7 +63,7 @@ class Page extends Component {
     // prevent full page refresh
     event.preventDefault();
 
-    // handle the case where last fragment is wether a directory or a file basename
+    // handle the case where last fragment is whether a directory or a file basename
     const basePath = this.props.selectedPage.substring(0, this.props.selectedPage.lastIndexOf('/') + 1);
 
     // finally use our spa's router
