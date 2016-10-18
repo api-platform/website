@@ -20,18 +20,29 @@ repository containing [Markdown](https://daringfireball.net/projects/markdown/) 
 
 Be sure to have Docker installed on your machine the:
 
-1. Install the client
-   git clone https://github.com/dunglas/calavera-react-client
-2. Clone the Git repository containing Markdown files in the data directory
-   git clone https://github.com/api-platform/docs data-src
-3. Generate .jsonld files using Calavera
-   docker run -v $PWD/data-src:/in -v $PWD/src/static/data:/out dunglas/calavera /in /out
-4. Copy assets and images
-   cd data-src && find . -not -name '*.md' -exec rsync -R {} ../src/static/data \; && cd -
-5. Install JS dependencies
-   docker-compose run web npm install
-6. Start the container
-   docker-composer up
+1. Install the client:
+
+  `git clone https://github.com/dunglas/calavera-react-client`
+
+2. Clone the Git repository containing Markdown files in the data directory:
+
+  `git clone https://github.com/api-platform/docs data-src`
+
+3. Generate .jsonld files using Calavera:
+
+  `docker run -v $PWD/data-src:/in -v $PWD/src/static/data:/out dunglas/calavera /in /out`
+
+4. Copy assets and images:
+
+  `cd data-src && find . -not -name '*.md' -exec rsync -R {} ../src/static/data \; && cd -`
+
+5. Install JS dependencies:
+
+  `docker-compose run web npm install`
+
+6. Start the container:
+
+  `docker-composer up`
 
 ## Configuration
 
@@ -53,7 +64,7 @@ Google Analytics integration will be enabled.
 
 ## Credits
 
-Main authors: [Kévin Dunglas][http://dunglas.fr] and [Rodrigue Villetard](https://twitter.com/gorghoa).
-Sponsored by [Les-Tilleuls.coop][http://les-tilleuls.coop].
+Main authors: [Kévin Dunglas](http://dunglas.fr) and [Rodrigue Villetard](https://twitter.com/gorghoa).
+Sponsored by [Les-Tilleuls.coop](http://les-tilleuls.coop).
 
 Built using [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example).
