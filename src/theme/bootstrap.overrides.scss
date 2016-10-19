@@ -52,6 +52,13 @@ body {
   }
 }
 
+.navbar-brand {
+  img {
+    position: relative;
+    bottom: 14px;
+  }
+}
+
 #navbar-social {
   a {
     color: #566f74;
@@ -203,11 +210,6 @@ body {
 
 #references {
   background-color: $lighter-blue2;
-  text-align: center;
-
-  img {
-    margin: auto;
-  }
 }
 
 #download {
@@ -249,13 +251,6 @@ body {
 }
 
 @media (min-width: $screen-md-max) {
-  .navbar-brand {
-    img {
-      position: relative;
-      bottom: 14px;
-    }
-  }
-
   #header {
     font-size: 15px;
   }

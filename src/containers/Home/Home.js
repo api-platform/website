@@ -22,6 +22,20 @@ export default class Home extends Component {
     const spiderBack = require('./images/spider-back.png');
     const spiderLook = require('./images/spider-look.png');
     const spiderWorld = require('./images/spider-world.png');
+    const adeoLogo = require('./images/logos/adeo.svg');
+    const alstomLogo = require('./images/logos/alstom.svg');
+    const beinsportsLogo = require('./images/logos/beinsports.svg');
+    const exaqtworldLogo = require('./images/logos/exaqtworld.svg');
+    const hoheyLogo = require('./images/logos/hohey.svg');
+    const lesTilleulsLogo = require('./images/logos/les-tilleuls.svg');
+    const partiDeGaucheLogo = require('./images/logos/parti-de-gauche.svg');
+    const renaultLogo = require('./images/logos/renault.svg');
+    const sensiolabsLogo = require('./images/logos/sensiolabs.svg');
+    const smileLogo = require('./images/logos/smile.svg');
+    const theForkLogo = require('./images/logos/the-fork.svg');
+    const tripvissLogo = require('./images/logos/tripviss.svg');
+    const villeDeRoubaixLogo = require('./images/logos/ville-de-roubaix.svg');
+    const yousignLogo = require('./images/logos/yousign.svg');
     const styles = require('./Home.scss');
 
     return (
@@ -251,8 +265,23 @@ export default class Home extends Component {
         <div id="references" className="slide">
           <section className="container">
             <h1>They Use API Platform</h1>
-            <img src="" alt="The Fork, Smile, PartKeepr, ExaqtWorld, Les-Tilleuls.coop" width={937}
-                 className="img-responsive"/>
+
+            <div className={styles.logos}>
+              <img src={theForkLogo} alt="The Fork" height={45} />
+              <img src={beinsportsLogo} alt="beIN SPORTS" height={45} />
+              <img src={alstomLogo} alt="Alstom" height={45} />
+              <img src={sensiolabsLogo} alt="SensioLabs" height={45} />
+              <img src={smileLogo} alt="Smile" height={45} style={{backgroundColor: '#ec660f'}} />
+              <img src={renaultLogo} alt="Renault" height={45} />
+              <img src={adeoLogo} alt="ADEO" height={45} />
+              <img src={exaqtworldLogo} alt="ExaqtWorld" height={45} />
+              <img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} />
+              <img src={hoheyLogo} alt="HoHey" height={45} />
+              <img src={tripvissLogo} alt="Tripviss" height={45} />
+              <img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} />
+              <img src={yousignLogo} alt="Yousign" height={45} />
+              <img src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} />
+            </div>
           </section>
         </div>
       </div>

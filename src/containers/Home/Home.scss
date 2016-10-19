@@ -35,3 +35,14 @@
 }
 
 .fa-docker:before { content: "\f100"; }
+
+.logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  img {
+    margin: 15px 20px;
+  }
+}
