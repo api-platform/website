@@ -11,7 +11,6 @@ if (!__SERVER__) {
 export default class Home extends Component {
   componentDidMount() {
     if (!__SERVER__) {
-      console.log('wtf');
       Prism.highlightAll();
     }
   }
@@ -91,7 +90,7 @@ export default class Home extends Component {
                 <b>Javascript webapps (<a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">SPA</a></b>) are the standard:
                 <div>
                   Awesome frontend technologies such as <a href="http://facebook.github.io/react/" target="_blank">React</a> and <a href="http://angular.io" target="_blank">Angular</a> help to create them.<br />
-                  Thanks to <a href="http://redux.js.org/docs/recipes/ServerRendering.html" target="_blank">Universal Rendering</a>, they they are now indexed by search engines.
+                  Thanks to <a href="http://redux.js.org/docs/recipes/ServerRendering.html" target="_blank">Universal Rendering</a>, they are now indexed by search engines.
                 </div>
               </li>
               <li>
@@ -104,7 +103,7 @@ export default class Home extends Component {
                 <div>Having a responsive website is mandatory and native mobile apps are a must-have.</div>
               </li>
               <li>
-                <a href="https://en.wikipedia.org/wiki/Linked_data" target="_blank">Linked Data</a> and <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">te semantic web</a>                 <em>
+                <a href="https://en.wikipedia.org/wiki/Linked_data" target="_blank">Linked Data</a> and <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">the semantic web</a>                 <em>
                   are a reality</em>:
                 <div>
                   With the <a href="https://schema.org/" target="_blank">Schema.org</a> initiative and new open web standards
@@ -117,7 +116,7 @@ export default class Home extends Component {
                 APIs are the heart of this new web:
                 <div>
                   They are the central point to query and modify data and encapsulate the whole business logic.<br />
-                  They allow to share them in desktop and mobile environments as well that with partners systems.
+                  You can access it from webapps, mobile apps and partners's systems.
                 </div>
               </li>
             </ul>
