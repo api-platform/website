@@ -103,8 +103,7 @@ export default class Home extends Component {
                 <div>Having a responsive website is mandatory and native mobile apps are a must-have.</div>
               </li>
               <li>
-                <a href="https://en.wikipedia.org/wiki/Linked_data" target="_blank">Linked Data</a> and <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">the semantic web</a>                 <em>
-                  are a reality</em>:
+                <a href="https://en.wikipedia.org/wiki/Linked_data" target="_blank">Linked Data</a> and <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">the semantic web</a> are a reality:
                 <div>
                   With the <a href="https://schema.org/" target="_blank">Schema.org</a> initiative and new open web standards
                   such as JSON-LD (RDF for web); search engines and a bunch of other services and software consume structured, machine-readable
