@@ -1,14 +1,13 @@
 {
   "name": "calavera-react-client",
-  "version": "3.0.0-alpha.0",
-  "description": "Client for the calavera project",
-  "author": "Kévin Dunglas <dunglas@gmail.com> (http://github.com/dunglas)",
+  "version": "0.1.0",
+  "description": "Client for the Calavera project",
+  "author": "Kévin Dunglas <dunglas@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erikras/react-redux-universal-hot-example"
+    "url": "https://github.com/api-platform/website"
   },
-  "homepage": "https://github.com/erikras/react-redux-universal-hot-example",
   "keywords": [
     "react",
     "isomorphic",
@@ -181,6 +180,6 @@
     "webpack-hot-middleware": "^2.5.0"
   },
   "engines": {
-    "node": "5.6.0"
+    "node": "6.7.0"
   }
 }
