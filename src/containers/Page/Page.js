@@ -88,6 +88,8 @@ class Page extends Component {
 
         <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
         <EditOnGithub pagepath={this.props.currentDocumentPath} />
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(this.props.currentPage.data)}}></script>
       </section>
     );
   }
