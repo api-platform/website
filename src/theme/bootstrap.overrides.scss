@@ -278,3 +278,9 @@ body {
     padding-left: 0;
   }
 }
+
+@media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+  #header .nav > li > a {
+    padding: 15px 10px;
+  }
+}
