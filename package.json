@@ -41,7 +41,6 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
-        "PORT": 8080,
         "APIPORT": 3030
       }
     },
@@ -180,6 +179,7 @@
     "webpack-hot-middleware": "^2.5.0"
   },
   "engines": {
-    "node": "6.7.0"
+    "node": "6.7.x",
+    "npm": "3.10.x"
   }
 }
