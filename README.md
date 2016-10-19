@@ -42,7 +42,7 @@ Be sure to have Docker installed on your machine the:
 
 6. Start the container:
 
-  `docker-composer up`
+  `docker-compose up`
 
 ## Configuration
 
