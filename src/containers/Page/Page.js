@@ -86,8 +86,10 @@ class Page extends Component {
       <section>
         <Helmet title={this.props.currentPage.data.name} />
 
-        <article className="page" onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
-        <EditOnGithub pagepath={this.props.currentDocumentPath} />
+        <article className="page">
+          <div onClick={this.captureClicks} dangerouslySetInnerHTML={this.getHtml()} />
+          <EditOnGithub pagepath={this.props.currentDocumentPath} />
+        </article>
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(this.props.currentPage.data)}}></script>
       </section>
