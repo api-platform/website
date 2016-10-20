@@ -273,10 +273,10 @@ export default class Home extends Component {
               <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={renaultLogo} alt="Renault" height={45} /></div>
               <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={adeoLogo} alt="ADEO" height={45} /></div>
               <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={exaqtworldLogo} alt="ExaqtWorld" height={45} /></div>
-              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} /></div>
-              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={hoheyLogo} alt="HoHey" height={45} /></div>
-              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={tripvissLogo} alt="Tripviss" height={45} /></div>
-              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-1"><img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-1"><img src={hoheyLogo} alt="HoHey" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-1"><img src={tripvissLogo} alt="Tripviss" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-1"><img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} /></div>
               <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={yousignLogo} alt="Yousign" height={45} /></div>
               <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
             </div>
