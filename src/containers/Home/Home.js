@@ -47,7 +47,7 @@ export default class Home extends Component {
             <p>The ultimate <a href="http://php.net" target="_blank">PHP</a> framework to build modern web APIs.<br /></p>
 
             <Link className="btn btn-primary btn-lg" to="/docs/distribution/" role="button"><span className="fa fa-plus-circle"/> Get started</Link>
-            <Link className="btn btn-primary btn-lg" to="https://demo.api-platform.com" role="button"><span className="fa fa-mouse-pointer"/>Demo</Link>
+            <a className="btn btn-primary btn-lg" href="https://demo.api-platform.com" role="button"><span className="fa fa-mouse-pointer" />Demo</a>
           </section>
         </div>
 
