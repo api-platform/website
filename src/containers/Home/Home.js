@@ -265,20 +265,20 @@ export default class Home extends Component {
             <h1>They Use API Platform</h1>
 
             <div className={styles.logos}>
-              <img src={theForkLogo} alt="The Fork" height={45} />
-              <img src={beinsportsLogo} alt="beIN SPORTS" height={45} />
-              <img src={alstomLogo} alt="Alstom" height={45} />
-              <img src={sensiolabsLogo} alt="SensioLabs" height={45} />
-              <img src={smileLogo} alt="Smile" height={45} style={{backgroundColor: '#ec660f'}} />
-              <img src={renaultLogo} alt="Renault" height={45} />
-              <img src={adeoLogo} alt="ADEO" height={45} />
-              <img src={exaqtworldLogo} alt="ExaqtWorld" height={45} />
-              <img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} />
-              <img src={hoheyLogo} alt="HoHey" height={45} />
-              <img src={tripvissLogo} alt="Tripviss" height={45} />
-              <img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} />
-              <img src={yousignLogo} alt="Yousign" height={45} />
-              <img src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} />
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={theForkLogo} alt="The Fork" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={beinsportsLogo} alt="beIN SPORTS" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={alstomLogo} alt="Alstom" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={sensiolabsLogo} alt="SensioLabs" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={smileLogo} alt="Smile" height={45} style={{backgroundColor: '#ec660f'}} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={renaultLogo} alt="Renault" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={adeoLogo} alt="ADEO" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={exaqtworldLogo} alt="ExaqtWorld" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={hoheyLogo} alt="HoHey" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={tripvissLogo} alt="Tripviss" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={yousignLogo} alt="Yousign" height={45} /></div>
+              <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
             </div>
           </section>
         </div>
