@@ -52,6 +52,12 @@ export default class App extends Component {
               <LinkContainer to="/news"><NavItem eventKey={4}><span className="fa fa-bullhorn" /> News</NavItem></LinkContainer>
               <LinkContainer to="/support"><NavItem eventKey={5}><span className="fa fa-comments" /> Support</NavItem></LinkContainer>
             </Nav>
+            <form className="navbar-form navbar-left">
+              <div className="form-group">
+                <input type="search" id="search" className="form-control" placeholder="Search" />
+                <span className="fa fa-search form-control-feedback" />
+              </div>
+            </form>
 
             <Nav id="navbar-social" pullRight>
               <NavItem eventKey={6} href="https://github.com/api-platform/api-platform" title="GitHub" target="_blank"><span className="fa fa-github" /> <span className="text">GitHub</span></NavItem>

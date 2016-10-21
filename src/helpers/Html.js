@@ -40,7 +40,8 @@ export default class Html extends Component {
             <link href={assets.styles[style]} key={key} media="screen, projection"
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
-          <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet"/>
+          <link href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
 
           {/* (will be present only in development mode) */}
           {/* outputs a <style/> tag with all bootstrap styles + App.scss + it could be CurrentPage.scss. */}
@@ -50,9 +51,16 @@ export default class Html extends Component {
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{__html: content}}/>
-          <script dangerouslySetInnerHTML={{__html: `window.__data=${serialize(store.getState())};`}} charSet="UTF-8"/>
-          <script src={assets.javascript.main} charSet="UTF-8"/>
-          <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          <script dangerouslySetInnerHTML={{__html: `window.__data=${serialize(store.getState())};`}} charSet="UTF-8" />
+          <script src={assets.javascript.main} charSet="UTF-8" />
+          <script async src="//platform.twitter.com/widgets.js" charSet="utf-8" />
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js" />
+          <script type="text/javascript" dangerouslySetInnerHTML={{__html: `docsearch({
+            apiKey: '3ec989b752d176d177da4cfe814eee11',
+            indexName: 'api-platform',
+            inputSelector: '#search',
+            debug: false // Set debug to true if you want to inspect the dropdown
+          });`}} />
         </body>
       </html>
     );
