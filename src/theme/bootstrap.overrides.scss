@@ -29,25 +29,62 @@ html {
 }
 
 body {
-  padding: 50px 0 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 60px;
+  font-size: 16px;
 
   a:active {
     text-decoration: underline;
   }
 
-  h1 {
+  h2 {
     text-align: center;
     font-weight: normal;
   }
 }
 
-.slide {
-  padding-top: 30px;
-  padding-bottom: 80px;
+body:not(.home) {
+  padding-top: 51px;
+}
 
-  h1 {
+h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Condensed', sans-serif; }
+
+ul { padding-left: 0; }
+
+pre { font-size: 15px; }
+
+.navbar {
+  margin-bottom: 0;
+
+  li { font-size: 13px; }
+
+  .navbar-brand { position: absolute; transform: translate3d(0, -100%, 0); opacity: 0; transition: all 250ms linear 50ms; }
+  .navbar-nav:not(.navbar-right) { margin-left: 0; transition: margin 250ms linear; }
+
+  &-fixed-top {
+    .navbar-brand { transform: translate3d(0, 0, 0); opacity: 1; }
+    .navbar-nav:not(.navbar-right) { margin-left: 200px; }
+  }
+
+  &:not(.navbar-fixed-top) {
+    .ds-dropdown-menu {
+      top: auto !important;
+      bottom: 100% !important;
+
+      &:before {
+        top: auto;
+        bottom: -6px;
+        transform: rotate(135deg);
+      }
+    }
+  }
+}
+
+.slide {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  h2 {
     margin-bottom: 30px;
   }
 }
@@ -70,60 +107,85 @@ body {
   }
 }
 
-#incredible {
+.incredible {
+  position: relative;
   background-color: $lighter-blue;
   text-align: center;
   padding-bottom: 20px;
+
+
+
+  .container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    height: 490px;
+  }
 
   p a {
     font-weight: bold;
   }
 
   .btn {
-    margin: 0 2px;
+    margin: 0 20px;
+    padding: 15px 25px;
+    min-width: 150px;
+
+    .fa { margin-right: 10px; }
   }
 }
 
-#architecture {
+
+#features {
+  background: white url(../containers/Home/images/spidey.svg) center bottom 60px no-repeat;
+  background-size: 100% 170%;
+
+  #api-desc #api-features li {
+    margin: 10px 20px;
+
+    &:nth-child(n+9) { margin: 10px 70px; }
+    &:nth-child(13) { margin-right: 130px; }
+    &:nth-child(14) { margin-left: 130px; }
+  }
+}
+
+.architecture {
   background-color: $lighter-blue2;
 
-  b, a {
+  a {
     color: $deeper-blue;
-    font-weight: bold;
   }
 
   ul > li {
+    display: inline-block;
+    margin: 0 2.5%;
+    width: 20%;
     list-style-type: none;
-    margin-bottom: 20px;
-    font-size: 20px;
+    vertical-align: top;
+    text-align: justify;
+    text-align-last: center;
   }
 
-  ul > li::before {
-    @include list-bullet;
-    width: 27px;
-    height: 27px;
-    margin-right: 7px;
-  }
-
-  li > div {
-    margin-left: 27px;
-    font-size: 14px;
-  }
-
-  #spider-back {
-    position: relative;
-    left: 5%;
+  .spider-back {
+    margin-top: -30px;
   }
 }
 
-#consume {
-  #spider-world {
-    margin-top: 20px;
-    text-align: center;
+.consume {
+  .content {
+    float: none;
+    margin: auto;
+  }
+
+  ul {
+    padding-left: 0;
   }
 
   img {
-    margin-top: 20px;
+    margin: 20px auto 0;
   }
 }
 
@@ -208,8 +270,14 @@ body {
   }
 }
 
-#references {
+.references {
   background-color: $lighter-blue2;
+
+  .column {
+    display: inline-block;
+    float: none;
+    margin: auto;
+  }
 }
 
 #download {
@@ -250,7 +318,7 @@ body {
 }
 
 @media (min-width: $screen-md-max) {
-  #header {
+  .header {
     font-size: 15px;
   }
 
@@ -273,14 +341,29 @@ body {
   #navbar .logo {
     @include sr-only;
   }
-
-  .slide ul {
-    padding-left: 0;
-  }
 }
 
 @media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
-  #header .nav > li > a {
+  .header .nav > li > a {
     padding: 15px 10px;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  body {
+    padding-top: 0;
+  }
+  #features {
+    padding-bottom: 200px;
+    background-size: 100% 100%;
+  }
+  #features #api-desc #api-features li {
+    margin: 10px 20px !important;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  #features {
+    padding-bottom: 350px;
   }
 }

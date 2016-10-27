@@ -37,9 +37,15 @@
 .fa-docker:before { content: "\f100"; }
 
 .logos {
+  text-align: center;
+
   img {
     display: block;
     margin: 15px auto;
+    filter: grayscale(100%);
+    transition: filter 200ms linear;
+
+    &:hover { filter: grayscale(0%); }
   }
   img[alt="ExaqtWorld"] {
     margin-top: 20px;

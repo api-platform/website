@@ -63,6 +63,8 @@ if (__DEV__ && module.hot) {
 
     ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
   }
+
+
   render = () => {
     try {
       renderApp(Math.random())

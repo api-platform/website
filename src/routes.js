@@ -4,7 +4,6 @@ import {
   App,
   Page,
   Home,
-  Dl,
   News,
   Support,
   NotFound,
@@ -18,7 +17,6 @@ export default () => {
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/docs/**" component={Page} />
-      <Route path="/download" component={Dl} />
       <Route path="/news" component={News} />
       <Route path="/support" component={Support} />
       { /* Catch all route */ }

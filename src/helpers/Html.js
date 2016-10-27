@@ -55,12 +55,14 @@ export default class Html extends Component {
           <script src={assets.javascript.main} charSet="UTF-8" />
           <script async src="//platform.twitter.com/widgets.js" charSet="utf-8" />
           <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js" />
-          <script type="text/javascript" dangerouslySetInnerHTML={{__html: `docsearch({
-            apiKey: '3ec989b752d176d177da4cfe814eee11',
-            indexName: 'api-platform',
-            inputSelector: '#search',
-            debug: false // Set debug to true if you want to inspect the dropdown
-          });`}} />
+          <script type="text/javascript" dangerouslySetInnerHTML={{__html: `window.docsearch = docsearch;
+            docsearch({
+              apiKey: '3ec989b752d176d177da4cfe814eee11',
+              indexName: 'api-platform',
+              inputSelector: '#search',
+              debug: false // Set debug to true if you want to inspect the dropdown
+            });
+          `}} />
         </body>
       </html>
     );
