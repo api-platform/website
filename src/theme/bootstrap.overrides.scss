@@ -30,7 +30,6 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 60px;
   font-size: 16px;
 
   a:active {
@@ -61,6 +60,10 @@ pre { font-size: 15px; }
   .navbar-brand { position: absolute; transform: translate3d(0, -100%, 0); opacity: 0; transition: all 250ms linear 50ms; }
   .navbar-nav:not(.navbar-right) { margin-left: 0; transition: margin 250ms linear; }
 
+  .navbar-collapse {
+    max-height: 365px;
+    overflow: hidden;
+  }
   &-fixed-top {
     .navbar-brand { transform: translate3d(0, 0, 0); opacity: 1; }
     .navbar-nav:not(.navbar-right) { margin-left: 200px; }
@@ -130,7 +133,7 @@ pre { font-size: 15px; }
   }
 
   .btn {
-    margin: 0 20px;
+    margin: 15px 20px 0 20px;
     padding: 15px 25px;
     min-width: 150px;
 
@@ -273,6 +276,10 @@ pre { font-size: 15px; }
 .references {
   background-color: $lighter-blue2;
 
+  img {
+    height: 45px;
+  }
+
   .column {
     display: inline-block;
     float: none;
@@ -312,7 +319,7 @@ pre { font-size: 15px; }
   text-align: center;
   padding-top: 10px;
   font-size: 17px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
@@ -334,17 +341,21 @@ pre { font-size: 15px; }
 }
 
 @media (max-width: $screen-md-max) {
-  body {
-    padding-top: 51px;
-  }
-
   #navbar .logo {
     @include sr-only;
+  }
+  #features #api-desc #api-features li {
+    &:nth-child(n+9) {
+      margin: 10px 20px;
+    }
+    &:nth-child(n+13) {
+      margin: 10px 130px;
+    }
   }
 }
 
 @media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
-  .header .nav > li > a {
+    .header .nav > li > a {
     padding: 15px 10px;
   }
 }
@@ -354,6 +365,7 @@ pre { font-size: 15px; }
     padding-top: 0;
   }
   #features {
+    background: none;
     padding-bottom: 200px;
     background-size: 100% 100%;
   }
@@ -362,8 +374,14 @@ pre { font-size: 15px; }
   }
 }
 
-@media (max-width: $screen-xs-max) {
+@media (max-width: $screen-xs) {
+  .incredible {
+    .container {
+      height: unset;
+    }
+  }
+
   #features {
-    padding-bottom: 350px;
+    padding-bottom: 50px;
   }
 }

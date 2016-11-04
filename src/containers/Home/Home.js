@@ -70,7 +70,7 @@ export default class Home extends Component {
 
         <div id="incredible" className="incredible" style={{minHeight: this.state.windowHeight}}>
           <section className="container">
-            <h1><img src={logoImage} alt="API Platform" height={400}/></h1>
+            <h1><img src={logoImage} alt="API Platform"/></h1>
             <p>The ultimate <a href="http://php.net" target="_blank">PHP</a> framework to build modern web APIs.</p>
 
             <Link className="btn btn-primary btn-lg" to="/docs/distribution/" role="button"><span className="fa fa-plus-circle"/> Get started</Link>
@@ -111,25 +111,25 @@ export default class Home extends Component {
           <section className="container">
             <h2>The web has changed!</h2>
 
-            <ul>
-              <li>
+            <div className="row">
+              <div className="col-md-3">
                 <h3>Javascript webapps (<a href="https://en.wikipedia.org/wiki/Single-page_application" target="_blank">SPA</a>) are the standard.</h3>
-              </li>
-              <li>
+              </div>
+              <div className="col-md-3">
                 <h3>Users spend <a
                 href="http://techcrunch.com/2014/08/21/majority-of-digital-media-consumption-now-takes-place-in-mobile-apps/"
                 target="_blank">more
                 time on using mobile devices than desktop</a> or <a
                 href="http://techcrunch.com/2015/09/10/u-s-consumers-now-spend-more-time-in-apps-than-watching-tv/"
                 target="_blank">TV</a>.</h3>
-              </li>
-              <li>
+              </div>
+              <div className="col-md-3">
                 <h3><a href="https://en.wikipedia.org/wiki/Linked_data" target="_blank">Linked Data</a> and <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank">the semantic web</a> are a reality.</h3>
-              </li>
-              <li>
+              </div>
+              <div className="col-md-3">
                 <h3>APIs are the heart of this new web.</h3>
-              </li>
-            </ul>
+              </div>
+            </div>
             <p className="text-center">
               ... and <strong>API Platform</strong> is designed for those changes.
             </p>
@@ -277,21 +277,21 @@ export default class Home extends Component {
           <section className="container">
             <h2>They Use API Platform</h2>
 
-            <div className={styles.logos}>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={theForkLogo} alt="The Fork" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={beinsportsLogo} alt="beIN SPORTS" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={alstomLogo} alt="Alstom" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={sensiolabsLogo} alt="SensioLabs" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={smileLogo} alt="Smile" height={45} style={{backgroundColor: '#ec660f'}} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={renaultLogo} alt="Renault" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={adeoLogo} alt="ADEO" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={exaqtworldLogo} alt="ExaqtWorld" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={hoheyLogo} alt="HoHey" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={tripvissLogo} alt="Tripviss" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={yousignLogo} alt="Yousign" height={45} /></div>
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
+            <div className={styles.logos + ' row'}>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={theForkLogo} alt="The Fork" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={beinsportsLogo} alt="beIN SPORTS" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={alstomLogo} alt="Alstom" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={sensiolabsLogo} alt="SensioLabs" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={smileLogo} alt="Smile" height={45} style={{backgroundColor: '#ec660f'}} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={renaultLogo} alt="Renault" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={adeoLogo} alt="ADEO" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={exaqtworldLogo} alt="ExaqtWorld" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={lesTilleulsLogo} alt="Les-Tilleuls.coop" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={hoheyLogo} alt="HoHey" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={tripvissLogo} alt="Tripviss" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={villeDeRoubaixLogo} alt="Ville de Roubaix" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={yousignLogo} alt="Yousign" height={45} /></div>
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
             </div>
           </section>
         </div>
