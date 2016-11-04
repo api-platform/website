@@ -38,8 +38,24 @@ class Page extends Component {
   }
 
   addAnchors() {
-    if (!__SERVER__) {
-      (new AnchorJS()).add();
+    if (__SERVER__) {
+      return;
+    }
+
+    (new AnchorJS()).add();
+
+    if (!document.location.hash) {
+      return;
+    }
+
+    let elem = document.getElementById(document.location.hash.substring(1));
+    if (!elem) {
+      return;
+    }
+
+    elem.scrollIntoView(true);
+    if (window.scrollY) {
+      window.scroll(0, window.scrollY - 51);
     }
   }
 
