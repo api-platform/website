@@ -18,11 +18,17 @@ class HeaderNav extends React.Component {
   }
 
   componentDidMount() {
+    if (window.innerWidth <= 768) {
+      this.setState({
+        inline: false
+      });
+    }
     window.addEventListener('resize', this.refreshHeight);
     this.refreshHeight();
 
     if (!!this.props.inline) {
       window.addEventListener('scroll', this.refreshInlineState);
+      window.addEventListener('resize', this.refreshInlineState);
     }
 
     AlgoliaSearch.refresh();
@@ -35,6 +41,7 @@ class HeaderNav extends React.Component {
 
     if (!!this.props.inline) {
       window.removeEventListener('scroll', this.refreshInlineState);
+      window.removeEventListener('resize', this.refreshInlineState);
     }
   }
 
@@ -49,9 +56,15 @@ class HeaderNav extends React.Component {
   }
 
   refreshInlineState() {
-    this.setState({
-      inline: document.body.scrollTop < this.state.windowHeight - document.querySelector('.navbar').offsetHeight
-    });
+    if (window.innerWidth <= 768) {
+      this.setState({
+        inline: false
+      });
+    } else {
+      this.setState({
+        inline: document.body.scrollTop < this.state.windowHeight - document.querySelector('.navbar').offsetHeight
+      });
+    }
   }
 
   render() {
