@@ -133,7 +133,7 @@ pre { font-size: 15px; }
   }
 
   .btn {
-    margin: 15px 20px 0 20px;
+    margin: 15px 25px 0 25px;
     padding: 15px 25px;
     min-width: 150px;
 
@@ -324,6 +324,12 @@ pre { font-size: 15px; }
   width: 100%;
 }
 
+  h1 {
+    img {
+      max-width: 400px;
+    }
+  }
+
 @media (min-width: $screen-md-max) {
   .header {
     font-size: 15px;
@@ -355,15 +361,14 @@ pre { font-size: 15px; }
 }
 
 @media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
-    .header .nav > li > a {
+
+
+  .header .nav > li > a {
     padding: 15px 10px;
   }
 }
 
 @media (max-width: $screen-sm-max) {
-  body {
-    padding-top: 0;
-  }
   #features {
     background: none;
     padding-bottom: 200px;
@@ -372,15 +377,32 @@ pre { font-size: 15px; }
   #features #api-desc #api-features li {
     margin: 10px 20px !important;
   }
+  .navbar-fixed-top .navbar-nav:not(.navbar-right) {
+    margin-left: 0;
+  }
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-top: 51px;
+  }
+  h1 {
+    img {
+      padding-top: 51px;
+      max-width: 250px;
+    }
+  }
+}
 @media (max-width: $screen-xs) {
   .incredible {
+    .btn {
+      padding-left: 0;
+      padding-right: 0;
+    }
     .container {
       height: unset;
     }
   }
-
   #features {
     padding-bottom: 50px;
   }

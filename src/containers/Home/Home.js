@@ -73,9 +73,9 @@ export default class Home extends Component {
             <h1><img src={logoImage} alt="API Platform"/></h1>
             <p>The ultimate <a href="http://php.net" target="_blank">PHP</a> framework to build modern web APIs.</p>
 
-            <Link className="btn btn-primary btn-lg" to="/docs/distribution/" role="button"><span className="fa fa-plus-circle"/> Get started</Link>
+            <Link className="btn btn-primary btn-lg" to="/docs/distribution/" role="button"><span className="fa fa-plus-circle"/>Get started</Link>
             <a className="btn btn-primary btn-lg" href="https://demo.api-platform.com" role="button"><span className="fa fa-mouse-pointer"/>Demo</a>
-            <a className="btn btn-primary btn-lg" href="https://api.github.com/repos/api-platform/api-platform/zipball" role="button"  target="_blank"><span className="fa fa-download" /> Download</a>
+            <a className="btn btn-primary btn-lg hidden-xs" href="https://api.github.com/repos/api-platform/api-platform/zipball" role="button"  target="_blank"><span className="fa fa-download" />Download</a>
           </section>
         </div>
 
