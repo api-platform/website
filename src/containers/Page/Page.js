@@ -63,6 +63,11 @@ class Page extends Component {
    * Manually capture clicks on links to prevent full page refresh
    */
   captureClicks(event) {
+    // Don't hijack control + click
+    if (event.ctrlKey || event.metaKey) {
+      return;
+    }
+
     const target = event.target;
 
     // handle "a" tag only
