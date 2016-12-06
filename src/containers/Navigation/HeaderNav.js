@@ -62,7 +62,10 @@ class HeaderNav extends React.Component {
       });
     } else {
       this.setState({
-        inline: document.body.scrollTop < this.state.windowHeight - document.querySelector('.navbar').offsetHeight
+        inline: (window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0) < this.state.windowHeight - document.querySelector('.navbar').offsetHeight
       });
     }
   }
