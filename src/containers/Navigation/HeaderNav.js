@@ -85,7 +85,7 @@ class HeaderNav extends React.Component {
 
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="https://github.com/api-platform/core/releases/latest" target="_blank"><span className="fa fa-download" /> Download</NavItem>
+              <NavItem eventKey={1} href="https://github.com/api-platform/api-platform/releases/latest" target="_blank"><span className="fa fa-download" /> Download</NavItem>
               <LinkContainer to="/docs/"><NavItem eventKey={2}><span className="fa fa-book" /> Docs</NavItem></LinkContainer>
               <NavItem eventKey={3} href="https://demo.api-platform.com"><span className="fa fa-mouse-pointer" /> Demo</NavItem>
               <LinkContainer to="/news"><NavItem eventKey={4}><span className="fa fa-bullhorn" /> News</NavItem></LinkContainer>

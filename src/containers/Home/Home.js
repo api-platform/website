@@ -75,7 +75,7 @@ export default class Home extends Component {
 
             <Link className="btn btn-primary btn-lg" to="/docs/distribution/" role="button"><span className="fa fa-plus-circle"/>Get started</Link>
             <a className="btn btn-primary btn-lg" href="https://demo.api-platform.com" role="button"><span className="fa fa-mouse-pointer"/>Demo</a>
-            <a className="btn btn-primary btn-lg hidden-xs" href="https://github.com/api-platform/core/releases/latest" role="button"  target="_blank"><span className="fa fa-download" />Download</a>
+            <a className="btn btn-primary btn-lg hidden-xs" href="https://github.com/api-platform/api-platform/releases/latest" role="button"  target="_blank"><span className="fa fa-download" />Download</a>
           </section>
         </div>
 
