@@ -62,7 +62,9 @@ export default class Home extends Component {
     const tripvissLogo = require('./images/logos/tripviss.svg');
     const villeDeRoubaixLogo = require('./images/logos/ville-de-roubaix.svg');
     const yousignLogo = require('./images/logos/yousign.svg');
-    const quotatisLogo = require('./images/logos/quotatis-blue.svg);
+    const quotatisLogo = require('./images/logos/quotatis-blue.svg');
+    const decathlonLogo = require('./images/logos/decathlon.jpg');
+    
     const styles = require('./Home.scss');
 
     return (
@@ -294,6 +296,7 @@ export default class Home extends Component {
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={yousignLogo} alt="Yousign" height={45} /></div>
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={quotatisLogo} alt="Quotatis" height={45} /></div>      
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={decathlonLogo} alt="Quotatis" height={45} /></div>      
             </div>
           </section>
         </div>
