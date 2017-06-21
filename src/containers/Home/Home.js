@@ -62,6 +62,7 @@ export default class Home extends Component {
     const tripvissLogo = require('./images/logos/tripviss.svg');
     const villeDeRoubaixLogo = require('./images/logos/ville-de-roubaix.svg');
     const yousignLogo = require('./images/logos/yousign.svg');
+    const quotatis = require('./images/logos/quotatis-blue.svg);
     const styles = require('./Home.scss');
 
     return (
