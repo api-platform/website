@@ -296,7 +296,7 @@ export default class Home extends Component {
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={yousignLogo} alt="Yousign" height={45} /></div>
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={partiDeGaucheLogo} alt="Le Parti de Gauche" height={45} /></div>
               <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={quotatisLogo} alt="Quotatis" height={45} /></div>      
-              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={quotatisLogo} alt="Quotatis" height={45} /></div>      
+              <div className="column col-xs-6 col-sm-4 col-md-3"><img className="img-responsive" src={decathlonLogo} alt="Quotatis" height={45} /></div>      
             </div>
           </section>
         </div>
