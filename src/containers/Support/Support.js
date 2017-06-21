@@ -13,7 +13,7 @@ export default class Support extends Component {
           <section className="col-md-6">
             <h2>Community support <span className="fa fa-users"></span></h2>
 
-            <p>Ask questions about API Platform on <a href="https://stackoverflow.com/questions/tagged/symfony" target="_blank">Stack Overflow</a> using the <i>symfony</i> tag.</p>
+            <p>Ask questions about API Platform on <a href="https://stackoverflow.com/questions/tagged/api-platform.com" target="_blank">Stack Overflow</a> using the <i>api-platform.com</i> tag.</p>
             <p>Chat with the community <a href="https://symfony.com/slack-invite" target="_blank">on the <i>api-platform</i> channel on Symfony's Slack</a>.</p>
           </section>
 
