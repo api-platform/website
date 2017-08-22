@@ -252,8 +252,7 @@ export default class Home extends Component {
             <p>
               The default distribution of API Platform is a perfectly valid Symfony full-stack application that follows <a href="http://symfony.com/doc/current/best_practices/index.html" target="_blank">Symfony's Best Practices</a>.
               It also includes the famous <a href="http://www.doctrine-project.org/projects/orm.html" target="_blank">Doctrine
-              ORM</a>
-              and all included tools can leverage it.
+              ORM</a> and all included tools can leverage it.
             </p>
             <p><strong>It means that you can:</strong></p>
             <ul>
