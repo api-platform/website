@@ -18,7 +18,7 @@ repository containing [Markdown](https://daringfireball.net/projects/markdown/) 
 
 ## Install
 
-Be sure to have Docker installed on your machine the:
+Be sure to have Docker installed on your machine, then:
 
 1. Install the client:
 
