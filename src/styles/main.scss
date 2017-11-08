@@ -1,0 +1,43 @@
+// SETTINGS
+@import './settings/colors';
+@import './settings/dimensions';
+@import './settings/fonts';
+@import './settings/icons';
+
+// TOOLS
+@import './tools/animations';
+@import './tools/links';
+@import './tools/medias';
+@import './tools/shadows';
+@import './tools/viewportSizes';
+@import './tools/zindex';
+
+// GENERIC
+@import '~normalize.css';
+@import './generic/reset';
+
+// ELEMENTS
+@import './elements/body';
+@import './elements/headings';
+@import './elements/links';
+@import './elements/code';
+@import './elements/tables';
+
+// OBJECTS
+@import './objects/buttons';
+@import './objects/container';
+@import './objects/cards';
+
+// VENDOR
+@import './vendor/algolia';
+
+// COMPONENTS
+@import './components/header';
+@import './components/footer';
+@import './components/sidemenu';
+@import './components/search';
+@import './components/home/index';
+@import './components/docs';
+@import './components/support';
+@import './components/news';
+@import './components/notfound';

@@ -1,0 +1,63 @@
+.notfound {
+  height: $pageH;
+  background-color: $clearblue;
+
+  .notfound__content {
+    position: relative;
+    height: 100%;
+  }
+
+  .notfound__text,
+  img {
+    position: absolute;
+    top: 50%;
+
+  }
+
+  .notfound__text {
+    left: 50%;
+    transform: translate(-100%, -50%);
+  }
+
+  img {
+    left: 50%;
+    height: 80%;
+    width: auto;
+    max-width: 50%;
+    transform: translateY(-50%);
+  }
+
+  h1 {
+    color: $darkblue;
+    font-size: 8rem;
+    margin-bottom: .5em;
+  }
+
+  p {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  @include mq($max-width: $vw-medium) {
+    text-align: center;
+    height: auto;
+    min-height: $mobilePageH;
+
+    .notfound__text,
+    img {
+      position: static;
+      display: block;
+      transform: none;
+    }
+
+    .notfound__text {
+      padding: 20px 0;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

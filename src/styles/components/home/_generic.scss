@@ -1,0 +1,26 @@
+.home__part {
+  padding: 40px 0;
+  position: relative;
+}
+
+.home__list {
+  margin: 40px 0;
+
+  .home__point {
+    margin: 20px 0;
+  }
+
+  .point__arrow {
+    font-size: 3.2rem;
+    color: $blue;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  p {
+    display: inline-block;
+    width: calc(100% - 50px);
+    vertical-align: middle;
+  }
+}

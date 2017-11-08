@@ -1,0 +1,234 @@
+.header {
+  @include z-depth-2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  background-color: $white;
+  z-index: z("header");
+
+  .header__logo,
+  .header__nav,
+  .header__search,
+  .header__social {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+    height: 100%;
+  }
+
+  .header__logo,
+  .header__social {
+    height: 60%;
+  }
+
+  .header__logo {
+    width: 300px;
+  }
+
+  .logo__spider,
+  .logo__text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .logo__spider {
+    margin: 0 15px;
+    height: auto;
+    width: 60px;
+  }
+
+  .logo__text {
+    height: 20px;
+    width: auto;
+
+    path {
+      fill: $lightblue;
+    }
+  }
+
+  .header__logo {
+    border-right: 1px solid $grey;
+  }
+
+  .header__social {
+    border-left: 1px solid $grey;
+
+    i {
+      padding: 0 10px;
+      color: $lightblue;
+      font-size: 2.4em;
+      transition: all ease .2s;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  .search.header__search {
+    flex: 1;
+  }
+
+  .menu-item {
+    position: relative;
+    transition: all ease .2s;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .menu-item__link {
+      position: relative;
+      color: $blackblue;
+      padding: 0 20px;
+
+      i,
+      span {
+        transition: all ease .2s;
+        line-height: $headerH;
+        font-size: 1.8em;
+      }
+
+      span {
+        color: inherit;
+        font-weight: $light;
+        text-transform: uppercase;
+      }
+
+      i {
+        margin-left: 10px;
+        color: $lightblue;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        height: 0;
+        opacity: 1;
+        background-color: $blue;
+        transform: translateX(-50%);
+        transition: all ease .3s;
+      }
+    }
+
+    .menu-item__submenu {
+      position: absolute;
+      left: 0;
+      top: calc(100% - 20px);
+      display: table;
+      text-align: left;
+      border-top: 5px solid $lightblue;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: top;
+      transition: top ease .2s, opacity ease .2s, transform 0s .3s;
+
+      .submenu__item {
+        @include z-depth-4;
+        display: block;
+        padding: 10px 15px;
+        border-bottom: 1px solid $grey;
+        white-space: nowrap;
+        font-weight: $normal;
+        font-size: 1.4em;
+        background-color: $white;
+        color: $blackblue;
+        transition: all ease .2s;
+
+        &:hover {
+          background-color: $lightgrey;
+          color: $darkblue;
+        }
+      }
+    }
+  }
+
+  .menu-item.current {
+    &:not(.withSubmenu) {
+      cursor: default;
+
+      & > .menu-item__link {
+        cursor: default;
+      }
+    }
+
+    & > .menu-item__link {
+      color: $blue;
+
+      &:after {
+        height: 4px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .menu-item:hover {
+    .menu-item__submenu {
+      transition: top ease .2s .2s, opacity ease .2s .2s;
+      opacity: 1;
+      transform: none;
+      top: calc(100% - 4px);
+
+      & > .menu-item__link {
+        & > i {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    &:not(.current) {
+      background-color: $lightgrey;
+
+      & > .menu-item__link {
+        & > span {
+          color: $blue;
+        }
+      }
+    }
+  }
+  @include mq($max-width: $vw-huge) {
+    .menu-item > .menu-item__link {
+      padding: 0 10px;
+    }
+  }
+  @include mq($max-width: $vw-mobile-menu) {
+    .header__nav,
+    .header__social {
+      display: none;
+    }
+
+    .search.header__search {
+      padding-right: 100px;
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    .search.header__search {
+      display: none;
+    }
+
+    .header__logo {
+      padding-left: 0;
+      width: auto;
+      border-right: none;
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    height: $mobileHeaderH;
+  }
+  @include mq($max-width: 350px) {
+    .header__logo {
+      padding: 0 20px;
+    }
+
+    .logo__spider {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+set -ex
+cd "$(dirname "$0")/../"
+
+# Remove previous documentation
+
+rm -fr src/pages/docs
+
+# Retrieve current "stable" version
+
+STABLE_BRANCH=$(curl -s "https://api.github.com/repos/api-platform/docs" | jq -r ".default_branch")
+
+# Checkout documentation
+
+git clone -b "${STABLE_BRANCH}" "https://github.com/api-platform/docs.git" src/pages/docs
+
+# Generate "nav.yml"
+
+melody run bin/generate-nav.php

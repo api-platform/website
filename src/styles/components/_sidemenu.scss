@@ -1,0 +1,136 @@
+.side-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: $menuW;
+  z-index: z("sidemenu");
+  background-color: $white;
+  transition: transform ease .5s;
+  @include mq($min-width: $vw-large + 1) {
+    display: none;
+  }
+
+  &:not(.open) {
+    transform: translateX(100%);
+  }
+
+  .side-menu__top {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    text-align: center;
+
+    .side-menu__logo {
+      padding: 10px 0;
+    }
+
+    .logo__circle,
+    .logo__text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .logo__circle {
+      width: 40px;
+      height: 40px;
+      background-color: $clearblue;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .logo__spider {
+      height: auto;
+      width: 40px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .logo__text {
+      height: 20px;
+      margin-left: 10px;
+
+      path {
+        fill: $white;
+      }
+    }
+
+    .side-menu__search {
+      padding: 10px 20px;
+      border-top: 1px solid $lightblue;
+      display: none;
+      align-self: flex-end;
+
+      .search__icon {
+        color: $white;
+      }
+
+      .search__input {
+        background-color: $clearblue;
+        color: $darkblue;
+      }
+    }
+  }
+
+  .side-menu__nav {
+    padding: 10px 0;
+    height: calc(100vh - 150px);
+    overflow: auto;
+    border-left: 5px solid $clearblue;
+  }
+
+  .menu-item {
+    padding: 15px 20px;
+    font-size: 1.8rem;
+
+    &.current {
+      background-color: rgba($clearblue, 0.3);
+
+      & > .menu-item__link {
+        color: $darkblue;
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $clearblue;
+    }
+
+    &.withSubmenu {
+      & > .menu-item__link {
+        span {
+          opacity: .5;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+
+          &:before {
+            content: "// ";
+          }
+        }
+
+        i {
+          display: none;
+        }
+      }
+
+      .menu-item__submenu {
+        padding-left: 15px;
+        font-size: 1.6rem;
+
+        & > .submenu__item {
+          padding: 3px 0;
+          display: block;
+        }
+      }
+    }
+  }
+  @include mq($max-width: $vw-medium, $min-width: $vw-small) {
+    .side-menu__top .side-menu__search {
+      display: flex;
+    }
+  }
+}

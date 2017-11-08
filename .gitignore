@@ -1,9 +1,4 @@
-/data-src
-
-*.log
-
-node_modules
-
-dist
-coverage
-webpack-assets.json
+.cache/
+node_modules/
+public/
+src/pages/docs/

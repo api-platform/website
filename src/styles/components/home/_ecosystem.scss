@@ -1,0 +1,97 @@
+.home__ecosystem {
+  z-index: z("default");
+  text-align: center;
+  background-color: $lightgrey;
+
+  .grid__item {
+    padding: 25px;
+    width: 33.33%;
+  }
+
+  .ecosystem__title {
+    strong {
+      color: $blue;
+    }
+  }
+
+  .ecosystem__card {
+    h3 {
+      margin-top: 15px;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    .card__circle {
+      background-color: $clearblue;
+      border-radius: 50%;
+
+      img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+      }
+    }
+  }
+  @include mq($min-width: $vw-large+1) {
+    .grid__item.full {
+      width: 100%;
+    }
+
+    .ecosystem__card {
+      &.big {
+        text-align: left;
+        width: 90%;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+
+        h3 {
+          font-size: 2.8rem;
+          margin-top: 0;
+        }
+
+        .card__circle {
+          height: 300px;
+          flex: 0 0 300px;
+
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .card__content {
+          flex: auto;
+          padding-left: 50px;
+          text-align: left;
+        }
+
+        .ecosystem__button {
+          text-align: left;
+
+          .button__content {
+            font-size: 1.8rem;
+            padding: 12px;
+          }
+        }
+      }
+    }
+  }
+  @include mq($max-width: $vw-large) {
+    .grid__item {
+      padding: 15px;
+      width: 50%;
+      min-width: 350px;
+      max-width: 400px;
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    .grid__item {
+      padding: 10px;
+      width: 100%;
+      max-width: 380px;
+      min-width: auto;
+    }
+  }
+}

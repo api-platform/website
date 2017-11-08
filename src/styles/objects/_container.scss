@@ -1,0 +1,58 @@
+.full {
+  height: 100%;
+}
+
+.container {
+  margin: auto;
+  padding: 0 $page-padding;
+  width: 100%;
+  max-width: $max-width;
+  z-index: z("default");
+  position: relative;
+  @include mq($max-width: $vw-small) {
+    padding: $page-padding-mobile;
+  }
+}
+
+.page {
+  min-height: calc(100vh - #{$footerH});
+  padding-top: $headerH;
+  @include mq($max-width: $vw-small) {
+    padding-top: $mobileHeaderH;
+  }
+}
+
+.main {
+  transition: transform ease .5s;
+
+  .overlay {
+    position: fixed;
+    z-index: z("header");
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: $blackblue;
+    transition: opacity ease .5s, width linear .01s .5s, height linear .01s .5s;
+  }
+
+  .openable {
+    transition: all ease .5s;
+  }
+
+  &.open {
+    @include mq($max-width: $vw-mobile-menu) {
+      .overlay {
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+        transition: opacity ease .5s;
+      }
+
+      .openable {
+        transform: translateX(-$menuW);
+      }
+    }
+  }
+}

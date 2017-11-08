@@ -1,0 +1,3 @@
+@function vheight($ratio) {
+   @return calc((100vh - 80px) * #{$ratio} / 100);
+}

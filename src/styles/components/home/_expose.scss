@@ -1,0 +1,55 @@
+.home__expose {
+  z-index: z("default");
+  background-color: $white;
+
+  .expose__title {
+    margin-bottom: 40px;
+
+    strong {
+      color: $blue;
+    }
+  }
+
+  p strong {
+    color: $darkblue;
+  }
+
+  .expose__content {
+    padding: 20px 0;
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .expose__spider {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 40%;
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    .expose__content {
+      padding: 30px;
+      width: 100%;
+    }
+
+    .expose__title {
+      text-align: center;
+    }
+
+    .expose__spider {
+      width: 100%;
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    .expose__content {
+      padding: 0;
+    }
+  }
+}

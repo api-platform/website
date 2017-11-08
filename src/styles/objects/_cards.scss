@@ -1,0 +1,37 @@
+.card {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  background-color: $white;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  position: relative;
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+
+  .card__autosize {
+    flex: auto;
+  }
+}
+
+.grid__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid__item {
+  display: flex;
+  padding: 15px;
+
+  &.full {
+    width: 100%;
+  }
+}

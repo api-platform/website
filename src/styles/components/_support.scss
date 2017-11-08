@@ -1,0 +1,52 @@
+.support {
+  text-align: center;
+  padding: 30px 0 50px;
+
+  h1 {
+    margin: 30px 0 20px;
+  }
+
+  .support__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .support-card {
+    @include z-depth-1;
+    padding: 20px 30px;
+    position: relative;
+    background-color: $white;
+    width: calc(50% - 80px);
+    min-width: 400px;
+    margin: 20px;
+
+    a {
+      @include underline($lightblue, $darkblue);
+    }
+
+    .support-card__image {
+      max-width: 100px;
+      max-height: 100px;
+      background-color: $lightgrey;
+      border-radius: 50%;
+    }
+
+    h3 {
+      margin: 10px auto 20px;
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    .support-card {
+      min-width: 0;
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+
+      .support-card__image {
+        max-width: 60px;
+        max-height: 60px;
+      }
+    }
+  }
+}

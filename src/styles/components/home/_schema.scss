@@ -1,0 +1,144 @@
+.home__schema {
+  background-color: $darkblue;
+  text-align: center;
+  z-index: z("schema");
+
+  .schema__title {
+    color: $white;
+    margin-bottom: 50px;
+
+    strong {
+      color: $clearblue;
+    }
+  }
+
+  .schema__part {
+    margin: 20px auto;
+
+    h4 {
+      font-size: 1.4rem;
+      background-color: $clearblue;
+    }
+
+    .schema__group {
+      margin: 10px auto 20px;
+      position: relative;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &:last-child {
+      .lines {
+        height: 50px;
+      }
+    }
+  }
+
+  .schema__item {
+    position: relative;
+    padding: 10px;
+    display: inline-block;
+    width: 340px;
+    max-width: 90%;
+    min-height: 150px;
+    color: $blackblue;
+    font-weight: $normal;
+  }
+
+  .schema__card {
+    @include z-depth-5;
+    background-color: $white;
+    padding: 20px;
+    text-align: left;
+    align-items: center;
+    border: 5px solid $white;
+    display: flex;
+    height: 100%;
+    transition: box-shadow ease .2s;
+
+    &:not(:hover) {
+      @include z-depth-0;
+    }
+
+    h3 {
+      color: $blue;
+      margin-bottom: 10px;
+    }
+
+    .schema__icon {
+      color: $blue;
+      font-size: 6rem;
+      margin-right: 20px;
+    }
+
+    .schema__content p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .lines {
+    position: absolute;
+    z-index: z('below');
+    left: 0;
+    top: 0;
+    height: calc(100% + 80px);
+    width: calc(100% - 80px);
+    top: -25px;
+    left: 40px;
+    background-color: $darkblue;
+  }
+
+  .line {
+    stroke: $clearblue;
+    stroke-width: 4;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 5;
+    animation: dash 1s infinite linear;
+  }
+
+  .schema__spider {
+    position: fixed;
+    transform: translate3d(0,0,0);
+    z-index: z("default");
+    bottom: 250px;
+    left: 30px;
+    width: 150px;
+
+    &:before {
+      content: "";
+      width: 3px;
+      height: calc(55vh - #{$headerH});
+      background-color: $blackblue;
+      position: absolute;
+      bottom: 200px;
+      left: 70px;
+      z-index: z("below");
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  @include mq($max-width: $vw-huge) {
+    .schema__spider {
+      display: none;
+    }
+  }
+  @include mq($max-width: $vw-thin) {
+    .schema__item {
+      padding: 10px 0;
+      width: calc(100% - 20px);
+    }
+  }
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 10;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,32 @@
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .search__icon {
+    color: $lightblue;
+    font-size: 2.4em;
+    opacity: .5;
+    margin-right: 15px;
+  }
+
+  form {
+    width: calc(100% - 40px);
+  }
+
+  .search__input {
+    background-color: $lightgrey;
+    border: none;
+    color: $blue;
+    font-size: 1.3em;
+    padding: 0 10px;
+    line-height: 40px;
+    height: 40px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      background-color: rgba($clearblue, 0.5);
+    }
+  }
+}
