@@ -1,0 +1,14 @@
+@keyframes toTopFromBottom {
+  49% {
+    transform: translateY(200%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+
+  51% {
+    opacity: 1;
+  }
+}

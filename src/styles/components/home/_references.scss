@@ -1,0 +1,92 @@
+.home__references {
+  z-index: z("default");
+  background-color: $white;
+  text-align: center;
+
+  .references__title {
+    color: $blackblue;
+
+    strong {
+      color: $darkblue;
+    }
+  }
+
+  .references__item {
+    display: inline-block;
+    padding: 15px;
+    filter: grayscale(100%);
+    opacity: .8;
+    transition: all ease .2s;
+
+    &:not(.big) {
+      width: calc(100% / 6);
+      opacity: .5;
+
+      img {
+        max-width: 90%;
+        height: auto;
+      }
+    }
+
+    &.big {
+      cursor: pointer;
+      margin: 15px;
+      background-color: rgba($clearblue,0.5);
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+      padding: 30px 10px;
+      width: 160px;
+
+      img {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 90%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .logo__title {
+        text-transform: uppercase;
+        font-weight: $bold;
+      }
+    }
+
+    &:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+  }
+
+  .references__list {
+    margin-bottom: 20px;
+
+    &.list__other {
+      text-align: left;
+    }
+  }
+
+  h4 {
+    margin: 40px auto 15px;
+    color: $white;
+  }
+  @include mq($max-width: $vw-large) {
+    .references__item:not(.big) {
+      width: 20%;
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    .references__item:not(.big) {
+      width: 25%;
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    .references__list {
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .references__item:not(.big) {
+      width: 50%;
+    }
+  }
+}

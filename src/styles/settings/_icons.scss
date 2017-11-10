@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'api-platform-icon';
+  src: url('./settings/fonts/api-platform-icon.eot?3gbux');
+  src: url('./settings/fonts/api-platform-icon.eot?3gbux#iefix') format('embedded-opentype'), url('./settings/fonts/api-platform-icon.ttf?3gbux') format('truetype'), url('./settings/fonts/api-platform-icon.woff?3gbux') format('woff'), url('./settings/fonts/api-platform-icon.svg?3gbux#api-platform-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*=" icon-"],
+[class^="icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'api-platform-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-users:before {
+  content: "\e972";
+}
+
+.icon-phone:before {
+  content: "\e914";
+}
+
+.icon-chevron-down:before {
+  content: "\e313";
+}
+
+.icon-chevron-left:before {
+  content: "\e314";
+}
+
+.icon-chevron-top:before {
+  content: "\e316";
+}
+
+.icon-line-deploy:before {
+  content: "\e900";
+}
+
+.icon-line-security:before {
+  content: "\e901";
+}
+
+.icon-line-data:before {
+  content: "\e902";
+}
+
+.icon-line-expose:before {
+  content: "\e903";
+}
+
+.icon-line-validation:before {
+  content: "\e904";
+}
+
+.icon-line-search:before {
+  content: "\e905";
+}
+
+.icon-line-test:before {
+  content: "\e906";
+}
+
+.icon-line-doc:before {
+  content: "\e907";
+}
+
+.icon-line-opensource:before {
+  content: "\e908";
+}
+
+.icon-line-admin:before {
+  content: "\e912";
+}
+
+.icon-line-app:before {
+  content: "\e913";
+}
+
+.icon-search:before {
+  content: "\e90f";
+}
+
+.icon-circle-chevron-up:before {
+  content: "\e909";
+}
+
+.icon-chevron-circle-left:before {
+  content: "\e910";
+}
+
+.icon-chevron-circle-down:before {
+  content: "\e911";
+}
+
+.icon-circle-chevron-right:before {
+  content: "\e90a";
+}
+
+.icon-flag:before {
+  content: "\e90b";
+}
+
+.icon-download:before {
+  content: "\e90c";
+}
+
+.icon-twitter:before {
+  content: "\e90d";
+}
+
+.icon-github:before {
+  content: "\e90e";
+}
+
+.icon-chevron-right:before {
+  content: "\e315";
+}

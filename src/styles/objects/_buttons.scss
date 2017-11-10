@@ -1,0 +1,154 @@
+.btn {
+  overflow-y: hidden;
+  background: none;
+  display: inline-block;
+  border: none;
+
+  .button__content {
+    cursor: pointer;
+    padding: 12px;
+
+    font-size: 1.8rem;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all ease .3s;
+  }
+
+  &.small {
+    .button__content {
+      font-size: 1.4rem;
+      padding: 8px;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  i,
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  i {
+    padding-right: 10px;
+    font-size: 2.4rem;
+  }
+
+  span {
+    font-weight: $bold;
+  }
+
+  &:hover {
+    i {
+      animation: toTopFromBottom .4s forwards;
+    }
+  }
+
+  &.empty {
+    .button__content {
+      border: 3px solid $blue;
+      color: $blue;
+      background: none;
+      transition: all ease .2s;
+
+      &:hover {
+        border-color: darken($blue, 10%);
+        color: darken($blue, 10%);
+      }
+    }
+  }
+
+  &:not(.empty) {
+    .button__content {
+      border: 3px solid $blue;
+      background-color: $blue;
+      color: white;
+
+      &:hover {
+        background-color: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+  }
+}
+
+.btn-burger {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: $headerH / 2;
+  transform: translateY(-50%);
+  transition: transform ease .3s, right ease .5s;
+  right: 25px;
+  z-index: z("sidemenu") + 1;
+  cursor: pointer;
+  background: none;
+  display: none;
+
+  .btn-burger__back {
+    position: relative;
+    height: 100%;
+
+    &:after,
+    &:before,
+    .btn-burger__line {
+      transition: all ease .2s;
+      background-color: $lightblue;
+      width: 80%;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      position: absolute;
+    }
+
+    &:after,
+    &:before {
+      content: "";
+    }
+
+    &:after {
+      top: calc(50% + 10px);
+    }
+
+    &:before {
+      top: calc(50% - 10px);
+    }
+  }
+
+  &.close {
+    right: calc(#{$menuW} + 10px);
+
+    .btn-burger__back {
+      .btn-burger__line {
+        width: 0;
+      }
+
+      &:after,
+      &:before,
+      .btn-burger__line {
+        background-color: $clearblue;
+      }
+
+      &:after {
+        top: 50%;
+        height: 3px;
+        transform: translate3d(-50%, -50%, 0) rotate(45deg);
+      }
+
+      &:before {
+        top: 50%;
+        height: 3px;
+        transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+      }
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    top: $mobileHeaderH / 2;
+  }
+  @include mq($max-width: $vw-mobile-menu) {
+    display: block;
+  }
+}

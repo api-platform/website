@@ -1,0 +1,49 @@
+table {
+  @include z-depth-3;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1.4rem;
+}
+
+table thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  background-color: $blue;
+  color: $white;
+
+  th {
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+}
+
+table tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+table td {
+  display: table-cell;
+  padding: 10px;
+  vertical-align: top;
+}
+
+table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+table > tbody > tr > td {
+  border: 1px solid #ddd;
+}

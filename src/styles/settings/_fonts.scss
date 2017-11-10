@@ -1,0 +1,30 @@
+$font: 'Open Sans', Arial, Helvetica, sans-serif;
+$fontTitle: 'Roboto Slab', Courier, serif;
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./settings/fonts/OpenSans-Bold.eot');
+  src: url('./settings/fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), url('./settings/fonts/OpenSans-Bold.woff') format('woff'), url('./settings/fonts/OpenSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('./settings/fonts/RobotoSlab-Bold.eot');
+  src: url('./settings/fonts/RobotoSlab-Bold.eot?#iefix') format('embedded-opentype'), url('./settings/fonts/RobotoSlab-Bold.woff') format('woff'), url('./settings/fonts/RobotoSlab-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./settings/fonts/OpenSans-Regular.eot');
+  src: url('./settings/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), url('./settings/fonts/OpenSans-Regular.woff') format('woff'), url('./settings/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('./settings/fonts/RobotoSlab-Light.eot');
+  src: url('./settings/fonts/RobotoSlab-Light.eot?#iefix') format('embedded-opentype'), url('./settings/fonts/RobotoSlab-Light.woff') format('woff'), url('./settings/fonts/RobotoSlab-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}

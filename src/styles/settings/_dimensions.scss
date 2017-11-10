@@ -1,0 +1,36 @@
+////
+/// Dimensions
+///
+/// @group Settings
+///
+////
+
+/// Max size of the page
+$max-width: 1200px;
+$page-padding: 40px;
+$page-padding-mobile: 15px;
+
+$footerH: 190px;
+$headerH: 80px;
+$mobileHeaderH: 55px;
+$menuW: 260px;
+$docmenuW: 300px;
+
+$pageH: calc((100vh - #{$footerH}) - #{$headerH});
+$mobilePageH: calc((100vh - #{$footerH}) - #{$mobileHeaderH});
+
+/// Viewports sizes
+/// They're used in media queries
+$vw-thin: 320px;
+$vw-small: 480px;
+$vw-medium: 780px;
+$vw-large: 1024px;
+$vw-huge: $max-width;
+
+$vw-mobile-menu: $vw-large;
+
+/// Font weights
+
+$bold: 700;
+$normal: 400;
+$light: 300;

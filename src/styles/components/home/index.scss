@@ -1,0 +1,15 @@
+@import './generic';
+@import './cover';
+@import './ecosystem';
+@import './all-in-one';
+@import './giants';
+@import './expose';
+@import './schema';
+@import './references';
+@import './seo';
+
+.hidden-small {
+  @include mq($max-width: $vw-small) {
+    display: none;
+  }
+}

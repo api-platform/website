@@ -1,0 +1,84 @@
+.home__giants {
+  z-index: z("giants");
+  background-color: $clearblue;
+
+  .giants__title {
+    margin-bottom: 20px;
+  }
+
+  .giants__title strong,
+  a,
+  p strong {
+    color: $darkblue;
+  }
+
+  a {
+    @include underline($lightblue, darken($darkblue, 10%));
+  }
+
+  .giants__content {
+    padding: 20px 0;
+    width: 60%;
+  }
+
+  .giants__spider {
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+    padding-left: 20px;
+    transform: translateX(-50%) translateY(40px);
+    width: calc(40% - 20px);
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 300px;
+      height: 150px;
+      background-color: white;
+      border-radius: 150px 150px 0 0;
+      z-index: z("below");
+      transform: translate(-50%);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      transform: translateY(20px);
+    }
+  }
+  @include mq($max-width: $vw-large) {
+    .giants__spider {
+      &:before {
+        width: 240px;
+        height: 120px;
+      }
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    .giants__content {
+      padding: 30px 0 250px;
+      width: 100%;
+    }
+
+    .giants__title {
+      text-align: center;
+    }
+
+    .giants__spider {
+      left: 50%;
+      margin-left: 0;
+      width: 320px;
+    }
+  }
+  @include mq($max-width: $vw-small) {
+    .giants__title {
+      margin-bottom: 0;
+    }
+
+    .giants__list {
+      margin: 0;
+    }
+  }
+}

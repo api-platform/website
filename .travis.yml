@@ -1,21 +1,30 @@
-sudo: false
-language: node_js
-node_js:
-  - "5.0"
+sudo: required
 
-cache:
-  directories:
-    - node_modules
+language: php
+php:
+  - 7.1
 
-install:
-  - npm install
+before_install:
+
+  # Install melody
+
+  - sudo curl -Lo /usr/bin/melody "http://get.sensiolabs.org/melody.phar"
+  - sudo chmod +x /usr/bin/melody
+
+  # Retrieve documentation
+
+  - bin/retrieve-documentation
+
+  # Install dependencies
+
+  - yarn install
 
 script:
-  - npm run lint
-  - npm run test
-  - NODE_ENV=development npm run deploy
-  - NODE_ENV=staging npm run deploy
-  - NODE_ENV=production npm run deploy
 
-after_success:
-  - npm run codecov
+  # Check CS
+
+  - yarn lint
+
+  # Check build
+
+  - yarn gatsby build

@@ -1,0 +1,120 @@
+////
+/// Reset styles
+/// Ease cross browser styling
+///
+/// @group Generic
+///
+////
+
+* {
+  box-sizing: border-box;
+  font-family: $font;
+  max-width: 100%;
+}
+
+/// Reset font-size for easier use : 1.6em = 16px
+html {
+  font-size: 62.5%;
+  line-height: 1.3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /// Improve font rendering
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/// Reset nested font-size
+blockquote p,
+li button,
+li h1,
+li h2,
+li h3,
+li h4,
+li h5,
+li h6,
+li input,
+li label,
+li li,
+li p,
+li select,
+li textarea,
+td p,
+th p {
+  font-size: 100%;
+}
+
+// Links & buttons
+button {
+  display: inline;
+  margin: 0;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: $bold;
+}
+
+a img {
+  border: none;
+}
+
+// Separator
+hr {
+  border: none;
+  height: 1px;
+  background-color: $black;
+}
+
+// Forms
+input,
+select,
+textarea {
+  font-family: $font;
+}
+
+fieldset {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+select {
+  width: auto;
+  cursor: pointer;
+}
+
+input,
+label,
+select,
+textarea {
+  vertical-align: middle;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  font-size: 1.6em;
+  line-height: 1.6em;
+}

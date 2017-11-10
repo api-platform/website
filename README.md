@@ -1,70 +1,41 @@
-# Calavera React Client
+# api-platform.com
 
-This is the client part of [Calavera](https://github.com/dunglas/calavera). It allows to create a nice website from a Git
-repository containing [Markdown](https://daringfireball.net/projects/markdown/) docs.
+This repository contains the source code and documentation powering [api-platform.com](https://api-platform.com/).
 
-## Features
+Single Page Application built with [React](https://facebook.github.io/react/) and powered by [Gatsby](https://www.gatsbyjs.org/).
 
-* Renders a repository containing Markdown docs in HTML
-* Exposes docs and metadata (authors, modification dates...) through a [JSON-LD](http://json-ld.org) API
-* Single Page Application built with [React](https://facebook.github.io/react/), [Redux](http://redux.js.org/) and [React
-  Router](https://github.com/ReactTraining/react-router)
-* Universal Rendering (Server-Side Rendering)
-* [Bootstrap](http://getbootstrap.com/) theme
-* Edit on [GitHub](https://github.com) link
-* [Google Analytics](https://analytics.google.com/) integration
-* [Docker](http://docker.com/) setup
-* Easy to customize
+## Project structure
 
-## Install
+For an overview of the project structure, please refer to the [Gatsby documentation](https://www.gatsbyjs.org/docs/building-with-components/).
 
-Be sure to have Docker installed on your machine, then:
+## Installation and usage
 
-1. Install the client:
+```sh
+# Checkout project
 
-  `git clone https://github.com/dunglas/calavera-react-client`
+git clone "https://github.com/api-platform/website.git"
 
-2. Clone the Git repository containing Markdown files in the data directory:
+# Retrieve documentation
 
-  `git clone https://github.com/api-platform/docs data-src`
+bin/retrieve-documentation
 
-3. Generate .jsonld files using Calavera:
+# Install dependencies
 
-  `docker run -v $PWD/data-src:/in -v $PWD/src/static/data:/out dunglas/calavera /in /out`
+yarn install
 
-4. Copy assets and images:
+# Run project locally (for development)
 
-  `cd data-src && find . -not -name '*.md' -exec rsync -R {} ../src/static/data \; && cd -`
+yarn gatsby develop
+# Go to http://localhost:8000/
 
-5. Install JS dependencies:
+# Build the project (for production)
 
-  `docker-compose run web npm install`
+yarn gatsby build
 
-6. Start the container:
+# Test the built project locally
 
-  `docker-compose up`
+yarn gatsby serve
+# Go to http://localhost:9000
+```
 
-## Configuration
-
-Features can be enabled or disabled using environment variables. If you use Docker, you can set them directly in the `docker-compose.yml`
-file.
-
-### Enable the “Edit on GitHub” link
-
-You can define two environment variables to enable the “Edit on GitHub” link:
-
-* `CALAVERA_GITHUB_DOCUMENTATION_REPOSITORY`: the path of the github repo (eg. `api-platform/docs`), with no trailing slash.
-  If present, the “edit on github” link will be displayed.
-* `CALAVERA_GITHUB_DOCUMENTATION_BRANCH`: the branch of the repo to link to (default to `master`)
-
-## Enable the Google Analytics integration
-
-Create a `CALAVERA_GOOGLE_ANALYTICS_ID` environment variable containing your Google Analytics ID (`UA-XXXXXXXX-1`) and the
-Google Analytics integration will be enabled.
-
-## Credits
-
-Main authors: [Kévin Dunglas](http://dunglas.fr) and [Rodrigue Villetard](https://twitter.com/gorghoa).
-Sponsored by [Les-Tilleuls.coop](http://les-tilleuls.coop).
-
-Built using [React Redux Universal Hot Example](https://github.com/erikras/react-redux-universal-hot-example).
+__Note__: `retrieve-documentation` requires [jq](https://stedolan.github.io/jq/) and [melody](https://github.com/sensiolabs/melody).

@@ -1,0 +1,288 @@
+.page__docs {
+  width: calc(100% - #{$docmenuW});
+  display: inline-block;
+  margin-left: $docmenuW;
+  padding: 50px;
+  @include mq($max-width: $vw-large) {
+    padding: 30px;
+  }
+  @include mq($max-width: $vw-medium) {
+    width: 100%;
+    margin: 0;
+  }
+  @include mq($max-width: $vw-small) {
+    padding: 30px 15px;
+  }
+}
+
+.docs__menu {
+  @include z-depth-2;
+  background-color: $darkblue;
+  position: fixed;
+  left: 0;
+  top: $headerH;
+  height: calc(100vh - #{$headerH});
+  width: $docmenuW;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px 0;
+
+  .menu__item {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba($white, 0.1);
+    transition: all ease .5s;
+
+    .item__title {
+      cursor: pointer;
+      transition: all ease .3s;
+
+      h2 {
+        width: calc(100% - 30px);
+        display: inline-block;
+        vertical-align: middle;
+        color: rgba($white, 0.8);
+        font-family: $font;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+      }
+
+      i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 2rem;
+        color: $clearblue;
+        margin-left: 5px;
+      }
+    }
+
+    .menu-item__list {
+      margin: 0;
+      padding: 10px 0;
+      font-size: 1.5rem;
+    }
+
+    .menu-item__link {
+      & > a,
+      .submenu__item > span a {
+        padding-right: 20px;
+        display: block;
+      }
+
+      &.active {
+        color: $white;
+
+        & > a,
+        .submenu__item > span a {
+          font-weight: $bold;
+          padding-right: 0;
+          border-left: 3px solid $lightblue;
+          padding-left: 5px;
+        }
+      }
+    }
+
+    .menu-item__link,
+    .submenu-item__link {
+      padding: 8px 5px;
+      color: rgba($white, 0.8);
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+
+      a {
+        font-weight: $normal;
+        font-size: inherit;
+        color: inherit;
+        transition: color ease .5s;
+      }
+
+      .submenu__item ul {
+        padding: 5px;
+        font-size: 1.3rem;
+      }
+
+      .submenu-item__link {
+        &:before,
+        a {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &:before {
+          content: "# ";
+          margin-right: 5px;
+          color: $clearblue;
+        }
+
+        a {
+          width: calc(100% - 15px);
+          padding-right: 15px;
+        }
+      }
+
+      .submenu-item__link.current a {
+        color: $white;
+        font-weight: $bold;
+        padding-right: 0;
+      }
+    }
+
+    &.open {
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
+      background-color: rgba($blackblue, 0.2);
+      border-color: $darkblue;
+
+      .item__title {
+        padding-bottom: 10px;
+        border-bottom: 1px solid $blue;
+      }
+
+      h2 {
+        color: $clearblue;
+      }
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    display: none;
+  }
+}
+
+.docs__content {
+  background-color: $white;
+  @include z-depth-1;
+  padding: 40px;
+  color: $blackblue;
+
+  .anchor svg {
+    visibility: visible;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+
+    & + h2 {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin: 5px 0 10px;
+    border-bottom: 2px dotted $darkblue;
+    margin-top: 40px;
+  }
+
+  h3 {
+    font-family: $font;
+    font-size: 1.6rem;
+    color: $blackblue;
+
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+  }
+
+  h4 {
+    font-size: 1.6rem;
+    background: none;
+  }
+
+  p {
+    line-height: 2.8rem;
+  }
+
+  a:not(.anchor) {
+    @include underline($clearblue, $darkblue);
+    color: $darkblue;
+  }
+
+  table {
+    margin: 20px 0;
+  }
+
+  ol,
+  ul {
+    padding-left: 10px;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    border-left: 3px solid $clearblue;
+
+    li {
+      margin: 5px 0;
+
+      &:before {
+        content: "\e315";
+        color: $darkblue;
+        margin-right: 5px;
+        font-family: 'api-platform-icon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+  }
+  @include mq($max-width: $vw-medium) {
+    padding: 30px;
+  }
+}
+
+.docs__nav {
+  @include z-depth-1;
+  background-color: $lightgrey;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: $normal;
+
+  .next,
+  .prev {
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+
+    span:before {
+      color: $black;
+      font-weight: $normal;
+    }
+
+    i {
+      color: $blue;
+      font-size: 2.6rem;
+      transition: all ease .3s;
+    }
+  }
+
+  .prev {
+    margin-right: auto;
+
+    span:before {
+      content: "Previous chapter : ";
+    }
+
+    &:hover i {
+      transform: translateX(-5px);
+    }
+  }
+
+  .next {
+    margin-left: auto;
+
+    span:before {
+      content: "Next chapter : ";
+    }
+
+    &:hover i {
+      transform: translateX(5px);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+body,
+html {
+  background-color: $lightgrey;
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include mq($max-width: $vw-mobile-menu) {
+    &.open {
+      overflow: hidden;
+    }
+  }
+}
+
+#___gatsby {
+  height: 100%;
+}

@@ -1,38 +1,47 @@
-{ "extends": "eslint-config-airbnb",
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
   "env": {
     "browser": true,
+    "es6": true,
     "node": true,
-    "mocha": true
   },
   "rules": {
-    "react/no-multi-comp": 0,
-    "import/default": 0,
-    "import/no-duplicates": 0,
-    "import/named": 0,
-    "import/namespace": 0,
+    "object-curly-newline": 0,
+    // We don't force static function
+    "class-methods-use-this": 0,
+    // We authorize import of assets
+    "import/no-extraneous-dependencies": 0,
+    // We authorize webpack alias
     "import/no-unresolved": 0,
-    "import/no-named-as-default": 2,
-    "comma-dangle": 0,  // not sure why airbnb turned this on. gross!
-    "indent": [2, 2, {"SwitchCase": 1}],
-    "no-console": 0,
-    "no-alert": 0
-  },
-  "plugins": [
-    "react", "import"
-  ],
-  "globals": {
-    "__DEVELOPMENT__": true,
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__DISABLE_SSR__": true,
-    "__DEVTOOLS__": true,
-    "__PRISMJS_LANGUAGES__": true,
-    "__GITHUB_DOCUMENTATION_REPOSITORY__": true,
-    "__GITHUB_DOCUMENTATION_BRANCH__": true,
-    "__DATA_PATH__": true,
-    "__GOOGLE_ANALYTICS_ID__": true,
-    "socket": true,
-    "webpackIsomorphicTools": true,
-    "twttr": true
+    // We authorize skipping extensions
+    "import/extensions": 0,
+    // We use the 'import' plugin which allows for cases "flow" awareness.
+    "no-duplicate-imports": 0,
+    // We authorize _ for private variables
+    "no-underscore-dangle": 0,
+    // We authorize chained declaration
+    "one-var": 0,
+    // We only accept yoda style for conditions
+    "yoda": [2, "always"],
+    // A .jsx extension is not required for files containing jsx.
+    "react/jsx-filename-extension": 0,
+    // We authorize binded function
+    "react/jsx-no-bind": 0,
+    // This rule struggles with flow and class properties.
+    "react/sort-comp": 0,
+    // We authorize all kind of prop types
+    "react/forbid-prop-types": 0,
+    // We authorize no unused prop types
+    "react/no-unused-prop-types": 0,
+    // We authorize index keys
+    "react/no-array-index-key": 0,
+    // We authorize dynamic HTML in JSX
+    "react/no-danger": 0,
+    // We authorize empty anchor
+    "jsx-a11y/anchor-has-content": 0,
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/anchor-is-valid": 0,
   }
 }
