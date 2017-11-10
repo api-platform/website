@@ -11,7 +11,7 @@ import Seo from 'components/home/Seo';
 
 const IndexPage = () => (
   <div className="home">
-    <Helmet title="Home" />
+    <Helmet title="REST and GraphQL framework on top of Symfony and React" />
     <Cover />
     <Ecosystem />
     <AllInOne />
