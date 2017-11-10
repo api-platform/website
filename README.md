@@ -10,10 +10,13 @@ For an overview of the project structure, please refer to the [Gatsby documentat
 
 ## Installation and usage
 
+To run the installation script, you will need [jq](https://stedolan.github.io/jq/) and [melody](https://github.com/sensiolabs/melody).
+Be sure to install them first and to have the binaries in your path.
+
 ```sh
 # Checkout project
 
-git clone "https://github.com/api-platform/website.git"
+git clone https://github.com/api-platform/website.git
 
 # Retrieve documentation
 
@@ -37,5 +40,3 @@ yarn gatsby build
 yarn gatsby serve
 # Go to http://localhost:9000
 ```
-
-__Note__: `retrieve-documentation` requires [jq](https://stedolan.github.io/jq/) and [melody](https://github.com/sensiolabs/melody).

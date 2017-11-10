@@ -18,7 +18,7 @@ const Cover = () => (
         />
       </div>
       <Logo className="cover__logo" />
-      <h2>REST and GraphQL framework to build modern API-first projects</h2>
+      <h2>REST and GraphQL framework to build modern API-driven projects</h2>
       <div className="cover__buttons">
         <Button
           empty

@@ -61,7 +61,7 @@ const Ecosystem = () => (
           image={schemaImage}
           link="/docs/schema-generator/index"
           text="Instantly generates a PHP data model from the Schema.org vocabulary."
-          title="Schema Component"
+          title="Schema Gen Component"
         />
         <EcosystemCard
           image={adminImage}
@@ -73,7 +73,7 @@ const Ecosystem = () => (
           image={scaffoldingImage}
           link="/docs/client-generator/index"
           text="Scaffolds a fully functional Single-Page-Application built with React, Redux, React Router and Bootstrap thanks to the CRUD generator."
-          title="Schema Component"
+          title="Client Gen Component"
         />
       </div>
     </div>

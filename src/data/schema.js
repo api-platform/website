@@ -1,81 +1,81 @@
 const schema = [
   {
-    title: 'Designing data model',
+    title: 'Shape the data',
     items: [
       {
         icon: 'data',
         link: '/docs/schema-generator/index',
-        title: 'Create your data model',
+        title: 'Create a Model',
         text:
-          'Design your own data model as plain old PHP classes or import an existing one from the Schema.org vocabulary.',
+          'Design your own data model as plain old PHP classes or import an existing structure from the Schema.org vocabulary.',
       },
     ],
   },
   {
-    title: 'Building server',
+    title: 'Build the Server',
     items: [
       {
         icon: 'expose',
         link: '/docs/core/index',
         title: 'Expose your API',
         text:
-          'API Platform embraces open web standards : JSON-LD, Hydra, HAL, YAML, JSON, XML and CSV are supported out of the box.',
+          'API Platform embraces the open web: JSON-LD, Hydra, HAL, YAML, JSON, XML and CSV are supported out of the box.',
       },
       {
         icon: 'security',
         link: '/docs/core/security',
         title: 'Add Auth',
         text:
-          'Easily add JSON Web Token or OAuth authentication. Supports CORS and implements OWASP’s recos.',
+          'Add JSON Web Token or OAuth authentication in a breath. CORS support is built-in. OWASP’s best practices are automatically enforced.',
       },
       {
         icon: 'doc',
         link: '/docs/core/swagger',
-        title: 'Browse automatic documentation',
+        title: 'Browse the Docs',
         text:
-          'Enjoy the beautiful automatically generated API documentation (Swagger/OpenAPI).',
+          'Enjoy the beautiful, automatically generated, API documentation (Swagger / OpenAPI).',
       },
     ],
   },
   {
-    title: 'Building clients',
+    title: 'Add clients',
     items: [
       {
         icon: 'app',
         link: '/docs/client-generator/index',
-        title: 'Scaffold app',
-        text: 'Generate a CRUD application from your API.',
+        title: 'PWA and Mobile',
+        text: 'Generate React, React Native and Vue.js apps from the API docs.',
       },
       {
         icon: 'admin',
         link: '/docs/admin/index',
-        title: 'Create admin',
+        title: 'Create an Admin',
         text:
-          'Build easily a React Admin for your API with the admin component.',
+          'A nice Material UI admin interface built with React is automatically available!',
       },
     ],
   },
   {
-    title: 'Testing',
+    title: 'Test',
     items: [
       {
         icon: 'test',
         link: '/docs/distribution/testing',
-        title: 'Test',
+        title: 'Specs & Tests',
         text:
-          'Create specs and tests with a developer friendly API testing tool on top of Behat.',
+          'Add unit tests with PHPUnit. Create specs and tests with a developer friendly API testing tool on top of Behat. A Postman integration is also provided.',
       },
     ],
   },
   {
-    title: 'Deployment',
+    title: 'Deploy',
     items: [
       {
         icon: 'deploy',
         link: '/docs/deployment/index',
-        title: 'Deploy',
+        title: 'Cloud Native',
         text:
-          'Install a development environment and deploy your project in production using Docker and Kubernetes.',
+          'Install a development environment and deploy your project in production using Docker, Kubernetes and the Helm package manager.',
       },
     ],
   },

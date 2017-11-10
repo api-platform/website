@@ -3,9 +3,9 @@ import spider from 'images/giants.svg';
 import HomeList from './HomeList';
 
 const data = [
-  'extend the framework with <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer">thousands of exciting Symfony bundles</a> <span class="hidden-small">adding features such as authentication (JWT and OAuth), user management, HTTP cache, asynchronous jobs and many more</a>',
+  'extend the framework with <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer nofollow">thousands of exciting Symfony bundles</a> <span class="hidden-small">adding features such as authentication (JWT and OAuth), user management, HTTP cache, asynchronous jobs and many more</a>',
   'use API Platform in any existing Symfony application',
-  'reuse all your Symfony skills and benefit of the <a href="http://symfony.com/doc/current/index.html" target="_blank" rel="noopener noreferrer">high quality Symfony documentation</a>',
+  'reuse all your Symfony skills and benefit of the <a href="http://symfony.com/doc/current/index.html" target="_blank" rel="noopener noreferrer nofollow">high quality Symfony documentation</a>',
 ];
 
 const Giants = () => (

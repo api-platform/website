@@ -8,7 +8,7 @@ before_install:
 
   # Install melody
 
-  - sudo curl -Lo /usr/bin/melody "http://get.sensiolabs.org/melody.phar"
+  - sudo curl -Lo /usr/bin/melody http://get.sensiolabs.org/melody.phar
   - sudo chmod +x /usr/bin/melody
 
   # Retrieve documentation

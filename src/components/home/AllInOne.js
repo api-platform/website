@@ -12,7 +12,7 @@ const data = [
     <strong>Native Mobile Apps</strong>
   </p>,
   <p>
-    <strong>Deploy instantly</strong> in your cloud with kubernetes
+    <strong>Deploy instantly</strong> in your cloud with Kubernetes
   </p>,
 ];
 
