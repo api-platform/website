@@ -50,6 +50,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       const { path, title, items } = navItem.node;
       if (items) {
         items.map((subItem) => {
+          console.log(subItem.id);
+
           parseNav.push({
             path: `docs/${path}/${subItem.id}`,
             title: subItem.title,
@@ -62,18 +64,23 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     docs.map((edge) => {
       const path = edge.node.fields.path;
       const index = parseNav.findIndex(element => element.path === path);
-      let prev, next, rootPath;
+      let current, prev, next, rootPath;
 
       if(-1 !== index) {
+        current = parseNav[index];
+        rootPath = current.rootPath;
+
         prev = 0 < index && parseNav[index - 1];
         next = index < parseNav.length - 1 && parseNav[index + 1];
-        rootPath = parseNav[index].rootPath;
+
         if(prev && prev.rootPath !== rootPath) {
           prev = {path: prev.path, title : `${prev.rootPath} - ${prev.title}`};
         }
         if(next && next.rootPath !== rootPath) {
           next = {path: next.path, title : `${next.rootPath} - ${next.title}`};
         }
+
+        current = {path: current.path, title : `${current.rootPath} - ${current.title}`}
       }
 
       createPage({
@@ -81,6 +88,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         component: docTemplate,
         context: {
           path,
+          current,
           prev,
           next,
         },
@@ -99,7 +107,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     const localUrls = [];
     let matches;
 
-    while ((matches = re.exec(html))) {
+    while (matches = re.exec(html)) {
       localUrls.push(matches[2]);
     }
 
@@ -120,7 +128,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 };
 
-exports.modifyWebpackConfig = ({ config, env }) => {
+exports.modifyWebpackConfig = ({ config }) => {
   config.merge({
     resolve: {
       root: path.resolve(__dirname, './src'),

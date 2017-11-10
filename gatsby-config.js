@@ -6,7 +6,7 @@ module.exports = {
       titleTemplate: 'API Platform: %s',
       defaultTitle: 'API Platform',
       meta: [
-        { name: 'description', content: 'A PHP framework dedicated to hypermedia API creation.' },
+        { name: 'description', content: 'REST and GraphQL framework on top of Symfony and React' },
         { charset: 'utf-8' },
         { name: 'theme-color', content: '#38a9b4' },
         { property: 'og:site_name', content: 'API Platform' },
@@ -16,7 +16,7 @@ module.exports = {
         { property: 'og:title', content: 'API Platform' },
         {
           property: 'og:description',
-          content: 'A PHP framework dedicated to hypermedia API creation.',
+          content: 'REST and GraphQL framework on top of Symfony and React',
         },
         { property: 'og:site', content: '@ApiPlatform' },
         { property: 'og:creator', content: '@dunglas' },
