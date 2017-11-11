@@ -5,6 +5,7 @@
     "classnames": "^2.2.5",
     "gatsby": "^1.9.80",
     "gatsby-link": "^1.6.23",
+    "gatsby-plugin-google-analytics": "^1.0.12",
     "gatsby-plugin-manifest": "^1.0.8",
     "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-react-helmet": "^1.0.8",
