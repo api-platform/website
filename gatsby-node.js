@@ -50,8 +50,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       const { path, title, items } = navItem.node;
       if (items) {
         items.map((subItem) => {
-          console.log(subItem.id);
-
           parseNav.push({
             path: `docs/${path}/${subItem.id}`,
             title: subItem.title,
@@ -99,33 +97,35 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
-  if ('MarkdownRemark' === node.internal.type) {
-    const fileNode = getNode(node.parent);
-    const nodePath = fileNode.relativePath.replace('.md', '');
-    let html = node.internal.content;
-    const re = /(\]\((?!http)(?!#)(.*?)\))/gi;
-    const localUrls = [];
-    let matches;
-
-    while (matches = re.exec(html)) {
-      localUrls.push(matches[2]);
-    }
-
-    localUrls.map((url) => {
-      let newUrl = url.replace('.md', '');
-      newUrl = `/${URL.resolve(nodePath, newUrl)}`;
-      html = html.replace(url, newUrl);
-      return true;
-    });
-
-    node.internal.content = html;
-
-    createNodeField({
-      node,
-      name: 'path',
-      value: nodePath,
-    });
+  if ('MarkdownRemark' !== node.internal.type) {
+    return;
   }
+
+  const fileNode = getNode(node.parent);
+  const nodePath = fileNode.relativePath.replace('.md', '').replace('index', '');
+  let html = node.internal.content;
+  const re = /(\]\((?!http)(?!#)(.*?)\))/gi;
+  const localUrls = [];
+  let matches;
+
+  while (matches = re.exec(html)) {
+    localUrls.push(matches[2]);
+  }
+
+  localUrls.map((url) => {
+    let newUrl = url.replace('.md', '').replace('index', '');
+    newUrl = `/${URL.resolve(nodePath, newUrl)}`;
+    html = html.replace(url, newUrl);
+    return true;
+  });
+
+  node.internal.content = html;
+
+  createNodeField({
+    node,
+    name: 'path',
+    value: nodePath,
+  });
 };
 
 exports.modifyWebpackConfig = ({ config }) => {

@@ -22,7 +22,7 @@ const References = () => (
       </h1>
       <h4>Open source projects</h4>
       <div className="references__list">{openSourceList}</div>
-      <h4>Others</h4>
+      <h4>Companies</h4>
       <div className="references__list list__other">{otherList}</div>
     </div>
   </section>
