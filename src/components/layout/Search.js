@@ -7,8 +7,8 @@ class Search extends React.Component {
   componentDidMount() {
     if (docsearch) {
       docsearch({
-        apiKey: process.env.DOCSEARCH_API_KEY,
-        indexName: process.env.DOCSEARCH_INDEX_NAME,
+        apiKey: process.env.GATSBY_DOCSEARCH_API_KEY,
+        indexName: process.env.GATSBY_DOCSEARCH_INDEX_NAME,
         inputSelector: this.searchInput,
         debug: false,
       });

@@ -7,7 +7,7 @@ import BurgerButton from 'components/layout/BurgerButton';
 import Footer from 'components/layout/Footer';
 import SideMenu from 'components/layout/SideMenu';
 import 'styles/main.scss';
-import config from '../../gatsby-config.js';
+import helmetConfig from '../helmetConfig';
 
 class TemplateWrapper extends Component {
   state = {
@@ -39,7 +39,7 @@ class TemplateWrapper extends Component {
     return (
       <div className={classNames('main full', { open })}>
         <div className="full">
-          <Helmet {...config.siteMetadata.head} />
+          <Helmet {...helmetConfig.head} />
           <Header />
           <div className={classNames('page openable', { 'with-footer': withFooter })}>{children()}</div>
           {withFooter && <Footer />}
