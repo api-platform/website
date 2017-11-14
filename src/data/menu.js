@@ -4,6 +4,10 @@ const menu = [
     rootPath: '/docs',
     submenu: [
       {
+        text: 'Distribution',
+        path: '/docs/distribution/index',
+      },
+      {
         text: 'API component',
         path: '/docs/core/index',
       },
