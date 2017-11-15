@@ -8,11 +8,7 @@ rm -fr src/pages/docs
 
 # Retrieve current "stable" version
 
-#STABLE_BRANCH=$(curl -s "https://api.github.com/repos/api-platform/docs" | jq -r ".default_branch")
-
-# Temporary fix
-
-STABLE_BRANCH=2.1
+STABLE_BRANCH=$(curl -s "https://api.github.com/repos/api-platform/docs" | jq -r ".default_branch")
 
 # Checkout documentation
 
