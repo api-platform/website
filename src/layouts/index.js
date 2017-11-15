@@ -8,7 +8,7 @@ import DocNav from 'components/layout/DocNav';
 import Footer from 'components/layout/Footer';
 import SideMenu from 'components/layout/SideMenu';
 import 'styles/main.scss';
-import config from '../../gatsby-config.js';
+import helmetConfig from '../helmetConfig';
 
 class TemplateWrapper extends Component {
   state = {
@@ -39,7 +39,7 @@ class TemplateWrapper extends Component {
     return (
       <div className={classNames('main full', { open })}>
         <div className="full">
-          <Helmet {...config.siteMetadata.head} />
+          <Helmet {...helmetConfig.head} />
           <Header />
           <div className="page openable">{children()}</div>
           {-1 === location.pathname.search('/docs') && <Footer />}
