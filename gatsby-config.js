@@ -1,7 +1,14 @@
+const fs = require('fs');
+const dotenv = require('dotenv');
+
+const envConfig = dotenv.parse(fs.readFileSync(`.env.${process.env.NODE_ENV}`));
+// eslint-disable-next-line no-return-assign
+Object.keys(envConfig).map(k => process.env[k] = envConfig[k]);
+
 module.exports = {
   siteMetadata: {
     title: 'Api Platform',
-    siteUrl: 'http://api-platform.com',
+    siteUrl: process.env.ROOT_URL,
     head: {
       titleTemplate: 'API Platform: %s',
       defaultTitle: 'API Platform',
