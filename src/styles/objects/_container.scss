@@ -15,10 +15,14 @@
 }
 
 .page {
-  min-height: calc(100vh - #{$footerH});
+  min-height: 100vh;
   padding-top: $headerH;
   @include mq($max-width: $vw-small) {
     padding-top: $mobileHeaderH;
+  }
+
+  &.with-footer {
+    min-height: calc(100vh - #{$footerH});
   }
 }
 
