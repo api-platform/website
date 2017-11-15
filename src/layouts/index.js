@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Header from 'components/layout/Header';
 import BurgerButton from 'components/layout/BurgerButton';
+import DocNav from 'components/layout/DocNav';
 import Footer from 'components/layout/Footer';
 import SideMenu from 'components/layout/SideMenu';
 import 'styles/main.scss';
@@ -32,17 +33,19 @@ class TemplateWrapper extends Component {
   };
 
   render() {
-    const { children, location } = this.props;
+    const { children, data, location } = this.props;
     const open = this.state.showResponsiveMenu;
-    const withFooter = (-1 === location.pathname.search('/docs') || !location.key);
 
     return (
       <div className={classNames('main full', { open })}>
         <div className="full">
           <Helmet {...helmetConfig.head} />
           <Header />
-          <div className={classNames('page openable', { 'with-footer': withFooter })}>{children()}</div>
-          {withFooter && <Footer />}
+          <div className="page openable">{children()}</div>
+          {-1 === location.pathname.search('/docs') && <Footer />}
+          {-1 !== location.pathname.search('/docs') && (
+            <DocNav nav={data.navDoc.edges} />
+          )}
         </div>
         <BurgerButton
           onClick={this.showMenu.bind(null, !open)}
@@ -59,13 +62,40 @@ class TemplateWrapper extends Component {
   }
 }
 
+// eslint-disable-next-line no-undef
+export const pageQuery = graphql`
+  query LayoutIndexQuery {
+    indexDoc: markdownRemark(fields: { path: { eq: "docs/index" } }) {
+      html
+    }
+    navDoc: allNavYaml {
+      edges {
+        node {
+          title
+          path
+          items {
+            id
+            title
+            anchors {
+              id
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 TemplateWrapper.propTypes = {
   children: PropTypes.any,
+  data: PropTypes.object,
   location: PropTypes.object.isRequired,
 };
 
 TemplateWrapper.defaultProps = {
   children: null,
+  data: {},
 };
 
 export default TemplateWrapper;

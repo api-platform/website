@@ -1,45 +1,45 @@
-const Path = require('path');
+const path = require('path');
 const URL = require('url');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage, createRedirect } = boundActionCreators;
+  const { createPage } = boundActionCreators;
 
-  const docTemplate = Path.resolve('src/templates/doc.js');
+  const docTemplate = path.resolve('src/templates/doc.js');
 
   const navQuery = graphql(`
-    {
-      allNavYaml {
-        edges {
-          node {
-            title
-            id
-            path
-            items {
-              id
+      {
+        allNavYaml {
+          edges {
+            node {
               title
+              id
+              path
+              items {
+                id
+                title
+              }
             }
           }
         }
       }
-    }
-  `);
+    `);
 
   const docQuery = graphql(`
-    {
-      allMarkdownRemark(sort: { order: DESC, fields: [fields___path] }, limit: 1000) {
-        edges {
-          node {
-            fields {
-              path
+      {
+        allMarkdownRemark(sort: { order: DESC, fields: [fields___path] }, limit: 1000) {
+          edges {
+            node {
+              fields {
+                path
+              }
+              excerpt(pruneLength: 250)
+              html
+              id
             }
-            excerpt(pruneLength: 250)
-            html
-            id
           }
         }
       }
-    }
-  `);
+    `);
 
   return Promise.all([navQuery, docQuery]).then((values) => {
     const nav = values[0].data.allNavYaml.edges;
@@ -62,26 +62,23 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     docs.map((edge) => {
       const path = edge.node.fields.path;
       const index = parseNav.findIndex(element => element.path === path);
-      let current,
-        prev,
-        next,
-        rootPath;
+      let current, prev, next, rootPath;
 
-      if (-1 !== index) {
+      if(-1 !== index) {
         current = parseNav[index];
         rootPath = current.rootPath;
 
         prev = 0 < index && parseNav[index - 1];
         next = index < parseNav.length - 1 && parseNav[index + 1];
 
-        if (prev && prev.rootPath !== rootPath) {
-          prev = { path: prev.path, title: `${prev.rootPath} - ${prev.title}` };
+        if(prev && prev.rootPath !== rootPath) {
+          prev = {path: prev.path, title : `${prev.rootPath} - ${prev.title}`};
         }
-        if (next && next.rootPath !== rootPath) {
-          next = { path: next.path, title: `${next.rootPath} - ${next.title}` };
+        if(next && next.rootPath !== rootPath) {
+          next = {path: next.path, title : `${next.rootPath} - ${next.title}`};
         }
 
-        current = { path: current.path, title: `${current.rootPath} - ${current.title}` };
+        current = {path: current.path, title : `${current.rootPath} - ${current.title}`}
       }
 
       createPage({
@@ -94,19 +91,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           next,
         },
       });
-
-      const pageName = Path.basename(path);
-      if ('index' === pageName) {
-        const redirectPath = Path.dirname(path);
-        const redirects = [`/${redirectPath}`, `/${redirectPath}/`];
-        redirects.map(redirect =>
-          createRedirect({
-            fromPath: redirect,
-            toPath: `/${path}`,
-            isPermanent: true,
-            redirectInBrowser: true,
-          }));
-      }
     });
   });
 };
@@ -124,7 +108,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const localUrls = [];
   let matches;
 
-  while ((matches = re.exec(html))) {
+  while (matches = re.exec(html)) {
     localUrls.push(matches[2]);
   }
 
@@ -147,7 +131,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 exports.modifyWebpackConfig = ({ config }) => {
   config.merge({
     resolve: {
-      root: Path.resolve(__dirname, './src'),
+      root: path.resolve(__dirname, './src'),
       alias: {
         styles: 'styles',
         images: 'images',
