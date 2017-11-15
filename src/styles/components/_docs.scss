@@ -1,8 +1,8 @@
 .page__docs {
   width: calc(100% - #{$docmenuW});
-  display: inline-block;
   margin-left: $docmenuW;
   padding: 50px;
+  min-height: calc(100vh - #{$headerH});
   @include mq($max-width: $vw-large) {
     padding: 30px;
   }
@@ -11,6 +11,7 @@
     margin: 0;
   }
   @include mq($max-width: $vw-small) {
+    min-height: calc(100vh - #{$mobileHeaderH});
     padding: 30px 15px;
   }
 }
