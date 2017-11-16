@@ -5,23 +5,23 @@ const menu = [
     submenu: [
       {
         text: 'Distribution',
-        path: '/docs/distribution/index',
+        path: '/docs/distribution',
       },
       {
         text: 'API component',
-        path: '/docs/core/index',
+        path: '/docs/core',
       },
       {
         text: 'Schema component',
-        path: '/docs/schema-generator/index',
+        path: '/docs/schema-generator',
       },
       {
         text: 'Admin component',
-        path: '/docs/admin/index',
+        path: '/docs/admin',
       },
       {
         text: 'Scaffolding component',
-        path: '/docs/client-generator/index',
+        path: '/docs/client-generator',
       },
     ],
   },

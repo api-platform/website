@@ -32,7 +32,7 @@ class DocNav extends Component {
   }
 
   getItemByLocation = (location) => {
-    const reg = /^\/docs\/(.*?)\/.*$/;
+    const reg = /docs\/(.*?)(\/|$)/;
     const matches = location.pathname.match(reg);
     return matches ? matches[1] : null;
   };
