@@ -1,10 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import scriptLoader from 'react-async-script-loader';
 
 class Search extends React.Component {
-  /* eslint-disable no-undef */
+  componentWillReceiveProps({ isScriptLoaded, isScriptLoadSucceed }) {
+    if (isScriptLoaded && !this.props.isScriptLoaded) {
+      if (isScriptLoadSucceed) {
+        this.initDocSearch();
+      }
+    }
+  }
+
   componentDidMount() {
+    const { isScriptLoaded, isScriptLoadSucceed } = this.props;
+
+    if (isScriptLoaded && isScriptLoadSucceed) {
+      this.initDocSearch();
+    }
+  }
+  /* eslint-disable no-undef */
+  initDocSearch() {
     if (docsearch) {
       docsearch({
         apiKey: process.env.GATSBY_DOCSEARCH_API_KEY,
@@ -39,10 +55,12 @@ class Search extends React.Component {
 
 Search.propTypes = {
   className: PropTypes.string,
+  isScriptLoaded: PropTypes.bool.isRequired,
+  isScriptLoadSucceed: PropTypes.bool.isRequired,
 };
 
 Search.defaultProps = {
   className: '',
 };
 
-export default Search;
+export default scriptLoader('https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js')(Search);
