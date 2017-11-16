@@ -15,11 +15,12 @@
     "gatsby-plugin-twitter": "^1.0.10",
     "gatsby-remark-external-links": "^0.0.3",
     "gatsby-remark-prismjs": "^1.2.8",
-    "gatsby-transformer-sharp": "^1.6.13",
+    "gatsby-transformer-sharp": "^1.6.14",
     "gatsby-transformer-yaml": "^1.5.11",
     "node-sass": "^4.0.0",
     "normalize.css": "^7.0.0",
     "prismjs": "^1.8.1",
+    "react-async-script-loader": "^0.3.0",
     "react-collapsible": "^2.0.3",
     "react-html-parser": "^2.0.1"
   },
