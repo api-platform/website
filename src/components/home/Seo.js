@@ -49,7 +49,7 @@ const Seo = () => (
         </p>
         <p className="hidden-small">
           Mapping your app data model to Schema.org structures can be a tedious
-          task. Using <a href="/docs/schema-generator/index">the generator</a>,
+          task. Using <a href="/docs/schema-generator">the generator</a>,
           your data model will be a derived from Schema.org. Serializing your
           data as JSON-LD will not require specific mapping nor adaptation.
         </p>

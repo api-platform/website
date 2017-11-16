@@ -29,7 +29,7 @@ const NavItem = ({ item, location, current, onClick }) => {
     >
       <ul className="menu-item__list">
         {items.map((navItem) => {
-          const link = `/docs/${path}/${navItem.id}`;
+          const link = 'index' === navItem.id ? `/docs/${path}` : `/docs/${path}/${navItem.id}`;
           const active = link === location.pathname;
           return (
             <li

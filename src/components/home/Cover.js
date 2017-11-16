@@ -29,7 +29,7 @@ const Cover = () => (
         <Button
           text="Get started"
           icon="flag"
-          link="/docs/distribution/index"
+          link="/docs/distribution"
         />
       </div>
     </div>

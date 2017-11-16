@@ -4,7 +4,7 @@ const schema = [
     items: [
       {
         icon: 'data',
-        link: '/docs/schema-generator/index',
+        link: '/docs/schema-generator',
         title: 'Create a Model',
         text:
           'Design your own data model as plain old PHP classes or import an existing structure from the Schema.org vocabulary.',
@@ -16,7 +16,7 @@ const schema = [
     items: [
       {
         icon: 'expose',
-        link: '/docs/core/index',
+        link: '/docs/core',
         title: 'Expose your API',
         text:
           'API Platform embraces the open web: JSON-LD, Hydra, HAL, YAML, JSON, XML and CSV are supported out of the box.',
@@ -42,13 +42,13 @@ const schema = [
     items: [
       {
         icon: 'app',
-        link: '/docs/client-generator/index',
+        link: '/docs/client-generator',
         title: 'PWA and Mobile',
         text: 'Generate React, React Native and Vue.js apps from the API docs.',
       },
       {
         icon: 'admin',
-        link: '/docs/admin/index',
+        link: '/docs/admin',
         title: 'Create an Admin',
         text:
           'A nice Material UI admin interface built with React is automatically available!',
@@ -72,7 +72,7 @@ const schema = [
     items: [
       {
         icon: 'deploy',
-        link: '/docs/deployment/index',
+        link: '/docs/deployment',
         title: 'Cloud Native',
         text:
           'Install a development environment and deploy your project in production using Docker, Kubernetes and the Helm package manager.',

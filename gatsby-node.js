@@ -31,6 +31,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           node {
             fields {
               path
+              redirect
             }
             excerpt(pruneLength: 250)
             html
@@ -61,7 +62,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     docs.map((edge) => {
       const path = edge.node.fields.path;
-      const index = parseNav.findIndex(element => element.path === path);
+      const redirect = edge.node.fields.redirect;
+      const index = parseNav.findIndex(element => element.path === path || element.path === redirect);
       let current,
         prev,
         next,
@@ -95,17 +97,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         },
       });
 
-      const pageName = Path.basename(path);
-      if ('index' === pageName) {
-        const redirectPath = Path.dirname(path);
-        const redirects = [`/${redirectPath}`, `/${redirectPath}/`];
-        redirects.map(redirect =>
+      if(redirect) {
+        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
+        redirects.map(redirPath =>
           createRedirect({
-            fromPath: redirect,
+            fromPath: redirPath,
             toPath: `/${path}`,
             isPermanent: true,
             redirectInBrowser: true,
-          }));
+          })
+        );
       }
     });
   });
@@ -118,7 +119,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 
   const fileNode = getNode(node.parent);
-  const nodePath = fileNode.relativePath.replace('.md', '');
+  let nodePath = fileNode.relativePath.replace('.md', '');
   let html = node.internal.content;
   const re = /(\]\((?!http)(?!#)(.*?)\))/gi;
   const localUrls = [];
@@ -136,6 +137,15 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   });
 
   node.internal.content = html;
+
+  if('index' === Path.basename(nodePath)) {
+    createNodeField({
+      node,
+      name: 'redirect',
+      value: nodePath,
+    });
+    nodePath = `${Path.dirname(nodePath)}`;
+  }
 
   createNodeField({
     node,

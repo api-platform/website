@@ -53,25 +53,25 @@ const Ecosystem = () => (
         <EcosystemCard
           big
           image={apiImage}
-          link="/docs/core/index"
+          link="/docs/core"
           text="Build a working and fully-featured CRUD API in minutes. Leverage its awesome features to develop complex and high performance API-first projects. Extend or override everything you want."
           title="API Component"
         />
         <EcosystemCard
           image={schemaImage}
-          link="/docs/schema-generator/index"
+          link="/docs/schema-generator"
           text="Instantly generates a PHP data model from the Schema.org vocabulary."
           title="Schema Gen Component"
         />
         <EcosystemCard
           image={adminImage}
-          link="/docs/admin/index"
+          link="/docs/admin"
           text="Adds a convenient Material Design administration interface built with React without writing a line of code."
           title="Admin Component"
         />
         <EcosystemCard
           image={scaffoldingImage}
-          link="/docs/client-generator/index"
+          link="/docs/client-generator"
           text="Scaffolds a fully functional Single-Page-Application built with React, Redux, React Router and Bootstrap thanks to the CRUD generator."
           title="Client Gen Component"
         />

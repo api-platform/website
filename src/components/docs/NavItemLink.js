@@ -23,8 +23,7 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
               <li
                 key={link}
                 className={classNames('submenu-item__link', {
-                  current:
-                    '' !== location.hash && `#${item.id}` === location.hash,
+                  current: '' !== location.hash && `#${item.id}` === location.hash,
                 })}
               >
                 <Link to={link}>{item.title}</Link>
@@ -37,7 +36,7 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
   }
 
   return (
-    <Link activeClassName="current" to={path}>
+    <Link className={classNames({ current })} to={path}>
       {title}
     </Link>
   );
