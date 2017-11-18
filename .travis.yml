@@ -1,8 +1,4 @@
-sudo: false
-
-language: php
-php:
-  - 7.1
+language: node
 
 cache:
   yarn: true
@@ -10,19 +6,9 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  # Install melody
-  - curl -Lo $HOME/bin/melody http://get.sensiolabs.org/melody.phar
-  - chmod +x $HOME/bin/melody
-
-  # Retrieve documentation
+  - yarn install
   - bin/retrieve-documentation
 
-  # Install dependencies
-  - yarn install
-
 script:
-  # Check CS
   - yarn lint
-
-  # Check build
   - yarn gatsby build

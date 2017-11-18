@@ -10,7 +10,7 @@ For an overview of the project structure, please refer to the [Gatsby documentat
 
 ## Installation and usage
 
-To run the installation script, you will need [jq](https://stedolan.github.io/jq/) and [melody](https://github.com/sensiolabs/melody).
+To run the installation script, you will need [jq](https://stedolan.github.io/jq/).
 Be sure to install them first and to have the binaries in your path.
 
 ```sh
