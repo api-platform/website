@@ -40,8 +40,12 @@
     "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
     "gatsby-source-filesystem": "^1.4.3",
     "gatsby-transformer-remark": "^1.7.2",
+    "js-yaml": "^3.10.0",
+    "markdown": "^0.5.0",
     "prettier": "^1.5.2",
-    "remark-inline-links": "^3.0.4"
+    "remark-inline-links": "^3.0.4",
+    "xmldom": "^0.1.27",
+    "xpath": "^0.0.24"
   },
   "scripts": {
     "build": "gatsby build",

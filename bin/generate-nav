@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const { markdown } = require('markdown');
+const path = require('path');
+const xpath = require('xpath');
+const yaml = require('js-yaml');
+const { DOMParser } = require('xmldom');
+
+let content = fs.readFileSync(path.resolve(__dirname, '../src/pages/docs/index.md')).toString();
+content = content.replace(/`/gm, '"');
+content = markdown.toHTML(content);
+
+const html = new DOMParser().parseFromString(content);
+
+const guessPath = h2 => xpath.select('following-sibling::ol[1]/li[1]/a/@href', h2)[0].value.split('/')[0];
+
+const normalizeAnchors = anchors =>
+  anchors.map(anchor => ({
+    id: xpath.select('./a/@href', anchor)[0].value.split('#')[1],
+    title: xpath.select('./a', anchor)[0].firstChild.data,
+  }));
+
+const normalizeItems = items =>
+  items.map((item) => {
+    const id = xpath.select('./a/@href', item)[0].value.replace('.md', '').split('/')[1];
+    const title = normalizeTitle(xpath.select('./a', item)[0].firstChild.data);
+
+    const anchors = xpath.select('./ol/li', item);
+    if (0 === anchors.length) {
+      return {
+        id,
+        title,
+      };
+    }
+
+    return {
+      id,
+      title,
+      anchors: normalizeAnchors(anchors),
+    };
+  });
+
+const normalizeTitle = title => title.trim().split(':')[0];
+
+const results = xpath.select('//h2', html).map(h2 => ({
+  title: normalizeTitle(h2.firstChild.data),
+  path: guessPath(h2),
+  items: normalizeItems(xpath.select('following-sibling::ol[1]/li', h2)),
+}));
+
+fs.writeFile(path.resolve(__dirname, '../src/pages/docs/nav.yml'), yaml.dump(results), error => error && console.warn(error));
