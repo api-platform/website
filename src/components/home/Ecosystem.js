@@ -54,7 +54,7 @@ const Ecosystem = () => (
           big
           image={apiImage}
           link="/docs/core"
-          text="Build a working and fully-featured CRUD API in minutes. Leverage its awesome features to develop complex and high performance API-first projects. Extend or override everything you want."
+          text="Build a fully-featured hypermedia or GraphQL API in minutes. Leverage its awesome features to develop complex and high performance API-first projects. Extend or override everything you want."
           title="API Component"
         />
         <EcosystemCard
@@ -72,7 +72,7 @@ const Ecosystem = () => (
         <EcosystemCard
           image={scaffoldingImage}
           link="/docs/client-generator"
-          text="Scaffolds a fully functional Single-Page-Application built with React, Redux, React Router and Bootstrap thanks to the CRUD generator."
+          text="Scaffolds a fully functional Progressive Web App built with React, Redux, React Router and Bootstrap thanks to the CRUD generator."
           title="Client Gen Component"
         />
       </div>
