@@ -3,30 +3,32 @@ import spider from 'images/giants.svg';
 import HomeList from './HomeList';
 
 const data = [
-  'extend the framework with <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer nofollow">thousands of exciting Symfony bundles</a> <span class="hidden-small">adding features such as authentication (JWT and OAuth), user management, HTTP cache, asynchronous jobs and many more</a>',
-  'use API Platform in any existing Symfony application',
-  'reuse all your Symfony skills and benefit of the <a href="http://symfony.com/doc/current/index.html" target="_blank" rel="noopener noreferrer nofollow">high quality Symfony documentation</a>',
+  'extend the framework with thousands of existing <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer nofollow">Symfony bundles</a> and <a href="https://reactjs.org/community/ui-components.html" target="_blank" rel="noopener noreferrer nofollow">React components</a>',
+  'use the server library in any existing Symfony or PHP app, use client components with any Hydra-enabled API, regardless of its programming language',
+  'reuse all your Symfony, React and Docker skills and benefit of their high quality docs; you are in known territory',
 ];
 
 const Giants = () => (
   <section className="home__part home__giants">
     <div className="container giants__container">
       <h1 className="giants__title">
-        Built on the shoulders of <strong>giants</strong>
+        Built on the Shoulders of <strong>Giants</strong>
       </h1>
       <article className="giants__content">
         <p className="hidden-small">
-          The default distribution of API Platform is a perfectly valid Symfony
-          full-stack application that follows{' '}
-          <strong>Symfonys&apos;s Best Practices</strong>. It also includes the
-          famous Doctrine ORM and all included tools can leverage it. It means
-          that you can:
+          API Platform is built on top of <strong>battle-tested products</strong>.
+          The server skeleton includes the famous <strong>Symfony 4</strong> microframework
+          and the <strong>Doctrine</strong> ORM.
+          Client-side components use Facebook&apos;s <strong>React</strong>
+          (a Vue.js integration is also available).
+          The development environment and the deployment mechanism leverage
+          <strong>Docker, Kubernetes and Helm</strong>.
         </p>
         <HomeList data={data} className="giants__list" />
         <p className="hidden-small">
-          However, API Platform is designed as a set of independent and reusable
-          components. You can perfectly use them in raw PHP projects or in
-          projects using other frameworks.
+          API Platform is also designed as a set of independent and reusable
+          components. You can perfectly use them in a standalone way, or integrate by them yourself
+          in your own project.
         </p>
       </article>
       <div className="giants__spider">

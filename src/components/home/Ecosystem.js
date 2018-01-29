@@ -44,10 +44,10 @@ const Ecosystem = () => (
   <section className="home__part home__ecosystem">
     <div className="container">
       <h1 className="ecosystem__title">
-        The API Platform <strong>framework</strong>
+        The API Platform <strong>Framework</strong>
       </h1>
       <h5>
-        API Platform is a set of tools to help you building API-first projects
+        API Platform is a set of tools build and consume web APIs
       </h5>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
@@ -60,19 +60,19 @@ const Ecosystem = () => (
         <EcosystemCard
           image={schemaImage}
           link="/docs/schema-generator"
-          text="Instantly generates a PHP data model from the Schema.org vocabulary."
+          text="Instantly generates a PHP data model from the Schema.org vocabulary. Let the ORM creating the related tables."
           title="Schema Gen Component"
         />
         <EcosystemCard
           image={adminImage}
           link="/docs/admin"
-          text="Adds a convenient Material Design administration interface built with React without writing a line of code."
+          text="Adds a convenient Material Design administration interface built with React without writing a line of code. It's a Progressive Web App!"
           title="Admin Component"
         />
         <EcosystemCard
           image={scaffoldingImage}
           link="/docs/client-generator"
-          text="Scaffolds a fully functional Progressive Web App built with React, Redux, React Router and Bootstrap thanks to the CRUD generator."
+          text="Scaffolds a Progressive Web App (React or Vue.js) or a native mobile app (React Native), and edit it to fit your needs."
           title="Client Gen Component"
         />
       </div>
