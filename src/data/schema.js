@@ -19,7 +19,7 @@ const schema = [
         link: '/docs/core',
         title: 'Expose your API',
         text:
-          'API Platform embraces the open web: JSON-LD, Hydra, HAL, YAML, JSON, XML and CSV are supported out of the box.',
+          'Embrace the open web: JSON-LD/Hydra, GraphQL, JSON API, HAL, YAML, JSON, XML and CSV are supported out of the box.',
       },
       {
         icon: 'security',
@@ -33,7 +33,7 @@ const schema = [
         link: '/docs/core/swagger',
         title: 'Browse the Docs',
         text:
-          'Enjoy the beautiful, automatically generated, API documentation (Swagger / OpenAPI).',
+          'Enjoy the beautiful, automatically generated, API documentation (Swagger/OpenAPI).',
       },
     ],
   },
