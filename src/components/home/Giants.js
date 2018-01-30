@@ -27,7 +27,7 @@ const Giants = () => (
         <HomeList data={data} className="giants__list" />
         <p className="hidden-small">
           API Platform is also designed as a set of independent and reusable
-          components. You can perfectly use them in a standalone way, or integrate by them yourself
+          components. You can perfectly use them in a standalone way, or integrate them by yourself
           in your own project.
         </p>
       </article>

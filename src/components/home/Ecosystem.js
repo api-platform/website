@@ -47,7 +47,7 @@ const Ecosystem = () => (
         The API Platform <strong>Framework</strong>
       </h1>
       <h5>
-        API Platform is a set of tools build and consume web APIs
+        API Platform is a set of tools to build and consume web APIs
       </h5>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
@@ -60,7 +60,7 @@ const Ecosystem = () => (
         <EcosystemCard
           image={schemaImage}
           link="/docs/schema-generator"
-          text="Instantly generates a PHP data model from the Schema.org vocabulary. Let the ORM creating the related tables."
+          text="Instantly generates a PHP data model from the Schema.org vocabulary. Let the ORM create the related tables."
           title="Schema Gen Component"
         />
         <EcosystemCard
