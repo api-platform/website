@@ -2,7 +2,7 @@ import React from 'react';
 
 const data = [
   <p>
-    <strong>GraphQL</strong>, <strong>Linked data</strong>
+    <strong>GraphQL</strong>, <strong>Linked data</strong>&nbsp;
     and <strong>Semantic Web</strong> compatible
   </p>,
   <p>
