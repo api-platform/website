@@ -159,6 +159,26 @@
     visibility: visible;
   }
 
+  blockquote {
+    border-left: 3px solid $clearblue;
+    padding-left: 10px;
+    margin: 50px;
+    p {
+      font-size: 2rem;
+      color: $blue;
+    }
+    ul {
+      padding-left: 0;
+      opacity: 0.8;
+      li {
+        margin: 0;
+        &:before {
+          content: none;
+        }
+      }
+    }
+  }
+
   h1 {
     margin-bottom: 20px;
 
@@ -190,7 +210,9 @@
   }
 
   p {
-    line-height: 2.8rem;
+    line-height: 2.6rem;
+    margin-bottom: 20px;
+
   }
 
   a:not(.anchor) {
@@ -207,10 +229,12 @@
     padding-left: 10px;
     font-size: 1.4rem;
     line-height: 2.2rem;
-    border-left: 3px solid $clearblue;
 
-    li {
-      margin: 5px 0;
+    & > li {
+      margin: 0 0 15px;
+      & > p {
+        display: inline-block;
+      }
 
       &:before {
         content: "\e315";
@@ -227,6 +251,27 @@
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+      ol, ul {
+        li {
+          list-style-type: circle;
+          margin-left: 25px;
+          &:before {
+            content: none;
+          }
+          ol, ul {
+            li {
+              list-style-type: decimal;
+              margin-left: 5px;
+            }
+            ol, ul {
+              li {
+                list-style-type: lower-roman;
+                margin-left: 5px;
+              }
+            }
+          }
+        }
       }
     }
   }
