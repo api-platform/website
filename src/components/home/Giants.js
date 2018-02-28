@@ -20,9 +20,9 @@ const Giants = () => (
           The server skeleton includes the famous <strong>Symfony 4</strong> microframework
           and the <strong>Doctrine</strong> ORM.
           Client-side components use Facebook&apos;s <strong>React</strong>
-          (a Vue.js integration is also available).
+          {' '}(a Vue.js integration is also available).
           The development environment and the deployment mechanism leverage
-          <strong>Docker, Kubernetes and Helm</strong>.
+          {' '}<strong>Docker, Kubernetes and Helm</strong>.
         </p>
         <HomeList data={data} className="giants__list" />
         <p className="hidden-small">
