@@ -31,7 +31,7 @@ class Footer extends Component {
           height="419"
         />
         <p className="footer__copyright">
-          Copyright © 2016{' '}
+          Copyright © 2018{' '}
           <a
             href="https://dunglas.fr/"
             target="_blank"
