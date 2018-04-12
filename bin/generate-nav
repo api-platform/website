@@ -16,10 +16,24 @@ const html = new DOMParser().parseFromString(content);
 const guessPath = h2 => xpath.select('following-sibling::ol[1]/li[1]/a/@href', h2)[0].value.split('/')[0];
 
 const normalizeAnchors = anchors =>
-  anchors.map(anchor => ({
-    id: xpath.select('./a/@href', anchor)[0].value.split('#')[1],
-    title: xpath.select('./a', anchor)[0].firstChild.data,
-  }));
+  anchors.map(anchor => {
+    const id = xpath.select('./a/@href', anchor)[0].value.split('#')[1];
+    const title = xpath.select('./a', anchor)[0].firstChild.data;
+
+    const anchors = xpath.select('./ol/li', anchor);
+    if (0 === anchors.length) {
+      return {
+        id,
+        title,
+      };
+    }
+
+    return {
+      id,
+      title,
+      anchors: normalizeAnchors(anchors),
+    };
+  });
 
 const normalizeItems = items =>
   items.map((item) => {
