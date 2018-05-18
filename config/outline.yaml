@@ -1,0 +1,69 @@
+- title: 'The Distribution: Create Powerful APIs with Ease'
+  path: distribution
+  items:
+    - id: index
+    - id: testing
+- title: The API Component
+  path: core
+  items:
+    - id: index
+    - id: getting-started
+    - id: configuration
+    - id: operations
+    - id: default-order
+    - id: filters
+    - id: serialization
+    - id: validation
+    - id: errors
+    - id: pagination
+    - id: events
+    - id: content-negotiation
+    - id: external-vocabularies
+    - id: extending-jsonld-context
+    - id: data-providers
+    - id: extensions
+    - id: security
+    - id: performance
+    - id: operation-path-naming
+    - id: form-data
+    - id: fosuser-bundle
+    - id: jwt
+    - id: nelmio-api-doc
+    - id: angularjs-integration
+    - id: swagger
+    - id: graphql
+    - id: dto
+- title: The Schema Generator Component
+  path: schema-generator
+  items:
+    - id: index
+    - id: getting-started
+    - id: configuration
+- title: The Admin Component
+  path: admin
+  items:
+    - id: index
+    - id: getting-started
+    - id: authentication-support
+    - id: handling-relations-to-collections
+- title: The Client Generator Component
+  path: client-generator
+  items:
+    - id: index
+    - id: react
+    - id: vuejs
+    - id: troubleshooting
+- title: Deployment
+  path: deployment
+  items:
+    - id: index
+    - id: kubernetes
+    - id: heroku
+- title: Extra
+  path: extra
+  items:
+    - id: releases
+    - id: philosophy
+    - id: troubleshooting
+    - id: contribution-guides
+    - id: conduct
