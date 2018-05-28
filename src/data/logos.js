@@ -34,6 +34,10 @@ export const otherData = [
     logo: 'being-sports',
   },
   {
+    name: 'BiiG',
+    logo: 'biig',
+  },
+  {
     name: 'BNP',
     logo: 'bnp',
   },
