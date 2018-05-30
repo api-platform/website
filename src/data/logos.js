@@ -33,7 +33,7 @@ export const otherData = [
     link: 'http://www.alstom.com/',
   },
   {
-    name: 'Bein Sports',
+    name: 'beIN SPORTS',
     logo: 'bein-sports',
     link: 'http://www.beinsports.com/',
   },
