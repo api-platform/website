@@ -8,10 +8,17 @@ const openSourceList = openSourceData.map(({ name, logo, link }) => (
   </a>
 ));
 
-const otherList = otherData.map(({ name, logo }) => (
-  <div key={name} className="references__item">
+const otherList = otherData.map(({ name, logo, link }) => (
+  <a
+    href={link}
+    title={`${name} (new window)`}
+    key={name}
+    target="_blank"
+    rel="nofollow noreferrer noopener"
+    className="references__item"
+  >
     <img src={`/references/${logo}.png`} alt={name} width="300" height="110" />
-  </div>
+  </a>
 ));
 
 const References = () => (
