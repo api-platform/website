@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const { markdown } = require('markdown');
+const path = require('path');
+const xpath = require('xpath');
+const yaml = require('js-yaml');
+const { DOMParser } = require('xmldom');
+
+
+var exports = module.exports = {};
+
+exports.generateHtmlFromMdFileNode = function (filepath, id, node, onlyFirst = false) {
+
+    let content = fs.readFileSync(path.resolve(__dirname, `../src/pages/docs/${filepath}/${id}.md`)).toString();
+    content = content.replace(/`/gm, '"');
+    content = markdown.toHTML(content);
+
+    const html = new DOMParser().parseFromString(content);
+
+    return xpath.select(onlyFirst ? `${node}[1]`: node, html);
+};
