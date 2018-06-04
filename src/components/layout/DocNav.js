@@ -6,7 +6,7 @@ import NavItem from 'components/docs/NavItem';
 class DocNav extends Component {
   componentWillMount() {
     const { location, history } = this.props;
-
+    window.addEventListener('scroll', this.handleScroll);
     this.setState(prevState => ({
       ...prevState,
       currentItem: this.getItemByLocation(location),
@@ -28,6 +28,24 @@ class DocNav extends Component {
         ...prevState,
         currentItem: this.getItemByLocation(location),
       }));
+    }
+  }
+
+  handleScroll() {
+    if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] !== undefined) {
+      let current_item_open = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
+      let childs_current_item = current_item_open.querySelectorAll('a');
+      let childs_inner_page_item = [];
+      childs_current_item.forEach((child, index) => {
+        childs_inner_page_item[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
+        child.parentElement.classList.remove('current');
+      });
+      for (let i = childs_current_item.length - 1; i > 0; i = i - 1) {
+        if(childs_inner_page_item[i].offsetTop < window.scrollY) {
+          childs_current_item[i].parentElement.classList.add('current');
+          break;
+        }
+      }
     }
   }
 
