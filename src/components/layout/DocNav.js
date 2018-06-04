@@ -33,15 +33,15 @@ class DocNav extends Component {
 
   handleScroll() {
     if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] !== undefined) {
-      let currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
-      let childsCurrentItem = currentItemOpen.querySelectorAll('a');
-      let childsInnerPageItem = [];
+      const currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
+      const childsCurrentItem = currentItemOpen.querySelectorAll('a');
+      const childsInnerPageItem = [];
       childsCurrentItem.forEach((child, index) => {
         childsInnerPageItem[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
         child.parentElement.classList.remove('current');
       });
-      for (let i = childsCurrentItem.length - 1; i > 0; i = i - 1) {
-        if(childsInnerPageItem[i].offsetTop < window.scrollY) {
+      for (let i = childsCurrentItem.length - 1; 0 < i; i--) {
+        if (childsInnerPageItem[i].offsetTop < window.scrollY) {
           childsCurrentItem[i].parentElement.classList.add('current');
           break;
         }
