@@ -33,16 +33,16 @@ class DocNav extends Component {
 
   handleScroll() {
     if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] !== undefined) {
-      let current_item_open = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
-      let childs_current_item = current_item_open.querySelectorAll('a');
-      let childs_inner_page_item = [];
-      childs_current_item.forEach((child, index) => {
-        childs_inner_page_item[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
+      let currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
+      let childsCurrentItem = currentItemOpen.querySelectorAll('a');
+      let childsInnerPageItem = [];
+      childsCurrentItem.forEach((child, index) => {
+        childsInnerPageItem[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
         child.parentElement.classList.remove('current');
       });
-      for (let i = childs_current_item.length - 1; i > 0; i = i - 1) {
-        if(childs_inner_page_item[i].offsetTop < window.scrollY) {
-          childs_current_item[i].parentElement.classList.add('current');
+      for (let i = childsCurrentItem.length - 1; i > 0; i = i - 1) {
+        if(childsInnerPageItem[i].offsetTop < window.scrollY) {
+          childsCurrentItem[i].parentElement.classList.add('current');
           break;
         }
       }
