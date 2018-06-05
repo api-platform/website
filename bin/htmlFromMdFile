@@ -12,11 +12,12 @@ var exports = module.exports = {};
 
 exports.generateHtmlFromMdFileNode = function (filepath, id, node, onlyFirst = false) {
 
-    let content = fs.readFileSync(path.resolve(__dirname, `../src/pages/docs/${filepath}/${id}.md`)).toString();
-    content = content.replace(/`/gm, '"');
-    content = markdown.toHTML(content);
+  let content = fs.readFileSync(path.resolve(__dirname, `../src/pages/docs/${filepath}/${id}.md`)).toString();
+  content = content.replace(/([^`](`)[^`])/gm, '"');
+  content = content.replace(/```(|yaml|xml|php|json|javascript|sh)[^`]*```/gm, '');
+  content = markdown.toHTML(content);
 
-    const html = new DOMParser().parseFromString(content);
+  const html = new DOMParser().parseFromString(content);
 
-    return xpath.select(onlyFirst ? `${node}[1]`: node, html);
+  return xpath.select(onlyFirst ? `${node}[1]` : `${node}|${node}/following-sibling::*[self or self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6]`, html);
 };

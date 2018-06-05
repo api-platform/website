@@ -4,57 +4,82 @@ const htmlFromMdFile = require('./htmlFromMdFile');
 const { lstatSync, readdirSync, readFileSync, writeFile } = require('fs');
 const { resolve } = require('path');
 const jsYaml = require('js-yaml');
-const generatedTitle = '- title: ';
+const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
+const jsyaml = require('js-yaml');
+const { DOMParser } = require('xmldom');
 const lvl =  '  ';
+const generatedTitle = '- title: ';
 const generatedPath = `${lvl.repeat(1)}path: `;
-const generatedItems = `${lvl.repeat(1)}items: \n`;
+const generatedItems = `${lvl.repeat(1)}items: `;
 const generatedItemsId = `${lvl.repeat(2)}- id: `;
 const generatedItemsTitle = `${lvl.repeat(3)}title: `;
-const generatedItemsAnchors = `${lvl.repeat(3)}anchors: \n`;
+const generatedItemsAnchors = `${lvl.repeat(3)}anchors: `;
 const generatedAnchorId = `${lvl.repeat(4)}- id: `;
 const generatedAnchorTitle = `${lvl.repeat(5)}title: `;
-const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 
 let yaml = '';
 let h2s = [];
 
-for(var key in loadedOutline) {
-    if (!lstatSync(`${__dirname}/../src/pages/docs/${loadedOutline[key]['path']}`).isDirectory()) {
-        continue;
-    }
-    let files = readdirSync(`${__dirname}/../src/pages/docs/${loadedOutline[key]['path']}`);
+loadedOutline.map(el => {
+  //dossier
+  el.items.map(item => {
+    //fichiers
+    var elHtml = new DOMParser().parseFromString(`${htmlFromMdFile.generateHtmlFromMdFileNode(el.path, item.id, 'h1')}`, "text/html");
+    Object.keys(elHtml).forEach(key => elHtml[key] === undefined ? delete elHtml[key] : '');
+    item.yaml = jsyaml.safeLoad(jsyaml.safeDump(elHtml));
+  });
+});
 
-    yaml += `${generatedTitle}'${loadedOutline[key]['title']}'\n`;
-    yaml += `${generatedPath}${loadedOutline[key]['path']}\n`;
-    yaml += generatedItems;
-    Object.keys(loadedOutline[key]['items']).forEach(function(itemEntry) {
-
-        if (!files.includes(`${Object.values(loadedOutline[key]['items'][itemEntry])}.md`)) {
-            return;
-        }
-        const id = Object.values(loadedOutline[key]['items'][itemEntry]);
-        yaml += `${generatedItemsId}${id}\n`;
-        let h1 = `${htmlFromMdFile.generateHtmlFromMdFileNode(loadedOutline[key]['path'], id, 'h1', true)}\n`;
-        h1 = h1.replace(/"/g, '\\\"');
-        h1 = h1.replace(/<h1>/, `${generatedItemsTitle}"`);
-        h1 = h1.replace(/<\/h1>/, '"');
-        yaml += h1;
-        let h2 = `${htmlFromMdFile.generateHtmlFromMdFileNode(loadedOutline[key]['path'], id, 'h2')}`;
-
-        if (h2.length > 0) {
-            yaml += generatedItemsAnchors;
-        }
-        h2s = h2.split('<h2>');
-        h2s.forEach(function (el) {
-            if (el.length > 0) {
-                el = el.replace(/\\/, '\\\\');
-                el = `"${el.replace(/"/g, '\\\"')}`;
-                el = el.replace(/<\/h2>,?/, '"\n');
-                yaml += `${generatedAnchorId}${(((el.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '')).replace(/ /g, '-'))}\n`;
-                yaml += `${generatedAnchorTitle}${el}`;
-            }
-        });
-    });
+function processDirectory(title, path) {
+  yaml += `${generatedTitle}${title}\n${generatedPath}${path}\n`;
 }
+
+//Todo: remove switch by testing on h1
+function processNode(node, data = null, isCurrentLvl = false) {
+  switch (node) {
+    case 'h1':
+      yaml += !isCurrentLvl ? `${generatedItemsTitle}${data}\n` : `${generatedItemsTitle}${data}\n`;
+      break;
+    case 'h2':
+      yaml += !isCurrentLvl ? `${generatedItemsAnchors}\n${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n` : `${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n`;
+      break;
+    case 'h3':
+      yaml += !isCurrentLvl ? `${lvl.repeat(5)}anchors: \n${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n` : `${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n`;
+      break;
+    case 'h4':
+      yaml += !isCurrentLvl ? `${lvl.repeat(7)}anchors: \n${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n` : `${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n`;
+      break;
+    case 'h5':
+      yaml += !isCurrentLvl ? `${lvl.repeat(9)}anchors: \n${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n` : `${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n`;
+      break;
+    case 'h6':
+      yaml += !isCurrentLvl ? `${lvl.repeat(11)}anchors: \n${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n` : `${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${generatedAnchorTitle}${data}\n`;
+      break;
+  }
+}
+
+loadedOutline.map( (section) => {
+  processDirectory(section.title, section.path);
+  var itemExist = false
+  section.items.map( (item) => {
+    yaml += itemExist ? `${generatedItemsId}${item.id}\n` : `${generatedItems}\n${generatedItemsId}${item.id}\n`;
+    itemExist = true;
+    var htmlLvl = 'h1';
+
+    Object.keys(item.yaml.childNodes).map(function(objectKey, index) {
+      if (Math.abs(index % 2) == 0) {
+        let nodeName = item.yaml.childNodes[objectKey].nodeName;
+        let data = item.yaml.childNodes[objectKey].childNodes[0].data;
+        let isCurrentLvl = (htmlLvl == nodeName);
+        htmlLvl = nodeName;
+        //console.log(data)
+        processNode(nodeName, data, isCurrentLvl);
+      }
+    });
+  });
+});
+
+//console.log(yaml)
+//console.log(loadedOutline[0].items[0].yaml)
 
 writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), yaml, error => error && console.warn(error));
