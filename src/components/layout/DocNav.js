@@ -42,7 +42,7 @@ class DocNav extends Component {
         childsInnerPageItem[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
         child.parentElement.classList.remove('current');
       });
-      for (let i = childsCurrentItem.length - 1; 0 < i; i--) {
+      for (let i = childsCurrentItem.length - 1; 0 < i; i -= 1) {
         if (childsInnerPageItem[i].offsetTop < window.scrollY) {
           childsCurrentItem[i].parentElement.classList.add('current');
           break;
