@@ -6,7 +6,7 @@ import NavItem from 'components/docs/NavItem';
 class DocNav extends Component {
   componentWillMount() {
     const { location, history } = this.props;
-    if (undefined !== window){
+    if ('undefined' !== typeof (window)) {
       window.addEventListener('scroll', this.handleScroll);
     }
     this.setState(prevState => ({
