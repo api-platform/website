@@ -13,7 +13,7 @@ var exports = module.exports = {};
 exports.generateHtmlFromMdFileNode = function (filepath, id, node, onlyFirst = false) {
 
   let content = fs.readFileSync(path.resolve(__dirname, `../src/pages/docs/${filepath}/${id}.md`)).toString();
-  content = content.replace(/([^`](`)[^`])/gm, '"');
+  content = content.replace(/([^`])(`)([^`])/gm, '$1$3');
   content = content.replace(/```(|yaml|xml|php|json|javascript|sh)[^`]*```/gm, '');
   content = markdown.toHTML(content);
 
