@@ -6,6 +6,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   const docTemplate = Path.resolve('src/templates/doc.js');
 
+/*
   const navQuery = graphql(`
     {
       allNavYaml {
@@ -17,6 +18,33 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             items {
               id
               title
+            }
+          }
+        }
+      }
+    }
+  `);
+*/
+
+  const navQuery = graphql(`
+    {
+      allNavYaml {
+        edges {
+          node {
+            title
+            id
+            path
+            items {
+              id
+              title
+              anchors {
+                id
+                title
+                anchors {
+                  id
+                  title
+                }             
+              }
             }
           }
         }
@@ -46,7 +74,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const nav = values[0].data.allNavYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
     const parseNav = [];
-
     nav.map((navItem) => {
       const { path, title, items } = navItem.node;
       if (items) {
@@ -56,13 +83,32 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             title: subItem.title,
             rootPath: title,
           });
+          if (subItem.anchors) {
+            subItem.anchors.map((anchor) => {
+              if (anchor.anchors) {
+                anchor.anchors.map((anChorLvl2) => {
+                  //console.log(`docs/${path}/${subItem.id}/${anchor.id}`)
+                  //console.log(anChorLvl2.title)
+                  parseNav.push({
+                    path: `docs/${path}/${anchor.id}/${anChorLvl2.id}`,
+                    title: anChorLvl2.title,
+                    rootPath: title,
+                  });
+                })
+              }
+            })
+          }
         });
       }
     });
 
+    /*
     docs.map((edge) => {
+      //let path =  []
       const path = edge.node.fields.path;
-      const redirect = edge.node.fields.redirect;
+      console.log(path)
+
+      const redirect = edge.node.fields.redirect
       const index = parseNav.findIndex(element => element.path === path || element.path === redirect);
       let current,
         prev,
@@ -86,7 +132,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         current = { path: current.path, title: `${current.rootPath} - ${current.title}` };
       }
 
-      createPage({
+      //console.log(path)
+
+        createPage({
         path,
         component: docTemplate,
         context: {
@@ -98,6 +146,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       });
 
       if(redirect) {
+        //console.log(redirect, path)
         const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
         redirects.map(redirPath =>
           createRedirect({
@@ -109,6 +158,20 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         );
       }
     });
+
+    */
+
+    parseNav.map(navItem => {
+      let path = navItem.path
+      createPage({
+        path,
+        component: docTemplate,
+        context: {
+          path,
+        },
+      });
+    })
+
   });
 };
 
