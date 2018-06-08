@@ -18,15 +18,22 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
       >
         <ul>
           {anchors.map((item) => {
-            const link = `${path}#${item.id}`;
+            const link = `${path.split('#')[0]}#${item.id}`;
+            const active = '' !== location.hash && `#${item.id}` === location.hash;
             return (
               <li
                 key={link}
                 className={classNames('submenu-item__link', {
-                  current: '' !== location.hash && `#${item.id}` === location.hash,
+                  current: active,
                 })}
               >
-                <Link to={link}>{item.title}</Link>
+                <NavItemLink
+                  path={link}
+                  anchors={item.anchors}
+                  title={item.title}
+                  current={active}
+                  location={location}
+                />
               </li>
             );
           })}
