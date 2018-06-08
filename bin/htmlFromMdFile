@@ -7,7 +7,6 @@ const xpath = require('xpath');
 const yaml = require('js-yaml');
 const { DOMParser } = require('xmldom');
 
-
 var exports = module.exports = {};
 
 exports.generateHtmlFromMdFileNode = function (filepath, id, node, onlyFirst = false) {
