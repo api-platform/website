@@ -65,17 +65,22 @@ exports.processFile = function (filepath, id) {
       }
       //console.log('prev: ', previous.tagName, 'current: ', el.tagName, el.innerHTML);
       // console.log(el.innerHTML);
-      // TODO: Refactor the following:
+
+      // On passe reste au niveau du node précédent, on rajoute une instance de ce nœeuds à l'ancre du nœuds parent.
       if (el.tagName === previous.tagName) {
+        // On sauvegarde la version du node, si elle existe déjà, on rajoute, on n'écrase pas.
         heading[el.tagName].push({ title: el.innerHTML });
       }
 
+      // On quitte le dernier nœud pour revenir sur le nœud parent, on close donc le previous, on rajoute une instance au nœud parent (el).
       if (el.tagName < previous.tagName) {
         heading[el.tagName].push({ title: el.innerHTML });
       }
 
+      // On passe au node supérieur
       if (el.tagName > previous.tagName) {
-        heading[previous.tagName ] = {id: el.innerHTML.toLowerCase().replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-'), title: el.innerHTML}
+        // On sauvegarde la version du node, si elle existe déjà, on l'écrase
+        heading[previous.tagName] = { id: idFiedTitle(el.innerHTML), title: el.innerHTML };
       }
     }
     if (el) {
