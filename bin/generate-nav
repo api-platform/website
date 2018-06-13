@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 
-const fileProcessor = require('./fileProcessor');
-const { readFileSync, writeFile } = require('fs');
-const { resolve } = require('path');
-const jsyaml = require('js-yaml');
-const { DOMParser } = require('xmldom');
+const fileProcessor = require("./fileProcessor");
+const { readFileSync, writeFile } = require("fs");
+const { resolve } = require("path");
+const jsyaml = require("js-yaml");
+const { DOMParser } = require("xmldom");
 
-const lvl = '  ';
-const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
-let yaml = '';
+const lvl = "  ";
+const loadedOutline = jsyaml.safeLoad(
+  readFileSync(`${__dirname}/../config/outline.yaml`, "utf8"));
+
+let yaml = "";
 
 loadedOutline.map(directory => {
-  // directory
-
-  console.log('----START-DIR---------')
-  console.log(directory)
+  console.log('---- START-DIR "' + directory.title + '" ----');
   /*
     { title: 'The Distribution: Create Powerful APIs with Ease',
     path: 'distribution',
@@ -24,44 +23,52 @@ loadedOutline.map(directory => {
   // le but est ici de rajouter aux items leurs anchors ainsi que les titres
   // items.map( (item) => { return item = {...item, title, anchors}}
   directory.items.map((file) => {
-    console.log('----START-FILE---------')
-    console.log(file)
-    // file
+    console.log('---- START-FILE "' + file.id + '" ----');
 
-    // le but ici est de construire les anchors avec leurs sous anchors afin de les injecter dans leur item respectif
-    // /!\ il manque également les titres
-    let processedFile = `${fileProcessor.processFile(directory.path, file.id)}`;
-    //console.log(loadedOutline[0])
-    //console.log('//////////////////////////////////')
-    //item.title = processedFile.title
-    console.log('----END-FILE---------')
-    ;
+    const fileTree = fileProcessor.processFile(directory.path, file.id);
+
+    yaml += jsyaml.dump(fileTree);
+
+    console.log('---- END-FILE "' + file.id + '" ----');
   });
-  console.log('----END-DIR---------')
+
+  console.log('---- END-DIR "' + directory.title + '" ----');
 });
 
-//console.log(loadedOutline[0])
-
-function processDirectory(title, path) {
-  yaml += `- title: "${title}"\n${lvl.repeat(1)}path: ${path}\n`;
-}
-
-function processNode(node, data = null, isChild = false) {
-  if ('h1' === node) {
-    yaml += `${generatedItemsTitle}"${data}"\n`;
-  } else {
-    yaml += isChild ? `${lvl.repeat((parseInt(node.charAt(1)) * 2) - 1)}anchors: \n${lvl.repeat(((parseInt(node.charAt(1) - 2) * 2)))}${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n` : `${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n`;
-  }
-}
+//
+// //console.log(loadedOutline[0])
+//
+// function processDirectory(title, path) {
+//   yaml += `- title: "${title}"\n${lvl.repeat(1)}path: ${path}\n`;
+// }
+//
+// function processNode(node, data = null, isChild = false) {
+//   if ("h1" === node) {
+//     yaml += `${generatedItemsTitle}"${data}"\n`;
+//   } else {
+//     yaml += isChild ?
+//       `${lvl.repeat((parseInt(node.charAt(1)) * 2) - 1)}anchors: \n${lvl.repeat(
+//         ((parseInt(node.charAt(1) - 2) *
+//           2)))}${generatedAnchorId}${(data.toLowerCase()).replace(
+//         /[^A-Za-z0-9\-\ \_]/g, "").replace(/ /g, "-")}\n${lvl.repeat(
+//         ((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n` :
+//       `${lvl.repeat(((node.charAt(1) - 2) *
+//         2))}${generatedAnchorId}${(data.toLowerCase()).replace(
+//         /[^A-Za-z0-9\-\ \_]/g, "").replace(/ /g, "-")}\n${lvl.repeat(
+//         ((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n`;
+//   }
+// }
 //
 // loadedOutline.map((section) => {
 //   processDirectory(section.title, section.path);
 //   let itemExist = false;
 //
 //   section.items.map((item) => {
-//     yaml += itemExist ? `${generatedItemsId}${item.id}\n` : `${lvl.repeat(1)}items: \n${generatedItemsId}${item.id}\n`;
+//     yaml += itemExist ?
+//       `${generatedItemsId}${item.id}\n` :
+//       `${lvl.repeat(1)}items: \n${generatedItemsId}${item.id}\n`;
 //     itemExist = true;
-//     const htmlLvl = 'h1';
+//     const htmlLvl = "h1";
 //
 //     /*
 //     Object.keys(item.yaml.childNodes).map((objectKey, index) => {
@@ -77,5 +84,6 @@ function processNode(node, data = null, isChild = false) {
 //     */
 //   });
 // });
-
-writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), yaml, error => error && console.warn(error));
+//
+writeFile(resolve(__dirname, "../src/pages/docs/nav.yml"), yaml,
+  error => error && console.warn(error));
