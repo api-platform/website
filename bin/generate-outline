@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const htmlFromMdFile = require('./htmlFromMdFile');
+const htmlFromMdFile = require('./fileProcessor');
 const { lstatSync, readdirSync, readFileSync, writeFile } = require('fs');
 const { resolve } = require('path');
 const jsYaml = require('js-yaml');
