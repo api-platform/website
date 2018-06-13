@@ -10,8 +10,8 @@ var exports = module.exports = {};
 
 function slug(string) {
   return string.toLowerCase()
-    .replace('/[^A-Za-z0-9\\-\\ \\_]/g', '')
-    .replace('/ /g', '-');
+    .replace(/[^A-Za-z0-9\\-\\ \\_]/g, '')
+    .replace(/ /g, '-');
 }
 
 function getFileContent(filePath, id) {
@@ -28,18 +28,21 @@ function getHTML5Outline(fileContent) {
   return HTML5Outline(new JSDOM(fileContent).window.document.body);
 }
 
-function getTree(tree, node) {
+function getTree(tree, node, id) {
   if (node.sections) {
     node.sections.map((section) => {
-      tree.push({
-        id: slug(section.heading.innerHTML),
-        title: section.heading.innerHTML,
-        children: getTree([], section)
-      });
+      if (tree) {
+        let toPush = {
+          id: section.heading.tagName !== 'H1' ? slug(section.heading.innerHTML) : id,
+          title: section.heading.innerHTML,
+          children: getTree([], section),
+        }
+        tree.push(toPush);
+      }
     });
   }
 
   return tree;
 }
 
-exports.processFile = (filepath, id) => getTree([], getHTML5Outline(getFileContent(filepath, id)));
+exports.processFile = (filepath, id) => getTree([], getHTML5Outline(getFileContent(filepath, id)), id);
