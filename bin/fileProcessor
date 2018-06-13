@@ -3,90 +3,43 @@
 const fs = require('fs');
 const { markdown } = require('markdown');
 const path = require('path');
-const xpath = require('xpath');
-const yaml = require('js-yaml');
-const { DOMParser } = require('xmldom');
 const HTML5Outline = require('h5o');
 const { JSDOM } = require('jsdom');
 
-
-const nodes = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
 var exports = module.exports = {};
-var currentH2 = {};
-var heading = {
-  H2: [],
-  H3: [],
-  H4: [],
-  H5: [],
-  H6: [],
-};
 
-function idFiedTitle(title) {
-  return title.toLowerCase().replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-');
+function slug(string) {
+  return string.toLowerCase()
+    .replace('/[^A-Za-z0-9\\-\\ \\_]/g', '')
+    .replace('/ /g', '-');
 }
 
-exports.processFile = function (filepath, id) {
-  let item = [{ title: '', anchors: [] }];
-  let currentPos;
-  let content = fs.readFileSync(path.resolve(__dirname, `../src/pages/docs/${filepath}/${id}.md`)).toString();
-  content = content.replace(/([^`])(`)([^`])/gm, '$1$3');
-  content = content.replace(/```(|yaml|xml|php|json|javascript|sh)[^`]*```/gm, '');
-  content = markdown.toHTML(content);
+function getFileContent(filePath, id) {
+  const fileUrl = path.resolve(__dirname, `../src/pages/docs/${filePath}/${id}.md`);
 
-  const outline = HTML5Outline(new JSDOM(content).window.document.body);
-  console.log(outline)
+  const content = fs.readFileSync(fileUrl).toString()
+    .replace(/([^`])(`)([^`])/gm, '$1$3')
+    .replace(/```(|yaml|xml|php|json|javascript|sh)[^`]*```/gm, '');
 
-  outline.sections.map((section) => {
-    // console.log(section.heading.tagName)
-    // H1
-    // console.log(section.heading.innerHTML) Donne le Title de l'item
-    // Getting Started with API Platform: Hypermedia and GraphQL API, Admin and Progressive Web App
-    // ...
-    section.sections.map((sectionH2) => {
-      currentH2 = {
-        id: idFiedTitle(sectionH2.heading.innerHTML),
-        title: sectionH2.heading.innerHTML,
-      };
+  return markdown.toHTML(content);
+}
 
-      //console.log(currentH2);
+function getHTML5Outline(fileContent) {
+  return HTML5Outline(new JSDOM(fileContent).window.document.body);
+}
 
-      // Construction des ancres:
-      // Return tableau de h2
-      processNextElementSibling(sectionH2.heading.nextElementSibling);
-      // Construit l'item avec h1 et tableau d'H2
+function getTree(tree, node) {
+  if (node.sections) {
+    node.sections.map((section) => {
+      tree.push({
+        id: slug(section.heading.innerHTML),
+        title: section.heading.innerHTML,
+        children: getTree([], section)
+      });
     });
-  });
-
-  function processNextElementSibling(el) {
-    if (el && nodes.includes(el.tagName)) {
-      let previous = el.previousElementSibling;
-      while (!nodes.includes(previous.tagName)) {
-        previous = previous.previousElementSibling;
-      }
-      //console.log('prev: ', previous.tagName, 'current: ', el.tagName, el.innerHTML);
-      // console.log(el.innerHTML);
-
-      // On passe reste au niveau du node précédent, on rajoute une instance de ce nœeuds à l'ancre du nœuds parent.
-      if (el.tagName === previous.tagName) {
-        // On sauvegarde la version du node, si elle existe déjà, on rajoute, on n'écrase pas.
-        heading[el.tagName].push({ title: el.innerHTML });
-      }
-
-      // On quitte le dernier nœud pour revenir sur le nœud parent, on close donc le previous, on rajoute une instance au nœud parent (el).
-      if (el.tagName < previous.tagName) {
-        heading[el.tagName].push({ title: el.innerHTML });
-      }
-
-      // On passe au node supérieur
-      if (el.tagName > previous.tagName) {
-        // On sauvegarde la version du node, si elle existe déjà, on l'écrase
-        heading[previous.tagName] = { id: idFiedTitle(el.innerHTML), title: el.innerHTML };
-      }
-    }
-    if (el) {
-      processNextElementSibling(el.nextElementSibling);
-    }
   }
 
-  // console.log(heading);
-};
+  return tree;
+}
+
+exports.processFile = (filepath, id) => getTree([], getHTML5Outline(getFileContent(filepath, id)));

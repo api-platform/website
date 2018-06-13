@@ -17,6 +17,8 @@
     "gatsby-remark-prismjs": "^1.2.8",
     "gatsby-transformer-sharp": "^1.6.14",
     "gatsby-transformer-yaml": "^1.5.11",
+    "h5o": "^0.11.3",
+    "jsdom": "^11.11.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^7.0.0",
     "prismjs": "^1.8.1",

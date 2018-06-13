@@ -10,10 +10,11 @@ const lvl = '  ';
 const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 let yaml = '';
 
-loadedOutline.map((el) => {
+loadedOutline.map(directory => {
   // directory
 
-  //console.log(el)
+  console.log('----START-DIR---------')
+  console.log(directory)
   /*
     { title: 'The Distribution: Create Powerful APIs with Ease',
     path: 'distribution',
@@ -22,16 +23,21 @@ loadedOutline.map((el) => {
    */
   // le but est ici de rajouter aux items leurs anchors ainsi que les titres
   // items.map( (item) => { return item = {...item, title, anchors}}
-  el.items.map((file) => {
+  directory.items.map((file) => {
+    console.log('----START-FILE---------')
+    console.log(file)
     // file
 
     // le but ici est de construire les anchors avec leurs sous anchors afin de les injecter dans leur item respectif
     // /!\ il manque également les titres
-    let processedFile = `${fileProcessor.processFile(el.path, file.id)}`;
+    let processedFile = `${fileProcessor.processFile(directory.path, file.id)}`;
     //console.log(loadedOutline[0])
     //console.log('//////////////////////////////////')
     //item.title = processedFile.title
+    console.log('----END-FILE---------')
+    ;
   });
+  console.log('----END-DIR---------')
 });
 
 //console.log(loadedOutline[0])
@@ -47,29 +53,29 @@ function processNode(node, data = null, isChild = false) {
     yaml += isChild ? `${lvl.repeat((parseInt(node.charAt(1)) * 2) - 1)}anchors: \n${lvl.repeat(((parseInt(node.charAt(1) - 2) * 2)))}${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n` : `${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorId}${(data.toLowerCase()).replace(/[^A-Za-z0-9\-\ \_]/g, '').replace(/ /g, '-')}\n${lvl.repeat(((node.charAt(1) - 2) * 2))}${generatedAnchorTitle}${data}\n`;
   }
 }
-
-loadedOutline.map((section) => {
-  processDirectory(section.title, section.path);
-  let itemExist = false;
-
-  section.items.map((item) => {
-    yaml += itemExist ? `${generatedItemsId}${item.id}\n` : `${lvl.repeat(1)}items: \n${generatedItemsId}${item.id}\n`;
-    itemExist = true;
-    const htmlLvl = 'h1';
-
-    /*
-    Object.keys(item.yaml.childNodes).map((objectKey, index) => {
-      // For even index
-      if (Math.abs(index % 2) == 0) {
-        let nodeName = item.yaml.childNodes[objectKey].nodeName;
-        //let data = item.yaml.childNodes[objectKey].childNodes[0].data;
-        //let isChild = parseInt(htmlLvl.charAt(1)) < parseInt(nodeName.charAt(1));
-        //htmlLvl = nodeName;
-        //processNode(nodeName, data, isChild);
-      }
-    });
-    */
-  });
-});
+//
+// loadedOutline.map((section) => {
+//   processDirectory(section.title, section.path);
+//   let itemExist = false;
+//
+//   section.items.map((item) => {
+//     yaml += itemExist ? `${generatedItemsId}${item.id}\n` : `${lvl.repeat(1)}items: \n${generatedItemsId}${item.id}\n`;
+//     itemExist = true;
+//     const htmlLvl = 'h1';
+//
+//     /*
+//     Object.keys(item.yaml.childNodes).map((objectKey, index) => {
+//       // For even index
+//       if (Math.abs(index % 2) == 0) {
+//         let nodeName = item.yaml.childNodes[objectKey].nodeName;
+//         //let data = item.yaml.childNodes[objectKey].childNodes[0].data;
+//         //let isChild = parseInt(htmlLvl.charAt(1)) < parseInt(nodeName.charAt(1));
+//         //htmlLvl = nodeName;
+//         //processNode(nodeName, data, isChild);
+//       }
+//     });
+//     */
+//   });
+// });
 
 writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), yaml, error => error && console.warn(error));
