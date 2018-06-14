@@ -35,8 +35,8 @@ function getTree(tree, node, id) {
         let toPush = {
           id: section.heading.tagName !== 'H1' ? slug(section.heading.innerHTML) : id,
           title: section.heading.innerHTML,
-          children: getTree([], section),
-        }
+        };
+        toPush = getTree([], section).length > 0 ? { ...toPush, children: getTree([], section) } : toPush;
         tree.push(toPush);
       }
     });
