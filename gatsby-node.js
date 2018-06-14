@@ -54,10 +54,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   `);
 
   function getNav(nav, currentPath, navItem) {
-    console.log('-----');
-    console.log(navItem);
-    console.log('-----');
-
     if (navItem.anchors) {
       navItem.anchors.map((navSubItem) => {
         let subItemCurrentPath = `${currentPath}/${navSubItem.id}`;
@@ -93,8 +89,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         });
       }
     });
-
-    console.log(JSON.stringify(parseNav));
 
     docs.map((edge) => {
       const path = edge.node.fields.path;
