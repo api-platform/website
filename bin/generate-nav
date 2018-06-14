@@ -11,11 +11,11 @@ const loadedOutline = jsyaml.safeLoad(
 let yaml = "";
 
 loadedOutline.map(directory => {
-  directory.items.map((file) => {
-
-    const fileTree = fileProcessor.processFile(directory.path, file.id);
-    yaml += jsyaml.safeDump(fileTree, { lineWidth: 255 });
+  const fileTree = directory.items.map((file) => {
+    return fileProcessor.processFile(directory.path, file.id);
   });
+
+  yaml += jsyaml.safeDump({ ...directory, items: fileTree }, { lineWidth: 255 });
 
 });
 
