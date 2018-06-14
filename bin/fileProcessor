@@ -31,14 +31,17 @@ function getHTML5Outline(fileContent) {
 function getTree(tree, node, id) {
   if (node.sections) {
     node.sections.map((section) => {
-      if (tree) {
-        let toPush = {
-          id: section.heading.tagName !== 'H1' ? slug(section.heading.innerHTML) : id,
-          title: section.heading.innerHTML,
-        };
-        toPush = getTree([], section).length > 0 ? { ...toPush, children: getTree([], section) } : toPush;
-        tree.push(toPush);
+      if (!tree) {
+        return;
       }
+      let toPush = {
+        id: section.heading.tagName !== 'H1' ? slug(section.heading.innerHTML) : id,
+        title: section.heading.innerHTML,
+      };
+      toPush = getTree([], section).length > 0 ?
+        {...toPush, children: getTree([], section)} :
+        toPush;
+      tree.push(toPush);
     });
   }
 

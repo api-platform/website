@@ -15,7 +15,7 @@ loadedOutline.map(directory => {
     return fileProcessor.processFile(directory.path, file.id);
   });
 
-  yaml += jsyaml.safeDump({ ...directory, items: fileTree }, { lineWidth: 255 });
+  yaml += jsyaml.safeDump([{ ...directory, items: fileTree[0] }], { lineWidth: 255 });
 
 });
 
