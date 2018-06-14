@@ -52,6 +52,14 @@ export const pageQuery = graphql`
             anchors {
               id
               title
+              anchors {
+                id
+                title
+                anchors {
+                  id
+                  title
+                }
+              }
             }
           }
         }

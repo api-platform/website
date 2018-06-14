@@ -39,7 +39,7 @@ function getTree(tree, node, id) {
         title: section.heading.innerHTML,
       };
       toPush = getTree([], section).length > 0 ?
-        {...toPush, children: getTree([], section)} :
+        {...toPush, anchors: getTree([], section)} :
         toPush;
       tree.push(toPush);
     });

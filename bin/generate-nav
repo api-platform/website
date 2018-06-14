@@ -12,11 +12,10 @@ let yaml = "";
 
 loadedOutline.map(directory => {
   const fileTree = directory.items.map((file) => {
-    return fileProcessor.processFile(directory.path, file.id);
+    return fileProcessor.processFile(directory.path, file.id)[0];
   });
 
-  yaml += jsyaml.safeDump([{ ...directory, items: fileTree[0] }], { lineWidth: 255 });
-
+  yaml += jsyaml.safeDump([{ ...directory, items: fileTree }], { lineWidth: 255 });
 });
 
 writeFile(resolve(__dirname, "../src/pages/docs/nav.yml"), yaml,
