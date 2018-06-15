@@ -16,18 +16,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             items {
               id
               title
-              anchors {
-                id
-                title
-                anchors {
-                  id
-                  title
-                  anchors {
-                    id
-                    title
-                  }
-                }
-              }
             }
           }
         }
