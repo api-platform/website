@@ -6,7 +6,7 @@ const NavSubItemLink = ({ path, anchors, title, current, location }) => {
   return (
     <ul>
       {anchors.map((item) => {
-        const link = `${path}#${item.id}`;
+        const link = `${path}/${item.id}`;
         return (
           <li
             key={link}
@@ -17,7 +17,7 @@ const NavSubItemLink = ({ path, anchors, title, current, location }) => {
             <Link to={link}>{item.title}</Link>
             {item.anchors &&
               <NavSubItemLink
-                path={path}
+                path={link}
                 anchors={item.anchors}
                 title={item.title}
                 location={location}

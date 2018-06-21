@@ -30,7 +30,7 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
                 <Link to={link}>{item.title}</Link>
                 {item.anchors &&
                   <NavSubItemLink
-                    path={path}
+                    path={link}
                     anchors={item.anchors}
                     title={item.title}
                     location={location}
