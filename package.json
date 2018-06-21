@@ -17,6 +17,7 @@
     "gatsby-remark-prismjs": "^1.2.8",
     "gatsby-transformer-sharp": "^1.6.14",
     "gatsby-transformer-yaml": "^1.5.11",
+    "glamor-inline": "^1.0.5",
     "h5o": "^0.11.3",
     "jsdom": "^11.11.0",
     "node-sass": "^4.0.0",
@@ -24,6 +25,7 @@
     "prismjs": "^1.8.1",
     "react-async-script-loader": "^0.3.0",
     "react-collapsible": "^2.0.3",
+    "react-helmet": "^5.2.0",
     "react-html-parser": "^2.0.1"
   },
   "devDependencies": {

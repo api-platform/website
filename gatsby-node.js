@@ -6,89 +6,7 @@ const { JSDOM } = require('jsdom');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
-
   const docTemplate = Path.resolve("src/templates/doc.js");
-
-  const tellMeWhoYouAre = graphql(`
-    query IntrospectionQuery {
-      __schema {
-        queryType { name }
-        mutationType { name }
-        subscriptionType { name }
-        types {
-          ...FullType
-        }
-        directives {
-          name
-          description
-          args {
-            ...InputValue
-          }
-          onOperation
-          onFragment
-          onField
-        }
-      }
-    }
-  
-    fragment FullType on __Type {
-      kind
-      name
-      description
-      fields(includeDeprecated: true) {
-        name
-        description
-        args {
-          ...InputValue
-        }
-        type {
-          ...TypeRef
-        }
-        isDeprecated
-        deprecationReason
-      }
-      inputFields {
-        ...InputValue
-      }
-      interfaces {
-        ...TypeRef
-      }
-      enumValues(includeDeprecated: true) {
-        name
-        description
-        isDeprecated
-        deprecationReason
-      }
-      possibleTypes {
-        ...TypeRef
-      }
-    }
-  
-    fragment InputValue on __InputValue {
-      name
-      description
-      type { ...TypeRef }
-      defaultValue
-    }
-  
-    fragment TypeRef on __Type {
-      kind
-      name
-      ofType {
-        kind
-        name
-        ofType {
-          kind
-          name
-          ofType {
-            kind
-            name
-          }
-        }
-      }
-    }
-  `);
-
   const navQuery = graphql(`
     {
       allNavYaml {
@@ -146,7 +64,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     return nav;
   }
 
-  return Promise.all([navQuery, docQuery, tellMeWhoYouAre]).then((values) => {
+  return Promise.all([navQuery, docQuery]).then((values) => {
     const nav = values[0].data.allNavYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
     const parseNav = [];
@@ -244,10 +162,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         })
       }) (headings, result);
 
-      let formatedAnchors = newAnchors.map( newAnchors => `<a href="#${newAnchors}" aria-hidden="true" class="anchor">` );
+      let formatedAnchors = newAnchors.map( newAnchors => `id="${newAnchors}">` );
 
       for (let i = 0; i < newAnchors.length; i++ ) {
-        const re = new RegExp('<a href="#' + newAnchors[i].split('/').slice(-1)[0]  + '" aria-hidden="true" class="anchor">', 'gm');
+        const re = new RegExp('id="' + newAnchors[i].split('/').slice(-1)[0]  + '">', 'gm');
         edge.node.html = html.replace(re, formatedAnchors[i]);
         html = edge.node.html
       }
@@ -279,7 +197,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           path,
           current,
           prev,
-          next
+          next,
+          html
         }
       });
 
