@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import DocNav from 'components/layout/DocNav';
 
-const Template = ({ data, pathContext }) => {
-  return (
+const Template = ({ pathContext }) => (
     <div className="page__docs">
       <Helmet title={(pathContext.current && pathContext.current.title) || 'Documentation'} />
       <div className="container docs__content">
@@ -27,8 +26,7 @@ const Template = ({ data, pathContext }) => {
       </div>
       <DocNav nav={pathContext.nav} />
     </div>
-  );
-};
+);
 
 export default Template;
 

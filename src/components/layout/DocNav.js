@@ -43,7 +43,9 @@ class DocNav extends Component {
         child.parentElement.classList.remove('current');
       });
       for (let i = childsCurrentItem.length; 0 < i; i -= 1) {
-        if (childsInnerPageItem[i] && childsInnerPageItem[i].offsetTop < window.scrollY && childsInnerPageItem[i].parentNode.offsetTop < window.scrollY) {
+        if (childsInnerPageItem[i] &&
+          childsInnerPageItem[i].offsetTop < window.scrollY &&
+          childsInnerPageItem[i].parentNode.offsetTop < window.scrollY) {
           childsCurrentItem[i].parentNode.classList.add('current');
           return;
         }

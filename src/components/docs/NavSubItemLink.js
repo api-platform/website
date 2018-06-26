@@ -1,17 +1,16 @@
-import React from "react";
-import Link from "gatsby-link";
-import classNames from "classnames";
+import React from 'react';
+import Link from 'gatsby-link';
+import classNames from 'classnames';
 
-const NavSubItemLink = ({ path, anchors, title, current, location }) => {
-  return (
-    <ul>
-      {anchors.map((item) => {
+const NavSubItemLink = ({ path, anchors, location }) => (
+  <ul>
+    {anchors.map((item) => {
         const link = `${path}/${item.id}`;
         return (
           <li
             key={link}
-            className={classNames("submenu-item__link", {
-              current: "" !== location.hash && `#${item.id}` === location.hash
+            className={classNames('submenu-item__link', {
+              current: '' !== location.hash && `#${item.id}` === location.hash,
             })}
           >
             <Link to={link}>{item.title}</Link>
@@ -26,8 +25,7 @@ const NavSubItemLink = ({ path, anchors, title, current, location }) => {
           </li>
         );
       })}
-    </ul>
-  );
-};
+  </ul>
+);
 
 export default NavSubItemLink;
