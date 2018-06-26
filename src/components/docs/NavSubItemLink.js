@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const NavSubItemLink = ({ path, anchors, location }) => (
   <ul>
     {anchors.map((item) => {
-        const link = `${path}/${item.id}`;
+        const link = `${path}#${item.id}`;
         return (
           <li
             key={link}
@@ -17,7 +17,7 @@ const NavSubItemLink = ({ path, anchors, location }) => (
             <Link to={link}>{item.title}</Link>
             {item.anchors &&
               <NavSubItemLink
-                path={link}
+                path={path}
                 anchors={item.anchors}
                 title={item.title}
                 location={location}

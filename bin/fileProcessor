@@ -5,7 +5,12 @@ const { markdown } = require('markdown');
 const path = require('path');
 const HTML5Outline = require('h5o');
 const { JSDOM } = require('jsdom');
-const slugs = require('github-slugger')();
+
+function slug(string) {
+  return string.toLowerCase()
+    .replace(/[^A-Za-z0-9\\-\\ \\_]/g, '')
+    .replace(/ /g, '-');
+}
 
 function getFileContent(filePath, id) {
   const fileUrl = path.resolve(__dirname, `../src/pages/docs/${filePath}/${id}.md`);
@@ -27,7 +32,7 @@ function getTree(tree, node, id) {
         return;
       }
       let toPush = {
-        id: 'H1' !== section.heading.tagName ? slugs.slug(section.heading.innerHTML) : id,
+        id: 'H1' !== section.heading.tagName ? slug(section.heading.innerHTML) : id,
         title: section.heading.innerHTML,
       };
       toPush = 0 < getTree([], section).length ?

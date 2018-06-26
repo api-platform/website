@@ -127,49 +127,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         headings.splice(currentVal - index, 1);
       });
 
-      let newAnchors = [];
-      let lastAnchors = '';
-
-      (function (headings, result) {
-
-        Object.keys(headings).map( (key) =>  {
-          if (headings[key].depth === 2) {
-            lastAnchors = result[key];
-            return;
-          }
-
-          if (headings[parseInt(key) + 1] === undefined) {
-            newAnchors.push(`${lastAnchors}/${result[key]}`);
-            return;
-          }
-
-          if ((headings[parseInt(key) + 1].depth === headings[key].depth)) {
-            newAnchors.push(`${lastAnchors}/${result[key]}`);
-            return;
-          }
-
-          if (headings[parseInt(key) + 1].depth > headings[key].depth) {
-            newAnchors.push(`${lastAnchors}/${result[key]}`);
-            lastAnchors += `/${result[key]}`;
-            return;
-          }
-
-          if (headings[parseInt(key) + 1].depth < headings[key].depth) {
-            newAnchors.push(`${lastAnchors}/${result[key]}`);
-            const diff = headings[parseInt(key) + 1].depth - headings[key].depth
-            lastAnchors = lastAnchors.split('/').slice(0, diff).join('');
-          }
-        })
-      }) (headings, result);
-
-      let formatedAnchors = newAnchors.map( newAnchors => `id="${newAnchors}">` );
-
-      for (let i = 0; i < newAnchors.length; i++ ) {
-        const re = new RegExp('id="' + newAnchors[i].split('/').slice(-1)[0]  + '">', 'gm');
-        edge.node.html = html.replace(re, formatedAnchors[i]);
-        html = edge.node.html
-      }
-
       if (-1 !== index) {
         current = parseNav[index];
         rootPath = current.rootPath;
