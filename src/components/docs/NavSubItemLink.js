@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const NavSubItemLink = ({ path, anchors, location }) => (
   <ul>
@@ -29,3 +30,9 @@ const NavSubItemLink = ({ path, anchors, location }) => (
 );
 
 export default NavSubItemLink;
+
+NavSubItemLink.propTypes = {
+  path: PropTypes.string.isRequired,
+  anchors: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
