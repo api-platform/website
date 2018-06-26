@@ -1,7 +1,7 @@
 const Path = require("path");
 const URL = require("url");
 const jsyaml = require("js-yaml");
-const { readFileSync, writeFile } = require("fs");
+const { readFileSync } = require("fs");
 
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
