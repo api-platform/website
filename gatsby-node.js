@@ -1,7 +1,7 @@
 const Path = require("path");
 const URL = require("url");
-const HTML5Outline = require('h5o');
-const { JSDOM } = require('jsdom');
+const jsyaml = require("js-yaml");
+const { readFileSync, writeFile } = require("fs");
 
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
@@ -190,6 +190,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         };
       }
 
+      const nav = jsyaml.safeLoad(
+        readFileSync(`${__dirname}/src/pages/docs/nav.yml`, "utf8"));
+
       createPage({
         path,
         component: docTemplate,
@@ -198,7 +201,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           current,
           prev,
           next,
-          html
+          html,
+          nav
         }
       });
 

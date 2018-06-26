@@ -74,13 +74,12 @@ class DocNav extends Component {
 
   render() {
     const { currentItem, locationWithHash } = this.state;
-
     return (
       <div className="docs__menu openable">
         {this.props.nav.map(item => (
           <NavItem
             item={item}
-            key={item.node.path}
+            key={item.path}
             onClick={this.toggleMenu}
             current={currentItem}
             location={locationWithHash}
