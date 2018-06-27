@@ -72,18 +72,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     nav.map((navItem) => {
       const { path, title, items } = navItem.node;
-      if (items) {
-        items.map((subItem) => {
-          const currentPath = `docs/${path}/${subItem.id}`;
-
-          parseNav.push({
-            path: currentPath,
-            title: subItem.title,
-            rootPath: title,
-            items: getNav([], currentPath, subItem)
-          });
-        });
+      if (!items) {
+        return;
       }
+      items.map((subItem) => {
+        const currentPath = `docs/${path}/${subItem.id}`;
+
+        parseNav.push({
+          path: currentPath,
+          title: subItem.title,
+          rootPath: title,
+          items: getNav([], currentPath, subItem)
+        });
+      });
     });
 
     docs.map((edge) => {
@@ -96,8 +97,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         next,
         rootPath;
 
-      let headings = edge.node.headings;
-      let html = edge.node.html;
+      const headings = edge.node.headings;
+      const html = edge.node.html;
 
       const regex = RegExp(/<a href="#((?:[\w-]+(?:-[\w-]+)*)+)" aria-hidden="true" class="anchor">/, 'gm');
       let tmpResult;

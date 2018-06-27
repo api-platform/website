@@ -39,7 +39,6 @@ newOutline.forEach(function (item) {
   Object.keys(item.items).forEach((itemEntry) => {
     if (!files.includes(`${Object.values(item.items[itemEntry])}.md`)) {
       console.warn('\x1b[31m', `missing ${Object.values(item.items[itemEntry])}.md file in src/pages/docs/${item.path}`, '\x1b[37m');
-      return;
     }
   });
 
