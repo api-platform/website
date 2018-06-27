@@ -42,11 +42,7 @@ newOutline.forEach(function (item) {
     }
   });
 
-  const newOutlineFiles = [];
-
-  item.items.forEach(function (file) {
-    newOutlineFiles.push(`${file.id}.md`);
-  });
+  const newOutlineFiles = item.items.map(file => `${file.id}.md`)
 
   files.forEach(function (file) {
     if (!newOutlineFiles.includes(file)) {
