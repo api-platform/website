@@ -1,12 +1,12 @@
-const Path = require("path");
-const URL = require("url");
-const jsyaml = require("js-yaml");
-const { readFileSync } = require("fs");
+const Path = require('path');
+const URL = require('url');
+const jsyaml = require('js-yaml');
+const { readFileSync } = require('fs');
 
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
-  const docTemplate = Path.resolve("src/templates/doc.js");
+  const docTemplate = Path.resolve('src/templates/doc.js');
   const navQuery = graphql(`
     {
       allNavYaml {
@@ -49,19 +49,20 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   `);
 
   function getNav(nav, currentPath, navItem) {
-    if (navItem.anchors) {
-      navItem.anchors.map((navSubItem) => {
-        let subItemCurrentPath = `${currentPath}/${navSubItem.id}`;
-        nav.push({
-          path: subItemCurrentPath,
-          title: navSubItem.title,
-          rootPath: navItem.title,
-          items: getNav([], subItemCurrentPath, navSubItem)
-        });
-      });
+    if (!navItem.anchors) {
+      return nav;
     }
 
-    return nav;
+    return [...nav, ...navItem.anchors.map((navSubItem) => {
+      const subItemCurrentPath = `${currentPath}/${navSubItem.id}`;
+
+      return {
+        path: subItemCurrentPath,
+        title: navSubItem.title,
+        rootPath: navItem.title,
+        items: getNav([], subItemCurrentPath, navSubItem)
+      };
+    })];
   }
 
   return Promise.all([navQuery, docQuery]).then((values) => {
@@ -73,7 +74,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       const { path, title, items } = navItem.node;
       if (items) {
         items.map((subItem) => {
-          let currentPath = `docs/${path}/${subItem.id}`;
+          const currentPath = `docs/${path}/${subItem.id}`;
 
           parseNav.push({
             path: currentPath,
@@ -101,7 +102,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       const regex = RegExp(/<a href="#((?:[\w-]+(?:-[\w-]+)*)+)" aria-hidden="true" class="anchor">/, 'gm');
       let tmpResult;
       let result = [];
-      let indexesToRemove = [];
 
       while ((tmpResult = regex.exec(html)) !== null) {
         result.push(tmpResult[1]);
@@ -112,20 +112,14 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           return;
         }
         if (index > 0 ) {
-          console.warn("\x1b[31m", `\nMultiple title in single file are not allowed, please change heading node of following title: '${currentVal.value}' in ${path}.md\n`, "\x1b[37m");
+          console.warn('\x1b[31m', `\nMultiple title in single file are not allowed, please change heading node of following title: '${currentVal.value}' in ${path}.md\n`, '\x1b[37m');
         }
-        indexesToRemove.push(index);
       });
 
       if (headings.length !== result.length) {
-        console.warn("\x1b[31m", `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`, "\x1b[37m")
+        console.warn('\x1b[31m', `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`, '\x1b[37m');
         return;
       }
-
-      indexesToRemove.forEach(function (currentVal, index) {
-        result.splice(currentVal - index, 1);
-        headings.splice(currentVal - index, 1);
-      });
 
       if (-1 !== index) {
         current = parseNav[index];
@@ -148,8 +142,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
 
       const nav = jsyaml.safeLoad(
-        readFileSync(`${__dirname}/src/pages/docs/nav.yml`, "utf8"));
-
+        readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
       createPage({
         path,
         component: docTemplate,
@@ -180,11 +173,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
-  if ("MarkdownRemark" !== node.internal.type) {
+  if ('MarkdownRemark' !== node.internal.type) {
     return;
   }
   const fileNode = getNode(node.parent);
-  let nodePath = fileNode.relativePath.replace(".md", "");
+  let nodePath = fileNode.relativePath.replace('.md', '');
   let html = node.internal.content;
   let localUrls = [];
   let matches;
@@ -195,17 +188,17 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 
   localUrls.map((url) => {
-    let newUrl = url.replace(".md", "");
+    let newUrl = url.replace('.md', '');
     newUrl = `/${URL.resolve(nodePath, newUrl)}`;
     html = html.replace(url, newUrl);
     return true;
   });
 
   node.internal.content = html;
-  if ("index" === Path.basename(nodePath)) {
+  if ('index' === Path.basename(nodePath)) {
     createNodeField({
       node,
-      name: "redirect",
+      name: 'redirect',
       value: nodePath
     });
     nodePath = `${Path.dirname(nodePath)}`;
@@ -213,7 +206,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 
   createNodeField({
     node,
-    name: "path",
+    name: 'path',
     value: nodePath
   });
 };
@@ -221,12 +214,12 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 exports.modifyWebpackConfig = ({ config }) => {
   config.merge({
     resolve: {
-      root: Path.resolve(__dirname, "./src"),
+      root: Path.resolve(__dirname, './src'),
       alias: {
-        styles: "styles",
-        images: "images",
-        data: "data",
-        components: "components"
+        styles: 'styles',
+        images: 'images',
+        data: 'data',
+        components: 'components'
       }
     }
   });

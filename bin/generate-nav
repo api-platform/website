@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-const fileProcessor = require("./fileProcessor");
-const { readFileSync, writeFile } = require("fs");
-const { resolve } = require("path");
-const jsyaml = require("js-yaml");
+const fileProcessor = require('./fileProcessor');
+const { readFileSync, writeFile } = require('fs');
+const { resolve } = require('path');
+const jsyaml = require('js-yaml');
 
 const loadedOutline = jsyaml.safeLoad(
-  readFileSync(`${__dirname}/../config/outline.yaml`, "utf8"));
+  readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 
 let yaml = "";
 
-loadedOutline.map(directory => {
+loadedOutline.forEach((directory) => {
   const fileTree = directory.items.map((file) => {
     return fileProcessor.processFile(directory.path, file.id)[0];
   });
@@ -18,5 +18,5 @@ loadedOutline.map(directory => {
   yaml += jsyaml.safeDump([{ ...directory, items: fileTree }], { lineWidth: 255 });
 });
 
-writeFile(resolve(__dirname, "../src/pages/docs/nav.yml"), yaml,
+writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), yaml,
   error => error && console.warn(error));

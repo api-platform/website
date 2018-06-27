@@ -26,23 +26,18 @@ function getHTML5Outline(fileContent) {
 }
 
 function getTree(tree, node, id) {
-  if (node.sections) {
-    node.sections.map((section) => {
-      if (!tree) {
-        return;
-      }
-      let toPush = {
-        id: 'H1' !== section.heading.tagName ? slug(section.heading.innerHTML) : id,
-        title: section.heading.innerHTML,
-      };
-      toPush = 0 < getTree([], section).length ?
-        { ...toPush, anchors: getTree([], section) } :
-        toPush;
-      tree.push(toPush);
-    });
+  if (!node.sections || !tree) {
+    return tree;
   }
 
-  return tree;
+  return [...tree, ...node.sections.map((section) => {
+    const toPush = {
+      id: 'H1' !== section.heading.tagName ? slug(section.heading.innerHTML) : id,
+      title: section.heading.innerHTML,
+    };
+
+    return 0 < getTree([], section).length ? { ...toPush, anchors: getTree([], section) } : toPush;
+  })];
 }
 
 module.exports.processFile = (filepath, id) => getTree([], getHTML5Outline(getFileContent(filepath, id)), id);
