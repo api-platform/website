@@ -18,13 +18,13 @@ Be sure to install them first and to have the binaries in your path.
 
 git clone https://github.com/api-platform/website.git
 
-# Retrieve documentation
-
-bin/retrieve-documentation
-
 # Install dependencies
 
 yarn install
+
+# Retrieve documentation
+
+bin/retrieve-documentation
 
 # Run project locally (for development)
 
