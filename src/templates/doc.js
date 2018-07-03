@@ -31,6 +31,5 @@ const Template = ({ pathContext }) => (
 export default Template;
 
 Template.propTypes = {
-  data: PropTypes.object.isRequired,
   pathContext: PropTypes.object.isRequired,
 };

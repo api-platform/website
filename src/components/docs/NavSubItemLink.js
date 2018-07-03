@@ -34,6 +34,6 @@ export default NavSubItemLink;
 
 NavSubItemLink.propTypes = {
   path: PropTypes.string.isRequired,
-  anchors: PropTypes.object.isRequired,
+  anchors: PropTypes.array.isRequired,
   location: PropTypes.object.isRequired,
 };
