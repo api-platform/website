@@ -70,28 +70,22 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const docs = values[1].data.allMarkdownRemark.edges;
     const parseNav = [];
 
-    nav.map((navItem) => {
-      const { path, title, items } = navItem.node;
-      if (!items) {
-        return;
-      }
-      items.map((subItem) => {
-        const currentPath = `docs/${path}/${subItem.id}`;
-
-        parseNav.push({
-          path: currentPath,
+    nav
+      .filter((navItem) => navItem.node.items)
+      .forEach((navItem) => {
+        const { path, title, items } = navItem.node;
+        [...parseNav, ...items.map((subItem) => ({
+          path: `docs/${path}/${subItem.id}`,
           title: subItem.title,
           rootPath: title,
-          items: getNav([], currentPath, subItem)
-        });
+          items: getNav([], path, subItem)
+        }))]
       });
-    });
 
-    docs.map((edge) => {
+    docs.forEach((edge) => {
       const path = edge.node.fields.path;
       const redirect = edge.node.fields.redirect;
-      const index = parseNav.findIndex(
-        element => element.path === path || element.path === redirect);
+      const index = parseNav.findIndex((element) => element.path === path || element.path === redirect);
       let current,
         prev,
         next,
@@ -108,7 +102,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         result.push(tmpResult[1]);
       }
 
-      headings.forEach(function (currentVal, index) {
+      headings.forEach((currentVal, index) => {
         if (currentVal.depth !== 1 ) {
           return;
         }
@@ -142,8 +136,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         };
       }
 
-      const nav = jsyaml.safeLoad(
-        readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
+      const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
       createPage({
         path,
         component: docTemplate,
@@ -159,7 +152,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
       if (redirect) {
         const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
-        redirects.map(redirPath =>
+        redirects.forEach(redirPath =>
           createRedirect({
             fromPath: redirPath,
             toPath: `/${path}`,
@@ -182,9 +175,9 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   let html = node.internal.content;
   let localUrls = [];
   let matches;
-  const re = /(\]\((?!http)(?!#)(.*?)\))/gi;
+  const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
 
-  while ((matches = re.exec(html))) {
+  while (matches = regex.exec(html)) {
     localUrls.push(matches[2]);
   }
 
