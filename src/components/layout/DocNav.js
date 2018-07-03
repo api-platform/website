@@ -8,6 +8,7 @@ class DocNav extends Component {
     const { location, history } = this.props;
     if ('undefined' !== typeof (window)) {
       window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('click', this.handleScroll);
     }
     this.setState(prevState => ({
       ...prevState,
@@ -44,8 +45,8 @@ class DocNav extends Component {
       });
       for (let i = childsCurrentItem.length; 0 < i; i -= 1) {
         if (childsInnerPageItem[i] &&
-          childsInnerPageItem[i].offsetTop < window.scrollY &&
-          childsInnerPageItem[i].parentNode.offsetTop < window.scrollY) {
+          childsInnerPageItem[i].offsetTop < window.scrollY + 2 &&
+          childsInnerPageItem[i].parentNode.offsetTop < window.scrollY + 2) {
           childsCurrentItem[i].parentNode.classList.add('current');
           return;
         }
