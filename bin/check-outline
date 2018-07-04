@@ -34,6 +34,7 @@ newOutline
       .filter((itemEntry) => !files.includes(`${Object.values(item.items[itemEntry])}.md`))
       .forEach((itemEntry) => {
         console.warn('\x1b[31m', `missing ${Object.values(item.items[itemEntry])}.md file in src/pages/docs/${item.path}`, '\x1b[37m');
+        process.exit(1);
       });
 
     const newOutlineFiles = item.items.map(file => `${file.id}.md`)
@@ -42,6 +43,7 @@ newOutline
       .filter((file) => !newOutlineFiles.includes(file))
       .forEach((file) => {
         console.warn('\x1b[31m', `missing file ${file} in ${item.path} section in config/outline.yaml`, '\x1b[37m');
+        process.exit(1);
       });
   });
 

@@ -8,6 +8,7 @@
   items:
     - id: index
     - id: getting-started
+    - id: design
     - id: configuration
     - id: operations
     - id: default-order
@@ -21,6 +22,7 @@
     - id: external-vocabularies
     - id: extending-jsonld-context
     - id: data-providers
+    - id: data-persisters
     - id: extensions
     - id: security
     - id: performance
