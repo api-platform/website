@@ -122,9 +122,8 @@
         }
       }
 
-      .submenu-item__link.current {
+      .submenu-item__link.current, .current:before {
         color: $white;
-        font-weight: $bold;
         padding-right: 0;
       }
     }
