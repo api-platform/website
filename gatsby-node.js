@@ -68,13 +68,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return Promise.all([navQuery, docQuery]).then((values) => {
     const nav = values[0].data.allNavYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
-    const parseNav = [];
+    let parseNav = [];
 
     nav
       .filter((navItem) => navItem.node.items)
       .forEach((navItem) => {
         const { path, title, items } = navItem.node;
-        [...parseNav, ...items.map((subItem) => ({
+        parseNav = [...parseNav, ...items.map((subItem) => ({
           path: `docs/${path}/${subItem.id}`,
           title: subItem.title,
           rootPath: title,
