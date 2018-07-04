@@ -108,11 +108,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
         if (index > 0 ) {
           console.warn('\x1b[31m', `\nMultiple title in single file are not allowed, please change heading node of following title: '${currentVal.value}' in ${path}.md\n`, '\x1b[37m');
+          process.exit(1);
         }
       });
 
       if (headings.length !== result.length) {
         console.warn('\x1b[31m', `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`, '\x1b[37m');
+        process.exit(1);
         return;
       }
 
