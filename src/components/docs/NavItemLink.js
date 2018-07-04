@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Collapsible from 'react-collapsible';
 import classNames from 'classnames';
+import NavSubItemLink from './NavSubItemLink';
 
 const NavItemLink = ({ path, anchors, title, current, location }) => {
   if (anchors) {
@@ -27,6 +28,14 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
                 })}
               >
                 <Link to={link}>{item.title}</Link>
+                {item.anchors &&
+                  <NavSubItemLink
+                    path={path}
+                    anchors={item.anchors}
+                    title={item.title}
+                    location={location}
+                  />
+                }
               </li>
             );
           })}

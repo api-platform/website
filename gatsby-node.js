@@ -1,18 +1,18 @@
 const Path = require('path');
 const URL = require('url');
+const jsyaml = require('js-yaml');
+const { readFileSync } = require('fs');
+
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
-
   const docTemplate = Path.resolve('src/templates/doc.js');
-
   const navQuery = graphql(`
     {
       allNavYaml {
         edges {
           node {
             title
-            id
             path
             items {
               id
@@ -29,6 +29,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       allMarkdownRemark(sort: { order: DESC, fields: [fields___path] }, limit: 1000) {
         edges {
           node {
+            html
+            tableOfContents
+            headings {
+              depth
+              value
+            }
             fields {
               path
               redirect
@@ -42,32 +48,75 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
   `);
 
+  function getNav(nav, currentPath, navItem) {
+    if (!navItem.anchors) {
+      return nav;
+    }
+
+    return [...nav, ...navItem.anchors.map((navSubItem) => {
+      const subItemCurrentPath = `${currentPath}/${navSubItem.id}`;
+
+      return {
+        path: subItemCurrentPath,
+        title: navSubItem.title,
+        rootPath: navItem.title,
+        items: getNav([], subItemCurrentPath, navSubItem)
+      };
+    })];
+  }
+
   return Promise.all([navQuery, docQuery]).then((values) => {
     const nav = values[0].data.allNavYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
     const parseNav = [];
 
-    nav.map((navItem) => {
-      const { path, title, items } = navItem.node;
-      if (items) {
-        items.map((subItem) => {
-          parseNav.push({
-            path: `docs/${path}/${subItem.id}`,
-            title: subItem.title,
-            rootPath: title,
-          });
-        });
-      }
-    });
+    nav
+      .filter((navItem) => navItem.node.items)
+      .forEach((navItem) => {
+        const { path, title, items } = navItem.node;
+        [...parseNav, ...items.map((subItem) => ({
+          path: `docs/${path}/${subItem.id}`,
+          title: subItem.title,
+          rootPath: title,
+          items: getNav([], path, subItem)
+        }))]
+      });
 
-    docs.map((edge) => {
+    docs.forEach((edge) => {
       const path = edge.node.fields.path;
       const redirect = edge.node.fields.redirect;
-      const index = parseNav.findIndex(element => element.path === path || element.path === redirect);
+      const index = parseNav.findIndex((element) => element.path === path || element.path === redirect);
       let current,
         prev,
         next,
         rootPath;
+
+      const headings = edge.node.headings;
+      const html = edge.node.html;
+
+      const regex = RegExp(/<a href="#((?:[\w-]+(?:-[\w-]+)*)+)" aria-hidden="true" class="anchor">/, 'gm');
+      let tmpResult;
+      let result = [];
+
+      while ((tmpResult = regex.exec(html)) !== null) {
+        result.push(tmpResult[1]);
+      }
+
+      headings.forEach((currentVal, index) => {
+        if (currentVal.depth !== 1 ) {
+          return;
+        }
+        if (index > 0 ) {
+          console.warn('\x1b[31m', `\nMultiple title in single file are not allowed, please change heading node of following title: '${currentVal.value}' in ${path}.md\n`, '\x1b[37m');
+          process.exit(1);
+        }
+      });
+
+      if (headings.length !== result.length) {
+        console.warn('\x1b[31m', `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`, '\x1b[37m');
+        process.exit(1);
+        return;
+      }
 
       if (-1 !== index) {
         current = parseNav[index];
@@ -83,9 +132,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           next = { path: next.path, title: `${next.rootPath} - ${next.title}` };
         }
 
-        current = { path: current.path, title: `${current.rootPath} - ${current.title}` };
+        current = {
+          path: current.path,
+          title: `${current.rootPath} - ${current.title}`
+        };
       }
 
+      const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
       createPage({
         path,
         component: docTemplate,
@@ -94,17 +147,19 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           current,
           prev,
           next,
-        },
+          html,
+          nav
+        }
       });
 
-      if(redirect) {
+      if (redirect) {
         const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
-        redirects.map(redirPath =>
+        redirects.forEach(redirPath =>
           createRedirect({
             fromPath: redirPath,
             toPath: `/${path}`,
             isPermanent: true,
-            redirectInBrowser: true,
+            redirectInBrowser: true
           })
         );
       }
@@ -117,15 +172,14 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   if ('MarkdownRemark' !== node.internal.type) {
     return;
   }
-
   const fileNode = getNode(node.parent);
   let nodePath = fileNode.relativePath.replace('.md', '');
   let html = node.internal.content;
-  const re = /(\]\((?!http)(?!#)(.*?)\))/gi;
-  const localUrls = [];
+  let localUrls = [];
   let matches;
+  const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
 
-  while ((matches = re.exec(html))) {
+  while (matches = regex.exec(html)) {
     localUrls.push(matches[2]);
   }
 
@@ -137,12 +191,11 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   });
 
   node.internal.content = html;
-
-  if('index' === Path.basename(nodePath)) {
+  if ('index' === Path.basename(nodePath)) {
     createNodeField({
       node,
       name: 'redirect',
-      value: nodePath,
+      value: nodePath
     });
     nodePath = `${Path.dirname(nodePath)}`;
   }
@@ -150,7 +203,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   createNodeField({
     node,
     name: 'path',
-    value: nodePath,
+    value: nodePath
   });
 };
 
@@ -162,9 +215,9 @@ exports.modifyWebpackConfig = ({ config }) => {
         styles: 'styles',
         images: 'images',
         data: 'data',
-        components: 'components',
-      },
-    },
+        components: 'components'
+      }
+    }
   });
   return config;
 };

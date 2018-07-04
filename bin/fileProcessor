@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const HTML5Outline = require('h5o');
+const { JSDOM } = require('jsdom');
+const fileContentHelper = require('../src/lib/fileContentHelper');
+const treeHelper = require('../src/lib/treeHelper');
+
+function getHTML5Outline(fileContent) {
+  return HTML5Outline(new JSDOM(fileContent).window.document.body);
+}
+
+module.exports.processFile = (filepath, id) => treeHelper.getTree([], getHTML5Outline(fileContentHelper.getFileContent(filepath, id)), id);

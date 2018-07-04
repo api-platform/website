@@ -12,4 +12,5 @@ git clone https://github.com/api-platform/docs.git src/pages/docs
 
 # Generate "nav.yml"
 
+bin/check-outline
 bin/generate-nav

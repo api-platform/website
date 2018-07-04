@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import NavItemLink from './NavItemLink';
 
 const NavItem = ({ item, location, current, onClick }) => {
-  const { items, path, title } = item.node;
+  const { items, path, title } = item;
   const open = path === current;
   return items ? (
     <Collapsible

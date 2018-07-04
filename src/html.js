@@ -20,6 +20,7 @@ module.exports = class HTML extends React.Component {
         />
       );
     }
+
     return (
       <html>
         <head>
