@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const { docTitle } = require('../constants');
+const chapterHelper = require('../src/helper/chapterHelper');
+const { readFileSync, writeFile } = require('fs');
+const { resolve } = require('path');
+const jsyaml = require('js-yaml');
+const fileProcessor = require('./fileProcessor');
+
+const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
+
+const index = `# ${docTitle}\n\n${loadedOutline.map((chapter) => chapterHelper.processChapter(chapter, fileProcessor)).join('\n\n')}`;
+
+writeFile(resolve(__dirname, '../src/pages/docs/index.md'), index, error => error && console.warn(error));
