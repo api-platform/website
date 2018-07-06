@@ -2,7 +2,7 @@ const Path = require('path');
 const URL = require('url');
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
-
+const slugs = require("github-slugger")();
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
@@ -138,7 +138,25 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         };
       }
 
+      slugs.reset();
       const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
+
+      function processHomonymAnchors(item) {
+        item.anchors.forEach((anchor) => {
+          anchor.id = slugs.slug(anchor.id);
+          if (!anchor.anchors) {
+            return;
+          }
+          processHomonymAnchors(anchor);
+        })
+      }
+
+      Object.keys(nav).forEach(navKey => {
+          nav[navKey].items.filter(item => item.anchors).forEach((item) => {
+            processHomonymAnchors(item);
+          })
+      });
+
       createPage({
         path,
         component: docTemplate,
