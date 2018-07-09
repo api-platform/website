@@ -23,6 +23,10 @@ const menu = [
         text: 'Scaffolding component',
         path: '/docs/client-generator',
       },
+      {
+        text: 'Deployment',
+        path: '/docs/deployment',
+      },
     ],
   },
   {
