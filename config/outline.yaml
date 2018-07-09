@@ -23,6 +23,7 @@
     - id: extending-jsonld-context
     - id: data-providers
     - id: data-persisters
+    - id: identifiers
     - id: extensions
     - id: security
     - id: performance
