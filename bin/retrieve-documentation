@@ -14,3 +14,4 @@ git clone https://github.com/api-platform/docs.git src/pages/docs
 
 bin/check-outline
 bin/generate-nav
+bin/generate-index

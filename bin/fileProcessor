@@ -2,8 +2,8 @@
 
 const HTML5Outline = require('h5o');
 const { JSDOM } = require('jsdom');
-const fileContentHelper = require('../src/lib/fileContentHelper');
-const treeHelper = require('../src/lib/treeHelper');
+const fileContentHelper = require('../src/helper/fileContentHelper');
+const treeHelper = require('../src/helper/treeHelper');
 
 function getHTML5Outline(fileContent) {
   return HTML5Outline(new JSDOM(fileContent).window.document.body);
