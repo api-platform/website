@@ -6,13 +6,14 @@ const { resolve } = require('path');
 const jsyaml = require('js-yaml');
 
 const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
+const docs = { chapters: [] };
 
-const yaml = loadedOutline
-  .map((directory) => {
-    const items = directory.items.map(file => fileProcessor.processFile(directory.path, file.id)[0]);
 
-    return jsyaml.safeDump([{ ...directory, items }], { lineWidth: 255 });
-  })
-  .join('');
+loadedOutline.chapters
+  .forEach((directory) => {
+    const items = directory.items
+      .map(file => fileProcessor.processFile(directory.path, file.id)[0]);
+    docs.chapters.push({ ...directory, items });
+  });
 
-writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), yaml, error => error && console.warn(error));
+writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
