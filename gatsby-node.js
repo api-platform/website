@@ -9,14 +9,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const docTemplate = Path.resolve('src/templates/doc.js');
   const navQuery = graphql(`
     {
-      allNavYaml {
+      allDocsYaml {
         edges {
           node {
-            title
-            path
-            items {
-              id
+            chapters {
               title
+              path
+              items {
+                id
+                title
+              }
             }
           }
         }
@@ -66,7 +68,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   }
 
   return Promise.all([navQuery, docQuery]).then((values) => {
-    const nav = values[0].data.allNavYaml.edges;
+    const nav = values[0].data.allDocsYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
     let parseNav = [];
 
@@ -151,8 +153,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         })
       }
 
-      Object.keys(nav).forEach(navKey => {
-          nav[navKey].items.filter(item => item.anchors).forEach((item) => {
+      Object.keys(nav.chapters).forEach(navKey => {
+          nav.chapters[navKey].items.filter(item => item.anchors).forEach((item) => {
             processHomonymAnchors(item);
           })
       });
@@ -166,7 +168,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           prev,
           next,
           html,
-          nav
+          nav: nav.chapters
         }
       });
 

@@ -9,8 +9,8 @@ const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outli
 const directories = (() => readdirSync(docPagesDirectory)
   .filter(folder => statSync(join(docPagesDirectory, folder))
     .isDirectory() && '.' !== folder[0]))();
-
-const outlineDirectories = Object.keys(loadedOutline).map(key => loadedOutline[key].path);
+const outlineDirectories = Object.keys(loadedOutline.chapters)
+  .map(key => loadedOutline.chapters[key].path);
 const oddDirectories = {
   missingDirectories: directories.filter(folder => !outlineDirectories.includes(folder)),
   surplusDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
@@ -19,7 +19,7 @@ const oddDirectories = {
 if (oddDirectories.missingDirectories.length > 0) {
   console.warn('\x1b[31m', `Following Directories are missing in Outline, please add them with relevants titles: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
 }
-const newOutline = loadedOutline.filter(folder => !oddDirectories.surplusDirectories.includes(folder.path));
+const newOutline = loadedOutline.chapters.filter(folder => !oddDirectories.surplusDirectories.includes(folder.path));
 
 newOutline
   .filter((item) => {
@@ -37,7 +37,7 @@ newOutline
         process.exit(1);
       });
 
-    const newOutlineFiles = item.items.map(file => `${file.id}.md`)
+    const newOutlineFiles = item.items.map(file => `${file.id}.md`);
 
     files
       .filter((file) => !newOutlineFiles.includes(file))
@@ -47,4 +47,4 @@ newOutline
       });
   });
 
-writeFile(resolve(__dirname, '../config/outline.yaml'), jsYaml.safeDump(newOutline), error => error && console.warn(error));
+writeFile(resolve(__dirname, '../config/outline.yaml'), jsYaml.safeDump({ chapters: newOutline }), error => error && console.warn(error));
