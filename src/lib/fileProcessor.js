@@ -9,6 +9,8 @@ function getHTML5Outline(filepath, id) {
   return HTML5Outline(new JSDOM(fileContent).window.document.body);
 }
 
-module.exports.processFile = (filepath, id) => {
-    return treeHelper.getTree(getHTML5Outline(filepath, id), id, []);
-};
+function processFile(filepath, id) {
+  return treeHelper.getTree(getHTML5Outline(filepath, id), id, []);
+}
+
+module.exports.processFile = processFile;

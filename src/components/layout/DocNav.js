@@ -36,7 +36,7 @@ class DocNav extends Component {
 
   handleScroll() {
     if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] === undefined) {
-        return;
+      return;
     }
 
     const currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];

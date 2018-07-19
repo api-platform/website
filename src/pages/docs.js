@@ -1,52 +1,82 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 
-export const query = graphql`query Tree {
+export const query = `query Tree {
     docsYaml(id: {regex: "/docs/nav.yml/"}) {
-      chapters {
-        title
-        path
-        items {
-          title
-          id
-          anchors {
-            id
+        chapters {
             title
-            anchors {
-              id
-              title
+            path
+            items {
+                title
+                id
+                anchors {
+                    id
+                    title
+                }
             }
-          }
         }
-      }
     }
 }`;
 
-function renderAnchors(item, path, subject, lvl = 2) {
-  lvl += 1;
-  if (!item || !item.anchors) return;
+const RenderInnerList = ({ anchors, path }) => (
+  <ol>
+    {anchors.map(({ id, title }) => {
+            const currentPath = `${path}#${id}`;
 
-  return (
-    <ul key={`ul-${item.id}`}>
-      <a></a>
-      { item.anchors.map((anchor) => {
-        return (
-          <li key={`li-${anchor.id}`}>
-            <a href={lvl > 4 ? `/docs/${path}/${subject}#${anchor.id}` : `/docs/${path}#${anchor.id}`}>{anchor.title}</a>{renderAnchors(anchor, path, subject, lvl)}
-          </li>
-        );
-        })
-      }
-    </ul>
-  );
-  lvl += 1;
-}
-
-export default ({ data: { docsYaml: { chapters } } }) => {
-  return (
-    <div>
-      { chapters.map(({ title, items, path }) =>
-        <h2 key={title}>{ title }{items.map((item => renderAnchors(item, path, item.id)))}</h2>) }
-    </div>
-  );
+            return (
+              <li key={currentPath}>
+                <Link to={currentPath}>{title}</Link>
+              </li>
+            );
+        })}
+  </ol>
+);
+RenderInnerList.propTypes = {
+  anchors: PropTypes.array.isRequired,
+  path: PropTypes.string.isRequired,
 };
+
+const RenderList = ({ items, path }) => (
+  <ol>
+    {items.map(({ id, title, anchors }) => {
+            let currentPath = path;
+            if ('index' !== id) {
+                currentPath += `/${id}`;
+            }
+
+            return (
+              <li key={currentPath}>
+                <Link to={currentPath}>{title}</Link>
+                {anchors && <RenderInnerList anchors={anchors} path={currentPath} />}
+              </li>
+            );
+        })}
+  </ol>
+);
+RenderList.propTypes = {
+  items: PropTypes.array.isRequired,
+  path: PropTypes.string.isRequired,
+};
+
+const Render = ({ data: { docsYaml: { chapters } } }) => (
+  <div>
+    {
+        chapters.map(({ path, title, items }) => {
+            const currentPath = `/docs/${path}`;
+
+            return (
+              <section key={path}>
+                <h1><Link to={currentPath}>{title}</Link></h1>
+                <RenderList items={items} path={currentPath} />
+              </section>
+            );
+        })
+    }
+  </div>
+);
+Render.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default Render;
