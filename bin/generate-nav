@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fileProcessor = require('./fileProcessor');
+const fileProcessor = require('../src/lib/fileProcessor');
 const { readFileSync, writeFile } = require('fs');
 const { resolve } = require('path');
 const jsyaml = require('js-yaml');
@@ -8,12 +8,12 @@ const jsyaml = require('js-yaml');
 const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 const docs = { chapters: [] };
 
+loadedOutline.chapters.forEach((directory) => {
+    const items = directory.items.map(
+        file => fileProcessor.processFile(directory.path, file.id)[0]
+    );
 
-loadedOutline.chapters
-  .forEach((directory) => {
-    const items = directory.items
-      .map(file => fileProcessor.processFile(directory.path, file.id)[0]);
     docs.chapters.push({ ...directory, items });
-  });
+});
 
 writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));

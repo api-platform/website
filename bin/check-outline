@@ -1,50 +1,54 @@
 #!/usr/bin/env node
 
-const { docPagesDirectory } = require('../constants');
-const { lstatSync, readdirSync, readFileSync, writeFile, statSync } = require('fs');
-const { join, resolve } = require('path');
+const {docPagesDirectory} = require('../constants');
+const {lstatSync, readdirSync, readFileSync, writeFile, statSync} = require('fs');
+const {join, resolve} = require('path');
 const jsYaml = require('js-yaml');
 
 const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
-const directories = (() => readdirSync(docPagesDirectory)
-  .filter(folder => statSync(join(docPagesDirectory, folder))
-    .isDirectory() && '.' !== folder[0]))();
-const outlineDirectories = Object.keys(loadedOutline.chapters)
-  .map(key => loadedOutline.chapters[key].path);
+const directories = (() => readdirSync(docPagesDirectory).filter(
+        folder => statSync(join(docPagesDirectory, folder)).isDirectory() && '.' !== folder[0])
+)();
+
+const outlineDirectories = Object
+    .keys(loadedOutline.chapters)
+    .map(key => loadedOutline.chapters[key].path);
+
 const oddDirectories = {
-  missingDirectories: directories.filter(folder => !outlineDirectories.includes(folder)),
-  surplusDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
+    missingDirectories: directories.filter(folder => !outlineDirectories.includes(folder)),
+    extraDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
 };
 
 if (oddDirectories.missingDirectories.length > 0) {
-  console.warn('\x1b[31m', `Following Directories are missing in Outline, please add them with relevants titles: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
+    console.warn('\x1b[31m', `The following "path" entries are missing in "outline.yaml", please add them with the relevants "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
 }
-const newOutline = loadedOutline.chapters.filter(folder => !oddDirectories.surplusDirectories.includes(folder.path));
+
+const newOutline = loadedOutline.chapters.filter(folder => !oddDirectories.extraDirectories.includes(folder.path));
 
 newOutline
-  .filter((item) => {
-    const path = `${__dirname}/../src/pages/docs/${item.path}`;
+    .filter((item) => {
+        const path = `${__dirname}/../src/pages/docs/${item.path}`;
 
-    return lstatSync(path).isDirectory();
-  })
-  .forEach((item) => {
-    const files = readdirSync(`${__dirname}/../src/pages/docs/${item.path}`).filter(file => file.endsWith('.md'));
+        return lstatSync(path).isDirectory();
+    })
+    .forEach((item) => {
+        const files = readdirSync(`${__dirname}/../src/pages/docs/${item.path}`).filter(file => file.endsWith('.md'));
 
-    Object.keys(item.items)
-      .filter((itemEntry) => !files.includes(`${Object.values(item.items[itemEntry])}.md`))
-      .forEach((itemEntry) => {
-        console.warn('\x1b[31m', `missing ${Object.values(item.items[itemEntry])}.md file in src/pages/docs/${item.path}`, '\x1b[37m');
-        process.exit(1);
-      });
+        Object.keys(item.items)
+            .filter(itemEntry => !files.includes(`${Object.values(item.items[itemEntry])}.md`))
+            .forEach(itemEntry => {
+                console.warn('\x1b[31m', `missing ${Object.values(item.items[itemEntry])}.md file in src/pages/docs/${item.path}`, '\x1b[37m');
+                process.exit(1);
+            });
 
-    const newOutlineFiles = item.items.map(file => `${file.id}.md`);
+        const newOutlineFiles = item.items.map(file => `${file.id}.md`);
 
-    files
-      .filter((file) => !newOutlineFiles.includes(file))
-      .forEach((file) => {
-        console.warn('\x1b[31m', `missing file ${file} in ${item.path} section in config/outline.yaml`, '\x1b[37m');
-        process.exit(1);
-      });
-  });
+        files
+            .filter((file) => !newOutlineFiles.includes(file))
+            .forEach((file) => {
+                console.warn('\x1b[31m', `missing file ${file} in ${item.path} section in config/outline.yaml`, '\x1b[37m');
+                process.exit(1);
+            });
+    });
 
-writeFile(resolve(__dirname, '../config/outline.yaml'), jsYaml.safeDump({ chapters: newOutline }), error => error && console.warn(error));
+writeFile(resolve(__dirname, '../config/outline.yaml'), jsYaml.safeDump({chapters: newOutline}), error => error && console.warn(error));
