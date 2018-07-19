@@ -1,4 +1,4 @@
-const slugHelper = require('./slugHelper');
+const slugs = require('github-slugger')();
 
 const treeHelper = {
   getTree(tree, node, id) {
@@ -7,8 +7,9 @@ const treeHelper = {
     }
 
     return [...tree, ...node.sections.map((section) => {
+      if ('H1' === section.heading.tagName) slugs.reset();
       const toPush = {
-        id: 'H1' !== section.heading.tagName ? slugHelper.slug(section.heading.innerHTML) : id,
+        id: 'H1' !== section.heading.tagName ? slugs.slug(section.heading.innerHTML) : id,
         title: section.heading.innerHTML,
       };
 

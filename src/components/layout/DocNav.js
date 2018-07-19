@@ -35,21 +35,24 @@ class DocNav extends Component {
   }
 
   handleScroll() {
-    if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] !== undefined) {
-      const currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
-      const childsCurrentItem = currentItemOpen.querySelectorAll('a');
-      const childsInnerPageItem = [];
-      childsCurrentItem.forEach((child, index) => {
-        childsInnerPageItem[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
-        child.parentElement.classList.remove('current');
-      });
-      for (let i = childsCurrentItem.length; 0 < i; i -= 1) {
-        if (childsInnerPageItem[i] &&
-          childsInnerPageItem[i].offsetTop < window.scrollY + 2 &&
-          childsInnerPageItem[i].parentNode.offsetTop < window.scrollY + 2) {
-          childsCurrentItem[i].parentNode.classList.add('current');
-          return;
-        }
+    if (document.querySelectorAll('.Collapsible.submenu__item.open')[0] === undefined) {
+        return;
+    }
+
+    const currentItemOpen = document.querySelectorAll('.Collapsible.submenu__item.open')[0];
+    const childsCurrentItem = currentItemOpen.querySelectorAll('a');
+    const childsInnerPageItem = [];
+    childsCurrentItem.forEach((child, index) => {
+      childsInnerPageItem[index] = document.getElementById(child.getAttribute('href').split('#')[1]);
+      child.parentElement.classList.remove('current');
+    });
+
+    for (let i = childsCurrentItem.length; 0 < i; i -= 1) {
+      if (childsInnerPageItem[i] &&
+        childsInnerPageItem[i].offsetTop < window.scrollY + 2 &&
+        childsInnerPageItem[i].parentNode.offsetTop < window.scrollY + 2) {
+        childsCurrentItem[i].parentNode.classList.add('current');
+        return;
       }
     }
   }
