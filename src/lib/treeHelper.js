@@ -1,20 +1,23 @@
-const slugs = require('github-slugger')();
+const GithubSlugger = require('github-slugger')
+const slugger = new GithubSlugger()
 
 const treeHelper = {
-  getTree(tree, node, id) {
-    if (!node.sections || !tree) {
-      return tree;
-    }
+  getTree(node, id, tree) {
+    if (typeof tree === 'undefined') tree = [];
+    if (!node.sections || !tree) return tree;
 
-    return [...tree, ...node.sections.map((section) => {
-      if ('H1' === section.heading.tagName) slugs.reset();
+    return [...tree, ...node.sections.map(section => {
       const toPush = {
-        id: 'H1' !== section.heading.tagName ? slugs.slug(section.heading.innerHTML) : id,
+        id: 'H1' === section.heading.tagName ? id : slugger.slug(section.heading.innerHTML),
         title: section.heading.innerHTML,
       };
 
-      return 0 < treeHelper.getTree([], section).length ?
-        { ...toPush, anchors: treeHelper.getTree([], section) } : toPush;
+      const tree = treeHelper.getTree(section);
+      if (tree.length) {
+          toPush.anchors = tree;
+      }
+
+      return toPush;
     })];
   },
 };
