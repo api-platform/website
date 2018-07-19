@@ -72,9 +72,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const docs = values[1].data.allMarkdownRemark.edges;
     let parseNav = [];
 
-    nav
-      .filter((navItem) => navItem.node.items)
-      .forEach((navItem) => {
+    function parseNavItem(nav) {
+      nav.forEach((navItem) => {
         const { path, title, items } = navItem.node;
         parseNav = [...parseNav, ...items.map((subItem) => ({
           path: `docs/${path}/${subItem.id}`,
@@ -82,7 +81,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           rootPath: title,
           items: getNav([], path, subItem)
         }))]
-      });
+      },
+    )};
+
+    parseNavItem(nav.filter((navItem) => navItem.node.items));
 
     docs.forEach((edge) => {
       const path = edge.node.fields.path;

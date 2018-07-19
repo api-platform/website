@@ -4,7 +4,7 @@ const dotenv = require('dotenv').config({ path: '.env.gatsby' });
 
 module.exports = {
   siteMetadata: {
-    title: 'Api Platform',
+    title: 'API Platform',
     siteUrl: process.env.GATSBY_ROOT_URL,
   },
   plugins: [
