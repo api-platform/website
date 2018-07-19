@@ -2,7 +2,7 @@ const menu = [
   {
     text: 'docs',
     rootPath: '/docs',
-    path: '/docs',
+    path: '/docs/distribution',
     submenu: [
       {
         text: 'Distribution',
