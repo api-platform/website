@@ -2,31 +2,12 @@ const Path = require('path');
 const URL = require('url');
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
-const slugs = require("github-slugger")();
 
 const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
   const docTemplate = Path.resolve('src/templates/doc.js');
-  const navQuery = graphql(`
-    {
-      allDocsYaml {
-        edges {
-          node {
-            chapters {
-              title
-              path
-              items {
-                id
-                title
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
 
   const docQuery = graphql(`
     {
@@ -69,8 +50,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })];
   }
 
-  return Promise.all([navQuery, docQuery]).then((values) => {
-    const docs = values[1].data.allMarkdownRemark.edges;
+  return Promise.resolve(docQuery).then((values) => {
+    const docs = values.data.allMarkdownRemark.edges;
     let parseNav = [];
 
     function parseNavItem(nav) {
