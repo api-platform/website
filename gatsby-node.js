@@ -2,6 +2,7 @@ const Path = require('path');
 const URL = require('url');
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
+const navHelper = require('./src/lib/navHelper');
 
 const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
 
@@ -33,40 +34,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
   `);
 
-  function getNav(nav, currentPath, navItem) {
-    if (!navItem.anchors) {
-      return nav;
-    }
-
-    return [...nav, ...navItem.anchors.map((navSubItem) => {
-      const subItemCurrentPath = `${currentPath}/${navSubItem.id}`;
-
-      return {
-        path: subItemCurrentPath,
-        title: navSubItem.title,
-        rootPath: navItem.title,
-        items: getNav([], subItemCurrentPath, navSubItem)
-      };
-    })];
-  }
-
-  return docQuery.then( values => {
+  return docQuery.then(values => {
     const docs = values.data.allMarkdownRemark.edges;
-    let parseNav = [];
-
-    function parseNavItem(nav) {
-      nav.forEach((navItem) => {
-        const { path, title, items } = navItem.node;
-        parseNav = [...parseNav, ...items.map((subItem) => ({
-          path: `docs/${path}/${subItem.id}`,
-          title: subItem.title,
-          rootPath: title,
-          items: getNav([], path, subItem)
-        }))]
-      },
-    )};
-
-    parseNavItem(nav.chapters.filter((navItem) => navItem.items));
+    const parseNav = navHelper.parseNavItem(nav.chapters.filter((navItem) => navItem.items));
 
     docs.forEach((edge) => {
       const path = edge.node.fields.path;
