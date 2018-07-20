@@ -74,7 +74,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     function parseNavItem(nav) {
       nav.forEach((navItem) => {
-        const { path, title, items } = navItem.node;
+        const { path, title, items } = navItem;
         parseNav = [...parseNav, ...items.map((subItem) => ({
           path: `docs/${path}/${subItem.id}`,
           title: subItem.title,
@@ -84,7 +84,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       },
     )};
 
-    parseNavItem(nav.filter((navItem) => navItem.node.items));
+    parseNavItem(jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8')).chapters.filter((navItem) => navItem.items));
 
     docs.forEach((edge) => {
       const path = edge.node.fields.path;
