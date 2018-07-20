@@ -56,7 +56,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     function parseNavItem(nav) {
       nav.forEach((navItem) => {
-        const { path, title, items } = navItem;
+        const { path, title, items } = navItem.node;
         parseNav = [...parseNav, ...items.map((subItem) => ({
           path: `docs/${path}/${subItem.id}`,
           title: subItem.title,
