@@ -4,6 +4,8 @@ const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
 const slugs = require("github-slugger")();
 
+const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage, createRedirect } = boundActionCreators;
   const docTemplate = Path.resolve('src/templates/doc.js');
@@ -68,7 +70,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   }
 
   return Promise.all([navQuery, docQuery]).then((values) => {
-    const nav = values[0].data.allDocsYaml.edges;
     const docs = values[1].data.allMarkdownRemark.edges;
     let parseNav = [];
 
@@ -84,7 +85,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       },
     )};
 
-    parseNavItem(jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8')).chapters.filter((navItem) => navItem.items));
+    parseNavItem(nav.chapters.filter((navItem) => navItem.items));
 
     docs.forEach((edge) => {
       const path = edge.node.fields.path;
@@ -141,25 +142,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           title: `${current.rootPath} - ${current.title}`
         };
       }
-
-      slugs.reset();
-      const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
-
-      function processHomonymAnchors(item) {
-        item.anchors.forEach((anchor) => {
-          anchor.id = slugs.slug(anchor.id);
-          if (!anchor.anchors) {
-            return;
-          }
-          processHomonymAnchors(anchor);
-        })
-      }
-
-      Object.keys(nav.chapters).forEach(navKey => {
-          nav.chapters[navKey].items.filter(item => item.anchors).forEach((item) => {
-            processHomonymAnchors(item);
-          })
-      });
 
       createPage({
         path,
