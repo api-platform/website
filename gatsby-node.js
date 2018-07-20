@@ -50,7 +50,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })];
   }
 
-  return Promise.resolve(docQuery).then((values) => {
+  return docQuery.then( values => {
     const docs = values.data.allMarkdownRemark.edges;
     let parseNav = [];
 
