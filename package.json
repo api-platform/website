@@ -4,6 +4,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",
+    "eject": "^0.0.4",
     "gatsby": "^1.9.80",
     "gatsby-link": "^1.6.23",
     "gatsby-plugin-google-analytics": "^1.0.12",
@@ -21,7 +22,7 @@
     "jsdom": "^11.11.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^7.0.0",
-    "prismjs": "^1.8.1",
+    "prismjs": "^1.12.2",
     "react-async-script-loader": "^0.3.0",
     "react-collapsible": "^2.0.3",
     "react-helmet": "^5.2.0",

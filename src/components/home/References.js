@@ -2,7 +2,7 @@ import React from 'react';
 import { openSourceData, otherData } from 'data/logos';
 
 const openSourceList = openSourceData.map(({ name, logo, link }) => (
-  <a key={name} href={link} target="_blank" className="references__item big">
+  <a key={name} href={link} target="_blank" rel="noopener noreferrer" className="references__item big">
     <img src={`/references/${logo}.png`} alt={name} width="300" height="300" />
     <p className="logo__title">{name}</p>
   </a>
