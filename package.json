@@ -19,6 +19,7 @@
     "gatsby-transformer-sharp": "^1.6.14",
     "gatsby-transformer-yaml": "^1.5.11",
     "h5o": "^0.11.3",
+    "husky": "^1.0.0-rc.13",
     "jsdom": "^11.11.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^7.0.0",
@@ -32,9 +33,11 @@
     "babel-eslint": "^8.0.1",
     "eslint": "^4.4.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.2.1",
     "gatsby-plugin-catch-links": "^1.0.9",
     "gatsby-remark-autolink-headers": "^1.4.4",
@@ -44,12 +47,24 @@
     "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
     "gatsby-source-filesystem": "^1.4.3",
     "gatsby-transformer-remark": "^1.7.2",
+    "git-pre-commit": "^2.1.4",
     "js-yaml": "^3.10.0",
+    "lint-staged": "^7.2.0",
     "markdown": "^0.5.0",
-    "prettier": "^1.5.2",
+    "prettier": "^1.14.0",
     "remark-inline-links": "^3.0.4",
     "xmldom": "^0.1.27",
     "xpath": "^0.0.24"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write --single-quote --trailing-comma all"
+    ]
   },
   "scripts": {
     "build": "gatsby build",
@@ -57,6 +72,7 @@
     "format": "eslint --fix 'src/**/*.js'",
     "lint": "eslint .",
     "postinstall": "npm rebuild node-sass",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
   }
 }
