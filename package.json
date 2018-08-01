@@ -63,7 +63,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier --write --single-quote --trailing-comma all"
+      "prettier --write --single-quote --print-width 120 --trailing-comma all"
     ]
   },
   "scripts": {
