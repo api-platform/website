@@ -124,6 +124,9 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         };
       }
 
+      prev.path = prev.path && prev.path.replace(/\/index$/, '');
+      next.path = next.path && next.path.replace(/\/index$/, '');
+
       createPage({
         path,
         component: docTemplate,
