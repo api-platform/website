@@ -1,12 +1,12 @@
-import React from 'react';
-import links from 'data/menu';
-import Link from 'gatsby-link';
-import LogoSpider from 'images/logo_spider.svg';
-import Logo from './Logo';
-import Search from './Search';
-import MenuItem from './MenuItem';
+import React from 'react'
+import links from 'data/menu'
+import Link from 'gatsby-link'
+import LogoSpider from 'images/logo_spider.svg'
+import Logo from './Logo'
+import Search from './Search'
+import MenuItem from './MenuItem'
 
-const nav = links.map(link => <MenuItem key={link.text} {...link} />);
+const nav = links.map(link => <MenuItem key={link.text} {...link} />)
 
 const Header = () => (
   <header className="header openable">
@@ -31,6 +31,6 @@ const Header = () => (
       </a>
     </nav>
   </header>
-);
+)
 
-export default Header;
+export default Header

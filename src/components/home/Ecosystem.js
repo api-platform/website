@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import adminImage from 'images/admin_component.svg';
-import scaffoldingImage from 'images/scaffolding_component.svg';
-import apiImage from 'images/api_component.svg';
-import schemaImage from 'images/schema_component.svg';
-import Button from 'components/common/Button';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import adminImage from 'images/admin_component.svg'
+import scaffoldingImage from 'images/scaffolding_component.svg'
+import apiImage from 'images/api_component.svg'
+import schemaImage from 'images/schema_component.svg'
+import Button from 'components/common/Button'
 
 const EcosystemCard = ({ big, image, link, text, title }) => (
   <div className={classnames('grid__item', { full: big })}>
@@ -26,7 +26,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
       </div>
     </div>
   </div>
-);
+)
 
 EcosystemCard.propTypes = {
   big: PropTypes.bool,
@@ -34,11 +34,11 @@ EcosystemCard.propTypes = {
   link: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-};
+}
 
 EcosystemCard.defaultProps = {
   big: false,
-};
+}
 
 const Ecosystem = () => (
   <section className="home__part home__ecosystem">
@@ -46,9 +46,7 @@ const Ecosystem = () => (
       <h1 className="ecosystem__title">
         The API Platform <strong>Framework</strong>
       </h1>
-      <h5>
-        API Platform is a set of tools to build and consume web APIs
-      </h5>
+      <h5>API Platform is a set of tools to build and consume web APIs</h5>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
           big
@@ -78,6 +76,6 @@ const Ecosystem = () => (
       </div>
     </div>
   </section>
-);
+)
 
-export default Ecosystem;
+export default Ecosystem

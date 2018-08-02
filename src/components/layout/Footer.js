@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Logo from 'images/logo.svg';
+import React, { Component } from 'react'
+import Logo from 'images/logo.svg'
 
 class Footer extends Component {
   /* eslint-disable no-undef */
   componentDidMount() {
     if (twttr.widgets) {
-      this.createWidget();
+      this.createWidget()
     } else {
-      twttr.ready(this.createWidget);
+      twttr.ready(this.createWidget)
     }
   }
 
@@ -15,8 +15,8 @@ class Footer extends Component {
     twttr.widgets.createFollowButton('ApiPlatform', this.twitterButton, {
       size: 'medium',
       showScreenName: false,
-    });
-  };
+    })
+  }
 
   /* eslint-enable no-undef */
 
@@ -78,14 +78,14 @@ class Footer extends Component {
           />
           <div
             className="footer__twitter"
-            ref={(el) => {
-              this.twitterButton = el;
+            ref={el => {
+              this.twitterButton = el
             }}
           />
         </div>
       </footer>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

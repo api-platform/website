@@ -1,12 +1,12 @@
-import React from 'react';
-import spider from 'images/expose.svg';
-import HomeList from './HomeList';
+import React from 'react'
+import spider from 'images/expose.svg'
+import HomeList from './HomeList'
 
 const data = [
   '<strong>Javascript apps</strong> (including but not limited to React and Angular)',
   '<strong>Native mobile apps</strong> (iOS, Android...)',
   '<strong>All modern programming languages</strong> (PHP, Java, .Net, Ruby, Python...)',
-];
+]
 
 const Expose = () => (
   <section className="home__part home__expose">
@@ -26,6 +26,6 @@ const Expose = () => (
       </div>
     </div>
   </section>
-);
+)
 
-export default Expose;
+export default Expose

@@ -1,8 +1,8 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import SupportCommercial from 'images/support_commercial.svg';
-import SupportCommunity from 'images/support_community.svg';
+import React from 'react'
+import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
+import SupportCommercial from 'images/support_commercial.svg'
+import SupportCommunity from 'images/support_community.svg'
 
 const SupportCard = ({ children, image, title }) => (
   <div className="support-card">
@@ -16,17 +16,17 @@ const SupportCard = ({ children, image, title }) => (
     <h3>{title}</h3>
     <div className="support-card__content">{children}</div>
   </div>
-);
+)
 
 SupportCard.propTypes = {
   children: PropTypes.any,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-};
+}
 
 SupportCard.defaultProps = {
   children: null,
-};
+}
 
 const SupportPage = () => (
   <div className="support">
@@ -87,6 +87,6 @@ const SupportPage = () => (
       </div>
     </section>
   </div>
-);
+)
 
-export default SupportPage;
+export default SupportPage

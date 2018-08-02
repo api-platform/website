@@ -14,7 +14,7 @@ export const openSourceData = [
     logo: 'digital-state',
     link: 'http://www.digitalstate.ca/',
   },
-];
+]
 
 export const otherData = [
   {
@@ -152,4 +152,4 @@ export const otherData = [
     logo: 'yousign',
     link: 'https://yousign.com/',
   },
-];
+]

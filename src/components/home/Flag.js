@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Flag = () => (
   <svg className="cover__flag" height="190" width="268" viewBox="0 0 267.7 190">
@@ -122,6 +122,6 @@ const Flag = () => (
       />
     </a>
   </svg>
-);
+)
 
-export default Flag;
+export default Flag

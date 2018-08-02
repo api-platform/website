@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Helmet from 'react-helmet';
-import Spider from 'images/spider_news.svg';
-import Bird from 'images/twitter_bird.svg';
+import React, { Component } from 'react'
+import Helmet from 'react-helmet'
+import Spider from 'images/spider_news.svg'
+import Bird from 'images/twitter_bird.svg'
 
 class News extends Component {
   /* eslint-disable no-undef */
   componentDidMount() {
     if (twttr.widgets) {
-      this.createTimeline();
+      this.createTimeline()
     } else {
-      twttr.ready(this.createTimeline);
+      twttr.ready(this.createTimeline)
     }
   }
 
@@ -19,9 +19,9 @@ class News extends Component {
         sourceType: 'profile',
         screenName: 'ApiPlatform',
       },
-      this.timeline,
-    );
-  };
+      this.timeline
+    )
+  }
   /* eslint-enable no-undef */
 
   render() {
@@ -41,15 +41,15 @@ class News extends Component {
             </div>
             <div
               className="twitter__timeline"
-              ref={(el) => {
-                this.timeline = el;
+              ref={el => {
+                this.timeline = el
               }}
             />
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default News;
+export default News

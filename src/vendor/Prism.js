@@ -6,7 +6,7 @@ let _self =
         self instanceof WorkerGlobalScope
         ? self
         : {},
-  Prism = (function () {
+  Prism = (function() {
     var e = /\blang(?:uage)?-(\w+)\b/i,
       t = 0,
       n = (_self.Prism = {
@@ -18,73 +18,77 @@ let _self =
               : 'Array' === n.util.type(e)
                 ? e.map(n.util.encode)
                 : e
-                  .replace(/&/g, '&amp;')
-                  .replace(/</g, '&lt;')
-                  .replace(/\u00a0/g, ' ');
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/\u00a0/g, ' ')
           },
           type(e) {
             return Object.prototype.toString
               .call(e)
-              .match(/\[object (\w+)\]/)[1];
+              .match(/\[object (\w+)\]/)[1]
           },
           objId(e) {
             return (
               e.__id || Object.defineProperty(e, '__id', { value: ++t }), e.__id
-            );
+            )
           },
           clone(e) {
-            const t = n.util.type(e);
+            const t = n.util.type(e)
             switch (t) {
               case 'Object':
-                var a = {};
-                for (const r in e) { e.hasOwnProperty(r) && (a[r] = n.util.clone(e[r])); }
-                return a;
+                var a = {}
+                for (const r in e) {
+                  e.hasOwnProperty(r) && (a[r] = n.util.clone(e[r]))
+                }
+                return a
               case 'Array':
-                return e.map(e => n.util.clone(e));
+                return e.map(e => n.util.clone(e))
             }
-            return e;
+            return e
           },
         },
         languages: {
           extend(e, t) {
-            const a = n.util.clone(n.languages[e]);
-            for (const r in t) a[r] = t[r];
-            return a;
+            const a = n.util.clone(n.languages[e])
+            for (const r in t) a[r] = t[r]
+            return a
           },
           insertBefore(e, t, a, r) {
-            r = r || n.languages;
-            const i = r[e];
+            r = r || n.languages
+            const i = r[e]
             if (2 == arguments.length) {
-              a = arguments[1];
-              for (var l in a) a.hasOwnProperty(l) && (i[l] = a[l]);
-              return i;
+              a = arguments[1]
+              for (var l in a) a.hasOwnProperty(l) && (i[l] = a[l])
+              return i
             }
-            const o = {};
+            const o = {}
             for (const s in i) {
               if (i.hasOwnProperty(s)) {
-                if (s == t) { for (var l in a) a.hasOwnProperty(l) && (o[l] = a[l]); }
-                o[s] = i[s];
+                if (s == t) {
+                  for (var l in a) a.hasOwnProperty(l) && (o[l] = a[l])
+                }
+                o[s] = i[s]
               }
             }
             return (
-              n.languages.DFS(n.languages, function (t, n) {
-                n === r[e] && t != e && (this[t] = o);
+              n.languages.DFS(n.languages, function(t, n) {
+                n === r[e] && t != e && (this[t] = o)
               }),
               (r[e] = o)
-            );
+            )
           },
           DFS(e, t, a, r) {
-            r = r || {};
+            r = r || {}
             for (const i in e) {
               e.hasOwnProperty(i) &&
                 (t.call(e, i, e[i], a || i),
-                  'Object' !== n.util.type(e[i]) || r[n.util.objId(e[i])]
-                    ? 'Array' !== n.util.type(e[i]) ||
+                'Object' !== n.util.type(e[i]) || r[n.util.objId(e[i])]
+                  ? 'Array' !== n.util.type(e[i]) ||
                     r[n.util.objId(e[i])] ||
                     ((r[n.util.objId(e[i])] = !0),
-                      n.languages.DFS(e[i], t, i, r))
-                    : ((r[n.util.objId(e[i])] = !0),
-                      n.languages.DFS(e[i], t, null, r)));
+                    n.languages.DFS(e[i], t, i, r))
+                  : ((r[n.util.objId(e[i])] = !0),
+                    n.languages.DFS(e[i], t, null, r)))
             }
           },
         },
@@ -94,8 +98,8 @@ let _self =
             callback: t,
             selector:
               'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code',
-          };
-          n.hooks.run('before-highlightall', a);
+          }
+          n.hooks.run('before-highlightall', a)
           for (
             var r,
               i = a.elements || document.querySelectorAll(a.selector),
@@ -103,90 +107,92 @@ let _self =
             (r = i[l++]);
 
           ) {
-            n.highlightElement(r, e === !0, a.callback);
+            n.highlightElement(r, e === !0, a.callback)
           }
         },
         highlightElement(t, a, r) {
-          for (var i, l, o = t; o && !e.test(o.className);) o = o.parentNode;
+          for (var i, l, o = t; o && !e.test(o.className); ) o = o.parentNode
           o &&
             ((i = (o.className.match(e) || [, ''])[1].toLowerCase()),
-              (l = n.languages[i])),
-          (t.className = `${t.className
-            .replace(e, '')
-            .replace(/\s+/g, ' ')} language-${i}`),
-          (o = t.parentNode),
-          /pre/i.test(o.nodeName) &&
+            (l = n.languages[i])),
+            (t.className = `${t.className
+              .replace(e, '')
+              .replace(/\s+/g, ' ')} language-${i}`),
+            (o = t.parentNode),
+            /pre/i.test(o.nodeName) &&
               (o.className = `${o.className
                 .replace(e, '')
-                .replace(/\s+/g, ' ')} language-${i}`);
+                .replace(/\s+/g, ' ')} language-${i}`)
           let s = t.textContent,
-            u = { element: t, language: i, grammar: l, code: s };
+            u = { element: t, language: i, grammar: l, code: s }
           if ((n.hooks.run('before-sanity-check', u), !u.code || !u.grammar)) {
             return (
               u.code &&
                 (n.hooks.run('before-highlight', u),
-                  (u.element.textContent = u.code),
-                  n.hooks.run('after-highlight', u)),
+                (u.element.textContent = u.code),
+                n.hooks.run('after-highlight', u)),
               n.hooks.run('complete', u),
               void 0
-            );
+            )
           }
           if ((n.hooks.run('before-highlight', u), a && _self.Worker)) {
-            const g = new Worker(n.filename);
-            (g.onmessage = function (e) {
-              (u.highlightedCode = e.data),
+            const g = new Worker(n.filename)
+            ;(g.onmessage = function(e) {
+              ;(u.highlightedCode = e.data),
+                n.hooks.run('before-insert', u),
+                (u.element.innerHTML = u.highlightedCode),
+                r && r.call(u.element),
+                n.hooks.run('after-highlight', u),
+                n.hooks.run('complete', u)
+            }),
+              g.postMessage(
+                JSON.stringify({
+                  language: u.language,
+                  code: u.code,
+                  immediateClose: !0,
+                })
+              )
+          } else {
+            ;(u.highlightedCode = n.highlight(u.code, u.grammar, u.language)),
               n.hooks.run('before-insert', u),
               (u.element.innerHTML = u.highlightedCode),
-              r && r.call(u.element),
+              r && r.call(t),
               n.hooks.run('after-highlight', u),
-              n.hooks.run('complete', u);
-            }),
-            g.postMessage(JSON.stringify({
-              language: u.language,
-              code: u.code,
-              immediateClose: !0,
-            }));
-          } else {
-            (u.highlightedCode = n.highlight(u.code, u.grammar, u.language)),
-            n.hooks.run('before-insert', u),
-            (u.element.innerHTML = u.highlightedCode),
-            r && r.call(t),
-            n.hooks.run('after-highlight', u),
-            n.hooks.run('complete', u);
+              n.hooks.run('complete', u)
           }
         },
         highlight(e, t, r) {
-          const i = n.tokenize(e, t);
-          return a.stringify(n.util.encode(i), r);
+          const i = n.tokenize(e, t)
+          return a.stringify(n.util.encode(i), r)
         },
         matchGrammar(e, t, a, r, i, l, o) {
-          const s = n.Token;
+          const s = n.Token
           for (const u in a) {
             if (a.hasOwnProperty(u) && a[u]) {
-              if (u == o) return;
-              let g = a[u];
-              g = 'Array' === n.util.type(g) ? g : [g];
+              if (u == o) return
+              let g = a[u]
+              g = 'Array' === n.util.type(g) ? g : [g]
               for (let c = 0; c < g.length; ++c) {
                 let h = g[c],
                   f = h.inside,
                   d = !!h.lookbehind,
                   m = !!h.greedy,
                   p = 0,
-                  y = h.alias;
+                  y = h.alias
                 if (m && !h.pattern.global) {
-                  const v = h.pattern.toString().match(/[imuy]*$/)[0];
-                  h.pattern = RegExp(h.pattern.source, `${v}g`);
+                  const v = h.pattern.toString().match(/[imuy]*$/)[0]
+                  h.pattern = RegExp(h.pattern.source, `${v}g`)
                 }
-                h = h.pattern || h;
+                h = h.pattern || h
                 for (let b = r, k = i; b < t.length; k += t[b].length, ++b) {
-                  let w = t[b];
-                  if (t.length > e.length) return;
+                  let w = t[b]
+                  if (t.length > e.length) return
                   if (!(w instanceof s)) {
-                    h.lastIndex = 0;
+                    h.lastIndex = 0
                     var _ = h.exec(w),
-                      P = 1;
+                      P = 1
                     if (!_ && m && b != t.length - 1) {
-                      if (((h.lastIndex = k), (_ = h.exec(e)), !_)) break;
+                      if (((h.lastIndex = k), (_ = h.exec(e)), !_)) break
                       for (
                         var A = _.index + (d ? _[1].length : 0),
                           j = _.index + _[0].length,
@@ -196,31 +202,31 @@ let _self =
                         S > x && (j > O || (!t[x].type && !t[x - 1].greedy));
                         ++x
                       ) {
-                        (O += t[x].length), A >= O && (++b, (k = O));
+                        ;(O += t[x].length), A >= O && (++b, (k = O))
                       }
-                      if (t[b] instanceof s || t[x - 1].greedy) continue;
-                      (P = x - b), (w = e.slice(k, O)), (_.index -= k);
+                      if (t[b] instanceof s || t[x - 1].greedy) continue
+                      ;(P = x - b), (w = e.slice(k, O)), (_.index -= k)
                     }
                     if (_) {
-                      d && (p = _[1].length);
+                      d && (p = _[1].length)
                       var A = _.index + p,
                         _ = _[0].slice(p),
                         j = A + _.length,
                         N = w.slice(0, A),
                         C = w.slice(j),
-                        E = [b, P];
-                      N && (++b, (k += N.length), E.push(N));
-                      const I = new s(u, f ? n.tokenize(_, f) : _, y, _, m);
+                        E = [b, P]
+                      N && (++b, (k += N.length), E.push(N))
+                      const I = new s(u, f ? n.tokenize(_, f) : _, y, _, m)
                       if (
                         (E.push(I),
-                          C && E.push(C),
-                          Array.prototype.splice.apply(t, E),
-                          1 != P && n.matchGrammar(e, t, a, b, k, !0, u),
-                          l)
+                        C && E.push(C),
+                        Array.prototype.splice.apply(t, E),
+                        1 != P && n.matchGrammar(e, t, a, b, k, !0, u),
+                        l)
                       ) {
-                        break;
+                        break
                       }
-                    } else if (l) break;
+                    } else if (l) break
                   }
                 }
               }
@@ -229,37 +235,37 @@ let _self =
         },
         tokenize(e, t) {
           let a = [e],
-            r = t.rest;
+            r = t.rest
           if (r) {
-            for (const i in r) t[i] = r[i];
-            delete t.rest;
+            for (const i in r) t[i] = r[i]
+            delete t.rest
           }
-          return n.matchGrammar(e, a, t, 0, 0, !1), a;
+          return n.matchGrammar(e, a, t, 0, 0, !1), a
         },
         hooks: {
           all: {},
           add(e, t) {
-            const a = n.hooks.all;
-            (a[e] = a[e] || []), a[e].push(t);
+            const a = n.hooks.all
+            ;(a[e] = a[e] || []), a[e].push(t)
           },
           run(e, t) {
-            const a = n.hooks.all[e];
-            if (a && a.length) for (var r, i = 0; (r = a[i++]);) r(t);
+            const a = n.hooks.all[e]
+            if (a && a.length) for (var r, i = 0; (r = a[i++]); ) r(t)
           },
         },
       }),
-      a = (n.Token = function (e, t, n, a, r) {
-        (this.type = e),
-        (this.content = t),
-        (this.alias = n),
-        (this.length = 0 | (a || '').length),
-        (this.greedy = !!r);
-      });
+      a = (n.Token = function(e, t, n, a, r) {
+        ;(this.type = e),
+          (this.content = t),
+          (this.alias = n),
+          (this.length = 0 | (a || '').length),
+          (this.greedy = !!r)
+      })
     if (
-      ((a.stringify = function (e, t, r) {
-        if ('string' === typeof e) return e;
+      ((a.stringify = function(e, t, r) {
+        if ('string' === typeof e) return e
         if ('Array' === n.util.type(e)) {
-          return e.map(n => a.stringify(n, t, e)).join('');
+          return e.map(n => a.stringify(n, t, e)).join('')
         }
         const i = {
           type: e.type,
@@ -269,44 +275,44 @@ let _self =
           attributes: {},
           language: t,
           parent: r,
-        };
-        if (e.alias) {
-          const l = 'Array' === n.util.type(e.alias) ? e.alias : [e.alias];
-          Array.prototype.push.apply(i.classes, l);
         }
-        n.hooks.run('wrap', i);
+        if (e.alias) {
+          const l = 'Array' === n.util.type(e.alias) ? e.alias : [e.alias]
+          Array.prototype.push.apply(i.classes, l)
+        }
+        n.hooks.run('wrap', i)
         const o = Object.keys(i.attributes)
           .map(e => `${e}="${(i.attributes[e] || '').replace(/"/g, '&quot;')}"`)
-          .join(' ');
-        return `<${i.tag} class="${i.classes.join(' ')}"${o
-          ? ` ${o}`
-          : ''}>${i.content}</${i.tag}>`;
+          .join(' ')
+        return `<${i.tag} class="${i.classes.join(' ')}"${o ? ` ${o}` : ''}>${
+          i.content
+        }</${i.tag}>`
       }),
-        !_self.document)
+      !_self.document)
     ) {
       return _self.addEventListener
         ? (_self.addEventListener(
-          'message',
-          (e) => {
-            let t = JSON.parse(e.data),
-              a = t.language,
-              r = t.code,
-              i = t.immediateClose;
-            _self.postMessage(n.highlight(r, n.languages[a], a)),
-            i && _self.close();
-          },
-          !1,
-        ),
+            'message',
+            e => {
+              let t = JSON.parse(e.data),
+                a = t.language,
+                r = t.code,
+                i = t.immediateClose
+              _self.postMessage(n.highlight(r, n.languages[a], a)),
+                i && _self.close()
+            },
+            !1
+          ),
           _self.Prism)
-        : _self.Prism;
+        : _self.Prism
     }
     const r =
       document.currentScript ||
-      [].slice.call(document.getElementsByTagName('script')).pop();
+      [].slice.call(document.getElementsByTagName('script')).pop()
     return (
       r &&
         ((n.filename = r.src),
-          n.manual ||
+        n.manual ||
           r.hasAttribute('data-manual') ||
           ('loading' !== document.readyState
             ? window.requestAnimationFrame
@@ -314,11 +320,11 @@ let _self =
               : window.setTimeout(n.highlightAll, 16)
             : document.addEventListener('DOMContentLoaded', n.highlightAll))),
       _self.Prism
-    );
-  }());
+    )
+  })()
 'undefined' !== typeof module && module.exports && (module.exports = Prism),
-'undefined' !== typeof global && (global.Prism = Prism);
-(Prism.languages.markup = {
+  'undefined' !== typeof global && (global.Prism = Prism)
+;(Prism.languages.markup = {
   comment: /<!--[\s\S]*?-->/,
   prolog: /<\?[\s\S]+?\?>/,
   doctype: /<!DOCTYPE[\s\S]+?>/i,
@@ -345,17 +351,17 @@ let _self =
   },
   entity: /&#?[\da-z]{1,8};/i,
 }),
-(Prism.languages.markup.tag.inside['attr-value'].inside.entity =
+  (Prism.languages.markup.tag.inside['attr-value'].inside.entity =
     Prism.languages.markup.entity),
-Prism.hooks.add('wrap', (a) => {
-  'entity' === a.type &&
-      (a.attributes.title = a.content.replace(/&amp;/, '&'));
-}),
-(Prism.languages.xml = Prism.languages.markup),
-(Prism.languages.html = Prism.languages.markup),
-(Prism.languages.mathml = Prism.languages.markup),
-(Prism.languages.svg = Prism.languages.markup);
-(Prism.languages.css = {
+  Prism.hooks.add('wrap', a => {
+    'entity' === a.type &&
+      (a.attributes.title = a.content.replace(/&amp;/, '&'))
+  }),
+  (Prism.languages.xml = Prism.languages.markup),
+  (Prism.languages.html = Prism.languages.markup),
+  (Prism.languages.mathml = Prism.languages.markup),
+  (Prism.languages.svg = Prism.languages.markup)
+;(Prism.languages.css = {
   comment: /\/\*[\s\S]*?\*\//,
   atrule: {
     pattern: /@[\w-]+?.*?(?:;|(?=\s*\{))/i,
@@ -372,8 +378,10 @@ Prism.hooks.add('wrap', (a) => {
   function: /[-a-z0-9]+(?=\()/i,
   punctuation: /[(){};:]/,
 }),
-(Prism.languages.css.atrule.inside.rest = Prism.util.clone(Prism.languages.css)),
-Prism.languages.markup &&
+  (Prism.languages.css.atrule.inside.rest = Prism.util.clone(
+    Prism.languages.css
+  )),
+  Prism.languages.markup &&
     (Prism.languages.insertBefore('markup', 'tag', {
       style: {
         pattern: /(<style[\s\S]*?>)[\s\S]*?(?=<\/style>)/i,
@@ -382,25 +390,25 @@ Prism.languages.markup &&
         alias: 'language-css',
       },
     }),
-      Prism.languages.insertBefore(
-        'inside',
-        'attr-value',
-        {
-          'style-attr': {
-            pattern: /\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,
-            inside: {
-              'attr-name': {
-                pattern: /^\s*style/i,
-                inside: Prism.languages.markup.tag.inside,
-              },
-              punctuation: /^\s*=\s*['"]|['"]\s*$/,
-              'attr-value': { pattern: /.+/i, inside: Prism.languages.css },
+    Prism.languages.insertBefore(
+      'inside',
+      'attr-value',
+      {
+        'style-attr': {
+          pattern: /\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,
+          inside: {
+            'attr-name': {
+              pattern: /^\s*style/i,
+              inside: Prism.languages.markup.tag.inside,
             },
-            alias: 'language-css',
+            punctuation: /^\s*=\s*['"]|['"]\s*$/,
+            'attr-value': { pattern: /.+/i, inside: Prism.languages.css },
           },
+          alias: 'language-css',
         },
-        Prism.languages.markup.tag,
-      ));
+      },
+      Prism.languages.markup.tag
+    ))
 Prism.languages.clike = {
   comment: [
     { pattern: /(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/, lookbehind: !0 },
@@ -421,44 +429,44 @@ Prism.languages.clike = {
   number: /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,
   operator: /--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,
   punctuation: /[{}[\];(),.:]/,
-};
-(Prism.languages.javascript = Prism.languages.extend('clike', {
+}
+;(Prism.languages.javascript = Prism.languages.extend('clike', {
   keyword: /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
   number: /\b-?(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+|\d*\.?\d+(?:[Ee][+-]?\d+)?|NaN|Infinity)\b/,
   function: /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\s*\()/i,
   operator: /-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/,
 })),
-Prism.languages.insertBefore('javascript', 'keyword', {
-  regex: {
-    pattern: /(^|[^\/])\/(?!\/)(\[[^\]\r\n]+]|\\.|[^\/\\\[\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
-    lookbehind: !0,
-    greedy: !0,
-  },
-  'function-variable': {
-    pattern: /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\s*=\s*(?:function\b|(?:\([^()]*\)|[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*)\s*=>))/i,
-    alias: 'function',
-  },
-}),
-Prism.languages.insertBefore('javascript', 'string', {
-  'template-string': {
-    pattern: /`(?:\\[\s\S]|[^\\`])*`/,
-    greedy: !0,
-    inside: {
-      interpolation: {
-        pattern: /\$\{[^}]+\}/,
-        inside: {
-          'interpolation-punctuation': {
-            pattern: /^\$\{|\}$/,
-            alias: 'punctuation',
-          },
-          rest: Prism.languages.javascript,
-        },
-      },
-      string: /[\s\S]+/,
+  Prism.languages.insertBefore('javascript', 'keyword', {
+    regex: {
+      pattern: /(^|[^\/])\/(?!\/)(\[[^\]\r\n]+]|\\.|[^\/\\\[\r\n])+\/[gimyu]{0,5}(?=\s*($|[\r\n,.;})]))/,
+      lookbehind: !0,
+      greedy: !0,
     },
-  },
-}),
-Prism.languages.markup &&
+    'function-variable': {
+      pattern: /[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*(?=\s*=\s*(?:function\b|(?:\([^()]*\)|[_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*)\s*=>))/i,
+      alias: 'function',
+    },
+  }),
+  Prism.languages.insertBefore('javascript', 'string', {
+    'template-string': {
+      pattern: /`(?:\\[\s\S]|[^\\`])*`/,
+      greedy: !0,
+      inside: {
+        interpolation: {
+          pattern: /\$\{[^}]+\}/,
+          inside: {
+            'interpolation-punctuation': {
+              pattern: /^\$\{|\}$/,
+              alias: 'punctuation',
+            },
+            rest: Prism.languages.javascript,
+          },
+        },
+        string: /[\s\S]+/,
+      },
+    },
+  }),
+  Prism.languages.markup &&
     Prism.languages.insertBefore('markup', 'tag', {
       script: {
         pattern: /(<script[\s\S]*?>)[\s\S]*?(?=<\/script>)/i,
@@ -467,8 +475,8 @@ Prism.languages.markup &&
         alias: 'language-javascript',
       },
     }),
-(Prism.languages.js = Prism.languages.javascript);
-(Prism.languages.json = {
+  (Prism.languages.js = Prism.languages.javascript)
+;(Prism.languages.json = {
   property: /"(?:\\.|[^\\"\r\n])*"(?=\s*:)/i,
   string: { pattern: /"(?:\\.|[^\\"\r\n])*"(?!\s*:)/, greedy: !0 },
   number: /\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee][+-]?\d+)?)\b/,
@@ -477,4 +485,4 @@ Prism.languages.markup &&
   boolean: /\b(?:true|false)\b/i,
   null: /\bnull\b/i,
 }),
-(Prism.languages.jsonp = Prism.languages.json);
+  (Prism.languages.jsonp = Prism.languages.json)

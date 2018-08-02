@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import dataSchema from 'data/schema';
-import spider from 'images/spider_schema.svg';
+import React from 'react'
+import Link from 'gatsby-link'
+import dataSchema from 'data/schema'
+import spider from 'images/spider_schema.svg'
 
 /* eslint-disable react/prop-types */
 
@@ -15,7 +15,7 @@ const SchemaItem = ({ icon, link, text, title }) => (
       </div>
     </div>
   </Link>
-);
+)
 
 const SchemaPart = ({ title, items }) => (
   <div className="schema__part">
@@ -27,7 +27,7 @@ const SchemaPart = ({ title, items }) => (
       <Lines />
     </div>
   </div>
-);
+)
 
 const Lines = () => (
   <svg className="lines" width="100%" height="100%">
@@ -45,7 +45,7 @@ const Lines = () => (
       stroke="#000"
     />
   </svg>
-);
+)
 
 const Schema = () => (
   <section className="home__part home__schema">
@@ -59,6 +59,6 @@ const Schema = () => (
       <img src={spider} alt="spider" width="256" height="422" />
     </div>
   </section>
-);
+)
 
-export default Schema;
+export default Schema

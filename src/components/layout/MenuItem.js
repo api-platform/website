@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import { withRouter } from 'react-router-dom';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
+import { withRouter } from 'react-router-dom'
+import classNames from 'classnames'
 
 const MenuItemLink = ({ path, children }) => {
   if (!path) {
-    return <div className="menu-item__link">{children}</div>;
+    return <div className="menu-item__link">{children}</div>
   }
 
   if ('/' === path.substr(0, 1)) {
@@ -14,7 +14,7 @@ const MenuItemLink = ({ path, children }) => {
       <Link className="menu-item__link" to={path}>
         {children}
       </Link>
-    );
+    )
   }
 
   return (
@@ -26,23 +26,23 @@ const MenuItemLink = ({ path, children }) => {
     >
       {children}
     </a>
-  );
-};
+  )
+}
 
 MenuItemLink.propTypes = {
   children: PropTypes.any,
   path: PropTypes.string,
-};
+}
 
 MenuItemLink.defaultProps = {
   children: null,
   path: null,
-};
+}
 
 const MenuItem = ({ text, rootPath, path, submenu, location }) => {
   const current =
     location.pathname === path ||
-    (rootPath && location.pathname.substr(0, rootPath.length) === rootPath);
+    (rootPath && location.pathname.substr(0, rootPath.length) === rootPath)
   return (
     <div className={classNames('menu-item', { withSubmenu: submenu, current })}>
       <MenuItemLink text={text} path={path}>
@@ -59,8 +59,8 @@ const MenuItem = ({ text, rootPath, path, submenu, location }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 MenuItem.propTypes = {
   location: PropTypes.object.isRequired,
@@ -68,12 +68,12 @@ MenuItem.propTypes = {
   rootPath: PropTypes.string,
   path: PropTypes.string,
   submenu: PropTypes.array,
-};
+}
 
 MenuItem.defaultProps = {
   submenu: null,
   path: null,
   rootPath: null,
-};
+}
 
-export default withRouter(MenuItem);
+export default withRouter(MenuItem)

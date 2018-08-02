@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
-let stylesStr;
+let stylesStr
 if ('production' === process.env.NODE_ENV) {
   try {
-    stylesStr = require('!raw-loader!../public/styles.css');
+    stylesStr = require('!raw-loader!../public/styles.css')
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 }
 
 module.exports = class HTML extends React.Component {
   render() {
-    let css;
+    let css
     if ('production' === process.env.NODE_ENV) {
       css = (
         <style
           id="gatsby-inlined-css"
           dangerouslySetInnerHTML={{ __html: stylesStr }}
         />
-      );
+      )
     }
 
     return (
@@ -47,6 +47,6 @@ module.exports = class HTML extends React.Component {
           {this.props.postBodyComponents}
         </body>
       </html>
-    );
+    )
   }
-};
+}

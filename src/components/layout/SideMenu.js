@@ -1,13 +1,13 @@
-import React from 'react';
-import links from 'data/menu';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import LogoSpider from 'images/logo_spider.svg';
-import Logo from './Logo';
-import Search from './Search';
-import MenuItem from './MenuItem';
+import React from 'react'
+import links from 'data/menu'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import LogoSpider from 'images/logo_spider.svg'
+import Logo from './Logo'
+import Search from './Search'
+import MenuItem from './MenuItem'
 
-const nav = links.map(link => <MenuItem key={link.text} {...link} />);
+const nav = links.map(link => <MenuItem key={link.text} {...link} />)
 
 const SideMenu = ({ open }) => (
   <div className={classNames('side-menu', { open })}>
@@ -31,14 +31,14 @@ const SideMenu = ({ open }) => (
       {nav}
     </nav>
   </div>
-);
+)
 
 SideMenu.defaultProps = {
   open: false,
-};
+}
 
 SideMenu.propTypes = {
   open: PropTypes.bool,
-};
+}
 
-export default SideMenu;
+export default SideMenu

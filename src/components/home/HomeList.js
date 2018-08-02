@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const HomeList = ({ data, className }) => (
   <div className={classNames('home__list', className)}>
@@ -11,16 +11,16 @@ const HomeList = ({ data, className }) => (
       </div>
     ))}
   </div>
-);
+)
 
 HomeList.propTypes = {
   data: PropTypes.array,
   className: PropTypes.string,
-};
+}
 
 HomeList.defaultProps = {
   data: [],
   className: null,
-};
+}
 
-export default HomeList;
+export default HomeList

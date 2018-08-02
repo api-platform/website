@@ -1,7 +1,7 @@
-import React from 'react';
-import code from 'data/seo-code';
-import Laptop from 'images/laptop.svg';
-import Prism from 'vendor/Prism.js';
+import React from 'react'
+import code from 'data/seo-code'
+import Laptop from 'images/laptop.svg'
+import Prism from 'vendor/Prism.js'
 
 const Seo = () => (
   <section className="home__seo home__part">
@@ -49,9 +49,9 @@ const Seo = () => (
         </p>
         <p className="hidden-small">
           Mapping your app data model to Schema.org structures can be a tedious
-          task. Using <a href="/docs/schema-generator">the generator</a>,
-          your data model will be a derived from Schema.org. Serializing your
-          data as JSON-LD will not require specific mapping nor adaptation.
+          task. Using <a href="/docs/schema-generator">the generator</a>, your
+          data model will be a derived from Schema.org. Serializing your data as
+          JSON-LD will not require specific mapping nor adaptation.
         </p>
         <p>
           Simply include a JSON-LD file in your page instead of enriching the
@@ -74,6 +74,6 @@ const Seo = () => (
       </div>
     </div>
   </section>
-);
+)
 
-export default Seo;
+export default Seo

@@ -1,8 +1,8 @@
-import React from 'react';
-import spider from 'images/spider_home.svg';
-import Flag from 'components/home/Flag';
-import Button from 'components/common/Button';
-import Logo from 'components/layout/Logo';
+import React from 'react'
+import spider from 'images/spider_home.svg'
+import Flag from 'components/home/Flag'
+import Button from 'components/common/Button'
+import Logo from 'components/layout/Logo'
 
 const Cover = () => (
   <section className="home__cover full">
@@ -26,15 +26,11 @@ const Cover = () => (
           icon="download"
           link="https://github.com/api-platform/api-platform/releases/latest"
         />
-        <Button
-          text="Get started"
-          icon="flag"
-          link="/docs/distribution"
-        />
+        <Button text="Get started" icon="flag" link="/docs/distribution" />
       </div>
     </div>
     <Flag />
   </section>
-);
+)
 
-export default Cover;
+export default Cover
