@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import Logo from 'images/logo.svg'
+import React, { Component } from 'react';
+import Logo from 'images/logo.svg';
 
 class Footer extends Component {
   /* eslint-disable no-undef */
   componentDidMount() {
     if (twttr.widgets) {
-      this.createWidget()
+      this.createWidget();
     } else {
-      twttr.ready(this.createWidget)
+      twttr.ready(this.createWidget);
     }
   }
 
@@ -15,38 +15,24 @@ class Footer extends Component {
     twttr.widgets.createFollowButton('ApiPlatform', this.twitterButton, {
       size: 'medium',
       showScreenName: false,
-    })
-  }
+    });
+  };
 
   /* eslint-enable no-undef */
 
   render() {
     return (
       <footer className="footer openable">
-        <img
-          className="footer__logo"
-          src={Logo}
-          alt="spidey"
-          width="400"
-          height="419"
-        />
+        <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
         <p className="footer__copyright">
           Copyright © 2018{' '}
-          <a
-            href="https://dunglas.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://dunglas.fr/" target="_blank" rel="noopener noreferrer">
             Kévin Dunglas
           </a>
         </p>
         <p className="footer__tilleuls">
           Supported by{' '}
-          <a
-            href="http://www.les-tilleuls.coop"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="http://www.les-tilleuls.coop" target="_blank" rel="noopener noreferrer">
             Les-Tilleuls.coop
           </a>
         </p>
@@ -58,14 +44,12 @@ class Footer extends Component {
             rel="noopener noreferrer"
           >
             MIT
-          </a>, documentation under{' '}
-          <a
-            href="https://creativecommons.org/licenses/by/3.0/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          </a>
+          , documentation under{' '}
+          <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
             CC BY 3.0
-          </a>.
+          </a>
+          .
         </p>
         <div className="footer__follow">
           <iframe
@@ -79,13 +63,13 @@ class Footer extends Component {
           <div
             className="footer__twitter"
             ref={el => {
-              this.twitterButton = el
+              this.twitterButton = el;
             }}
           />
         </div>
       </footer>
-    )
+    );
   }
 }
 
-export default Footer
+export default Footer;

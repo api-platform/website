@@ -3,6 +3,6 @@ module.exports = {
     return string
       .toLowerCase()
       .replace(/[^A-Za-z0-9\\-\\ \\_]/g, '')
-      .replace(/ /g, '-')
+      .replace(/ /g, '-');
   },
-}
+};

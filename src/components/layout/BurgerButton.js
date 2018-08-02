@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const BurgerButton = ({ status, onClick, className }) => (
   <button className={`btn-burger ${status} ${className}`} onClick={onClick}>
@@ -7,18 +7,18 @@ const BurgerButton = ({ status, onClick, className }) => (
       <div className="btn-burger__line" />
     </div>
   </button>
-)
+);
 
 BurgerButton.propTypes = {
   status: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
-}
+};
 
 BurgerButton.defaultProps = {
   status: 'burger',
   onClick: null,
   className: '',
-}
+};
 
-export default BurgerButton
+export default BurgerButton;

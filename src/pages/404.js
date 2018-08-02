@@ -1,6 +1,6 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import Spider from 'images/404.svg'
+import React from 'react';
+import Helmet from 'react-helmet';
+import Spider from 'images/404.svg';
 
 const NotFoundPage = () => (
   <div className="notfound">
@@ -13,6 +13,6 @@ const NotFoundPage = () => (
       <img src={Spider} alt="spider" width="371" height="344" />
     </div>
   </div>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

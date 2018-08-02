@@ -1,14 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /* eslint-disable max-len */
 
 const Logo = ({ className }) => (
-  <svg
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 782.34 88.31"
-  >
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 782.34 88.31">
     <defs />
     <title>test1</title>
     <path
@@ -56,14 +52,14 @@ const Logo = ({ className }) => (
       d="M725.74,4.09l9.41,10,9.41-10c5.2-5.45,12.63-5.45,17.46,0l12.63,13.13c3.84,4.33,7.06,7.06,7.68,13.13V77.53c0,14-21.8,14-21.8,0V22.67H746.05V77.53c0,14.37-21.67,14.37-21.67,0V22.67H710.13V77.53c0,14-21.8,14-21.8,0V30.35c.25-6.07,3.72-8.79,7.68-13.13L708.65,4.09C713.48-1.36,720.91-1.36,725.74,4.09Z"
     />
   </svg>
-)
+);
 
 Logo.defaultProps = {
   className: '',
-}
+};
 
 Logo.propTypes = {
   className: PropTypes.string,
-}
+};
 
-export default Logo
+export default Logo;
