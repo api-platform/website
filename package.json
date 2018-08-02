@@ -67,6 +67,7 @@
     ]
   },
   "scripts": {
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "eslint --fix 'src/**/*.js'",
