@@ -18,7 +18,7 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
         trigger={<Link to={path}>{title}</Link>}
       >
         <ul>
-          {anchors.map((item) => {
+          {anchors.map(item => {
             const link = `${path}#${item.id}`;
             return (
               <li
@@ -28,14 +28,9 @@ const NavItemLink = ({ path, anchors, title, current, location }) => {
                 })}
               >
                 <Link to={link}>{item.title}</Link>
-                {item.anchors &&
-                  <NavSubItemLink
-                    path={path}
-                    anchors={item.anchors}
-                    title={item.title}
-                    location={location}
-                  />
-                }
+                {item.anchors && (
+                  <NavSubItemLink path={path} anchors={item.anchors} title={item.title} location={location} />
+                )}
               </li>
             );
           })}

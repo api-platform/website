@@ -18,12 +18,7 @@ const MenuItemLink = ({ path, children }) => {
   }
 
   return (
-    <a
-      className="menu-item__link"
-      href={path}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a className="menu-item__link" href={path} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );
@@ -40,9 +35,7 @@ MenuItemLink.defaultProps = {
 };
 
 const MenuItem = ({ text, rootPath, path, submenu, location }) => {
-  const current =
-    location.pathname === path ||
-    (rootPath && location.pathname.substr(0, rootPath.length) === rootPath);
+  const current = location.pathname === path || (rootPath && location.pathname.substr(0, rootPath.length) === rootPath);
   return (
     <div className={classNames('menu-item', { withSubmenu: submenu, current })}>
       <MenuItemLink text={text} path={path}>

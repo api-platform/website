@@ -19,7 +19,7 @@ class News extends Component {
         sourceType: 'profile',
         screenName: 'ApiPlatform',
       },
-      this.timeline,
+      this.timeline
     );
   };
   /* eslint-enable no-undef */
@@ -41,7 +41,7 @@ class News extends Component {
             </div>
             <div
               className="twitter__timeline"
-              ref={(el) => {
+              ref={el => {
                 this.timeline = el;
               }}
             />

@@ -18,11 +18,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
         <article className="card__autosize">
           <p>{text}</p>
         </article>
-        <Button
-          text="Read more"
-          className="btn ecosystem__button small"
-          link={link}
-        />
+        <Button text="Read more" className="btn ecosystem__button small" link={link} />
       </div>
     </div>
   </div>
@@ -46,9 +42,7 @@ const Ecosystem = () => (
       <h1 className="ecosystem__title">
         The API Platform <strong>Framework</strong>
       </h1>
-      <h5>
-        API Platform is a set of tools to build and consume web APIs
-      </h5>
+      <h5>API Platform is a set of tools to build and consume web APIs</h5>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
           big

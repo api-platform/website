@@ -16,28 +16,19 @@ const Giants = () => (
       </h1>
       <article className="giants__content">
         <p className="hidden-small">
-          API Platform is built on top of <strong>battle-tested products</strong>.
-          The server skeleton includes the famous <strong>Symfony 4</strong> microframework
-          and the <strong>Doctrine</strong> ORM.
-          Client-side components use Facebook&apos;s <strong>React</strong>
-          {' '}(a Vue.js integration is also available).
-          The development environment and the deployment mechanism leverage
-          {' '}<strong>Docker, Kubernetes and Helm</strong>.
+          API Platform is built on top of <strong>battle-tested products</strong>. The server skeleton includes the
+          famous <strong>Symfony 4</strong> microframework and the <strong>Doctrine</strong> ORM. Client-side components
+          use Facebook&apos;s <strong>React</strong> (a Vue.js integration is also available). The development
+          environment and the deployment mechanism leverage <strong>Docker, Kubernetes and Helm</strong>.
         </p>
         <HomeList data={data} className="giants__list" />
         <p className="hidden-small">
-          API Platform is also designed as a set of independent and reusable
-          components. You can perfectly use them in a standalone way, or integrate them by yourself
-          in your own project.
+          API Platform is also designed as a set of independent and reusable components. You can perfectly use them in a
+          standalone way, or integrate them by yourself in your own project.
         </p>
       </article>
       <div className="giants__spider">
-        <img
-          src={spider}
-          alt="Built on the shoulders of giants"
-          width="371"
-          height="344"
-        />
+        <img src={spider} alt="Built on the shoulders of giants" width="371" height="344" />
       </div>
     </div>
   </section>

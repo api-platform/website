@@ -2,11 +2,7 @@ import React from 'react';
 
 const Flag = () => (
   <svg className="cover__flag" height="190" width="268" viewBox="0 0 267.7 190">
-    <a
-      href="https://les-tilleuls.coop/en"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="https://les-tilleuls.coop/en" target="_blank" rel="noopener noreferrer">
       <polygon fill="#253032" points="267.3 186.9 267.3 150.3 52.7 0 0.4 0 " />
       <path
         fill="#fff"

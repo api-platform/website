@@ -27,32 +27,31 @@ class TemplateWrapper extends Component {
     }
   }
 
-  showMenu = (open) => {
+  showMenu = open => {
     this.setState(prevState => ({ ...prevState, showResponsiveMenu: open }));
   };
 
   render() {
     const { children, location } = this.props;
     const open = this.state.showResponsiveMenu;
-    const withFooter = (-1 === location.pathname.search('/docs') || !location.key);
+    const withFooter = -1 === location.pathname.search('/docs') || !location.key;
 
     return (
       <div className={classNames('main full', { open })}>
         <div className="full">
           <Helmet {...helmetConfig.head} />
           <Header />
-          <div className={classNames('page openable', { 'with-footer': withFooter })}>{children()}</div>
+          <div
+            className={classNames('page openable', {
+              'with-footer': withFooter,
+            })}
+          >
+            {children()}
+          </div>
           {withFooter && <Footer />}
         </div>
-        <BurgerButton
-          onClick={this.showMenu.bind(null, !open)}
-          status={open ? 'close' : 'burger'}
-        />
-        <div
-          role="presentation"
-          className="overlay"
-          onClick={this.showMenu.bind(null, false)}
-        />
+        <BurgerButton onClick={this.showMenu.bind(null, !open)} status={open ? 'close' : 'burger'} />
+        <div role="presentation" className="overlay" onClick={this.showMenu.bind(null, false)} />
         <SideMenu open={open} />
       </div>
     );

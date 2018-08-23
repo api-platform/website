@@ -14,13 +14,7 @@ const SideMenu = ({ open }) => (
     <div className="side-menu__top">
       <div className="side-menu__logo">
         <div className="logo__circle">
-          <img
-            className="logo__spider"
-            src={LogoSpider}
-            alt="spidey"
-            width="555"
-            height="321"
-          />
+          <img className="logo__spider" src={LogoSpider} alt="spidey" width="555" height="321" />
         </div>
         <Logo className="logo__text" />
       </div>

@@ -11,13 +11,7 @@ const nav = links.map(link => <MenuItem key={link.text} {...link} />);
 const Header = () => (
   <header className="header openable">
     <Link to="/" className="header__logo">
-      <img
-        className="logo__spider"
-        src={LogoSpider}
-        alt="spidey"
-        width="555"
-        height="321"
-      />
+      <img className="logo__spider" src={LogoSpider} alt="spidey" width="555" height="321" />
       <Logo className="logo__text" />
     </Link>
     <Search className="header__search" />

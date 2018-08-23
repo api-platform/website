@@ -40,7 +40,7 @@ class Search extends React.Component {
         <i className="icon-search search__icon" />
         <form>
           <input
-            ref={(input) => {
+            ref={input => {
               this.searchInput = input;
             }}
             className="search__input"

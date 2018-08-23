@@ -9,13 +9,7 @@ const Cover = () => (
     <div className="container cover__content">
       <div className="cover__circle" />
       <div className="cover__spider">
-        <img
-          className="spider__image"
-          src={spider}
-          alt="spider"
-          width="256"
-          height="419"
-        />
+        <img className="spider__image" src={spider} alt="spider" width="256" height="419" />
       </div>
       <Logo className="cover__logo" />
       <h2>REST and GraphQL framework to build modern API-driven projects</h2>
@@ -26,11 +20,7 @@ const Cover = () => (
           icon="download"
           link="https://github.com/api-platform/api-platform/releases/latest"
         />
-        <Button
-          text="Get started"
-          icon="flag"
-          link="/docs/distribution"
-        />
+        <Button text="Get started" icon="flag" link="/docs/distribution" />
       </div>
     </div>
     <Flag />

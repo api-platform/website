@@ -2,15 +2,14 @@ import React from 'react';
 
 const data = [
   <p>
-    <strong>GraphQL</strong>, <strong>Linked data</strong>&nbsp;
-    and <strong>Semantic Web</strong> compatible
+    <strong>GraphQL</strong>, <strong>Linked data</strong>
+    &nbsp; and <strong>Semantic Web</strong> compatible
   </p>,
   <p>
     Super easy <strong>one click install</strong> with Docker
   </p>,
   <p>
-    Generate your <strong>Progressive Web Apps</strong> and{' '}
-    <strong>Native Mobile Apps</strong>
+    Generate your <strong>Progressive Web Apps</strong> and <strong>Native Mobile Apps</strong>
   </p>,
   <p>
     <strong>Deploy instantly</strong> in the cloud with Kubernetes

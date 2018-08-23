@@ -16,8 +16,7 @@ const Expose = () => (
           Easy to <strong>expose</strong>, easy to <strong>consume</strong>!
         </h1>
         <p>
-          API Platform is agnostic of the client-side technology. Thanks to open
-          web standards, it is compatible with:
+          API Platform is agnostic of the client-side technology. Thanks to open web standards, it is compatible with:
         </p>
         <HomeList data={data} className="expose__list" />
       </article>

@@ -13,11 +13,7 @@ const ButtonContent = ({ icon, text }) => (
 const Button = ({ className, empty, icon, link, onClick, text }) => {
   if (!link) {
     return (
-      <button
-        type="button"
-        className={classNames(className, { empty })}
-        onClick={onClick}
-      >
+      <button type="button" className={classNames(className, { empty })} onClick={onClick}>
         <ButtonContent icon={icon} text={text} />
       </button>
     );
@@ -30,12 +26,7 @@ const Button = ({ className, empty, icon, link, onClick, text }) => {
     );
   }
   return (
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={classNames(className, { empty })}
-    >
+    <a href={link} target="_blank" rel="noopener noreferrer" className={classNames(className, { empty })}>
       <ButtonContent icon={icon} text={text} />
     </a>
   );

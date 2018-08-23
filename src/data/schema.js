@@ -32,8 +32,7 @@ const schema = [
         icon: 'doc',
         link: '/docs/core/swagger',
         title: 'Browse the Docs',
-        text:
-          'Enjoy the beautiful, automatically generated, API documentation (Swagger/OpenAPI).',
+        text: 'Enjoy the beautiful, automatically generated, API documentation (Swagger/OpenAPI).',
       },
     ],
   },
@@ -50,8 +49,7 @@ const schema = [
         icon: 'admin',
         link: '/docs/admin',
         title: 'Create an Admin',
-        text:
-          'A nice Material UI admin interface built with React is automatically available!',
+        text: 'A nice Material UI admin interface built with React is automatically available!',
       },
     ],
   },

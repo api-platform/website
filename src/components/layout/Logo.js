@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 /* eslint-disable max-len */
 
 const Logo = ({ className }) => (
-  <svg
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 782.34 88.31"
-  >
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 782.34 88.31">
     <defs />
     <title>test1</title>
     <path

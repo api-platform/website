@@ -17,25 +17,18 @@ const NavItem = ({ item, location, current, onClick }) => {
       open={open}
       easing="ease"
       trigger={
-        <div
-          className="item__title"
-          role="presentation"
-          onClick={() => onClick(path)}
-        >
+        <div className="item__title" role="presentation" onClick={() => onClick(path)}>
           <h2 key={path}>{title}</h2>
           <i className={`icon-chevron-${open ? 'top' : 'down'}`} />
         </div>
       }
     >
       <ul className="menu-item__list">
-        {items.map((navItem) => {
+        {items.map(navItem => {
           const link = 'index' === navItem.id ? `/docs/${path}` : `/docs/${path}/${navItem.id}`;
           const active = link === location.pathname;
           return (
-            <li
-              key={link}
-              className={classNames('menu-item__link', { active })}
-            >
+            <li key={link} className={classNames('menu-item__link', { active })}>
               <NavItemLink
                 path={link}
                 anchors={navItem.anchors}
