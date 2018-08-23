@@ -98,7 +98,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         path,
         component: docTemplate,
         context: {
-          path,
           current,
           prev,
           next,
