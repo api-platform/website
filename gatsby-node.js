@@ -94,8 +94,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         };
       }
 
-      prev.path = prev.path && prev.path.replace(/\/index$/, '');
-      next.path = next.path && next.path.replace(/\/index$/, '');
+      prev.path = prev && prev.path && prev.path.replace(/\/index$/, '');
+      next.path = next && next.path && next.path.replace(/\/index$/, '');
 
       let editSubPaths = path.split('/');
       editSubPaths.shift();
