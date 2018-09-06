@@ -14,6 +14,11 @@ export const openSourceData = [
     logo: 'digital-state',
     link: 'http://www.digitalstate.ca/',
   },
+  {
+    name: 'AudienceHero',
+    logo: 'audiencehero',
+    link: 'http://www.audiencehero.org/',
+  },
 ];
 
 export const otherData = [
@@ -96,6 +101,11 @@ export const otherData = [
     name: 'Microdon',
     logo: 'microdon',
     link: 'https://www.microdon.org/',
+  },
+  {
+    name: 'Orange',
+    logo: 'orange',
+    link: 'https://www.orange.fr/',
   },
   {
     name: 'Parti de gauche',
