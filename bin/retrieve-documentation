@@ -5,10 +5,14 @@ cd "$(dirname "$0")/../"
 # Remove previous documentation
 
 rm -fr src/pages/docs
+rm -fr src/pages/images
 
 # Checkout documentation
 
 git clone https://github.com/api-platform/docs.git src/pages/docs
+
+cp -R src/pages/docs/images public/
+cp -R src/pages/docs/images src/pages/
 
 # Generate "nav.yml"
 
