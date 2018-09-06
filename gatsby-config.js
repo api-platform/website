@@ -8,6 +8,31 @@ module.exports = {
     siteUrl: process.env.GATSBY_ROOT_URL,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1120,
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-external-links',
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -63,29 +88,10 @@ module.exports = {
         ],
       },
     },
-
     'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
     'gatsby-transformer-sharp',
     'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          'gatsby-remark-prismjs',
-          'gatsby-remark-external-links',
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-images',
-        ],
-      },
-    },
+
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
