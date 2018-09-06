@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import DocNav from 'components/layout/DocNav';
-import { docsBranchName } from '../../constants';
 
 const Template = ({ pathContext }) => (
   <div className="page__docs">
@@ -11,7 +10,7 @@ const Template = ({ pathContext }) => (
     <div className="container docs__content">
       <div dangerouslySetInnerHTML={{ __html: pathContext.html }} />
       <div>
-        <p><a href={`https://github.com/api-platform/docs/edit/${docsBranchName}/${pathContext.editPath}`}>You can also help us improving the documentation of this page.</a></p>
+        <p><a href={`https://github.com/api-platform/docs/edit/${process.env.GATSBY_BRANCH_NAME || 'master'}/${pathContext.editPath}`}>You can also help us improving the documentation of this page.</a></p>
       </div>
     </div>
     <div className="container docs__nav">
