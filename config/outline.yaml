@@ -4,6 +4,7 @@ chapters:
     items:
       - id: index
       - id: testing
+      - id: debugging
   - title: The API Component
     path: core
     items:
