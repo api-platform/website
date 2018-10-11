@@ -10,8 +10,8 @@ const treeHelper = {
       ...tree,
       ...node.sections.map(section => {
         const toPush = {
-          id: 'H1' === section.heading.tagName ? id : slugger.slug(section.heading.innerHTML),
-          title: section.heading.innerHTML,
+          id: 'H1' === section.heading.tagName ? id : slugger.slug(section.heading.textContent),
+          title: section.heading.textContent,
         };
 
         const innerTree = treeHelper.getTree(section, undefined, []);
