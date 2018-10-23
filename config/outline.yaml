@@ -58,8 +58,8 @@ chapters:
       - id: index
       - id: react
       - id: vuejs
-      - id: troubleshooting
       - id: react-native
+      - id: troubleshooting
   - title: Deployment
     path: deployment
     items:
