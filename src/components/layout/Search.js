@@ -63,4 +63,4 @@ Search.defaultProps = {
   className: '',
 };
 
-export default scriptLoader('https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js')(Search);
+export default scriptLoader('https://cdn.jsdelivr.net/docsearch.js/2.5/docsearch.min.js')(Search);

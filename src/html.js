@@ -24,7 +24,7 @@ module.exports = class HTML extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           {this.props.headComponents}
           {css}
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2.5/docsearch.min.css" />
         </head>
         <body>
           {this.props.preBodyComponents}
