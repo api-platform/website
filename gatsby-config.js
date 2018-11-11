@@ -88,7 +88,7 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     'gatsby-transformer-sharp',
     'gatsby-transformer-yaml',
 
