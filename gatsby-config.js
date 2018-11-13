@@ -98,5 +98,6 @@ module.exports = {
         trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
+    'gatsby-plugin-remove-serviceworker',
   ],
 };
