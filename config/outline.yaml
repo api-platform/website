@@ -28,6 +28,7 @@ chapters:
       - id: identifiers
       - id: extensions
       - id: security
+      - id: deprecations
       - id: performance
       - id: operation-path-naming
       - id: form-data
