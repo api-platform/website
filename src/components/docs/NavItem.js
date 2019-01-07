@@ -25,7 +25,7 @@ const NavItem = ({ item, location, current, onClick }) => {
     >
       <ul className="menu-item__list">
         {items.map(navItem => {
-          const link = 'index' === navItem.id ? `/docs/${path}` : `/docs/${path}/${navItem.id}`;
+          const link = 'index' === navItem.id ? `/docs/${path}/` : `/docs/${path}/${navItem.id}/`;
           const active = link === location.pathname;
           return (
             <li key={link} className={classNames('menu-item__link', { active })}>
@@ -43,7 +43,7 @@ const NavItem = ({ item, location, current, onClick }) => {
     </Collapsible>
   ) : (
     <div className="menu__item">
-      <Link className="item__title" to={`/docs/${path}`}>
+      <Link className="item__title" to={`/docs/${path}/`}>
         <h2 key={path}>{title}</h2>
       </Link>
     </div>

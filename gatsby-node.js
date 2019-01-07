@@ -95,11 +95,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
 
       if (next && next.path) {
-        next.path = next.path.replace(/\/index$/, '');
+        next.path = next.path.replace(/\/index$/, '/');
       }
 
       if (prev && prev.path) {
-        prev.path = prev.path.replace(/\/index$/, '');
+        prev.path = prev.path.replace(/\/index$/, '/');
       }
 
       let editSubPaths = path.split('/');
@@ -120,11 +120,11 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       });
 
       if (redirect) {
-        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
+        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}`];
         redirects.forEach(redirPath =>
           createRedirect({
             fromPath: redirPath,
-            toPath: `/${path}`,
+            toPath: `/${path}/`,
             isPermanent: true,
             redirectInBrowser: true
           })
@@ -140,7 +140,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     return;
   }
   const fileNode = getNode(node.parent);
-  let nodePath = fileNode.relativePath.replace('.md', '');
+  let nodePath = fileNode.relativePath.replace('.md', '/');
   let html = node.internal.content;
   let localUrls = [];
   let matches;
@@ -151,7 +151,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 
   localUrls.map((url) => {
-    let newUrl = url.replace('.md', '');
+    let newUrl = url.replace('.md', '/');
     newUrl = `/${URL.resolve(nodePath, newUrl)}`;
     html = html.replace(url, newUrl);
     return true;
