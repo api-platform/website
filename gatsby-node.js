@@ -36,16 +36,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
   return docQuery.then(values => {
     const docs = values.data.allMarkdownRemark.edges;
-    const parseNav = navHelper.parseNavItem(nav.chapters.filter((navItem) => navItem.items));
+    const parseNav = navHelper.parseNavItem(nav.chapters.filter(navItem => navItem.items));
 
-    docs.forEach((edge) => {
+    docs.forEach(edge => {
       const path = edge.node.fields.path;
       const redirect = edge.node.fields.redirect;
-      const index = parseNav.findIndex((element) => element.path === path || element.path === redirect);
-      let current,
-        prev,
-        next,
-        rootPath;
+      const index = parseNav.findIndex(element => element.path === path || element.path === redirect);
+      let current, prev, next, rootPath;
 
       const headings = edge.node.headings;
       const html = edge.node.html;
@@ -59,17 +56,27 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       }
 
       headings.forEach((currentVal, index) => {
-        if (currentVal.depth !== 1 ) {
+        if (currentVal.depth !== 1) {
           return;
         }
-        if (index > 0 ) {
-          console.warn('\x1b[31m', `\nMultiple title in single file are not allowed, please change heading node of following title: '${currentVal.value}' in ${path}.md\n`, '\x1b[37m');
+        if (index > 0) {
+          console.warn(
+            '\x1b[31m',
+            `\nMultiple title in single file are not allowed, please change heading node of following title: '${
+              currentVal.value
+            }' in ${path}.md\n`,
+            '\x1b[37m'
+          );
           process.exit(1);
         }
       });
 
       if (headings.length !== result.length) {
-        console.warn('\x1b[31m', `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`, '\x1b[37m');
+        console.warn(
+          '\x1b[31m',
+          `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`,
+          '\x1b[37m'
+        );
         process.exit(1);
         return;
       }
@@ -90,16 +97,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
         current = {
           path: current.path,
-          title: `${current.rootPath} - ${current.title}`
+          title: `${current.rootPath} - ${current.title}`,
         };
       }
 
       if (next && next.path) {
-        next.path = next.path.replace(/\/index$/, '');
+        next.path = next.path.replace(/\/index$/, '/');
       }
 
       if (prev && prev.path) {
-        prev.path = prev.path.replace(/\/index$/, '');
+        prev.path = prev.path.replace(/\/index$/, '/');
       }
 
       let editSubPaths = path.split('/');
@@ -115,18 +122,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           prev,
           next,
           html,
-          nav: nav.chapters
-        }
+          nav: nav.chapters,
+        },
       });
 
       if (redirect) {
-        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}/`];
+        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}`];
         redirects.forEach(redirPath =>
           createRedirect({
             fromPath: redirPath,
-            toPath: `/${path}`,
+            toPath: `/${path}/`,
             isPermanent: true,
-            redirectInBrowser: true
+            redirectInBrowser: true,
           })
         );
       }
@@ -140,18 +147,18 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     return;
   }
   const fileNode = getNode(node.parent);
-  let nodePath = fileNode.relativePath.replace('.md', '');
+  let nodePath = fileNode.relativePath.replace('.md', '/');
   let html = node.internal.content;
   let localUrls = [];
   let matches;
   const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
 
-  while (matches = regex.exec(html)) {
+  while ((matches = regex.exec(html))) {
     localUrls.push(matches[2]);
   }
 
-  localUrls.map((url) => {
-    let newUrl = url.replace('.md', '');
+  localUrls.map(url => {
+    let newUrl = url.replace('.md', '/');
     newUrl = `/${URL.resolve(nodePath, newUrl)}`;
     html = html.replace(url, newUrl);
     return true;
@@ -162,7 +169,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     createNodeField({
       node,
       name: 'redirect',
-      value: nodePath
+      value: nodePath,
     });
     nodePath = `${Path.dirname(nodePath)}`;
   }
@@ -170,7 +177,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   createNodeField({
     node,
     name: 'path',
-    value: nodePath
+    value: nodePath,
   });
 };
 
@@ -182,9 +189,9 @@ exports.modifyWebpackConfig = ({ config }) => {
         styles: 'styles',
         images: 'images',
         data: 'data',
-        components: 'components'
-      }
-    }
+        components: 'components',
+      },
+    },
   });
   return config;
 };
