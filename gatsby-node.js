@@ -1,198 +1,96 @@
-const Path = require('path');
+const path = require('path');
 const URL = require('url');
+const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
-const navHelper = require('./src/lib/navHelper');
 
-const nav = jsyaml.safeLoad(readFileSync(`${__dirname}/src/pages/docs/nav.yml`, 'utf8'));
+const nav = jsyaml.safeLoad(readFileSync('./src/pages/docs/nav.yml', 'utf8'));
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage, createRedirect } = boundActionCreators;
-  const docTemplate = Path.resolve('src/templates/doc.js');
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const docPageTemplate = path.resolve('src/templates/doc.js');
 
-  const docQuery = graphql(`
+  return graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [fields___path] }, limit: 1000) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             html
-            tableOfContents
             headings {
-              depth
               value
             }
             fields {
-              path
-              redirect
+              slug
             }
-            excerpt(pruneLength: 250)
-            html
-            id
           }
         }
       }
     }
-  `);
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
 
-  return docQuery.then(values => {
-    const docs = values.data.allMarkdownRemark.edges;
-    const parseNav = navHelper.parseNavItem(nav.chapters.filter(navItem => navItem.items));
+    const pages = result.data.allMarkdownRemark.edges;
 
-    docs.forEach(edge => {
-      const path = edge.node.fields.path;
-      const redirect = edge.node.fields.redirect;
-      const index = parseNav.findIndex(element => element.path === path || element.path === redirect);
-      let current, prev, next, rootPath;
+    pages.forEach(edge => {
+      const slug = edge.node.fields.slug;
 
-      const headings = edge.node.headings;
-      const html = edge.node.html;
+      let previous = {};
+      let next = {};
 
-      const regex = RegExp(/<a href="#((?:[\w-]+(?:-[\w-]+)*)+)" aria-hidden="true" class="anchor">/, 'gm');
-      let tmpResult;
-      let result = [];
+      const slugArray = slug.split('/');
 
-      while ((tmpResult = regex.exec(html)) !== null) {
-        result.push(tmpResult[1]);
-      }
-
-      headings.forEach((currentVal, index) => {
-        if (currentVal.depth !== 1) {
-          return;
-        }
-        if (index > 0) {
-          console.warn(
-            '\x1b[31m',
-            `\nMultiple title in single file are not allowed, please change heading node of following title: '${
-              currentVal.value
-            }' in ${path}.md\n`,
-            '\x1b[37m'
-          );
-          process.exit(1);
+      nav.chapters.forEach(chapter => {
+        if (slugArray[2] === chapter.path) {
+          chapter.items.forEach((item, index) => {
+            if (index === 0) {
+              next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
+              next.title = chapter.items[index + 1].title;
+            } else if (slugArray[3] === item.id) {
+              previous.slug =
+                chapter.items[index - 1].id === 'index'
+                  ? `/docs/${slugArray[2]}/`
+                  : `/docs/${slugArray[2]}/${chapter.items[index - 1].id}/`;
+              previous.title = chapter.items[index - 1].title;
+              if (chapter.items.length - 1 !== index) {
+                next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
+                next.title = chapter.items[index + 1].title;
+              } else {
+                next.slug = null;
+              }
+            }
+          });
         }
       });
 
-      if (headings.length !== result.length) {
-        console.warn(
-          '\x1b[31m',
-          `There is an unexpected diff between number of headers and number of header anchors in ${path}.md, report to gastby-node.js file to figure out why.\n`,
-          '\x1b[37m'
-        );
-        process.exit(1);
-        return;
-      }
-
-      if (-1 !== index) {
-        current = parseNav[index];
-        rootPath = current.rootPath;
-
-        prev = 0 < index && parseNav[index - 1];
-        next = index < parseNav.length - 1 && parseNav[index + 1];
-
-        if (prev && prev.rootPath !== rootPath) {
-          prev = { path: prev.path, title: `${prev.rootPath} - ${prev.title}` };
-        }
-        if (next && next.rootPath !== rootPath) {
-          next = { path: next.path, title: `${next.rootPath} - ${next.title}` };
-        }
-
-        current = {
-          path: current.path,
-          title: `${current.rootPath} - ${current.title}`,
-        };
-      }
-
-      if (next && next.path) {
-        next.path = next.path.replace(/\/index$/, '/');
-      }
-
-      if (prev && prev.path) {
-        prev.path = prev.path.replace(/\/index$/, '/');
-      }
-
-      let editSubPaths = path.split('/');
-      editSubPaths.shift();
-      const editPath = editSubPaths.length > 2 ? `${editSubPaths.join('/').slice(0, -1)}.md` : `${editSubPaths[0]}/index.md`;
+      const editSubPaths = slug.slice(6).split('/');
+      const editPath =
+        editSubPaths.length > 2 ? `${editSubPaths.join('/').slice(0, -1)}.md` : `${editSubPaths[0]}/index.md`;
 
       createPage({
-        path,
-        component: docTemplate,
+        path: slug,
+        component: docPageTemplate,
         context: {
+          html: edge.node.html,
           editPath,
-          current,
-          prev,
+          title: edge.node.headings[0].value,
+          previous,
           next,
-          html,
-          nav: nav.chapters,
         },
       });
-
-      const redirects = [`/${path.slice(0, -1)}`];
-      if (redirect) {
-        redirects.push(`/${redirect}`, `/${redirect}/`);
-      }
-      redirects.forEach(redirPath =>
-        createRedirect({
-          fromPath: redirPath,
-          toPath: `/${path}`,
-          isPermanent: true,
-          redirectInBrowser: true,
-        })
-      );
     });
   });
 };
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators;
-  if ('MarkdownRemark' !== node.internal.type) {
-    return;
-  }
-  const fileNode = getNode(node.parent);
-  let nodePath = fileNode.relativePath.replace('.md', '');
-  let html = node.internal.content;
-  let localUrls = [];
-  let matches;
-  const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
-
-  while ((matches = regex.exec(html))) {
-    localUrls.push(matches[2]);
-  }
-
-  localUrls.map(url => {
-    let newUrl = url.replace('.md', '/');
-    newUrl = `/${URL.resolve(nodePath, newUrl)}`;
-    html = html.replace(url, newUrl);
-    return true;
-  });
-
-  node.internal.content = html;
-  if ('index' === Path.basename(nodePath)) {
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
-      name: 'redirect',
-      value: nodePath,
+      name: `slug`,
+      value: slug,
     });
-    nodePath = `${Path.dirname(nodePath)}`;
   }
-
-  createNodeField({
-    node,
-    name: 'path',
-    value: `${nodePath}/`,
-  });
-};
-
-exports.modifyWebpackConfig = ({ config }) => {
-  config.merge({
-    resolve: {
-      root: Path.resolve(__dirname, './src'),
-      alias: {
-        styles: 'styles',
-        images: 'images',
-        data: 'data',
-        components: 'components',
-      },
-    },
-  });
-  return config;
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from 'images/logo.svg';
+import Logo from '../../images/logo.svg';
 
 class Footer extends Component {
   /* eslint-disable no-undef */

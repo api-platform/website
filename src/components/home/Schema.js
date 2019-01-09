@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import dataSchema from 'data/schema';
-import spider from 'images/spider_schema.svg';
+import dataSchema from '../../data/schema';
+import spider from '../../images/spider_schema.svg';
 
 /* eslint-disable react/prop-types */
 
@@ -23,7 +23,9 @@ const SchemaPart = ({ title, items }) => (
       <h4>{title}</h4>
     </div>
     <div className="schema__group">
-      {items.map(item => <SchemaItem key={item.title} {...item} />)}
+      {items.map(item => (
+        <SchemaItem key={item.title} {...item} />
+      ))}
       <Lines />
     </div>
   </div>
@@ -46,7 +48,9 @@ const Schema = () => (
       <h1 className="schema__title">
         Creating Linked Data <strong>REST</strong> APIs has Never Been so Easy
       </h1>
-      {dataSchema.map(part => <SchemaPart key={part.title} {...part} />)}
+      {dataSchema.map(part => (
+        <SchemaPart key={part.title} {...part} />
+      ))}
     </div>
     <div className="schema__spider">
       <img src={spider} alt="spider" width="256" height="422" />

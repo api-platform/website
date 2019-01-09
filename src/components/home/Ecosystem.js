@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import adminImage from 'images/admin_component.svg';
-import scaffoldingImage from 'images/scaffolding_component.svg';
-import apiImage from 'images/api_component.svg';
-import schemaImage from 'images/schema_component.svg';
-import Button from 'components/common/Button';
+import adminImage from '../../images/admin_component.svg';
+import scaffoldingImage from '../../images/scaffolding_component.svg';
+import apiImage from '../../images/api_component.svg';
+import schemaImage from '../../images/schema_component.svg';
+import Button from '../../components/common/Button';
 
 const EcosystemCard = ({ big, image, link, text, title }) => (
   <div className={classnames('grid__item', { full: big })}>
