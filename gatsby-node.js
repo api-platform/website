@@ -126,17 +126,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         },
       });
 
+      const redirects = [`/${path.slice(0, -1)}`];
       if (redirect) {
-        const redirects = [`/${redirect}`, `/${redirect}/`, `/${path}`];
-        redirects.forEach(redirPath =>
-          createRedirect({
-            fromPath: redirPath,
-            toPath: `/${path}/`,
-            isPermanent: true,
-            redirectInBrowser: true,
-          })
-        );
+        redirects.push(`/${redirect}`, `/${redirect}/`);
       }
+      redirects.forEach(redirPath =>
+        createRedirect({
+          fromPath: redirPath,
+          toPath: `/${path}`,
+          isPermanent: true,
+          redirectInBrowser: true,
+        })
+      );
     });
   });
 };
@@ -147,7 +148,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     return;
   }
   const fileNode = getNode(node.parent);
-  let nodePath = fileNode.relativePath.replace('.md', '/');
+  let nodePath = fileNode.relativePath.replace('.md', '');
   let html = node.internal.content;
   let localUrls = [];
   let matches;
@@ -177,7 +178,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   createNodeField({
     node,
     name: 'path',
-    value: nodePath,
+    value: `${nodePath}/`,
   });
 };
 
