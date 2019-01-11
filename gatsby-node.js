@@ -111,7 +111,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
       let editSubPaths = path.split('/');
       editSubPaths.shift();
-      const editPath = editSubPaths.length > 1 ? `${editSubPaths.join('/')}.md` : `${editSubPaths[0]}/index.md`;
+      const editPath = editSubPaths.length > 2 ? `${editSubPaths.join('/').slice(0, -1)}.md` : `${editSubPaths[0]}/index.md`;
 
       createPage({
         path,
