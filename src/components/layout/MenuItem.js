@@ -34,7 +34,8 @@ MenuItemLink.defaultProps = {
 };
 
 const MenuItem = ({ text, path, submenu }) => {
-  const current = location.pathname.includes(path);
+  const currentLocation = location.pathname ? location.pathname : null;
+  const current = currentLocation.includes(path);
   return (
     <div className={classNames('menu-item', { withSubmenu: submenu, current })}>
       <MenuItemLink text={text} path={path}>
