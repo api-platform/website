@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
 import nav from '../pages/docs/nav.yml';
