@@ -18,12 +18,7 @@ const MenuItemLink = ({ path, children }) => {
   }
 
   return (
-    <a
-      className="menu-item__link"
-      href={path}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a className="menu-item__link" href={path} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );
@@ -31,12 +26,12 @@ const MenuItemLink = ({ path, children }) => {
 
 MenuItemLink.propTypes = {
   children: PropTypes.any,
-  path: PropTypes.string
+  path: PropTypes.string,
 };
 
 MenuItemLink.defaultProps = {
   children: null,
-  path: null
+  path: null,
 };
 
 const MenuItem = ({ text, path, submenu }) => {
@@ -48,7 +43,7 @@ const MenuItem = ({ text, path, submenu }) => {
           <div
             className={classNames('menu-item', {
               withSubmenu: submenu,
-              current
+              current,
             })}
           >
             <MenuItemLink text={text} path={path}>
@@ -74,12 +69,12 @@ const MenuItem = ({ text, path, submenu }) => {
 MenuItem.propTypes = {
   text: PropTypes.string.isRequired,
   path: PropTypes.string,
-  submenu: PropTypes.array
+  submenu: PropTypes.array,
 };
 
 MenuItem.defaultProps = {
   submenu: null,
-  path: null
+  path: null,
 };
 
 export default MenuItem;
