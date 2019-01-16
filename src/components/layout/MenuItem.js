@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { Location } from '@reach/router';
 import classNames from 'classnames';
 
 const MenuItemLink = ({ path, children }) => {
@@ -17,7 +18,12 @@ const MenuItemLink = ({ path, children }) => {
   }
 
   return (
-    <a className="menu-item__link" href={path} target="_blank" rel="noopener noreferrer">
+    <a
+      className="menu-item__link"
+      href={path}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children}
     </a>
   );
@@ -25,51 +31,55 @@ const MenuItemLink = ({ path, children }) => {
 
 MenuItemLink.propTypes = {
   children: PropTypes.any,
-  path: PropTypes.string,
+  path: PropTypes.string
 };
 
 MenuItemLink.defaultProps = {
   children: null,
-  path: null,
+  path: null
 };
 
-class MenuItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.current = location.pathname.includes(this.props.path);
-  }
-
-  render() {
-    const { text, path, submenu } = this.props;
-    return (
-      <div className={classNames('menu-item', { withSubmenu: submenu, current: this.current })}>
-        <MenuItemLink text={text} path={path}>
-          <span>{text}</span>
-          {submenu && <i className="icon-chevron-circle-down" />}
-        </MenuItemLink>
-        {submenu && (
-          <div className="menu-item__submenu">
-            {submenu.map(({ text: itemText, path: itemPath }) => (
-              <Link key={itemText} to={itemPath} className="submenu__item">
-                {itemText}
-              </Link>
-            ))}
+const MenuItem = ({ text, path, submenu }) => {
+  return (
+    <Location>
+      {({ location }) => {
+        const current = location.pathname.includes(path);
+        return (
+          <div
+            className={classNames('menu-item', {
+              withSubmenu: submenu,
+              current
+            })}
+          >
+            <MenuItemLink text={text} path={path}>
+              <span>{text}</span>
+              {submenu && <i className="icon-chevron-circle-down" />}
+            </MenuItemLink>
+            {submenu && (
+              <div className="menu-item__submenu">
+                {submenu.map(({ text: itemText, path: itemPath }) => (
+                  <Link key={itemText} to={itemPath} className="submenu__item">
+                    {itemText}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    );
-  }
-}
+        );
+      }}
+    </Location>
+  );
+};
 
 MenuItem.propTypes = {
   text: PropTypes.string.isRequired,
   path: PropTypes.string,
-  submenu: PropTypes.array,
+  submenu: PropTypes.array
 };
 
 MenuItem.defaultProps = {
   submenu: null,
-  path: null,
+  path: null
 };
 
 export default MenuItem;

@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+const fs = require('fs');
+const dotenv = require('dotenv').config({ path: '.env.gatsby' });
+
 module.exports = {
   siteMetadata: {
     title: 'API Platform',
