@@ -14,19 +14,6 @@ class Layout extends Component {
     showResponsiveMenu: false,
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.setState(prevState => ({ ...prevState, showResponsiveMenu: false }));
-    }
-  }
-
-  componentDidUpdate(prevState) {
-    const { showResponsiveMenu } = this.state;
-    if (prevState.showResponsiveMenu !== showResponsiveMenu) {
-      document.body.className = showResponsiveMenu ? 'open' : '';
-    }
-  }
-
   showMenu = open => {
     this.setState(prevState => ({ ...prevState, showResponsiveMenu: open }));
   };
