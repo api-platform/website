@@ -17,29 +17,33 @@ chapters:
       - id: filters
       - id: serialization
       - id: validation
-      - id: errors
+      - id: security
+      - id: data-providers
+      - id: data-persisters
+      - id: graphql
+      - id: mercure
+      - id: elasticsearch
       - id: pagination
       - id: events
       - id: content-negotiation
-      - id: external-vocabularies
-      - id: extending-jsonld-context
-      - id: data-providers
-      - id: data-persisters
-      - id: identifiers
-      - id: extensions
-      - id: security
       - id: deprecations
       - id: performance
-      - id: operation-path-naming
-      - id: form-data
-      - id: fosuser-bundle
-      - id: jwt
-      - id: nelmio-api-doc
-      - id: angularjs-integration
+      - id: errors
+      - id: extensions
       - id: swagger
-      - id: graphql
+      - id: messenger
       - id: dto
+      - id: push-relations
       - id: file-upload
+      - id: external-vocabularies
+      - id: operation-path-naming
+      - id: extending-jsonld-context
+      - id: form-data
+      - id: identifiers
+      - id: jwt
+      - id: angularjs-integration
+      - id: fosuser-bundle
+      - id: nelmio-api-doc
   - title: The Schema Generator Component
     path: schema-generator
     items:
