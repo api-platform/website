@@ -30,10 +30,10 @@ const menu = [
       },
     ],
   },
-  {
+  /*{
     text: 'Demo',
     path: 'https://demo.api-platform.com/',
-  },
+  },*/
   {
     text: 'News',
     path: '/news/',
