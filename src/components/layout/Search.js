@@ -22,12 +22,12 @@ class Search extends React.Component {
   /* eslint-disable no-undef */
   initDocSearch() {
     if (docsearch) {
-      // docsearch({
-      //   apiKey: process.env.GATSBY_DOCSEARCH_API_KEY,
-      //   indexName: process.env.GATSBY_DOCSEARCH_INDEX_NAME,
-      //   inputSelector: this.searchInput,
-      //   debug: false,
-      // });
+      docsearch({
+        apiKey: process.env.GATSBY_DOCSEARCH_API_KEY,
+        indexName: process.env.GATSBY_DOCSEARCH_INDEX_NAME,
+        inputSelector: this.searchInput,
+        debug: false,
+      });
     }
   }
   /* eslint-enable no-undef */
