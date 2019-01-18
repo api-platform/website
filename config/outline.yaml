@@ -11,16 +11,14 @@ chapters:
       - id: index
       - id: getting-started
       - id: design
-      - id: configuration
       - id: operations
-      - id: default-order
+      - id: graphql
       - id: filters
       - id: serialization
       - id: validation
       - id: security
       - id: data-providers
       - id: data-persisters
-      - id: graphql
       - id: mercure
       - id: elasticsearch
       - id: pagination
@@ -28,13 +26,14 @@ chapters:
       - id: content-negotiation
       - id: deprecations
       - id: performance
-      - id: errors
       - id: extensions
       - id: swagger
       - id: messenger
       - id: dto
       - id: push-relations
       - id: file-upload
+      - id: default-order
+      - id: errors
       - id: external-vocabularies
       - id: operation-path-naming
       - id: extending-jsonld-context
@@ -44,6 +43,7 @@ chapters:
       - id: angularjs-integration
       - id: fosuser-bundle
       - id: nelmio-api-doc
+      - id: configuration
   - title: The Schema Generator Component
     path: schema-generator
     items:
