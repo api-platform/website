@@ -32,7 +32,7 @@ const menu = [
   },
   {
     text: 'Demo',
-    path: 'https://demo.api-platform.com/',
+    path: 'https://demo-client.api-platform.com/',
   },
   {
     text: 'News',
