@@ -1,5 +1,5 @@
 chapters:
-  - title: 'The Distribution: Create Powerful APIs with Ease'
+  - title: "The Distribution: Create Powerful APIs with Ease"
     path: distribution
     items:
       - id: index
@@ -20,6 +20,7 @@ chapters:
       - id: data-providers
       - id: data-persisters
       - id: mercure
+      - id: mongodb
       - id: elasticsearch
       - id: pagination
       - id: events
