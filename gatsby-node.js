@@ -85,7 +85,36 @@ exports.createPages = ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+
   if (node.internal.type === `MarkdownRemark`) {
+    const fileNode = getNode(node.parent);
+    let nodePath = fileNode.relativePath.replace('.md', '');
+    let html = node.internal.content;
+    let localUrls = [];
+    let matches;
+    const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
+
+    while ((matches = regex.exec(html))) {
+      localUrls.push(matches[2]);
+    }
+
+    localUrls.map(url => {
+      let newUrl = url.replace('.md', '/');
+      newUrl = `/${URL.resolve(nodePath, newUrl)}`;
+      html = html.replace(url, newUrl);
+      return true;
+    });
+
+    node.internal.content = html;
+    if ('index' === path.basename(nodePath)) {
+      createNodeField({
+        node,
+        name: 'redirect',
+        value: nodePath,
+      });
+      nodePath = `${path.dirname(nodePath)}`;
+    }
+
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
