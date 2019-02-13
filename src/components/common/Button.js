@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 const ButtonContent = ({ icon, text }) => (
   <div className="button__content">

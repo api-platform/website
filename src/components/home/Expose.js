@@ -1,5 +1,5 @@
 import React from 'react';
-import spider from 'images/expose.svg';
+import spider from '../../images/expose.svg';
 import HomeList from './HomeList';
 
 const data = [

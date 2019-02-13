@@ -1,7 +1,7 @@
 import React from 'react';
-import code from 'data/seo-code';
-import Laptop from 'images/laptop.svg';
-import Prism from 'vendor/Prism.js';
+import code from '../../data/seo-code';
+import Laptop from '../../images/laptop.svg';
+import Prism from '../../vendor/Prism';
 
 const Seo = () => (
   <section className="home__seo home__part">

@@ -2,30 +2,17 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Header from 'components/layout/Header';
-import BurgerButton from 'components/layout/BurgerButton';
-import Footer from 'components/layout/Footer';
-import SideMenu from 'components/layout/SideMenu';
-import 'styles/main.scss';
+import Header from './layout/Header';
+import BurgerButton from './layout/BurgerButton';
+import Footer from './layout/Footer';
+import SideMenu from './layout/SideMenu';
+import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
 
-class TemplateWrapper extends Component {
+class Layout extends Component {
   state = {
     showResponsiveMenu: false,
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.setState(prevState => ({ ...prevState, showResponsiveMenu: false }));
-    }
-  }
-
-  componentDidUpdate(prevState) {
-    const { showResponsiveMenu } = this.state;
-    if (prevState.showResponsiveMenu !== showResponsiveMenu) {
-      document.body.className = showResponsiveMenu ? 'open' : '';
-    }
-  }
 
   showMenu = open => {
     this.setState(prevState => ({ ...prevState, showResponsiveMenu: open }));
@@ -46,7 +33,7 @@ class TemplateWrapper extends Component {
               'with-footer': withFooter,
             })}
           >
-            {children()}
+            {children}
           </div>
           {withFooter && <Footer />}
         </div>
@@ -58,13 +45,13 @@ class TemplateWrapper extends Component {
   }
 }
 
-TemplateWrapper.propTypes = {
+Layout.propTypes = {
   children: PropTypes.any,
   location: PropTypes.object.isRequired,
 };
 
-TemplateWrapper.defaultProps = {
+Layout.defaultProps = {
   children: null,
 };
 
-export default TemplateWrapper;
+export default Layout;

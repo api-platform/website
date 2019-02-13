@@ -1,7 +1,7 @@
 import React from 'react';
-import links from 'data/menu';
-import Link from 'gatsby-link';
-import LogoSpider from 'images/logo_spider.svg';
+import { Link } from 'gatsby';
+import links from '../../data/menu';
+import LogoSpider from '../../images/logo_spider.svg';
 import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';

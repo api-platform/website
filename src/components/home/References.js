@@ -1,5 +1,5 @@
 import React from 'react';
-import { openSourceData, otherData } from 'data/logos';
+import { openSourceData, otherData } from '../../data/logos';
 
 const openSourceList = openSourceData.map(({ name, logo, link }) => (
   <a key={name} href={link} target="_blank" rel="noopener noreferrer" className="references__item big">

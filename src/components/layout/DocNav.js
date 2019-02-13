@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import NavItem from 'components/docs/NavItem';
+import NavItem from '../docs/NavItem';
 
 class DocNav extends Component {
   componentWillMount() {
-    const { location, history } = this.props;
+    const { location } = this.props;
     if ('undefined' !== typeof window) {
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('click', this.handleScroll);
@@ -14,7 +13,6 @@ class DocNav extends Component {
       ...prevState,
       currentItem: this.getItemByLocation(location),
     }));
-    this.unlisten = history.listen(this.updateLocation);
   }
 
   updateLocation = args => {
@@ -65,13 +63,8 @@ class DocNav extends Component {
     return matches ? matches[1] : null;
   };
 
-  componentWillUnmount() {
-    this.unlisten();
-  }
-
   state = {
     currentItem: null,
-    locationWithHash: this.props.location,
   };
 
   toggleMenu = itemPath =>
@@ -81,7 +74,7 @@ class DocNav extends Component {
     }));
 
   render() {
-    const { currentItem, locationWithHash } = this.state;
+    const { currentItem } = this.state;
     return (
       <div className="docs__menu openable">
         {this.props.nav.map(item => (
@@ -90,7 +83,7 @@ class DocNav extends Component {
             key={item.path}
             onClick={this.toggleMenu}
             current={currentItem}
-            location={locationWithHash}
+            location={this.props.location}
           />
         ))}
       </div>
@@ -100,7 +93,6 @@ class DocNav extends Component {
 
 DocNav.propTypes = {
   location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
   nav: PropTypes.array,
 };
 
@@ -108,4 +100,4 @@ DocNav.defaultProps = {
   nav: [],
 };
 
-export default withRouter(DocNav);
+export default DocNav;

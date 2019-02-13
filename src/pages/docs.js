@@ -1,28 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
-
-// eslint-disable-next-line no-undef
-export const query = graphql`
-  query Tree {
-    docsYaml(id: { regex: "/docs/nav.yml/" }) {
-      chapters {
-        title
-        path
-        items {
-          title
-          id
-          anchors {
-            id
-            title
-          }
-        }
-      }
-    }
-  }
-`;
+import nav from './docs/nav.yml';
 
 const RenderInnerList = ({ anchors, path }) => (
   <ol>
@@ -64,29 +46,31 @@ RenderList.propTypes = {
   path: PropTypes.string.isRequired,
 };
 
-const Render = ({ data: { docsYaml: { chapters } } }) => (
-  <div className="page__docs">
-    <Helmet title="API Platform Documentation" />
-    <div className="container docs__content">
-      <h1>API Platform Documentation</h1>
-      {chapters.map(({ path, title, items }) => {
-        const currentPath = `/docs/${path}`;
+const DocsPage = props => (
+  <Layout location={props.location}>
+    <div className="page__docs">
+      <Helmet title="API Platform Documentation" />
+      <div className="container docs__content">
+        <h1>API Platform Documentation</h1>
+        {nav.chapters.map(({ path, title, items }) => {
+          const currentPath = `/docs/${path}`;
 
-        return (
-          <section key={path}>
-            <h2>
-              <Link to={currentPath}>{title}</Link>
-            </h2>
-            <RenderList items={items} path={currentPath} />
-          </section>
-        );
-      })}
+          return (
+            <section key={path}>
+              <h2>
+                <Link to={currentPath}>{title}</Link>
+              </h2>
+              <RenderList items={items} path={currentPath} />
+            </section>
+          );
+        })}
+      </div>
+      <DocNav nav={nav.chapters} location={props.location} />
     </div>
-    <DocNav nav={chapters} />
-  </div>
+  </Layout>
 );
-Render.propTypes = {
-  data: PropTypes.object.isRequired,
+DocsPage.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
-export default Render;
+export default DocsPage;

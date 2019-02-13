@@ -1,5 +1,5 @@
 import React from 'react';
-import spider from 'images/giants.svg';
+import spider from '../../images/giants.svg';
 import HomeList from './HomeList';
 
 const data = [

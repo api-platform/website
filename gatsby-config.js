@@ -8,6 +8,8 @@ module.exports = {
     siteUrl: process.env.GATSBY_ROOT_URL,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -34,8 +36,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-twitter',
     {
