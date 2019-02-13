@@ -25,7 +25,7 @@ class Footer extends Component {
       <footer className="footer openable">
         <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
         <p className="footer__copyright">
-          Copyright © 2018{' '}
+          Copyright © 2019{' '}
           <a href="https://dunglas.fr/" target="_blank" rel="noopener noreferrer">
             Kévin Dunglas
           </a>
