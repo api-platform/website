@@ -19,7 +19,7 @@ const Template = ({ location, pageContext }) => (
                 pageContext.editPath
               }`}
             >
-              You can also help us improving the documentation of this page.
+              You can also help us improve the documentation of this page.
             </a>
           </p>
         </div>
