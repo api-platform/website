@@ -7,7 +7,7 @@ const { readFileSync } = require('fs');
 const nav = jsyaml.safeLoad(readFileSync('./src/pages/docs/nav.yml', 'utf8'));
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const docPageTemplate = path.resolve('src/templates/doc.js');
 
   return graphql(`
@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
             fields {
               slug
+              redirect
             }
           }
         }
@@ -35,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     pages.forEach(edge => {
       const slug = edge.node.fields.slug;
+      const redirect = edge.node.fields.redirect;
 
       let previous = {};
       let next = {};
@@ -83,6 +85,19 @@ exports.createPages = ({ graphql, actions }) => {
           next,
         },
       });
+
+      const redirects = [slug.slice(0, -1)];
+      if (redirect) {
+        redirects.push(redirect, `${redirect}/`);
+      }
+      redirects.forEach(redirectPath =>
+        createRedirect({
+          fromPath: redirectPath,
+          toPath: slug,
+          isPermanent: true,
+          redirectInBrowser: true,
+        })
+      );
     });
   });
 };
@@ -112,6 +127,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     node.internal.content = html;
 
     const slug = createFilePath({ node, getNode, basePath: `pages` });
+
+    if ('index' === path.basename(nodePath)) {
+      createNodeField({
+        node,
+        name: 'redirect',
+        value: `/${nodePath}`,
+      });
+    }
+
     createNodeField({
       node,
       name: `slug`,
