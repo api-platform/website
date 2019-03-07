@@ -7,7 +7,7 @@ const { readFileSync } = require('fs');
 const nav = jsyaml.safeLoad(readFileSync('./src/pages/docs/nav.yml', 'utf8'));
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const docPageTemplate = path.resolve('src/templates/doc.js');
 
   return graphql(`
@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
             fields {
               slug
+              redirect
             }
           }
         }
@@ -35,6 +36,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     pages.forEach(edge => {
       const slug = edge.node.fields.slug;
+      const redirect = edge.node.fields.redirect;
 
       let previous = {};
       let next = {};
@@ -47,17 +49,21 @@ exports.createPages = ({ graphql, actions }) => {
             if (index === 0) {
               next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
               next.title = chapter.items[index + 1].title;
-            } else if (slugArray[3] === item.id) {
+
+              return;
+            }
+
+            if (slugArray[3] === item.id) {
               previous.slug =
                 chapter.items[index - 1].id === 'index'
                   ? `/docs/${slugArray[2]}/`
                   : `/docs/${slugArray[2]}/${chapter.items[index - 1].id}/`;
               previous.title = chapter.items[index - 1].title;
+
+              next.slug = null;
               if (chapter.items.length - 1 !== index) {
                 next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
                 next.title = chapter.items[index + 1].title;
-              } else {
-                next.slug = null;
               }
             }
           });
@@ -79,6 +85,19 @@ exports.createPages = ({ graphql, actions }) => {
           next,
         },
       });
+
+      const redirects = [slug.slice(0, -1)];
+      if (redirect) {
+        redirects.push(redirect, `${redirect}/`);
+      }
+      redirects.forEach(redirectPath =>
+        createRedirect({
+          fromPath: redirectPath,
+          toPath: slug,
+          isPermanent: true,
+          redirectInBrowser: true,
+        })
+      );
     });
   });
 };
@@ -99,23 +118,24 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     localUrls.map(url => {
-      let newUrl = url.replace('.md', '/');
+      let newUrl = url.replace(/(\/index)?\.md/, '/');
       newUrl = `/${URL.resolve(nodePath, newUrl)}`;
       html = html.replace(url, newUrl);
       return true;
     });
 
     node.internal.content = html;
+
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
+
     if ('index' === path.basename(nodePath)) {
       createNodeField({
         node,
         name: 'redirect',
-        value: nodePath,
+        value: `/${nodePath}`,
       });
-      nodePath = `${path.dirname(nodePath)}`;
     }
 
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
       node,
       name: `slug`,
