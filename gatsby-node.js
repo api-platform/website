@@ -47,17 +47,21 @@ exports.createPages = ({ graphql, actions }) => {
             if (index === 0) {
               next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
               next.title = chapter.items[index + 1].title;
-            } else if (slugArray[3] === item.id) {
+
+              return;
+            }
+
+            if (slugArray[3] === item.id) {
               previous.slug =
                 chapter.items[index - 1].id === 'index'
                   ? `/docs/${slugArray[2]}/`
                   : `/docs/${slugArray[2]}/${chapter.items[index - 1].id}/`;
               previous.title = chapter.items[index - 1].title;
+
+              next.slug = null;
               if (chapter.items.length - 1 !== index) {
                 next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
                 next.title = chapter.items[index + 1].title;
-              } else {
-                next.slug = null;
               }
             }
           });
@@ -99,21 +103,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     localUrls.map(url => {
-      let newUrl = url.replace('.md', '/');
+      let newUrl = url.replace(/(\/index)?\.md/, '/');
       newUrl = `/${URL.resolve(nodePath, newUrl)}`;
       html = html.replace(url, newUrl);
       return true;
     });
 
     node.internal.content = html;
-    if ('index' === path.basename(nodePath)) {
-      createNodeField({
-        node,
-        name: 'redirect',
-        value: nodePath,
-      });
-      nodePath = `${path.dirname(nodePath)}`;
-    }
 
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
