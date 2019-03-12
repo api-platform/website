@@ -18,7 +18,7 @@ const Cover = () => (
           empty
           text="Download"
           icon="download"
-          link="https://github.com/api-platform/api-platform/releases/latest"
+          link="https://github.com/api-platform/api-platform/releases"
         />
         <Button text="Get started" icon="flag" link="/docs/distribution" />
       </div>
