@@ -65,6 +65,7 @@ chapters:
       - id: react
       - id: vuejs
       - id: react-native
+      - id: typescript
       - id: troubleshooting
   - title: Deployment
     path: deployment
