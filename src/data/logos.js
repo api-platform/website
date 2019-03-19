@@ -19,6 +19,11 @@ export const openSourceData = [
     logo: 'audiencehero',
     link: 'http://www.audiencehero.org/',
   },
+  {
+    name: 'Mobicoop',
+    logo: 'mobicoop',
+    link: 'https://www.mobicoop.fr/',
+  },
 ];
 
 export const otherData = [
@@ -58,6 +63,11 @@ export const otherData = [
     link: 'https://www.decathlon.fr/',
   },
   {
+    name: 'En Marche !',
+    logo: 'enmarche',
+    link: 'https://en-marche.fr/',
+  },
+  {
     name: 'eVaali.fi',
     logo: 'evaali',
     link: 'https://www.evaali.fi/',
@@ -86,6 +96,11 @@ export const otherData = [
     name: 'HoHey.fr',
     logo: 'hohey',
     link: 'http://hohey.fr/',
+  },
+  {
+    name: 'izi by eDF',
+    logo: 'izi',
+    link: 'https://izi-by-edf.fr/',
   },
   {
     name: 'M6',
