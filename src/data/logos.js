@@ -25,8 +25,8 @@ export const openSourceData = [
     link: 'https://www.mobicoop.fr/',
   },
   {
-    name: 'Sté Numérique',
-    logo: 'societenumerique',
+    name: '.gouv.fr',
+    logo: 'marianne',
     link: 'https://passnum.societenumerique.gouv.fr/',
   },
 ];
