@@ -25,9 +25,9 @@ export const openSourceData = [
     link: 'https://www.mobicoop.fr/',
   },
   {
-    name: '.gouv.fr',
+    name: 'French Government',
     logo: 'marianne',
-    link: 'https://passnum.societenumerique.gouv.fr/',
+    link: 'https://github.com/SocieteNumerique/pass-numerique',
   },
 ];
 
@@ -70,7 +70,7 @@ export const otherData = [
   {
     name: 'En Marche !',
     logo: 'enmarche',
-    link: 'https://en-marche.fr/',
+    link: 'https://github.com/EnMarche/en-marche.fr',
   },
   {
     name: 'eVaali.fi',
@@ -130,7 +130,7 @@ export const otherData = [
   {
     name: 'Parti de gauche',
     logo: 'parti-de-gauche',
-    link: 'https://www.lepartidegauche.fr/',
+    link: 'https://github.com/LePartiDeGauche/adherents-platform',
   },
   {
     name: 'Quotatis',
@@ -158,7 +158,7 @@ export const otherData = [
     link: 'https://www.saveur-biere.com/',
   },
   {
-    name: 'Sensio Labs',
+    name: 'SensioLabs',
     logo: 'sensio-labs',
     link: 'https://sensiolabs.com/',
   },
