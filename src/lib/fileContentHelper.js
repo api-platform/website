@@ -4,7 +4,7 @@ const path = require('path');
 
 const fileContentHelper = {
   getFileContent(filePath, id) {
-    const fileUrl = path.resolve(__dirname, `../pages/docs/${filePath}/${id}.md`);
+    const fileUrl = path.resolve(`${filePath}/${id}.md`);
     const content = fs
       .readFileSync(fileUrl)
       .toString()

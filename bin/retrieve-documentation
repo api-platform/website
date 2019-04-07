@@ -1,14 +1,10 @@
 #!/bin/sh
 set -ex
-cd "$(dirname "$0")/../"
+dirpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
 
-# Remove previous documentation
+# Remove previous documentation and Checkout documentation
 
-rm -fr src/pages/docs
-
-# Checkout documentation
-
-git clone https://github.com/api-platform/docs.git src/pages/docs
+bin/checkout-documentation
 
 # Generate "nav.yml"
 
