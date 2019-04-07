@@ -10,19 +10,20 @@ const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outli
 
 versions.map(version => {
     let docs = { chapters: [] };
+    let versionDirectory = isNaN(version) ? version : `v${version}`;
 
     loadedOutline.chapters.forEach((directory) => {
-        let files = readdirSync(`${docPagesDirectory}${version}/${directory.path}`).filter(file => file.endsWith('.md')).map(file => file.slice(0,-3));
+        let files = readdirSync(`${docPagesDirectory}${versionDirectory}/${directory.path}`).filter(file => file.endsWith('.md')).map(file => file.slice(0,-3));
         directory.items = directory.items.filter(x => files.includes(x));
         files = [...new Set(directory.items.concat(files))];
         const items = files.map(
             file => {
-                return fileProcessor.processFile(`${docPagesDirectory}${version}/${directory.path}`, file)[0];
+                return fileProcessor.processFile(`${docPagesDirectory}${versionDirectory}/${directory.path}`, file)[0];
             }
         );
 
         docs.chapters.push({ ...directory, items });
     });
 
-     writeFile(resolve(`${docPagesDirectory}${version}/nav.yml`), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
+     writeFile(resolve(`${docPagesDirectory}${versionDirectory}/nav.yml`), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
 });

@@ -11,9 +11,10 @@ versions.map(version => {
         execSync(`git clone https://github.com/api-platform/docs.git ${docPagesDirectory}stable`);
         console.log(`stable version checked out.`);
     } else {
-        console.info(`checking out the ${version} version in ${docPagesDirectory}${version}/ directory`);
-        execSync(`cp -R ${docPagesDirectory}stable ${docPagesDirectory}${version}/`);
-        execSync(`cd ${docPagesDirectory}${version} && git checkout ${version}`);
+        let versionDirectory = isNaN(version) ? version : `v${version}`;
+        console.info(`checking out the ${version} version in ${docPagesDirectory}${versionDirectory}/ directory`);
+        execSync(`cp -R ${docPagesDirectory}stable ${docPagesDirectory}${versionDirectory}/`);
+        execSync(`cd ${docPagesDirectory}${versionDirectory} && git checkout ${version}`);
         console.log(`${version} version checked out.`);
     }
 });

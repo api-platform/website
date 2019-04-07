@@ -58,7 +58,7 @@ class DocNav extends Component {
   }
 
   getItemByLocation = location => {
-    const reg = /docs\/(.*?)(\/|$)/;
+    const reg = /docs\/(.*?\/.*?)(\/|$)/;
     const matches = location.pathname.match(reg);
     return matches ? matches[1] : null;
   };
@@ -84,6 +84,7 @@ class DocNav extends Component {
             onClick={this.toggleMenu}
             current={currentItem}
             location={this.props.location}
+            version={this.props.version}
           />
         ))}
       </div>
@@ -94,10 +95,12 @@ class DocNav extends Component {
 DocNav.propTypes = {
   location: PropTypes.object.isRequired,
   nav: PropTypes.array,
+  version: PropTypes.string,
 };
 
 DocNav.defaultProps = {
   nav: [],
+  version: 'stable',
 };
 
 export default DocNav;

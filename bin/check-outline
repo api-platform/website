@@ -8,7 +8,8 @@ const jsYaml = require('js-yaml');
 const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 
 versions.map(version => {
-    const dir = `${docPagesDirectory}${version}`;
+    let versionDirectory = isNaN(version) ? version : `v${version}`;
+    const dir = `${docPagesDirectory}${versionDirectory}`;
     const directories = (() => readdirSync(dir).filter(
             folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0])
     )();

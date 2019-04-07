@@ -5,9 +5,10 @@ import Collapsible from 'react-collapsible';
 import classNames from 'classnames';
 import NavItemLink from './NavItemLink';
 
-const NavItem = ({ item, location, current, onClick }) => {
+const NavItem = ({ item, location, current, onClick, version }) => {
   const { items, path, title } = item;
-  const open = path === current;
+  const versionnedPath = `${version}/${path}`;
+  const open = versionnedPath === current;
   return items ? (
     <Collapsible
       className="menu__item"
@@ -17,15 +18,15 @@ const NavItem = ({ item, location, current, onClick }) => {
       open={open}
       easing="ease"
       trigger={
-        <div className="item__title" role="presentation" onClick={() => onClick(path)}>
-          <h2 key={path}>{title}</h2>
+        <div className="item__title" role="presentation" onClick={() => onClick(versionnedPath)}>
+          <h2 key={versionnedPath}>{title}</h2>
           <i className={`icon-chevron-${open ? 'top' : 'down'}`} />
         </div>
       }
     >
       <ul className="menu-item__list">
         {items.map(navItem => {
-          const link = 'index' === navItem.id ? `/docs/${path}/` : `/docs/${path}/${navItem.id}/`;
+          const link = 'index' === navItem.id ? `/docs/${versionnedPath}/` : `/docs/${versionnedPath}/${navItem.id}/`;
           const active = link === location.pathname;
           return (
             <li key={link} className={classNames('menu-item__link', { active })}>
@@ -35,6 +36,7 @@ const NavItem = ({ item, location, current, onClick }) => {
                 title={navItem.title}
                 current={active}
                 location={location}
+                version={version}
               />
             </li>
           );
@@ -43,8 +45,8 @@ const NavItem = ({ item, location, current, onClick }) => {
     </Collapsible>
   ) : (
     <div className="menu__item">
-      <Link className="item__title" to={`/docs/${path}/`}>
-        <h2 key={path}>{title}</h2>
+      <Link className="item__title" to={`/docs/${versionnedPath}/`}>
+        <h2 key={versionnedPath}>{title}</h2>
       </Link>
     </div>
   );
@@ -55,10 +57,12 @@ NavItem.propTypes = {
   location: PropTypes.object.isRequired,
   current: PropTypes.string,
   onClick: PropTypes.func,
+  version: PropTypes.string,
 };
 
 NavItem.defaultProps = {
   current: null,
+  version: 'stable',
   onClick: () => {},
 };
 

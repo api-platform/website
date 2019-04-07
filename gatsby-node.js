@@ -3,8 +3,7 @@ const URL = require('url');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
-
-const nav = jsyaml.safeLoad(readFileSync('./src/pages/docs/nav.yml', 'utf8'));
+const { docPagesDirectory, versions } = require('constants');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -33,6 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     const pages = result.data.allMarkdownRemark.edges;
+    let seoRedirect = [];
 
     pages.forEach(edge => {
       const slug = edge.node.fields.slug;
@@ -43,12 +43,20 @@ exports.createPages = ({ graphql, actions }) => {
 
       const slugArray = slug.split('/');
 
+      // extract the version from the slug
+      let version = Array.from(slug.matchAll(/^\/docs\/([a-zA-Z0-9\.]*)\//g)).map(val => val[1])[0];
+      let nav = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${version}/nav.yml`, 'utf8'));
+
       nav.chapters.forEach(chapter => {
         if (slugArray[2] === chapter.path) {
           chapter.items.forEach((item, index) => {
             if (index === 0) {
-              next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
+              next.slug = `/docs/${version}/${slugArray[2]}/${chapter.items[index + 1].id}/`;
               next.title = chapter.items[index + 1].title;
+
+              let oldLink = next.slug.replace(`/${version}/`, '/');
+              let stableLink = next.slug.replace(`/${version}/`, '/stable/');
+              seoRedirect.push({ stableLink: stableLink, oldLink: oldLink });
 
               return;
             }
@@ -56,15 +64,19 @@ exports.createPages = ({ graphql, actions }) => {
             if (slugArray[3] === item.id) {
               previous.slug =
                 chapter.items[index - 1].id === 'index'
-                  ? `/docs/${slugArray[2]}/`
-                  : `/docs/${slugArray[2]}/${chapter.items[index - 1].id}/`;
+                  ? `/docs/${version}/${slugArray[2]}/`
+                  : `/docs/${version}/${slugArray[2]}/${chapter.items[index - 1].id}/`;
               previous.title = chapter.items[index - 1].title;
 
               next.slug = null;
               if (chapter.items.length - 1 !== index) {
-                next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
+                next.slug = `/docs/${version}/${slugArray[2]}/${chapter.items[index + 1].id}/`;
                 next.title = chapter.items[index + 1].title;
               }
+
+              let oldLink = next.slug.replace(`/${version}/`, '/');
+              let stableLink = next.slug.replace(`/${version}/`, '/stable/');
+              seoRedirect.push({ stableLink: stableLink, oldLink: oldLink });
             }
           });
         }
@@ -72,7 +84,13 @@ exports.createPages = ({ graphql, actions }) => {
 
       const editSubPaths = slug.slice(6).split('/');
       const editPath =
-        editSubPaths.length > 2 ? `${editSubPaths.join('/').slice(0, -1)}.md` : `${editSubPaths[0]}/index.md`;
+        editSubPaths.length > 3
+          ? `${editSubPaths.join('/').slice(0, -1)}.md`
+          : `${editSubPaths[0]}/${editSubPaths[1]}/index.md`;
+
+      let oldLink = slug.replace(`/${version}/`, '/');
+      let stableLink = slug.replace(`/${version}/`, '/stable/');
+      seoRedirect.push({ stableLink: stableLink, oldLink: oldLink });
 
       createPage({
         path: slug,
@@ -83,6 +101,8 @@ exports.createPages = ({ graphql, actions }) => {
           title: edge.node.headings[0].value,
           previous,
           next,
+          version: version,
+          nav: nav,
         },
       });
 
@@ -99,6 +119,15 @@ exports.createPages = ({ graphql, actions }) => {
         })
       );
     });
+
+    seoRedirect.forEach(redirectTo =>
+      createRedirect({
+        fromPath: redirectTo.oldLink,
+        toPath: redirectTo.stableLink,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    );
   });
 };
 

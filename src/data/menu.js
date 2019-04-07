@@ -2,31 +2,31 @@ const menu = [
   {
     text: 'docs',
     rootPath: '/docs',
-    path: '/docs/',
+    path: '/docs',
     submenu: [
       {
         text: 'Distribution',
-        path: '/docs/distribution/',
+        path: '/docs/stable/distribution/',
       },
       {
         text: 'API component',
-        path: '/docs/core/',
+        path: '/docs/stable/core/',
       },
       {
         text: 'Schema component',
-        path: '/docs/schema-generator/',
+        path: '/docs/stable/schema-generator/',
       },
       {
         text: 'Admin component',
-        path: '/docs/admin/',
+        path: '/docs/stable/admin/',
       },
       {
         text: 'Scaffolding component',
-        path: '/docs/client-generator/',
+        path: '/docs/stable/client-generator/',
       },
       {
         text: 'Deployment',
-        path: '/docs/deployment/',
+        path: '/docs/stable/deployment/',
       },
     ],
   },

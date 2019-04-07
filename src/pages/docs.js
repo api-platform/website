@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
-import nav from './docs/nav.yml';
+import nav from './docs/stable/nav.yml';
 
 const RenderInnerList = ({ anchors, path }) => (
   <ol>
@@ -53,7 +53,7 @@ const DocsPage = props => (
       <div className="container docs__content">
         <h1>API Platform Documentation</h1>
         {nav.chapters.map(({ path, title, items }) => {
-          const currentPath = `/docs/${path}`;
+          const currentPath = `/docs/stable/${path}`;
 
           return (
             <section key={path}>
