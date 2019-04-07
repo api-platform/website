@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
 
-const Template = ({ location, pageContext}) => (
+const Template = ({ location, pageContext }) => (
   <Layout location={location}>
     <div className="page__docs">
       <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'} />
