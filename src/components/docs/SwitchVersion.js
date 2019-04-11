@@ -10,16 +10,16 @@ const doChange = (e, location, currentVersion) => {
 };
 
 const SwitchVersion = ({ location, currentVersion }) => (
-<select onChange={e => doChange(e, location, currentVersion)} value={currentVersion}>
-  {versions.map(version => {
-    const formattedVersion = Number.isNaN(Number(version)) ? version : `v${version}`;
-    return (
-      <option key={formattedVersion} value={formattedVersion}>
-        {formattedVersion}
-      </option>
-    );
-  })}
-</select>
+  <select onChange={e => doChange(e, location, currentVersion)} value={currentVersion}>
+    {versions.map(version => {
+      const formattedVersion = Number.isNaN(Number(version)) ? version : `v${version}`;
+      return (
+        <option key={formattedVersion} value={formattedVersion}>
+          {formattedVersion}
+        </option>
+      );
+    })}
+  </select>
 );
 
 export default SwitchVersion;
