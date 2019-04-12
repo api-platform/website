@@ -44,7 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
       const slugArray = slug.split('/');
 
       // extract the version from the slug
-      let version = Array.from(slug.matchAll(/^\/docs\/([a-zA-Z0-9\.]*)\//g)).map(val => val[1])[0];
+      let version = /^\/docs\/([a-zA-Z0-9\.]*)\//g.exec(slug)[1];
       let nav = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${version}/nav.yml`, 'utf8'));
 
       nav.chapters.forEach(chapter => {
