@@ -7,8 +7,8 @@ import NavItemLink from './NavItemLink';
 
 const NavItem = ({ item, location, current, onClick, version }) => {
   const { items, path, title } = item;
-  const versionnedPath = `${version}/${path}`;
-  const open = versionnedPath === current;
+  const versionedPath = `${version}/${path}`;
+  const open = versionedPath === current;
   return items ? (
     <Collapsible
       className="menu__item"
@@ -18,15 +18,15 @@ const NavItem = ({ item, location, current, onClick, version }) => {
       open={open}
       easing="ease"
       trigger={
-        <div className="item__title" role="presentation" onClick={() => onClick(versionnedPath)}>
-          <h2 key={versionnedPath}>{title}</h2>
+        <div className="item__title" role="presentation" onClick={() => onClick(versionedPath)}>
+          <h2 key={versionedPath}>{title}</h2>
           <i className={`icon-chevron-${open ? 'top' : 'down'}`} />
         </div>
       }
     >
       <ul className="menu-item__list">
         {items.map(navItem => {
-          const link = 'index' === navItem.id ? `/docs/${versionnedPath}/` : `/docs/${versionnedPath}/${navItem.id}/`;
+          const link = 'index' === navItem.id ? `/docs/${versionedPath}/` : `/docs/${versionedPath}/${navItem.id}/`;
           const active = link === location.pathname;
           return (
             <li key={link} className={classNames('menu-item__link', { active })}>
@@ -45,8 +45,8 @@ const NavItem = ({ item, location, current, onClick, version }) => {
     </Collapsible>
   ) : (
     <div className="menu__item">
-      <Link className="item__title" to={`/docs/${versionnedPath}/`}>
-        <h2 key={versionnedPath}>{title}</h2>
+      <Link className="item__title" to={`/docs/${versionedPath}/`}>
+        <h2 key={versionedPath}>{title}</h2>
       </Link>
     </div>
   );

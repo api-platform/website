@@ -1,6 +1,5 @@
 #!/bin/sh
 set -ex
-dirpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
 
 # Remove previous documentation and Checkout documentation
 

@@ -2,17 +2,18 @@
 
 const {docPagesDirectory, versions} = require('../constants');
 const fileProcessor = require('../src/lib/fileProcessor');
-const { readFileSync, writeFile, readdirSync } = require('fs');
-const { resolve } = require('path');
+const {readFileSync, writeFile, readdirSync} = require('fs');
+const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const {resolve} = require('path');
 const jsyaml = require('js-yaml');
 
 const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 
 versions.map(version => {
     let docs = { chapters: [] };
-    let versionDirectory = isNaN(version) ? version : `v${version}`;
+    let versionDirectory = getPrefixedVersion(version);
 
-    loadedOutline.chapters.forEach((directory) => {
+    loadedOutline.chapters.forEach(directory => {
         let files = readdirSync(`${docPagesDirectory}${versionDirectory}/${directory.path}`).filter(file => file.endsWith('.md')).map(file => file.slice(0,-3));
         directory.items = directory.items.filter(x => files.includes(x));
         files = [...new Set(directory.items.concat(files))];

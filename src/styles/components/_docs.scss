@@ -16,7 +16,7 @@
   }
 
   select {
-    -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none;
+    appearance: none;
     outline: 0; box-shadow: none; border: 0 !important; border-radius: .25em;
     background: #35626a; color: white; font-weight: bold; text-transform: uppercase;
     position: absolute; display: block; text-align-last:center; right: 10px; top: 10px;
