@@ -1,9 +1,10 @@
 module.exports = Object.freeze({
   docPagesDirectory: `${__dirname}/src/pages/docs/`,
+  current: 'stable',
   versions: [
-    'stable', // has to be the first one.
     'master',
     '2.3',
     '2.2',
+    '2.1'
   ],
 });

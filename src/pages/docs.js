@@ -53,7 +53,7 @@ const DocsPage = props => (
       <div className="container docs__content">
         <h1>API Platform Documentation</h1>
         {nav.chapters.map(({ path, title, items }) => {
-          const currentPath = `/docs/stable/${path}`;
+          const currentPath = `/docs/${path}`;
 
           return (
             <section key={path}>

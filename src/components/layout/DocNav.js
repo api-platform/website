@@ -100,7 +100,7 @@ DocNav.propTypes = {
 
 DocNav.defaultProps = {
   nav: [],
-  version: 'stable',
+  version: '',
 };
 
 export default DocNav;

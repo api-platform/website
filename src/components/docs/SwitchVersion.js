@@ -1,17 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
-import { versions } from '../../../constants';
+import { current, versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
+
+versions.push(current);
 
 const doChange = (e, location, currentVersion) => {
   const targetVersion = getPrefixedVersion(e.target.value);
-  const path = location.pathname.replace(currentVersion, targetVersion);
+
+  if (current === targetVersion) {
+    const path = location.pathname.replace(currentVersion, '');
+    navigate(path);
+    return;
+  }
+
+  if ('' === currentVersion) {
+    const path = location.pathname.replace('docs/', `docs/${targetVersion}/`);
+    navigate(path);
+    return;
+  }
+
+  const path = location.pathname.replace(currentVersion, `${targetVersion}/`);
   navigate(path);
 };
 
 const SwitchVersion = ({ location, currentVersion }) => (
-  <select onChange={e => doChange(e, location, currentVersion)} value={currentVersion}>
+  <select onChange={e => doChange(e, location, currentVersion)} value={'' === currentVersion ? current : currentVersion.slice(0,-1)}>
     {versions.map(version => {
       const formattedVersion = getPrefixedVersion(version);
       return (

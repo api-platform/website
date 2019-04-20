@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory, versions} = require('../constants');
+const {docPagesDirectory, current, versions} = require('../constants');
 const fileProcessor = require('../src/lib/fileProcessor');
 const {readFileSync, writeFile, readdirSync} = require('fs');
 const {getPrefixedVersion} = require('../src/lib/versionHelper');
@@ -9,22 +9,25 @@ const jsyaml = require('js-yaml');
 
 const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
 
-versions.map(version => {
+versions.push(current);
+versions.forEach(version => {
     let docs = { chapters: [] };
-    let versionDirectory = getPrefixedVersion(version);
+    const versionDirectory = getPrefixedVersion(version);
 
-    loadedOutline.chapters.forEach(directory => {
-        let files = readdirSync(`${docPagesDirectory}${versionDirectory}/${directory.path}`).filter(file => file.endsWith('.md')).map(file => file.slice(0,-3));
+    docs.chapters = loadedOutline.chapters.map(directory => {
+        let files = readdirSync(`${docPagesDirectory}${versionDirectory}/${directory.path}`)
+            .filter(file => file.endsWith('.md'))
+            .map(file => file.slice(0, -3));
+
         directory.items = directory.items.filter(x => files.includes(x));
         files = [...new Set(directory.items.concat(files))];
-        const items = files.map(
-            file => {
-                return fileProcessor.processFile(`${docPagesDirectory}${versionDirectory}/${directory.path}`, file)[0];
-            }
-        );
 
-        docs.chapters.push({ ...directory, items });
+        const items = files.map(file => {
+            return fileProcessor.processFile(`${docPagesDirectory}${versionDirectory}/${directory.path}`, file)[0];
+        });
+
+        return { ...directory, items };
     });
 
-     writeFile(resolve(`${docPagesDirectory}${versionDirectory}/nav.yml`), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
+    writeFile(resolve(`${docPagesDirectory}${versionDirectory}/nav.yml`), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
 });

@@ -62,7 +62,7 @@ NavItem.propTypes = {
 
 NavItem.defaultProps = {
   current: null,
-  version: 'stable',
+  version: '',
   onClick: () => {},
 };
 

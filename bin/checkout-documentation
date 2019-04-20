@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory, versions} = require('../constants');
+const {docPagesDirectory, current, versions} = require('../constants');
 const {getPrefixedVersion} = require('../src/lib/versionHelper');
 const {execSync} = require('child_process');
 
 execSync(`rm -rf ${docPagesDirectory}`);
 
-versions.map(version => {
-    if ('stable' === version) {
-        console.info(`checking out the stable version in ${docPagesDirectory}stable`);
-        execSync(`git clone https://github.com/api-platform/docs.git ${docPagesDirectory}stable`);
-        console.info(`stable version checked out.`);
+console.info(`checking out the stable version in ${docPagesDirectory}${current}`);
+execSync(`git clone https://github.com/api-platform/docs.git ${docPagesDirectory}${current}`);
+console.info(`current stable version checked out.`);
 
-        return;
-    }
+versions.forEach(version => {
+    const versionDirectory = getPrefixedVersion(version);
 
-    let versionDirectory = getPrefixedVersion(version);
     console.info(`checking out the ${version} version in ${docPagesDirectory}${versionDirectory}/ directory`);
-    execSync(`cp -R ${docPagesDirectory}stable ${docPagesDirectory}${versionDirectory}/`);
+    execSync(`cp -R ${docPagesDirectory}${current} ${docPagesDirectory}${versionDirectory}/`);
     execSync(`cd ${docPagesDirectory}${versionDirectory} && git checkout ${version}`);
     console.info(`${version} version checked out.`);
 });

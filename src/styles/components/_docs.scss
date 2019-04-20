@@ -17,10 +17,10 @@
 
   select {
     appearance: none;
-    outline: 0; box-shadow: none; border: 0 !important; border-radius: .25em;
+    outline: 0; box-shadow: none; border: 0; border-radius: 4px;
     background: #35626a; color: white; font-weight: bold; text-transform: uppercase;
     position: absolute; display: block; text-align-last:center; right: 10px; top: 10px;
-    width: 10em; height: 3em;line-height: 3;
+    width: 100px; height: 30px; line-height: 3;
     overflow: hidden;
   }
 }
@@ -284,10 +284,7 @@
       }
     }
   }
-  @include mq($max-width: $vw-medium) {
-    padding: 30px;
-    padding-top: 40px;
-  }
+  @include mq($max-width: $vw-medium) { padding: 40px 30px 30px; }
 }
 
 .docs__nav {

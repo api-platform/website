@@ -6,27 +6,27 @@ const menu = [
     submenu: [
       {
         text: 'Distribution',
-        path: '/docs/stable/distribution/',
+        path: '/docs/distribution/',
       },
       {
         text: 'API component',
-        path: '/docs/stable/core/',
+        path: '/docs/core/',
       },
       {
         text: 'Schema component',
-        path: '/docs/stable/schema-generator/',
+        path: '/docs/schema-generator/',
       },
       {
         text: 'Admin component',
-        path: '/docs/stable/admin/',
+        path: '/docs/admin/',
       },
       {
         text: 'Scaffolding component',
-        path: '/docs/stable/client-generator/',
+        path: '/docs/client-generator/',
       },
       {
         text: 'Deployment',
-        path: '/docs/stable/deployment/',
+        path: '/docs/deployment/',
       },
     ],
   },
