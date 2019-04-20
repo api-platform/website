@@ -26,7 +26,10 @@ const doChange = (e, location, currentVersion) => {
 };
 
 const SwitchVersion = ({ location, currentVersion }) => (
-  <select onChange={e => doChange(e, location, currentVersion)} value={'' === currentVersion ? current : currentVersion.slice(0,-1)}>
+  <select
+    onChange={e => doChange(e, location, currentVersion)}
+    value={'' === currentVersion ? current : currentVersion.slice(0, -1)}
+  >
     {versions.map(version => {
       const formattedVersion = getPrefixedVersion(version);
       return (

@@ -48,7 +48,9 @@ exports.createPages = ({ graphql, actions }) => {
       slug = slug.replace(`${current}/`, '');
       version = version.replace(`${current}/`, '');
 
-      nav.chapters.filter(chapter => slugArray[2] === chapter.path).forEach(chapter => {
+      nav.chapters
+        .filter(chapter => slugArray[2] === chapter.path)
+        .forEach(chapter => {
           if (index === 0) {
             next.slug = `/docs/${version}${slugArray[2]}/${chapter.items[index + 1].id}/`;
             next.title = chapter.items[index + 1].title;
@@ -68,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
               next.title = chapter.items[index + 1].title;
             }
           }
-      });
+        });
 
       const editSubPaths = slug.slice(6).split('/');
       const editPath =
