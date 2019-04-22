@@ -9,7 +9,9 @@ import SwitchVersion from '../components/docs/SwitchVersion';
 const Template = ({ location, pageContext }) => (
   <Layout location={location}>
     <div className="page__docs">
-      <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'} />
+      <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'}>
+        {'' !== pageContext.version ? <meta name="robots" content="noindex" /> : false}
+      </Helmet>
       <div className="container docs__content">
         <SwitchVersion location={location} currentVersion={pageContext.version} />
         <div dangerouslySetInnerHTML={{ __html: pageContext.html }} />
