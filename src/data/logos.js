@@ -113,7 +113,7 @@ export const otherData = [
     link: 'https://izi-by-edf.fr/',
   },
   {
-    name: 'L\'Express',
+    name: "L'Express",
     logo: 'lexpress',
     link: 'https://www.lexpress.fr/',
   },
