@@ -58,6 +58,7 @@ chapters:
       - id: getting-started
       - id: authentication-support
       - id: handling-relations-to-collections
+      - id: customizing
   - title: The Client Generator Component
     path: client-generator
     items:
