@@ -63,6 +63,11 @@ export const otherData = [
     link: 'https://mabanque.bnpparibas/',
   },
   {
+    name: 'Campings.com',
+    logo: 'campings',
+    link: 'https://www.campings.com/',
+  },
+  {
     name: 'Decathlon',
     logo: 'decathlon',
     link: 'https://www.decathlon.fr/',
@@ -106,6 +111,16 @@ export const otherData = [
     name: 'izi by eDF',
     logo: 'izi',
     link: 'https://izi-by-edf.fr/',
+  },
+  {
+    name: "L'Express",
+    logo: 'lexpress',
+    link: 'https://www.lexpress.fr/',
+  },
+  {
+    name: 'Libération',
+    logo: 'liberation',
+    link: 'https://www.liberation.fr/',
   },
   {
     name: 'M6',
