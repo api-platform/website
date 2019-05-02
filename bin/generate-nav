@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory, current, versions} = require('../constants');
+const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
 const fileProcessor = require('../src/lib/fileProcessor');
 const {readFileSync, writeFile, readdirSync} = require('fs');
 const {getPrefixedVersion} = require('../src/lib/versionHelper');
 const {resolve} = require('path');
 const jsyaml = require('js-yaml');
 
-const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
+const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 
 versions.push(current);
 versions.forEach(version => {

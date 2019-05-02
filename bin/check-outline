@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory, current, versions} = require('../constants');
+const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
 const {readdirSync, readFileSync, statSync} = require('fs');
 const {getPrefixedVersion} = require('../src/lib/versionHelper');
 const {join} = require('path');
 const jsYaml = require('js-yaml');
 
-const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
+const loadedOutline = jsYaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 
 versions.push(current);
 versions.forEach(version => {
     const versionDirectory = getPrefixedVersion(version);
     const dir = `${docPagesDirectory}${versionDirectory}`;
-    const directories = (() => readdirSync(dir).filter(
-        folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0])
-    )();
+    const directories = readdirSync(dir).filter(
+      folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0]
+    );
 
     const outlineDirectories = Object
         .keys(loadedOutline.chapters)
@@ -26,6 +26,33 @@ versions.forEach(version => {
     };
 
     if (oddDirectories.missingDirectories.length > 0) {
-        console.warn('\x1b[31m', `The following "path" entries are missing in "outline.yaml", please add them with the relevants "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
+        console.warn('\x1b[33m', `[${version}] The following "path" entries are missing in ${outlinePath}, please add them with the relevant "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
     }
+
+    if (oddDirectories.extraDirectories.length > 0) {
+        console.warn('\x1b[33m', `[${version}] The following "path" entries in ${outlinePath} do not exist in the documentation: ${oddDirectories.extraDirectories.join(', ')}`, '\x1b[37m');
+    }
+
+    const fixedOutline = loadedOutline.chapters.filter(folder => !oddDirectories.extraDirectories.includes(folder.path));
+
+    fixedOutline
+        .filter(item => statSync(`${docPagesDirectory}${versionDirectory}/${item.path}`).isDirectory())
+        .forEach(directory => {
+            const directoryPath = `${docPagesDirectory}${versionDirectory}/${directory.path}`;
+            const files = readdirSync(directoryPath).filter(file => file.endsWith('.md'));
+
+            directory.items
+                .filter(itemEntry => !files.includes(`${itemEntry}.md`))
+                .forEach(itemEntry =>
+                    console.warn('\x1b[33m', `[${version}] Missing "${itemEntry}.md" file in ${directoryPath}`, '\x1b[37m')
+                );
+
+            const fixedOutlineFiles = directory.items.map(file => `${file}.md`);
+
+            files
+                .filter(file => !fixedOutlineFiles.includes(file))
+                .forEach(file =>
+                    console.warn('\x1b[33m', `[${version}] Missing "${file}" file in "${directory.path}" section in ${outlinePath}`, '\x1b[37m')
+                );
+      });
 });
