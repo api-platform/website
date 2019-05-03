@@ -7,7 +7,7 @@ import NavItemLink from './NavItemLink';
 
 const NavItem = ({ item, location, current, onClick, version }) => {
   const { items, path, title } = item;
-  const versionedPath = `${version}/${path}`;
+  const versionedPath = `${version}${path}`;
   const open = versionedPath === current;
   return items ? (
     <Collapsible
