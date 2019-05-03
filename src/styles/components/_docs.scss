@@ -18,6 +18,7 @@
 
 .docs__menu {
   @include z-depth-2;
+  z-index: z("docsmenu");
   background-color: $darkblue;
   position: fixed;
   left: 0;
