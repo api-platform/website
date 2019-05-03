@@ -4,17 +4,18 @@ const {docPagesDirectory, current, versions} = require('../constants');
 const {getPrefixedVersion} = require('../src/lib/versionHelper');
 const {execSync} = require('child_process');
 
+console.info('\x1b[36m', `Deleting ${docPagesDirectory}`, '\x1b[37m');
 execSync(`rm -rf ${docPagesDirectory}`);
 
-console.info(`checking out the stable version in ${docPagesDirectory}${current}`);
+console.info('\x1b[36m', `Cloning the stable version in ${docPagesDirectory}${current}`, '\x1b[37m');
 execSync(`git clone https://github.com/api-platform/docs.git ${docPagesDirectory}${current}`);
-console.info(`current stable version checked out.`);
+console.info('\x1b[36m', `Current stable version cloned`, '\x1b[37m');
 
 versions.forEach(version => {
     const versionDirectory = getPrefixedVersion(version);
 
-    console.info(`checking out the ${version} version in ${docPagesDirectory}${versionDirectory}/ directory`);
+    console.info('\x1b[36m', `Checking out the ${version} version in ${docPagesDirectory}${versionDirectory} directory`, '\x1b[37m');
     execSync(`cp -R ${docPagesDirectory}${current} ${docPagesDirectory}${versionDirectory}/`);
     execSync(`cd ${docPagesDirectory}${versionDirectory} && git checkout ${version}`);
-    console.info(`${version} version checked out.`);
+    console.info('\x1b[36m', `${version} version checked out`, '\x1b[37m');
 });

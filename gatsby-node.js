@@ -3,7 +3,15 @@ const URL = require('url');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
-const { current } = require('./constants');
+const { current, versions } = require('./constants');
+const { getPrefixedVersion } = require('./src/lib/versionHelper');
+
+const navs = {};
+versions.push(current);
+versions.forEach(version => {
+  const prefixedVersion = `${getPrefixedVersion(version)}/`;
+  navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
+});
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -32,7 +40,6 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     const pages = result.data.allMarkdownRemark.edges;
-    let seoRedirect = [];
 
     pages.forEach(edge => {
       let slug = edge.node.fields.slug;
@@ -42,8 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
       let next = {};
 
       const slugArray = slug.split('/');
-      let version = `${slug.split('/')[2]}/`;
-      const nav = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${version}nav.yml`, 'utf8'));
+      let version = `${slugArray[2]}/`;
+      const nav = navs[version];
 
       slug = slug.replace(`${current}/`, '');
       version = version.replace(`${current}/`, '');
@@ -51,22 +58,23 @@ exports.createPages = ({ graphql, actions }) => {
       nav.chapters
         .filter(chapter => slugArray[2] === chapter.path)
         .forEach(chapter => {
+          const section = slugArray[2];
           if (index === 0) {
-            next.slug = `/docs/${version}${slugArray[2]}/${chapter.items[index + 1].id}/`;
+            next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
             next.title = chapter.items[index + 1].title;
           }
 
           if (slugArray[3] === item.id) {
             previous.slug =
               chapter.items[index - 1].id === 'index'
-                ? `/docs/${version}${slugArray[2]}/`
-                : `/docs/${version}${slugArray[2]}/${chapter.items[index - 1].id}/`;
+                ? `/docs/${version}${section}/`
+                : `/docs/${version}${section}/${chapter.items[index - 1].id}/`;
             previous.title = chapter.items[index - 1].title;
 
             next.slug = null;
 
             if (chapter.items.length - 1 !== index) {
-              next.slug = `/docs/${version}${slugArray[2]}/${chapter.items[index + 1].id}/`;
+              next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
               next.title = chapter.items[index + 1].title;
             }
           }
@@ -115,8 +123,20 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const fileNode = getNode(node.parent);
     let nodePath = fileNode.relativePath.replace('.md', '');
     let html = node.internal.content;
+    const localUrls = [];
     let matches;
     const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
+
+    while ((matches = regex.exec(html))) {
+      localUrls.push(matches[2]);
+    }
+
+    localUrls.map(url => {
+      let newUrl = url.replace(/(\/index)?\.md/, '/');
+      newUrl = `/${URL.resolve(nodePath, newUrl)}`;
+      html = html.replace(url, newUrl);
+      return true;
+    });
 
     node.internal.content = html;
 
