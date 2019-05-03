@@ -21,21 +21,15 @@ class Layout extends Component {
   render() {
     const { children, location } = this.props;
     const open = this.state.showResponsiveMenu;
-    const withFooter = -1 === location.pathname.search('/docs') || !location.key;
+    const withSecondMenuDisplayed = -1 !== location.pathname.search('/docs');
 
     return (
-      <div className={classNames('main full', { open })}>
+      <div className={classNames('main full', { open, 'with-second-menu-displayed': withSecondMenuDisplayed })}>
         <div className="full">
           <Helmet {...helmetConfig.head} />
           <Header />
-          <div
-            className={classNames('page openable', {
-              'with-footer': withFooter,
-            })}
-          >
-            {children}
-          </div>
-          {withFooter && <Footer />}
+          <div className="page openable">{children}</div>
+          <Footer />
         </div>
         <BurgerButton onClick={this.showMenu.bind(null, !open)} status={open ? 'close' : 'burger'} />
         <div role="presentation" className="overlay" onClick={this.showMenu.bind(null, false)} />
