@@ -127,6 +127,17 @@
         }
       }
     }
+
+    &.menu-item__social i {
+      padding: 0 10px;
+      color: $lightblue;
+      font-size: 2em;
+      transition: all ease .2s;
+
+      &:hover {
+        color: $blue;
+      }
+    }
   }
   @include mq($max-width: $vw-medium, $min-width: $vw-small) {
     .side-menu__top .side-menu__search {

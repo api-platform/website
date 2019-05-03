@@ -23,6 +23,14 @@ const SideMenu = ({ open }) => (
     <nav className="side-menu__nav">
       <MenuItem key="home" path="/" text="Home" />
       {nav}
+      <div className="menu-item menu-item__social">
+        <a href="https://twitter.com/ApiPlatform" target="blank">
+          <i className="icon-twitter" />
+        </a>
+        <a href="https://github.com/api-platform/api-platform" target="blank">
+          <i className="icon-github" />
+        </a>
+      </div>
     </nav>
   </div>
 );
