@@ -34,7 +34,7 @@ const SwitchVersion = ({ location, currentVersion }) => (
       const formattedVersion = getPrefixedVersion(version);
       return (
         <option key={formattedVersion} value={formattedVersion}>
-          {formattedVersion}
+          {formattedVersion.toUpperCase()}
         </option>
       );
     })}
