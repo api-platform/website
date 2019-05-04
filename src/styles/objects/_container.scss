@@ -38,6 +38,10 @@
 
   &.with-second-menu-displayed .footer {
     margin-left: $docmenuW;
+
+    @include mq($max-width: $vw-medium) {
+      margin-left: 0;
+    }
   }
 }
 
