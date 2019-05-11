@@ -1,54 +1,58 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory} = require('../constants');
-const {lstatSync, readdirSync, readFileSync, writeFile, statSync} = require('fs');
-const {join, resolve} = require('path');
+const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
+const {readdirSync, readFileSync, statSync} = require('fs');
+const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const {join} = require('path');
 const jsYaml = require('js-yaml');
 
-const loadedOutline = jsYaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
-const directories = (() => readdirSync(docPagesDirectory).filter(
-        folder => statSync(join(docPagesDirectory, folder)).isDirectory() && '.' !== folder[0])
-)();
+const loadedOutline = jsYaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 
-const outlineDirectories = Object
-    .keys(loadedOutline.chapters)
-    .map(key => loadedOutline.chapters[key].path);
+versions.push(current);
+versions.forEach(version => {
+    const versionDirectory = getPrefixedVersion(version);
+    const dir = `${docPagesDirectory}${versionDirectory}`;
+    const directories = readdirSync(dir).filter(
+      folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0]
+    );
 
-const oddDirectories = {
-    missingDirectories: directories.filter(folder => !outlineDirectories.includes(folder)),
-    extraDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
-};
+    const outlineDirectories = Object
+        .keys(loadedOutline.chapters)
+        .map(key => loadedOutline.chapters[key].path);
 
-if (oddDirectories.missingDirectories.length > 0) {
-    console.warn('\x1b[31m', `The following "path" entries are missing in "outline.yaml", please add them with the relevants "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
-}
+    const oddDirectories = {
+        missingDirectories: directories.filter(folder => !outlineDirectories.includes(folder)),
+        extraDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
+    };
 
-const newOutline = loadedOutline.chapters.filter(folder => !oddDirectories.extraDirectories.includes(folder.path));
+    if (oddDirectories.missingDirectories.length > 0) {
+        console.warn('\x1b[33m', `[${version}] The following "path" entries are missing in ${outlinePath}, please add them with the relevant "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
+    }
 
-newOutline
-    .filter((item) => {
-        const path = `${__dirname}/../src/pages/docs/${item.path}`;
+    if (oddDirectories.extraDirectories.length > 0) {
+        console.warn('\x1b[33m', `[${version}] The following "path" entries in ${outlinePath} do not exist in the documentation: ${oddDirectories.extraDirectories.join(', ')}`, '\x1b[37m');
+    }
 
-        return lstatSync(path).isDirectory();
-    })
-    .forEach((item) => {
-        const files = readdirSync(`${__dirname}/../src/pages/docs/${item.path}`).filter(file => file.endsWith('.md'));
+    const fixedOutline = loadedOutline.chapters.filter(folder => !oddDirectories.extraDirectories.includes(folder.path));
 
-        Object.keys(item.items)
-            .filter(itemEntry => !files.includes(`${Object.values(item.items[itemEntry])}.md`))
-            .forEach(itemEntry => {
-                console.warn('\x1b[31m', `missing ${Object.values(item.items[itemEntry])}.md file in src/pages/docs/${item.path}`, '\x1b[37m');
-                process.exit(1);
-            });
+    fixedOutline
+        .filter(item => statSync(`${docPagesDirectory}${versionDirectory}/${item.path}`).isDirectory())
+        .forEach(directory => {
+            const directoryPath = `${docPagesDirectory}${versionDirectory}/${directory.path}`;
+            const files = readdirSync(directoryPath).filter(file => file.endsWith('.md'));
 
-        const newOutlineFiles = item.items.map(file => `${file.id}.md`);
+            directory.items
+                .filter(itemEntry => !files.includes(`${itemEntry}.md`))
+                .forEach(itemEntry =>
+                    console.warn('\x1b[33m', `[${version}] Missing "${itemEntry}.md" file in ${directoryPath}`, '\x1b[37m')
+                );
 
-        files
-            .filter((file) => !newOutlineFiles.includes(file))
-            .forEach((file) => {
-                console.warn('\x1b[31m', `missing file ${file} in ${item.path} section in config/outline.yaml`, '\x1b[37m');
-                process.exit(1);
-            });
-    });
+            const fixedOutlineFiles = directory.items.map(file => `${file}.md`);
 
-writeFile(resolve(__dirname, '../config/outline.yaml'), jsYaml.safeDump({chapters: newOutline}), error => error && console.warn(error));
+            files
+                .filter(file => !fixedOutlineFiles.includes(file))
+                .forEach(file =>
+                    console.warn('\x1b[33m', `[${version}] Missing "${file}" file in "${directory.path}" section in ${outlinePath}`, '\x1b[37m')
+                );
+      });
+});

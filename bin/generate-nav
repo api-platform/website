@@ -1,19 +1,35 @@
 #!/usr/bin/env node
 
+const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
 const fileProcessor = require('../src/lib/fileProcessor');
-const { readFileSync, writeFile } = require('fs');
-const { resolve } = require('path');
+const {readFileSync, writeFile, readdirSync} = require('fs');
+const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const {join, resolve} = require('path');
 const jsyaml = require('js-yaml');
 
-const loadedOutline = jsyaml.safeLoad(readFileSync(`${__dirname}/../config/outline.yaml`, 'utf8'));
-const docs = { chapters: [] };
+const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 
-loadedOutline.chapters.forEach((directory) => {
-    const items = directory.items.map(
-        file => fileProcessor.processFile(directory.path, file.id)[0]
-    );
+versions.push(current);
+versions.forEach(version => {
+    const docs = { chapters: [] };
+    const versionDirectory = getPrefixedVersion(version);
+    const versionPath = join(docPagesDirectory, versionDirectory);
 
-    docs.chapters.push({ ...directory, items });
+    docs.chapters = loadedOutline.chapters.map(directory => {
+        const directoryPath = join(versionPath, directory.path);
+        let files = readdirSync(directoryPath)
+            .filter(file => file.endsWith('.md'))
+            .map(file => file.slice(0, -3));
+
+        directory.items = directory.items.filter(x => files.includes(x));
+        files = [...new Set(directory.items.concat(files))];
+
+        const items = files.map(file =>
+            fileProcessor.processFile(resolve(directoryPath), file)[0]
+        );
+
+        return { ...directory, items };
+    });
+
+    writeFile(resolve(join(versionPath, 'nav.yml')), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
 });
-
-writeFile(resolve(__dirname, '../src/pages/docs/nav.yml'), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));

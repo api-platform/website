@@ -4,13 +4,29 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
-import nav from '../pages/docs/nav.yml';
+import SwitchVersion from '../components/docs/SwitchVersion';
+import { siteUrl, versions } from '../../constants';
+import { getPrefixedVersion } from '../lib/versionHelper';
 
 const Template = ({ location, pageContext }) => (
   <Layout location={location}>
     <div className="page__docs">
-      <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'} />
+      <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'}>
+        {'' !== pageContext.version
+          ? [
+              <link
+                rel="canonical"
+                href={
+                  siteUrl +
+                  location.pathname.replace(new RegExp(`/(${versions.map(getPrefixedVersion).join('|')})/`), '/')
+                }
+              />,
+              <meta name="robots" content="noindex" />,
+            ]
+          : false}
+      </Helmet>
       <div className="container docs__content">
+        <SwitchVersion location={location} currentVersion={pageContext.version} />
         <div dangerouslySetInnerHTML={{ __html: pageContext.html }} />
         <div>
           <p>
@@ -38,7 +54,7 @@ const Template = ({ location, pageContext }) => (
           </Link>
         )}
       </div>
-      <DocNav nav={nav.chapters} location={location} />
+      <DocNav version={pageContext.version} nav={pageContext.nav.chapters} location={location} />
     </div>
   </Layout>
 );

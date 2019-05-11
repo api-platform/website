@@ -3,8 +3,15 @@ const URL = require('url');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
+const { current, versions } = require('./constants');
+const { getPrefixedVersion } = require('./src/lib/versionHelper');
 
-const nav = jsyaml.safeLoad(readFileSync('./src/pages/docs/nav.yml', 'utf8'));
+const navs = {};
+versions.push(current);
+versions.forEach(version => {
+  const prefixedVersion = `${getPrefixedVersion(version)}/`;
+  navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
+});
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -35,44 +42,49 @@ exports.createPages = ({ graphql, actions }) => {
     const pages = result.data.allMarkdownRemark.edges;
 
     pages.forEach(edge => {
-      const slug = edge.node.fields.slug;
+      let slug = edge.node.fields.slug;
       const redirect = edge.node.fields.redirect;
 
       let previous = {};
       let next = {};
 
       const slugArray = slug.split('/');
+      let version = `${slugArray[2]}/`;
+      const nav = navs[version];
 
-      nav.chapters.forEach(chapter => {
-        if (slugArray[2] === chapter.path) {
-          chapter.items.forEach((item, index) => {
-            if (index === 0) {
-              next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
+      slug = slug.replace(`${current}/`, '');
+      version = version.replace(`${current}/`, '');
+
+      nav.chapters
+        .filter(chapter => slugArray[2] === chapter.path)
+        .forEach(chapter => {
+          const section = slugArray[2];
+          if (index === 0) {
+            next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
+            next.title = chapter.items[index + 1].title;
+          }
+
+          if (slugArray[3] === item.id) {
+            previous.slug =
+              chapter.items[index - 1].id === 'index'
+                ? `/docs/${version}${section}/`
+                : `/docs/${version}${section}/${chapter.items[index - 1].id}/`;
+            previous.title = chapter.items[index - 1].title;
+
+            next.slug = null;
+
+            if (chapter.items.length - 1 !== index) {
+              next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
               next.title = chapter.items[index + 1].title;
-
-              return;
             }
-
-            if (slugArray[3] === item.id) {
-              previous.slug =
-                chapter.items[index - 1].id === 'index'
-                  ? `/docs/${slugArray[2]}/`
-                  : `/docs/${slugArray[2]}/${chapter.items[index - 1].id}/`;
-              previous.title = chapter.items[index - 1].title;
-
-              next.slug = null;
-              if (chapter.items.length - 1 !== index) {
-                next.slug = `/docs/${slugArray[2]}/${chapter.items[index + 1].id}/`;
-                next.title = chapter.items[index + 1].title;
-              }
-            }
-          });
-        }
-      });
+          }
+        });
 
       const editSubPaths = slug.slice(6).split('/');
       const editPath =
-        editSubPaths.length > 2 ? `${editSubPaths.join('/').slice(0, -1)}.md` : `${editSubPaths[0]}/index.md`;
+        editSubPaths.length > 3
+          ? `${editSubPaths.join('/').slice(0, -1)}.md`
+          : `${editSubPaths[0]}/${editSubPaths[1]}/index.md`;
 
       createPage({
         path: slug,
@@ -83,6 +95,8 @@ exports.createPages = ({ graphql, actions }) => {
           title: edge.node.headings[0].value,
           previous,
           next,
+          version,
+          nav,
         },
       });
 
@@ -109,7 +123,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const fileNode = getNode(node.parent);
     let nodePath = fileNode.relativePath.replace('.md', '');
     let html = node.internal.content;
-    let localUrls = [];
+    const localUrls = [];
     let matches;
     const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NavItem from '../docs/NavItem';
+import { versions } from '../../../constants';
+import { getPrefixedVersion } from '../../lib/versionHelper';
 
 class DocNav extends Component {
   componentWillMount() {
@@ -58,7 +60,8 @@ class DocNav extends Component {
   }
 
   getItemByLocation = location => {
-    const reg = /docs\/(.*?)(\/|$)/;
+    const eitherVersions = versions.map(getPrefixedVersion).join('|');
+    const reg = new RegExp(`docs/(((${eitherVersions})/)?.*?)(/|$)`);
     const matches = location.pathname.match(reg);
     return matches ? matches[1] : null;
   };
@@ -84,6 +87,7 @@ class DocNav extends Component {
             onClick={this.toggleMenu}
             current={currentItem}
             location={this.props.location}
+            version={this.props.version}
           />
         ))}
       </div>
@@ -94,10 +98,12 @@ class DocNav extends Component {
 DocNav.propTypes = {
   location: PropTypes.object.isRequired,
   nav: PropTypes.array,
+  version: PropTypes.string,
 };
 
 DocNav.defaultProps = {
   nav: [],
+  version: '',
 };
 
 export default DocNav;

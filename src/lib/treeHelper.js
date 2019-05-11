@@ -1,10 +1,10 @@
 const GithubSlugger = require('github-slugger');
 
-const slugger = new GithubSlugger();
-
 const treeHelper = {
   getTree(node, id, tree) {
     if (!node.sections || !tree) return tree;
+
+    const slugger = new GithubSlugger();
 
     return [
       ...tree,
