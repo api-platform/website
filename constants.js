@@ -5,4 +5,5 @@ module.exports = Object.freeze({
   versions: ['master', '2.3', '2.2', '2.1'],
   currentVersion: '2.4',
   masterVersion: '2.5',
+  siteUrl: 'https://api-platform.com',
 });

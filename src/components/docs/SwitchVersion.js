@@ -4,7 +4,7 @@ import { navigate } from 'gatsby';
 import constants, { current, versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
 
-versions.push(current);
+versions.unshift(current);
 
 const doChange = (e, location, currentVersion) => {
   const targetVersion = getPrefixedVersion(e.target.value);
