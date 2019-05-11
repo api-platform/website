@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
-import nav from './docs/stable/nav.yml';
+import nav from './docs/current/nav.yml';
 
 const RenderInnerList = ({ anchors, path }) => (
   <ol>

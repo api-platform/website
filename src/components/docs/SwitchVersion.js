@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
-import { current, versions } from '../../../constants';
+import constants, { current, versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
 
 versions.push(current);
@@ -32,9 +32,12 @@ const SwitchVersion = ({ location, currentVersion }) => (
   >
     {versions.map(version => {
       const formattedVersion = getPrefixedVersion(version);
+      const correspondingVersion = constants[`${version}Version`];
       return (
         <option key={formattedVersion} value={formattedVersion}>
-          {formattedVersion.toUpperCase()}
+          {(
+            formattedVersion + (correspondingVersion ? ` (${getPrefixedVersion(correspondingVersion)})` : '')
+          ).toUpperCase()}
         </option>
       );
     })}
