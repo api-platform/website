@@ -64,8 +64,10 @@ chapters:
     items:
       - index
       - react
-      - vuejs
+      - nextjs
       - react-native
+      - vuejs
+      - quasar
       - typescript
       - troubleshooting
   - title: Deployment
