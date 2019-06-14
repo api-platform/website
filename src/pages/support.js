@@ -47,7 +47,7 @@ const SupportPage = props => (
             <br />
             <p>
               Chat with the community on the{' '}
-              <a href="https://symfony.com/slack-invite" target="_blank" rel="noopener noreferrer">
+              <a href="https://symfony.com/slack" target="_blank" rel="noopener noreferrer">
                 api-platform channel on Symfony&#39;s Slack
               </a>
               .
