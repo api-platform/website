@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
 import SwitchVersion from '../components/docs/SwitchVersion';
-import { siteUrl, versions } from '../../constants';
+import { currentVersion, siteUrl, versions } from '../../constants';
 import { getPrefixedVersion } from '../lib/versionHelper';
 
 const Template = ({ location, pageContext }) => (
@@ -24,6 +24,10 @@ const Template = ({ location, pageContext }) => (
               <meta name="robots" content="noindex" />,
             ]
           : false}
+        <meta
+          name="docsearch:version"
+          content={ '' === pageContext.version ? getPrefixedVersion(currentVersion) : pageContext.shortVersion }
+        />
       </Helmet>
       <div className="container docs__content">
         <SwitchVersion location={location} currentVersion={pageContext.version} />
