@@ -53,7 +53,7 @@ export const otherData = [
     link: 'http://www.beinsports.com/',
   },
   {
-    name: 'BiiG',
+    name: 'Biig',
     logo: 'biig',
     link: 'https://www.biig.fr/',
   },
