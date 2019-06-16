@@ -49,7 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
       let next = {};
 
       const slugArray = slug.split('/');
-      let version = `${slugArray[2]}/`;
+      const shortVersion = slugArray[2];
+      let version = `${shortVersion}/`;
       const nav = navs[version];
 
       slug = slug.replace(`${current}/`, '');
@@ -94,9 +95,10 @@ exports.createPages = ({ graphql, actions }) => {
           editPath,
           title: edge.node.headings[0].value,
           previous,
-          next,
-          version,
           nav,
+          next,
+          shortVersion,
+          version,
         },
       });
 
