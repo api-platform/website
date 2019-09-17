@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.2.1",
     "gatsby-plugin-catch-links": "^2.0.11",
