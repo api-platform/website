@@ -50,7 +50,7 @@
     "gatsby-remark-copy-linked-files": "^2.0.9",
     "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
-    "gatsby-source-filesystem": "^2.0.13",
+    "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.2.5",
     "husky": "^2.1.0",
     "js-yaml": "^3.10.0",
