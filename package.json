@@ -59,7 +59,7 @@
     "prettier": "^1.14.0",
     "remark-inline-links": "^3.0.4",
     "xmldom": "^0.1.27",
-    "xpath": "^0.0.24"
+    "xpath": "^0.0.27"
   },
   "husky": {
     "hooks": {
