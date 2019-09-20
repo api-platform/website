@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import DocNav from '../components/layout/DocNav';
 import SwitchVersion from '../components/docs/SwitchVersion';
 import { currentVersion, siteUrl, versions } from '../../constants';
-import { getPrefixedVersion } from '../lib/versionHelper';
+import versionHelper from '../lib/versionHelper';
 
 const Template = ({ location, pageContext }) => (
   <Layout location={location}>
@@ -14,31 +14,27 @@ const Template = ({ location, pageContext }) => (
       <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'}>
         {'' !== pageContext.version
           ? [
-              <link
-                rel="canonical"
-                href={
-                  siteUrl +
-                  location.pathname.replace(new RegExp(`/(${versions.map(getPrefixedVersion).join('|')})/`), '/')
-                }
-              />,
-              <meta name="robots" content="noindex" />,
-            ]
+            <link
+              rel="canonical"
+              href={
+                siteUrl +
+                location.pathname.replace(new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`), '/')
+              }
+            />,
+            <meta name="robots" content="noindex" />,
+          ]
           : false}
         <meta
           name="docsearch:version"
-          content={ '' === pageContext.version ? getPrefixedVersion(currentVersion) : pageContext.shortVersion }
+          content={ '' === pageContext.version ? versionHelper.getPrefixedVersion(currentVersion) : pageContext.prefixedVersion }
         />
       </Helmet>
       <div className="container docs__content">
         <SwitchVersion location={location} currentVersion={pageContext.version} />
         <div dangerouslySetInnerHTML={{ __html: pageContext.html }} />
-        <div>
+        <div className="docs__content__help">
           <p>
-            <a
-              href={`https://github.com/api-platform/docs/edit/${process.env.GATSBY_BRANCH_NAME || 'master'}/${
-                pageContext.editPath
-              }`}
-            >
+            <a href={pageContext.urlEditDocumentation}>
               You can also help us improve the documentation of this page.
             </a>
           </p>

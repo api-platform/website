@@ -4,12 +4,12 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
 const { current, versions } = require('./constants');
-const { getPrefixedVersion } = require('./src/lib/versionHelper');
+const versionHelper = require('./src/lib/versionHelper');
 
 const navs = {};
 versions.push(current);
 versions.forEach(version => {
-  const prefixedVersion = `${getPrefixedVersion(version)}/`;
+  const prefixedVersion = `${versionHelper.getPrefixedVersion(version)}/`;
   navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
 });
 
@@ -42,64 +42,65 @@ exports.createPages = ({ graphql, actions }) => {
     const pages = result.data.allMarkdownRemark.edges;
 
     pages.forEach(edge => {
-      let slug = edge.node.fields.slug;
       const redirect = edge.node.fields.redirect;
+      const slug = edge.node.fields.slug.replace(`${current}/`, '');
+      const slugArray = edge.node.fields.slug.split('/');
+      const prefixedVersion = slugArray[2];
+      const prefixedVersionSlug = `${prefixedVersion}/`.replace(`${current}/`, '');
+      const originalVersion = versionHelper.getOriginalVersion(slugArray[2]);
+      const section = slugArray[3];
+      const article = slugArray[4] ? slugArray[4] : 'index';
 
       let previous = {};
       let next = {};
 
-      const slugArray = slug.split('/');
-      const shortVersion = slugArray[2];
-      let version = `${shortVersion}/`;
-      const nav = navs[version];
-
-      slug = slug.replace(`${current}/`, '');
-      version = version.replace(`${current}/`, '');
-
+      const nav = navs[`${prefixedVersion}/`];
       nav.chapters
-        .filter(chapter => slugArray[2] === chapter.path)
+        .filter(chapter => chapter.path === section)
         .forEach(chapter => {
-          const section = slugArray[2];
-          if (index === 0) {
-            next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
-            next.title = chapter.items[index + 1].title;
-          }
+          chapter.items
+            .forEach((item, indexItem) => {
+              if (item.id !== article) {
+                return;
+              }
 
-          if (slugArray[3] === item.id) {
-            previous.slug =
-              chapter.items[index - 1].id === 'index'
-                ? `/docs/${version}${section}/`
-                : `/docs/${version}${section}/${chapter.items[index - 1].id}/`;
-            previous.title = chapter.items[index - 1].title;
+              if ((chapter.items.length - 1) !== indexItem) {
+                next.slug = versionHelper.generateSlugNextChapter(
+                  prefixedVersionSlug,
+                  section,
+                  chapter.items[indexItem + 1].id
+                );
+                next.title = chapter.items[indexItem + 1].title;
+              }
 
-            next.slug = null;
-
-            if (chapter.items.length - 1 !== index) {
-              next.slug = `/docs/${version}${section}/${chapter.items[index + 1].id}/`;
-              next.title = chapter.items[index + 1].title;
-            }
-          }
+              if (0 !== indexItem) {
+                previous.slug = versionHelper.generateSlugPreviousChapter(
+                  prefixedVersionSlug,
+                  section,
+                  chapter.items[indexItem - 1].id
+                );
+                previous.title = chapter.items[indexItem - 1].title;
+              }
+            });
         });
 
-      const editSubPaths = slug.slice(6).split('/');
-      const editPath =
-        editSubPaths.length > 3
-          ? `${editSubPaths.join('/').slice(0, -1)}.md`
-          : `${editSubPaths[0]}/${editSubPaths[1]}/index.md`;
-
       createPage({
-        path: slug,
         component: docPageTemplate,
         context: {
           html: edge.node.html,
-          editPath,
-          title: edge.node.headings[0].value,
-          previous,
           nav,
           next,
-          shortVersion,
-          version,
+          prefixedVersion,
+          previous,
+          title: edge.node.headings[0].value,
+          urlEditDocumentation: versionHelper.generateSlugEditDocumentation(
+            originalVersion,
+            section,
+            article
+          ),
+          version: prefixedVersionSlug,
         },
+        path: slug,
       });
 
       const redirects = [slug.slice(0, -1)];

@@ -18,13 +18,13 @@
   select {
     appearance: none;
     outline: 0; box-shadow: none; border: 0; border-radius: 4px;
-    background: #35626a; color: white; font-weight: bold;
+    background: $darkblue; color: $white; font-weight: bold;
     position: absolute; display: block; text-align-last: center; right: 10px; top: 10px;
     width: 100px; height: 30px; line-height: 3;
     overflow: hidden;
     &:-moz-focusring {
       color: transparent;
-      text-shadow: 0 0 0 white;
+      text-shadow: 0 0 0 $white;
     }
   }
 }
@@ -286,6 +286,14 @@
           }
         }
       }
+    }
+  }
+
+  .docs__content__help {
+    margin: 40px 0 0;
+
+    p {
+      margin: 0;
     }
   }
   @include mq($max-width: $vw-medium) { padding: 40px 30px 30px; }

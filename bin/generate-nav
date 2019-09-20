@@ -3,7 +3,7 @@
 const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
 const fileProcessor = require('../src/lib/fileProcessor');
 const {readFileSync, writeFile, readdirSync} = require('fs');
-const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const versionHelper = require('../src/lib/versionHelper');
 const {join, resolve} = require('path');
 const jsyaml = require('js-yaml');
 
@@ -12,7 +12,7 @@ const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 versions.push(current);
 versions.forEach(version => {
     const docs = { chapters: [] };
-    const versionDirectory = getPrefixedVersion(version);
+    const versionDirectory = versionHelper.getPrefixedVersion(version);
     const versionPath = join(docPagesDirectory, versionDirectory);
 
     docs.chapters = loadedOutline.chapters.map(directory => {
