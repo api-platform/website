@@ -4,6 +4,8 @@ This repository contains the source code and documentation powering [api-platfor
 
 Single Page Application built with [React](https://facebook.github.io/react/) and powered by [Gatsby](https://www.gatsbyjs.org/).
 
+[![Build Status](https://travis-ci.org/api-platform/website.svg?branch=master)](https://travis-ci.org/api-platform/website)
+
 ## Project structure
 
 For an overview of the project structure, please refer to the [Gatsby documentation](https://www.gatsbyjs.org/docs/building-with-components/).
