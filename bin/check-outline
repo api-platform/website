@@ -2,7 +2,7 @@
 
 const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
 const {readdirSync, readFileSync, statSync} = require('fs');
-const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const versionHelper = require('../src/lib/versionHelper');
 const {join} = require('path');
 const jsYaml = require('js-yaml');
 
@@ -10,7 +10,7 @@ const loadedOutline = jsYaml.safeLoad(readFileSync(outlinePath, 'utf8'));
 
 versions.push(current);
 versions.forEach(version => {
-    const versionDirectory = getPrefixedVersion(version);
+    const versionDirectory = versionHelper.getPrefixedVersion(version);
     const dir = `${docPagesDirectory}${versionDirectory}`;
     const directories = readdirSync(dir).filter(
       folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0]

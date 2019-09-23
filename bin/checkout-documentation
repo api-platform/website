@@ -4,7 +4,7 @@ const {execSync} = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const {docPagesDirectory, current, versions} = require('../constants');
-const {getPrefixedVersion} = require('../src/lib/versionHelper');
+const versionHelper = require('../src/lib/versionHelper');
 
 console.info('\x1b[36m', `Deleting ${docPagesDirectory}`, '\x1b[37m');
 execSync(`rm -rf ${docPagesDirectory}`);
@@ -30,7 +30,7 @@ masterVersion = masterVersion.join('.');
 console.info('\x1b[32m', `Master version is: ${masterVersion}`, '\x1b[37m');
 
 versions.forEach(version => {
-    const versionDirectory = getPrefixedVersion(version);
+    const versionDirectory = versionHelper.getPrefixedVersion(version);
 
     console.info('\x1b[36m', `Checking out the ${version} version in ${docPagesDirectory}${versionDirectory} directory`, '\x1b[37m');
     execSync(`cp -R ${docPagesDirectory}${current} ${docPagesDirectory}${versionDirectory}/`);
