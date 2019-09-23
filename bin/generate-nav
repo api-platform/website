@@ -7,28 +7,26 @@ const versionHelper = require('../src/lib/versionHelper');
 const {join, resolve} = require('path');
 const jsyaml = require('js-yaml');
 
-const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
-
 versions.push(current);
 versions.forEach(version => {
     const docs = { chapters: [] };
+    const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
     const versionDirectory = versionHelper.getPrefixedVersion(version);
     const versionPath = join(docPagesDirectory, versionDirectory);
 
-    docs.chapters = loadedOutline.chapters.map(directory => {
-        const directoryPath = join(versionPath, directory.path);
-        let files = readdirSync(directoryPath)
+    docs.chapters = loadedOutline.chapters.map(chapter => {
+        const chapterPath = join(versionPath, chapter.path);
+        const files = readdirSync(chapterPath)
             .filter(file => file.endsWith('.md'))
             .map(file => file.slice(0, -3));
 
-        directory.items = directory.items.filter(x => files.includes(x));
-        files = [...new Set(directory.items.concat(files))];
+        chapter.items = chapter.items.filter(item => files.includes(item));
 
-        const items = files.map(file =>
-            fileProcessor.processFile(resolve(directoryPath), file)[0]
+        const items = [...new Set(chapter.items.concat(files))].map(file =>
+            fileProcessor.processFile(resolve(chapterPath), file)[0]
         );
 
-        return { ...directory, items };
+        return { ...chapter, items };
     });
 
     writeFile(resolve(join(versionPath, 'nav.yml')), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
