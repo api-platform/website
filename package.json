@@ -54,7 +54,7 @@
     "gatsby-transformer-remark": "^2.2.5",
     "husky": "^2.1.0",
     "js-yaml": "^3.10.0",
-    "lint-staged": "^7.2.0",
+    "lint-staged": "^9.3.0",
     "markdown": "^0.5.0",
     "prettier": "^1.14.0",
     "remark-inline-links": "^3.0.4",
