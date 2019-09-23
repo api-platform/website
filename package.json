@@ -48,7 +48,7 @@
     "gatsby-remark-autolink-headers": "^2.0.12",
     "gatsby-remark-copy-images": "^0.2.1",
     "gatsby-remark-copy-linked-files": "^2.1.19",
-    "gatsby-remark-images": "^3.0.1",
+    "gatsby-remark-images": "^3.1.23",
     "gatsby-remark-responsive-image": "^1.0.0-alpha13-alpha.435e0178",
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.2.5",
