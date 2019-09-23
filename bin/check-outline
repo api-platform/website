@@ -25,11 +25,11 @@ versions.forEach(version => {
         extraDirectories: outlineDirectories.filter(folder => !directories.includes(folder)),
     };
 
-    if (oddDirectories.missingDirectories.length > 0) {
+    if (0 < oddDirectories.missingDirectories.length) {
         console.warn('\x1b[33m', `[${version}] The following "path" entries are missing in ${outlinePath}, please add them with the relevant "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
     }
 
-    if (oddDirectories.extraDirectories.length > 0) {
+    if (0 < oddDirectories.extraDirectories.length) {
         console.warn('\x1b[33m', `[${version}] The following "path" entries in ${outlinePath} do not exist in the documentation: ${oddDirectories.extraDirectories.join(', ')}`, '\x1b[37m');
     }
 
@@ -54,5 +54,5 @@ versions.forEach(version => {
                 .forEach(file =>
                     console.warn('\x1b[33m', `[${version}] Missing "${file}" file in "${directory.path}" section in ${outlinePath}`, '\x1b[37m')
                 );
-      });
+        });
 });
