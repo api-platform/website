@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 
-const {docPagesDirectory, outlinePath, current, versions} = require('../constants');
+const {current, docPagesDirectory, versions} = require('../constants');
 const {readdirSync, readFileSync, statSync} = require('fs');
 const versionHelper = require('../src/lib/versionHelper');
 const {join} = require('path');
 const jsYaml = require('js-yaml');
 
-const loadedOutline = jsYaml.safeLoad(readFileSync(outlinePath, 'utf8'));
+let exitCode = null;
 
 versions.push(current);
 versions.forEach(version => {
     const versionDirectory = versionHelper.getPrefixedVersion(version);
     const dir = `${docPagesDirectory}${versionDirectory}`;
+    const outlinePath = `${dir}/outline.yaml`;
+    const loadedOutline = jsYaml.safeLoad(readFileSync(outlinePath, 'utf8'));
     const directories = readdirSync(dir).filter(
       folder => statSync(join(dir, folder)).isDirectory() && '.' !== folder[0]
     );
@@ -27,10 +29,12 @@ versions.forEach(version => {
 
     if (0 < oddDirectories.missingDirectories.length) {
         console.warn('\x1b[33m', `[${version}] The following "path" entries are missing in ${outlinePath}, please add them with the relevant "title" and "items" keys: ${oddDirectories.missingDirectories.join(', ')}`, '\x1b[37m');
+        exitCode = 1;
     }
 
     if (0 < oddDirectories.extraDirectories.length) {
         console.warn('\x1b[33m', `[${version}] The following "path" entries in ${outlinePath} do not exist in the documentation: ${oddDirectories.extraDirectories.join(', ')}`, '\x1b[37m');
+        exitCode = 1;
     }
 
     const fixedOutline = loadedOutline.chapters.filter(folder => !oddDirectories.extraDirectories.includes(folder.path));
@@ -43,16 +47,25 @@ versions.forEach(version => {
 
             directory.items
                 .filter(itemEntry => !files.includes(`${itemEntry}.md`))
-                .forEach(itemEntry =>
-                    console.warn('\x1b[33m', `[${version}] Missing "${itemEntry}.md" file in ${directoryPath}`, '\x1b[37m')
-                );
+                .forEach(itemEntry => {
+                    console.warn('\x1b[33m', `[${version}] The "${itemEntry}.md" file don't exist in the ${directoryPath} folder.`, '\x1b[37m');
+                    exitCode = 1;
+                });
 
             const fixedOutlineFiles = directory.items.map(file => `${file}.md`);
 
             files
                 .filter(file => !fixedOutlineFiles.includes(file))
-                .forEach(file =>
-                    console.warn('\x1b[33m', `[${version}] Missing "${file}" file in "${directory.path}" section in ${outlinePath}`, '\x1b[37m')
-                );
+                .forEach(file => {
+                    console.warn('\x1b[33m', `[${version}] Missing "${file}" file in "${directory.path}" section in ${outlinePath} file.`, '\x1b[37m');
+                    exitCode = 1;
+                });
         });
 });
+
+process.on('exit', (code) => {
+    if (code) {
+        console.warn('\x1b[31m', `Failed script: exit code ${code}`, '\x1b[37m')
+    }
+});
+process.exit(exitCode);

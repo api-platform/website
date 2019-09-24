@@ -1,6 +1,5 @@
 module.exports = Object.freeze({
   docPagesDirectory: `${__dirname}/src/pages/docs/`,
-  outlinePath: `${__dirname}/config/outline.yaml`,
   current: 'current',
   versions: ['master', '2.3', '2.2', '2.1'],
   currentVersion: '2.4',
