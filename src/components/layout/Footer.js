@@ -26,13 +26,13 @@ class Footer extends Component {
         <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
         <p className="footer__copyright">
           Copyright © 2019{' '}
-          <a href="https://dunglas.fr/" target="_blank" rel="noopener noreferrer">
+          <a href="https://dunglas.fr" target="_blank" rel="noopener noreferrer">
             Kévin Dunglas
           </a>
         </p>
         <p className="footer__tilleuls">
-          Supported by{' '}
-          <a href="http://www.les-tilleuls.coop" target="_blank" rel="noopener noreferrer">
+          Sponsored by{' '}
+          <a href="https://les-tilleuls.coop" target="_blank" rel="noopener noreferrer">
             Les-Tilleuls.coop
           </a>
         </p>
