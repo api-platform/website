@@ -15,13 +15,14 @@ const Template = ({ location, pageContext }) => (
         {'' !== pageContext.version
           ? [
             <link
+              key="canonical"
               rel="canonical"
               href={
                 siteUrl +
                 location.pathname.replace(new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`), '/')
               }
             />,
-            <meta name="robots" content="noindex" />,
+            <meta key="robots" name="robots" content="noindex" />,
           ]
           : false}
         <meta
