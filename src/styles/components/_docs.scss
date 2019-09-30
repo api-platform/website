@@ -168,6 +168,22 @@
   padding: 40px;
   color: $blackblue;
 
+  .symfonycasts {
+    a {
+      display: inline-block;
+    }
+
+    .gatsby-resp-image-wrapper {
+      border: 1px solid #efefee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
   .anchor svg {
     visibility: visible;
   }
