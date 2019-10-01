@@ -38,7 +38,7 @@ const SupportPage = props => (
               <a
                 href="https://stackoverflow.com/questions/tagged/api-platform.com"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 Stack Overflow
               </a>{' '}
@@ -47,7 +47,7 @@ const SupportPage = props => (
             <br />
             <p>
               Chat with the community on the{' '}
-              <a href="https://symfony.com/slack" target="_blank" rel="noopener noreferrer">
+              <a href="https://symfony.com/slack" target="_blank" rel="noopener">
                 api-platform channel on Symfony&#39;s Slack
               </a>
               .
@@ -63,7 +63,7 @@ const SupportPage = props => (
             </p>
             <br />
             <p>
-              <a href="https://les-tilleuls.coop/en/contact" target="_blank" rel="noopener noreferrer">
+              <a href="https://les-tilleuls.coop/en/contact" target="_blank" rel="noopener">
                 Contact us
               </a>{' '}
               for more information.

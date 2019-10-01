@@ -3,7 +3,7 @@ import spider from '../../images/giants.svg';
 import HomeList from './HomeList';
 
 const data = [
-  'extend the framework with thousands of existing <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer nofollow">Symfony bundles</a> and <a href="https://reactjs.org/community/ui-components.html" target="_blank" rel="noopener noreferrer nofollow">React components</a>',
+  'extend the framework with thousands of existing <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer">Symfony bundles</a> and <a href="https://reactjs.org/community/ui-components.html" target="_blank" rel="noopener noreferrer">React components</a>',
   'use the server library in any existing Symfony or PHP app, use client components with any Hydra-enabled API, regardless of its programming language',
   'reuse all your Symfony, React and Docker skills and benefit of their high quality docs; you are in known territory',
 ];
