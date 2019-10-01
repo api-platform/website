@@ -18,7 +18,7 @@ const MenuItemLink = ({ path, children }) => {
   }
 
   return (
-    <a className="menu-item__link" href={path} target="_blank" rel="noopener">
+    <a className="menu-item__link" href={path}>
       {children}
     </a>
   );
