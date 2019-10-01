@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Logo = ({ className }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 782.34 88.31">
     <defs />
-    <title>test1</title>
+    <title>API Platform</title>
     <path
       className="a"
       d="M40.87,3.84,57.1,17.09c4.71,4,7.31,7.18,7.68,13.25V77.29A10.57,10.57,0,0,1,54.12,87.94a10.71,10.71,0,0,1-10.9-10.65V66.76L21.67,46.82V77.29A10.68,10.68,0,0,1,10.9,87.94,10.78,10.78,0,0,1,0,77.29V30.34c.5-6.07,3.34-9.29,7.93-13.25L23.78,3.84C30.1-1.11,34.68-1.36,40.87,3.84Zm2.35,41.37V22.67H21.67V45.21Z"
