@@ -29,6 +29,11 @@ export const openSourceData = [
     logo: 'marianne',
     link: 'https://github.com/SocieteNumerique/pass-numerique',
   },
+  {
+    name: 'Bolt',
+    logo: 'bolt',
+    link: 'https://bolt.cm/',
+  },
 ];
 
 export const otherData = [
