@@ -26,12 +26,20 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1120,
+              linkImagesToOriginal: false,
             },
           },
           'gatsby-remark-external-links',
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
+          {
+            resolve: 'gatsby-remark-images-medium-zoom',
+            options: {
+              scrollOffset: 80,
+              zIndex: 9999,
+            },
+          },
         ],
       },
     },
