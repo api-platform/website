@@ -198,6 +198,11 @@ export const otherData = [
     link: 'http://www.tmm-groupe.com/',
   },
   {
+    name: 'whatwedo',
+    logo: 'whatwedo',
+    link: 'https://www.whatwedo.ch/',
+  },
+  {
     name: 'YouSign',
     logo: 'yousign',
     link: 'https://yousign.com/',
