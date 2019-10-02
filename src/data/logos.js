@@ -123,6 +123,11 @@ export const otherData = [
     link: 'https://www.liberation.fr/',
   },
   {
+    name: 'The London Internet Exchange',
+    logo: 'linx',
+    link: 'https://www.linx.net/',
+  },
+  {
     name: 'M6',
     logo: 'm6',
     link: 'http://www.groupem6.fr/',
