@@ -42,3 +42,40 @@ yarn gatsby build
 yarn gatsby serve
 # Go to http://localhost:9000
 ```
+
+## Publishing Docs For New Versions
+
+1. Create a branch for the new version [in the `api-platform/docs` repository](https://github.com/api-platform/docs).
+2. Update [Algolia DocSearch configuration](https://github.com/algolia/docsearch-configs/blob/master/configs/api-platform.json)
+```json
+{
+  "index_name": "api-platform",
+  "start_urls": [
+    {
+      "url": "https://api-platform.com/docs/(?P<version>.*?)/",
+      "variables": {
+        "version": [
+          "master",
+          "2.5",
+          "2.4",
+          "2.3",
+          "2.2",
+          "2.1"
+        ]
+      }
+    },
+    ...
+  },
+  ...
+}
+```
+3. Add the new version in [`constants.js`](https://github.com/api-platform/website/blob/master/constants.js)
+```javascript
+module.exports = Object.freeze({
+  ...
+  versions: ['master', '2.4', '2.3', '2.2', '2.1'],
+  currentVersion: '2.5',
+  masterVersion: '2.6',
+  ...
+});
+```
