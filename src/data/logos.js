@@ -17,7 +17,7 @@ export const openSourceData = [
   {
     name: 'Digital State',
     logo: 'digital-state',
-    link: 'http://www.digitalstate.ca/',
+    link: 'https://www.digitalstate.ca/',
   },
   {
     name: 'AudienceHero',
@@ -50,12 +50,12 @@ export const otherData = [
   {
     name: 'Alstom',
     logo: 'alstom',
-    link: 'http://www.alstom.com/',
+    link: 'https://www.alstom.com/',
   },
   {
     name: 'beIN SPORTS',
     logo: 'bein-sports',
-    link: 'http://www.beinsports.com/',
+    link: 'https://www.beinsports.com/',
   },
   {
     name: 'Biig',
@@ -90,7 +90,7 @@ export const otherData = [
   {
     name: 'Exaqtworld',
     logo: 'exaqtworld',
-    link: 'http://www.exaqtworld.com/',
+    link: 'https://www.exaqtworld.com/',
   },
   {
     name: 'The Fork',
@@ -100,7 +100,7 @@ export const otherData = [
   {
     name: 'France 24',
     logo: 'france-24',
-    link: 'http://www.france24.com/',
+    link: 'https://www.france24.com/',
   },
   {
     name: 'General Electric',
@@ -135,12 +135,12 @@ export const otherData = [
   {
     name: 'M6',
     logo: 'm6',
-    link: 'http://www.groupem6.fr/',
+    link: 'https://www.groupem6.fr/',
   },
   {
     name: 'MEL',
     logo: 'mel',
-    link: 'http://www.lillemetropole.fr/',
+    link: 'https://www.lillemetropole.fr/',
   },
   {
     name: 'Microdon',
@@ -175,7 +175,7 @@ export const otherData = [
   {
     name: 'Ville de Roubaix',
     logo: 'roubaix',
-    link: 'http://www.ville-roubaix.fr/',
+    link: 'https://www.ville-roubaix.fr/',
   },
   {
     name: 'Saveur Bière',
