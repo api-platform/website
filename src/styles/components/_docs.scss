@@ -266,6 +266,8 @@
 
     & > li {
       margin: 0 0 15px;
+      padding: 0 0 0 19px;
+      position: relative;
       & > p {
         display: inline-block;
       }
@@ -273,7 +275,6 @@
       &:before {
         content: "\e315";
         color: $darkblue;
-        margin-right: 5px;
         font-family: 'api-platform-icon' !important;
         speak: none;
         font-style: normal;
@@ -281,6 +282,9 @@
         font-variant: normal;
         text-transform: none;
         line-height: 1;
+        position: absolute;
+        left: 0;
+        top: 4px;
 
         /* Better Font Rendering =========== */
         -webkit-font-smoothing: antialiased;
@@ -290,6 +294,7 @@
         li {
           list-style-type: circle;
           margin-left: 25px;
+          padding: 0;
           &:before {
             content: none;
           }
