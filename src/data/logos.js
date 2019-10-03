@@ -7,32 +7,42 @@ export const openSourceData = [
   {
     name: 'CoopCycle',
     logo: 'coopcycle',
-    link: 'https://coopcycle.org/fr/',
-  },
-  {
-    name: 'PartKeepr',
-    logo: 'partkeepr',
-    link: 'https://partkeepr.org/',
+    link: 'https://github.com/coopcycle/coopcycle-web',
   },
   {
     name: 'Digital State',
     logo: 'digital-state',
-    link: 'https://www.digitalstate.ca/',
+    link: 'http://digitalstate.io/',
   },
   {
     name: 'AudienceHero',
     logo: 'audiencehero',
-    link: 'http://www.audiencehero.org/',
+    link: 'https://github.com/AudienceHero/AudienceHero',
   },
   {
     name: 'Mobicoop',
     logo: 'mobicoop',
-    link: 'https://www.mobicoop.fr/',
+    link: 'https://gitlab.com/mobicoop/mobicoop-platform',
   },
   {
     name: 'French Government',
     logo: 'marianne',
     link: 'https://github.com/SocieteNumerique/pass-numerique',
+  },
+  {
+    name: 'En Marche !',
+    logo: 'enmarche',
+    link: 'https://github.com/EnMarche/en-marche.fr',
+  },
+  {
+    name: 'Parti de gauche',
+    logo: 'parti-de-gauche',
+    link: 'https://github.com/LePartiDeGauche/adherents-platform',
+  },
+  {
+    name: 'PartKeepr',
+    logo: 'partkeepr',
+    link: 'https://partkeepr.org/',
   },
 ];
 
@@ -78,11 +88,6 @@ export const otherData = [
     link: 'https://www.decathlon.fr/',
   },
   {
-    name: 'En Marche !',
-    logo: 'enmarche',
-    link: 'https://github.com/EnMarche/en-marche.fr',
-  },
-  {
     name: 'eVaali.fi',
     logo: 'evaali',
     link: 'https://www.evaali.fi/',
@@ -108,11 +113,6 @@ export const otherData = [
     link: 'https://www.ge.com/',
   },
   {
-    name: 'HoHey.fr',
-    logo: 'hohey',
-    link: 'http://hohey.fr/',
-  },
-  {
     name: 'izi by eDF',
     logo: 'izi',
     link: 'https://izi-by-edf.fr/',
@@ -121,6 +121,11 @@ export const otherData = [
     name: "L'Express",
     logo: 'lexpress',
     link: 'https://www.lexpress.fr/',
+  },
+  {
+    name: 'Les-Tilleuls.coop',
+    logo: 'les-tilleuls',
+    link: 'https://les-tilleuls.coop/',
   },
   {
     name: 'Libération',
@@ -151,11 +156,6 @@ export const otherData = [
     name: 'Orange',
     logo: 'orange',
     link: 'https://www.orange.fr/',
-  },
-  {
-    name: 'Parti de gauche',
-    logo: 'parti-de-gauche',
-    link: 'https://github.com/LePartiDeGauche/adherents-platform',
   },
   {
     name: 'Quotatis',
@@ -191,11 +191,6 @@ export const otherData = [
     name: 'Smile',
     logo: 'smile',
     link: 'https://www.smile.eu/',
-  },
-  {
-    name: 'Les-Tilleuls.coop',
-    logo: 'les-tilleuls',
-    link: 'https://les-tilleuls.coop/',
   },
   {
     name: 'TMM',
