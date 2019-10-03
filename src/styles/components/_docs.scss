@@ -220,7 +220,12 @@
     font-size: 2.2rem;
     margin: 20px 0 0;
     border-bottom: 2px dotted $darkblue;
-    display: inline-block;
+  }
+
+  &_toc {
+    h2 {
+      display: inline-block;
+    }
   }
 
   h3 {

@@ -50,7 +50,7 @@ const DocsPage = props => (
   <Layout location={props.location}>
     <div className="page__docs">
       <Helmet title="API Platform Documentation" />
-      <div className="container docs__content">
+      <div className="container docs__content docs__content_toc">
         <h1>API Platform Documentation</h1>
         {nav.chapters.map(({ path, title, items }) => {
           const currentPath = `/docs/${path}`;
