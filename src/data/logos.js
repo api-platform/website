@@ -1,5 +1,10 @@
 export const openSourceData = [
   {
+    name: 'Bolt',
+    logo: 'bolt',
+    link: 'https://boltcms.io/',
+  },
+  {
     name: 'CoopCycle',
     logo: 'coopcycle',
     link: 'https://coopcycle.org/fr/',
