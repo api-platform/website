@@ -200,7 +200,7 @@ export const otherData = [
   {
     name: 'TMM',
     logo: 'tmm',
-    link: 'https://www.tmm-groupe.com/',
+    link: 'http://www.tmm-groupe.com/',
   },
   {
     name: 'whatwedo',
