@@ -9,6 +9,7 @@ import Giants from '../components/home/Giants';
 import Expose from '../components/home/Expose';
 import Schema from '../components/home/Schema';
 import References from '../components/home/References';
+import ContributorsLink from '../components/home/ContributorsLink';
 import Seo from '../components/home/Seo';
 import '../styles/main.scss';
 
@@ -24,6 +25,7 @@ const IndexPage = props => (
       <Expose />
       <Seo />
       <References />
+	    <ContributorsLink />
     </div>
   </Layout>
 );

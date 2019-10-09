@@ -2,6 +2,7 @@
   "name": "api-platform-website",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.0",
     "classnames": "^2.2.5",
     "dotenv": "^6.2.0",
     "eject": "^0.0.4",
