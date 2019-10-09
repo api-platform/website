@@ -25,16 +25,10 @@ class Footer extends Component {
       <footer className="footer openable">
         <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
         <p className="footer__copyright">
-          Copyright © 2019{' '}
-          <a href="https://dunglas.fr">
-            Kévin Dunglas
-          </a>
+          Copyright © 2019 <a href="https://dunglas.fr">Kévin Dunglas</a>
         </p>
         <p className="footer__tilleuls">
-          Sponsored by{' '}
-          <a href="https://les-tilleuls.coop">
-            Les-Tilleuls.coop
-          </a>
+          Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
         </p>
         <p className="footer__licence">
           Code licensed under{' '}

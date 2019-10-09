@@ -36,7 +36,8 @@ const SwitchVersion = ({ location, currentVersion }) => (
       return (
         <option key={formattedVersion} value={formattedVersion}>
           {(
-            formattedVersion + (correspondingVersion ? ` (${versionHelper.getPrefixedVersion(correspondingVersion)})` : '')
+            formattedVersion +
+            (correspondingVersion ? ` (${versionHelper.getPrefixedVersion(correspondingVersion)})` : '')
           ).toUpperCase()}
         </option>
       );

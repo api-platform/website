@@ -14,12 +14,7 @@ const Cover = () => (
       <Logo className="cover__logo" />
       <h2>REST and GraphQL framework to build modern API-driven projects</h2>
       <div className="cover__buttons">
-        <Button
-          empty
-          text="Download"
-          icon="download"
-          link="https://github.com/api-platform/api-platform/releases"
-        />
+        <Button empty text="Download" icon="download" link="https://github.com/api-platform/api-platform/releases" />
         <Button text="Get started" icon="flag" link="/docs/distribution" />
       </div>
     </div>

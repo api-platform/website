@@ -2,7 +2,9 @@
 let _self =
     'undefined' !== typeof window
       ? window
-      : 'undefined' !== typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? self : {},
+      : 'undefined' !== typeof WorkerGlobalScope && self instanceof WorkerGlobalScope
+      ? self
+      : {},
   Prism = (function() {
     var e = /\blang(?:uage)?-(\w+)\b/i,
       t = 0,
@@ -13,11 +15,11 @@ let _self =
             return e instanceof a
               ? new a(e.type, n.util.encode(e.content), e.alias)
               : 'Array' === n.util.type(e)
-                ? e.map(n.util.encode)
-                : e
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/\u00a0/g, ' ');
+              ? e.map(n.util.encode)
+              : e
+                  .replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/\u00a0/g, ' ');
           },
           type(e) {
             return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1];

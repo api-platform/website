@@ -25,7 +25,7 @@ const IndexPage = props => (
       <Expose />
       <Seo />
       <References />
-	    <ContributorsLink />
+      <ContributorsLink />
     </div>
   </Layout>
 );

@@ -9,7 +9,7 @@ const IndexPage = props => (
   <Layout location={props.location}>
     <div className="home">
       <Helmet title="REST and GraphQL framework on top of Symfony and React" />
-	    <Contributors />
+      <Contributors />
     </div>
   </Layout>
 );

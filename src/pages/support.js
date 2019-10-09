@@ -55,18 +55,12 @@ const SupportPage = props => (
           </SupportCard>
           <SupportCard title="Commercial support" image={SupportCommercial}>
             <p>
-              <a href="https://les-tilleuls.coop/en">
-                Les-Tilleuls.coop
-              </a>{' '}
-              provides professional services for API Platform and Symfony including training, development and API
-              design.
+              <a href="https://les-tilleuls.coop/en">Les-Tilleuls.coop</a> provides professional services for API
+              Platform and Symfony including training, development and API design.
             </p>
             <br />
             <p>
-              <a href="https://les-tilleuls.coop/en/contact">
-                Contact us
-              </a>{' '}
-              for more information.
+              <a href="https://les-tilleuls.coop/en/contact">Contact us</a> for more information.
             </p>
           </SupportCard>
         </div>

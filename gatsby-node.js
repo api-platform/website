@@ -58,30 +58,29 @@ exports.createPages = ({ graphql, actions }) => {
       nav.chapters
         .filter(chapter => chapter.path === section)
         .forEach(chapter => {
-          chapter.items
-            .forEach((item, indexItem) => {
-              if (item.id !== article) {
-                return;
-              }
+          chapter.items.forEach((item, indexItem) => {
+            if (item.id !== article) {
+              return;
+            }
 
-              if ((chapter.items.length - 1) !== indexItem) {
-                next.slug = versionHelper.generateSlugNextChapter(
-                  prefixedVersionSlug,
-                  section,
-                  chapter.items[indexItem + 1].id
-                );
-                next.title = chapter.items[indexItem + 1].title;
-              }
+            if (chapter.items.length - 1 !== indexItem) {
+              next.slug = versionHelper.generateSlugNextChapter(
+                prefixedVersionSlug,
+                section,
+                chapter.items[indexItem + 1].id
+              );
+              next.title = chapter.items[indexItem + 1].title;
+            }
 
-              if (0 !== indexItem) {
-                previous.slug = versionHelper.generateSlugPreviousChapter(
-                  prefixedVersionSlug,
-                  section,
-                  chapter.items[indexItem - 1].id
-                );
-                previous.title = chapter.items[indexItem - 1].title;
-              }
-            });
+            if (0 !== indexItem) {
+              previous.slug = versionHelper.generateSlugPreviousChapter(
+                prefixedVersionSlug,
+                section,
+                chapter.items[indexItem - 1].id
+              );
+              previous.title = chapter.items[indexItem - 1].title;
+            }
+          });
         });
 
       createPage({
@@ -93,11 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
           prefixedVersion,
           previous,
           title: edge.node.headings[0].value,
-          urlEditDocumentation: versionHelper.generateSlugEditDocumentation(
-            originalVersion,
-            section,
-            article
-          ),
+          urlEditDocumentation: versionHelper.generateSlugEditDocumentation(originalVersion, section, article),
           version: prefixedVersionSlug,
         },
         path: slug,
