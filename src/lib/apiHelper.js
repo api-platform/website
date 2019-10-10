@@ -7,7 +7,7 @@ const GITHUB_API_REPOS_LINK = 'https://api.github.com/repos';
 const REPOSITORIES_TO_IGNORE = [];
 
 function getGithubContributorLinkByRepoName(repoName) {
-  return GITHUB_API_REPOS_LINK + '/' + repoName + '/contributors';
+	return `${GITHUB_API_REPOS_LINK}/${repoName}/contributors`;
 }
 
 function createContributorFromResponse(repositoryName, repositoryLink, response) {
@@ -45,45 +45,42 @@ function getRepositoriesList() {
 }
 
 function getCompleteListOfContributors() {
-  return new Promise(function(resolve, reject) {
-    getRepositoriesList()
-      .then(listOfContributorsApiLinks => {
-        const listOfContributors = [];
-        const listOfPromises = [];
+  return getRepositoriesList()
+    .then(getListOfContrubotrsFromGithubApiLinks);
+}
 
-        for (let i = 0; i < listOfContributorsApiLinks.length; i++) {
-          listOfPromises.push(
-            getListOfContributorsByUrl(
-              listOfContributorsApiLinks[i].api_get_contributor_link,
-              listOfContributorsApiLinks[i].repository_link,
-              listOfContributorsApiLinks[i].name
-            )
-          );
+function getListOfContrubotrsFromGithubApiLinks(listOfContributorsApiLinks) {
+	const listOfContributors = [];
+  const listOfPromises = [];
+
+  for (let i = 0; i < listOfContributorsApiLinks.length; i += 1) {
+    listOfPromises.push(
+      getListOfContributorsByUrl(
+        listOfContributorsApiLinks[i].api_get_contributor_link,
+        listOfContributorsApiLinks[i].repository_link,
+        listOfContributorsApiLinks[i].name
+      )
+    );
+  }
+
+  return Promise.all(listOfPromises).then(arrayOfProjectsWithContributors => {
+    arrayOfProjectsWithContributors.forEach(function(arrayOfContributors) {
+      arrayOfContributors.forEach(function(contributor) {
+        const personFromList = listOfContributors.find(c => c.name === contributor.name);
+        // if the contributor is in list already
+        if (personFromList) {
+          personFromList.contributions += contributor.contributions;
+
+          personFromList.projects_contributed_to.push(contributor.projects_contributed_to[0]);
+        } else {
+          listOfContributors.push(contributor);
         }
-
-        Promise.all(listOfPromises).then(arrayOfProjectsWithContributors => {
-          arrayOfProjectsWithContributors.forEach(function(arrayOfContributors) {
-            arrayOfContributors.forEach(function(contributor) {
-              let personFromList = listOfContributors.find(c => c.name == contributor.name);
-              // if the contributor is in list already
-              if (personFromList) {
-                personFromList.contributions += contributor.contributions;
-
-                personFromList.projects_contributed_to.push(contributor.projects_contributed_to[0]);
-              } else {
-                listOfContributors.push(contributor);
-              }
-            });
-          });
-
-          // sort the list before resolving
-          listOfContributors.sort((a, b) => b.contributions - a.contributions);
-          resolve(listOfContributors);
-        });
-      })
-      .catch(error => {
-        reject(error);
       });
+    });
+
+    // sort the list before resolving
+    listOfContributors.sort((a, b) => b.contributions - a.contributions);
+    return listOfContributors;
   });
 }
 
