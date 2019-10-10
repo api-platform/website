@@ -37,7 +37,7 @@ function getContributorLinkFromResponse(githubResponse) {
 }
 
 function getRepositoriesList() {
-  return axios.get(window.encodeURI(GITHUB_GET_API_PLATFORM_REPOS_URL)).then(response => {
+  return axios.get(encodeURI(GITHUB_GET_API_PLATFORM_REPOS_URL)).then(response => {
     return response.data
       .map(e => getContributorLinkFromResponse(e))
       .filter(e => !REPOSITORIES_TO_IGNORE.includes(e.name));
@@ -83,7 +83,7 @@ function getCompleteListOfContributors() {
   return getRepositoriesList().then(getListOfContrubotrsFromGithubApiLinks);
 }
 
-export default function () {
+export default function() {
   getCompleteListOfContributors().then(response => {
     this.setState({ list: response });
   });
