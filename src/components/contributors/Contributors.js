@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { githubContributorsList } from '../../lib/apiHelper';
+import githubContributorsList from '../../lib/apiHelper';
 import '../../styles/main.scss';
 
 class App extends Component {

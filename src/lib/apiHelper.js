@@ -7,7 +7,7 @@ const GITHUB_API_REPOS_LINK = 'https://api.github.com/repos';
 const REPOSITORIES_TO_IGNORE = [];
 
 function getGithubContributorLinkByRepoName(repoName) {
-	return `${GITHUB_API_REPOS_LINK}/${repoName}/contributors`;
+  return `${GITHUB_API_REPOS_LINK}/${repoName}/contributors`;
 }
 
 function createContributorFromResponse(repositoryName, repositoryLink, response) {
@@ -44,13 +44,8 @@ function getRepositoriesList() {
   });
 }
 
-function getCompleteListOfContributors() {
-  return getRepositoriesList()
-    .then(getListOfContrubotrsFromGithubApiLinks);
-}
-
 function getListOfContrubotrsFromGithubApiLinks(listOfContributorsApiLinks) {
-	const listOfContributors = [];
+  const listOfContributors = [];
   const listOfPromises = [];
 
   for (let i = 0; i < listOfContributorsApiLinks.length; i += 1) {
@@ -64,8 +59,8 @@ function getListOfContrubotrsFromGithubApiLinks(listOfContributorsApiLinks) {
   }
 
   return Promise.all(listOfPromises).then(arrayOfProjectsWithContributors => {
-    arrayOfProjectsWithContributors.forEach(function(arrayOfContributors) {
-      arrayOfContributors.forEach(function(contributor) {
+    arrayOfProjectsWithContributors.forEach(arrayOfContributors => {
+      arrayOfContributors.forEach(contributor => {
         const personFromList = listOfContributors.find(c => c.name === contributor.name);
         // if the contributor is in list already
         if (personFromList) {
@@ -84,7 +79,11 @@ function getListOfContrubotrsFromGithubApiLinks(listOfContributorsApiLinks) {
   });
 }
 
-export function githubContributorsList() {
+function getCompleteListOfContributors() {
+  return getRepositoriesList().then(getListOfContrubotrsFromGithubApiLinks);
+}
+
+export default function () {
   getCompleteListOfContributors().then(response => {
     this.setState({ list: response });
   });
