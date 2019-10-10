@@ -40,7 +40,7 @@ class App extends Component {
                   </td>
                   <td>
                     <a href={data.profile_url}>
-                      <img src={data.avatar} />
+                      <img src={data.avatar} alt="Github profile avatar" />
                     </a>
                   </td>
                 </tr>

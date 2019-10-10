@@ -1,19 +1,24 @@
-import React from 'react';
 import axios from 'axios';
 
 const GITHUB_GET_API_PLATFORM_REPOS_URL = 'https://api.github.com/orgs/api-platform/repos';
-const GITHUB_URL = 'https://api.github.com/repos/api-platform/website/contributors';
 const GITHUB_API_REPOS_LINK = 'https://api.github.com/repos';
 
 // Don't include these repositories in our contributors page. For example, '.github'
 const REPOSITORIES_TO_IGNORE = [];
 
-function getRepositoriesList() {
-  return axios.get(window.encodeURI(GITHUB_GET_API_PLATFORM_REPOS_URL)).then(response => {
-    return response.data
-      .map(e => getContributorLinkFromResponse(e))
-      .filter(e => !REPOSITORIES_TO_IGNORE.includes(e.name));
-  });
+function getGithubContributorLinkByRepoName(repoName) {
+  return GITHUB_API_REPOS_LINK + '/' + repoName + '/contributors';
+}
+
+function createContributorFromResponse(repositoryName, repositoryLink, response) {
+  return {
+    id: response.id,
+    name: response.login,
+    avatar: response.avatar_url,
+    profile_url: response.html_url,
+    projects_contributed_to: [{ repo_name: repositoryName, repo_link: repositoryLink }],
+    contributions: response.contributions,
+  };
 }
 
 function getListOfContributorsByUrl(githubApiUrlToListContributors, repositoryLink, nameOfRepository) {
@@ -31,29 +36,22 @@ function getContributorLinkFromResponse(githubResponse) {
   };
 }
 
-function getGithubContributorLinkByRepoName(repoName) {
-  return GITHUB_API_REPOS_LINK + '/' + repoName + '/contributors';
-}
-
-function createContributorFromResponse(repositoryName, repositoryLink, response) {
-  return {
-    id: response.id,
-    name: response.login,
-    avatar: response.avatar_url,
-    profile_url: response.html_url,
-    projects_contributed_to: [{ repo_name: repositoryName, repo_link: repositoryLink }],
-    contributions: response.contributions,
-  };
+function getRepositoriesList() {
+  return axios.get(window.encodeURI(GITHUB_GET_API_PLATFORM_REPOS_URL)).then(response => {
+    return response.data
+      .map(e => getContributorLinkFromResponse(e))
+      .filter(e => !REPOSITORIES_TO_IGNORE.includes(e.name));
+  });
 }
 
 function getCompleteListOfContributors() {
   return new Promise(function(resolve, reject) {
     getRepositoriesList()
       .then(listOfContributorsApiLinks => {
-        let listOfContributors = [];
-        let listOfPromises = [];
+        const listOfContributors = [];
+        const listOfPromises = [];
 
-        for (var i = 0; i < listOfContributorsApiLinks.length; i++) {
+        for (let i = 0; i < listOfContributorsApiLinks.length; i++) {
           listOfPromises.push(
             getListOfContributorsByUrl(
               listOfContributorsApiLinks[i].api_get_contributor_link,
