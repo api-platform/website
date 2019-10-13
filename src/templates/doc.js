@@ -29,6 +29,7 @@ const Template = ({ location, pageContext }) => (
           name="docsearch:version"
           content={ '' === pageContext.version ? versionHelper.getPrefixedVersion(currentVersion) : pageContext.prefixedVersion }
         />
+        <meta property="og:description" content={pageContext.title} />
       </Helmet>
       <div className="container docs__content">
         <SwitchVersion location={location} currentVersion={pageContext.version} />
