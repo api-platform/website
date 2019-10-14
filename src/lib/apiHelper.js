@@ -44,7 +44,7 @@ function getRepositoriesList() {
   });
 }
 
-function getListOfContrubotrsFromGithubApiLinks(listOfContributorsApiLinks) {
+function getListOfContributorsFromGithubApiLinks(listOfContributorsApiLinks) {
   const listOfContributors = [];
   const listOfPromises = [];
 
