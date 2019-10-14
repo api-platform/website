@@ -23,12 +23,18 @@ const Header = () => (
     <Search className="header__search" />
     <nav className="header__nav">{nav}</nav>
     <nav className="header__social">
-      <a href="https://twitter.com/ApiPlatform" target="blank">
-        <span className="hidden">Find us on twitter</span>
+      <a
+        href="https://twitter.com/ApiPlatform"
+        target="blank"
+        aria-label="find us on twitter"
+      >
         <i className="icon-twitter" />
       </a>
-      <a href="https://github.com/api-platform/api-platform" target="blank">
-        <span className="hidden">Find us on github</span>
+      <a
+        href="https://github.com/api-platform/api-platform"
+        target="blank"
+        aria-label="find us on github"
+      >
         <i className="icon-github" />
       </a>
     </nav>
