@@ -16,10 +16,9 @@ export default class HTML extends React.Component {
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
-        </body>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.twttr = (function(d, s, id) {
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.twttr = (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0],
                   t = window.twttr || {};
                 if (d.getElementById(id)) return t;
@@ -35,8 +34,9 @@ export default class HTML extends React.Component {
 
                 return t;
               }(document, "script", "twitter-wjs"));`,
-          }}
-        />
+            }}
+          />
+        </body>
       </html>
     );
   }
