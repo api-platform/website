@@ -168,23 +168,6 @@
   padding: 40px;
   color: $blackblue;
 
-  .symfonycasts {
-    a {
-      display: inline-block;
-      min-width: 350px;
-    }
-
-    .gatsby-resp-image-wrapper {
-      border: 1px solid #efefee;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    br {
-      display: none;
-    }
-  }
-
   .anchor svg {
     visibility: visible;
   }
@@ -323,6 +306,30 @@
       margin: 0;
     }
   }
+
+  .symfonycasts {
+    a {
+      display: inline-block;
+      border: none;
+      min-width: 350px;
+
+      &:hover {
+        background-color: initial;
+        color: $blue;
+      }
+    }
+
+    .gatsby-resp-image-wrapper {
+      border-radius: 5px;
+      overflow: hidden;
+      @include z-depth-5;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
   @include mq($max-width: $vw-medium) { padding: 40px 30px 30px; }
 }
 
