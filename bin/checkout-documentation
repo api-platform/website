@@ -7,14 +7,14 @@ const path = require('path');
 const {docPagesDirectory, current, versions} = require('../constants');
 const versionHelper = require('../src/lib/versionHelper');
 
-const docRepository = process.env.DOC_REPOSITORY;
-console.info('\x1b[36m', `Using repository: ${docRepository}`, '\x1b[37m');
+const docsRepository = process.env.DOCS_REPOSITORY;
+console.info('\x1b[36m', `Using repository: ${docsRepository}`, '\x1b[37m');
 
 console.info('\x1b[36m', `Deleting ${docPagesDirectory}`, '\x1b[37m');
 execSync(`rm -rf ${docPagesDirectory}`);
 
 console.info('\x1b[36m', `Cloning the current version in ${docPagesDirectory}${current}`, '\x1b[37m');
-execSync(`git clone ${docRepository} ${docPagesDirectory}${current}`);
+execSync(`git clone ${docsRepository} ${docPagesDirectory}${current}`);
 console.info('\x1b[36m', 'Current version cloned', '\x1b[37m');
 
 const currentVersion = execSync(`git -C ${docPagesDirectory}${current} rev-parse --abbrev-ref HEAD`).toString().replace(/\n$/, '');
