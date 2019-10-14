@@ -90,6 +90,7 @@
   .btn-burger__back {
     position: relative;
     height: 100%;
+    display: block;
 
     &:after,
     &:before,
@@ -102,6 +103,7 @@
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
       position: absolute;
+      display: block;
     }
 
     &:after,
@@ -145,9 +147,11 @@
       }
     }
   }
+
   @include mq($max-width: $vw-small) {
     top: $mobileHeaderH / 2;
   }
+
   @include mq($max-width: $vw-mobile-menu) {
     display: block;
   }

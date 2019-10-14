@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Logo from "../../images/logo.svg";
+import React, { Component } from 'react';
+import Logo from '../../images/logo.svg';
 
 class Footer extends Component {
   /* eslint-disable no-undef */
@@ -12,9 +12,9 @@ class Footer extends Component {
   }
 
   createWidget = () => {
-    twttr.widgets.createFollowButton("ApiPlatform", this.twitterButton, {
-      size: "medium",
-      showScreenName: false
+    twttr.widgets.createFollowButton('ApiPlatform', this.twitterButton, {
+      size: 'medium',
+      showScreenName: false,
     });
   };
 
@@ -23,13 +23,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer openable">
-        <img
-          className="footer__logo"
-          src={Logo}
-          alt="spidey"
-          width="400"
-          height="419"
-        />
+        <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
         <p className="footer__copyright">
           Copyright © 2019 <a href="https://dunglas.fr">Kévin Dunglas</a>
         </p>
@@ -37,7 +31,7 @@ class Footer extends Component {
           Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
         </p>
         <p className="footer__licence">
-          Code licensed under{" "}
+          Code licensed under{' '}
           <a
             href="https://github.com/api-platform/api-platform/blob/master/LICENSE"
             target="_blank"
@@ -45,12 +39,8 @@ class Footer extends Component {
           >
             MIT
           </a>
-          , documentation under{" "}
-          <a
-            href="https://creativecommons.org/licenses/by/3.0/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          , documentation under{' '}
+          <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
             CC BY 3.0
           </a>
           .
