@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const https = require('https');
+const {docPagesDirectory, versions} = require('../constants');
+const versionHelper = require('../src/lib/versionHelper');
+
+versions.push('current');
+versions.forEach(version => {
+    const versionDirectory = `${docPagesDirectory}${versionHelper.getPrefixedVersion(version)}`;
+
+    console.info('\x1b[36m', `Replace Code Of Conduct in the ${version} version in ${versionDirectory}`, '\x1b[37m');
+    const file = fs.createWriteStream(`${versionDirectory}/extra/conduct.md`);
+    https.get('https://raw.githubusercontent.com/api-platform/.github/master/.github/CODE_OF_CONDUCT.md', (response) => {
+        response.pipe(file);
+    });
+});

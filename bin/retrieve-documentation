@@ -4,6 +4,7 @@ set -ex
 # Remove previous documentation and checkout documentation
 
 bin/checkout-documentation
+bin/checkout-github-template
 
 # Generate "nav.yml"
 
