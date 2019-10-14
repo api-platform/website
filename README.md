@@ -20,6 +20,10 @@ Be sure to install them first and to have the binaries in your path.
 
 git clone https://github.com/api-platform/website.git
 
+# Change directory
+
+cd website 
+
 # Install dependencies
 
 yarn install
