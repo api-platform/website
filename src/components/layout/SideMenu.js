@@ -24,10 +24,10 @@ const SideMenu = ({ open }) => (
       <MenuItem key="home" path="/" text="Home" />
       {nav}
       <div className="menu-item menu-item__social">
-        <a href="https://twitter.com/ApiPlatform" target="blank">
+        <a href="https://twitter.com/ApiPlatform" target="blank" aria-label="find us on twitter">
           <i className="icon-twitter" />
         </a>
-        <a href="https://github.com/api-platform/api-platform" target="blank">
+        <a href="https://github.com/api-platform/api-platform" target="blank" aria-label="find us on github">
           <i className="icon-github" />
         </a>
       </div>

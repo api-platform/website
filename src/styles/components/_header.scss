@@ -193,11 +193,13 @@
       }
     }
   }
+
   @include mq($max-width: $vw-huge) {
     .menu-item > .menu-item__link {
       padding: 0 10px;
     }
   }
+
   @include mq($max-width: $vw-mobile-menu) {
     .header__nav,
     .header__social {
@@ -208,6 +210,7 @@
       padding-right: 100px;
     }
   }
+
   @include mq($max-width: $vw-medium) {
     .search.header__search {
       display: none;
@@ -219,9 +222,11 @@
       border-right: none;
     }
   }
+
   @include mq($max-width: $vw-small) {
     height: $mobileHeaderH;
   }
+
   @include mq($max-width: 350px) {
     .header__logo {
       padding: 0 20px;

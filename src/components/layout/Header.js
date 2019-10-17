@@ -17,10 +17,10 @@ const Header = () => (
     <Search className="header__search" />
     <nav className="header__nav">{nav}</nav>
     <nav className="header__social">
-      <a href="https://twitter.com/ApiPlatform" target="blank">
+      <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noopener noreferrer" aria-label="find us on twitter">
         <i className="icon-twitter" />
       </a>
-      <a href="https://github.com/api-platform/api-platform" target="blank">
+      <a href="https://github.com/api-platform/api-platform" target="_blank" rel="noopener noreferrer" aria-label="find us on github">
         <i className="icon-github" />
       </a>
     </nav>
