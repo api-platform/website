@@ -2,8 +2,3 @@
 node_modules/
 public/
 src/pages/docs/
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
