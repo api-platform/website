@@ -154,12 +154,12 @@
     &:not(.withSubmenu) {
       cursor: default;
 
-      &>.menu-item__link {
+      & > .menu-item__link {
         cursor: default;
       }
     }
 
-    &>.menu-item__link {
+    & > .menu-item__link {
       color: $blue;
 
       &:after {
@@ -176,8 +176,8 @@
       transform: none;
       top: calc(100% - 4px);
 
-      &>.menu-item__link {
-        &>i {
+      & > .menu-item__link {
+        & > i {
           transform: rotate(-180deg);
         }
       }
@@ -186,8 +186,8 @@
     &:not(.current) {
       background-color: $lightgrey;
 
-      &>.menu-item__link {
-        &>span {
+      & > .menu-item__link {
+        & > span {
           color: $blue;
         }
       }
@@ -195,13 +195,12 @@
   }
 
   @include mq($max-width: $vw-huge) {
-    .menu-item>.menu-item__link {
+    .menu-item > .menu-item__link {
       padding: 0 10px;
     }
   }
 
   @include mq($max-width: $vw-mobile-menu) {
-
     .header__nav,
     .header__social {
       display: none;
