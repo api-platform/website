@@ -17,10 +17,21 @@
 
   select {
     appearance: none;
-    outline: 0; box-shadow: none; border: 0; border-radius: 4px;
-    background: $darkblue; color: $white; font-weight: bold;
-    position: absolute; display: block; text-align-last: center; right: 10px; top: 10px;
-    width: 100px; height: 30px; line-height: 3;
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+    border-radius: 4px;
+    background: $darkblue;
+    color: $white;
+    font-weight: bold;
+    position: absolute;
+    display: block;
+    text-align-last: center;
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    height: 30px;
+    line-height: 3;
     overflow: hidden;
     &:-moz-focusring {
       color: transparent;
@@ -29,9 +40,9 @@
   }
 }
 
-.docs__menu {
+.sidebar {
   @include z-depth-2;
-  z-index: z("docsmenu");
+  z-index: z('docsmenu');
   background-color: $darkblue;
   position: fixed;
   left: 0;
@@ -40,16 +51,67 @@
   width: $docmenuW;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  .sidebar-item-level-0 {
+    text-transform: uppercase;
+  }
 
+  .sidebar-item-expand-arrow {
+    font-size: 18px;
+    color: $clearblue;
+  }
+}
+
+.docs__menu {
+  @include z-depth-2;
+  z-index: z('docsmenu');
+  background-color: $darkblue;
+  position: fixed;
+  left: 0;
+  top: $headerH;
+  height: calc(100vh - #{$headerH});
+  width: $docmenuW;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+
+  li {
+    padding: 8px 5px;
+    a {
+      display: block;
+      color: inherit;
+      &.anchor-link {
+        font-size: 13px;
+        &:before {
+          content: '# ';
+        }
+      }
+    }
+  }
+
+  .depth-1 {
+    a.active {
+      color: $white;
+      font-weight: $bold;
+      padding-right: 0;
+      border-left: 3px solid $lightblue;
+      padding-left: 5px;
+    }
+  }
+
+  // @todo remove
   .menu__item {
     padding: 10px 20px;
     border-bottom: 1px solid rgba($white, 0.1);
-    transition: all ease .5s;
+    transition: all ease 0.5s;
 
     .item__title {
       cursor: pointer;
-      transition: all ease .3s;
+      transition: all ease 0.3s;
 
       h2 {
         width: calc(100% - 30px);
@@ -82,18 +144,6 @@
         padding-right: 20px;
         display: block;
       }
-
-      &.active {
-        color: $white;
-
-        & > a,
-        .submenu__item > span a {
-          font-weight: $bold;
-          padding-right: 0;
-          border-left: 3px solid $lightblue;
-          padding-left: 5px;
-        }
-      }
     }
 
     .menu-item__link,
@@ -109,7 +159,7 @@
         font-weight: $normal;
         font-size: inherit;
         color: inherit;
-        transition: color ease .5s;
+        transition: color ease 0.5s;
       }
 
       .submenu__item ul {
@@ -125,7 +175,7 @@
         }
 
         &:before {
-          content: "# ";
+          content: '# ';
           margin-right: 5px;
           color: $clearblue;
         }
@@ -136,7 +186,8 @@
         }
       }
 
-      .submenu-item__link.current, .current:before {
+      .submenu-item__link.current,
+      .current:before {
         color: $white;
         padding-right: 0;
       }
@@ -230,7 +281,6 @@
   p {
     line-height: 2.6rem;
     margin-bottom: 20px;
-
   }
 
   a:not(.anchor) {
@@ -257,7 +307,7 @@
       }
 
       &:before {
-        content: "\e315";
+        content: '\e315';
         color: $darkblue;
         font-family: 'api-platform-icon' !important;
         speak: none;
@@ -274,7 +324,8 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-      ol, ul {
+      ol,
+      ul {
         li {
           list-style-type: circle;
           margin-left: 25px;
@@ -282,12 +333,14 @@
           &:before {
             content: none;
           }
-          ol, ul {
+          ol,
+          ul {
             li {
               list-style-type: decimal;
               margin-left: 5px;
             }
-            ol, ul {
+            ol,
+            ul {
               li {
                 list-style-type: lower-roman;
                 margin-left: 5px;
@@ -330,7 +383,9 @@
     }
   }
 
-  @include mq($max-width: $vw-medium) { padding: 40px 30px 30px; }
+  @include mq($max-width: $vw-medium) {
+    padding: 40px 30px 30px;
+  }
 }
 
 .docs__nav {
@@ -357,7 +412,7 @@
     i {
       color: $blue;
       font-size: 2.6rem;
-      transition: all ease .3s;
+      transition: all ease 0.3s;
     }
   }
 
@@ -365,7 +420,7 @@
     margin-right: auto;
 
     span:before {
-      content: "Previous chapter : ";
+      content: 'Previous chapter : ';
     }
 
     &:hover i {
@@ -377,7 +432,7 @@
     margin-left: auto;
 
     span:before {
-      content: "Next chapter : ";
+      content: 'Next chapter : ';
     }
 
     &:hover i {

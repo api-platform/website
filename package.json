@@ -2,6 +2,8 @@
   "name": "api-platform-website",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
     "classnames": "^2.2.5",
     "dotenv": "^6.2.0",
     "eject": "^0.0.4",

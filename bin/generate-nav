@@ -1,35 +1,65 @@
 #!/usr/bin/env node
 
-const {current, docPagesDirectory, versions} = require('../constants');
-const fileProcessor = require('../src/lib/fileProcessor');
-const {readFileSync, writeFile, readdirSync} = require('fs');
-const versionHelper = require('../src/lib/versionHelper');
-const {join, resolve} = require('path');
-const jsyaml = require('js-yaml');
+const { current, docPagesDirectory, versions } = require("../constants");
+const fileProcessor = require("../src/lib/fileProcessor");
+const generateSlug = require("../src/lib/generateSlug");
+const { readFileSync, writeFile, readdirSync } = require("fs");
+const versionHelper = require("../src/lib/versionHelper");
+const { join, resolve } = require("path");
+const jsyaml = require("js-yaml");
 
-versions.push(current);
-versions.forEach(version => {
-    const docs = { chapters: [] };
-    const versionDirectory = versionHelper.getPrefixedVersion(version);
-    const dir = `${docPagesDirectory}${versionDirectory}`;
-    const outlinePath = `${dir}/outline.yaml`;
-    const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, 'utf8'));
-    const versionPath = join(docPagesDirectory, versionDirectory);
+const createSublevels = (chapter, path) => {
+  const chapterPath = join(path, chapter.path);
+  const expectedFiles = chapter.items.filter(item => "string" === typeof item);
+  const files = readdirSync(chapterPath)
+    .filter(file => file.endsWith(".md"))
+    .map(file => file.slice(0, -3));
 
-    docs.chapters = loadedOutline.chapters.map(chapter => {
-        const chapterPath = join(versionPath, chapter.path);
-        const files = readdirSync(chapterPath)
-            .filter(file => file.endsWith('.md'))
-            .map(file => file.slice(0, -3));
+  // Check that all configured markdown files are actually here
+  expectedFiles.forEach(expectedFile => {
+    if (!files.includes(expectedFile)) {
+      throw Error(
+        `${expectedFile} specified in outline.yaml but not found in ${chapterPath}.`
+      );
+    }
+  });
 
-        chapter.items = chapter.items.filter(item => files.includes(item));
+  // Check that all markdown files have been configured in outline.yaml
+  files.forEach(file => {
+    if (!expectedFiles.includes(file)) {
+      throw Error(`${file} not specified in outline.yaml in ${chapterPath}.`);
+    }
+  });
 
-        const items = [...new Set(chapter.items.concat(files))].map(file =>
-            fileProcessor.processFile(resolve(chapterPath), file)[0]
-        );
+  const items = chapter.items.map(item => {
+    if ("string" === typeof item) {
+      return fileProcessor.processFile(resolve(chapterPath), item)[0];
+    }
+    return createSublevels(item, chapterPath);
+  });
 
-        return { ...chapter, items };
-    });
+  // const enrichItems = generateSlug(items);
 
-    writeFile(resolve(join(versionPath, 'nav.yml')), jsyaml.safeDump(docs, { lineWidth: 255 }), error => error && console.warn(error));
+  return { ...chapter, items };
+};
+
+// versions.push(current);
+["current"].forEach(version => {
+  const docs = { chapters: [] };
+  const versionDirectory = versionHelper.getPrefixedVersion(version);
+  const dir = `${docPagesDirectory}${versionDirectory}`;
+  const outlinePath = `${dir}/outline.yaml`;
+  const loadedOutline = jsyaml.safeLoad(readFileSync(outlinePath, "utf8"));
+  const versionPath = join(docPagesDirectory, versionDirectory);
+  docs.chapters = loadedOutline.chapters.map(chapter =>
+    createSublevels(chapter, versionPath)
+  );
+
+  docs.chapters = generateSlug(docs.chapters);
+
+  writeFile(
+    resolve(join(versionPath, "nav.yml")),
+    jsyaml.safeDump(docs, { lineWidth: 255 }),
+    error => error && console.warn(error)
+  );
 });
