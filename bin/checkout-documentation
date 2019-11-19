@@ -17,6 +17,8 @@ console.info('\x1b[36m', `Cloning the current version in ${docPagesDirectory}${c
 execSync(`git clone ${docsRepository} ${docPagesDirectory}${current}`);
 console.info('\x1b[36m', 'Current version cloned', '\x1b[37m');
 
+execSync(`find ${docPagesDirectory}${current} ! -name '.git' -name '.*' | xargs rm -r`);
+
 const currentVersion = execSync(`git -C ${docPagesDirectory}${current} rev-parse --abbrev-ref HEAD`).toString().replace(/\n$/, '');
 console.info('\x1b[32m', `Current version is: ${currentVersion}`, '\x1b[37m');
 
