@@ -9,16 +9,10 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   const { title, slug, items, anchors } = item;
   const [collapsed, setCollapsed] = React.useState(true);
 
-  function toggleCollapse() {
-    setCollapsed(prevValue => !prevValue);
-  }
-
   function onClick() {
     if (slug) navigate(slug);
 
-    if (Array.isArray(items) || Array.isArray(anchors)) {
-      toggleCollapse();
-    }
+    setCollapsed(prevValue => !prevValue);
   }
 
   let expandIcon;
@@ -49,7 +43,7 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
       </ListItem>
       <Collapse in={!collapsed} timeout="auto" unmountOnExit>
         {Array.isArray(items) ? (
-          <List>
+          <List style={{ background: '#21646C' }}>
             {items.map((subItem, index) => (
               <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} />
             ))}
@@ -81,7 +75,7 @@ function Sidebar({ items }) {
 }
 
 Sidebar.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.array.isRequired,
 };
 
 SidebarItem.propTypes = {

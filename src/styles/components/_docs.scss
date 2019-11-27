@@ -42,7 +42,7 @@
 
 .sidebar {
   @include z-depth-2;
-  z-index: z('docsmenu');
+  z-index: z("docsmenu");
   background-color: $darkblue;
   position: fixed;
   left: 0;
@@ -62,37 +62,13 @@
     font-size: 18px;
     color: $clearblue;
   }
+
+  @include mq($max-width: $vw-medium) {
+    display: none;
+  }
 }
 
 .docs__menu {
-  @include z-depth-2;
-  z-index: z('docsmenu');
-  background-color: $darkblue;
-  position: fixed;
-  left: 0;
-  top: $headerH;
-  height: calc(100vh - #{$headerH});
-  width: $docmenuW;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-
-  li {
-    padding: 8px 5px;
-    a {
-      display: block;
-      color: inherit;
-      &.anchor-link {
-        font-size: 13px;
-        &:before {
-          content: '# ';
-        }
-      }
-    }
-  }
-
   .depth-1 {
     a.active {
       color: $white;
@@ -175,7 +151,7 @@
         }
 
         &:before {
-          content: '# ';
+          content: "# ";
           margin-right: 5px;
           color: $clearblue;
         }
@@ -307,9 +283,9 @@
       }
 
       &:before {
-        content: '\e315';
+        content: "\e315";
         color: $darkblue;
-        font-family: 'api-platform-icon' !important;
+        font-family: "api-platform-icon" !important;
         speak: none;
         font-style: normal;
         font-weight: normal;
@@ -420,7 +396,7 @@
     margin-right: auto;
 
     span:before {
-      content: 'Previous chapter : ';
+      content: "Previous chapter : ";
     }
 
     &:hover i {
@@ -432,7 +408,7 @@
     margin-left: auto;
 
     span:before {
-      content: 'Next chapter : ';
+      content: "Next chapter : ";
     }
 
     &:hover i {

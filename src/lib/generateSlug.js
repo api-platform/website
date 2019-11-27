@@ -8,7 +8,7 @@ function generateSlug(data, parent, isAnchor) {
     }
 
     if (item.anchors || !item.items) {
-      item.slug = `${basePath}/${parent.path}/${'index' === item.id ? '' : item.id}`;
+      item.slug = `${basePath}/${parent.path}${'index' === item.id ? '' : `/${item.id}`}`;
     }
 
     if (isAnchor) {

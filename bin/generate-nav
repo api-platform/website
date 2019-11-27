@@ -38,13 +38,11 @@ const createSublevels = (chapter, path) => {
     return createSublevels(item, chapterPath);
   });
 
-  // const enrichItems = generateSlug(items);
-
   return { ...chapter, items };
 };
 
-// versions.push(current);
-["current"].forEach(version => {
+versions.push(current);
+versions.forEach(version => {
   const docs = { chapters: [] };
   const versionDirectory = versionHelper.getPrefixedVersion(version);
   const dir = `${docPagesDirectory}${versionDirectory}`;

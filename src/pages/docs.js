@@ -2,8 +2,6 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
-import DocNav from '../components/layout/DocNav';
 import nav from './docs/current/nav.yml';
 
 const RenderInnerList = ({ anchors, path }) => (
@@ -46,31 +44,25 @@ RenderList.propTypes = {
   path: PropTypes.string.isRequired,
 };
 
-const DocsPage = props => (
-  <Layout location={props.location}>
-    <div className="page__docs">
-      <Helmet title="API Platform Documentation" />
-      <div className="container docs__content docs__content_toc">
-        <h1>API Platform Documentation</h1>
-        {nav.chapters.map(({ path, title, items }) => {
-          const currentPath = `/docs/${path}`;
+const DocsPage = () => (
+  <div className="page__docs">
+    <Helmet title="API Platform Documentation" />
+    <div className="container docs__content docs__content_toc">
+      <h1>API Platform Documentation</h1>
+      {nav.chapters.map(({ path, title, items }) => {
+        const currentPath = `/docs/${path}`;
 
-          return (
-            <section key={path}>
-              <h2>
-                <Link to={currentPath}>{title}</Link>
-              </h2>
-              <RenderList items={items} path={currentPath} />
-            </section>
-          );
-        })}
-      </div>
-      <DocNav nav={nav.chapters} location={props.location} />
+        return (
+          <section key={path}>
+            <h2>
+              <Link to={currentPath}>{title}</Link>
+            </h2>
+            <RenderList items={items} path={currentPath} />
+          </section>
+        );
+      })}
     </div>
-  </Layout>
+  </div>
 );
-DocsPage.propTypes = {
-  location: PropTypes.object.isRequired,
-};
 
 export default DocsPage;

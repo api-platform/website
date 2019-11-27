@@ -5,9 +5,11 @@ import Helmet from 'react-helmet';
 import Header from './layout/Header';
 import BurgerButton from './layout/BurgerButton';
 import Footer from './layout/Footer';
+import Sidebar from './layout/Sidebar';
 import SideMenu from './layout/SideMenu';
 import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
+import nav from '../pages/docs/current/nav.yml';
 
 class Layout extends Component {
   state = {
@@ -21,14 +23,20 @@ class Layout extends Component {
   render() {
     const { children, location } = this.props;
     const open = this.state.showResponsiveMenu;
-    const withSecondMenuDisplayed = -1 !== location.pathname.search('/docs');
+    const isDocPage = -1 !== location.pathname.search('/docs');
 
     return (
-      <div className={classNames('main full', { open, 'with-second-menu-displayed': withSecondMenuDisplayed })}>
+      <div
+        className={classNames('main full', {
+          open,
+          'with-second-menu-displayed': isDocPage,
+        })}
+      >
         <div className="full">
           <Helmet {...helmetConfig.head} />
           <Header />
           <div className="page openable">{children}</div>
+          {isDocPage && <Sidebar items={nav.chapters} />}
           <Footer />
         </div>
         <BurgerButton onClick={this.showMenu.bind(null, !open)} status={open ? 'close' : 'burger'} />
