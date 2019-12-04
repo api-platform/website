@@ -14,20 +14,27 @@ const Template = ({ location, pageContext }) => (
       <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'}>
         {'' !== pageContext.version
           ? [
-            <link
-              key="canonical"
-              rel="canonical"
-              href={
-                siteUrl +
-                location.pathname.replace(new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`), '/')
-              }
-            />,
-            <meta key="robots" name="robots" content="noindex" />,
-          ]
+              <link
+                key="canonical"
+                rel="canonical"
+                href={
+                  siteUrl +
+                  location.pathname.replace(
+                    new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`),
+                    '/'
+                  )
+                }
+              />,
+              <meta key="robots" name="robots" content="noindex" />,
+            ]
           : false}
         <meta
           name="docsearch:version"
-          content={ '' === pageContext.version ? versionHelper.getPrefixedVersion(currentVersion) : pageContext.prefixedVersion }
+          content={
+            '' === pageContext.version
+              ? versionHelper.getPrefixedVersion(currentVersion)
+              : pageContext.prefixedVersion
+          }
         />
         <meta property="og:description" content={pageContext.title} />
       </Helmet>

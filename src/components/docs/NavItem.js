@@ -26,7 +26,10 @@ const NavItem = ({ item, location, current, onClick, version }) => {
     >
       <ul className="menu-item__list">
         {items.map(navItem => {
-          const link = 'index' === navItem.id ? `/docs/${versionedPath}/` : `/docs/${versionedPath}/${navItem.id}/`;
+          const link =
+            'index' === navItem.id
+              ? `/docs/${versionedPath}/`
+              : `/docs/${versionedPath}/${navItem.id}/`;
           const active = link === location.pathname;
           return (
             <li key={link} className={classNames('menu-item__link', { active })}>

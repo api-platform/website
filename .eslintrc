@@ -1,17 +1,9 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react",
-    "prettier/standard"
-  ],
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true,
-  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
+    "quotes": [2, "single", { "avoidEscape": true }],
     "object-curly-newline": 0,
     // We don't force static function
     "class-methods-use-this": 0,
@@ -43,6 +35,9 @@
     "react/no-array-index-key": 0,
     // We authorize dynamic HTML in JSX
     "react/no-danger": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-wrap-multilines": 0,
     // We authorize empty anchor
     "jsx-a11y/anchor-has-content": 0,
     "jsx-a11y/href-no-hash": "off",

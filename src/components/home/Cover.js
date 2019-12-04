@@ -1,8 +1,8 @@
 import React from 'react';
 import spider from '../../images/spider_home.svg';
-import Flag from '../../components/home/Flag';
-import Button from '../../components/common/Button';
-import Logo from '../../components/layout/Logo';
+import Flag from './Flag';
+import Button from '../common/Button';
+import Logo from '../layout/Logo';
 
 const Cover = () => (
   <section className="home__cover full">

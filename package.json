@@ -22,6 +22,7 @@
     "gatsby-transformer-sharp": "^2.2.14",
     "gatsby-transformer-yaml": "^2.2.9",
     "h5o": "^0.11.3",
+    "js-yaml": "^3.13.1",
     "jsdom": "^11.11.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^7.0.0",
@@ -36,15 +37,16 @@
     "webpack": "^4.28.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "eslint": "^4.4.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.2.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "gatsby-plugin-catch-links": "^2.0.11",
     "gatsby-remark-autolink-headers": "^2.0.12",
     "gatsby-remark-copy-images": "^0.2.1",
@@ -54,10 +56,9 @@
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.2.5",
     "husky": "^2.1.0",
-    "js-yaml": "^3.10.0",
     "lint-staged": "^7.2.0",
     "markdown": "^0.5.0",
-    "prettier": "^1.14.0",
+    "prettier": "^1.19.1",
     "remark-inline-links": "^3.0.4",
     "xmldom": "^0.1.27",
     "xpath": "^0.0.27"
@@ -69,7 +70,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier --write --single-quote --print-width 120 --trailing-comma es5 all"
+      "prettier --write --single-quote --print-width 100 --trailing-comma es5 all"
     ]
   },
   "scripts": {
