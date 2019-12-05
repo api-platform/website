@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import {
@@ -23,9 +23,17 @@ const WithLink = ({ slug, anchor, children }) => {
 };
 
 function SidebarItem({ depth = 0, item, anchor = false }) {
-  const { title, slug, items, anchors } = item;
-  const [collapsed, setCollapsed] = React.useState(true);
+  const { title, path, slug, items, anchors } = item;
+  const [collapsed, setCollapsed] = useState(true);
 
+  useEffect(() => {
+    if (
+      window.location.pathname.includes(path) ||
+      window.location.pathname === `${slug}/`
+    ) {
+      setCollapsed(false);
+    }
+  }, []);
   function onClick() {
     setCollapsed(prevValue => !prevValue);
   }
@@ -39,7 +47,7 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
     );
   }
 
-  if (Array.isArray(anchors) && anchors.length) {
+  if (Array.isArray(anchors) && anchors.length && !anchor) {
     expandIcon = !collapsed ? (
       <ExpandLessIcon className="sidebar-item-expand-arrow" />
     ) : (
@@ -62,8 +70,8 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
           {expandIcon}
         </ListItem>
       </WithLink>
-      <Collapse in={!collapsed} timeout="auto" unmountOnExit>
-        {Array.isArray(items) ? (
+      {Array.isArray(items) ? (
+        <Collapse in={!collapsed} timeout="auto" unmountOnExit>
           <List style={{ background: '#21646C' }}>
             {items.map((subItem, index) => (
               <SidebarItem
@@ -73,8 +81,10 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
               />
             ))}
           </List>
-        ) : null}
-        {Array.isArray(anchors) ? (
+        </Collapse>
+      ) : null}
+      {Array.isArray(anchors) && !anchor ? (
+        <Collapse in={!collapsed} timeout="auto" unmountOnExit>
           <List>
             {anchors.map((subItem, index) => (
               <SidebarItem
@@ -85,8 +95,8 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
               />
             ))}
           </List>
-        ) : null}
-      </Collapse>
+        </Collapse>
+      ) : null}
       {0 === depth ? <Divider /> : null}
     </>
   );
