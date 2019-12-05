@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NavItem from '../docs/NavItem';

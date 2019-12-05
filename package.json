@@ -70,7 +70,7 @@
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
-      "prettier --write --single-quote --print-width 100 --trailing-comma es5 all"
+      "prettier --write --single-quote --print-width 120 --trailing-comma es5 all"
     ]
   },
   "scripts": {
