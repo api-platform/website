@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { Location } from '@reach/router';
 import {
   Collapse,
   Divider,
@@ -11,6 +10,17 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+
+const WithLink = ({ slug, anchor, children }) => {
+  if (anchor) {
+    return <a href={slug}>{children}</a>;
+  }
+  if (slug) {
+    return <Link to={slug}>{children}</Link>;
+  }
+
+  return children;
+};
 
 function SidebarItem({ depth = 0, item, anchor = false }) {
   const { title, slug, items, anchors } = item;
@@ -37,21 +47,9 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
     );
   }
 
-  // eslint-disable-next-line react/prop-types
-  const WithLink = ({ children }) => {
-    if (anchor) {
-      return <a href={slug}>{children}</a>;
-    }
-    if (slug) {
-      return <Link to={slug}>{children}</Link>;
-    }
-
-    return children;
-  };
-
   return (
     <>
-      <WithLink>
+      <WithLink slug={slug} anchor={anchor}>
         <ListItem
           className={`sidebar-item-level-${depth}`}
           onClick={() => onClick()}
@@ -94,31 +92,6 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   );
 }
 
-function Sidebar(props) {
-  return (
-    <div className="sidebar">
-      <Location>
-        {({ location }) => {
-          console.log(location);
-          return <p>The location is {location.pathname}</p>;
-        }}
-      </Location>
-      <List>
-        {props.items.map((sidebarItem, index) => (
-          <SidebarItem
-            key={`${sidebarItem.title}${index}`}
-            item={sidebarItem}
-          />
-        ))}
-      </List>
-    </div>
-  );
-}
-
-Sidebar.propTypes = {
-  items: PropTypes.array.isRequired
-};
-
 SidebarItem.propTypes = {
   depth: PropTypes.number,
   item: PropTypes.object.isRequired,
@@ -130,4 +103,4 @@ SidebarItem.defaultProps = {
   anchor: false
 };
 
-export default Sidebar;
+export default SidebarItem;

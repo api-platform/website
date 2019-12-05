@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Header from './layout/Header';
 import BurgerButton from './layout/BurgerButton';
 import Footer from './layout/Footer';
-import Sidebar from './layout/Sidebar';
+import Sidebar from './layout/sidebar/Sidebar';
 import SideMenu from './layout/SideMenu';
 import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
@@ -13,7 +13,7 @@ import nav from '../pages/docs/current/nav.yml';
 
 class Layout extends Component {
   state = {
-    showResponsiveMenu: false,
+    showResponsiveMenu: false
   };
 
   showMenu = open => {
@@ -29,7 +29,7 @@ class Layout extends Component {
       <div
         className={classNames('main full', {
           open,
-          'with-second-menu-displayed': isDocPage,
+          'with-second-menu-displayed': isDocPage
         })}
       >
         <div className="full">
@@ -39,8 +39,15 @@ class Layout extends Component {
           {isDocPage && <Sidebar items={nav.chapters} />}
           <Footer />
         </div>
-        <BurgerButton onClick={this.showMenu.bind(null, !open)} status={open ? 'close' : 'burger'} />
-        <div role="presentation" className="overlay" onClick={this.showMenu.bind(null, false)} />
+        <BurgerButton
+          onClick={this.showMenu.bind(null, !open)}
+          status={open ? 'close' : 'burger'}
+        />
+        <div
+          role="presentation"
+          className="overlay"
+          onClick={this.showMenu.bind(null, false)}
+        />
         <SideMenu open={open} />
       </div>
     );
@@ -49,11 +56,11 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.any,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 Layout.defaultProps = {
-  children: null,
+  children: null
 };
 
 export default Layout;
