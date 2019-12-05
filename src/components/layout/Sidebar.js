@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { navigate } from 'gatsby';
-import { Collapse, Divider, List, ListItem, ListItemText } from '@material-ui/core';
+import {
+  Collapse,
+  Divider,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
@@ -34,8 +40,16 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
 
   return (
     <>
-      <ListItem className={`sidebar-item-level-${depth}`} onClick={() => onClick(slug)} button>
-        <ListItemText disableTypography style={{ paddingLeft: depth * 10 }} className="sidebar-item-content">
+      <ListItem
+        className={`sidebar-item-level-${depth}`}
+        onClick={() => onClick(slug)}
+        button
+      >
+        <ListItemText
+          disableTypography
+          style={{ paddingLeft: depth * 10 }}
+          className="sidebar-item-content"
+        >
           {anchor ? '# ' : null}
           {title}
         </ListItemText>
@@ -45,14 +59,23 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
         {Array.isArray(items) ? (
           <List style={{ background: '#21646C' }}>
             {items.map((subItem, index) => (
-              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} />
+              <SidebarItem
+                key={`${subItem.id}${index}`}
+                depth={depth + 1}
+                item={subItem}
+              />
             ))}
           </List>
         ) : null}
         {Array.isArray(anchors) ? (
           <List>
             {anchors.map((subItem, index) => (
-              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} anchor />
+              <SidebarItem
+                key={`${subItem.id}${index}`}
+                depth={depth + 1}
+                item={subItem}
+                anchor
+              />
             ))}
           </List>
         ) : null}
@@ -67,7 +90,10 @@ function Sidebar({ items }) {
     <div className="sidebar">
       <List>
         {items.map((sidebarItem, index) => (
-          <SidebarItem key={`${sidebarItem.title}${index}`} item={sidebarItem} />
+          <SidebarItem
+            key={`${sidebarItem.title}${index}`}
+            item={sidebarItem}
+          />
         ))}
       </List>
     </div>
@@ -75,18 +101,18 @@ function Sidebar({ items }) {
 }
 
 Sidebar.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired
 };
 
 SidebarItem.propTypes = {
   depth: PropTypes.number,
   item: PropTypes.object.isRequired,
-  anchor: PropTypes.bool,
+  anchor: PropTypes.bool
 };
 
 SidebarItem.defaultProps = {
   depth: 0,
-  anchor: false,
+  anchor: false
 };
 
 export default Sidebar;
