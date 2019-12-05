@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from 'gatsby';
-import { Collapse, Divider, List, ListItem, ListItemText } from '@material-ui/core';
+import { Link } from 'gatsby';
+import { Location } from '@reach/router';
+import {
+  Collapse,
+  Divider,
+  List,
+  ListItem,
+  ListItemText
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 
@@ -10,8 +17,6 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   const [collapsed, setCollapsed] = React.useState(true);
 
   function onClick() {
-    if (slug) navigate(slug);
-
     setCollapsed(prevValue => !prevValue);
   }
 
@@ -32,27 +37,54 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
     );
   }
 
+  // eslint-disable-next-line react/prop-types
+  const WithLink = ({ children }) => {
+    if (anchor) {
+      return <a href={slug}>{children}</a>;
+    }
+    if (slug) {
+      return <Link to={slug}>{children}</Link>;
+    }
+
+    return children;
+  };
+
   return (
     <>
-      <ListItem className={`sidebar-item-level-${depth}`} onClick={() => onClick(slug)} button>
-        <ListItemText disableTypography style={{ paddingLeft: depth * 10 }} className="sidebar-item-content">
-          {anchor ? '# ' : null}
-          {title}
-        </ListItemText>
-        {expandIcon}
-      </ListItem>
+      <WithLink>
+        <ListItem
+          className={`sidebar-item-level-${depth}`}
+          onClick={() => onClick()}
+          button
+        >
+          <ListItemText disableTypography style={{ paddingLeft: depth * 10 }}>
+            {anchor ? '# ' : null}
+            {title}
+          </ListItemText>
+          {expandIcon}
+        </ListItem>
+      </WithLink>
       <Collapse in={!collapsed} timeout="auto" unmountOnExit>
         {Array.isArray(items) ? (
           <List style={{ background: '#21646C' }}>
             {items.map((subItem, index) => (
-              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} />
+              <SidebarItem
+                key={`${subItem.id}${index}`}
+                depth={depth + 1}
+                item={subItem}
+              />
             ))}
           </List>
         ) : null}
         {Array.isArray(anchors) ? (
           <List>
             {anchors.map((subItem, index) => (
-              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} anchor />
+              <SidebarItem
+                key={`${subItem.id}${index}`}
+                depth={depth + 1}
+                item={subItem}
+                anchor
+              />
             ))}
           </List>
         ) : null}
@@ -62,12 +94,21 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   );
 }
 
-function Sidebar({ items }) {
+function Sidebar(props) {
   return (
     <div className="sidebar">
+      <Location>
+        {({ location }) => {
+          console.log(location);
+          return <p>The location is {location.pathname}</p>;
+        }}
+      </Location>
       <List>
-        {items.map((sidebarItem, index) => (
-          <SidebarItem key={`${sidebarItem.title}${index}`} item={sidebarItem} />
+        {props.items.map((sidebarItem, index) => (
+          <SidebarItem
+            key={`${sidebarItem.title}${index}`}
+            item={sidebarItem}
+          />
         ))}
       </List>
     </div>
@@ -75,18 +116,18 @@ function Sidebar({ items }) {
 }
 
 Sidebar.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired
 };
 
 SidebarItem.propTypes = {
   depth: PropTypes.number,
   item: PropTypes.object.isRequired,
-  anchor: PropTypes.bool,
+  anchor: PropTypes.bool
 };
 
 SidebarItem.defaultProps = {
   depth: 0,
-  anchor: false,
+  anchor: false
 };
 
 export default Sidebar;
