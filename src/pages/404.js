@@ -4,8 +4,8 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Spider from '../images/404.svg';
 
-const NotFoundPage = props => (
-  <Layout location={props.location}>
+const NotFoundPage = ({ location }) => (
+  <Layout location={location}>
     <div className="notfound">
       <Helmet title="404" />
       <div className="container notfound__content">

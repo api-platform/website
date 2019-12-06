@@ -27,8 +27,10 @@ class News extends Component {
   /* eslint-enable no-undef */
 
   render() {
+    const { location } = this.props;
+
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location}>
         <div className="news">
           <Helmet title="News" />
           <section className="container">

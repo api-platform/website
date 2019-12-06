@@ -12,8 +12,8 @@ import References from '../components/home/References';
 import Seo from '../components/home/Seo';
 import '../styles/main.scss';
 
-const IndexPage = props => (
-  <Layout location={props.location}>
+const IndexPage = ({ location }) => (
+  <Layout location={location}>
     <div className="home">
       <Helmet title="REST and GraphQL framework on top of Symfony and React" />
       <Cover />

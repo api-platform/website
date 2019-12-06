@@ -6,6 +6,7 @@ import { currentVersion } from '../../../constants';
 
 class Search extends React.Component {
   componentWillReceiveProps({ isScriptLoaded, isScriptLoadSucceed }) {
+    // eslint-disable-next-line react/destructuring-assignment
     if (isScriptLoaded && !this.props.isScriptLoaded) {
       if (isScriptLoadSucceed) {
         this.initDocSearch();

@@ -6,6 +6,13 @@ import { versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
 
 class DocNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentItem: null,
+    };
+  }
+
   componentWillMount() {
     const { location } = this.props;
     if ('undefined' !== typeof window) {
@@ -26,6 +33,7 @@ class DocNav extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    // eslint-disable-next-line react/destructuring-assignment
     if (nextProps.location.pathname !== this.props.location.pathname) {
       const { location } = nextProps;
       this.setState(prevState => ({
@@ -67,10 +75,6 @@ class DocNav extends Component {
     return matches ? matches[1] : null;
   };
 
-  state = {
-    currentItem: null,
-  };
-
   toggleMenu = itemPath =>
     this.setState(prevState => ({
       ...prevState,
@@ -78,17 +82,21 @@ class DocNav extends Component {
     }));
 
   render() {
-    const { currentItem } = this.state;
+    const {
+      props: { location, nav, version },
+      state: { currentItem },
+    } = this;
+
     return (
       <div className="docs__menu openable">
-        {this.props.nav.map(item => (
+        {nav.map(item => (
           <NavItem
             item={item}
             key={item.path}
             onClick={this.toggleMenu}
             current={currentItem}
-            location={this.props.location}
-            version={this.props.version}
+            location={location}
+            version={version}
           />
         ))}
       </div>
