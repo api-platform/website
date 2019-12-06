@@ -40,155 +40,6 @@
   }
 }
 
-.sidebar {
-  @include z-depth-2;
-  z-index: z("docsmenu");
-  background-color: $darkblue;
-  position: fixed;
-  left: 0;
-  top: $headerH;
-  height: calc(100vh - #{$headerH});
-  width: $docmenuW;
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-  .sidebar-item-level-0 {
-    text-transform: uppercase;
-  }
-
-  .sidebar-item-expand-arrow {
-    font-size: 18px;
-    color: $clearblue;
-  }
-
-  @include mq($max-width: $vw-medium) {
-    display: none;
-  }
-}
-
-.docs__menu {
-  .depth-1 {
-    a.active {
-      color: $white;
-      font-weight: $bold;
-      padding-right: 0;
-      border-left: 3px solid $lightblue;
-      padding-left: 5px;
-    }
-  }
-
-  // @todo remove
-  .menu__item {
-    padding: 10px 20px;
-    border-bottom: 1px solid rgba($white, 0.1);
-    transition: all ease 0.5s;
-
-    .item__title {
-      cursor: pointer;
-      transition: all ease 0.3s;
-
-      h2 {
-        width: calc(100% - 30px);
-        display: inline-block;
-        vertical-align: middle;
-        color: rgba($white, 0.8);
-        font-family: $font;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-      }
-
-      i {
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 2rem;
-        color: $clearblue;
-        margin-left: 5px;
-      }
-    }
-
-    .menu-item__list {
-      margin: 0;
-      padding: 10px 0;
-      font-size: 1.5rem;
-    }
-
-    .menu-item__link {
-      & > a,
-      .submenu__item > span a {
-        padding-right: 20px;
-        display: block;
-      }
-    }
-
-    .menu-item__link,
-    .submenu-item__link {
-      padding: 8px 5px;
-      color: rgba($white, 0.8);
-
-      &:last-of-type {
-        padding-bottom: 0;
-      }
-
-      a {
-        font-weight: $normal;
-        font-size: inherit;
-        color: inherit;
-        transition: color ease 0.5s;
-      }
-
-      .submenu__item ul {
-        padding: 5px;
-        font-size: 1.3rem;
-      }
-
-      .submenu-item__link {
-        &:before,
-        a {
-          display: inline-block;
-          vertical-align: middle;
-        }
-
-        &:before {
-          content: "# ";
-          margin-right: 5px;
-          color: $clearblue;
-        }
-
-        a {
-          width: calc(100% - 15px);
-          padding-right: 15px;
-        }
-      }
-
-      .submenu-item__link.current,
-      .current:before {
-        color: $white;
-        padding-right: 0;
-      }
-    }
-
-    &.open {
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
-      background-color: rgba($blackblue, 0.2);
-      border-color: $darkblue;
-
-      .item__title {
-        padding-bottom: 10px;
-        border-bottom: 1px solid $blue;
-      }
-
-      h2 {
-        color: $clearblue;
-      }
-    }
-  }
-  @include mq($max-width: $vw-medium) {
-    display: none;
-  }
-}
-
 .docs__content {
   background-color: $white;
   @include z-depth-1;
@@ -283,9 +134,9 @@
       }
 
       &:before {
-        content: "\e315";
+        content: '\e315';
         color: $darkblue;
-        font-family: "api-platform-icon" !important;
+        font-family: 'api-platform-icon' !important;
         speak: none;
         font-style: normal;
         font-weight: normal;
@@ -396,7 +247,7 @@
     margin-right: auto;
 
     span:before {
-      content: "Previous chapter : ";
+      content: 'Previous chapter : ';
     }
 
     &:hover i {
@@ -408,7 +259,7 @@
     margin-left: auto;
 
     span:before {
-      content: "Next chapter : ";
+      content: 'Next chapter : ';
     }
 
     &:hover i {

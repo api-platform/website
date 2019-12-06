@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import {
-  Collapse,
-  Divider,
-  List,
-  ListItem,
-  ListItemText
-} from '@material-ui/core';
+import { Collapse, Divider, List, ListItem, ListItemText } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import classNames from 'classnames';
 
 const WithLink = ({ slug, anchor, children }) => {
+  const isPartiallyActive = ({ isPartiallyCurrent }) => {
+    return isPartiallyCurrent ? { className: 'active' } : null;
+  };
+
   if (anchor) {
     return <a href={slug}>{children}</a>;
   }
   if (slug) {
-    return <Link to={slug}>{children}</Link>;
+    return (
+      <Link to={slug} getProps={isPartiallyActive}>
+        {children}
+      </Link>
+    );
   }
 
   return children;
@@ -27,13 +30,11 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
-    if (
-      window.location.pathname.includes(path) ||
-      window.location.pathname === `${slug}/`
-    ) {
+    if (window.location.pathname.includes(path) || window.location.pathname === `${slug}/`) {
       setCollapsed(false);
     }
   }, []);
+
   function onClick() {
     setCollapsed(prevValue => !prevValue);
   }
@@ -41,17 +42,17 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
   let expandIcon;
   if (Array.isArray(items) && items.length) {
     expandIcon = !collapsed ? (
-      <ExpandLessIcon className="sidebar-item-expand-arrow" />
+      <ExpandLessIcon className="sidebar-item__expand-arrow" />
     ) : (
-      <ExpandMoreIcon className="sidebar-item-expand-arrow" />
+      <ExpandMoreIcon className="sidebar-item__expand-arrow" />
     );
   }
 
   if (Array.isArray(anchors) && anchors.length && !anchor) {
     expandIcon = !collapsed ? (
-      <ExpandLessIcon className="sidebar-item-expand-arrow" />
+      <ExpandLessIcon className="sidebar-item__expand-arrow" />
     ) : (
-      <ExpandMoreIcon className="sidebar-item-expand-arrow" />
+      <ExpandMoreIcon className="sidebar-item__expand-arrow" />
     );
   }
 
@@ -59,7 +60,10 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
     <>
       <WithLink slug={slug} anchor={anchor}>
         <ListItem
-          className={`sidebar-item-level-${depth}`}
+          className={classNames('sidebar-item', {
+            'sidebar-item__root': 0 === depth,
+            'sidebar-item__anchor': anchor,
+          })}
           onClick={() => onClick()}
           button
         >
@@ -74,11 +78,7 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
         <Collapse in={!collapsed} timeout="auto" unmountOnExit>
           <List style={{ background: '#21646C' }}>
             {items.map((subItem, index) => (
-              <SidebarItem
-                key={`${subItem.id}${index}`}
-                depth={depth + 1}
-                item={subItem}
-              />
+              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} />
             ))}
           </List>
         </Collapse>
@@ -87,12 +87,7 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
         <Collapse in={!collapsed} timeout="auto" unmountOnExit>
           <List>
             {anchors.map((subItem, index) => (
-              <SidebarItem
-                key={`${subItem.id}${index}`}
-                depth={depth + 1}
-                item={subItem}
-                anchor
-              />
+              <SidebarItem key={`${subItem.id}${index}`} depth={depth + 1} item={subItem} anchor />
             ))}
           </List>
         </Collapse>
@@ -105,12 +100,12 @@ function SidebarItem({ depth = 0, item, anchor = false }) {
 SidebarItem.propTypes = {
   depth: PropTypes.number,
   item: PropTypes.object.isRequired,
-  anchor: PropTypes.bool
+  anchor: PropTypes.bool,
 };
 
 SidebarItem.defaultProps = {
   depth: 0,
-  anchor: false
+  anchor: false,
 };
 
 export default SidebarItem;

@@ -1,0 +1,38 @@
+.sidebar {
+  @include z-depth-2;
+  z-index: z('docsmenu');
+  background-color: $darkblue;
+  position: fixed;
+  left: 0;
+  top: $headerH;
+  height: calc(100vh - #{$headerH});
+  width: $docmenuW;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+
+  .sidebar-item {
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .sidebar-item__root {
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .sidebar-item__anchor {
+    font-size: 13px;
+  }
+
+  .sidebar-item__expand-arrow {
+    font-size: 18px;
+    color: $clearblue;
+  }
+
+  @include mq($max-width: $vw-medium) {
+    display: none;
+  }
+}
