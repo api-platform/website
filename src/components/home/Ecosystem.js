@@ -39,10 +39,10 @@ EcosystemCard.defaultProps = {
 const Ecosystem = () => (
   <section className="home__part home__ecosystem">
     <div className="container">
-      <h1 className="ecosystem__title">
+      <h2 className="h1-like ecosystem__title">
         The API Platform <strong>Framework</strong>
-      </h1>
-      <h5>API Platform is a set of tools to build and consume web APIs</h5>
+      </h2>
+      <p className="h5-like">API Platform is a set of tools to build and consume web APIs</p>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
           big

@@ -6,9 +6,9 @@ import Prism from '../../vendor/Prism';
 const Seo = () => (
   <section className="home__seo home__part">
     <div className="container seo__container">
-      <h1 className="seo__title">
+      <h2 className="h1-like seo__title">
         Enhance <strong>SEO</strong> and Interoperability
-      </h1>
+      </h2>
       <div className="seo__code">
         <img src={Laptop} alt="interoperability" width="505" height="445" />
         <pre className="language-json">

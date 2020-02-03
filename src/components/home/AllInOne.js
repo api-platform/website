@@ -25,9 +25,9 @@ const circles = data.map((content, index) => (
 const AllInOne = () => (
   <section className="home__part home__all-in-one">
     <div className="container">
-      <h1 className="aio__title">
+      <h2 className="h1-like aio__title">
         An <strong>All-in-One solution</strong> for Modern Projects
-      </h1>
+      </h2>
       <div className="aio__circles">{circles}</div>
     </div>
   </section>

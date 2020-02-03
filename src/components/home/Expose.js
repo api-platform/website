@@ -12,9 +12,9 @@ const Expose = () => (
   <section className="home__part home__expose">
     <div className="container expose__container">
       <article className="expose__content">
-        <h1 className="expose__title">
+        <h2 className="h1-like expose__title">
           Easy to <strong>expose</strong>, easy to <strong>consume</strong>!
-        </h1>
+        </h2>
         <p>
           API Platform is agnostic of the client-side technology. Thanks to open web standards, it is compatible with:
         </p>

@@ -9,10 +9,19 @@ const Cover = () => (
     <div className="container cover__content">
       <div className="cover__circle" />
       <div className="cover__spider">
-        <img className="spider__image" src={spider} alt="spider" width="256" height="419" />
+        <img
+          className="spider__image"
+          src={spider}
+          alt="spider"
+          width="256"
+          height="419"
+        />
       </div>
       <Logo className="cover__logo" />
-      <h2>REST and GraphQL framework to build modern API-driven projects</h2>
+      <h1 className="cover__title h2-like">
+        <strong className="accessibility__hidden-block">API PLATFORM :</strong>
+        REST and GraphQL framework to build modern API-driven projects
+      </h1>
       <div className="cover__buttons">
         <Button
           empty
