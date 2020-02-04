@@ -55,7 +55,7 @@
     }
   }
 
-  h2 {
+  .cover__title {
     max-width: 80%;
     font-size: 2.6rem;
     line-height: 1.2em;
@@ -88,7 +88,7 @@
       height: 730px;
     }
 
-    h2 {
+    .cover__title {
       width: 620px;
     }
 
@@ -113,7 +113,7 @@
       vertical-align: middle;
     }
 
-    h2 {
+    .cover__title {
       margin: 20px 0;
       font-size: 2.4rem;
       max-width: 60%;
@@ -139,7 +139,7 @@
       padding: 40vh 0 0;
     }
 
-    h2 {
+    .cover__title {
       max-width: 90%;
     }
 
@@ -164,7 +164,7 @@
     }
   }
   @include mq($max-width: $vw-small) {
-    h2 {
+    .cover__title {
       font-size: 2rem;
       margin: 10px auto 15px;
     }

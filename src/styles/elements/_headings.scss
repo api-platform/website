@@ -1,4 +1,13 @@
-h1 {
+@mixin reset-title {
+  padding: 0;
+  background: none;
+  margin: 0;
+  color: inherit;
+  text-transform: none;
+}
+
+h1, .h1-like {
+  @include reset-title;
   font-size: 3.6rem;
   line-height: 3.6rem;
   font-weight: $light;
@@ -10,14 +19,16 @@ h1 {
   }
 }
 
-h2 {
+h2, .h2-like {
+  @include reset-title;
   font-size: 2.8rem;
   font-weight: $bold;
   color: $darkblue;
   font-family: $fontTitle;
 }
 
-h3 {
+h3, .h3-like {
+  @include reset-title;
   font-size: 2.2rem;
   font-family: $fontTitle;
   font-weight: $bold;
@@ -25,7 +36,8 @@ h3 {
   line-height: 2.2rem;
 }
 
-h4 {
+h4, .h4-like {
+  @include reset-title;
   font-size: 1.8rem;
   background-color: $blue;
   color: $darkblue;
@@ -35,12 +47,13 @@ h4 {
   padding: 5px 20px;
 }
 
-h5 {
+h5, .h5-like {
+  @include reset-title;
   font-size: 1.8rem;
   font-family: $font;
   font-weight: $light;
 }
 
-h1 + h5 {
+.h1-like + .h5-like {
   margin: 8px 0 20px;
 }

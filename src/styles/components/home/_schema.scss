@@ -14,8 +14,11 @@
 
   .schema__part {
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    h4 {
+    .part__title {
       font-size: 1.4rem;
       background-color: $clearblue;
     }
@@ -60,7 +63,7 @@
       @include z-depth-0;
     }
 
-    h3 {
+    .card__title {
       color: $blue;
       margin-bottom: 10px;
     }
@@ -81,7 +84,7 @@
     z-index: z('below');
     left: 0;
     top: 0;
-    height: calc(100% + 80px);
+    height: calc(100% + 84px);
     width: calc(100% - 80px);
     top: -25px;
     left: 40px;

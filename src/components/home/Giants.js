@@ -11,9 +11,9 @@ const data = [
 const Giants = () => (
   <section className="home__part home__giants">
     <div className="container giants__container">
-      <h1 className="giants__title">
+      <h2 className="h1-like giants__title">
         Built on the Shoulders of <strong>Giants</strong>
-      </h1>
+      </h2>
       <article className="giants__content">
         <p className="hidden-small">
           API Platform is built on top of <strong>battle-tested products</strong>. The server skeleton includes the
