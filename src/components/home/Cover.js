@@ -19,7 +19,7 @@ const Cover = () => (
       </div>
       <Logo className="cover__logo" />
       <h1 className="cover__title h2-like">
-        <strong className="accessibility__hidden-block">API PLATFORM :</strong>
+        <strong className="accessibility__hidden-block">API PLATFORM:</strong>
         REST and GraphQL framework to build modern API-driven projects
       </h1>
       <div className="cover__buttons">
