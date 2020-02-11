@@ -1,4 +1,4 @@
-.news {
+.social {
   padding: 30px 0 50px;
   position: relative;
   min-height: $pageH;
@@ -24,11 +24,11 @@
     top: 0;
   }
 
-  .news__spider {
+  .social__spider {
     display: none;
   }
 
-  .news__content {
+  .social__content {
     @include z-depth-1;
     max-width: 700px;
     margin: 0 auto;
@@ -38,7 +38,7 @@
     border-left: 5px solid $lightblue;
   }
 
-  .news__birds {
+  .social__birds {
     position: absolute;
     width: 100%;
     right: 0;
@@ -87,7 +87,7 @@
       padding-left: 25%;
     }
 
-    .news__spider {
+    .social__spider {
       display: block;
       position: fixed;
       width: 240px;

@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import Spider from '../images/spider_news.svg';
 import Bird from '../images/twitter_bird.svg';
 
-class News extends Component {
+class Social extends Component {
   /* eslint-disable no-undef */
   componentDidMount() {
     if (twttr.widgets) {
@@ -29,15 +29,15 @@ class News extends Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <div className="news">
-          <Helmet title="News" />
+        <div className="social">
+          <Helmet title="Social" />
           <section className="container">
-            <img src={Spider} className="news__spider" alt="spider" />
+            <img src={Spider} className="social__spider" alt="spider" />
             <h1>
               What&#39;s <strong>new</strong>?
             </h1>
-            <div className="news__content">
-              <div className="news__birds">
+            <div className="social__content">
+              <div className="social__birds">
                 <img src={Bird} alt="bird" width="70" height="70" />
                 <img src={Bird} alt="bird" width="50" height="50" />
                 <img src={Bird} alt="bird" width="40" height="40" />
@@ -55,8 +55,8 @@ class News extends Component {
     );
   }
 }
-News.propTypes = {
+Social.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default News;
+export default Social;
