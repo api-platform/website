@@ -7,7 +7,6 @@ export const MeetupEventType = PropTypes.shape({
   name: PropTypes.string,
   venue: PropTypes.shape({
     name: PropTypes.string,
-    city: PropTypes.string
-  }),
-  description: PropTypes.string
+    city: PropTypes.string,
+  })
 });

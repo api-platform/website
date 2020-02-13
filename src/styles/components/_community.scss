@@ -96,7 +96,7 @@
   }
 
   .community__events {
-    background-color: $white;
+    background-color: $clearblue;
     padding: 20px 0 50px;
   }
 
@@ -114,7 +114,7 @@
     width: calc(33% - 40px);
     margin: 20px;
     padding: 10px;
-    background-color: $clearblue;
+    background-color: $white;
     color: $blackblue;
     display: flex;
     flex-direction: row;
@@ -152,17 +152,16 @@
       height: 100%;
     }
     .card-event__calendar {
-      background-color: $white;
+      background-color: $blue;
       font-weight: $bold;
       width: 70px;
-      color: $blue;
+      color: $white;
       margin-right: 10px;
       transition: transform ease 0.3s;
       .calendar__month {
         position: relative;
         background-color: $darkblue;
         text-transform: uppercase;
-        color: $white;
         padding: 5px;
         font-size: 0.9em;
       }
@@ -172,8 +171,7 @@
       }
       .calendar__year {
         padding: 3px;
-        color: $darkblue;
-        border-top: 2px dotted $clearblue;
+        border-top: 2px dotted $white;
         font-size: 0.9em;
       }
     }

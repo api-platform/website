@@ -8,8 +8,6 @@ const EventCard = ({ event }) => {
   const month = fulldate.format("MMMM");
   const year = fulldate.year();
 
-  console.log(event);
-
   return (
     <a
       href={event.link}
