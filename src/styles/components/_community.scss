@@ -1,6 +1,5 @@
 .community {
   text-align: center;
-  padding: 0px 0 50px;
 
   .community__header {
     background-color: $clearblue;
@@ -63,7 +62,7 @@
     }
   }
 
-  .community__page {
+  .community__main {
     transform: translateY(-50px);
   }
 
@@ -96,7 +95,103 @@
     }
   }
 
+  .community__events {
+    background-color: $white;
+    padding: 20px 0 50px;
+  }
+
+  .community-events__title {
+    margin-bottom: 10px;
+  }
+
+  .community-events__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card__event {
+    width: calc(33% - 40px);
+    margin: 20px;
+    padding: 10px;
+    background-color: $clearblue;
+    color: $blackblue;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow ease 0.3s, transform ease 0.3s;
+    .card-event__title {
+      color: $darkblue;
+      font-size: 2em;
+      font-weight: $bold;
+      line-height: 1;
+      margin-bottom: 10px;
+      font-family: $fontTitle;
+    }
+    .card-event__infos {
+      display: flex;
+      p {
+        display: flex;
+        align-items: center;
+        line-height: 1.2;
+        margin-right: 10px;
+      }
+      i {
+        margin-right: 3px;
+        color: $darkblue;
+      }
+    }
+    .card-event__content {
+      font-size: 0.8em;
+      flex: 1;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .card-event__calendar {
+      background-color: $white;
+      font-weight: $bold;
+      width: 70px;
+      color: $blue;
+      margin-right: 10px;
+      transition: transform ease 0.3s;
+      .calendar__month {
+        position: relative;
+        background-color: $darkblue;
+        text-transform: uppercase;
+        color: $white;
+        padding: 5px;
+        font-size: 0.9em;
+      }
+      .calendar__day {
+        font-size: 3em;
+        padding: 8px 0;
+      }
+      .calendar__year {
+        padding: 3px;
+        color: $darkblue;
+        border-top: 2px dotted $clearblue;
+        font-size: 0.9em;
+      }
+    }
+    &:hover {
+      @include z-depth-5;
+      transform: scale(0.95);
+      .card-event__calendar {
+        transform: scale(0.9) rotate(10deg);
+      }
+    }
+  }
+
   @include mq($max-width: $vw-large) {
+    .card__event {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px;
+    }
     .community-card {
       width: calc(50% - 40px);
       min-width: 400px;

@@ -1,6 +1,9 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
+import { MeetupEventType } from  "../types";
+import EventCard from '../components/community/EventCard';
 import Layout from "../components/Layout";
 import CommunityCommercial from "../images/community_commercial.svg";
 import Community1 from "../images/community-01.svg";
@@ -12,7 +15,6 @@ import CommunitySecurity from "../images/community_security.svg";
 import CommunityTraining from "../images/community_training.svg";
 import Puzzle1 from "../images/puzzle-01.svg";
 import Puzzle2 from "../images/puzzle-02.svg";
-
 
 const CommunityCard = ({ children, image, title }) => (
   <div className="community-card card">
@@ -38,8 +40,10 @@ CommunityCard.defaultProps = {
   children: null
 };
 
-const CommunityPage = props => (
-  <Layout location={props.location}>
+const CommunityPage = ({ location, data }) => {
+  const { totalCount: totalEvents, nodes: events } = data.allMeetupEvent;
+  return (
+  <Layout location={location}>
     <div className="community">
       <Helmet title="Community" />
       <header className="community__header">
@@ -78,7 +82,7 @@ const CommunityPage = props => (
           />
         </div>
       </header>
-      <section className="container community__page">
+      <section className="container community__main">
         <div className="community__cards">
           <CommunityCard title="Community support" image={CommunitySupport}>
             <p>
@@ -171,7 +175,7 @@ const CommunityPage = props => (
               </a>{" "}
               or{" "}
               <a
-                href="https://www.meetup.com/fr-FR/meetup-group-RzDLfqfs/"
+                href="https://www.meetup.com/fr-FR/api-platform/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -219,12 +223,48 @@ const CommunityPage = props => (
           </CommunityCard>
         </div>
       </section>
+      {totalEvents &&  <section className="community__events">
+        <div className="container">
+        <h2 className="community-events__title">Upcoming events</h2>
+        <div className="community-events__list">
+          {events.map(event => <EventCard event={event} />)}
+        </div>
+        </div>
+      </section>}
     </div>
   </Layout>
-);
+)};
 
 CommunityPage.propTypes = {
+  data: PropTypes.shape({
+    allMeetupEvent: PropTypes.shape({
+      totalCount: PropTypes.number.isRequired,
+      nodes: PropTypes.arrayOf({
+        MeetupEventType
+      })
+    })
+  }).isRequired,
   location: PropTypes.object.isRequired
 };
+
+export const query = graphql`
+  query {
+    allMeetupEvent {
+      totalCount
+      nodes {
+        name
+        local_date
+        local_time
+        venue {
+          name
+          city
+        }
+        description
+        link
+        visibility
+      }
+    }
+  }
+`;
 
 export default CommunityPage;
