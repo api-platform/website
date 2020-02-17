@@ -1,5 +1,6 @@
 const path = require('path');
 const URL = require('url');
+const fetch = require("node-fetch");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
@@ -12,6 +13,93 @@ versions.forEach(version => {
   const prefixedVersion = `${versionHelper.getPrefixedVersion(version)}/`;
   navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
 });
+
+const githubToken = "a0e3090509b8f47b54d32b5743a4f64192daf28e";
+const REPOSITORIES_TO_IGNORE = ['.github'];
+
+const sortByContributions = (a, b) => {
+  if (a.contributions < b.contributions)
+     return 1;
+  if (a.contributions > b.contributions)
+     return -1;
+  return 0;
+}
+
+const getRepositoryList = async organizationName => {
+  const repos = await fetch(`https://api.github.com/orgs/${organizationName}/repos`, {
+    headers: {
+      authorization: `token ${githubToken}`
+    }
+  });
+  const data = await repos.json();
+  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));;
+}
+
+const getListOfContributorsFromRepository = async repository => {
+  const contributors = await fetch(`${repository.url}/contributors`, {
+    headers: {
+      authorization: `token ${githubToken}`
+    }
+  });
+
+  const data = await contributors.json();
+  return data;
+}
+
+const createContributor = (repository, contributor) => {
+  return {
+    id: contributor.id,
+    login: contributor.login,
+    avatar: contributor.avatar_url,
+    profile_url: contributor.html_url,
+    projects: [{ name: repository.name, link: repository.url }],
+    contributions: contributor.contributions
+  };
+}
+
+const getAllContributorsFromOrganization = async organizationName => {
+    const repos = await getRepositoryList(organizationName);
+    const allContributors = [];
+    await Promise.all(repos.map(async repo => {
+      const contributors = await getListOfContributorsFromRepository(repo);
+      for (let contributor of contributors) {
+        if (contributor.login.indexOf('[bot]') !== -1) continue;
+        const personFromList = allContributors.find(c => c.id === contributor.id);
+        if (personFromList) {
+          personFromList.contributions += contributor.contributions;
+          personFromList.projects.push({
+            name: repo.name,
+            link: repo.url
+          });
+        }
+        else allContributors.push(createContributor(repo, contributor));
+      }
+    }));
+    return allContributors.sort(sortByContributions);
+}
+
+const NODE_TYPE = `Contributor`;
+
+exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
+  const { createNode } = actions;
+  const data = await getAllContributorsFromOrganization('api-platform');
+  data.forEach(item => {
+    const nodeMetadata = {
+      id: createNodeId(`contributor-${item.id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: NODE_TYPE,
+        content: JSON.stringify(item),
+        contentDigest: createContentDigest(item),
+      },
+    }
+
+    const node = Object.assign({}, item, nodeMetadata);
+    createNode(node);
+  });
+  return;
+};
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;

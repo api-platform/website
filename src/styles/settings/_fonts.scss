@@ -15,6 +15,12 @@ $fontTitle: 'Roboto Slab', Courier, serif;
   font-style: normal;
 }
 @font-face {
+  font-family: 'Roboto Slab';
+  src: url('./settings/fonts/RobotoSlab-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
   font-family: 'Open Sans';
   src: url('./settings/fonts/OpenSans-Regular.eot');
   src: url('./settings/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), url('./settings/fonts/OpenSans-Regular.woff') format('woff'), url('./settings/fonts/OpenSans-Regular.ttf') format('truetype');

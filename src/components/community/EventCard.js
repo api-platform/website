@@ -1,20 +1,15 @@
-import React from "react";
-import moment from "moment";
-import { MeetupEventType } from "../../types";
+import React from 'react';
+import moment from 'moment';
+import { MeetupEventType } from '../../types';
 
 const EventCard = ({ event }) => {
-  const fulldate = moment(event.local_date, "YYYY-MM-DD");
+  const fulldate = moment(event.local_date, 'YYYY-MM-DD');
   const day = fulldate.date();
-  const month = fulldate.format("MMMM");
+  const month = fulldate.format('MMMM');
   const year = fulldate.year();
 
   return (
-    <a
-      href={event.link}
-      className="card card__event"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={event.link} className="card card__event" target="_blank" rel="noopener noreferrer">
       <div className="card-event__calendar">
         <div className="calendar__month">{month}</div>
         <div className="calendar__day">{day}</div>
@@ -38,7 +33,7 @@ const EventCard = ({ event }) => {
 };
 
 EventCard.propTypes = {
-  event: MeetupEventType.isRequired
+  event: MeetupEventType.isRequired,
 };
 
 export default EventCard;

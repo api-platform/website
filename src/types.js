@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-/* eslint-disable import/prefer-default-export */
 export const MeetupEventType = PropTypes.shape({
   local_date: PropTypes.string,
   local_time: PropTypes.string,
@@ -8,5 +7,17 @@ export const MeetupEventType = PropTypes.shape({
   venue: PropTypes.shape({
     name: PropTypes.string,
     city: PropTypes.string,
+  }),
+});
+
+export const ContributorType = PropTypes.shape({
+  login: PropTypes.string,
+  avatar: PropTypes.string,
+  profile_url: PropTypes.string,
+  id: PropTypes.string,
+  contributions: PropTypes.number,
+  project: PropTypes.shape({
+    name: PropTypes.string,
+    link: PropTypes.string
   })
 });
