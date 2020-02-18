@@ -7,9 +7,11 @@ const { readFileSync } = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
 
-const parseLinkHeader = (header) => {
+const githubKey = "daf5c9e45fca478c35168eeb15c0c45b73b083bc";
+
+const parseLinkHeader = header => {
   if (header.length === 0) {
-    throw new Error("input must not be of zero length");
+    throw new Error('input must not be of zero length');
   }
 
   // Split parts by comma and parse each part into a named link
@@ -18,14 +20,14 @@ const parseLinkHeader = (header) => {
     if (section.length < 2) {
       throw new Error("section could not be split on ';'");
     }
-    const url = section[0].replace(/<(.*)>/, "$1").trim();
-    const name = section[1].replace(/rel="(.*)"/, "$1").trim();
+    const url = section[0].replace(/<(.*)>/, '$1').trim();
+    const name = section[1].replace(/rel="(.*)"/, '$1').trim();
 
     links[name] = url;
 
     return links;
   }, {});
-}
+};
 
 const navs = {};
 versions.push(current);
@@ -38,23 +40,23 @@ const delay = time => new Promise(res => setTimeout(() => res(), time));
 const fetchFromGithubApi = async url => {
   const response = await fetch(url, {
     headers: {
-      authorization: `token ${process.env.GATSBY_GITHUB_KEY}`
+      authorization: `token ${githubKey}`
     }
   });
 
   // if rate limit excedeed : wait for reset time
   if (response.headers.get('x-ratelimit-remaining') === '0') {
-    const rateLimitResetTime = response.headers.get("x-ratelimit-reset") * 1000;
+    const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
-      throw new Error("rate limit reset time to long");
+      throw new Error('rate limit reset time to long');
     }
     await delay(timeToWait);
     return fetchFromGithubApi(url);
   }
 
   return response;
-}
+};
 
 const sortByContributions = (a, b) => {
   if (a.contributions < b.contributions) return 1;
@@ -63,8 +65,7 @@ const sortByContributions = (a, b) => {
 };
 
 const getRepositoryList = async organizationName => {
-  const repos = await fetchFromGithubApi(
-    `https://api.github.com/orgs/${organizationName}/repos`);
+  const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
   const data = await repos.json();
   return data;
 };
@@ -76,10 +77,10 @@ const getListOfContributorsFromRepository = async repository => {
     const response = await fetchFromGithubApi(pageToFetch);
     const data = await response.json();
     contributors = [...contributors, ...data];
-    pageToFetch = response.headers.get("Link") && parseLinkHeader(response.headers.get("Link")).next;
+    pageToFetch = response.headers.get('Link') && parseLinkHeader(response.headers.get('Link')).next;
   }
   //const contributors = await getContributorsPage(repository, page);
-  return contributors.filter(c => c.type !== "Bot");
+  return contributors.filter(c => c.type !== 'Bot');
 };
 
 const createContributor = (repository, contributor) => {
@@ -107,7 +108,7 @@ const getAllContributorsFromOrganization = async organizationName => {
           personFromList.projects.push({
             name: repo.name,
             link: repo.url,
-            contributions: contributor.contributions
+            contributions: contributor.contributions,
           });
           personFromList.projects.sort(sortByContributions);
           // personFromList.projects.sort(sortByContributions);
@@ -115,9 +116,7 @@ const getAllContributorsFromOrganization = async organizationName => {
       }
     })
   );
-  return allContributors
-    .sort(sortByContributions)
-    .map((contributor, i) => ({ ...contributor, position: i + 1 }));
+  return allContributors.sort(sortByContributions).map((contributor, i) => ({ ...contributor, position: i + 1 }));
 };
 
 const NODE_TYPE = `Contributor`;
@@ -125,19 +124,21 @@ const NODE_TYPE = `Contributor`;
 exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
   const { createNode } = actions;
   const contributors = await getAllContributorsFromOrganization('api-platform');
-  const fullContributors = await Promise.all(contributors.map(async contributor => {
-    const userResponse = await fetchFromGithubApi(contributor.url);
-    await delay(1000);
-    const user = await userResponse.json();
-    return {
-      ...contributor,
-      name: user.name,
-      blog: user.blog,
-      location: user.location,
-      bio: user.bio,
-      company: user.company
-    }
-  }));
+  const fullContributors = await Promise.all(
+    contributors.map(async contributor => {
+      const userResponse = await fetchFromGithubApi(contributor.url);
+      await delay(1000);
+      const user = await userResponse.json();
+      return {
+        ...contributor,
+        name: user.name,
+        blog: user.blog,
+        location: user.location,
+        bio: user.bio,
+        company: user.company,
+      };
+    })
+  );
   fullContributors.forEach(item => {
     const nodeMetadata = {
       id: createNodeId(`contributor-${item.id}`),
@@ -146,8 +147,8 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       internal: {
         type: NODE_TYPE,
         content: JSON.stringify(item),
-        contentDigest: createContentDigest(item)
-      }
+        contentDigest: createContentDigest(item),
+      },
     };
 
     const node = Object.assign({}, item, nodeMetadata);
@@ -156,11 +157,11 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
   return;
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const docPageTemplate = path.resolve('src/templates/doc.js');
 
-  return graphql(`
+  const result = await graphql(`
     {
       allMarkdownRemark(limit: 1000) {
         edges {
@@ -177,7 +178,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `);
+
     if (result.errors) {
       throw result.errors;
     }
@@ -254,7 +256,35 @@ exports.createPages = ({ graphql, actions }) => {
         })
       );
     });
-  });
+
+      const contributors = await graphql(`
+        {
+          allContributor {
+            nodes {
+              login
+              name
+              company
+              bio
+              projects {
+                contributions
+                link
+                name
+              }
+              avatar
+              contributions
+            }
+          }
+        }
+      `);
+      contributors.data.allContributor.nodes.forEach((node) => {
+        createPage({
+          path: `/community/contributors/${node.login}`,
+          component: path.resolve(`./src/templates/contributor.js`),
+          context: {
+            ...node
+          }
+        });
+      });
 };
 
 exports.onCreateNode = ({ node, getNode, actions }) => {

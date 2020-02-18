@@ -9,6 +9,11 @@
   align-items: center;
   position: relative;
 
+  &.transparent {
+    background: none;
+    box-shadow: none;
+  }
+
   &.p-10 {
     padding: 10px;
   }
@@ -22,6 +27,9 @@
     .card__content {
       min-height: 100%;
       text-align: left;
+    }
+    .avatar {
+      margin-right: 10px;
     }
   }
 
@@ -45,14 +53,30 @@
   }
 
   .avatar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
     border-radius: 50%;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
     img {
       width: 100%;
-      max-width: 250px;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      text-align: center;
+    }
+    &.medium {
+      width: 200px;
+      height: 200px;
     }
     &.small {
-      max-width: 100px;
+      width: 100px;
+      height: 100px;
+    }
+    &.xsmall {
+      width: 60px;
+      height: 60px;
     }
     &.blue {
       background-color: $clearblue;
@@ -62,6 +86,12 @@
     }
     &.crop {
       overflow: hidden;
+      img {
+        border-radius: 50%;
+      }
+    }
+    &.bordered {
+      padding: 5px;
     }
   }
 
@@ -80,6 +110,7 @@
       }
 
       .avatar {
+        width: 300px;
         height: 300px;
         flex: 0 0 300px;
         img {

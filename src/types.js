@@ -20,5 +20,5 @@ export const ContributorType = PropTypes.shape({
     name: PropTypes.string,
     link: PropTypes.string,
   }),
-  position: PropTypes.number
+  position: PropTypes.number,
 });

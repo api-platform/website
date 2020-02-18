@@ -9,6 +9,12 @@
   padding: 15px;
   width: calc(100% / 3);
 
+  @include mq($min-width: $vw-large + 1) {
+    &.full {
+      width: 100%;
+    }
+  }
+
   @include mq($max-width: $vw-large) {
     padding: 15px;
     width: 50%;
@@ -24,9 +30,5 @@
 
   &.p-10 {
     padding: 10px;
-  }
-
-  &.full {
-    width: 100%;
   }
 }
