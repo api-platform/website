@@ -9,18 +9,18 @@ const EventCard = ({ event }) => {
   const year = fulldate.year();
 
   return (
-    <a href={event.link} className="card card__event" target="_blank" rel="noopener noreferrer">
+    <a href={event.link} className="card horizontal card__event p-10 small" target="_blank" rel="noopener noreferrer">
       <div className="card-event__calendar">
         <div className="calendar__month">{month}</div>
         <div className="calendar__day">{day}</div>
         <div className="calendar__year">{year}</div>
       </div>
-      <div className="card-event__content">
-        <h3 className="h5-like card-event__title">{event.name}</h3>
+      <div className="card__content">
+        <h3 className="card__title card__autosize">{event.name}</h3>
         <div className="card-event__infos">
           <p>
             <i className="icon-location" />
-            <span>{`${event.venue.name} - ${event.venue.city}`}</span>
+            <span>{event.venue.city}</span>
           </p>
           <p>
             <i className="icon-clock" />

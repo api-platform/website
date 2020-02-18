@@ -10,11 +10,11 @@ import Button from '../../components/common/Button';
 const EcosystemCard = ({ big, image, link, text, title }) => (
   <div className={classnames('grid__item', { full: big })}>
     <div className={classnames('card ecosystem__card', { big })}>
-      <div className="card__circle">
+      <div className="avatar blue">
         <img src={image} alt={title} width="646" height="646" />
       </div>
       <div className="card__content">
-        <h3>{title}</h3>
+        <h3 className="card__title">{title}</h3>
         <article className="card__autosize">
           <p>{text}</p>
         </article>
@@ -42,7 +42,7 @@ const Ecosystem = () => (
       <h2 className="h1-like ecosystem__title">
         The API Platform <strong>Framework</strong>
       </h2>
-      <p className="h5-like">API Platform is a set of tools to build and consume web APIs</p>
+      <p className="h4-like">API Platform is a set of tools to build and consume web APIs</p>
       <div className="ecosystem__content grid__container">
         <EcosystemCard
           big

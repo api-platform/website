@@ -7,33 +7,11 @@
     margin-bottom: 10px;
   }
 
-  .community-events__list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   .card__event {
-    width: calc(33% - 40px);
-    margin: 20px;
-    padding: 10px;
-    background-color: $white;
-    color: $blackblue;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow ease 0.3s, transform ease 0.3s;
-    .card-event__title {
-      color: $darkblue;
-      font-size: 2em;
-      font-weight: $bold;
-      line-height: 1;
-      margin-bottom: 10px;
-      font-family: $fontTitle;
-    }
     .card-event__infos {
       display: flex;
+      margin-top: 10px;
+      color: $blackblue;
       p {
         display: flex;
         align-items: center;
@@ -44,15 +22,6 @@
         margin-right: 3px;
         color: $darkblue;
       }
-    }
-    .card-event__content {
-      font-size: 0.8em;
-      flex: 1;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
     }
     .card-event__calendar {
       background-color: $blue;
@@ -84,13 +53,5 @@
       .card-event__calendar {
         transform: scale(0.9) rotate(10deg);
       }
-    }
-  }
-
-  @include mq($max-width: $vw-large) {
-    .card__event {
-      width: 100%;
-      max-width: 400px;
-      margin: 10px;
     }
   }

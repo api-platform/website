@@ -18,6 +18,7 @@ export const ContributorType = PropTypes.shape({
   contributions: PropTypes.number,
   project: PropTypes.shape({
     name: PropTypes.string,
-    link: PropTypes.string
-  })
+    link: PropTypes.string,
+  }),
+  position: PropTypes.number
 });

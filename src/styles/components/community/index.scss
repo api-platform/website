@@ -70,28 +70,9 @@
     margin-bottom: -100px;
   }
 
-  .community__cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .community-card {
-    padding: 20px 30px;
-    position: relative;
-    background-color: $white;
-    width: calc(33% - 40px);
-    margin: 20px;
-
+  .community__card {
     a {
       @include underline($lightblue, $darkblue);
-    }
-
-    .community-card__image {
-      max-width: 100px;
-      max-height: 100px;
-      background-color: $lightgrey;
-      border-radius: 50%;
     }
 
     .community-card__title {

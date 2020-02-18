@@ -21,6 +21,11 @@
     .part__title {
       font-size: 1.4rem;
       background-color: $clearblue;
+      color: $darkblue;
+      font-weight: $bold;
+      display: inline-block;
+      text-transform: uppercase;
+      padding: 5px 20px;
     }
 
     .schema__group {

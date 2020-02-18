@@ -19,7 +19,7 @@ const SchemaItem = ({ icon, link, text, title }) => (
 
 const SchemaPart = ({ title, items }) => (
   <div className="schema__part">
-    <h3 className="h4-like part__title">{title}</h3>
+    <h3 className="part__title">{title}</h3>
     <div className="schema__group">
       {items.map(item => (
         <SchemaItem key={item.title} {...item} />

@@ -1,0 +1,32 @@
+.grid__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid__item {
+  display: flex;
+  padding: 15px;
+  width: calc(100% / 3);
+
+  @include mq($max-width: $vw-large) {
+    padding: 15px;
+    width: 50%;
+    min-width: 350px;
+    max-width: 400px;
+  }
+
+  @include mq($max-width: $vw-medium) {
+    padding: 10px;
+    width: 100%;
+    min-width: auto;
+  }
+
+  &.p-10 {
+    padding: 10px;
+  }
+
+  &.full {
+    width: 100%;
+  }
+}

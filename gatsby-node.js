@@ -1,11 +1,31 @@
 const path = require('path');
 const URL = require('url');
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
+
+const parseLinkHeader = (header) => {
+  if (header.length === 0) {
+    throw new Error("input must not be of zero length");
+  }
+
+  // Split parts by comma and parse each part into a named link
+  return header.split(/(?!\B"[^"]*),(?![^"]*"\B)/).reduce((links, part) => {
+    const section = part.split(/(?!\B"[^"]*);(?![^"]*"\B)/);
+    if (section.length < 2) {
+      throw new Error("section could not be split on ';'");
+    }
+    const url = section[0].replace(/<(.*)>/, "$1").trim();
+    const name = section[1].replace(/rel="(.*)"/, "$1").trim();
+
+    links[name] = url;
+
+    return links;
+  }, {});
+}
 
 const navs = {};
 versions.push(current);
@@ -13,77 +33,112 @@ versions.forEach(version => {
   const prefixedVersion = `${versionHelper.getPrefixedVersion(version)}/`;
   navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
 });
+const delay = time => new Promise(res => setTimeout(() => res(), time));
 
-const githubToken = "a0e3090509b8f47b54d32b5743a4f64192daf28e";
-const REPOSITORIES_TO_IGNORE = ['.github'];
+const fetchFromGithubApi = async url => {
+  const response = await fetch(url, {
+    headers: {
+      authorization: `token ${process.env.GATSBY_GITHUB_KEY}`
+    }
+  });
+
+  // if rate limit excedeed : wait for reset time
+  if (response.headers.get('x-ratelimit-remaining') === '0') {
+    const rateLimitResetTime = response.headers.get("x-ratelimit-reset") * 1000;
+    const timeToWait = rateLimitResetTime - new Date().getTime();
+    if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
+      throw new Error("rate limit reset time to long");
+    }
+    await delay(timeToWait);
+    return fetchFromGithubApi(url);
+  }
+
+  return response;
+}
 
 const sortByContributions = (a, b) => {
-  if (a.contributions < b.contributions)
-     return 1;
-  if (a.contributions > b.contributions)
-     return -1;
+  if (a.contributions < b.contributions) return 1;
+  if (a.contributions > b.contributions) return -1;
   return 0;
-}
+};
 
 const getRepositoryList = async organizationName => {
-  const repos = await fetch(`https://api.github.com/orgs/${organizationName}/repos`, {
-    headers: {
-      authorization: `token ${githubToken}`
-    }
-  });
+  const repos = await fetchFromGithubApi(
+    `https://api.github.com/orgs/${organizationName}/repos`);
   const data = await repos.json();
-  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));;
-}
+  return data;
+};
 
 const getListOfContributorsFromRepository = async repository => {
-  const contributors = await fetch(`${repository.url}/contributors`, {
-    headers: {
-      authorization: `token ${githubToken}`
-    }
-  });
-
-  const data = await contributors.json();
-  return data;
-}
+  let pageToFetch = `${repository.url}/contributors?page=1&per_page=100`;
+  let contributors = [];
+  while (pageToFetch) {
+    const response = await fetchFromGithubApi(pageToFetch);
+    const data = await response.json();
+    contributors = [...contributors, ...data];
+    pageToFetch = response.headers.get("Link") && parseLinkHeader(response.headers.get("Link")).next;
+  }
+  //const contributors = await getContributorsPage(repository, page);
+  return contributors.filter(c => c.type !== "Bot");
+};
 
 const createContributor = (repository, contributor) => {
   return {
     id: contributor.id,
+    url: contributor.url,
     login: contributor.login,
     avatar: contributor.avatar_url,
     profile_url: contributor.html_url,
-    projects: [{ name: repository.name, link: repository.url }],
-    contributions: contributor.contributions
+    projects: [{ name: repository.name, link: repository.url, contributions: contributor.contributions }],
+    contributions: contributor.contributions,
   };
-}
+};
 
 const getAllContributorsFromOrganization = async organizationName => {
-    const repos = await getRepositoryList(organizationName);
-    const allContributors = [];
-    await Promise.all(repos.map(async repo => {
+  const repos = await getRepositoryList(organizationName);
+  const allContributors = [];
+  await Promise.all(
+    repos.map(async repo => {
       const contributors = await getListOfContributorsFromRepository(repo);
       for (let contributor of contributors) {
-        if (contributor.login.indexOf('[bot]') !== -1) continue;
-        const personFromList = allContributors.find(c => c.id === contributor.id);
+        const personFromList = allContributors.find(c => c.login === contributor.login);
         if (personFromList) {
           personFromList.contributions += contributor.contributions;
           personFromList.projects.push({
             name: repo.name,
-            link: repo.url
+            link: repo.url,
+            contributions: contributor.contributions
           });
-        }
-        else allContributors.push(createContributor(repo, contributor));
+          personFromList.projects.sort(sortByContributions);
+          // personFromList.projects.sort(sortByContributions);
+        } else allContributors.push(createContributor(repo, contributor));
       }
-    }));
-    return allContributors.sort(sortByContributions);
-}
+    })
+  );
+  return allContributors
+    .sort(sortByContributions)
+    .map((contributor, i) => ({ ...contributor, position: i + 1 }));
+};
 
 const NODE_TYPE = `Contributor`;
 
 exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
   const { createNode } = actions;
-  const data = await getAllContributorsFromOrganization('api-platform');
-  data.forEach(item => {
+  const contributors = await getAllContributorsFromOrganization('api-platform');
+  const fullContributors = await Promise.all(contributors.map(async contributor => {
+    const userResponse = await fetchFromGithubApi(contributor.url);
+    await delay(1000);
+    const user = await userResponse.json();
+    return {
+      ...contributor,
+      name: user.name,
+      blog: user.blog,
+      location: user.location,
+      bio: user.bio,
+      company: user.company
+    }
+  }));
+  fullContributors.forEach(item => {
     const nodeMetadata = {
       id: createNodeId(`contributor-${item.id}`),
       parent: null,
@@ -91,9 +146,9 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       internal: {
         type: NODE_TYPE,
         content: JSON.stringify(item),
-        contentDigest: createContentDigest(item),
-      },
-    }
+        contentDigest: createContentDigest(item)
+      }
+    };
 
     const node = Object.assign({}, item, nodeMetadata);
     createNode(node);
@@ -146,30 +201,29 @@ exports.createPages = ({ graphql, actions }) => {
       nav.chapters
         .filter(chapter => chapter.path === section)
         .forEach(chapter => {
-          chapter.items
-            .forEach((item, indexItem) => {
-              if (item.id !== article) {
-                return;
-              }
+          chapter.items.forEach((item, indexItem) => {
+            if (item.id !== article) {
+              return;
+            }
 
-              if ((chapter.items.length - 1) !== indexItem) {
-                next.slug = versionHelper.generateSlugNextChapter(
-                  prefixedVersionSlug,
-                  section,
-                  chapter.items[indexItem + 1].id
-                );
-                next.title = chapter.items[indexItem + 1].title;
-              }
+            if (chapter.items.length - 1 !== indexItem) {
+              next.slug = versionHelper.generateSlugNextChapter(
+                prefixedVersionSlug,
+                section,
+                chapter.items[indexItem + 1].id
+              );
+              next.title = chapter.items[indexItem + 1].title;
+            }
 
-              if (0 !== indexItem) {
-                previous.slug = versionHelper.generateSlugPreviousChapter(
-                  prefixedVersionSlug,
-                  section,
-                  chapter.items[indexItem - 1].id
-                );
-                previous.title = chapter.items[indexItem - 1].title;
-              }
-            });
+            if (0 !== indexItem) {
+              previous.slug = versionHelper.generateSlugPreviousChapter(
+                prefixedVersionSlug,
+                section,
+                chapter.items[indexItem - 1].id
+              );
+              previous.title = chapter.items[indexItem - 1].title;
+            }
+          });
         });
 
       createPage({
@@ -181,11 +235,7 @@ exports.createPages = ({ graphql, actions }) => {
           prefixedVersion,
           previous,
           title: edge.node.headings[0].value,
-          urlEditDocumentation: versionHelper.generateSlugEditDocumentation(
-            originalVersion,
-            section,
-            article
-          ),
+          urlEditDocumentation: versionHelper.generateSlugEditDocumentation(originalVersion, section, article),
           version: prefixedVersionSlug,
         },
         path: slug,
