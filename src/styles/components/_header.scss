@@ -57,7 +57,7 @@
   .header__social {
     border-left: 1px solid $grey;
 
-    i {
+    span[class^='icon-'], span[class*=' icon-'] {
       padding: 0 10px;
       color: $lightblue;
       font-size: 2.4em;
@@ -99,7 +99,7 @@
         text-transform: uppercase;
       }
 
-      i {
+      span[class^='icon-'], span[class*=' icon-'] {
         margin-left: 10px;
         color: $lightblue;
       }
@@ -177,7 +177,7 @@
       top: calc(100% - 4px);
 
       & > .menu-item__link {
-        & > i {
+        & > span[class^='icon-'], span[class*=' icon-'] {
           transform: rotate(-180deg);
         }
       }

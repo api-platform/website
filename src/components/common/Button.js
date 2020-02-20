@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 const ButtonContent = ({ icon, text }) => (
   <div className="button__content">
-    {icon && <i className={`icon-${icon}`} />}
+    {icon && <span className={`icon-${icon}`} />}
     {text && <span>{text}</span>}
   </div>
 );

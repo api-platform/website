@@ -112,7 +112,7 @@
           }
         }
 
-        i {
+        span[class^='icon-'], span[class*=' icon-'] {
           display: none;
         }
       }
@@ -128,7 +128,7 @@
       }
     }
 
-    &.menu-item__social i {
+    &.menu-item__social span[class^='icon-'], span[class*=' icon-'] {
       padding: 0 10px;
       color: $lightblue;
       font-size: 2em;

@@ -4,9 +4,10 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { MeetupEventType, ContributorType } from '../types';
 import EventCard from '../components/community/EventCard';
-import BigContributor from "../components/community/BigContributor";
+import BigContributor from '../components/community/BigContributor';
 import Layout from '../components/Layout';
 import Button from '../components/common/Button';
+import { Grid, GridItem } from "../components/common/Grid";
 import CommunityCommercial from '../images/community_commercial.svg';
 import Community1 from '../images/community-01.svg';
 import Community2 from '../images/community-02.svg';
@@ -83,8 +84,8 @@ const CommunityPage = ({ location, data }) => {
           </div>
         </header>
         <section className="container community__main">
-          <div className="grid__container">
-            <div className="grid__item">
+          <Grid>
+            <GridItem>
               <CommunityCard title="Community support" image={CommunitySupport}>
                 <p>
                   Ask questions about API Platform on{" "}
@@ -110,8 +111,8 @@ const CommunityPage = ({ location, data }) => {
                   .
                 </p>
               </CommunityCard>
-            </div>
-            <div className="grid__item">
+            </GridItem>
+            <GridItem>
               <CommunityCard
                 title="Commercial support"
                 image={CommunityCommercial}
@@ -139,8 +140,8 @@ const CommunityPage = ({ location, data }) => {
                   for more information.
                 </p>
               </CommunityCard>
-            </div>
-            <div className="grid__item">
+            </GridItem>
+            <GridItem>
               <CommunityCard
                 image={CommunityWrench}
                 title="Contribute to the framework"
@@ -163,8 +164,8 @@ const CommunityPage = ({ location, data }) => {
                   <strong>creating a Pull Request</strong>.
                 </p>
               </CommunityCard>
-            </div>
-            <div className="grid__item">
+            </GridItem>
+            <GridItem>
               <CommunityCard
                 image={CommunitySettings}
                 title="Help your local community"
@@ -194,8 +195,8 @@ const CommunityPage = ({ location, data }) => {
                   (discover the upcoming conferences).
                 </p>
               </CommunityCard>
-            </div>
-            <div className="grid__item">
+            </GridItem>
+            <GridItem>
               <CommunityCard image={CommunitySecurity} title="Security issues">
                 <p>
                   If you think you have found a security issue,{" "}
@@ -215,8 +216,8 @@ const CommunityPage = ({ location, data }) => {
                   having released a new version including a fix.
                 </p>
               </CommunityCard>
-            </div>
-            <div className="grid__item">
+            </GridItem>
+            <GridItem>
               <CommunityCard image={CommunityTraining} title="Training">
                 <p>
                   You can be trained by <strong>API Platform core team</strong>{" "}
@@ -235,8 +236,8 @@ const CommunityPage = ({ location, data }) => {
                   for more informations.
                 </p>
               </CommunityCard>
-            </div>
-          </div>
+            </GridItem>
+          </Grid>
         </section>
         <section className="community__contributors">
           <div className="container">
@@ -245,13 +246,13 @@ const CommunityPage = ({ location, data }) => {
               Many volunteers contribute back to API Platform. Here are some of
               them picked randomly:
             </p>
-            <div className="grid__container">
+            <Grid>
               {contributors.map(contributor => (
-                <div className="grid__item">
+                <GridItem>
                   <BigContributor contributor={contributor} size="medium" />
-                </div>
+                </GridItem>
               ))}
-            </div>
+            </Grid>
             <Button
               text="See all contributors"
               icon="chevron-right"
@@ -264,13 +265,13 @@ const CommunityPage = ({ location, data }) => {
           <section className="community__events">
             <div className="container">
               <h2 className="community-events__title">Upcoming events</h2>
-              <div className="grid__container">
+              <Grid>
                 {events.map(event => (
-                  <div className="grid__item p-10">
+                  <GridItem padding={10}>
                     <EventCard event={event} />
-                  </div>
+                  </GridItem>
                 ))}
-              </div>
+              </Grid>
             </div>
           </section>
         )}
@@ -313,9 +314,8 @@ export const query = graphql`
         visibility
       }
     }
-    allContributor {
+    allContributor(limit:100) {
       nodes {
-        id
         login
         avatar
         contributions

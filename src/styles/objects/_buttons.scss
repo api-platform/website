@@ -31,7 +31,7 @@
     vertical-align: middle;
   }
 
-  i {
+  span[class^='icon-'], span[class*=' icon-'] {
     padding-right: 10px;
     font-size: 2.4rem;
   }
@@ -41,7 +41,7 @@
   }
 
   &:hover {
-    i {
+    span[class^='icon-'], span[class*=' icon-'] {
       animation: toTopFromBottom .4s forwards;
     }
   }

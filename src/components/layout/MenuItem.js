@@ -47,7 +47,7 @@ const MenuItem = ({ text, path, submenu }) => (
         >
           <MenuItemLink text={text} path={path}>
             <span>{text}</span>
-            {submenu && <i className="icon-chevron-circle-down" />}
+            {submenu && <span className="icon-chevron-circle-down" />}
           </MenuItemLink>
           {submenu && (
             <div className="menu-item__submenu">

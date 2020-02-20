@@ -19,11 +19,11 @@ const EventCard = ({ event }) => {
         <h3 className="card__title card__autosize">{event.name}</h3>
         <div className="card-event__infos">
           <p>
-            <i className="icon-location" />
+            <span className="icon-location" />
             <span>{event.venue.city}</span>
           </p>
           <p>
-            <i className="icon-clock" />
+            <span className="icon-clock" />
             <span>{event.local_time}</span>
           </p>
         </div>

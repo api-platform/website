@@ -6,9 +6,10 @@ import scaffoldingImage from '../../images/scaffolding_component.svg';
 import apiImage from '../../images/api_component.svg';
 import schemaImage from '../../images/schema_component.svg';
 import Button from '../../components/common/Button';
+import { Grid, GridItem } from '../../components/common/Grid';
 
 const EcosystemCard = ({ big, image, link, text, title }) => (
-  <div className={classnames('grid__item', { full: big })}>
+  <GridItem full={big}>
     <div className={classnames('card ecosystem__card', { big })}>
       <div className="avatar blue">
         <img src={image} alt={title} width="646" height="646" />
@@ -21,7 +22,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
         <Button text="Read more" className="btn ecosystem__button small" link={link} />
       </div>
     </div>
-  </div>
+  </GridItem>
 );
 
 EcosystemCard.propTypes = {
@@ -43,7 +44,7 @@ const Ecosystem = () => (
         The API Platform <strong>Framework</strong>
       </h2>
       <p className="h4-like">API Platform is a set of tools to build and consume web APIs</p>
-      <div className="ecosystem__content grid__container">
+      <Grid className="ecosystem__content">
         <EcosystemCard
           big
           image={apiImage}
@@ -69,7 +70,7 @@ const Ecosystem = () => (
           text="Scaffolds a Progressive Web App (React or Vue.js) or a native mobile app (React Native), and edit it to fit your needs."
           title="Client Gen Component"
         />
-      </div>
+      </Grid>
     </div>
   </section>
 );

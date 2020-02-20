@@ -18,7 +18,7 @@
         line-height: 1.2;
         margin-right: 10px;
       }
-      i {
+      span[class^='icon-'], span[class*=' icon-'] {
         margin-right: 3px;
         color: $darkblue;
       }

@@ -61,7 +61,7 @@
         font-size: 1.4rem;
       }
 
-      i {
+      span[class^='icon-'], span[class*=' icon-'] {
         display: inline-block;
         vertical-align: middle;
         font-size: 2rem;
@@ -368,7 +368,7 @@
       content: "Previous chapter : ";
     }
 
-    &:hover i {
+    &:hover span[class^='icon-'], span[class*=' icon-'] {
       transform: translateX(-5px);
     }
   }
@@ -380,7 +380,7 @@
       content: "Next chapter : ";
     }
 
-    &:hover i {
+    &:hover span[class^='icon-'], span[class*=' icon-'] {
       transform: translateX(5px);
     }
   }

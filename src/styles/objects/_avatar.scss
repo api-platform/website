@@ -1,0 +1,39 @@
+.avatar {
+    border-radius: 50%;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      text-align: center;
+    }
+    &.medium {
+      width: 200px;
+      height: 200px;
+    }
+    &.small {
+      width: 100px;
+      height: 100px;
+    }
+    &.xsmall {
+      width: 60px;
+      height: 60px;
+    }
+    &.blue {
+      background-color: $clearblue;
+    }
+    &.grey {
+      background-color: $lightgrey;
+    }
+    &.crop {
+      overflow: hidden;
+      img {
+        border-radius: 50%;
+      }
+    }
+    &.bordered {
+      padding: 5px;
+    }
+  }

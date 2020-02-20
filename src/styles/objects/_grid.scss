@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  &.left {
+    justify-content: flex-start;
+  }
 }
 
 .grid__item {
@@ -30,5 +33,16 @@
 
   &.p-10 {
     padding: 10px;
+  }
+
+  &.p-5 {
+    padding: 5px;
+  }
+
+  &.no-min {
+    min-width: auto;
+  }
+  &.auto {
+    width: auto;
   }
 }

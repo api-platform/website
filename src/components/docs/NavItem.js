@@ -20,7 +20,7 @@ const NavItem = ({ item, location, current, onClick, version }) => {
       trigger={
         <div className="item__title" role="presentation" onClick={() => onClick(versionedPath)}>
           <h2 key={versionedPath}>{title}</h2>
-          <i className={`icon-chevron-${open ? 'top' : 'down'}`} />
+          <span className={`icon-chevron-${open ? 'top' : 'down'}`} />
         </div>
       }
     >

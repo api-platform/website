@@ -1,10 +1,11 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
-import { ContributorType } from "../../types";
-import BigContributor from "../../components/community/BigContributor";
-import Layout from "../../components/Layout";
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { ContributorType } from '../../types';
+import BigContributor from '../../components/community/BigContributor';
+import Layout from '../../components/Layout';
+import { Grid, GridItem } from '../../components/common/Grid';
 
 const ContributorsPage = ({ location, data }) => {
   const contributors = [...data.allContributor.nodes];
@@ -27,24 +28,24 @@ const ContributorsPage = ({ location, data }) => {
         <section className="contributors__top">
           <div className="container">
             <h2 className="contributors-top__title">Top ten</h2>
-            <div className="grid__container">
-              <div className="grid__item full p-10">
+            <Grid>
+              <GridItem full padding={10}>
                 <BigContributor contributor={firstContributor} size="big" />
-              </div>
+              </GridItem>
               {topContributors.map(contributor => (
-                <div className="grid__item p-10">
+                <GridItem padding={10}>
                   <BigContributor contributor={contributor} />
-                </div>
+                </GridItem>
               ))}
-            </div>
+            </Grid>
           </div>
         </section>
         <section className="contributors__all">
           <div className="container">
             <h2 className="contributors-all__title">All contributors</h2>
-            <div className="grid__container">
+            <Grid>
               {contributors.map(contributor => (
-                <div className="grid__item p-10">
+                <GridItem padding={10}>
                   <Link
                     to={`/community/contributors/${contributor.login}`}
                     className="contributor__card card horizontal small p-10"
@@ -57,7 +58,7 @@ const ContributorsPage = ({ location, data }) => {
                       />
                     </div>
                     <div className="card__content">
-                      <h3 className="card__title">{`${contributor.position}. ${contributor.login}`}</h3>
+                      <h3 className="card__title">{`#${contributor.position} | ${contributor.login}`}</h3>
                       <p className="contributor__contributions">{`${
                         contributor.contributions
                       } ${
@@ -67,9 +68,9 @@ const ContributorsPage = ({ location, data }) => {
                       }`}</p>
                     </div>
                   </Link>
-                </div>
+                </GridItem>
               ))}
-            </div>
+            </Grid>
           </div>
         </section>
       </div>
@@ -81,11 +82,11 @@ ContributorsPage.propTypes = {
   data: PropTypes.shape({
     allContributor: PropTypes.shape({
       nodes: PropTypes.arrayOf({
-        ContributorType
-      })
-    })
+        ContributorType,
+      }),
+    }),
   }).isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export const query = graphql`

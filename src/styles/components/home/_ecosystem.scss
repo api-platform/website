@@ -22,21 +22,19 @@
 
     .ecosystem__card {
       &.big {
+        flex-direction: row;
         width: 90%;
         margin-left: auto;
         margin-right: auto;
 
-        .card__title {
-          margin-top: 0;
+        .card__content {
+          align-items: flex-start;
+          text-align: left;
+          padding-left: 20px;
         }
 
-        .ecosystem__button {
-          text-align: left;
-
-          .button__content {
-            font-size: 1.8rem;
-            padding: 12px;
-          }
+        .card__title {
+          margin-top: 0;
         }
       }
     }

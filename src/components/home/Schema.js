@@ -8,7 +8,7 @@ import spider from '../../images/spider_schema.svg';
 const SchemaItem = ({ icon, link, text, title }) => (
   <Link to={link} className="schema__item">
     <div className="schema__card">
-      <i className={`schema__icon icon-line-${icon}`} />
+      <span className={`schema__icon icon-line-${icon}`} />
       <div className="schema__content">
         <h4 className="h3-like card__title">{title}</h4>
         <p>{text}</p>

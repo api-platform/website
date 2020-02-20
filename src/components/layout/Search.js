@@ -39,7 +39,7 @@ class Search extends React.Component {
 
     return (
       <div className={classNames('search', className)}>
-        <i className="icon-search search__icon" />
+        <span className="icon-search search__icon" />
         <form>
           <input
             ref={input => {
