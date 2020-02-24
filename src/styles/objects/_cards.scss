@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
   background-color: $white;
   vertical-align: top;
   padding: 20px;
@@ -9,12 +9,18 @@
   align-items: center;
   position: relative;
 
-  &.clickable {
-    cursor: pointer;
-    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
-    &:hover {
-      @include z-depth-3;
-      transform: translateY(-4px);
+  @include mq($min-width: $vw-medium + 1) {
+    &.clickable {
+      cursor: pointer;
+      transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+      &:hover {
+        box-shadow: rgba(45, 45, 45, 0.06) 0px 2px 2px,
+          rgba(49, 49, 49, 0.06) 0px 4px 4px, rgba(42, 42, 42, 0.06) 0px 8px 8px,
+          rgba(32, 32, 32, 0.06) 0px 16px 16px,
+          rgba(49, 49, 49, 0.06) 0px 32px 32px,
+          rgba(35, 35, 35, 0.06) 0px 64px 64px;
+        transform: translateY(-4px);
+      }
     }
   }
 
@@ -56,7 +62,7 @@
 
   .card__title {
     @include reset-title;
-    font-size: 2em;
+    font-size: $title-small;
     font-family: $fontTitle;
     font-weight: $bold;
     color: $darkblue;
@@ -70,7 +76,7 @@
   @include mq($min-width: $vw-large + 1) {
     &.big {
       .card__title {
-        font-size: 2.8em;
+        font-size: $title-medium;
       }
       .avatar {
         width: 300px;

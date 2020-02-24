@@ -1,5 +1,4 @@
 .contributor {
-  background-color: $lightgrey;
   min-height: calc(100vh - #{$headerH});
   padding-bottom: 50px;
   .contributor__main {
@@ -8,16 +7,11 @@
     align-items: flex-start;
   }
   .contributor__header {
-    background-color: $clearblue;
-    color: $white;
     padding: 20px 0;
   }
   .header__content {
     padding-left: 430px;
     padding-top: 60px;
-  }
-  .header__title {
-    color: $darkblue;
   }
   .contributor__card {
     @include z-depth-5;
@@ -38,8 +32,6 @@
     }
     .card__top {
       padding: 20px;
-      color: $white;
-      background-color: $darkblue;
       display: flex;
       flex-direction: column;
       text-align: center;
@@ -48,12 +40,8 @@
     .avatar {
       margin-bottom: 10px;
     }
-    .contributor__title {
-      color: $white;
-    }
     .contributor__subtitle {
-      font-size: 2em;
-      color: $clearblue;
+      font-size: $title-small;
       font-family: $fontTitle;
       font-weight: $bold;
     }
@@ -87,11 +75,10 @@
     margin-top: 24px;
   }
   .contributor__info {
-    font-size: 1.6em;
+    font-size: $text-medium;
     line-height: 1;
     padding: 3px;
     margin-bottom: 12px;
-    color: $white;
     display: flex;
     align-items: center;
 
@@ -107,27 +94,24 @@
   }
   .contributor__description {
     margin: 32px 0;
-    p {
-      font-size: 1.8em;
-    }
     a {
       padding: 0 3px;
       @include underline($lightblue, darken($darkblue, 10%));
     }
   }
+  .contributor__projects {
+    @include mq($min-width: $vw-large + 1) {
+      justify-content: flex-start;
+    }
+  }
   .contributor__project {
     min-height: 150px;
     justify-content: center;
-    &:hover {
-      @include z-depth-5;
-    }
     .project__name {
       font-weight: $bold;
-      color: $blackblue;
       text-align: center;
       line-height: 1.2;
       padding: 10px 0;
-      font-size: 1.8em;
       span[class^="icon-"],
       span[class*=" icon-"] {
         margin-right: 5px;
@@ -135,23 +119,14 @@
     }
     .project__contributions {
       text-transform: uppercase;
-      color: $darkblue;
-      font-size: 1.2em;
     }
     .project__lines {
-      color: $darkgrey;
-      font-size: 1.2em;
       span {
         padding: 10px;
         &.no-stat {
           opacity: 0.5;
         }
       }
-    }
-  }
-  @include mq($min-width: $vw-large + 1) {
-    .contributor__projects {
-      justify-content: left;
     }
   }
   @include mq($max-width: $vw-large) {
@@ -177,6 +152,12 @@
     }
     .contributor__main {
       transform: translateY(-100px);
+    }
+    .contributor__projects {
+      .grid__item {
+      width: 200px;
+      min-width: auto;
+      }
     }
   }
   @include mq($min-width: $vw-medium, $max-width: $vw-large) {

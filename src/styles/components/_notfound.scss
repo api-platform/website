@@ -28,13 +28,12 @@
   }
 
   h1 {
-    color: $darkblue;
     font-size: 8rem;
     margin-bottom: .5em;
   }
 
   p {
-    font-size: 2rem;
+    font-size: $title-small;
     line-height: 2.4rem;
   }
   @include mq($max-width: $vw-medium) {

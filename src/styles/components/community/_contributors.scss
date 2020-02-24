@@ -1,23 +1,21 @@
 .community__contributors {
-  background-color: $white;
   padding: 90px 0 50px;
-
-  .contributors__title {
-    color: $blue;
+  .contributors__grid {
+    .grid__item {
+      min-width: auto;
+      width: 300px;
+    }
   }
 }
 
 .contributors {
   text-align: center;
   .contributors__header {
-    background-color: $darkblue;
-    color: $white;
     padding: 20px 0;
   }
 
   .contributors__top {
     padding: 40px 0;
-    background-color: $white;
   }
 
   .contributors__all {
@@ -32,19 +30,61 @@
   .contributors__main {
     padding: 20px 0 50px;
   }
+  @include mq($max-width: $vw-large) {
+    .top__grid {
+      .grid__item {
+        min-width: auto;
+        width: 300px;
+      }
+    }
+  }
 }
 
 .contributor__top {
   .card__title {
     margin-top: 10px;
-    color: $blackblue;
     border-bottom: 4px dotted $blue;
     padding-bottom: 10px;
   }
 
+  .avatar {
+    position: relative;
+    img {
+      transition: all ease-out 0.6s;
+    }
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      width: 100%;
+    }
+    circle {
+      fill: none;
+      stroke: $lightblue;
+      stroke-width: 20;
+      stroke-dasharray: 1570.80;
+      stroke-dashoffset: 1570.80;
+      stroke-linecap: round;
+      transition: all ease-out 0.6s;
+      opacity: 0;
+    }
+  }
+  &:hover {
+    transform: translateY(-4px);
+    .avatar {
+      img {
+        transform: scale(1.1)
+      }
+    }
+    circle {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
   .contributor__statistic {
     padding: 10px 0;
-    color: $blue;
   }
 
   .statistic__value {
@@ -76,23 +116,18 @@
     justify-content: center;
   }
   .card__title {
-    color: $blackblue;
     margin-bottom: 5px;
   }
   .contributor__contributions {
     text-transform: uppercase;
     font-weight: $bold;
-    color: $darkblue;
-    font-size: 1.2em;
   }
   .contributor__lines {
-      color: $darkgrey;
-      font-size: 1.2em;
-      span {
-        padding-right: 10px;
-        &.no-stat {
-          opacity: 0.5;
-        }
+    span {
+      padding-right: 10px;
+      &.no-stat {
+        opacity: 0.5;
       }
     }
+  }
 }

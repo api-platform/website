@@ -34,3 +34,27 @@ $vw-mobile-menu: $vw-large;
 $bold: 700;
 $normal: 400;
 $light: 300;
+
+$text-extrasmall: 1.2rem;
+$text-small: 1.4rem;
+$text-medium: 1.6rem;
+$text-big: 1.8rem;
+$text-xl: 2rem;
+
+$textSizes: (
+  xs: $text-extrasmall,
+  small: $text-small,
+  medium: $text-medium,
+  big: $text-big,
+  xl: $text-xl
+);
+
+$title-small: 2rem;
+$title-medium: 2.8rem;
+$title-big: 3.6rem;
+
+$titleSizes: (
+  small: $title-small,
+  medium: $title-medium,
+  big: $title-big,
+)

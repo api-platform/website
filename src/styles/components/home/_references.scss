@@ -1,7 +1,7 @@
 @mixin grayscale-effect($initialOpacity:0.8) {
   filter: grayscale(100%);
     opacity: $initialOpacity;
-    transition: all ease .2s;
+    transition: all ease-out .3s;
   &:hover {
       filter: grayscale(0%);
       opacity: 1;
@@ -55,8 +55,6 @@
       cursor: pointer;
       margin: 15px;
       background-color: rgba($clearblue,0.5);
-      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-      padding: 30px 10px;
       width: 160px;
       .item__image {
         width: 130px;

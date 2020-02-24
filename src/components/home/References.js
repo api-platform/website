@@ -8,7 +8,7 @@ const openSourceList = openSourceData.map(({ name, logo, link }) => (
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="references__item big"
+      className="references__item big card clickable"
     >
       <div className="item__image">
         <img src={`/references/${logo}.png`} alt={name} />

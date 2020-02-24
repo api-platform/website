@@ -88,15 +88,13 @@ const getStaticRepositoryList = async () => {
 };
 
 const getRepoContributorsStats = async repository => {
-  const response = await fetchFromGithubApi(
-    `${repository.url}/stats/contributors`
-  );
+  const response = await fetchFromGithubApi(`${repository.url}/stats/contributors`);
   const stats = await response.json();
   return stats.map(stat => ({
     id: stat.author.id,
     additions: stat.weeks.reduce((acc, week) => acc + week.a, 0),
     deletions: stat.weeks.reduce((acc, week) => acc + week.d, 0),
-    contributions: stat.total
+    contributions: stat.total,
   }));
 };
 
@@ -126,11 +124,11 @@ const createContributor = (repository, contributor, stat) => {
         link: repository.html_url,
         contributions: contributor.contributions,
         additions: stat ? stat.additions : 0,
-        deletions: stat ? stat.deletions : 0
-      }
+        deletions: stat ? stat.deletions : 0,
+      },
     ],
     contributions: contributor.contributions,
-    lines: stat ? stat.additions + stat.deletions : 0
+    lines: stat ? stat.additions + stat.deletions : 0,
   };
 };
 
@@ -157,7 +155,7 @@ const getAllContributorsFromOrganization = async organizationName => {
             link: repo.html_url,
             contributions: contributor.contributions,
             additions: stat ? stat.additions : 0,
-            deletions: stat ? stat.deletions : 0
+            deletions: stat ? stat.deletions : 0,
           });
           personFromList.projects.sort(sortByContributions);
         } else allContributors.push(createContributor(repo, contributor, stat));
@@ -171,16 +169,16 @@ const getAllContributorsFromOrganization = async organizationName => {
 const fetchFromMeetupApi = async url => {
   const response = await fetch(url, {
     headers: {
-      authorization: `token ${process.env.MEETUP_KEY}`
-    }
+      authorization: `token ${process.env.MEETUP_KEY}`,
+    },
   });
 
   // if rate limit excedeed : wait for reset time
-  if (response.headers.get("x-ratelimit-remaining") === "0") {
-    const rateLimitResetTime = response.headers.get("x-ratelimit-reset") * 1000;
+  if (response.headers.get('x-ratelimit-remaining') === '0') {
+    const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
-      throw new Error("rate limit reset time to long");
+      throw new Error('rate limit reset time to long');
     }
     await delay(timeToWait);
     return fetchFromMeetupApi(url);
@@ -190,10 +188,12 @@ const fetchFromMeetupApi = async url => {
 };
 
 const getAllMeetupEvents = async () => {
-  const events = await fetchFromMeetupApi('https://api.meetup.com/api-platform/events?desc=true&status=past,upcoming&fields=featured_photo');
+  const events = await fetchFromMeetupApi(
+    'https://api.meetup.com/api-platform/events?desc=true&status=past,upcoming&fields=featured_photo'
+  );
   const data = await events.json();
   return data;
-}
+};
 
 const CONTRIBUTOR_NODE_TYPE = `Contributor`;
 const EVENT_NODE_TYPE = `Event`;
@@ -224,8 +224,8 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       internal: {
         type: CONTRIBUTOR_NODE_TYPE,
         content: JSON.stringify(item),
-        contentDigest: createContentDigest(item)
-      }
+        contentDigest: createContentDigest(item),
+      },
     };
 
     const node = Object.assign({}, item, nodeMetadata);
@@ -233,21 +233,21 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
   });
 
   const events = await getAllMeetupEvents();
-    events.forEach(item => {
-      const nodeMetadata = {
-        id: createNodeId(`event-${item.id}`),
-        parent: null,
-        children: [],
-        internal: {
-          type: EVENT_NODE_TYPE,
-          content: JSON.stringify(item),
-          contentDigest: createContentDigest(item)
-        }
-      };
+  events.forEach(item => {
+    const nodeMetadata = {
+      id: createNodeId(`event-${item.id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: EVENT_NODE_TYPE,
+        content: JSON.stringify(item),
+        contentDigest: createContentDigest(item),
+      },
+    };
 
-      const node = Object.assign({}, item, nodeMetadata);
-      createNode(node);
-    });
+    const node = Object.assign({}, item, nodeMetadata);
+    createNode(node);
+  });
   return;
 };
 

@@ -72,52 +72,37 @@ const Template = ({ location, pageContext: contributor }) => {
 
   return (
     <Layout location={location}>
-      <div className="contributor">
+      <div className="contributor bg-grey-light">
         <Helmet title={`${contributor.name}, API Platform contributor`} />
-        <header className="contributor__header">
+        <header className="contributor__header bg-blue-extralight">
           <div className="container">
             <div className="header__content">
-              <h1 className="header__title">{`Contributor #${contributor.position}`}</h1>
+              <h1 className="header__title color-blue-dark">{`Contributor #${contributor.position}`}</h1>
             </div>
           </div>
         </header>
         <section>
           <div className="container contributor__main">
             <div className="contributor__card">
-              <div className="card__top">
+              <div className="card__top bg-blue-dark color-white">
                 <div className="avatar crop">
                   <img src={contributor.avatar} alt={contributor.login} />
                 </div>
                 <div className="card__content">
-                  <h2 className="h1-like contributor__title">
-                    {contributor.name || contributor.login}
-                  </h2>
-                  <p className="contributor__subtitle">{`(${contributor.login})`}</p>
+                  <h2 className="h1-like color-white">{contributor.name || contributor.login}</h2>
+                  <p className="contributor__subtitle color-blue-extralight">{`(${contributor.login})`}</p>
                   {contributor.bio && (
                     <p
                       className="contributor__bio"
                       dangerouslySetInnerHTML={{
-                        __html: parseGithubText(contributor.bio)
+                        __html: parseGithubText(contributor.bio),
                       }}
                     />
                   )}
                   <div className="contributor__infos">
-                    {contributor.location && (
-                      <GithubInfo
-                        icon="location"
-                        value={contributor.location}
-                      />
-                    )}
-                    {contributor.company && (
-                      <GithubInfo icon="office" value={contributor.company} />
-                    )}
-                    {contributor.blog && (
-                      <GithubInfo
-                        icon="sphere"
-                        link={contributor.blog}
-                        value="website"
-                      />
-                    )}
+                    {contributor.location && <GithubInfo icon="location" value={contributor.location} />}
+                    {contributor.company && <GithubInfo icon="office" value={contributor.company} />}
+                    {contributor.blog && <GithubInfo icon="sphere" link={contributor.blog} value="website" />}
                     <GithubInfo icon="github" value={`@${contributor.login}`} />
                   </div>
                 </div>
@@ -125,9 +110,9 @@ const Template = ({ location, pageContext: contributor }) => {
             </div>
             <div className="contributor__content">
               <div className="contributor__description">
-                <p
+                <p className="text-big"
                   dangerouslySetInnerHTML={{
-                    __html: `${getContributionsText()} ${repositoryText}: ${getProjectsText()}.`
+                    __html: `${getContributionsText()} ${repositoryText}: ${getProjectsText()}.`,
                   }}
                 />
               </div>
@@ -136,26 +121,26 @@ const Template = ({ location, pageContext: contributor }) => {
                   <GridItem padding={5}>
                     <a
                       href={`https://github.com/${project.fullName}/commits?author=${contributor.login}`}
-                      className="contributor__project card p-10"
+                      className="contributor__project card p-10 clickable"
                       rel="nofollow noopener noreferrer"
                       target="_blank"
                     >
-                      <p className="project__name">
+                      <p className="project__name color-blue-extradark text-big">
                         <span className="icon-github" />
                         {project.name}
                       </p>
-                      <p className="project__contributions">{`${
-                        project.contributions
-                      } ${
-                        1 < project.contributions
-                          ? "contributions"
-                          : "contribution"
+                      <p className="project__contributions color-blue-dark text-xs">{`${project.contributions} ${
+                        1 < project.contributions ? 'contributions' : 'contribution'
                       }`}</p>
-                      <p className="project__lines">
-                        {project.additions || project.deletions ? <>
-                        <span>{`${project.additions}++`}</span>
-                        <span>{`${project.deletions}--`}</span>
-                        </> : <span className="no-stat">(no stat)</span>}
+                      <p className="project__lines color-grey-dark text-xs">
+                        {project.additions || project.deletions ? (
+                          <>
+                            <span>{`${project.additions}++`}</span>
+                            <span>{`${project.deletions}--`}</span>
+                          </>
+                        ) : (
+                          <span className="no-stat">(no stat)</span>
+                        )}
                       </p>
                     </a>
                   </GridItem>

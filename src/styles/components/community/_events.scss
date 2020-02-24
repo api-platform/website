@@ -1,5 +1,4 @@
 .community__events {
-  background-color: $clearblue;
   padding: 20px 0 50px;
   .community-events__title {
     margin-bottom: 10px;
@@ -17,9 +16,11 @@
     .events-past__title {
       margin-bottom: 10px;
     }
+    .events__grid {
+      @include grid-autosize(20px, 250px);
+    }
   }
   .events__header {
-    background-color: $clearblue;
     padding: 30px 0 70px;
     position: relative;
     overflow: hidden;
@@ -40,7 +41,6 @@
     flex-direction: column;
     flex: 1;
     margin-top: 10px;
-    color: $blackblue;
     justify-content: flex-end;
     p {
       width: 100%;
@@ -50,9 +50,7 @@
       line-height: 1.2;
       margin-right: 10px;
       padding: 5px;
-      font-size: 1.2em;
       font-weight: $bold;
-      color: $darkgrey;
       &:not(:last-child) {
         border-bottom: 1px dotted $grey;
       }
@@ -60,7 +58,6 @@
     span[class^="icon-"],
     span[class*=" icon-"] {
       margin-right: 3px;
-      color: $blue;
     }
     @include mq($max-width: $vw-large) {
       &.big {
@@ -82,6 +79,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 20px;
+    font-weight: $normal;
+    color: $blackblue;
   }
   .card__content {
     text-align: center;
@@ -120,6 +119,10 @@
     .small-event__item {
       width: 250px;
       min-width: auto;
+      .card__title {
+        font-size: $text-medium;
+        margin-bottom: 10px;
+      }
     }
   }
 }

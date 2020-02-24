@@ -3,7 +3,7 @@
     &#{$prefix}#{$name} {
       @each $tone, $hex in $color {
         &#{if($tone != $base, #{$separator}#{$tone}, '')} {
-          #{$attribute}: $hex;
+          #{$attribute}: $hex!important;
         }
       }
     }
@@ -13,6 +13,6 @@
 .bg {
   @include color-modifiers($attribute: 'background-color');
 }
-.text {
+.color {
   @include color-modifiers($attribute: 'color');
 }

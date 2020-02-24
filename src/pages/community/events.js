@@ -1,43 +1,31 @@
-import React from "react";
-import moment from "moment";
-import { graphql } from "gatsby";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
-import { MeetupEventType } from "../../types";
-import Layout from "../../components/Layout";
-import EventCard from "../../components/community/EventCard";
-import { Grid, GridItem } from "../../components/common/Grid";
+import React from 'react';
+import moment from 'moment';
+import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import { MeetupEventType } from '../../types';
+import Layout from '../../components/Layout';
+import EventCard from '../../components/community/EventCard';
+import { Grid, GridItem } from '../../components/common/Grid';
 
 const EventsPage = ({ location, data }) => {
   const events = [...data.allEvent.nodes];
 
   const compareByDate = (a, b) => {
-    if (
-      moment(a.local_date, "YYYY-MM-DD").isBefore(
-        moment(b.local_date, "YYYY-MM-DD")
-      )
-    )
-      return -1;
-    if (
-      moment(a.local_date, "YYYY-MM-DD").isAfter(
-        moment(b.local_date, "YYYY-MM-DD")
-      )
-    )
-      return 1;
+    if (moment(a.local_date, 'YYYY-MM-DD').isBefore(moment(b.local_date, 'YYYY-MM-DD'))) return -1;
+    if (moment(a.local_date, 'YYYY-MM-DD').isAfter(moment(b.local_date, 'YYYY-MM-DD'))) return 1;
     return 0;
   };
 
-  const upcomingEvents = events
-    .filter(event => "upcoming" === event.status)
-    .sort(compareByDate);
+  const upcomingEvents = events.filter(event => 'upcoming' === event.status).sort(compareByDate);
 
-  const pastEvents = events.filter(event => "past" === event.status);
+  const pastEvents = events.filter(event => 'past' === event.status);
 
   return (
     <Layout location={location}>
       <div className="events">
         <Helmet title="Events" />
-        <header className="events__header">
+        <header className="events__header bg-blue-extralight">
           <div className="container">
             <h1 className="page__title">
               Our <strong>events</strong>
@@ -81,11 +69,11 @@ EventsPage.propTypes = {
   data: PropTypes.shape({
     allEvent: PropTypes.shape({
       nodes: PropTypes.arrayOf({
-        MeetupEventType
-      })
-    })
+        MeetupEventType,
+      }),
+    }),
   }).isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export const query = graphql`
