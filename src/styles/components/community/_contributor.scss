@@ -94,6 +94,7 @@
     color: $white;
     display: flex;
     align-items: center;
+
     span[class^="icon-"],
     span[class*=" icon-"] {
       transition: margin ease 0.3s;
@@ -142,6 +143,9 @@
       font-size: 1.2em;
       span {
         padding: 10px;
+        &.no-stat {
+          opacity: 0.5;
+        }
       }
     }
   }

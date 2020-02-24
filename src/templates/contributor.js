@@ -1,42 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import Layout from "../components/Layout";
-import { Grid, GridItem } from "../components/common/Grid";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Layout from '../components/Layout';
+import { Grid, GridItem } from '../components/common/Grid';
 
-const externalLinkAttributes =
-  'target="_blank" rel="nofollow noopener noreferrer"';
+const externalLinkAttributes = 'target="_blank" rel="nofollow noopener noreferrer"';
 
 const parseGithubText = text => {
   const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gi;
 
-  const linkifyText = text.replace(
-    urlRegex,
-    url => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`
-  );
+  const linkifyText = text.replace(urlRegex, url => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`);
   const githubRegex = /(?<=^|\s)@([a-zA-Z-]+)/gi;
 
   return linkifyText.replace(
     githubRegex,
     githubResource =>
-      `<a href="https://github.com/${githubResource.substring(
-        1
-      )}" ${externalLinkAttributes}">${githubResource}</a>`
+      `<a href="https://github.com/${githubResource.substring(1)}" ${externalLinkAttributes}">${githubResource}</a>`
   );
 };
 
 const GithubInfo = ({ value, icon, link }) => {
-  const githubLink =
-    "@" === value.charAt(0) ? `https://github.com/${value.substring(1)}` : null;
+  const githubLink = '@' === value.charAt(0) ? `https://github.com/${value.substring(1)}` : null;
 
   if (link || githubLink)
     return (
-      <a
-        rel="nofollow noopener noreferrer"
-        target="_blank"
-        href={link || githubLink}
-        className="contributor__info"
-      >
+      <a rel="nofollow noopener noreferrer" target="_blank" href={link || githubLink} className="contributor__info">
         <span className={`icon-${icon}`} />
         {value}
       </a>
@@ -52,20 +40,17 @@ const GithubInfo = ({ value, icon, link }) => {
 GithubInfo.propTypes = {
   value: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  link: PropTypes.string
+  link: PropTypes.string,
 };
 
 GithubInfo.defaultProps = {
-  link: null
+  link: null,
 };
 
 const Template = ({ location, pageContext: contributor }) => {
   const repositoryCount = contributor.projects.length;
 
-  const repositoryText =
-    1 < repositoryCount
-      ? `${repositoryCount} repositories`
-      : `${repositoryCount} repository`;
+  const repositoryText = 1 < repositoryCount ? `${repositoryCount} repositories` : `${repositoryCount} repository`;
 
   const contributorName = contributor.name || contributor.login;
 
@@ -78,13 +63,11 @@ const Template = ({ location, pageContext: contributor }) => {
   };
 
   const getProjectsText = () => {
-    if (!repositoryCount) return "";
-    const reposName = contributor.projects.map(
-      p => `<a href="${p.link}" ${externalLinkAttributes}>${p.name}</a>`
-    );
+    if (!repositoryCount) return '';
+    const reposName = contributor.projects.map(p => `<a href="${p.link}" ${externalLinkAttributes}>${p.name}</a>`);
     if (1 === reposName.length) return reposName[0];
     const lastRepo = reposName.pop();
-    return `${reposName.join(", ")} and ${lastRepo}`;
+    return `${reposName.join(', ')} and ${lastRepo}`;
   };
 
   return (
@@ -94,9 +77,7 @@ const Template = ({ location, pageContext: contributor }) => {
         <header className="contributor__header">
           <div className="container">
             <div className="header__content">
-              <h1 className="header__title">
-                {`Contributor #${contributor.position}`}
-              </h1>
+              <h1 className="header__title">{`Contributor #${contributor.position}`}</h1>
             </div>
           </div>
         </header>
@@ -152,29 +133,33 @@ const Template = ({ location, pageContext: contributor }) => {
               </div>
               <Grid className="contributor__projects">
                 {contributor.projects.map(project => (
-                    <GridItem padding={5}>
-                      <a
-                        href={`https://github.com/${project.fullName}/commits?author=${contributor.login}`}
-                        className="contributor__project card p-10"
-                      >
-                        <p className="project__name">
-                          <span className="icon-github" />
-                          {project.name}
-                        </p>
-                        <p className="project__contributions">{`${
-                          project.contributions
-                        } ${
-                          1 < project.contributions
-                            ? "contributions"
-                            : "contribution"
-                        }`}</p>
-                        <p className="project__lines">
-                          <span className="project__additions">{`${project.additions}++`}</span>
-                          <span>{`${project.deletions}--`}</span>
-                        </p>
-                      </a>
-                    </GridItem>
-                  ))}
+                  <GridItem padding={5}>
+                    <a
+                      href={`https://github.com/${project.fullName}/commits?author=${contributor.login}`}
+                      className="contributor__project card p-10"
+                      rel="nofollow noopener noreferrer"
+                      target="_blank"
+                    >
+                      <p className="project__name">
+                        <span className="icon-github" />
+                        {project.name}
+                      </p>
+                      <p className="project__contributions">{`${
+                        project.contributions
+                      } ${
+                        1 < project.contributions
+                          ? "contributions"
+                          : "contribution"
+                      }`}</p>
+                      <p className="project__lines">
+                        {project.additions || project.deletions ? <>
+                        <span>{`${project.additions}++`}</span>
+                        <span>{`${project.deletions}--`}</span>
+                        </> : <span className="no-stat">(no stat)</span>}
+                      </p>
+                    </a>
+                  </GridItem>
+                ))}
               </Grid>
             </div>
           </div>
@@ -188,5 +173,5 @@ export default Template;
 
 Template.propTypes = {
   location: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
+  pageContext: PropTypes.object.isRequired,
 };

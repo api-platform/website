@@ -1,23 +1,23 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import { MeetupEventType, ContributorType } from '../types';
-import EventCard from '../components/community/EventCard';
-import BigContributor from '../components/community/BigContributor';
-import Layout from '../components/Layout';
-import Button from '../components/common/Button';
+import React from "react";
+import { graphql } from "gatsby";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import { MeetupEventType, ContributorType } from "../types";
+import EventCard from "../components/community/EventCard";
+import BigContributor from "../components/community/BigContributor";
+import Layout from "../components/Layout";
+import Button from "../components/common/Button";
 import { Grid, GridItem } from "../components/common/Grid";
-import CommunityCommercial from '../images/community_commercial.svg';
-import Community1 from '../images/community-01.svg';
-import Community2 from '../images/community-02.svg';
-import CommunitySupport from '../images/community_support.svg';
-import CommunityWrench from '../images/community_wrench.svg';
-import CommunitySettings from '../images/community_settings.svg';
-import CommunitySecurity from '../images/community_security.svg';
-import CommunityTraining from '../images/community_training.svg';
-import Puzzle1 from '../images/puzzle-01.svg';
-import Puzzle2 from '../images/puzzle-02.svg';
+import CommunityCommercial from "../images/community_commercial.svg";
+import Community1 from "../images/community-01.svg";
+import Community2 from "../images/community-02.svg";
+import CommunitySupport from "../images/community_support.svg";
+import CommunityWrench from "../images/community_wrench.svg";
+import CommunitySettings from "../images/community_settings.svg";
+import CommunitySecurity from "../images/community_security.svg";
+import CommunityTraining from "../images/community_training.svg";
+import Puzzle1 from "../images/puzzle-01.svg";
+import Puzzle2 from "../images/puzzle-02.svg";
 
 const CommunityCard = ({ children, image, title }) => (
   <div className="card community__card">
@@ -32,16 +32,21 @@ const CommunityCard = ({ children, image, title }) => (
 CommunityCard.propTypes = {
   children: PropTypes.any,
   image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 CommunityCard.defaultProps = {
-  children: null,
+  children: null
 };
 
 const CommunityPage = ({ location, data }) => {
-  const { totalCount: totalEvents, nodes: events } = data.allMeetupEvent;
-  const shuffledContributors = [...data.allContributor.nodes].sort(() => 0.5 - Math.random());
+  const { nodes: upcomingEvents } = data.upcomingEvents;
+  const { nodes: pastEvents } = data.pastEvents;
+
+  const events = [...upcomingEvents, ...pastEvents].splice(0, 3);
+  const shuffledContributors = [...data.allContributor.nodes].sort(
+    () => 0.5 - Math.random()
+  );
   const contributors = shuffledContributors.slice(0, 3);
   return (
     <Layout location={location}>
@@ -65,10 +70,10 @@ const CommunityPage = ({ location, data }) => {
               alt="Community spider left"
             />
             <div className="community-header__text">
-              <h1 className="community-header__title">
+              <h1 className="page__title">
                 Api Platform&apos;s <strong>community</strong>
               </h1>
-              <p className="h4-like community-header__subtitle">
+              <p className="page__subtitle h4-like community-header__subtitle">
                 Interested in <strong>contributing to API Platform</strong> and
                 supporting <strong>our community</strong>? Then you&apos;re in
                 the good place!
@@ -254,24 +259,32 @@ const CommunityPage = ({ location, data }) => {
               ))}
             </Grid>
             <Button
+              empty
               text="See all contributors"
               icon="chevron-right"
-              className="btn contributors__button small"
+              className="community__button small"
               link="/community/contributors"
             />
           </div>
         </section>
-        {totalEvents && (
+        {events.length && (
           <section className="community__events">
             <div className="container">
-              <h2 className="community-events__title">Upcoming events</h2>
+              <h2 className="community-events__title">Our events</h2>
               <Grid>
                 {events.map(event => (
-                  <GridItem padding={10}>
-                    <EventCard event={event} />
+                  <GridItem className="small-event__item">
+                    <EventCard event={event} noDesc />
                   </GridItem>
                 ))}
               </Grid>
+              <Button
+                empty
+                text="See all events"
+                icon="chevron-right"
+                className="community__button small"
+                link="/community/events"
+              />
             </div>
           </section>
         )}
@@ -282,39 +295,72 @@ const CommunityPage = ({ location, data }) => {
 
 CommunityPage.propTypes = {
   data: PropTypes.shape({
-    allMeetupEvent: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
+    upcomingEvents: PropTypes.shape({
       nodes: PropTypes.arrayOf({
-        MeetupEventType,
-      }),
+        MeetupEventType
+      })
+    }),
+    pastEvents: PropTypes.shape({
+      nodes: PropTypes.arrayOf({
+        MeetupEventType
+      })
     }),
     allContributor: PropTypes.shape({
       nodes: PropTypes.arrayOf({
-        ContributorType,
-      }),
-    }),
+        ContributorType
+      })
+    })
   }).isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export const query = graphql`
   query {
-    allMeetupEvent {
-      totalCount
+    upcomingEvents: allEvent(
+      limit: 3
+      sort: { fields: local_date, order: ASC }
+      filter: { status: { eq: "upcoming" } }
+    ) {
       nodes {
         name
-        local_date
+        local_date(formatString: "YYYY-MM-DD", locale: "en-EN")
         local_time
         venue {
           name
           city
         }
+        featured_photo {
+          photo_link
+        }
+        status
         description
         link
         visibility
       }
     }
-    allContributor(limit:100) {
+    pastEvents: allEvent(
+      limit: 3
+      sort: { fields: local_date, order: DESC }
+      filter: { status: { eq: "past" } }
+    ) {
+      nodes {
+        name
+        local_date(formatString: "YYYY-MM-DD", locale: "en-EN")
+        local_time
+        venue {
+          name
+          city
+        }
+        featured_photo {
+          photo_link
+        }
+        status
+        description
+        link
+        visibility
+      }
+    }
+    allContributor(limit: 100) {
       nodes {
         login
         avatar

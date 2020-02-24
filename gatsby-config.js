@@ -124,7 +124,7 @@ module.exports = {
         status: 'past,upcoming', // todo: remove "past" before merge
         fields: 'featured_photo',
         visibility: 'public',
-        desc: 'false',
+        desc: 'true',
         page: 3,
       },
     },

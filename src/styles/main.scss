@@ -35,6 +35,7 @@
 @import './vendor/algolia';
 
 // COMPONENTS
+@import './components/page';
 @import './components/header';
 @import './components/footer';
 @import './components/sidemenu';
@@ -44,3 +45,6 @@
 @import './components/docs';
 @import './components/social';
 @import './components/notfound';
+
+// UTILITIES
+@import './utilities/colors';

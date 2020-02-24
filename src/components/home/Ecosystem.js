@@ -11,7 +11,7 @@ import { Grid, GridItem } from '../../components/common/Grid';
 const EcosystemCard = ({ big, image, link, text, title }) => (
   <GridItem full={big}>
     <div className={classnames('card ecosystem__card', { big })}>
-      <div className="avatar blue">
+      <div className="avatar bg-blue-extralight">
         <img src={image} alt={title} width="646" height="646" />
       </div>
       <div className="card__content">
@@ -19,7 +19,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
         <article className="card__autosize">
           <p>{text}</p>
         </article>
-        <Button text="Read more" className="btn ecosystem__button small" link={link} />
+        <Button text="Read more" className="ecosystem__button small" link={link} />
       </div>
     </div>
   </GridItem>

@@ -13,14 +13,14 @@ const ButtonContent = ({ icon, text }) => (
 const Button = ({ className, empty, icon, link, onClick, text }) => {
   if (!link) {
     return (
-      <button type="button" className={classNames(className, { empty })} onClick={onClick}>
+      <button type="button" className={classNames('btn', className, { empty })} onClick={onClick}>
         <ButtonContent icon={icon} text={text} />
       </button>
     );
   }
   if ('/' === link.substring(0, 1)) {
     return (
-      <Link to={link} className={classNames(className, { empty })}>
+      <Link to={link} className={classNames('btn', className, { empty })}>
         <ButtonContent icon={icon} text={text} />
       </Link>
     );

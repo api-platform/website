@@ -63,6 +63,10 @@
       margin-left: auto;
       margin-right: auto;
       width: auto;
+      flex-direction: row;
+      .card__content {
+        margin-left: 10px;
+      }
     }
   }
 }
@@ -81,4 +85,14 @@
     color: $darkblue;
     font-size: 1.2em;
   }
+  .contributor__lines {
+      color: $darkgrey;
+      font-size: 1.2em;
+      span {
+        padding-right: 10px;
+        &.no-stat {
+          opacity: 0.5;
+        }
+      }
+    }
 }

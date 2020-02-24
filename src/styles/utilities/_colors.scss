@@ -1,0 +1,18 @@
+@mixin color-modifiers($attribute: 'color', $prefix: '-', $separator: '-', $base: 'base') {
+  @each $name, $color in $palette {
+    &#{$prefix}#{$name} {
+      @each $tone, $hex in $color {
+        &#{if($tone != $base, #{$separator}#{$tone}, '')} {
+          #{$attribute}: $hex;
+        }
+      }
+    }
+  }
+}
+
+.bg {
+  @include color-modifiers($attribute: 'background-color');
+}
+.text {
+  @include color-modifiers($attribute: 'color');
+}

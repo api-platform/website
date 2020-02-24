@@ -2,30 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-export const Grid = ({left, children, className}) => (
-  <div className={classnames(className, 'grid__container', { left })}>
-    {children}
-  </div>
+export const Grid = ({ left, children, className }) => (
+  <div className={classnames(className, 'grid__container', { left })}>{children}</div>
 );
 
 Grid.propTypes = {
   left: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 Grid.defaultProps = {
   left: false,
-  className: ''
+  className: '',
 };
 
 export const GridItem = ({ className, padding, limitWidth, full, children, autosize }) => (
   <div
-    className={classnames(className, "grid__item", {
+    className={classnames(className, 'grid__item', {
       [`p-${padding}`]: padding,
-      "no-min": !limitWidth,
-      "auto": autosize,
-      full
+      'no-min': !limitWidth,
+      auto: autosize,
+      full,
     })}
   >
     {children}
@@ -38,7 +36,7 @@ GridItem.propTypes = {
   limitWidth: PropTypes.bool,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  autosize: PropTypes.bool
+  autosize: PropTypes.bool,
 };
 
 GridItem.defaultProps = {
@@ -46,5 +44,5 @@ GridItem.defaultProps = {
   limitWidth: true,
   padding: null,
   className: '',
-  autosize: false
-}
+  autosize: false,
+};

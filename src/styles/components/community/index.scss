@@ -1,6 +1,6 @@
-@import './events';
-@import './contributors';
-@import './contributor';
+@import "./events";
+@import "./contributors";
+@import "./contributor";
 
 .community {
   text-align: center;
@@ -52,13 +52,6 @@
     margin: auto;
   }
 
-  .community-header__title {
-    margin: 30px 0 20px;
-    strong {
-      color: $darkblue;
-    }
-  }
-
   .community-header__subtitle {
     color: $blackblue;
     strong {
@@ -78,6 +71,13 @@
 
     .community-card__title {
       margin: 10px auto 20px;
+    }
+  }
+
+  @include mq($min-width: $vw-small + 1) {
+    .community-event__item {
+      width: 300px;
+      min-width: auto;
     }
   }
 
@@ -120,4 +120,3 @@
     }
   }
 }
-

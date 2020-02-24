@@ -9,6 +9,15 @@
   align-items: center;
   position: relative;
 
+  &.clickable {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+    &:hover {
+      @include z-depth-3;
+      transform: translateY(-4px);
+    }
+  }
+
   &.transparent {
     background: none;
     box-shadow: none;
@@ -42,7 +51,7 @@
   .card__content {
     display: flex;
     flex-direction: column;
-    flex: auto;
+    flex: 1;
   }
 
   .card__title {

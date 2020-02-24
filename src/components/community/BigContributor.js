@@ -8,7 +8,7 @@ const BigContributor = ({ contributor, size }) => (
     to={`/community/contributors/${contributor.login}`}
     className={`card contributor__top transparent p-10 ${size}`}
   >
-    <div className="avatar bordered grey crop medium">
+    <div className="avatar bordered bg-grey-light crop medium">
       <img className="contributor__image" loading="lazy" src={contributor.avatar} alt={contributor.login} />
     </div>
     <div className="card__content">

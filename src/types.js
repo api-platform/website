@@ -8,6 +8,10 @@ export const MeetupEventType = PropTypes.shape({
     name: PropTypes.string,
     city: PropTypes.string,
   }),
+  featured_photo: PropTypes.shape({
+    photo_link: PropTypes.string
+  }),
+  status: PropTypes.string
 });
 
 export const ContributorType = PropTypes.shape({

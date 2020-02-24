@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import { ContributorType } from '../../types';
-import BigContributor from '../../components/community/BigContributor';
-import Layout from '../../components/Layout';
-import { Grid, GridItem } from '../../components/common/Grid';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import { ContributorType } from "../../types";
+import BigContributor from "../../components/community/BigContributor";
+import Layout from "../../components/Layout";
+import { Grid, GridItem } from "../../components/common/Grid";
 
 const ContributorsPage = ({ location, data }) => {
   const contributors = [...data.allContributor.nodes];
@@ -19,10 +19,10 @@ const ContributorsPage = ({ location, data }) => {
         <Helmet title="Contributors" />
         <header className="contributors__header">
           <div className="container">
-            <h1>
+            <h1 className="page__title">
               Our <strong>contributors</strong>
             </h1>
-            <p className="h4-like">We love them!</p>
+            <p className="page__subtitle h4-like">{`${data.allContributor.totalCount} people have contributed to API Platform code.`}</p>
           </div>
         </header>
         <section className="contributors__top">
@@ -48,7 +48,7 @@ const ContributorsPage = ({ location, data }) => {
                 <GridItem padding={10}>
                   <Link
                     to={`/community/contributors/${contributor.login}`}
-                    className="contributor__card card horizontal small p-10"
+                    className="contributor__card card clickable horizontal small p-10"
                   >
                     <div className="avatar grey crop xsmall">
                       <img
@@ -66,6 +66,13 @@ const ContributorsPage = ({ location, data }) => {
                           ? "contributions"
                           : "contribution"
                       }`}</p>
+                      <p className="contributor__lines">
+                        {contributor.lines ? (
+                          <span>{`${contributor.lines} lines`}</span>
+                        ) : (
+                          <span className="no-stat">(no stat)</span>
+                        )}
+                      </p>
                     </div>
                   </Link>
                 </GridItem>
@@ -81,17 +88,19 @@ const ContributorsPage = ({ location, data }) => {
 ContributorsPage.propTypes = {
   data: PropTypes.shape({
     allContributor: PropTypes.shape({
+      totalCount: PropTypes.number.isRequired,
       nodes: PropTypes.arrayOf({
-        ContributorType,
-      }),
-    }),
+        ContributorType
+      })
+    })
   }).isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export const query = graphql`
   query {
     allContributor {
+      totalCount
       nodes {
         id
         login
@@ -99,6 +108,7 @@ export const query = graphql`
         profile_url
         contributions
         position
+        lines
       }
     }
   }
