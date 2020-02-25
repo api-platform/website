@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import adminImage from "../../images/admin_component.svg";
-import scaffoldingImage from "../../images/scaffolding_component.svg";
-import apiImage from "../../images/api_component.svg";
-import schemaImage from "../../images/schema_component.svg";
-import Button from "../../components/common/Button";
-import { Grid, GridItem } from "../common/Grid";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import adminImage from '../../images/admin_component.svg';
+import scaffoldingImage from '../../images/scaffolding_component.svg';
+import apiImage from '../../images/api_component.svg';
+import schemaImage from '../../images/schema_component.svg';
+import Button from '../../components/common/Button';
+import { Grid, GridItem } from '../common/Grid';
 
 const EcosystemCard = ({ big, image, link, text, title }) => (
-  <div className={classnames("card ecosystem__card", { big, "full-row": big })}>
+  <div className={classnames('card ecosystem__card', { big, 'full-row': big })}>
     <div className="avatar bg-blue-extralight">
       <img src={image} alt={title} width="646" height="646" />
     </div>
@@ -18,11 +18,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
       <article className="card__autosize">
         <p>{text}</p>
       </article>
-      <Button
-        text="Read more"
-        className="ecosystem__button small"
-        link={link}
-      />
+      <Button text="Read more" className="ecosystem__button small" link={link} />
     </div>
   </div>
 );
@@ -32,11 +28,11 @@ EcosystemCard.propTypes = {
   image: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 EcosystemCard.defaultProps = {
-  big: false
+  big: false,
 };
 
 const Ecosystem = () => (
@@ -45,9 +41,7 @@ const Ecosystem = () => (
       <h2 className="h1-like ecosystem__title">
         The API Platform <strong>Framework</strong>
       </h2>
-      <p className="h4-like">
-        API Platform is a set of tools to build and consume web APIs
-      </p>
+      <p className="h4-like">API Platform is a set of tools to build and consume web APIs</p>
       <Grid>
         <GridItem full>
           <EcosystemCard

@@ -110,7 +110,8 @@ const Template = ({ location, pageContext: contributor }) => {
             </div>
             <div className="contributor__content">
               <div className="contributor__description">
-                <p className="text-big"
+                <p
+                  className="text-big"
                   dangerouslySetInnerHTML={{
                     __html: `${getContributionsText()} ${repositoryText}: ${getProjectsText()}.`,
                   }}

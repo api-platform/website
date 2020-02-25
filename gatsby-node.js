@@ -6,6 +6,8 @@ const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
+const staticEventsData = require("./src/data/events.json");
+const repositories = require("./src/data/repositories.json");
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -78,7 +80,7 @@ const getRepositoryList = async organizationName => {
 
 const getStaticRepositoryList = async () => {
   const repos = await Promise.all(
-    process.env.STATIC_REPOSITORIES.split(',').map(async repoName =>
+    repositories.map(async repoName =>
       fetchFromGithubApi(`https://api.github.com/repos/${repoName}`)
     )
   );
@@ -88,13 +90,16 @@ const getStaticRepositoryList = async () => {
 };
 
 const getRepoContributorsStats = async repository => {
-  const response = await fetchFromGithubApi(`${repository.url}/stats/contributors`);
-  const stats = await response.json();
+  const response = await fetchFromGithubApi(
+    `${repository.url}/stats/contributors`
+  );
+  let stats = await response.json();
+  if (!Array.isArray(stats)) stats = [];
   return stats.map(stat => ({
     id: stat.author.id,
     additions: stat.weeks.reduce((acc, week) => acc + week.a, 0),
     deletions: stat.weeks.reduce((acc, week) => acc + week.d, 0),
-    contributions: stat.total,
+    contributions: stat.total
   }));
 };
 
@@ -167,11 +172,7 @@ const getAllContributorsFromOrganization = async organizationName => {
 
 /** EVENTS **/
 const fetchFromMeetupApi = async url => {
-  const response = await fetch(url, {
-    headers: {
-      authorization: `token ${process.env.MEETUP_KEY}`,
-    },
-  });
+  const response = await fetch(url);
 
   // if rate limit excedeed : wait for reset time
   if (response.headers.get('x-ratelimit-remaining') === '0') {
@@ -192,8 +193,28 @@ const getAllMeetupEvents = async () => {
     'https://api.meetup.com/api-platform/events?desc=true&status=past,upcoming&fields=featured_photo'
   );
   const data = await events.json();
-  return data;
+  const staticEvents = await Promise.all(
+    staticEventsData.map(async event =>
+      fetchFromMeetupApi(
+        `https://api.meetup.com/${event.group}/events/${event.id}?desc=true&fields=featured_photo`
+      )
+    )
+  );
+  const staticEventsdata = await Promise.all(
+    staticEvents.map(async event => await event.json())
+  );
+  return [...data, ...staticEventsdata];
 };
+
+const findOtherMeetupEvents = async () => {
+
+  /*const events = await fetchFromMeetupApi(
+    `https://api.meetup.com/find/events?key=${process.env.MEETUP_KEY}&desc=true&fields=featured_photo&text=api%20platform`
+  );*/
+  //const data = await events.json();
+  throw new Error();
+  return data;
+}
 
 const CONTRIBUTOR_NODE_TYPE = `Contributor`;
 const EVENT_NODE_TYPE = `Event`;
@@ -231,7 +252,6 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
     const node = Object.assign({}, item, nodeMetadata);
     createNode(node);
   });
-
   const events = await getAllMeetupEvents();
   events.forEach(item => {
     const nodeMetadata = {

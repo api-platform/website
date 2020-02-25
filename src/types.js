@@ -12,7 +12,7 @@ export const MeetupEventType = PropTypes.shape({
     photo_link: PropTypes.string,
   }),
   status: PropTypes.string,
-  link: PropTypes.string
+  link: PropTypes.string,
 });
 
 export const ContributorType = PropTypes.shape({

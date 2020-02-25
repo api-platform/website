@@ -38,7 +38,7 @@ const EventCard = ({ event, big, noDesc }) => {
       rel="nofollow noreferrer noopener"
       className={classNames('card__event card p-10 clickable', {
         big,
-        "full-row": big,
+        'full-row': big,
         past: moment(event.local_date, 'YYYY-MM-DD').isBefore(moment()),
       })}
     >

@@ -11,15 +11,43 @@ import { Grid, GridItem } from '../../components/common/Grid';
 const EventsPage = ({ location, data }) => {
   const events = [...data.allEvent.nodes];
 
-  const compareByDate = (a, b) => {
-    if (moment(a.local_date, 'YYYY-MM-DD').isBefore(moment(b.local_date, 'YYYY-MM-DD'))) return -1;
-    if (moment(a.local_date, 'YYYY-MM-DD').isAfter(moment(b.local_date, 'YYYY-MM-DD'))) return 1;
+  const dateAsc = (a, b) => {
+    if (
+      moment(a.local_date, "YYYY-MM-DD").isBefore(
+        moment(b.local_date, "YYYY-MM-DD")
+      )
+    )
+      return -1;
+    if (
+      moment(a.local_date, "YYYY-MM-DD").isAfter(
+        moment(b.local_date, "YYYY-MM-DD")
+      )
+    )
+      return 1;
     return 0;
   };
 
-  const upcomingEvents = events.filter(event => 'upcoming' === event.status).sort(compareByDate);
+  const dateDesc = (a, b) => {
+        if (
+          moment(a.local_date, "YYYY-MM-DD").isAfter(
+            moment(b.local_date, "YYYY-MM-DD")
+          )
+        )
+          return -1;
+        if (
+          moment(a.local_date, "YYYY-MM-DD").isBefore(
+            moment(b.local_date, "YYYY-MM-DD")
+          )
+        )
+          return 1;
+        return 0;
+  }
 
-  const pastEvents = events.filter(event => 'past' === event.status);
+  const upcomingEvents = events.filter(event => 'upcoming' === event.status).sort(dateAsc);
+
+  const pastEvents = events
+    .filter(event => "past" === event.status)
+    .sort(dateDesc);
 
   return (
     <Layout location={location}>
