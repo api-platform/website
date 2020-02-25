@@ -364,7 +364,7 @@
   .prev {
     margin-right: auto;
 
-    span:before {
+    span:last-child:before {
       content: "Previous chapter : ";
     }
 
@@ -376,7 +376,7 @@
   .next {
     margin-left: auto;
 
-    span:before {
+    span:first-child:before {
       content: "Next chapter : ";
     }
 
