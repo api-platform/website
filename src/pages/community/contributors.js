@@ -33,7 +33,7 @@ const ContributorsPage = ({ location, data }) => {
                 <BigContributor contributor={firstContributor} size="big" />
               </GridItem>
               {topContributors.map(contributor => (
-                <GridItem padding={10}>
+                <GridItem key={contributor.login} padding={10}>
                   <BigContributor contributor={contributor} />
                 </GridItem>
               ))}
@@ -45,7 +45,7 @@ const ContributorsPage = ({ location, data }) => {
             <h2 className="contributors-all__title">All contributors</h2>
             <Grid>
               {contributors.map(contributor => (
-                <GridItem padding={10}>
+                <GridItem key={contributor.login} padding={10}>
                   <Link
                     to={`/community/contributors/${contributor.login}`}
                     className="contributor__card card clickable horizontal small p-10"
@@ -81,9 +81,8 @@ ContributorsPage.propTypes = {
   data: PropTypes.shape({
     allContributor: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
-      nodes: PropTypes.arrayOf({
-        ContributorType,
-      }),
+      nodes: PropTypes.arrayOf(
+        ContributorType),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

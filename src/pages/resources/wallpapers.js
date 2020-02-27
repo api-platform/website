@@ -64,17 +64,17 @@ export const query = graphql`
             height
             width
           }
-          w1920x1200: resize(width: 1920, height: 1200) {
+          w1920x1200: resize(width: 1920, height: 1200, quality: 100) {
             src
             width
             height
           }
-          w1920x1080: resize(width: 1920, height: 1080) {
+          w1920x1080: resize(width: 1920, height: 1080, quality: 100) {
             src
             width
             height
           }
-          mini: resize(width: 500) {
+          mini: resize(width: 500, quality: 100) {
             src
             width
             height
@@ -94,7 +94,7 @@ const imageType = PropTypes.shape({
 Wallpapers.propTypes = {
   data: PropTypes.shape({
     allFile: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
+      nodes: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         childImageSharp: PropTypes.shape({
           original: imageType,
@@ -102,7 +102,7 @@ Wallpapers.propTypes = {
           w1920x1200: imageType,
           w1920x1080: imageType,
         }),
-      }),
+      })),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

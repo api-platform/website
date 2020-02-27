@@ -191,7 +191,7 @@ const CommunityPage = ({ location, data }) => {
             </p>
             <Grid className="contributors__grid">
               {contributors.map(contributor => (
-                <GridItem>
+                <GridItem key={contributor.login}>
                   <BigContributor contributor={contributor} size="medium" />
                 </GridItem>
               ))}
@@ -211,7 +211,7 @@ const CommunityPage = ({ location, data }) => {
               <h2 className="community-events__title">Our events</h2>
               <Grid>
                 {events.map(event => (
-                  <GridItem className="small-event__item">
+                  <GridItem key={event.id} className="small-event__item">
                     <EventCard event={event} noDesc />
                   </GridItem>
                 ))}
@@ -234,19 +234,13 @@ const CommunityPage = ({ location, data }) => {
 CommunityPage.propTypes = {
   data: PropTypes.shape({
     upcomingEvents: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
-        MeetupEventType,
-      }),
+      nodes: PropTypes.arrayOf(MeetupEventType),
     }),
     pastEvents: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
-        MeetupEventType,
-      }),
+      nodes: PropTypes.arrayOf(MeetupEventType),
     }),
     allContributor: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
-        ContributorType,
-      }),
+      nodes: PropTypes.arrayOf(ContributorType),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,
@@ -278,6 +272,7 @@ export const query = graphql`
     }
     pastEvents: allEvent(limit: 3, sort: { fields: local_date, order: DESC }, filter: { status: { eq: "past" } }) {
       nodes {
+        id
         name
         local_date(formatString: "YYYY-MM-DD", locale: "en-EN")
         local_time

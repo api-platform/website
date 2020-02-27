@@ -53,7 +53,7 @@ const Wallpapers = ({ location, data }) => {
             </h1>
             <p className="h4-like color-white">
               Before using the API Platform logos, read our{' '}
-              <Link className="color-white" to="/logo-usage-policy">
+              <Link className="color-white" to="/trademark-policy">
                 Trademark and Logo Policy
               </Link>
               .
@@ -117,14 +117,14 @@ const formatType = PropTypes.shape({
 Wallpapers.propTypes = {
   data: PropTypes.shape({
     svg: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
+      nodes: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         ext: PropTypes.string,
         publicURL: PropTypes.string,
-      }),
+      })),
     }),
     png: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
+      nodes: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         ext: PropTypes.string,
         formats: PropTypes.shape({
@@ -132,7 +132,7 @@ Wallpapers.propTypes = {
           medium: formatType,
           large: formatType,
         }),
-      }),
+      })),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,
