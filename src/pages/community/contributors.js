@@ -17,7 +17,7 @@ const ContributorsPage = ({ location, data }) => {
     <Layout location={location}>
       <div className="contributors">
         <Helmet title="Contributors" />
-        <header className="contributors__header bg-blue-dark color-white">
+        <header className="page__header bg-blue-dark color-white">
           <div className="container">
             <h1 className="page__title">
               Our <strong>contributors</strong>

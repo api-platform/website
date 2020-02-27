@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
-import Spider from '../images/spider_news.svg';
-import Bird from '../images/twitter_bird.svg';
+import Layout from '../../components/Layout';
+import Spider from '../../images/spider_news.svg';
+import Bird from '../../images/twitter_bird.svg';
 
-class Social extends Component {
+class News extends Component {
   /* eslint-disable no-undef */
   componentDidMount() {
     if (twttr.widgets) {
@@ -31,11 +31,15 @@ class Social extends Component {
       <Layout location={this.props.location}>
         <div className="social">
           <Helmet title="Social" />
+          <header className="page__header-overlaid bg-blue-extralight">
+            <div className="container">
+              <h1 className="page__title color-blue-extradark">
+                What&#39;s <strong>new</strong>?
+              </h1>
+            </div>
+          </header>
           <section className="container">
             <img src={Spider} className="social__spider" alt="spider" />
-            <h1>
-              What&#39;s <strong>new</strong>?
-            </h1>
             <div className="social__content">
               <div className="social__birds">
                 <img src={Bird} alt="bird" width="70" height="70" />
@@ -55,8 +59,8 @@ class Social extends Component {
     );
   }
 }
-Social.propTypes = {
-  location: PropTypes.object.isRequired,
+News.propTypes = {
+  location: PropTypes.object.isRequired
 };
 
-export default Social;
+export default News;

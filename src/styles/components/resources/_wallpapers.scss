@@ -1,0 +1,25 @@
+.wallpapers {
+  .wallpapers__grid {
+    transform: translateY(-50px);
+  }
+  .wallpaper__card {
+    img {
+      transition: all ease-out 0.3s;
+    }
+
+    &:hover {
+      img {
+        opacity: 0.8;
+      }
+    }
+  }
+  .wallpaper__resolutions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    a {
+      padding: 10px 15px 0;
+      font-size: $text-extrasmall;
+    }
+  }
+}

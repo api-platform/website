@@ -50,7 +50,7 @@ const CommunityPage = ({ location, data }) => {
     <Layout location={location}>
       <div className="community">
         <Helmet title="Community" />
-        <header className="community__header bg-blue-extralight">
+        <header className="page__header-overlaid bg-blue-extralight">
           <img src={Puzzle1} className="community-header__puzzle left" alt="Community puzzle left" />
           <img src={Puzzle2} className="community-header__puzzle right" alt="Community puzzle right" />
           <div className="container">

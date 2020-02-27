@@ -20,12 +20,6 @@
       @include grid-autosize(20px, 250px);
     }
   }
-  .events__header {
-    padding: 30px 0 70px;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
   .event__card {
     .event__description {
       p:not(:first-child) {

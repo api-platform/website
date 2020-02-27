@@ -31,7 +31,7 @@ const EventsPage = ({ location, data }) => {
     <Layout location={location}>
       <div className="events">
         <Helmet title="Events" />
-        <header className="events__header bg-blue-extralight">
+        <header className="page__header-overlaid bg-blue-extralight">
           <div className="container">
             <h1 className="page__title">
               Our <strong>events</strong>

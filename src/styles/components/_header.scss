@@ -126,6 +126,7 @@
       text-align: left;
       border-top: 5px solid $lightblue;
       opacity: 0;
+      min-width: 100%;
       transform: scale(0);
       transform-origin: top;
       transition: top ease .2s, opacity ease .2s, transform 0s .3s;

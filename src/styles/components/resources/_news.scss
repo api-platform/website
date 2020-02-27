@@ -1,27 +1,12 @@
 .social {
-  padding: 30px 0 50px;
-  position: relative;
-  min-height: $pageH;
   text-align: center;
 
-  h1 {
-    color: $blackblue;
+  .page__title {
     max-width: 700px;
-    margin-bottom: 50px;
 
     strong {
       color: $darkblue;
     }
-  }
-
-  &:before {
-    content: "";
-    position: fixed;
-    height: 250px;
-    background-color: $clearblue;
-    width: 100%;
-    left: 0;
-    top: 0;
   }
 
   .social__spider {
@@ -30,8 +15,9 @@
 
   .social__content {
     @include z-depth-1;
+    transform: translateY(-70px);
     max-width: 700px;
-    margin: 0 auto;
+    margin: 25px auto 0;
     padding: 20px;
     background-color: $white;
     position: relative;
@@ -66,8 +52,9 @@
   }
   @include mq($min-width: $vw-medium) {
     h1 {
-      padding: 25px 0;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
   }
   @include mq($min-width: $vw-large) {

@@ -35,6 +35,10 @@
     border: 3px solid $blue;
   }
 
+  &.nopadding {
+    padding: 0;
+  }
+
   &.p-10 {
     padding: 10px;
   }
