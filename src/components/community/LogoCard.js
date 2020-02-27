@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
-import Button from "../../components/common/Button";
+import React, { useState, useMemo } from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import Button from '../../components/common/Button';
 
 const LogoCard = ({ logo }) => {
   const [selectedType, setSelectedType] = useState(logo.types.length && logo.types[0]);
@@ -12,7 +12,7 @@ const LogoCard = ({ logo }) => {
   const onTypeClickHandler = type => {
     setSelectedType(type);
     setSelectedFormat(type.formats[0]);
-  }
+  };
 
   const onFormatClickHandler = format => setSelectedFormat(format);
 
@@ -23,16 +23,16 @@ const LogoCard = ({ logo }) => {
       </div>
       <div className="card__bottom">
         <div
-          className={classNames("logo__options", {
-            withFormat: 1 < selectedType.formats.length
+          className={classNames('logo__options', {
+            withFormat: 1 < selectedType.formats.length,
           })}
         >
           <div className="logo__types">
             {logo.types.map(type => (
               <button
                 onClick={() => onTypeClickHandler(type)}
-                className={classNames("logo__type", {
-                  active: selectedType && selectedType.type === type.type
+                className={classNames('logo__type', {
+                  active: selectedType && selectedType.type === type.type,
                 })}
               >
                 {type.type}
@@ -44,9 +44,8 @@ const LogoCard = ({ logo }) => {
               selectedType.formats.map(format => (
                 <button
                   onClick={() => onFormatClickHandler(format)}
-                  className={classNames("logo__format", {
-                    active:
-                      selectedFormat && selectedFormat.name === format.name
+                  className={classNames('logo__format', {
+                    active: selectedFormat && selectedFormat.name === format.name,
                   })}
                 >
                   {format.name}
@@ -54,12 +53,7 @@ const LogoCard = ({ logo }) => {
               ))}
           </div>
         </div>
-        <Button
-          icon="download"
-          className="logo__button small"
-          link={imageToDownload}
-          download
-        />
+        <Button icon="download" className="logo__button small" link={imageToDownload} download />
       </div>
     </div>
   );
@@ -72,13 +66,15 @@ LogoCard.propTypes = {
     types: PropTypes.arrayOf(
       PropTypes.shape({
         type: PropTypes.string,
-        formats: PropTypes.arrayOf(PropTypes.shape({
-          name: PropTypes.string,
-          src: PropTypes.string
-        }))
+        formats: PropTypes.arrayOf(
+          PropTypes.shape({
+            name: PropTypes.string,
+            src: PropTypes.string,
+          })
+        ),
       })
-    )
-  }).isRequired
+    ),
+  }).isRequired,
 };
 
 export default LogoCard;

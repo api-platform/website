@@ -7,25 +7,30 @@
 
   .community-header__puzzle {
     position: absolute;
+
     max-width: 50%;
     height: 130%;
+
     transform: translateY(-50%);
     &.left {
-      height: 100%;
       left: 5%;
       top: 20%;
+
+      height: 100%;
+
       opacity: 0.3;
     }
     &.right {
       right: 3%;
       top: 60%;
+
       opacity: 0.1;
     }
   }
 
   .community-header__image {
-    max-width: 15%;
     position: absolute;
+    max-width: 15%;
     &.left {
       left: 20px;
       bottom: -30px;
@@ -37,8 +42,8 @@
   }
 
   .community-header__text {
-    padding: 0 30px;
     width: 65%;
+    padding: 0 30px;
     margin: auto;
   }
 
@@ -49,8 +54,8 @@
   }
 
   .community__main {
-    transform: translateY(-50px);
     margin-bottom: -100px;
+    transform: translateY(-50px);
   }
 
   .community__card {
@@ -90,6 +95,7 @@
     .community-card {
       min-width: 0;
       width: 100%;
+
       margin: 10px 0;
       padding: 15px;
 
@@ -101,10 +107,7 @@
     .community-header__text {
       width: 100%;
     }
-    .community-header__image {
-      display: none;
-    }
-    .community-header__puzzle {
+    .community-header__image, .community-header__puzzle {
       display: none;
     }
   }

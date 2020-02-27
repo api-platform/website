@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
-import Layout from "../../components/Layout";
-import { Grid, GridItem } from "../../components/common/Grid";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+import Layout from '../../components/Layout';
+import { Grid, GridItem } from '../../components/common/Grid';
 
 const Wallpapers = ({ location, data }) => (
   <Layout location={location}>
@@ -18,40 +18,35 @@ const Wallpapers = ({ location, data }) => (
       </header>
       <section className="container">
         <Grid className="wallpapers__grid">
-          {data.allFile.nodes.map(
-            ({
-              name,
-              childImageSharp: { original, mini, w1920x1080, w1920x1200 }
-            }) => (
-              <GridItem padding={10}>
-                <a
-                  className="wallpaper__card card p-10 clickable"
-                  href={original.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={mini.src} alt={name} />
-                  <div className="wallpaper__resolutions">
-                    <a
-                      href={original.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >{`${original.width}x${original.height}`}</a>
-                    <a
-                      href={w1920x1080.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >{`${w1920x1080.width}x${w1920x1080.height}`}</a>
-                    <a
-                      href={w1920x1200.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >{`${w1920x1200.width}x${w1920x1200.height}`}</a>
-                  </div>
-                </a>
-              </GridItem>
-            )
-          )}
+          {data.allFile.nodes.map(({ name, childImageSharp: { original, mini, w1920x1080, w1920x1200 } }) => (
+            <GridItem padding={10}>
+              <a
+                className="wallpaper__card card p-10 clickable"
+                href={original.src}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={mini.src} alt={name} />
+                <div className="wallpaper__resolutions">
+                  <a
+                    href={original.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{`${original.width}x${original.height}`}</a>
+                  <a
+                    href={w1920x1080.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{`${w1920x1080.width}x${w1920x1080.height}`}</a>
+                  <a
+                    href={w1920x1200.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{`${w1920x1200.width}x${w1920x1200.height}`}</a>
+                </div>
+              </a>
+            </GridItem>
+          ))}
         </Grid>
       </section>
     </div>
@@ -93,7 +88,7 @@ export const query = graphql`
 const imageType = PropTypes.shape({
   src: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
 });
 
 Wallpapers.propTypes = {
@@ -105,12 +100,12 @@ Wallpapers.propTypes = {
           original: imageType,
           mini: imageType,
           w1920x1200: imageType,
-          w1920x1080: imageType
-        })
-      })
-    })
+          w1920x1080: imageType,
+        }),
+      }),
+    }),
   }).isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export default Wallpapers;

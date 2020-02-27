@@ -16,9 +16,6 @@
     .events-past__title {
       margin-bottom: 10px;
     }
-    .events__grid {
-      @include grid-autosize(20px, 250px);
-    }
   }
   .event__card {
     .event__description {
@@ -34,16 +31,19 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-top: 10px;
     justify-content: flex-end;
+
+    margin-top: 10px;
+
     p {
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      line-height: 1.2;
+
       margin-right: 10px;
       padding: 5px;
+
+      line-height: 1.2;
       font-weight: $bold;
       &:not(:last-child) {
         border-bottom: 1px dotted $grey;
@@ -71,10 +71,14 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+
     margin-bottom: 20px;
-    font-weight: $normal;
+
     color: $blackblue;
+
+    font-weight: $normal;
+
+    overflow: hidden;
   }
   .card__content {
     text-align: center;
@@ -89,8 +93,8 @@
           display: none;
         }
       }
-      align-items: flex-start;
       flex-direction: row;
+      align-items: flex-start;
       p {
         justify-content: flex-start;
       }
@@ -99,8 +103,10 @@
       }
       .card__content {
         align-items: flex-start;
-        text-align: left;
+
         padding-left: 20px;
+
+        text-align: left;
       }
     }
   }
@@ -114,8 +120,8 @@
       width: 250px;
       min-width: auto;
       .card__title {
-        font-size: $text-medium;
         margin-bottom: 10px;
+        font-size: $text-medium;
       }
     }
   }

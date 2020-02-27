@@ -1,13 +1,14 @@
 .card {
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
-  background-color: $white;
-  vertical-align: top;
-  padding: 20px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
-  position: relative;
+
+  padding: 20px;
+  width: 100%;
+
+  background-color: $white;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15);
 
   @include mq($min-width: $vw-medium + 1) {
     &.clickable {
@@ -30,9 +31,9 @@
   }
 
   &.bordered {
+    border: 3px solid $blue;
     background: none;
     box-shadow: none;
-    border: 3px solid $blue;
   }
 
   &.nopadding {
@@ -66,10 +67,11 @@
 
   .card__title {
     @include reset-title;
+    color: $darkblue;
+
     font-size: $title-small;
     font-family: $fontTitle;
     font-weight: $bold;
-    color: $darkblue;
     line-height: 1;
   }
 
@@ -83,9 +85,9 @@
         font-size: $title-medium;
       }
       .avatar {
+        flex: 0 0 300px;
         width: 300px;
         height: 300px;
-        flex: 0 0 300px;
         img {
           max-width: 100%;
         }

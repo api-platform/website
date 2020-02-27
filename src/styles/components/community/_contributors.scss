@@ -53,8 +53,10 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) rotate(-90deg);
+
       width: 100%;
+
+      transform: translate(-50%, -50%) rotate(-90deg);
     }
     circle {
       fill: none;
@@ -63,8 +65,9 @@
       stroke-dasharray: 1570.80;
       stroke-dashoffset: 1570.80;
       stroke-linecap: round;
-      transition: all ease-out 0.6s;
+
       opacity: 0;
+      transition: all ease-out 0.6s;
     }
   }
   &:hover {
@@ -97,10 +100,11 @@
   }
   @include mq($min-width: $vw-large + 1) {
     &.big {
+      flex-direction: row;
+
+      width: auto;
       margin-left: auto;
       margin-right: auto;
-      width: auto;
-      flex-direction: row;
       .card__content {
         margin-left: 10px;
       }

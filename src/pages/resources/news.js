@@ -60,7 +60,7 @@ class News extends Component {
   }
 }
 News.propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export default News;

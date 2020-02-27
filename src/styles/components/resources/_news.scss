@@ -15,36 +15,45 @@
 
   .social__content {
     @include z-depth-1;
-    transform: translateY(-70px);
+
+    position: relative;
+
     max-width: 700px;
     margin: 25px auto 0;
     padding: 20px;
+
     background-color: $white;
-    position: relative;
     border-left: 5px solid $lightblue;
+
+    transform: translateY(-70px);
   }
 
   .social__birds {
     position: absolute;
-    width: 100%;
     right: 0;
     top: 5px;
 
+    width: 100%;
+
     img {
       position: absolute;
+
       right: 0;
       width: 70px;
       height: 70px;
+
       transform: translateY(-100%);
 
       &:nth-child(2) {
         right: 65px;
+
         height: 50px;
         width: 50px;
       }
 
       &:nth-child(3) {
         right: 115px;
+
         width: 40px;
         height: 40px;
       }
@@ -54,6 +63,7 @@
     h1 {
       margin-left: auto;
       margin-right: auto;
+
       text-align: left;
     }
   }
@@ -62,12 +72,14 @@
 
     &:after {
       content: "";
-      width: 4px;
-      height: 50vh;
-      background-color: rgba($blackblue, 0.3);
       position: fixed;
       top: 0;
       left: calc(50% - 390px);
+
+      width: 4px;
+      height: 50vh;
+
+      background-color: rgba($blackblue, 0.3);
     }
 
     .container {
@@ -75,11 +87,13 @@
     }
 
     .social__spider {
-      display: block;
       position: fixed;
-      width: 240px;
+      display: block;
       top: 50vh;
       left: calc(50% - 390px);
+
+      width: 240px;
+
       transform: translate(-50%, -30%);
     }
   }

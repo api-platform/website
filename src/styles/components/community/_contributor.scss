@@ -15,25 +15,32 @@
   }
   .contributor__card {
     @include z-depth-5;
-    width: 400px;
-    transform: translateY(-100px);
-    padding: 0;
+
     display: flex;
     flex-direction: column;
+
+    width: 400px;
+    padding: 0;
+
+    transform: translateY(-100px);
     a {
       color: $white;
-      font-weight: $bold;
-      transition: all ease 0.3s;
       border-bottom: 3px solid transparent;
+
+      font-weight: $bold;
       white-space: nowrap;
+
+      transition: all ease 0.3s;
       &:hover {
         color: $clearblue;
       }
     }
     .card__top {
-      padding: 20px;
       display: flex;
       flex-direction: column;
+
+      padding: 20px;
+
       text-align: center;
       align-items: center;
     }
@@ -46,17 +53,22 @@
       font-weight: $bold;
     }
     .contributor__bio {
+      position: relative;
+
       margin: 24px auto 0;
       padding: 10px 0;
-      position: relative;
+
       &:before,
       &:after {
         content: "";
-        width: 150px;
-        height: 1px;
-        background-color: $clearblue;
         position: absolute;
         left: 50%;
+
+        width: 150px;
+        height: 1px;
+
+        background-color: $clearblue;
+
         transform: translate(-50%, -50%);
       }
       &:before {
@@ -72,31 +84,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     margin-top: 24px;
   }
   .contributor__info {
-    font-size: $text-medium;
-    line-height: 1;
-    padding: 3px;
-    margin-bottom: 12px;
     display: flex;
     align-items: center;
 
+    padding: 3px;
+    margin-bottom: 12px;
+
+    font-size: $text-medium;
+    line-height: 1;
+
     span[class^="icon-"],
     span[class*=" icon-"] {
-      transition: margin ease 0.3s;
       margin-right: 5px;
+      transition: margin ease 0.3s;
     }
   }
   .contributor__content {
-    padding-left: 30px;
     flex: 1;
+    padding-left: 30px;
   }
   .contributor__description {
     margin: 32px 0;
     a {
-      padding: 0 3px;
       @include underline($lightblue, darken($darkblue, 10%));
+      padding: 0 3px;
     }
   }
   .contributor__projects {
@@ -105,13 +120,15 @@
     }
   }
   .contributor__project {
-    min-height: 150px;
     justify-content: center;
+    min-height: 150px;
     .project__name {
+      padding: 10px 0;
+
       font-weight: $bold;
       text-align: center;
       line-height: 1.2;
-      padding: 10px 0;
+
       span[class^="icon-"],
       span[class*=" icon-"] {
         margin-right: 5px;
@@ -138,16 +155,16 @@
       padding: 30px 0 0 0;
     }
     .contributor__card {
-      transform: none;
       width: 90%;
+      transform: none;
     }
     .contributor__bio {
       max-width: 500px;
     }
     .contributor__header {
       .header__content {
-        text-align: center;
         padding: 0 0 100px 0;
+        text-align: center;
       }
     }
     .contributor__main {
@@ -155,8 +172,8 @@
     }
     .contributor__projects {
       .grid__item {
-      width: 200px;
-      min-width: auto;
+        width: 200px;
+        min-width: auto;
       }
     }
   }
@@ -164,8 +181,9 @@
     .contributor__infos {
       flex-direction: row;
       flex-wrap: wrap;
-      text-align: left;
       justify-content: flex-start;
+
+      text-align: left;
     }
     .contributor__info {
       flex: 1;

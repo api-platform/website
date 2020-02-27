@@ -1,10 +1,12 @@
 .logos {
   .logo__checkerboard {
+    display: flex;
+    justify-content: center;
+
     width: 100%;
     height: 150px;
     padding: 10px;
-    display: flex;
-    justify-content: center;
+
     background-color: $lightgrey;
     background-image: linear-gradient(
         45deg,
@@ -28,8 +30,10 @@
   }
   .logo__card {
     .card__bottom {
-      width:100%;
       display: flex;
+      align-items: center;
+
+      width:100%;
       padding: 10px;
     }
     .logo__options {
@@ -41,11 +45,12 @@
           border-color: transparent;
         }
         .logo__formats {
-          transition: transform ease-out 0.3s, opacity ease-out 0.3s;
+          z-index:-1;
+
           opacity: 0;
           transform: translateY(-15px);
           pointer-events: none;
-          z-index:-1;
+          transition: transform ease-out 0.3s, opacity ease-out 0.3s;
         }
       }
     }
@@ -54,11 +59,13 @@
     }
     .logo__types, .logo__formats {
       position: relative;
-      transition: transform ease-out 0.2s, border-color ease-out 0.2s;
-      width: 100%;
-      min-height: 30px;
       display: flex;
       align-items: center;
+
+      width: 100%;
+      height: 30px;
+
+      transition: transform ease-out 0.2s, border-color ease-out 0.2s;
     }
     .logo__formats {
       transition: transform ease-out 0.3s 0.2s, opacity ease-out 0.3s 0.2s;
@@ -66,19 +73,24 @@
     .logo__type, .logo__format {
       display: inline-flex;
       align-items: center;
+
+      color: $darkgrey;
+
       margin-right: 10px;
+      padding: 5px 0;
+
       font-size: $text-extrasmall;
       font-weight: $bold;
-      color: $darkgrey;
-      padding: 5px 0;
       &:before {
         content: "";
         display: inline-block;
+
         width: 10px;
         height: 10px;
         border-radius: 50%;
         border: 2px solid $darkgrey;
         margin-right: 3px;
+
         transition: all ease 0.3s;
       }
       &.active {

@@ -1,43 +1,3 @@
-@mixin grid(
-  $gap: 20px,
-  $min: 300px,
-  $max: 400px,
-  $large: 3,
-  $medium: 2,
-  $small: 1,
-) {
-  display: grid;
-  grid-template-columns: repeat($large, minmax($min, 1fr));
-  grid-gap: $gap;
-  margin-bottom: 20px;
-  justify-content: center;
-  align-items: stretch;
-  @include mq($max-width: $vw-large) {
-    grid-template-columns: repeat($medium, minmax($min, $max));
-  }
-  @include mq($max-width: $vw-medium) {
-    grid-template-columns: repeat($small, minmax($min, $max));
-  }
-  @include mq($min-width: $vw-large + 1) {
-    .full-row {
-      grid-column: 1 / -1;
-    }
-  }
-}
-.grid {
-  @include grid(20px, 0, 400px, 3, 2, 1);
-}
-
-@mixin grid-autosize($gap, $max) {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, $max));
-  grid-gap: $gap;
-  margin-bottom: 20px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-
 .grid__container {
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +9,7 @@
 
 .grid__item {
   display: flex;
+
   padding: 15px;
   width: calc(100% / 3);
 
