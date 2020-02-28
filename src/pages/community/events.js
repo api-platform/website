@@ -74,8 +74,7 @@ const EventsPage = ({ location, data }) => {
 EventsPage.propTypes = {
   data: PropTypes.shape({
     allEvent: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        MeetupEventType),
+      nodes: PropTypes.arrayOf(MeetupEventType),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

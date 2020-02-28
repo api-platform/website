@@ -10,12 +10,14 @@ const parseGithubText = text => {
   const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gi;
 
   const linkifyText = text.replace(urlRegex, url => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`);
-  const githubRegex = /(\B)@([a-zA-Z-]+)/gi;
+  const githubRegex = /(^|\s)@([a-zA-Z-]+)/gi;
 
   return linkifyText.replace(
     githubRegex,
     githubResource =>
-      `<a href="https://github.com/${githubResource.substring(1)}" ${externalLinkAttributes}">${githubResource}</a>`
+      `<a href="https://github.com/${githubResource
+        .trim()
+        .replace('@', '')}" ${externalLinkAttributes}">${githubResource}</a>`
   );
 };
 
@@ -26,7 +28,7 @@ const GithubInfo = ({ value, icon, link }) => {
     return (
       <a rel="nofollow noopener noreferrer" target="_blank" href={link || githubLink} className="contributor__info">
         <span className={`icon-${icon}`} />
-        {value}
+        {'@' === value.charAt(0) ? value.substring(1) : value}
       </a>
     );
   return (

@@ -71,11 +71,13 @@ const sortByContributions = (a, b) => {
   return 0;
 };
 
+const REPOSITORIES_TO_IGNORE = [".github","symfonycon-berlin-workshop-eod"];
+
 const getRepositoryList = async organizationName => {
   const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
   const data = await repos.json();
 
-  return data;
+  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
 };
 
 const getStaticRepositoryList = async () => {
