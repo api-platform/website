@@ -33,8 +33,8 @@ const EventsPage = ({ location, data }) => {
         <Helmet title="Events" />
         <header className="page__header-overlaid bg-blue-extralight">
           <div className="container">
-            <h1 className="page__title">
-              Our <strong>events</strong>
+            <h1 className="page__title color-blue-extradark">
+              Our <strong className="color-blue-dark">events</strong>
             </h1>
             <p className="page__subtitle h4-like">
               Meet the community in the next API Platform event organized near you!
@@ -74,9 +74,8 @@ const EventsPage = ({ location, data }) => {
 EventsPage.propTypes = {
   data: PropTypes.shape({
     allEvent: PropTypes.shape({
-      nodes: PropTypes.arrayOf({
-        MeetupEventType,
-      }),
+      nodes: PropTypes.arrayOf(
+        MeetupEventType),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

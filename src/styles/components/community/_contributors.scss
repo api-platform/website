@@ -11,15 +11,39 @@
 .contributors {
   text-align: center;
 
-  .contributors__top {
-    padding: 40px 0;
+  .contributors__header {
+    border-bottom: 5px solid $lightgrey;
+  }
+
+  .contributors__title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    img {
+      padding: 0 20px;
+      max-height: 70px;
+    }
+  }
+
+  @include mq($max-width: $vw-large) {
+    .contributors__title {
+      flex-direction: column;
+      align-items: center;
+      img:not(:first-child) {
+        display: none;
+      }
+    }
   }
 
   .contributors__all {
     padding: 40px 0 50px;
   }
 
-  .contributors-top__title,
+  .top__grid {
+    transform: translateY(-50px);
+  }
+
   .contributors-all__title {
     margin-bottom: 10px;
   }

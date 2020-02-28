@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import Contributors from '../../images/contributors.svg';
 import { ContributorType } from '../../types';
 import BigContributor from '../../components/community/BigContributor';
 import Layout from '../../components/Layout';
@@ -17,17 +18,22 @@ const ContributorsPage = ({ location, data }) => {
     <Layout location={location}>
       <div className="contributors">
         <Helmet title="Contributors" />
-        <header className="page__header bg-blue-dark color-white">
+        <header className="contributors__header page__header-overlaid bg-blue-extralight color-blue-extradark">
           <div className="container">
-            <h1 className="page__title">
-              Our <strong>contributors</strong>
-            </h1>
-            <p className="page__subtitle h4-like">{`${data.allContributor.totalCount} people have contributed to API Platform code.`}</p>
+            <div className="contributors__title">
+              <img src={Contributors} alt="contributor" />
+              <div>
+                <h1 className="page__title">
+                  Our <strong className="color-blue-dark">contributors</strong>
+                </h1>
+                <p className="page__subtitle h4-like">{`${data.allContributor.totalCount} people have contributed to API Platform code.`}</p>
+              </div>
+              <img src={Contributors} alt="contributor" />
+            </div>
           </div>
         </header>
         <section className="contributors__top bg-white">
           <div className="container">
-            <h2 className="contributors-top__title">Top ten</h2>
             <Grid className="top__grid">
               <GridItem full padding={10}>
                 <BigContributor contributor={firstContributor} size="big" />
@@ -81,8 +87,7 @@ ContributorsPage.propTypes = {
   data: PropTypes.shape({
     allContributor: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
-      nodes: PropTypes.arrayOf(
-        ContributorType),
+      nodes: PropTypes.arrayOf(ContributorType),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

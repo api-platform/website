@@ -117,22 +117,26 @@ const formatType = PropTypes.shape({
 Wallpapers.propTypes = {
   data: PropTypes.shape({
     svg: PropTypes.shape({
-      nodes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        ext: PropTypes.string,
-        publicURL: PropTypes.string,
-      })),
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          ext: PropTypes.string,
+          publicURL: PropTypes.string,
+        })
+      ),
     }),
     png: PropTypes.shape({
-      nodes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        ext: PropTypes.string,
-        formats: PropTypes.shape({
-          small: formatType,
-          medium: formatType,
-          large: formatType,
-        }),
-      })),
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          ext: PropTypes.string,
+          formats: PropTypes.shape({
+            small: formatType,
+            medium: formatType,
+            large: formatType,
+          }),
+        })
+      ),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

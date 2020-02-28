@@ -46,7 +46,9 @@ class Footer extends Component {
           </a>
           .
         </p>
-        <p className="footer__policy"><Link to="/trademark-policy">Trademark policy</Link></p>
+        <p className="footer__policy">
+          <Link to="/trademark-policy">Trademark policy</Link>
+        </p>
         <div className="footer__follow">
           <iframe
             title="github"

@@ -94,15 +94,17 @@ const imageType = PropTypes.shape({
 Wallpapers.propTypes = {
   data: PropTypes.shape({
     allFile: PropTypes.shape({
-      nodes: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        childImageSharp: PropTypes.shape({
-          original: imageType,
-          mini: imageType,
-          w1920x1200: imageType,
-          w1920x1080: imageType,
-        }),
-      })),
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          childImageSharp: PropTypes.shape({
+            original: imageType,
+            mini: imageType,
+            w1920x1200: imageType,
+            w1920x1080: imageType,
+          }),
+        })
+      ),
     }),
   }).isRequired,
   location: PropTypes.object.isRequired,

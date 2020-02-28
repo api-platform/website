@@ -10,7 +10,7 @@ const parseGithubText = text => {
   const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gi;
 
   const linkifyText = text.replace(urlRegex, url => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`);
-  const githubRegex = /(?<=^|\s)@([a-zA-Z-]+)/gi;
+  const githubRegex = /(\B)@([a-zA-Z-]+)/gi;
 
   return linkifyText.replace(
     githubRegex,
