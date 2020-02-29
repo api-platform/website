@@ -289,7 +289,7 @@ export const query = graphql`
         visibility
       }
     }
-    allContributor(limit:100, filter: {login: {ne: "dummy-api-platform"}}) {
+    allContributor(limit: 100, filter: { login: { ne: "dummy-api-platform" } }) {
       nodes {
         login
         avatar

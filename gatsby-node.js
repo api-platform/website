@@ -76,10 +76,10 @@ const sortByContributions = (a, b) => {
 const REPOSITORIES_TO_IGNORE = ['.github', 'symfonycon-berlin-workshop-eod'];
 
 const getRepositoryList = async organizationName => {
-    const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
-    const data = await repos.json();
+  const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
+  const data = await repos.json();
 
-    return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
+  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
 };
 
 const getStaticRepositoryList = async () => {
@@ -139,37 +139,37 @@ const createContributor = (repository, contributor, stat) => {
 
 const getAllContributorsFromOrganization = async organizationName => {
   try {
-  const repos = await getRepositoryList(organizationName);
-  const staticRepos = await getStaticRepositoryList();
-  const allRepos = [...repos, ...staticRepos];
-  const allContributors = [];
-  await Promise.all(
-    allRepos.map(async repo => {
-      const contributors = await getListOfContributorsFromRepository(repo);
-      const stats = await getRepoContributorsStats(repo);
-      for (let contributor of contributors) {
-        const stat = stats.find(stat => stat.id === contributor.id);
-        const personFromList = allContributors.find(c => c.login === contributor.login);
-        if (personFromList) {
-          personFromList.contributions += contributor.contributions;
-          if (stat) {
-            personFromList.lines += stat.additions + stat.deletions;
-          }
-          personFromList.projects.push({
-            name: repo.name,
-            fullName: repo.full_name,
-            link: repo.html_url,
-            contributions: contributor.contributions,
-            additions: stat ? stat.additions : 0,
-            deletions: stat ? stat.deletions : 0,
-          });
-          personFromList.projects.sort(sortByContributions);
-        } else allContributors.push(createContributor(repo, contributor, stat));
-      }
-    })
-  );
-  return allContributors.sort(sortByContributions).map((contributor, i) => ({ ...contributor, position: i + 1 }));
-  } catch(error) {
+    const repos = await getRepositoryList(organizationName);
+    const staticRepos = await getStaticRepositoryList();
+    const allRepos = [...repos, ...staticRepos];
+    const allContributors = [];
+    await Promise.all(
+      allRepos.map(async repo => {
+        const contributors = await getListOfContributorsFromRepository(repo);
+        const stats = await getRepoContributorsStats(repo);
+        for (let contributor of contributors) {
+          const stat = stats.find(stat => stat.id === contributor.id);
+          const personFromList = allContributors.find(c => c.login === contributor.login);
+          if (personFromList) {
+            personFromList.contributions += contributor.contributions;
+            if (stat) {
+              personFromList.lines += stat.additions + stat.deletions;
+            }
+            personFromList.projects.push({
+              name: repo.name,
+              fullName: repo.full_name,
+              link: repo.html_url,
+              contributions: contributor.contributions,
+              additions: stat ? stat.additions : 0,
+              deletions: stat ? stat.deletions : 0,
+            });
+            personFromList.projects.sort(sortByContributions);
+          } else allContributors.push(createContributor(repo, contributor, stat));
+        }
+      })
+    );
+    return allContributors.sort(sortByContributions).map((contributor, i) => ({ ...contributor, position: i + 1 }));
+  } catch (error) {
     console.error(error);
     return [];
   }
@@ -231,26 +231,26 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
   if (fullContributors.length === 0) {
     // create dummy contributor to avoid graphql build error
     fullContributors.push({
-      login: "dummy-api-platform",
-      name: "dummy",
-      company: "dummy",
-      location: "dummy",
-      blog: "dummy",
-      bio: "dummy",
+      login: 'dummy-api-platform',
+      name: 'dummy',
+      company: 'dummy',
+      location: 'dummy',
+      blog: 'dummy',
+      bio: 'dummy',
       projects: {
         contributions: 0,
-        link: "dummy",
-        name: "dummy",
-        fullName: "dummy",
+        link: 'dummy',
+        name: 'dummy',
+        fullName: 'dummy',
         additions: 0,
-        deletions: 0
+        deletions: 0,
       },
-      avatar: "dummy",
+      avatar: 'dummy',
       contributions: 0,
       position: 0,
       lines: 0,
-      profile_url: "dummy"
-    })
+      profile_url: 'dummy',
+    });
   }
   fullContributors.forEach(item => {
     const nodeMetadata = {
@@ -413,13 +413,14 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   contributors.data.allContributor.nodes.forEach(node => {
-    createPage({
-      path: `/community/contributors/${node.login}`,
-      component: path.resolve(`./src/templates/contributor.js`),
-      context: {
-        ...node,
-      },
-    });
+    if (node.login !== 'dummy-api-platform')
+      createPage({
+        path: `/community/contributors/${node.login}`,
+        component: path.resolve(`./src/templates/contributor.js`),
+        context: {
+          ...node,
+        },
+      });
   });
 };
 
