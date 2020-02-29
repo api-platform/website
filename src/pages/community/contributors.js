@@ -36,7 +36,7 @@ const ContributorsPage = ({ location, data }) => {
           <div className="container">
             <Grid className="top__grid">
               <GridItem full padding={10}>
-                <BigContributor contributor={firstContributor} size="big" />
+                {firstContributor && <BigContributor contributor={firstContributor} size="big" />}
               </GridItem>
               {topContributors.map(contributor => (
                 <GridItem key={contributor.login} padding={10}>
@@ -95,7 +95,7 @@ ContributorsPage.propTypes = {
 
 export const query = graphql`
   query {
-    allContributor {
+    allContributor(filter: { login: { ne: "dummy-api-platform" } }) {
       totalCount
       nodes {
         id

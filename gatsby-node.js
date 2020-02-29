@@ -49,6 +49,8 @@ const fetchFromGithubApi = async url => {
     },
   });
 
+  if (response.status === 401) throw new Error('UNAUTHORIZED');
+
   // if rate limit excedeed : wait for reset time
   if (response.headers.get('x-ratelimit-remaining') === '0') {
     const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
@@ -71,13 +73,13 @@ const sortByContributions = (a, b) => {
   return 0;
 };
 
-const REPOSITORIES_TO_IGNORE = [".github","symfonycon-berlin-workshop-eod"];
+const REPOSITORIES_TO_IGNORE = ['.github', 'symfonycon-berlin-workshop-eod'];
 
 const getRepositoryList = async organizationName => {
-  const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
-  const data = await repos.json();
+    const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
+    const data = await repos.json();
 
-  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
+    return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
 };
 
 const getStaticRepositoryList = async () => {
@@ -136,6 +138,7 @@ const createContributor = (repository, contributor, stat) => {
 };
 
 const getAllContributorsFromOrganization = async organizationName => {
+  try {
   const repos = await getRepositoryList(organizationName);
   const staticRepos = await getStaticRepositoryList();
   const allRepos = [...repos, ...staticRepos];
@@ -166,6 +169,10 @@ const getAllContributorsFromOrganization = async organizationName => {
     })
   );
   return allContributors.sort(sortByContributions).map((contributor, i) => ({ ...contributor, position: i + 1 }));
+  } catch(error) {
+    console.error(error);
+    return [];
+  }
 };
 
 /** EVENTS **/
@@ -200,15 +207,6 @@ const getAllMeetupEvents = async () => {
   return [...data, ...staticEventsdata];
 };
 
-const findOtherMeetupEvents = async () => {
-  /*const events = await fetchFromMeetupApi(
-    `https://api.meetup.com/find/events?key=${process.env.MEETUP_KEY}&desc=true&fields=featured_photo&text=api%20platform`
-  );*/
-  //const data = await events.json();
-  throw new Error();
-  return data;
-};
-
 const CONTRIBUTOR_NODE_TYPE = `Contributor`;
 const EVENT_NODE_TYPE = `Event`;
 
@@ -230,6 +228,30 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       };
     })
   );
+  if (fullContributors.length === 0) {
+    // create dummy contributor to avoid graphql build error
+    fullContributors.push({
+      login: "dummy-api-platform",
+      name: "dummy",
+      company: "dummy",
+      location: "dummy",
+      blog: "dummy",
+      bio: "dummy",
+      projects: {
+        contributions: 0,
+        link: "dummy",
+        name: "dummy",
+        fullName: "dummy",
+        additions: 0,
+        deletions: 0
+      },
+      avatar: "dummy",
+      contributions: 0,
+      position: 0,
+      lines: 0,
+      profile_url: "dummy"
+    })
+  }
   fullContributors.forEach(item => {
     const nodeMetadata = {
       id: createNodeId(`contributor-${item.id}`),
