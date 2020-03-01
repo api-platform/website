@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -12,14 +12,14 @@ const EventsPage = ({ location, data }) => {
   const events = [...data.allEvent.nodes];
 
   const dateAsc = (a, b) => {
-    if (moment(a.local_date, 'YYYY-MM-DD').isBefore(moment(b.local_date, 'YYYY-MM-DD'))) return -1;
-    if (moment(a.local_date, 'YYYY-MM-DD').isAfter(moment(b.local_date, 'YYYY-MM-DD'))) return 1;
+    if (dayjs(a.local_date).isBefore(dayjs(b.local_date))) return -1;
+    if (dayjs(a.local_date).isAfter(dayjs(b.local_date))) return 1;
     return 0;
   };
 
   const dateDesc = (a, b) => {
-    if (moment(a.local_date, 'YYYY-MM-DD').isAfter(moment(b.local_date, 'YYYY-MM-DD'))) return -1;
-    if (moment(a.local_date, 'YYYY-MM-DD').isBefore(moment(b.local_date, 'YYYY-MM-DD'))) return 1;
+    if (dayjs(a.local_date).isAfter(dayjs(b.local_date))) return -1;
+    if (dayjs(a.local_date).isBefore(dayjs(b.local_date))) return 1;
     return 0;
   };
 

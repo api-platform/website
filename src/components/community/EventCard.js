@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { MeetupEventType } from '../../types';
 
 const EventInfos = ({ event, big }) => (
   <div className={classNames('card-event__infos color-grey-dark', { big })}>
     <p className="card__date text-xs">
       <span className="icon-calendar color-blue" />
-      <span>{`${moment(event.local_date, 'YYYY-MM-DD').format('MMM Do YYYY')}, ${event.local_time}`}</span>
+      <span>{`${dayjs(event.local_date).format('MMM D, YYYY')} ${event.local_time}`}</span>
     </p>
     <p className="text-xs">
       <span className="icon-location color-blue" />
@@ -39,7 +39,7 @@ const EventCard = ({ event, big, noDesc }) => {
       className={classNames('card__event card p-10 clickable', {
         big,
         'full-row': big,
-        past: moment(event.local_date, 'YYYY-MM-DD').isBefore(moment()),
+        past: dayjs(event.local_date).isBefore(dayjs()),
       })}
     >
       <div className="event__left-big">
