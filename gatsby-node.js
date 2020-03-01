@@ -56,7 +56,7 @@ const fetchFromGithubApi = async url => {
     const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
-      throw new Error('rate limit reset time to long');
+      throw new Error('rate limit reset time too long');
     }
     await delay(timeToWait);
     return fetchFromGithubApi(url);
@@ -164,7 +164,9 @@ const getAllContributorsFromOrganization = async organizationName => {
               deletions: stat ? stat.deletions : 0,
             });
             personFromList.projects.sort(sortByContributions);
-          } else allContributors.push(createContributor(repo, contributor, stat));
+          } else {
+            allContributors.push(createContributor(repo, contributor, stat));
+          }
         }
       })
     );
@@ -184,7 +186,7 @@ const fetchFromMeetupApi = async url => {
     const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
-      throw new Error('rate limit reset time to long');
+      throw new Error('rate limit reset time too long');
     }
     await delay(timeToWait);
     return fetchFromMeetupApi(url);

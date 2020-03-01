@@ -8,45 +8,37 @@
     padding: 10px;
 
     background-color: $lightgrey;
-    background-image: linear-gradient(
-        45deg,
-        $grey 25%,
-        transparent 25%,
-        transparent 75%,
-        $grey 75%
-      ),
-      linear-gradient(
-        45deg,
-       $grey 25%,
-        transparent 25%,
-        transparent 75%,
-        $grey 75%
-      );
+    background-image: linear-gradient(45deg, $grey 25%, transparent 25%, transparent 75%, $grey 75%),
+      linear-gradient(45deg, $grey 25%, transparent 25%, transparent 75%, $grey 75%);
     background-size: 16px 16px;
     background-position: 0 0, 8px 8px;
   }
+
   .logo__grid {
     transform: translateY(-50px);
   }
+
   .logo__card {
     .card__bottom {
       display: flex;
       align-items: center;
 
-      width:100%;
+      width: 100%;
       padding: 10px;
     }
+
     .logo__options {
       flex: 1;
       margin-right: 10px;
+
       &:not(.withFormat) {
         .logo__types {
           transform: translateY(15px);
           border-color: transparent;
         }
-        .logo__formats {
-          z-index:-1;
 
+        .logo__formats {
+          z-index: -1;
           opacity: 0;
           transform: translateY(-15px);
           pointer-events: none;
@@ -54,10 +46,13 @@
         }
       }
     }
+
     .logo__types {
-      border-bottom:1px dotted $grey;
+      border-bottom: 1px dotted $grey;
     }
-    .logo__types, .logo__formats {
+
+    .logo__types,
+    .logo__formats {
       position: relative;
       display: flex;
       align-items: center;
@@ -67,10 +62,13 @@
 
       transition: transform ease-out 0.2s, border-color ease-out 0.2s;
     }
+
     .logo__formats {
       transition: transform ease-out 0.3s 0.2s, opacity ease-out 0.3s 0.2s;
     }
-    .logo__type, .logo__format {
+
+    .logo__type,
+    .logo__format {
       display: inline-flex;
       align-items: center;
 
@@ -81,8 +79,9 @@
 
       font-size: $text-extrasmall;
       font-weight: $bold;
+
       &:before {
-        content: "";
+        content: '';
         display: inline-block;
 
         width: 10px;
@@ -93,6 +92,7 @@
 
         transition: all ease 0.3s;
       }
+
       &.active {
         color: $darkblue;
         &:before {
@@ -101,12 +101,14 @@
         }
       }
     }
+
     .logo__type {
       text-transform: uppercase;
       font-size: $text-small;
     }
+
     .logo__button {
-      span[class^="icon-"] {
+      span[class^='icon-'] {
         padding: 0;
       }
     }

@@ -15,9 +15,7 @@ const EcosystemCard = ({ big, image, link, text, title }) => (
     </div>
     <div className="card__content">
       <h3 className="card__title">{title}</h3>
-      <article className="card__autosize">
-        <p>{text}</p>
-      </article>
+      <p className="card__autosize">{text}</p>
       <Button text="Read more" className="ecosystem__button small" link={link} />
     </div>
   </div>

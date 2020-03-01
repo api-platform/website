@@ -12,6 +12,7 @@
     height: 130%;
 
     transform: translateY(-50%);
+
     &.left {
       left: 5%;
       top: 20%;
@@ -20,6 +21,7 @@
 
       opacity: 0.3;
     }
+
     &.right {
       right: 3%;
       top: 60%;
@@ -31,10 +33,12 @@
   .community-header__image {
     position: absolute;
     max-width: 15%;
+
     &.left {
       left: 20px;
       bottom: -30px;
     }
+
     &.right {
       right: 20px;
       top: 0px;
@@ -86,6 +90,7 @@
     .community-header__image {
       display: none;
     }
+
     .community-header__text {
       width: 100%;
     }
@@ -104,9 +109,11 @@
         max-height: 60px;
       }
     }
+
     .community-header__text {
       width: 100%;
     }
+
     .community-header__image, .community-header__puzzle {
       display: none;
     }

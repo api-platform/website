@@ -8,8 +8,8 @@
   &-overlaid {
     text-align: center;
     padding: 30px 0 70px;
-        @include mq($max-width: $vw-small) {
-    padding: 30px 0 50px;
-  }
+    @include mq($max-width: $vw-small) {
+      padding: 30px 0 50px;
+    }
   }
 }

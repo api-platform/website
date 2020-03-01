@@ -10,11 +10,11 @@ const data = [
 
 const Giants = () => (
   <section className="home__part home__giants">
-    <div className="container giants__container">
+    <article className="container giants__container">
       <h2 className="h1-like giants__title">
         Built on the Shoulders of <strong>Giants</strong>
       </h2>
-      <article className="giants__content">
+      <div className="giants__content">
         <p className="hidden-small">
           API Platform is built on top of <strong>battle-tested products</strong>. The server skeleton includes the
           famous <strong>Symfony 4</strong> microframework and the <strong>Doctrine</strong> ORM. Client-side components
@@ -26,11 +26,11 @@ const Giants = () => (
           API Platform is also designed as a set of independent and reusable components. You can perfectly use them in a
           standalone way, or integrate them by yourself in your own project.
         </p>
-      </article>
+      </div>
       <div className="giants__spider">
         <img src={spider} alt="Built on the shoulders of giants" width="371" height="344" />
       </div>
-    </div>
+    </article>
   </section>
 );
 

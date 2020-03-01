@@ -24,13 +24,15 @@ const parseGithubText = text => {
 const GithubInfo = ({ value, icon, link }) => {
   const githubLink = '@' === value.charAt(0) ? `https://github.com/${value.substring(1)}` : null;
 
-  if (link || githubLink)
+  if (link || githubLink) {
     return (
       <a rel="nofollow noopener noreferrer" target="_blank" href={link || githubLink} className="contributor__info">
         <span className={`icon-${icon}`} />
         {'@' === value.charAt(0) ? value.substring(1) : value}
       </a>
     );
+  }
+
   return (
     <p className="contributor__info">
       <span className={`icon-${icon}`} />
@@ -57,10 +59,11 @@ const Template = ({ location, pageContext: contributor }) => {
   const contributorName = contributor.name || contributor.login;
 
   const getContributionsText = () => {
-    if (10 >= contributor.position)
+    if (10 >= contributor.position) {
       return `${contributorName} is one of the most active contributors to the API Platform framework, and worked on`;
-    else if (20 < contributor.contributions)
+    } else if (20 < contributor.contributions) {
       return `${contributorName} enhanced the API Platform framework with no less than ${contributor.contributions} contributions. This active contributor worked on`;
+    }
     return `${contributorName} is a contributor to the API Platform framework and worked on`;
   };
 
