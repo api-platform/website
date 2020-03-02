@@ -61,7 +61,8 @@ const Template = ({ location, pageContext: contributor }) => {
   const getContributionsText = () => {
     if (10 >= contributor.position) {
       return `${contributorName} is one of the most active contributors to the API Platform framework, and worked on`;
-    } else if (20 < contributor.contributions) {
+    }
+    if (20 < contributor.contributions) {
       return `${contributorName} enhanced the API Platform framework with no less than ${contributor.contributions} contributions. This active contributor worked on`;
     }
     return `${contributorName} is a contributor to the API Platform framework and worked on`;

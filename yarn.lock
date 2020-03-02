@@ -6108,14 +6108,6 @@ gatsby-source-filesystem@^2.1.22:
     valid-url "^1.0.9"
     xstate "^4.7.2"
 
-gatsby-source-meetup@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-meetup/-/gatsby-source-meetup-1.1.0.tgz#24d785d96c9aa49c5dd8024c2257029c3642b0f2"
-  integrity sha512-LoCbUlux6gxPx9TjpXMB5P/2Q2pkEqCv/6BfVjHneCWmaF1flfA0LowXW9EuQrhNILmx2kJnxcnw6hqaLmvgug==
-  dependencies:
-    node-fetch "^2.2.1"
-    query-string "^6.2.0"
-
 gatsby-telemetry@^1.1.49:
   version "1.1.49"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.1.49.tgz#f577738fe03a4aeef4bb5b481969e91fd52ca22d"
@@ -9437,7 +9429,7 @@ node-fetch@2.1.2:
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
   integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
 
-node-fetch@2.6.0, node-fetch@^2.2.1, node-fetch@^2.6.0:
+node-fetch@2.6.0, node-fetch@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
@@ -11152,7 +11144,7 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
-query-string@^6.2.0, query-string@^6.9.0:
+query-string@^6.9.0:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.10.1.tgz#30b3505f6fca741d5ae541964d1b3ae9dc2a0de8"
   integrity sha512-SHTUV6gDlgMXg/AQUuLpTiBtW/etZ9JT6k6RCtCyqADquApLX0Aq5oK/s5UeTUAWBG50IExjIr587GqfXRfM4A==

@@ -129,18 +129,6 @@ module.exports = {
         trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
-    'gatsby-plugin-remove-serviceworker',
-    {
-      resolve: `gatsby-source-meetup`,
-      options: {
-        apiKey: process.env.GATSBY_MEETUP_API_KEY,
-        groupUrlName: 'api-platform',
-        status: 'past,upcoming', // todo: remove "past" before merge
-        fields: 'featured_photo',
-        visibility: 'public',
-        desc: 'true',
-        page: 3,
-      },
-    },
+    'gatsby-plugin-remove-serviceworker'
   ],
 };
