@@ -57,7 +57,7 @@ const CommunityPage = ({ location, data }) => {
             <img src={Community1} className="community-header__image left" alt="Community spider left" />
             <div className="community-header__text">
               <h1 className="page__title">
-                Api Platform&apos;s <strong className="color-blue-dark">community</strong>
+                API Platform&apos;s <strong className="color-blue-dark">community</strong>
               </h1>
               <p className="page__subtitle h4-like community-header__subtitle color-blue-extradark">
                 Interested in <strong>contributing to API Platform</strong> and supporting{' '}
