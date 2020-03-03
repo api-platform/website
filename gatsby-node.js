@@ -9,9 +9,11 @@ const versionHelper = require('./src/lib/versionHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+}
 
 const parseLinkHeader = header => {
   if (header.length === 0) {
