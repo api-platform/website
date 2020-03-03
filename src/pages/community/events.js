@@ -55,7 +55,7 @@ const EventsPage = ({ location, data }) => {
           </section>
           <section className="events__past">
             <div className="container">
-              <h2 className="events-past__title">Past events</h2>
+              {!!upcomingEvents.length && <h2 className="events-past__title">Past events</h2>}
               <Grid>
                 {pastEvents.map(event => (
                   <GridItem className="small-event__item">
