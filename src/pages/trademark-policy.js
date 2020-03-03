@@ -109,7 +109,7 @@ const Policy = props => (
           <p>
             If you&apos;d like to make any use of our Logos that is not covered by this policy, or for further
             information or clarification about use of the Logos, please contact us:{' '}
-            <a href="mailto:contact@les-tilleuls.coop">contact@les-tilleuls.coop</a>)
+            <a href="mailto:contact@les-tilleuls.coop">contact@les-tilleuls.coop</a>
           </p>
         </div>
       </div>

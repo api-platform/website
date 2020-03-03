@@ -146,7 +146,7 @@ const Template = ({ location, pageContext: contributor }) => {
                             <span>{`${project.deletions}--`}</span>
                           </>
                         ) : (
-                          <span className="no-stat">(no stat)</span>
+                          <span className="no-stat">(no stats)</span>
                         )}
                       </p>
                     </a>
