@@ -68,7 +68,7 @@ const ContributorsPage = ({ location, data }) => {
                         {contributor.lines ? (
                           <span>{`${contributor.lines} lines`}</span>
                         ) : (
-                          <span className="no-stat">(no stat)</span>
+                          <span className="no-stat">(no stats)</span>
                         )}
                       </p>
                     </div>

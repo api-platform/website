@@ -2,5 +2,9 @@
   {
     "id": "268267841",
     "group": "afup-tours-php"
+  },
+  {
+    "id":"269002600",
+    "group":"afup-lyon-php"
   }
 ]
