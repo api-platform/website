@@ -10,7 +10,7 @@ const NotFoundPage = props => (
       <Helmet title="404" />
       <div className="container notfound__content">
         <div className="notfound__text">
-          <h1>Oops!</h1>
+          <h1 className="color-blue-dark">Oops!</h1>
           <p>Looks like this page doesn&#39;t exist...</p>
         </div>
         <img src={Spider} alt="spider" width="371" height="344" />

@@ -1,64 +1,59 @@
-.news {
-  padding: 30px 0 50px;
-  position: relative;
-  min-height: $pageH;
+.social {
   text-align: center;
 
-  h1 {
-    color: $blackblue;
+  .page__title {
     max-width: 700px;
-    margin-bottom: 50px;
 
     strong {
       color: $darkblue;
     }
   }
 
-  &:before {
-    content: "";
-    position: fixed;
-    height: 250px;
-    background-color: $clearblue;
-    width: 100%;
-    left: 0;
-    top: 0;
-  }
-
-  .news__spider {
+  .social__spider {
     display: none;
   }
 
-  .news__content {
+  .social__content {
     @include z-depth-1;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: $white;
+
     position: relative;
+
+    max-width: 700px;
+    margin: 25px auto 0;
+    padding: 20px;
+
+    background-color: $white;
     border-left: 5px solid $lightblue;
+
+    transform: translateY(-70px);
   }
 
-  .news__birds {
+  .social__birds {
     position: absolute;
-    width: 100%;
     right: 0;
     top: 5px;
 
+    width: 100%;
+
     img {
       position: absolute;
+
       right: 0;
       width: 70px;
       height: 70px;
+
       transform: translateY(-100%);
 
       &:nth-child(2) {
         right: 65px;
+
         height: 50px;
         width: 50px;
       }
 
       &:nth-child(3) {
         right: 115px;
+
         width: 40px;
         height: 40px;
       }
@@ -66,8 +61,10 @@
   }
   @include mq($min-width: $vw-medium) {
     h1 {
-      padding: 25px 0;
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
+
+      text-align: left;
     }
   }
   @include mq($min-width: $vw-large) {
@@ -75,24 +72,28 @@
 
     &:after {
       content: "";
-      width: 4px;
-      height: 50vh;
-      background-color: rgba($blackblue, 0.3);
       position: fixed;
       top: 0;
       left: calc(50% - 390px);
+
+      width: 4px;
+      height: 50vh;
+
+      background-color: rgba($blackblue, 0.3);
     }
 
     .container {
       padding-left: 25%;
     }
 
-    .news__spider {
-      display: block;
+    .social__spider {
       position: fixed;
-      width: 240px;
+      display: block;
       top: 50vh;
       left: calc(50% - 390px);
+
+      width: 240px;
+
       transform: translate(-50%, -30%);
     }
   }

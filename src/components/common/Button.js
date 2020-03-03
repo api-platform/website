@@ -5,28 +5,35 @@ import { Link } from 'gatsby';
 
 const ButtonContent = ({ icon, text }) => (
   <div className="button__content">
-    {icon && <i className={`icon-${icon}`} />}
+    {icon && <span className={`icon-${icon}`} />}
     {text && <span>{text}</span>}
   </div>
 );
 
-const Button = ({ className, empty, icon, link, onClick, text }) => {
+const Button = ({ className, empty, icon, link, onClick, text, download }) => {
+  if (download) {
+    return (
+      <a href={link} download className={classNames('btn', className, { empty })}>
+        <ButtonContent icon={icon} text={text} />
+      </a>
+    );
+  }
   if (!link) {
     return (
-      <button type="button" className={classNames(className, { empty })} onClick={onClick}>
+      <button type="button" className={classNames('btn', className, { empty })} onClick={onClick}>
         <ButtonContent icon={icon} text={text} />
       </button>
     );
   }
   if ('/' === link.substring(0, 1)) {
     return (
-      <Link to={link} className={classNames(className, { empty })}>
+      <Link to={link} className={classNames('btn', className, { empty })}>
         <ButtonContent icon={icon} text={text} />
       </Link>
     );
   }
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className={classNames(className, { empty })}>
+    <a href={link} target="_blank" rel="noopener noreferrer" className={classNames('btn', className, { empty })}>
       <ButtonContent icon={icon} text={text} />
     </a>
   );
@@ -49,6 +56,7 @@ Button.propTypes = {
   link: PropTypes.string,
   onClick: PropTypes.func,
   text: PropTypes.string,
+  download: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -58,6 +66,7 @@ Button.defaultProps = {
   link: null,
   onClick: null,
   text: null,
+  download: false,
 };
 
 export default Button;

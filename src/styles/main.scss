@@ -28,17 +28,25 @@
 @import './objects/buttons';
 @import './objects/container';
 @import './objects/cards';
+@import './objects/grid';
+@import './objects/avatar';
 
 // VENDOR
 @import './vendor/algolia';
 
 // COMPONENTS
+@import './components/page';
 @import './components/header';
 @import './components/footer';
 @import './components/sidemenu';
 @import './components/search';
+@import './components/policy';
 @import './components/home/index';
+@import './components/community/index';
 @import './components/docs';
-@import './components/support';
-@import './components/news';
+@import './components/resources/index';
 @import './components/notfound';
+
+// UTILITIES
+@import './utilities/colors';
+@import './utilities/texts';

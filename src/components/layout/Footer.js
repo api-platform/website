@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
 import Logo from '../../images/logo.svg';
 
 class Footer extends Component {
@@ -44,6 +45,9 @@ class Footer extends Component {
             CC BY 3.0
           </a>
           .
+        </p>
+        <p className="footer__policy">
+          <Link to="/trademark-policy">Trademark policy</Link>
         </p>
         <div className="footer__follow">
           <iframe

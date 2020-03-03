@@ -1,0 +1,171 @@
+.community__contributors {
+  padding: 90px 0 50px;
+  .contributors__grid {
+    .grid__item {
+      min-width: auto;
+      width: 300px;
+    }
+  }
+}
+
+.contributors {
+  text-align: center;
+
+  .contributors__header {
+    border-bottom: 5px solid $lightgrey;
+  }
+
+  .contributors__title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    img {
+      padding: 0 20px;
+      max-height: 70px;
+    }
+  }
+
+  @include mq($max-width: $vw-large) {
+    .contributors__title {
+      flex-direction: column;
+      align-items: center;
+      img:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+
+  .contributors__all {
+    padding: 40px 0 50px;
+  }
+
+  .top__grid {
+    transform: translateY(-50px);
+  }
+
+  .contributors-all__title {
+    margin-bottom: 10px;
+  }
+
+  .contributors__main {
+    padding: 20px 0 50px;
+  }
+
+  @include mq($max-width: $vw-large) {
+    .top__grid {
+      .grid__item {
+        min-width: auto;
+        width: 300px;
+      }
+    }
+  }
+}
+
+.contributor__top {
+  .card__title {
+    margin-top: 10px;
+    border-bottom: 4px dotted $blue;
+    padding-bottom: 10px;
+  }
+
+  .avatar {
+    position: relative;
+
+    img {
+      transition: all ease-out 0.6s;
+    }
+
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      width: 100%;
+
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
+
+    circle {
+      fill: none;
+      stroke: $lightblue;
+      stroke-width: 20;
+      stroke-dasharray: 1570.80;
+      stroke-dashoffset: 1570.80;
+      stroke-linecap: round;
+
+      opacity: 0;
+      transition: all ease-out 0.6s;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+
+    .avatar {
+      img {
+        transform: scale(1.1)
+      }
+    }
+
+    circle {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  .contributor__statistic {
+    padding: 10px 0;
+  }
+
+  .statistic__value {
+    font-size: 6em;
+    font-weight: $bold;
+    line-height: 0.8;
+  }
+
+  .statistic__title {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: $bold;
+  }
+
+  @include mq($min-width: $vw-large + 1) {
+    &.big {
+      flex-direction: row;
+
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+
+      .card__content {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.contributor__card {
+  .card__content {
+    justify-content: center;
+  }
+
+  .card__title {
+    margin-bottom: 5px;
+  }
+
+  .contributor__contributions {
+    text-transform: uppercase;
+    font-weight: $bold;
+  }
+
+  .contributor__lines {
+    span {
+      padding-right: 10px;
+
+      &.no-stat {
+        opacity: 0.5;
+      }
+    }
+  }
+}

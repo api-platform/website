@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "gatsby";
-import dataSchema from "../../data/schema";
-import spider from "../../images/spider_schema.svg";
+import React from 'react';
+import { Link } from 'gatsby';
+import dataSchema from '../../data/schema';
+import spider from '../../images/spider_schema.svg';
 
 /* eslint-disable react/prop-types */
 
 const SchemaItem = ({ icon, link, text, title }) => (
   <Link to={link} className="schema__item">
     <div className="schema__card">
-      <i className={`schema__icon icon-line-${icon}`} />
+      <span className={`schema__icon icon-line-${icon}`} />
       <div className="schema__content">
         <h4 className="h3-like card__title">{title}</h4>
         <p>{text}</p>
@@ -19,7 +19,7 @@ const SchemaItem = ({ icon, link, text, title }) => (
 
 const SchemaPart = ({ title, items }) => (
   <div className="schema__part">
-    <h3 className="h4-like part__title">{title}</h3>
+    <h3 className="part__title">{title}</h3>
     <div className="schema__group">
       {items.map(item => (
         <SchemaItem key={item.title} {...item} />
@@ -36,14 +36,7 @@ const Lines = () => (
     <line className="line" x1="0" y1="0" x2="0" y2="100%" stroke="#000" />
     <line className="line" x1="100%" y1="0" x2="100%" y2="100%" stroke="#000" />
     <line className="line" x1="0%" y1="100%" x2="50%" y2="100%" stroke="#000" />
-    <line
-      className="line"
-      x1="100%"
-      y1="100%"
-      x2="50%"
-      y2="100%"
-      stroke="#000"
-    />
+    <line className="line" x1="100%" y1="100%" x2="50%" y2="100%" stroke="#000" />
   </svg>
 );
 

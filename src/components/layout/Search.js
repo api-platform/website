@@ -28,7 +28,7 @@ class Search extends React.Component {
         indexName: process.env.GATSBY_DOCSEARCH_INDEX_NAME,
         inputSelector: this.searchInput,
         debug: false,
-        algoliaOptions: { facetFilters: [`version:v${currentVersion}`] }
+        algoliaOptions: { facetFilters: [`version:v${currentVersion}`] },
       });
     }
   }
@@ -39,7 +39,7 @@ class Search extends React.Component {
 
     return (
       <div className={classNames('search', className)}>
-        <i className="icon-search search__icon" />
+        <span className="icon-search search__icon" />
         <form>
           <input
             ref={input => {

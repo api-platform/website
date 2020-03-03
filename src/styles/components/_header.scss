@@ -57,7 +57,7 @@
   .header__social {
     border-left: 1px solid $grey;
 
-    i {
+    span[class^='icon-'], span[class*=' icon-'] {
       padding: 0 10px;
       color: $lightblue;
       font-size: 2.4em;
@@ -90,7 +90,7 @@
       span {
         transition: all ease .2s;
         line-height: $headerH;
-        font-size: 1.8em;
+        font-size: $text-big;
       }
 
       span {
@@ -99,7 +99,7 @@
         text-transform: uppercase;
       }
 
-      i {
+      span[class^='icon-'], span[class*=' icon-'] {
         margin-left: 10px;
         color: $lightblue;
       }
@@ -126,6 +126,7 @@
       text-align: left;
       border-top: 5px solid $lightblue;
       opacity: 0;
+      min-width: 100%;
       transform: scale(0);
       transform-origin: top;
       transition: top ease .2s, opacity ease .2s, transform 0s .3s;
@@ -137,7 +138,7 @@
         border-bottom: 1px solid $grey;
         white-space: nowrap;
         font-weight: $normal;
-        font-size: 1.4em;
+        font-size: $text-small;
         background-color: $white;
         color: $blackblue;
         transition: all ease .2s;
@@ -177,7 +178,7 @@
       top: calc(100% - 4px);
 
       & > .menu-item__link {
-        & > i {
+        & > span[class^='icon-'], span[class*=' icon-'] {
           transform: rotate(-180deg);
         }
       }

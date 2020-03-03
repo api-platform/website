@@ -165,7 +165,7 @@
   }
   @include mq($max-width: $vw-small) {
     .cover__title {
-      font-size: 2rem;
+      font-size: $title-small;
       margin: 10px auto 15px;
     }
 

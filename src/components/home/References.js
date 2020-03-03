@@ -1,15 +1,9 @@
-import React from "react";
-import { openSourceData, otherData } from "../../data/logos";
+import React from 'react';
+import { openSourceData, otherData } from '../../data/logos';
 
 const openSourceList = openSourceData.map(({ name, logo, link }) => (
   <div className="list__item">
-    <a
-      key={name}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="references__item big"
-    >
+    <a key={name} href={link} target="_blank" rel="noopener noreferrer" className="references__item big card clickable">
       <div className="item__image">
         <img src={`/references/${logo}.png`} alt={name} />
       </div>

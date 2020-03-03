@@ -14,20 +14,25 @@ const Template = ({ location, pageContext }) => (
       <Helmet title={(pageContext.title && pageContext.title) || 'Documentation'}>
         {'' !== pageContext.version
           ? [
-            <link
-              key="canonical"
-              rel="canonical"
-              href={
-                siteUrl +
-                location.pathname.replace(new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`), '/')
-              }
-            />,
-            <meta key="robots" name="robots" content="noindex" />,
-          ]
+              <link
+                key="canonical"
+                rel="canonical"
+                href={
+                  siteUrl +
+                  location.pathname.replace(
+                    new RegExp(`/(${versions.map(versionHelper.getPrefixedVersion).join('|')})/`),
+                    '/'
+                  )
+                }
+              />,
+              <meta key="robots" name="robots" content="noindex" />,
+            ]
           : false}
         <meta
           name="docsearch:version"
-          content={ '' === pageContext.version ? versionHelper.getPrefixedVersion(currentVersion) : pageContext.prefixedVersion }
+          content={
+            '' === pageContext.version ? versionHelper.getPrefixedVersion(currentVersion) : pageContext.prefixedVersion
+          }
         />
         <meta property="og:description" content={pageContext.title} />
       </Helmet>
@@ -36,23 +41,21 @@ const Template = ({ location, pageContext }) => (
         <div dangerouslySetInnerHTML={{ __html: pageContext.html }} />
         <div className="docs__content__help">
           <p>
-            <a href={pageContext.urlEditDocumentation}>
-              You can also help us improve the documentation of this page.
-            </a>
+            <a href={pageContext.urlEditDocumentation}>You can also help us improve the documentation of this page.</a>
           </p>
         </div>
       </div>
       <div className="container docs__nav">
         {pageContext.previous.slug && (
           <Link className="prev" to={`/${pageContext.previous.slug}`}>
-            <i className="icon-chevron-left" />
+            <span className="icon-chevron-left" />
             <span>{pageContext.previous.title}</span>
           </Link>
         )}
         {pageContext.next.slug && (
           <Link className="next" to={`/${pageContext.next.slug}`}>
             <span>{pageContext.next.title}</span>
-            <i className="icon-chevron-right" />
+            <span className="icon-chevron-right" />
           </Link>
         )}
       </div>

@@ -19,8 +19,13 @@
     align-items: center;
 
     .part__title {
-      font-size: 1.4rem;
+      font-size: $text-small;
       background-color: $clearblue;
+      color: $darkblue;
+      font-weight: $bold;
+      display: inline-block;
+      text-transform: uppercase;
+      padding: 5px 20px;
     }
 
     .schema__group {
@@ -75,7 +80,7 @@
     }
 
     .schema__content p {
-      font-size: 1.4rem;
+      font-size: $text-small;
     }
   }
 

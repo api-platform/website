@@ -22,8 +22,13 @@
     font-size: 1.3rem;
   }
 
+  .footer__policy {
+    font-size: $text-extrasmall;
+    text-transform: uppercase;
+  }
+
   .footer__tilleuls {
-    font-size: 1.2rem;
+    font-size: $text-extrasmall;
     margin-bottom: 20px;
   }
 
@@ -55,7 +60,7 @@
 
     .footer__copyright,
     .footer__licence {
-      font-size: 1.2rem;
+      font-size: $text-extrasmall;
       line-height: 1.4rem;
     }
 

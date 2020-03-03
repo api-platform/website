@@ -1,0 +1,146 @@
+.community__events {
+  padding: 20px 0 50px;
+
+  .community-events__title {
+    margin-bottom: 10px;
+  }
+}
+
+.events {
+  .event__main {
+    transform: translateY(-50px);
+  }
+
+  .events__past {
+    text-align: center;
+
+    .events-past__title {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .event__card {
+    .event__description {
+      p:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+}
+
+.card__event {
+  .card-event__infos {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-end;
+
+    margin-top: 10px;
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-right: 10px;
+      padding: 5px;
+
+      line-height: 1.2;
+      font-weight: $bold;
+      &:not(:last-child) {
+        border-bottom: 1px dotted $grey;
+      }
+    }
+
+    span[class^='icon-'],
+    span[class*=' icon-'] {
+      margin-right: 3px;
+    }
+
+    @include mq($max-width: $vw-large) {
+      &.big {
+        display: none;
+      }
+    }
+  }
+
+  &:not(.big) {
+    .card-event__infos.big {
+      display: none;
+    }
+  }
+
+  .card__title {
+    margin: 10px 0 20px;
+  }
+
+  .card__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    margin-bottom: 20px;
+
+    color: $blackblue;
+
+    font-weight: $normal;
+
+    overflow: hidden;
+  }
+
+  .card__content {
+    text-align: center;
+  }
+
+  @include mq($min-width: $vw-large + 1) {
+    &.big {
+      .event__left-big {
+        width: 350px;
+      }
+
+      .card-event__infos {
+        &:not(.big) {
+          display: none;
+        }
+      }
+      flex-direction: row;
+      align-items: flex-start;
+
+      p {
+        justify-content: flex-start;
+      }
+
+      .card__description {
+        -webkit-line-clamp: 6;
+      }
+
+      .card__content {
+        align-items: flex-start;
+
+        padding-left: 20px;
+
+        text-align: left;
+      }
+    }
+  }
+
+  &.past {
+    filter: grayscale(100%);
+  }
+}
+
+.community__events,
+.events {
+  @include mq($min-width: $vw-small + 1) {
+    .small-event__item {
+      width: 250px;
+      min-width: auto;
+
+      .card__title {
+        margin-bottom: 10px;
+        font-size: $text-medium;
+      }
+    }
+  }
+}

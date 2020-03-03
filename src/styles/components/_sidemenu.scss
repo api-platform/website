@@ -86,7 +86,7 @@
 
   .menu-item {
     padding: 15px 20px;
-    font-size: 1.8rem;
+    font-size: $text-big;
 
     &.current {
       background-color: rgba($clearblue, 0.3);
@@ -104,7 +104,7 @@
       & > .menu-item__link {
         span {
           opacity: .5;
-          font-size: 1.4rem;
+          font-size: $text-small;
           text-transform: uppercase;
 
           &:before {
@@ -112,14 +112,14 @@
           }
         }
 
-        i {
+        span[class^='icon-'], span[class*=' icon-'] {
           display: none;
         }
       }
 
       .menu-item__submenu {
         padding-left: 15px;
-        font-size: 1.6rem;
+        font-size: $text-medium;
 
         & > .submenu__item {
           padding: 3px 0;
@@ -128,7 +128,7 @@
       }
     }
 
-    &.menu-item__social i {
+    &.menu-item__social span[class^='icon-'], span[class*=' icon-'] {
       padding: 0 10px;
       color: $lightblue;
       font-size: 2em;

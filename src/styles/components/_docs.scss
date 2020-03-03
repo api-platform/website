@@ -58,10 +58,10 @@
         color: rgba($white, 0.8);
         font-family: $font;
         text-transform: uppercase;
-        font-size: 1.4rem;
+        font-size: $text-small;
       }
 
-      i {
+      span[class^='icon-'], span[class*=' icon-'] {
         display: inline-block;
         vertical-align: middle;
         font-size: 2rem;
@@ -214,7 +214,7 @@
 
   h3 {
     font-family: $font;
-    font-size: 1.6rem;
+    font-size: $text-medium;
     color: $blackblue;
 
     &:not(:first-of-type) {
@@ -223,7 +223,7 @@
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: $text-medium;
     background: none;
   }
 
@@ -245,7 +245,7 @@
   ol,
   ul {
     padding-left: 10px;
-    font-size: 1.4rem;
+    font-size: $text-small;
     line-height: 2.2rem;
 
     & > li {
@@ -340,7 +340,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: $text-small;
   font-weight: $normal;
 
   .next,
@@ -364,11 +364,11 @@
   .prev {
     margin-right: auto;
 
-    span:before {
+    span:last-child:before {
       content: "Previous chapter : ";
     }
 
-    &:hover i {
+    &:hover span[class^='icon-'], span[class*=' icon-'] {
       transform: translateX(-5px);
     }
   }
@@ -376,11 +376,11 @@
   .next {
     margin-left: auto;
 
-    span:before {
+    span:first-child:before {
       content: "Next chapter : ";
     }
 
-    &:hover i {
+    &:hover span[class^='icon-'], span[class*=' icon-'] {
       transform: translateX(5px);
     }
   }

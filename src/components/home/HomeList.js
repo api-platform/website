@@ -6,7 +6,7 @@ const HomeList = ({ data, className }) => (
   <div className={classNames('home__list', className)}>
     {data.map((item, index) => (
       <div key={`point${index}`} className="home__point">
-        <i className="icon-circle-chevron-right point__arrow" />
+        <span className="icon-circle-chevron-right point__arrow" />
         <p className="point__text" dangerouslySetInnerHTML={{ __html: item }} />
       </div>
     ))}

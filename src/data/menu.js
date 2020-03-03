@@ -39,12 +39,42 @@ const menu = [
     path: 'https://demo-client.api-platform.com/',
   },
   {
-    text: 'News',
-    path: '/news/',
+    text: 'Resources',
+    path: '/resources/news',
+    rootPath: '/resources',
+    submenu: [
+      {
+        text: 'News',
+        path: '/resources/news/',
+      },
+      {
+        text: 'Logos',
+        path: '/resources/logos/',
+      },
+      {
+        text: 'Wallpapers',
+        path: '/resources/wallpapers/',
+      },
+    ],
   },
   {
-    text: 'Support',
-    path: '/support/',
+    text: 'Community',
+    path: '/community',
+    rootPath: '/community',
+    submenu: [
+      {
+        text: 'Overview',
+        path: '/community',
+      },
+      {
+        text: 'Contributors',
+        path: '/community/contributors/',
+      },
+      {
+        text: 'Events',
+        path: '/community/events/',
+      },
+    ],
   },
 ];
 
