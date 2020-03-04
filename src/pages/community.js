@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -43,9 +43,14 @@ const CommunityPage = ({ location, data }) => {
   const { nodes: upcomingEvents } = data.upcomingEvents;
   const { nodes: pastEvents } = data.pastEvents;
 
+  const [contributors, setContributors] = useState([]);
+
+  useEffect(() => {
+    const shuffledContributors = [...data.allContributor.nodes].sort(() => 0.5 - Math.random());
+    setContributors(shuffledContributors.slice(0, 3));
+  }, [data.allContributor.nodes]);
+
   const events = [...upcomingEvents, ...pastEvents].splice(0, 3);
-  const shuffledContributors = [...data.allContributor.nodes].sort(() => 0.5 - Math.random());
-  const contributors = shuffledContributors.slice(0, 3);
   return (
     <Layout location={location}>
       <div className="community">
@@ -70,6 +75,7 @@ const CommunityPage = ({ location, data }) => {
           </div>
         </header>
         <section className="container community__main">
+          <h2 className="accessibility__hidden-block">Support</h2>
           <Grid>
             <GridItem>
               <CommunityCard title="Community support" image={CommunitySupport}>
@@ -209,7 +215,7 @@ const CommunityPage = ({ location, data }) => {
           <section className="community__events bg-blue-extralight">
             <div className="container">
               <h2 className="community-events__title">Our events</h2>
-              <Grid>
+              <Grid className="community-events__grid">
                 {events.map(event => (
                   <GridItem key={event.id} className="small-event__item">
                     <EventCard event={event} noDesc />
@@ -295,6 +301,7 @@ export const query = graphql`
         avatar
         contributions
         position
+        teams
       }
     }
   }

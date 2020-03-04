@@ -1,6 +1,19 @@
-@import "./events";
-@import "./contributors";
-@import "./contributor";
+@import './events';
+@import './contributors';
+@import './contributor';
+
+.contributor__picture {
+  position: relative;
+  .contributor__badge {
+    position: absolute;
+    left: 90%;
+    top: 80%;
+
+    width: 30%;
+
+    transform: translate(-50%, -50%);
+  }
+}
 
 .community {
   text-align: center;
@@ -114,7 +127,8 @@
       width: 100%;
     }
 
-    .community-header__image, .community-header__puzzle {
+    .community-header__image,
+    .community-header__puzzle {
       display: none;
     }
   }

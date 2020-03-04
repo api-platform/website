@@ -4,9 +4,11 @@
 
 .ds-dropdown-menu {
   font-size: $text-small;
+  width: 100%;
 
   [class^=ds-dataset-] {
     padding: 0 !important;
+    width: 100%;
   }
 
   .ds-suggestions {
@@ -51,5 +53,14 @@
   @include mq($max-width: $vw-medium) {
     min-width: 450px!important;
     max-width: 450px!important;
+
+    .algolia-docsearch-suggestion--wrapper {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .algolia-docsearch-suggestion--highlight {
+      padding: 0;
+    }
   }
 }

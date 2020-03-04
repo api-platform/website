@@ -8,11 +8,12 @@ const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
+const fs = require('fs');
 
-if (process.env.NODE_ENV !== 'production') {
+if (fs.existsSync('.env.local')) {
   require('dotenv').config({
-    path: `.env.${process.env.NODE_ENV}`,
-  })
+    path: '.env.local',
+  });
 }
 
 const parseLinkHeader = header => {
@@ -51,7 +52,7 @@ const fetchFromGithubApi = async url => {
     },
   });
 
-  if (response.status === 401) throw new Error('UNAUTHORIZED');
+  if (response.status === 401) throw new Error('UNAUTHORIZED: check your github token');
 
   // if rate limit excedeed : wait for reset time
   if (response.headers.get('x-ratelimit-remaining') === '0') {
@@ -75,7 +76,7 @@ const sortByContributions = (a, b) => {
   return 0;
 };
 
-const REPOSITORIES_TO_IGNORE = ['.github', 'symfonycon-berlin-workshop-eod'];
+const REPOSITORIES_TO_IGNORE = ['symfonycon-berlin-workshop-eod'];
 
 const getRepositoryList = async organizationName => {
   const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
@@ -214,8 +215,37 @@ const getAllMeetupEvents = async () => {
 const CONTRIBUTOR_NODE_TYPE = `Contributor`;
 const EVENT_NODE_TYPE = `Event`;
 
+const getOrganizationTeamMembers = async (organizationName, teamName) => {
+  const members = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/teams/${teamName}/members`);
+  const data = await members.json();
+
+  return data.map(member => member.login);
+};
+
+const getOrganizationTeams = async organizationName => {
+  try {
+    const teams = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/teams`);
+    const data = await teams.json();
+
+    const fullTeams = await Promise.all(
+      data.map(async team => ({
+        ...team,
+        members: await getOrganizationTeamMembers(organizationName, team.slug),
+      }))
+    );
+
+    return fullTeams;
+  } catch (error) {
+    console.error(
+      `UNAUTHORIZED: You have restricted rights to ${organizationName} teams. You can't retrieve core teams members`
+    );
+    return [];
+  }
+};
+
 exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
   const { createNode } = actions;
+  const teams = await getOrganizationTeams('api-platform');
   const contributors = await getAllContributorsFromOrganization('api-platform');
   const fullContributors = await Promise.all(
     contributors.map(async contributor => {
@@ -229,6 +259,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
         location: user.location,
         bio: user.bio,
         company: user.company,
+        teams: ['dummy-team', ...teams.filter(team => team.members.includes(contributor.login)).map(team => team.slug)],
       };
     })
   );
@@ -254,6 +285,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       position: 0,
       lines: 0,
       profile_url: 'dummy',
+      teams: ['dummy-team'],
     });
   }
   fullContributors.forEach(item => {
@@ -412,6 +444,7 @@ exports.createPages = async ({ graphql, actions }) => {
           contributions
           position
           lines
+          teams
         }
       }
     }

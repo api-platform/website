@@ -7,6 +7,7 @@ import { ContributorType } from '../../types';
 import BigContributor from '../../components/community/BigContributor';
 import Layout from '../../components/Layout';
 import { Grid, GridItem } from '../../components/common/Grid';
+import { isCoreTeam } from '../../helpers/contributorHelper';
 
 const ContributorsPage = ({ location, data }) => {
   const contributors = [...data.allContributor.nodes];
@@ -34,6 +35,7 @@ const ContributorsPage = ({ location, data }) => {
         </header>
         <section className="contributors__top bg-white">
           <div className="container">
+            <h2 className="accessibility__hidden-block">Top contributors</h2>
             <Grid className="top__grid">
               <GridItem full padding={10}>
                 {firstContributor && <BigContributor contributor={firstContributor} size="big" />}
@@ -72,6 +74,14 @@ const ContributorsPage = ({ location, data }) => {
                         )}
                       </p>
                     </div>
+                    {isCoreTeam(contributor) && (
+                      <img
+                        className="contributor__badge"
+                        src="/badges/core-team.svg"
+                        alt="core-team"
+                        title="Core team member"
+                      />
+                    )}
                   </Link>
                 </GridItem>
               ))}
@@ -105,6 +115,7 @@ export const query = graphql`
         contributions
         position
         lines
+        teams
       }
     }
   }

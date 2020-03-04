@@ -90,8 +90,8 @@
       fill: none;
       stroke: $lightblue;
       stroke-width: 20;
-      stroke-dasharray: 1570.80;
-      stroke-dashoffset: 1570.80;
+      stroke-dasharray: 1570.8;
+      stroke-dashoffset: 1570.8;
       stroke-linecap: round;
 
       opacity: 0;
@@ -104,7 +104,7 @@
 
     .avatar {
       img {
-        transform: scale(1.1)
+        transform: scale(1.1);
       }
     }
 
@@ -157,6 +157,10 @@
   .contributor__contributions {
     text-transform: uppercase;
     font-weight: $bold;
+  }
+
+  .contributor__badge {
+    width: 40px;
   }
 
   .contributor__lines {
