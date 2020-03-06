@@ -34,17 +34,23 @@ class Search extends React.Component {
   }
   /* eslint-enable no-undef */
 
+  onSearchClick = () => {
+    this.searchInput.focus();
+  };
+
   render() {
-    const { className } = this.props;
+    const { className, onFocus, onBlur } = this.props;
 
     return (
       <div className={classNames('search', className)}>
-        <span className="icon-search search__icon" />
+        <button className="icon-search search__icon" onClick={this.onSearchClick} title="Search docs" />
         <form>
           <input
             ref={input => {
               this.searchInput = input;
             }}
+            onFocus={onFocus}
+            onBlur={onBlur}
             className="search__input"
             type="search"
             placeholder="SEARCH..."
@@ -59,6 +65,8 @@ Search.propTypes = {
   className: PropTypes.string,
   isScriptLoaded: PropTypes.bool.isRequired,
   isScriptLoadSucceed: PropTypes.bool.isRequired,
+  onFocus: PropTypes.func.isRequired,
+  onBlur: PropTypes.func.isRequired,
 };
 
 Search.defaultProps = {

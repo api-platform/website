@@ -23,9 +23,9 @@ const EventsPage = ({ location, data }) => {
     return 0;
   };
 
-  const upcomingEvents = events.filter(event => 'upcoming' === event.status).sort(dateAsc);
+  const upcomingEvents = events.filter(event => dayjs(event.local_date).isAfter(dayjs())).sort(dateAsc);
 
-  const pastEvents = events.filter(event => 'past' === event.status).sort(dateDesc);
+  const pastEvents = events.filter(event => !dayjs(event.local_date).isAfter(dayjs())).sort(dateDesc);
 
   return (
     <Layout location={location}>
@@ -42,20 +42,25 @@ const EventsPage = ({ location, data }) => {
           </div>
         </header>
         <div className="event__main">
-          <section className="events__upcoming">
-            <div className="container">
-              <Grid>
-                {upcomingEvents.map((event, index) => (
-                  <GridItem full={0 === index}>
-                    <EventCard big={0 === index} event={event} />
-                  </GridItem>
-                ))}
-              </Grid>
-            </div>
-          </section>
+          {!!upcomingEvents.length && (
+            <section className="events__upcoming">
+              <h2 className="accessibility__hidden-block">Upcoming events</h2>
+              <div className="container">
+                <Grid>
+                  {upcomingEvents.map((event, index) => (
+                    <GridItem full={0 === index}>
+                      <EventCard big={0 === index} event={event} />
+                    </GridItem>
+                  ))}
+                </Grid>
+              </div>
+            </section>
+          )}
           <section className="events__past">
             <div className="container">
-              {!!upcomingEvents.length && <h2 className="events-past__title">Past events</h2>}
+              <h2 className={upcomingEvents.length ? 'events-past__title' : 'accessibility__hidden-block'}>
+                Past events
+              </h2>
               <Grid>
                 {pastEvents.map(event => (
                   <GridItem className="small-event__item">

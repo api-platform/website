@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { ContributorType } from '../../types';
+import { isCoreTeam } from '../../helpers/contributorHelper';
 
 const BigContributor = ({ contributor, size }) => (
   <Link
@@ -12,11 +13,16 @@ const BigContributor = ({ contributor, size }) => (
       'full-row': 'big' === size,
     })}
   >
-    <div className="avatar bordered bg-grey-light crop medium">
-      <img className="contributor__image" loading="lazy" src={contributor.avatar} alt={contributor.login} />
-      <svg version="1.1" viewBox="0 0 520 520" preserveAspectRatio="xMinYMin meet">
-        <circle cx="260" cy="260" r="250" />
-      </svg>
+    <div className="contributor__picture">
+      <div className="avatar bordered bg-grey-light crop medium">
+        <img className="contributor__image" src={contributor.avatar} alt={contributor.login} />
+        <svg version="1.1" viewBox="0 0 520 520" preserveAspectRatio="xMinYMin meet">
+          <circle cx="260" cy="260" r="250" />
+        </svg>
+      </div>
+      {isCoreTeam(contributor) && (
+        <img className="contributor__badge" src="/badges/core-team.svg" alt="core-team" title="Core team member" />
+      )}
     </div>
     <div className="card__content">
       <h3 className="card__title color-blue-extradark">{`#${contributor.position} ${contributor.login}`}</h3>

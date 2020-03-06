@@ -7,7 +7,7 @@
   z-index: z("sidemenu");
   background-color: $white;
   transition: transform ease .5s;
-  @include mq($min-width: $vw-large + 1) {
+  @include mq($min-width: $vw-mobile-menu + 1) {
     display: none;
   }
 

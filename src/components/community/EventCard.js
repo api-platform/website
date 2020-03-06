@@ -27,10 +27,9 @@ EventInfos.propTypes = {
 EventInfos.defaultProps = {
   big: false,
 };
-
+/* eslint-disable camelcase */
 const EventCard = ({ event, big, noDesc }) => {
   const description = event.description.replace(/<p>/gi, '').replace(/<\/p>/gi, '');
-
   return (
     <a
       href={event.link}
@@ -43,11 +42,15 @@ const EventCard = ({ event, big, noDesc }) => {
       })}
     >
       <div className="event__left-big">
-        <img className="event__image" src={event.featured_photo.photo_link} alt={event.name} />
+        <img
+          className="event__image"
+          src={event.featured_photo?.photo_link || '/meetup-placeholder.png'}
+          alt={event.name}
+        />
         <EventInfos event={event} big />
       </div>
       <div className="card__content">
-        <h2 className="card__title">{event.name}</h2>
+        <h3 className="card__title">{event.name}</h3>
         {!noDesc && (
           <p
             className="card__description"
@@ -61,6 +64,7 @@ const EventCard = ({ event, big, noDesc }) => {
     </a>
   );
 };
+/* eslint-enable camelcase */
 
 EventCard.propTypes = {
   event: MeetupEventType.isRequired,

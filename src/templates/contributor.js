@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import { Grid, GridItem } from '../components/common/Grid';
+import { isCoreTeam, getName } from '../helpers/contributorHelper';
 
 const externalLinkAttributes = 'target="_blank" rel="nofollow noopener noreferrer"';
 
@@ -56,16 +57,24 @@ const Template = ({ location, pageContext: contributor }) => {
 
   const repositoryText = 1 < repositoryCount ? `${repositoryCount} repositories` : `${repositoryCount} repository`;
 
-  const contributorName = contributor.name || contributor.login;
+  const contributorName = getName(contributor);
 
   const getContributionsText = () => {
     if (10 >= contributor.position) {
-      return `${contributorName} is one of the most active contributors to the API Platform framework, and worked on`;
+      return `${
+        isCoreTeam(contributor) ? 'As an API Platform core team member, ' : ''
+      }${contributorName} is one of the most active contributors to the API Platform framework and worked on`;
     }
     if (20 < contributor.contributions) {
-      return `${contributorName} enhanced the API Platform framework with no less than ${contributor.contributions} contributions. This active contributor worked on`;
+      return `${
+        isCoreTeam(contributor) ? 'As an API Platform core team member, ' : ''
+      }${contributorName} enhanced the API Platform framework with no less than ${
+        contributor.contributions
+      } contributions. This active contributor worked on`;
     }
-    return `${contributorName} is a contributor to the API Platform framework and worked on`;
+    return `${contributorName} is a ${
+      isCoreTeam(contributor) ? 'core team member and a ' : ''
+    }contributor to the API Platform framework and worked on`;
   };
 
   const getProjectsText = () => {
@@ -79,11 +88,11 @@ const Template = ({ location, pageContext: contributor }) => {
   return (
     <Layout location={location}>
       <div className="contributor bg-grey-light">
-        <Helmet title={`${contributor.name}, API Platform contributor`} />
+        <Helmet title={`${contributorName}, API Platform contributor`} />
         <header className="contributor__header bg-blue-extralight">
           <div className="container">
             <div className="header__content">
-              <h1 className="header__title color-blue-dark">{`Contributor #${contributor.position}`}</h1>
+              <p className="h1-like header__title color-blue-dark">{`Contributor #${contributor.position}`}</p>
             </div>
           </div>
         </header>
@@ -91,11 +100,21 @@ const Template = ({ location, pageContext: contributor }) => {
           <div className="container contributor__main">
             <div className="contributor__card">
               <div className="card__top bg-blue-dark color-white">
-                <div className="avatar crop">
-                  <img src={contributor.avatar} alt={contributor.login} />
+                <div className="contributor__picture">
+                  <div className="avatar crop">
+                    <img src={contributor.avatar} alt={contributor.login} />
+                  </div>
+                  {isCoreTeam(contributor) && (
+                    <img
+                      className="contributor__badge"
+                      src="/badges/core-team.svg"
+                      alt="core-team"
+                      title="Core team member"
+                    />
+                  )}
                 </div>
                 <div className="card__content">
-                  <h2 className="h1-like color-white">{contributor.name || contributor.login}</h2>
+                  <h1 className="h1-like color-white">{contributorName}</h1>
                   <p className="contributor__subtitle color-blue-extralight">{`(${contributor.login})`}</p>
                   {contributor.bio && (
                     <p
