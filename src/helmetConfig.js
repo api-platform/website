@@ -25,6 +25,7 @@ export default {
       { property: 'og:creator', content: '@dunglas' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
+      { property: 'twitter:site', content: '@ApiPlatform' },
     ],
     link: [
       {
