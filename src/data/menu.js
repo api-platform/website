@@ -55,6 +55,10 @@ const menu = [
         text: 'Wallpapers',
         path: '/resources/wallpapers/',
       },
+      {
+        text: 'Colouring Webby',
+        path: '/resources/colouring-webby/',
+      },
     ],
   },
   {
