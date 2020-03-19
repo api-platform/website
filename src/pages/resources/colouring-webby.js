@@ -74,13 +74,9 @@ export const query = graphql`
         childImageSharp {
           original {
             src
-            height
-            width
           }
           mini: resize(width: 500, quality: 100) {
             src
-            width
-            height
           }
         }
       }
@@ -89,9 +85,7 @@ export const query = graphql`
 `;
 
 const imageType = PropTypes.shape({
-  src: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
+  src: PropTypes.string.isRequired,
 });
 
 Colouring.propTypes = {
