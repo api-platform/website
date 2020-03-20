@@ -35,7 +35,7 @@ bin/retrieve-documentation
 # Run project locally (for development)
 
 yarn gatsby develop
-# Go to http://localhost:8000/
+> Go to http://localhost:8000/
 
 # Build the project (for production)
 
@@ -44,7 +44,7 @@ yarn gatsby build
 # Test the built project locally
 
 yarn gatsby serve
-# Go to http://localhost:9000
+> Go to http://localhost:9000
 ```
 
 ## Publishing Docs For New Versions
