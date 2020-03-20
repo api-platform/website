@@ -122,7 +122,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
-
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -130,5 +129,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ],
 };

@@ -324,8 +324,13 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  const docPageTemplate = path.resolve('src/templates/doc.js');
 
+  // Redirect 301 old page
+  createRedirect({ fromPath: '/news/', toPath: '/resources/news/', isPermanent: true, redirectInBrowser: true });
+  createRedirect({ fromPath: '/support/', toPath: '/community/', isPermanent: true, redirectInBrowser: true });
+
+  // Documentation pages
+  const docPageTemplate = path.resolve('src/templates/doc.js');
   const result = await graphql(`
     {
       allMarkdownRemark(limit: 1000) {
@@ -422,6 +427,7 @@ exports.createPages = async ({ graphql, actions }) => {
     );
   });
 
+  // Contributors page
   const contributors = await graphql(`
     {
       allContributor {
