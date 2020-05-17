@@ -51,7 +51,7 @@ class Footer extends Component {
           <Link to="/trademark-policy">Trademark policy</Link>
         </p>
         <div className="switch">
-          <SwitchTheme id="site-menu__dark"/>
+          <SwitchTheme id="site-menu__dark" />
         </div>
         <div className="footer__follow">
           <iframe
