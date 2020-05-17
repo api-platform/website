@@ -137,6 +137,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-remove-serviceworker',
-    'gatsby-plugin-meta-redirect' // make sure this is always the last one
+    'gatsby-plugin-meta-redirect', // make sure this is always the last one
   ],
 };
