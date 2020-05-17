@@ -6,7 +6,7 @@
   position: fixed;
   height: 80px;
   width: 100%;
-  background-color: $white;
+  background-color: var(--bg);
   z-index: z('header');
 
   .header__logo,
@@ -84,7 +84,7 @@
 
     .menu-item__link {
       position: relative;
-      color: $blackblue;
+      color: var(--text-color);
       padding: 0 15px;
 
       i,
@@ -163,7 +163,7 @@
     }
 
     & > .menu-item__link {
-      color: $blue;
+      color: var(--link-color);
 
       &:after {
         height: 4px;

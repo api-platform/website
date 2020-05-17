@@ -26,7 +26,7 @@
 
     &:focus {
       outline: none;
-      background-color: rgba($clearblue, 0.5);
+      background-color: var(--search-focus);
     }
   }
 }

@@ -43,3 +43,29 @@ $palette: (
     base: $black
   )
 );
+
+body {
+  --bg: #{$lightgrey};
+  --content-bg: #{$white};
+  --text-color: #{$blackblue};
+  --title-color: #{$darkblue};
+  --link-color: #{$darkblue};
+  --bg-blue: #{$darkblue};
+  --bg-active-blue: #{$lightblue};
+  --search-focus: rgba(#{$clearblue}, 0.5);
+  --table-odd: #f9f9f9;
+  --site-link-menu-color: #{$white};
+  --icon-opacity: .5;
+}
+
+body.dark {
+  --bg: #253032;
+  --content-bg: #36393e;
+  --text-color: #{$white};
+  --title-color: #f0f0f0;
+  --link-color: #{$lightblue};
+  --bg-blue: #{$blue};
+  --search-focus: #{$white};
+  --table-odd: #36393e;
+  --icon-opacity: 1;
+}

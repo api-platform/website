@@ -5,7 +5,7 @@
   height: 100%;
   width: $menuW;
   z-index: z("sidemenu");
-  background-color: $white;
+  background-color: var(--bg-blue);
   transition: transform ease .5s;
   @include mq($min-width: $vw-mobile-menu + 1) {
     display: none;
@@ -21,7 +21,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: $blue;
+    background-color: var(--bg-blue);
     text-align: center;
 
     .side-menu__logo {
@@ -88,11 +88,15 @@
     padding: 15px 20px;
     font-size: $text-big;
 
+    & > .menu-item__link {
+      color: var(--site-link-menu-color);
+    }
+
     &.current {
-      background-color: rgba($clearblue, 0.3);
+      background-color: var(--bg-active-blue);
 
       & > .menu-item__link {
-        color: $darkblue;
+        color: var(--site-link-menu-color);
       }
     }
 
@@ -106,6 +110,7 @@
           opacity: .5;
           font-size: $text-small;
           text-transform: uppercase;
+          color: black;
 
           &:before {
             content: "// ";
@@ -124,6 +129,7 @@
         & > .submenu__item {
           padding: 3px 0;
           display: block;
+          color: var(--site-link-menu-color);
         }
       }
     }
