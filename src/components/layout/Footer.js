@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import Logo from '../../images/logo.svg';
+import SwitchTheme from '../common/SwitchTheme';
 
 class Footer extends Component {
   /* eslint-disable no-undef */
@@ -49,6 +50,9 @@ class Footer extends Component {
         <p className="footer__policy">
           <Link to="/trademark-policy">Trademark policy</Link>
         </p>
+        <div className="switch">
+          <SwitchTheme id="site-menu__dark"/>
+        </div>
         <div className="footer__follow">
           <iframe
             title="github"
