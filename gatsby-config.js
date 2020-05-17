@@ -8,6 +8,7 @@ module.exports = {
     siteUrl: process.env.GATSBY_ROOT_URL,
   },
   plugins: [
+    'gatsby-plugin-dark-mode',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
