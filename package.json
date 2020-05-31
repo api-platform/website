@@ -80,7 +80,7 @@
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "eslint --fix 'src/**/*.js'",
+    "format": "eslint --fix .",
     "lint": "eslint .",
     "postinstall": "npm rebuild node-sass",
     "test": "echo \"Error: no test specified\" && exit 1",

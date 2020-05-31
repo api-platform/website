@@ -1,35 +1,40 @@
+/* eslint-disable no-console */
+
 const path = require('path');
 const URL = require('url');
 const fetch = require('node-fetch');
+
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const jsyaml = require('js-yaml');
 const { readFileSync } = require('fs');
+const fs = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
-const fs = require('fs');
 
 if (fs.existsSync('.env.local')) {
+  // eslint-disable-next-line global-require
   require('dotenv').config({
     path: '.env.local',
   });
 }
 
-const parseLinkHeader = header => {
-  if (header.length === 0) {
+const parseLinkHeader = (header) => {
+  if (0 === header.length) {
     throw new Error('input must not be of zero length');
   }
 
   // Split parts by comma and parse each part into a named link
   return header.split(/(?!\B"[^"]*),(?![^"]*"\B)/).reduce((links, part) => {
     const section = part.split(/(?!\B"[^"]*);(?![^"]*"\B)/);
-    if (section.length < 2) {
+    if (2 > section.length) {
       throw new Error("section could not be split on ';'");
     }
     const url = section[0].replace(/<(.*)>/, '$1').trim();
     const name = section[1].replace(/rel="(.*)"/, '$1').trim();
 
+    // eslint-disable-next-line no-param-reassign
     links[name] = url;
 
     return links;
@@ -38,24 +43,24 @@ const parseLinkHeader = header => {
 
 const navs = {};
 versions.push(current);
-versions.forEach(version => {
+versions.forEach((version) => {
   const prefixedVersion = `${versionHelper.getPrefixedVersion(version)}/`;
   navs[prefixedVersion] = jsyaml.safeLoad(readFileSync(`./src/pages/docs/${prefixedVersion}nav.yml`, 'utf8'));
 });
-const delay = time => new Promise(res => setTimeout(() => res(), time));
+const delay = (time) => new Promise((res) => setTimeout(() => res(), time));
 
-/** GITHUB **/
-const fetchFromGithubApi = async url => {
+// GITHUB
+const fetchFromGithubApi = async (url) => {
   const response = await fetch(url, {
     headers: {
       authorization: `token ${process.env.GITHUB_KEY}`,
     },
   });
 
-  if (response.status === 401) throw new Error('UNAUTHORIZED: check your github token');
+  if (401 === response.status) throw new Error('UNAUTHORIZED: check your github token');
 
   // if rate limit excedeed : wait for reset time
-  if (response.headers.get('x-ratelimit-remaining') === '0') {
+  if ('0' === response.headers.get('x-ratelimit-remaining')) {
     const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
@@ -78,27 +83,27 @@ const sortByContributions = (a, b) => {
 
 const REPOSITORIES_TO_IGNORE = ['symfonycon-berlin-workshop-eod'];
 
-const getRepositoryList = async organizationName => {
+const getRepositoryList = async (organizationName) => {
   const repos = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/repos`);
   const data = await repos.json();
 
-  return data.filter(repo => !REPOSITORIES_TO_IGNORE.includes(repo.name));
+  return data.filter((repo) => !REPOSITORIES_TO_IGNORE.includes(repo.name));
 };
 
 const getStaticRepositoryList = async () => {
   const repos = await Promise.all(
-    repositories.map(async repoName => fetchFromGithubApi(`https://api.github.com/repos/${repoName}`))
+    repositories.map((repoName) => fetchFromGithubApi(`https://api.github.com/repos/${repoName}`))
   );
-  const data = await Promise.all(repos.map(async repo => await repo.json()));
+  const data = await Promise.all(repos.map((repo) => repo.json()));
 
   return data;
 };
 
-const getRepoContributorsStats = async repository => {
+const getRepoContributorsStats = async (repository) => {
   const response = await fetchFromGithubApi(`${repository.url}/stats/contributors`);
   let stats = await response.json();
   if (!Array.isArray(stats)) stats = [];
-  return stats.map(stat => ({
+  return stats.map((stat) => ({
     id: stat.author.id,
     additions: stat.weeks.reduce((acc, week) => acc + week.a, 0),
     deletions: stat.weeks.reduce((acc, week) => acc + week.d, 0),
@@ -106,16 +111,18 @@ const getRepoContributorsStats = async repository => {
   }));
 };
 
-const getListOfContributorsFromRepository = async repository => {
+const getListOfContributorsFromRepository = async (repository) => {
   let pageToFetch = `${repository.url}/contributors?page=1&per_page=100`;
   let contributors = [];
   while (pageToFetch) {
+    // eslint-disable-next-line no-await-in-loop
     const response = await fetchFromGithubApi(pageToFetch);
+    // eslint-disable-next-line no-await-in-loop
     const newContributors = await response.json();
     contributors = [...contributors, ...newContributors];
     pageToFetch = response.headers.get('Link') && parseLinkHeader(response.headers.get('Link')).next;
   }
-  return contributors.filter(c => c.type !== 'Bot');
+  return contributors.filter((c) => 'Bot' !== c.type);
 };
 
 const createContributor = (repository, contributor, stat) => {
@@ -140,37 +147,37 @@ const createContributor = (repository, contributor, stat) => {
   };
 };
 
-const getAllContributorsFromOrganization = async organizationName => {
+const getAllContributorsFromOrganization = async (organizationName) => {
   try {
     const repos = await getRepositoryList(organizationName);
     const staticRepos = await getStaticRepositoryList();
     const allRepos = [...repos, ...staticRepos];
     const allContributors = [];
     await Promise.all(
-      allRepos.map(async repo => {
+      allRepos.map(async (repo) => {
         const contributors = await getListOfContributorsFromRepository(repo);
         const stats = await getRepoContributorsStats(repo);
-        for (let contributor of contributors) {
-          const stat = stats.find(stat => stat.id === contributor.id);
-          const personFromList = allContributors.find(c => c.login === contributor.login);
+        contributors.forEach((contributor) => {
+          const contributorStat = stats.find((stat) => stat.id === contributor.id);
+          const personFromList = allContributors.find((c) => c.login === contributor.login);
           if (personFromList) {
             personFromList.contributions += contributor.contributions;
-            if (stat) {
-              personFromList.lines += stat.additions + stat.deletions;
+            if (contributorStat) {
+              personFromList.lines += contributorStat.additions + contributorStat.deletions;
             }
             personFromList.projects.push({
               name: repo.name,
               fullName: repo.full_name,
               link: repo.html_url,
               contributions: contributor.contributions,
-              additions: stat ? stat.additions : 0,
-              deletions: stat ? stat.deletions : 0,
+              additions: contributorStat ? contributorStat.additions : 0,
+              deletions: contributorStat ? contributorStat.deletions : 0,
             });
             personFromList.projects.sort(sortByContributions);
           } else {
-            allContributors.push(createContributor(repo, contributor, stat));
+            allContributors.push(createContributor(repo, contributor, contributorStat));
           }
-        }
+        });
       })
     );
     return allContributors.sort(sortByContributions).map((contributor, i) => ({ ...contributor, position: i + 1 }));
@@ -180,12 +187,12 @@ const getAllContributorsFromOrganization = async organizationName => {
   }
 };
 
-/** EVENTS **/
-const fetchFromMeetupApi = async url => {
+// EVENTS
+const fetchFromMeetupApi = async (url) => {
   const response = await fetch(url);
 
   // if rate limit excedeed : wait for reset time
-  if (response.headers.get('x-ratelimit-remaining') === '0') {
+  if ('0' === response.headers.get('x-ratelimit-remaining')) {
     const rateLimitResetTime = response.headers.get('x-ratelimit-reset') * 1000;
     const timeToWait = rateLimitResetTime - new Date().getTime();
     if (timeToWait > process.env.GATSBY_BUILD_TIMEOUT) {
@@ -204,11 +211,11 @@ const getAllMeetupEvents = async () => {
   );
   const data = await events.json();
   const staticEvents = await Promise.all(
-    staticEventsData.map(async event =>
+    staticEventsData.map(async (event) =>
       fetchFromMeetupApi(`https://api.meetup.com/${event.group}/events/${event.id}?desc=true&fields=featured_photo`)
     )
   );
-  const staticEventsdata = await Promise.all(staticEvents.map(async event => await event.json()));
+  const staticEventsdata = await Promise.all(staticEvents.map((event) => event.json()));
   return [...data, ...staticEventsdata];
 };
 
@@ -219,16 +226,16 @@ const getOrganizationTeamMembers = async (organizationName, teamName) => {
   const members = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/teams/${teamName}/members`);
   const data = await members.json();
 
-  return data.map(member => member.login);
+  return data.map((member) => member.login);
 };
 
-const getOrganizationTeams = async organizationName => {
+const getOrganizationTeams = async (organizationName) => {
   try {
     const teams = await fetchFromGithubApi(`https://api.github.com/orgs/${organizationName}/teams`);
     const data = await teams.json();
 
     const fullTeams = await Promise.all(
-      data.map(async team => ({
+      data.map(async (team) => ({
         ...team,
         members: await getOrganizationTeamMembers(organizationName, team.slug),
       }))
@@ -248,7 +255,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
   const teams = await getOrganizationTeams('api-platform');
   const contributors = await getAllContributorsFromOrganization('api-platform');
   const fullContributors = await Promise.all(
-    contributors.map(async contributor => {
+    contributors.map(async (contributor) => {
       const userResponse = await fetchFromGithubApi(contributor.url);
       await delay(1000);
       const user = await userResponse.json();
@@ -259,11 +266,14 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
         location: user.location,
         bio: user.bio,
         company: user.company,
-        teams: ['dummy-team', ...teams.filter(team => team.members.includes(contributor.login)).map(team => team.slug)],
+        teams: [
+          'dummy-team',
+          ...teams.filter((team) => team.members.includes(contributor.login)).map((team) => team.slug),
+        ],
       };
     })
   );
-  if (fullContributors.length === 0) {
+  if (0 === fullContributors.length) {
     // create dummy contributor to avoid graphql build error
     fullContributors.push({
       login: 'dummy-api-platform',
@@ -288,7 +298,7 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       teams: ['dummy-team'],
     });
   }
-  fullContributors.forEach(item => {
+  fullContributors.forEach((item) => {
     const nodeMetadata = {
       id: createNodeId(`contributor-${item.id}`),
       parent: null,
@@ -300,11 +310,11 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       },
     };
 
-    const node = Object.assign({}, item, nodeMetadata);
+    const node = { ...item, ...nodeMetadata };
     createNode(node);
   });
   const events = await getAllMeetupEvents();
-  events.forEach(item => {
+  events.forEach((item) => {
     const nodeMetadata = {
       id: createNodeId(`event-${item.id}`),
       parent: null,
@@ -316,10 +326,9 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
       },
     };
 
-    const node = Object.assign({}, item, nodeMetadata);
+    const node = { ...item, ...nodeMetadata };
     createNode(node);
   });
-  return;
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -356,8 +365,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const pages = result.data.allMarkdownRemark.edges;
 
-  pages.forEach(edge => {
-    const redirect = edge.node.fields.redirect;
+  pages.forEach((edge) => {
+    const { redirect } = edge.node.fields;
     const slug = edge.node.fields.slug.replace(`${current}/`, '');
     const slugArray = edge.node.fields.slug.split('/');
     const prefixedVersion = slugArray[2];
@@ -366,13 +375,13 @@ exports.createPages = async ({ graphql, actions }) => {
     const section = slugArray[3];
     const article = slugArray[4] ? slugArray[4] : 'index';
 
-    let previous = {};
-    let next = {};
+    const previous = {};
+    const next = {};
 
     const nav = navs[`${prefixedVersion}/`];
     nav.chapters
-      .filter(chapter => chapter.path === section)
-      .forEach(chapter => {
+      .filter((chapter) => chapter.path === section)
+      .forEach((chapter) => {
         chapter.items.forEach((item, indexItem) => {
           if (item.id !== article) {
             return;
@@ -417,7 +426,7 @@ exports.createPages = async ({ graphql, actions }) => {
     if (redirect) {
       redirects.push(redirect, `${redirect}/`);
     }
-    redirects.forEach(redirectPath =>
+    redirects.forEach((redirectPath) =>
       createRedirect({
         fromPath: redirectPath,
         toPath: slug,
@@ -455,8 +464,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  contributors.data.allContributor.nodes.forEach(node => {
-    if (node.login !== 'dummy-api-platform')
+  contributors.data.allContributor.nodes.forEach((node) => {
+    if ('dummy-api-platform' !== node.login)
       createPage({
         path: `/community/contributors/${node.login}`,
         component: path.resolve(`./src/templates/contributor.js`),
@@ -470,19 +479,20 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (`MarkdownRemark` === node.internal.type) {
     const fileNode = getNode(node.parent);
-    let nodePath = fileNode.relativePath.replace('.md', '');
+    const nodePath = fileNode.relativePath.replace('.md', '');
     let html = node.internal.content;
     const localUrls = [];
     let matches;
     const regex = /(\]\((?!http)(?!#)(.*?)\))/gi;
 
+    // eslint-disable-next-line no-cond-assign
     while ((matches = regex.exec(html))) {
       localUrls.push(matches[2]);
     }
 
-    localUrls.map(url => {
+    localUrls.map((url) => {
       let newUrl = url.replace(/(\/index)?\.md/, '/');
       newUrl = `/${URL.resolve(nodePath, newUrl)}`;
       newUrl = newUrl.replace(`/${current}/`, '/');
@@ -490,6 +500,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       return true;
     });
 
+    // eslint-disable-next-line no-param-reassign
     node.internal.content = html;
 
     const slug = createFilePath({ node, getNode, basePath: `pages` });
