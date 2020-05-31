@@ -21,7 +21,7 @@ const SchemaPart = ({ title, items }) => (
   <div className="schema__part">
     <h3 className="part__title">{title}</h3>
     <div className="schema__group">
-      {items.map(item => (
+      {items.map((item) => (
         <SchemaItem key={item.title} {...item} />
       ))}
       <Lines />
@@ -46,7 +46,7 @@ const Schema = () => (
       <h2 className="h1-like schema__title">
         Creating Linked Data <strong>REST</strong> APIs has Never Been so Easy
       </h2>
-      {dataSchema.map(part => (
+      {dataSchema.map((part) => (
         <SchemaPart key={part.title} {...part} />
       ))}
     </div>

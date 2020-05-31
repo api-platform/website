@@ -196,7 +196,7 @@ const CommunityPage = ({ location, data }) => {
               Many volunteers contribute back to API Platform. Here are some of them picked randomly:
             </p>
             <Grid className="contributors__grid">
-              {contributors.map(contributor => (
+              {contributors.map((contributor) => (
                 <GridItem key={contributor.login}>
                   <BigContributor contributor={contributor} size="medium" />
                 </GridItem>
@@ -216,7 +216,7 @@ const CommunityPage = ({ location, data }) => {
             <div className="container">
               <h2 className="community-events__title">Our events</h2>
               <Grid className="community-events__grid">
-                {events.map(event => (
+                {events.map((event) => (
                   <GridItem key={event.id} className="small-event__item">
                     <EventCard event={event} noDesc />
                   </GridItem>

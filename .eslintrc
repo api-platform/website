@@ -2,16 +2,18 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
+    "airbnb/hooks",
     "prettier",
-    "prettier/react",
-    "prettier/standard"
+    "prettier/react"
   ],
+  "plugins": ["prettier"],
   "env": {
     "browser": true,
     "es6": true,
-    "node": true,
+    "node": true
   },
   "rules": {
+    "prettier/prettier": ["error"],
     "object-curly-newline": 0,
     // We don't force static function
     "class-methods-use-this": 0,

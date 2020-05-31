@@ -7,15 +7,15 @@ import { isCoreTeam, getName } from '../helpers/contributorHelper';
 
 const externalLinkAttributes = 'target="_blank" rel="nofollow noopener noreferrer"';
 
-const parseGithubText = text => {
+const parseGithubText = (text) => {
   const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gi;
 
-  const linkifyText = text.replace(urlRegex, url => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`);
+  const linkifyText = text.replace(urlRegex, (url) => `<a href="${url}" ${externalLinkAttributes}">${url}</a>`);
   const githubRegex = /(^|\s)@([a-zA-Z-]+)/gi;
 
   return linkifyText.replace(
     githubRegex,
-    githubResource =>
+    (githubResource) =>
       `<a href="https://github.com/${githubResource
         .trim()
         .replace('@', '')}" ${externalLinkAttributes}">${githubResource}</a>`
@@ -79,7 +79,7 @@ const Template = ({ location, pageContext: contributor }) => {
 
   const getProjectsText = () => {
     if (!repositoryCount) return '';
-    const reposName = contributor.projects.map(p => `<a href="${p.link}" ${externalLinkAttributes}>${p.name}</a>`);
+    const reposName = contributor.projects.map((p) => `<a href="${p.link}" ${externalLinkAttributes}>${p.name}</a>`);
     if (1 === reposName.length) return reposName[0];
     const lastRepo = reposName.pop();
     return `${reposName.join(', ')} and ${lastRepo}`;
@@ -143,7 +143,7 @@ const Template = ({ location, pageContext: contributor }) => {
                 />
               </div>
               <Grid className="contributor__projects">
-                {contributor.projects.map(project => (
+                {contributor.projects.map((project) => (
                   <GridItem padding={5}>
                     <a
                       href={`https://github.com/${project.fullName}/commits?author=${contributor.login}`}

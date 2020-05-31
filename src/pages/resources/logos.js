@@ -7,7 +7,7 @@ import { Grid, GridItem } from '../../components/common/Grid';
 import LogoCard from '../../components/community/LogoCard';
 
 const Wallpapers = ({ location, data }) => {
-  const allLogos = data.svg.nodes.map(logo => ({
+  const allLogos = data.svg.nodes.map((logo) => ({
     name: logo.name,
     thumbnail: logo.publicURL,
     types: [
@@ -22,18 +22,18 @@ const Wallpapers = ({ location, data }) => {
       },
     ],
   }));
-  const createTypeDataFromPng = logoPng => ({
+  const createTypeDataFromPng = (logoPng) => ({
     type: 'png',
     src: logoPng.formats.medium.src,
     formats: Object.keys(logoPng.formats)
-      .filter(key => logoPng.formats[key].src)
-      .map(key => ({
+      .filter((key) => logoPng.formats[key].src)
+      .map((key) => ({
         name: key,
         src: logoPng.formats[key].src,
       })),
   });
-  data.png.nodes.map(logo => {
-    const existingLogo = allLogos.find(l => l.name === logo.name);
+  data.png.nodes.map((logo) => {
+    const existingLogo = allLogos.find((l) => l.name === logo.name);
     if (existingLogo) return existingLogo.types.push(createTypeDataFromPng(logo));
     return allLogos.push({
       name: logo.name,
@@ -62,7 +62,7 @@ const Wallpapers = ({ location, data }) => {
         </header>
         <section className="container">
           <Grid className="logo__grid">
-            {allLogos.map(logo => (
+            {allLogos.map((logo) => (
               <GridItem padding={10}>
                 <LogoCard logo={logo} />
               </GridItem>

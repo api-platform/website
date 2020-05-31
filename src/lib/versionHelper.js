@@ -2,16 +2,13 @@ const { current, currentVersion } = require('../../constants');
 
 const versionHelper = {
   getOriginalVersion(transformedVersion) {
-    return transformedVersion
-      .replace(/v|\//g, '')
-      .replace(current, currentVersion)
-    ;
+    return transformedVersion.replace(/v|\//g, '').replace(current, currentVersion);
   },
   getPrefixedVersion(version) {
-    return (Number.isNaN(Number(version)) ? version : `v${version}`);
+    return Number.isNaN(Number(version)) ? version : `v${version}`;
   },
   generateSlugPreviousChapter(prefixedVersionSlug, section, chapterPrevious) {
-    return  'index' === chapterPrevious
+    return 'index' === chapterPrevious
       ? `/docs/${prefixedVersionSlug}${section}/`
       : `/docs/${prefixedVersionSlug}${section}/${chapterPrevious}/`;
   },

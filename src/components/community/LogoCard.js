@@ -9,12 +9,12 @@ const LogoCard = ({ logo }) => {
 
   const imageToDownload = useMemo(() => selectedFormat.src, [selectedFormat]);
 
-  const onTypeClickHandler = type => {
+  const onTypeClickHandler = (type) => {
     setSelectedType(type);
     setSelectedFormat(type.formats[0]);
   };
 
-  const onFormatClickHandler = format => setSelectedFormat(format);
+  const onFormatClickHandler = (format) => setSelectedFormat(format);
 
   return (
     <div className="logo__card card nopadding clickable">
@@ -28,7 +28,7 @@ const LogoCard = ({ logo }) => {
           })}
         >
           <div className="logo__types">
-            {logo.types.map(type => (
+            {logo.types.map((type) => (
               <button
                 onClick={() => onTypeClickHandler(type)}
                 className={classNames('logo__type', {
@@ -42,7 +42,7 @@ const LogoCard = ({ logo }) => {
           </div>
           <div className="logo__formats">
             {1 < selectedType.formats.length &&
-              selectedType.formats.map(format => (
+              selectedType.formats.map((format) => (
                 <button
                   onClick={() => onFormatClickHandler(format)}
                   className={classNames('logo__format', {
