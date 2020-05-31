@@ -1,5 +1,10 @@
 export const openSourceData = [
   {
+    name: 'AudienceHero',
+    logo: 'audiencehero',
+    link: 'https://github.com/AudienceHero/AudienceHero',
+  },
+  {
     name: 'Bolt',
     logo: 'bolt',
     link: 'https://boltcms.io/',
@@ -15,14 +20,24 @@ export const openSourceData = [
     link: 'http://digitalstate.io/',
   },
   {
-    name: 'AudienceHero',
-    logo: 'audiencehero',
-    link: 'https://github.com/AudienceHero/AudienceHero',
+    name: 'MBT Bundle',
+    logo: 'mbt-bundle',
+    link: 'https://mbtbundle.org/',
   },
   {
     name: 'Mobicoop',
     logo: 'mobicoop',
     link: 'https://gitlab.com/mobicoop/mobicoop-platform',
+  },
+  {
+    name: 'PartKeepr',
+    logo: 'partkeepr',
+    link: 'https://partkeepr.org/',
+  },
+  {
+    name: 'Sylius',
+    logo: 'sylius',
+    link: 'https://sylius.com/',
   },
   {
     name: 'French Government',
@@ -38,11 +53,6 @@ export const openSourceData = [
     name: 'Parti de gauche',
     logo: 'parti-de-gauche',
     link: 'https://github.com/LePartiDeGauche/adherents-platform',
-  },
-  {
-    name: 'PartKeepr',
-    logo: 'partkeepr',
-    link: 'https://partkeepr.org/',
   },
 ];
 
@@ -70,7 +80,7 @@ export const otherData = [
   {
     name: 'Biig',
     logo: 'biig',
-    link: 'https://www.biig.fr/',
+    link: 'https://biig.com/',
   },
   {
     name: 'BNP',
