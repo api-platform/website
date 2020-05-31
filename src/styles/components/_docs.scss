@@ -18,8 +18,12 @@
   select {
     appearance: none;
     outline: 0; box-shadow: none; border: 0; border-radius: 4px;
-    background: $darkblue; color: $white; font-weight: bold;
-    position: absolute; display: block; text-align-last: center; right: 10px; top: 10px;
+    background: var(--secondary-bg);
+    color: $white;
+    font-weight: bold;
+    position: absolute;
+    display: block;
+    text-align-last: center; right: 10px; top: 10px;
     width: 100px; height: 30px; line-height: 3;
     overflow: hidden;
     &:-moz-focusring {
@@ -32,7 +36,7 @@
 .docs__menu {
   @include z-depth-2;
   z-index: z("docsmenu");
-  background-color: $darkblue;
+  background-color: var(--secondary-bg);
   position: fixed;
   left: 0;
   top: $headerH;
@@ -163,13 +167,14 @@
 }
 
 .docs__content {
-  background-color: $white;
+  background-color: var(--bg);
   @include z-depth-1;
   padding: 40px;
-  color: $blackblue;
+  color: var(--text);
 
   .anchor svg {
     visibility: visible;
+    fill: var(--text);
   }
 
   blockquote {
@@ -215,7 +220,7 @@
   h3 {
     font-family: $font;
     font-size: $text-medium;
-    color: $blackblue;
+    color: var(--text);
 
     &:not(:first-of-type) {
       margin-top: 20px;
@@ -234,8 +239,8 @@
   }
 
   a:not(.anchor) {
-    @include underline($clearblue, $darkblue);
-    color: $darkblue;
+    @include underline($clearblue, var(--link));
+    color: var(--link);
   }
 
   table {
@@ -335,7 +340,7 @@
 
 .docs__nav {
   @include z-depth-1;
-  background-color: $lightgrey;
+  background-color: var(--contrast-bg);
   padding: 15px 10px;
   display: flex;
   align-items: center;
@@ -350,7 +355,7 @@
     align-items: center;
 
     span:before {
-      color: $black;
+      color: var(--text);
       font-weight: $normal;
     }
 

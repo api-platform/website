@@ -1,11 +1,12 @@
 .home__ecosystem {
   z-index: z("default");
   text-align: center;
-  background-color: $lightgrey;
+  color: var(--text);
+  background-color: var(--contrast-bg);
 
   .ecosystem__title {
     strong {
-      color: $blue;
+      color: var(--contrast-title);
     }
   }
 
@@ -19,7 +20,6 @@
     }
   }
   @include mq($min-width: $vw-large+1) {
-
     .ecosystem__card {
       &.big {
         flex-direction: row;
@@ -39,5 +39,4 @@
       }
     }
   }
-
 }

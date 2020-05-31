@@ -189,7 +189,7 @@ const CommunityPage = ({ location, data }) => {
             </GridItem>
           </Grid>
         </section>
-        <section className="community__contributors bg-white">
+        <section className="community__contributors">
           <div className="container">
             <h2 className="color-blue">Our contributors</h2>
             <p className="contributors__subtitle">

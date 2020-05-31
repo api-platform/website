@@ -10,8 +10,6 @@ $darkgrey: #757575;
 $grey: #babdb5;
 $lightgrey: #f4f4f4;
 
-$primaryColor: $blue;
-
 $palette2: (
   white: $white,
   black: $black,
@@ -43,3 +41,58 @@ $palette: (
     base: $black
   )
 );
+
+body {
+  --bg: #{$white};
+  --light-bg: #{rgba($clearblue, 0.3)};
+  --contrast-bg: #{$lightgrey};
+  --text: #{$blackblue};
+  --contrast-text: #{$blue};
+  --title: #{$darkblue};
+  --contrast-title: #{$blue};
+  --focus: #{rgba($clearblue, 0.5)};
+  --link: #{$darkblue};
+  --contrast-link: #{$blue};
+  --focus-contrast-link: #{darken($blue, 10%)};
+  --secondary-bg: #{$darkblue};
+  --contrast: #{$clearblue};
+  --icon-opacity: .5;
+  --table-odd: #f9f9f9;
+
+  --code-background: #f7f7f7;
+  --code-base: #333;
+  --code-comment: #969896;
+  --code-string: #183691;
+  --code-tag: #63a35c;
+  --code-boolean: #0086b3;
+  --code-selector: #795da3;
+  --code-url: #a71d5d;
+}
+
+body.dark {
+  --bg: #{$blackblue};
+  --light-bg: #{rgba($darkblue, 0.3)};
+  --contrast-bg: #{$darkblue};
+  --text: #{$white};
+  --contrast-text: #{$lightgrey};
+  --title: #{$lightblue};
+  --contrast-title: #{$clearblue};
+  --focus: #{$darkblue};
+  --link: #{$lightblue};
+  --contrast-link: #{$clearblue};
+  --focus-contrast-link: #{darken($clearblue, 10%)};
+  --secondary-bg: #{$blue};
+  --contrast: #{$darkblue};
+  --logo-bg: #{$clearblue};
+  --icon-opacity: 1;
+  --table-odd: #36393e;
+
+  --code-background: #2b2b2b;
+  --code-base: #a9b7c6;
+  --code-comment: #808080;
+  --code-string: #6a8759;
+  --code-tag: #e8bf6a;
+  --code-boolean: #6897bb;
+  --code-selector: #cc7832;
+  --code-url: #287bde;
+}

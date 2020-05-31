@@ -1,6 +1,7 @@
 .home__expose {
   z-index: z("default");
-  background-color: $white;
+  color: var(--text);
+  background-color: var(--bg);
 
   .expose__title {
     margin-bottom: 40px;

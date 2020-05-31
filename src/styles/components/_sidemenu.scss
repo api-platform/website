@@ -5,7 +5,7 @@
   height: 100%;
   width: $menuW;
   z-index: z("sidemenu");
-  background-color: $white;
+  background-color: var(--bg);
   transition: transform ease .5s;
   @include mq($min-width: $vw-mobile-menu + 1) {
     display: none;
@@ -81,7 +81,7 @@
     padding: 10px 0;
     height: calc(100vh - 150px);
     overflow: auto;
-    border-left: 5px solid $clearblue;
+    border-left: 5px solid var(--contrast);
   }
 
   .menu-item {
@@ -89,10 +89,10 @@
     font-size: $text-big;
 
     &.current {
-      background-color: rgba($clearblue, 0.3);
+      background-color: var(--light-bg);
 
       & > .menu-item__link {
-        color: $darkblue;
+        color: var(--link);
       }
     }
 

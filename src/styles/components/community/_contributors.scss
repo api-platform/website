@@ -1,4 +1,6 @@
 .community__contributors {
+  color: var(--text);
+  background-color: var(--bg);
   padding: 90px 0 50px;
   .contributors__grid {
     .grid__item {
@@ -9,10 +11,11 @@
 }
 
 .contributors {
+  color: var(--text);
   text-align: center;
 
   .contributors__header {
-    border-bottom: 5px solid $lightgrey;
+    border-bottom: 5px solid var(--contrast-bg);
   }
 
   .contributors__title {
@@ -34,6 +37,10 @@
         display: none;
       }
     }
+  }
+
+  .contributors__top {
+    background-color: var(--bg);
   }
 
   .contributors__all {
@@ -115,6 +122,7 @@
   }
 
   .contributor__statistic {
+    color: var(--contrast-text);
     padding: 10px 0;
   }
 
@@ -146,6 +154,9 @@
 }
 
 .contributor__card {
+  color: var(--text);
+  background-color: var(--contrast-bg);
+
   .card__content {
     justify-content: center;
   }
@@ -155,6 +166,7 @@
   }
 
   .contributor__contributions {
+    color: var(--title);
     text-transform: uppercase;
     font-weight: $bold;
   }
@@ -164,6 +176,7 @@
   }
 
   .contributor__lines {
+    color: var(--contrast-text);
     span {
       padding-right: 10px;
 

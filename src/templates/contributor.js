@@ -87,7 +87,7 @@ const Template = ({ location, pageContext: contributor }) => {
 
   return (
     <Layout location={location}>
-      <div className="contributor bg-grey-light">
+      <div className="contributor">
         <Helmet title={`${contributorName}, API Platform contributor`} />
         <header className="contributor__header bg-blue-extralight">
           <div className="container">
@@ -151,14 +151,14 @@ const Template = ({ location, pageContext: contributor }) => {
                       rel="nofollow noopener noreferrer"
                       target="_blank"
                     >
-                      <p className="project__name color-blue-extradark text-big">
+                      <p className="project__name text-big">
                         <span className="icon-github" />
                         {project.name}
                       </p>
-                      <p className="project__contributions color-blue-dark text-xs">{`${project.contributions} ${
+                      <p className="project__contributions text-xs">{`${project.contributions} ${
                         1 < project.contributions ? 'contributions' : 'contribution'
                       }`}</p>
-                      <p className="project__lines color-grey-dark text-xs">
+                      <p className="project__lines text-xs">
                         {project.additions || project.deletions ? (
                           <>
                             <span>{`${project.additions}++`}</span>

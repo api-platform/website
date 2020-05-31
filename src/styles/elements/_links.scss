@@ -1,8 +1,8 @@
 a {
-  color: $primaryColor;
+  color: var(--contrast-link);
   transition: all ease .2s;
 
   &:hover {
-    color: darken($primaryColor, 10%);
+    color: var(--focus-contrast-link);
   }
 }

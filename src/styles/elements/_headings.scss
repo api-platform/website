@@ -23,7 +23,7 @@ h2, .h2-like {
   @include reset-title;
   font-size: $title-medium;
   font-weight: $bold;
-  color: $darkblue;
+  color: var(--title);
   font-family: $fontTitle;
 }
 
@@ -32,7 +32,7 @@ h3, .h3-like {
   font-size: $title-small;
   font-family: $fontTitle;
   font-weight: $bold;
-  color: $darkblue;
+  color: var(--text);
   line-height: $title-small;
 }
 

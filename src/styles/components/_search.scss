@@ -15,9 +15,9 @@
   }
 
   .search__input {
-    background-color: $lightgrey;
+    background-color: var(--contrast-bg);
     border: none;
-    color: $blue;
+    color: var(--contrast-text);
     font-size: 1.3em;
     padding: 0 10px;
     line-height: 40px;
@@ -26,7 +26,7 @@
 
     &:focus {
       outline: none;
-      background-color: rgba($clearblue, 0.5);
+      background-color: var(--focus);
     }
   }
 }

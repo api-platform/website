@@ -25,8 +25,8 @@ const BigContributor = ({ contributor, size }) => (
       )}
     </div>
     <div className="card__content">
-      <h3 className="card__title color-blue-extradark">{`#${contributor.position} ${contributor.login}`}</h3>
-      <div className="contributor__statistic color-blue">
+      <h3 className="card__title">{`#${contributor.position} ${contributor.login}`}</h3>
+      <div className="contributor__statistic">
         <p className="statistic__value">{contributor.contributions}</p>
         <p className="statistic__title">{1 < contributor.contributions ? 'contributions' : 'contribution'}</p>
       </div>

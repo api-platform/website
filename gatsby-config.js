@@ -8,6 +8,7 @@ module.exports = {
     siteUrl: process.env.GATSBY_ROOT_URL,
   },
   plugins: [
+    'gatsby-plugin-dark-mode',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -48,6 +49,7 @@ module.exports = {
             options: {
               maxWidth: 1120,
               linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
             },
           },
           'gatsby-remark-external-links',
@@ -136,6 +138,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-remove-serviceworker',
-    'gatsby-plugin-meta-redirect' // make sure this is always the last one
+    'gatsby-plugin-meta-redirect', // make sure this is always the last one
   ],
 };
