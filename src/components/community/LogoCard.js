@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Button from '../../components/common/Button';
+import Button from '../common/Button';
 
 const LogoCard = ({ logo }) => {
   const [selectedType, setSelectedType] = useState(logo.types.length && logo.types[0]);
@@ -34,6 +34,7 @@ const LogoCard = ({ logo }) => {
                 className={classNames('logo__type', {
                   active: selectedType && selectedType.type === type.type,
                 })}
+                type="button"
               >
                 {type.type}
               </button>
@@ -47,6 +48,7 @@ const LogoCard = ({ logo }) => {
                   className={classNames('logo__format', {
                     active: selectedFormat && selectedFormat.name === format.name,
                   })}
+                  type="button"
                 >
                   {format.name}
                 </button>

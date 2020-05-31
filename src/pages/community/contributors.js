@@ -63,9 +63,9 @@ const ContributorsPage = ({ location, data }) => {
                     </div>
                     <div className="card__content">
                       <h3 className="card__title text-big">{`#${contributor.position} | ${contributor.login}`}</h3>
-                      <p className="contributor__contributions text-xs">{`${
-                        contributor.contributions
-                      } ${1 < contributor.contributions ? 'contributions' : 'contribution'}`}</p>
+                      <p className="contributor__contributions text-xs">{`${contributor.contributions} ${
+                        1 < contributor.contributions ? 'contributions' : 'contribution'
+                      }`}</p>
                       <p className="contributor__lines text-xs">
                         {contributor.lines ? (
                           <span>{`${contributor.lines} lines`}</span>
