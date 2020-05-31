@@ -6,6 +6,9 @@
     .grid__item {
       min-width: auto;
       width: 300px;
+      .card__title {
+        color: var(--text);
+      }
     }
   }
 }
@@ -71,6 +74,7 @@
 
 .contributor__top {
   .card__title {
+    color: var(--text);
     margin-top: 10px;
     border-bottom: 4px dotted $blue;
     padding-bottom: 10px;
@@ -162,6 +166,7 @@
   }
 
   .card__title {
+    color: var(--text);
     margin-bottom: 5px;
   }
 
