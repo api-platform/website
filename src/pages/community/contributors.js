@@ -40,7 +40,7 @@ const ContributorsPage = ({ location, data }) => {
               <GridItem full padding={10}>
                 {firstContributor && <BigContributor contributor={firstContributor} size="big" />}
               </GridItem>
-              {topContributors.map(contributor => (
+              {topContributors.map((contributor) => (
                 <GridItem key={contributor.login} padding={10}>
                   <BigContributor contributor={contributor} />
                 </GridItem>
@@ -52,7 +52,7 @@ const ContributorsPage = ({ location, data }) => {
           <div className="container">
             <h2 className="contributors-all__title">All contributors</h2>
             <Grid>
-              {contributors.map(contributor => (
+              {contributors.map((contributor) => (
                 <GridItem key={contributor.login} padding={10}>
                   <Link
                     to={`/community/contributors/${contributor.login}`}

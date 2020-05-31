@@ -17,14 +17,14 @@ class DocNav extends Component {
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('click', this.handleScroll);
     }
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       currentItem: this.getItemByLocation(location),
     }));
   }
 
-  updateLocation = args => {
-    this.setState(prevState => ({
+  updateLocation = (args) => {
+    this.setState((prevState) => ({
       ...prevState,
       locationWithHash: { ...args },
     }));
@@ -35,7 +35,7 @@ class DocNav extends Component {
     let { location } = this.props;
     if (nextProps.location.pathname !== location.pathname) {
       ({ location } = nextProps);
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         ...prevState,
         currentItem: this.getItemByLocation(location),
       }));
@@ -67,15 +67,15 @@ class DocNav extends Component {
     }
   }
 
-  getItemByLocation = location => {
+  getItemByLocation = (location) => {
     const eitherVersions = versions.map(getPrefixedVersion).join('|');
     const reg = new RegExp(`docs/(((${eitherVersions})/)?.*?)(/|$)`);
     const matches = location.pathname.match(reg);
     return matches ? matches[1] : null;
   };
 
-  toggleMenu = itemPath =>
-    this.setState(prevState => ({
+  toggleMenu = (itemPath) =>
+    this.setState((prevState) => ({
       ...prevState,
       currentItem: prevState.currentItem === itemPath ? null : itemPath,
     }));
@@ -85,7 +85,7 @@ class DocNav extends Component {
     const { currentItem } = this.state;
     return (
       <div className="docs__menu openable">
-        {nav.map(item => (
+        {nav.map((item) => (
           <NavItem
             item={item}
             key={item.path}

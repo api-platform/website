@@ -23,9 +23,9 @@ const EventsPage = ({ location, data }) => {
     return 0;
   };
 
-  const upcomingEvents = events.filter(event => dayjs(event.local_date).isAfter(dayjs())).sort(dateAsc);
+  const upcomingEvents = events.filter((event) => dayjs(event.local_date).isAfter(dayjs())).sort(dateAsc);
 
-  const pastEvents = events.filter(event => !dayjs(event.local_date).isAfter(dayjs())).sort(dateDesc);
+  const pastEvents = events.filter((event) => !dayjs(event.local_date).isAfter(dayjs())).sort(dateDesc);
 
   return (
     <Layout location={location}>
@@ -62,7 +62,7 @@ const EventsPage = ({ location, data }) => {
                 Past events
               </h2>
               <Grid>
-                {pastEvents.map(event => (
+                {pastEvents.map((event) => (
                   <GridItem className="small-event__item">
                     <EventCard event={event} noDesc />
                   </GridItem>

@@ -15,8 +15,8 @@ class Layout extends Component {
     this.state = { showResponsiveMenu: false };
   }
 
-  showMenu = open => {
-    this.setState(prevState => ({ ...prevState, showResponsiveMenu: open }));
+  showMenu = (open) => {
+    this.setState((prevState) => ({ ...prevState, showResponsiveMenu: open }));
   };
 
   render() {

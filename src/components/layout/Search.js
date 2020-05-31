@@ -55,7 +55,7 @@ class Search extends React.Component {
         />
         <form>
           <input
-            ref={input => {
+            ref={(input) => {
               this.searchInput = input;
             }}
             onFocus={onFocus}

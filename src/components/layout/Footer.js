@@ -60,7 +60,7 @@ class Footer extends Component {
           />
           <div
             className="footer__twitter"
-            ref={el => {
+            ref={(el) => {
               this.twitterButton = el;
             }}
           />

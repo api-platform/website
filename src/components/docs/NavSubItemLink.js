@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const NavSubItemLink = ({ path, anchors, location }) => (
   <ul>
-    {anchors.map(item => {
+    {anchors.map((item) => {
       const link = `${path}#${item.id}`;
 
       return (

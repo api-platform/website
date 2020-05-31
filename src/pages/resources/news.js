@@ -50,7 +50,7 @@ class News extends Component {
               </div>
               <div
                 className="twitter__timeline"
-                ref={el => {
+                ref={(el) => {
                   this.timeline = el;
                 }}
               />

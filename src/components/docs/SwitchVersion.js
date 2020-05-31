@@ -27,16 +27,17 @@ const doChange = (e, location, currentVersion) => {
 
 const SwitchVersion = ({ location, currentVersion }) => (
   <select
-    onChange={e => doChange(e, location, currentVersion)}
+    onChange={(e) => doChange(e, location, currentVersion)}
     value={'' === currentVersion ? current : currentVersion.slice(0, -1)}
   >
-    {versions.map(version => {
+    {versions.map((version) => {
       const formattedVersion = versionHelper.getPrefixedVersion(version);
       const correspondingVersion = constants[`${version}Version`];
       return (
         <option key={formattedVersion} value={formattedVersion}>
           {(
-            formattedVersion + (correspondingVersion ? ` (${versionHelper.getPrefixedVersion(correspondingVersion)})` : '')
+            formattedVersion +
+            (correspondingVersion ? ` (${versionHelper.getPrefixedVersion(correspondingVersion)})` : '')
           ).toUpperCase()}
         </option>
       );
