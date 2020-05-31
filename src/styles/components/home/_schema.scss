@@ -49,17 +49,17 @@
     display: inline-block;
     width: 340px;
     min-height: 150px;
-    color: $blackblue;
+    color: var(--text);
     font-weight: $normal;
   }
 
   .schema__card {
     @include z-depth-5;
-    background-color: $white;
+    background-color: var(--bg);
     padding: 20px;
     text-align: left;
     align-items: center;
-    border: 5px solid $white;
+    border: 5px solid var(--bg);
     display: flex;
     height: 100%;
     transition: box-shadow ease .2s;
@@ -69,12 +69,12 @@
     }
 
     .card__title {
-      color: $blue;
+      color: var(--contrast-title);
       margin-bottom: 10px;
     }
 
     .schema__icon {
-      color: $blue;
+      color: var(--contrast-title);
       font-size: 6rem;
       margin-right: 20px;
     }

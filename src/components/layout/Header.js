@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <header className={classnames('header openable', { 'expand-search': isSearchFocused })}>
       <Link to="/" className="header__logo">
-        <img className="logo__spider" src={LogoSpider} alt="spidey" width="555" height="321" />
+        <div className="logo__circle">
+          <img className="logo__spider" src={LogoSpider} alt="spidey" width="555" height="321" />
+        </div>
         <Logo className="logo__text" />
       </Link>
       <Search className="header__search" onFocus={onSearchFocus} onBlur={onSearchBlur} />

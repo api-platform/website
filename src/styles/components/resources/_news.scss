@@ -22,7 +22,8 @@
     margin: 25px auto 0;
     padding: 20px;
 
-    background-color: $white;
+    color: var(--text);
+    background-color: var(--bg);
     border-left: 5px solid $lightblue;
 
     transform: translateY(-70px);

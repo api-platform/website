@@ -118,6 +118,7 @@
   }
 
   .contributor__content {
+    color: var(--text);
     flex: 1;
     padding-left: 30px;
   }
@@ -154,10 +155,12 @@
     }
 
     .project__contributions {
+      color: var(--title);
       text-transform: uppercase;
     }
 
     .project__lines {
+      color: var(--contrast-text);
       span {
         padding: 10px;
         &.no-stat {

@@ -8,42 +8,6 @@
   padding: 50px 20px 20px;
   height: $footerH;
 
-  .switch {
-    .switch-theme-icon-theme {
-      border: 1px solid $white;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      position: relative;
-      opacity: var(--icon-opacity);
-
-      &::before {
-        display: block;
-        content: '';
-        background-color: $white;
-        height: 10px;
-        width: 5px;
-        border-bottom-left-radius: 25px;
-        border-top-left-radius: 25px;
-      }
-    }
-
-    .switch-theme-icon-label {
-      margin-left: 3px;
-      text-decoration: underline;
-    }
-
-    .label-switch-theme {
-      display: flex;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    & .switch-theme {
-      visibility: hidden;
-    }
-  }
-
   a {
     color: $lightblue;
 

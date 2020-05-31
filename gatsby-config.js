@@ -49,6 +49,7 @@ module.exports = {
             options: {
               maxWidth: 1120,
               linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
             },
           },
           'gatsby-remark-external-links',

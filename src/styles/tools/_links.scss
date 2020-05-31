@@ -1,9 +1,9 @@
-@mixin underline ($color, $textColor:null) {
+@mixin underline ($color, $textColor: null) {
   border-bottom: 3px solid rgba($color, 0.5);
 
   &:hover {
     background-color: rgba($color, 0.5);
-    @if($textColor) {
+    @if ($textColor) {
       color: $textColor;
     }
   }

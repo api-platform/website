@@ -1,0 +1,35 @@
+.switch-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .switch-theme__icon {
+    border: 1px solid $white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    opacity: var(--icon-opacity);
+
+    &::before {
+      display: block;
+      content: '';
+      background-color: $white;
+      height: 10px;
+      width: 5px;
+      border-bottom-left-radius: 25px;
+      border-top-left-radius: 25px;
+    }
+  }
+
+  .switch-theme__input {
+    display: none;
+  }
+
+  .switch-theme__label {
+    margin-left: 3px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

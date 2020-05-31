@@ -33,7 +33,7 @@ const ContributorsPage = ({ location, data }) => {
             </div>
           </div>
         </header>
-        <section className="contributors__top bg-white">
+        <section className="contributors__top">
           <div className="container">
             <h2 className="accessibility__hidden-block">Top contributors</h2>
             <Grid className="top__grid">
@@ -58,15 +58,15 @@ const ContributorsPage = ({ location, data }) => {
                     to={`/community/contributors/${contributor.login}`}
                     className="contributor__card card clickable horizontal small p-10"
                   >
-                    <div className="avatar bg-grey-light crop xsmall">
+                    <div className="avatar crop xsmall">
                       <img loading="lazy" src={contributor.avatar} alt={contributor.login} />
                     </div>
                     <div className="card__content">
-                      <h3 className="card__title text-big color-blue-extradark">{`#${contributor.position} | ${contributor.login}`}</h3>
-                      <p className="contributor__contributions color-blue-dark text-xs">{`${
+                      <h3 className="card__title text-big">{`#${contributor.position} | ${contributor.login}`}</h3>
+                      <p className="contributor__contributions text-xs">{`${
                         contributor.contributions
                       } ${1 < contributor.contributions ? 'contributions' : 'contribution'}`}</p>
-                      <p className="contributor__lines color-grey-dark text-xs">
+                      <p className="contributor__lines text-xs">
                         {contributor.lines ? (
                           <span>{`${contributor.lines} lines`}</span>
                         ) : (

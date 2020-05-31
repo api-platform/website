@@ -9,9 +9,11 @@
   [class^=ds-dataset-] {
     padding: 0 !important;
     width: 100%;
+    background-color: var(--contrast-bg) !important;
   }
 
   .ds-suggestions {
+    background-color: var(--bg);
     margin-top: 0 !important;
     padding-bottom: 20px;
     border-bottom: 1px solid #ddd;
@@ -19,10 +21,15 @@
 
   .algolia-docsearch-suggestion {
     padding: 0 !important;
+    background-color: var(--bg) !important;
   }
 
   .algolia-docsearch-suggestion--title {
-    color: $blackblue;
+    color: var(--title);
+  }
+
+  .algolia-docsearch-suggestion--text {
+    color: var(--text);
   }
 
   .algolia-docsearch-suggestion--highlight {
@@ -37,9 +44,9 @@
   &[class*=ds-with-] {
     &:before,
     .algolia-docsearch-suggestion--category-header {
-      background: $blue!important;
+      background: $blue !important;
       margin-top: 0 !important;
-      color: $white!important;
+      color: $white !important;
       padding: 10px !important;
       text-transform: uppercase;
       font-weight: $bold;
