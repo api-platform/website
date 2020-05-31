@@ -5,9 +5,11 @@ import scriptLoader from 'react-async-script-loader';
 import { currentVersion } from '../../../constants';
 
 class Search extends React.Component {
-  componentWillReceiveProps({ isScriptLoaded, isScriptLoadSucceed }) {
-    if (isScriptLoaded && !this.props.isScriptLoaded) {
-      if (isScriptLoadSucceed) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { isScriptLoaded } = this.props;
+    if (nextProps.isScriptLoaded && !isScriptLoaded) {
+      if (nextProps.isScriptLoadSucceed) {
         this.initDocSearch();
       }
     }
@@ -20,6 +22,7 @@ class Search extends React.Component {
       this.initDocSearch();
     }
   }
+
   /* eslint-disable no-undef */
   initDocSearch() {
     if (docsearch) {
@@ -43,7 +46,13 @@ class Search extends React.Component {
 
     return (
       <div className={classNames('search', className)}>
-        <button className="icon-search search__icon" onClick={this.onSearchClick} title="Search docs" />
+        <button
+          className="icon-search search__icon"
+          type="button"
+          onClick={this.onSearchClick}
+          title="Search docs"
+          aria-label="Search docs"
+        />
         <form>
           <input
             ref={input => {

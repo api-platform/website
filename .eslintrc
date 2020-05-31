@@ -33,6 +33,8 @@
     "react/jsx-filename-extension": 0,
     // We authorize binded function
     "react/jsx-no-bind": 0,
+    // We authorize props spreading.
+    "react/jsx-props-no-spreading": 0,
     // This rule struggles with flow and class properties.
     "react/sort-comp": 0,
     // We authorize all kind of prop types
@@ -47,6 +49,6 @@
     "jsx-a11y/anchor-has-content": 0,
     "jsx-a11y/href-no-hash": "off",
     "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/anchor-is-valid": 0
   }
 }

@@ -5,7 +5,13 @@ import { versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
 
 class DocNav extends Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.state = { currentItem: null };
+  }
+
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillMount() {
     const { location } = this.props;
     if ('undefined' !== typeof window) {
       window.addEventListener('scroll', this.handleScroll);
@@ -24,9 +30,11 @@ class DocNav extends Component {
     }));
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname) {
-      const { location } = nextProps;
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    let { location } = this.props;
+    if (nextProps.location.pathname !== location.pathname) {
+      ({ location } = nextProps);
       this.setState(prevState => ({
         ...prevState,
         currentItem: this.getItemByLocation(location),
@@ -66,10 +74,6 @@ class DocNav extends Component {
     return matches ? matches[1] : null;
   };
 
-  state = {
-    currentItem: null,
-  };
-
   toggleMenu = itemPath =>
     this.setState(prevState => ({
       ...prevState,
@@ -77,17 +81,18 @@ class DocNav extends Component {
     }));
 
   render() {
+    const { nav, location, version } = this.props;
     const { currentItem } = this.state;
     return (
       <div className="docs__menu openable">
-        {this.props.nav.map(item => (
+        {nav.map(item => (
           <NavItem
             item={item}
             key={item.path}
             onClick={this.toggleMenu}
             current={currentItem}
-            location={this.props.location}
-            version={this.props.version}
+            location={location}
+            version={version}
           />
         ))}
       </div>

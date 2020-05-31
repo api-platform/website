@@ -10,9 +10,10 @@ import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
 
 class Layout extends Component {
-  state = {
-    showResponsiveMenu: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = { showResponsiveMenu: false };
+  }
 
   showMenu = open => {
     this.setState(prevState => ({ ...prevState, showResponsiveMenu: open }));
@@ -20,7 +21,7 @@ class Layout extends Component {
 
   render() {
     const { children, location } = this.props;
-    const open = this.state.showResponsiveMenu;
+    const { showResponsiveMenu: open } = this.state;
     const withSecondMenuDisplayed = -1 !== location.pathname.search('/docs');
 
     return (

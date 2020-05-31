@@ -4,8 +4,8 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import copyrightImage from '../images/copyright.svg';
 
-const Policy = props => (
-  <Layout location={props.location}>
+const Policy = ({ location }) => (
+  <Layout location={location}>
     <div className="trademark-policy">
       <Helmet title="Trademark policy" />
       <header className="page__header-overlaid bg-blue color-white">
