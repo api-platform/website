@@ -18,7 +18,7 @@
   select {
     appearance: none;
     outline: 0; box-shadow: none; border: 0; border-radius: 4px;
-    background: var(--secondary-bg);
+    background: $darkblue;
     color: $white;
     font-weight: bold;
     position: absolute;
@@ -148,7 +148,7 @@
 
     &.open {
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) inset;
-      background-color: rgba($blackblue, 0.2);
+      background-color: var(--secondary-contrast-bg);
       border-color: $darkblue;
 
       .item__title {

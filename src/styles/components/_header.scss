@@ -1,13 +1,26 @@
 .header {
   @include z-depth-2;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  height: 80px;
+  height: $headerH;
   width: 100%;
   background-color: var(--bg);
   z-index: z('header');
+
+  .header__black-lives-matter {
+    display: flex;
+    flex: 0 0 100%;
+    height: $blackLivesMatterH;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: $bold;
+    color: $white;
+    background-color: $black;
+  }
 
   .header__logo,
   .header__nav,
@@ -17,12 +30,12 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
-    height: 100%;
+    height: $headerH - $blackLivesMatterH;
   }
 
   .header__logo,
   .header__social {
-    height: 60%;
+    height: 50px;
   }
 
   .header__logo {
@@ -95,7 +108,6 @@
     cursor: pointer;
 
     .menu-item__link {
-      position: relative;
       color: var(--text);
       padding: 0 15px;
 
@@ -263,8 +275,8 @@
     height: $mobileHeaderH;
     .logo__circle,
     .logo__spider {
-      width: $mobileHeaderH - 10px;
-      height: $mobileHeaderH - 10px;
+      width: $mobileHeaderH - $blackLivesMatterH - 10px;
+      height: $mobileHeaderH - $blackLivesMatterH - 10px;
     }
   }
 

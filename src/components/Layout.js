@@ -27,7 +27,9 @@ class Layout extends Component {
     return (
       <div className={classNames('main full', { open, 'with-second-menu-displayed': withSecondMenuDisplayed })}>
         <div className="full">
-          <Helmet {...helmetConfig.head} />
+          <Helmet {...helmetConfig.head}>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2.5/docsearch.min.css" />
+          </Helmet>
           <Header />
           <div className="page openable">{children}</div>
           <Footer />

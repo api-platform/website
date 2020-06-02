@@ -55,6 +55,7 @@ body {
   --contrast-link: #{$blue};
   --focus-contrast-link: #{darken($blue, 10%)};
   --secondary-bg: #{$darkblue};
+  --secondary-contrast-bg: #{rgba($blackblue, 0.2)};
   --contrast: #{$clearblue};
   --icon-opacity: .5;
   --table-odd: #f9f9f9;
@@ -81,7 +82,8 @@ body.dark {
   --link: #{$lightblue};
   --contrast-link: #{$clearblue};
   --focus-contrast-link: #{darken($clearblue, 10%)};
-  --secondary-bg: #{$blue};
+  --secondary-bg: #{$blackblue};
+  --secondary-contrast-bg: #{rgba($darkblue, 0.2)};
   --contrast: #{$darkblue};
   --logo-bg: #{$clearblue};
   --icon-opacity: 1;
