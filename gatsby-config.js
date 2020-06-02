@@ -137,6 +137,14 @@ module.exports = {
         trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID,
       },
     },
+    {
+      resolve: `gatsby-plugin-build-date`,
+      options: {
+        formatting: {
+          format: 'YYYY',
+        },
+      },
+    },
     'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-meta-redirect', // make sure this is always the last one
   ],

@@ -1,73 +1,74 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+/* eslint-disable no-undef */
+
+import React, { useEffect, useRef } from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import Logo from '../../images/logo.svg';
 import SwitchTheme from '../common/SwitchTheme';
 
-class Footer extends Component {
-  /* eslint-disable no-undef */
-  componentDidMount() {
+const createWidget = (twitterButton) => () =>
+  twttr.widgets.createFollowButton('ApiPlatform', twitterButton, {
+    size: 'medium',
+    showScreenName: false,
+  });
+
+export default () => {
+  const twitterButton = useRef(null);
+
+  useEffect(() => {
     if (twttr.widgets) {
-      this.createWidget();
+      createWidget(twitterButton.current)();
     } else {
-      twttr.ready(this.createWidget);
+      twttr.ready(createWidget(twitterButton.current));
     }
-  }
+  }, []);
 
-  createWidget = () => {
-    twttr.widgets.createFollowButton('ApiPlatform', this.twitterButton, {
-      size: 'medium',
-      showScreenName: false,
-    });
-  };
+  const {
+    currentBuildDate: { currentDate },
+  } = useStaticQuery(graphql`
+    query {
+      currentBuildDate {
+        currentDate
+      }
+    }
+  `);
 
-  /* eslint-enable no-undef */
-
-  render() {
-    return (
-      <footer className="footer openable">
-        <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
-        <p className="footer__copyright">
-          Copyright © 2019 <a href="https://dunglas.fr">Kévin Dunglas</a>
-        </p>
-        <p className="footer__tilleuls">
-          Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
-        </p>
-        <p className="footer__licence">
-          Code licensed under{' '}
-          <a
-            href="https://github.com/api-platform/api-platform/blob/master/LICENSE"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MIT
-          </a>
-          , documentation under{' '}
-          <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
-            CC BY 3.0
-          </a>
-          .
-        </p>
-        <p className="footer__policy">
-          <Link to="/trademark-policy">Trademark policy</Link>
-        </p>
-        <p className="footer__switch-theme">
-          <SwitchTheme />
-        </p>
-        <div className="footer__follow">
-          <iframe
-            title="github"
-            src="https://ghbtns.com/github-btn.html?user=api-platform&repo=api-platform&type=star&count=true&size=small"
-          />
-          <div
-            className="footer__twitter"
-            ref={(el) => {
-              this.twitterButton = el;
-            }}
-          />
-        </div>
-      </footer>
-    );
-  }
-}
-
-export default Footer;
+  return (
+    <footer className="footer openable">
+      <img className="footer__logo" src={Logo} alt="spidey" width="400" height="419" />
+      <p className="footer__copyright">
+        Copyright © {currentDate} <a href="https://dunglas.fr">Kévin Dunglas</a>
+      </p>
+      <p className="footer__tilleuls">
+        Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
+      </p>
+      <p className="footer__licence">
+        Code licensed under{' '}
+        <a
+          href="https://github.com/api-platform/api-platform/blob/master/LICENSE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          MIT
+        </a>
+        , documentation under{' '}
+        <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
+          CC BY 3.0
+        </a>
+        .
+      </p>
+      <p className="footer__policy">
+        <Link to="/trademark-policy">Trademark policy</Link>
+      </p>
+      <p className="footer__switch-theme">
+        <SwitchTheme />
+      </p>
+      <div className="footer__follow">
+        <iframe
+          title="github"
+          src="https://ghbtns.com/github-btn.html?user=api-platform&repo=api-platform&type=star&count=true&size=small"
+        />
+        <div className="footer__twitter" ref={twitterButton} />
+      </div>
+    </footer>
+  );
+};
