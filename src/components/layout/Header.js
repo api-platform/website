@@ -22,6 +22,7 @@ const Header = () => {
 
   return (
     <header className={classnames('header openable', { 'expand-search': isSearchFocused })}>
+      <div className="header__black-lives-matter">Black Lives Matter</div>
       <Link to="/" className="header__logo">
         <div className="logo__circle">
           <img className="logo__spider" src={LogoSpider} alt="spidey" width="555" height="321" />
