@@ -10,15 +10,14 @@ $max-width: 1200px;
 $page-padding: 40px;
 $page-padding-mobile: 15px;
 
-$blackLivesMatterH: 80px;
-$footerH: 190px;
+$blackLivesMatterH: 50px;
 $headerH: 80px + $blackLivesMatterH;
 $mobileHeaderH: 55px + $blackLivesMatterH;
 $menuW: 260px;
 $docmenuW: 300px;
 
-$pageH: calc((100vh - #{$footerH}) - #{$headerH});
-$mobilePageH: calc((100vh - #{$footerH}) - #{$mobileHeaderH});
+$pageH: calc(100vh - #{$headerH});
+$mobilePageH: calc(100vh - #{$mobileHeaderH});
 
 /// Viewports sizes
 /// They're used in media queries
@@ -28,7 +27,7 @@ $vw-medium: 780px;
 $vw-large: 1024px;
 $vw-huge: $max-width;
 
-$vw-mobile-menu: $vw-large;
+$vw-mobile-menu: $vw-huge;
 
 /// Font weights
 

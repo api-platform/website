@@ -33,11 +33,6 @@
     height: $headerH - $blackLivesMatterH;
   }
 
-  .header__logo,
-  .header__social {
-    height: 50px;
-  }
-
   .header__logo {
     width: 300px;
   }
@@ -81,12 +76,13 @@
 
   .header__social {
     border-left: 1px solid $grey;
+    border-right: 1px solid $grey;
 
     span[class^='icon-'],
     span[class*=' icon-'] {
-      padding: 0 10px;
+      padding: 0 8px;
       color: $lightblue;
-      font-size: 2.4em;
+      font-size: 2em;
       transition: all ease 0.2s;
 
       &:hover {
@@ -234,6 +230,10 @@
       display: none;
     }
 
+    .switch-theme {
+      margin-right: 70px;
+    }
+
     .search.header__search {
       padding-right: 100px;
     }
@@ -251,23 +251,41 @@
     }
   }
 
-  // expand search block for middle resolutions
-  @include mq($min-width: $vw-large + 1, $max-width: $vw-huge) {
+  // expand search block for specific resolutions
+  @include mq($min-width: $vw-huge + 1, $max-width: 1300px) {
+    .search.header__search {
+      width: 20px;
+      overflow: hidden;
+    }
+
     .search.header__search form {
       width: 0;
       opacity: 0;
     }
+
     &.expand-search {
+      .search.header__search {
+        width: auto;
+      }
+
       .search.header__search form {
         width: 100%;
         opacity: 1;
         transition: all ease 0.3s;
       }
+
       .header__nav {
         width: 0;
         opacity: 0;
         overflow: hidden;
       }
+    }
+  }
+
+  @include mq($min-width: $vw-medium) {
+    .header__logo,
+    .header__social {
+      height: 50px;
     }
   }
 
@@ -277,6 +295,17 @@
     .logo__spider {
       width: $mobileHeaderH - $blackLivesMatterH - 10px;
       height: $mobileHeaderH - $blackLivesMatterH - 10px;
+    }
+
+    .header__logo,
+    .header__nav,
+    .header__search,
+    .header__social {
+      height: $mobileHeaderH - $blackLivesMatterH;
+    }
+
+    .logo__text {
+      height: 15px;
     }
   }
 

@@ -75,13 +75,13 @@
 }
 
 .btn-burger {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   position: fixed;
   top: $blackLivesMatterH + ($headerH - $blackLivesMatterH) / 2;
   transform: translateY(-50%);
   transition: transform ease .3s, right ease .5s;
-  right: 25px;
+  right: 10px;
   z-index: z("sidemenu") + 1;
   cursor: pointer;
   background: none;
