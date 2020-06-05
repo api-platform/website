@@ -4,7 +4,35 @@
     "group": "afup-tours-php"
   },
   {
-    "id":"269002600",
-    "group":"afup-lyon-php"
+    "id": "269002600",
+    "group": "afup-lyon-php"
+  },
+  {
+    "id": "270630000",
+    "group": "PHP-The-Right-Way"
+  },
+  {
+    "id": "245887618",
+    "group": "Linkvalue"
+  },
+  {
+    "id": "258756213",
+    "group": "afup-nantes-php"
+  },
+  {
+    "id": "261613316",
+    "group": "api-platform"
+  },
+  {
+    "id": "258785783",
+    "group": "afup-limoges-php"
+  },
+  {
+    "id": "259795576",
+    "group": "api-platform"
+  },
+  {
+    "id": "251523532",
+    "group": "Bordeaux-PHP-Meetup"
   }
 ]

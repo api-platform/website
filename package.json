@@ -73,7 +73,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "*.{js,css,md}": [
       "eslint --fix"
     ]
   },
