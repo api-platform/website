@@ -31,6 +31,30 @@
       text-shadow: 0 0 0 $white;
     }
   }
+
+  .code-selector {
+    .code-selector-toolbar {
+      button {
+        display: inline-block;
+        height: 30px;
+        margin-right: 15px;
+        padding: 0 15px;
+        background: $darkblue;
+        color: $white;
+        font-size: $text-medium;
+        text-transform: uppercase;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        &.selected {
+          background: darken($darkblue, 10%);
+        }
+      }
+    }
+    pre {
+      margin-top: 0;
+    }
+  }
 }
 
 .docs__menu {

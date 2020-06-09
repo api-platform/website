@@ -55,6 +55,7 @@ module.exports = {
           'gatsby-remark-external-links',
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
+          'gatsby-remark-code-selector',
           'gatsby-remark-copy-linked-files',
           {
             resolve: 'gatsby-remark-images-medium-zoom',
