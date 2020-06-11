@@ -52,6 +52,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "gatsby-plugin-catch-links": "^2.0.11",
     "gatsby-remark-autolink-headers": "^2.0.12",
+    "gatsby-remark-code-selector": "^0.1.2",
     "gatsby-remark-copy-images": "^0.2.1",
     "gatsby-remark-copy-linked-files": "^2.1.19",
     "gatsby-remark-images": "^3.0.1",
@@ -64,7 +65,6 @@
     "markdown": "^0.5.0",
     "prettier": "^2.0.0",
     "remark-inline-links": "^3.0.4",
-    "remark-macro": "^1.0.7",
     "xmldom": "^0.1.27",
     "xpath": "^0.0.27"
   },
