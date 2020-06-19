@@ -39,8 +39,8 @@ const SwitchTheme = () => (
           name="switch-theme__input"
           className="switch-theme__input"
           type="checkbox"
-          onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
-          checked={'dark' === theme}
+          onClick={() => toggleTheme('dark' === theme ? 'light' : 'dark')}
+          defaultChecked={'dark' === theme}
         />
         <label
           htmlFor="switch-theme__input"
