@@ -32,28 +32,34 @@ const Sun = () => (
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const SwitchTheme = () => (
   <ThemeToggler>
-    {({ theme, toggleTheme }) => (
-      <div className="switch-theme">
-        <input
-          id="switch-theme__input"
-          name="switch-theme__input"
-          className="switch-theme__input"
-          type="checkbox"
-          onClick={() => toggleTheme('dark' === theme ? 'light' : 'dark')}
-          defaultChecked={'dark' === theme}
-        />
-        <label
-          htmlFor="switch-theme__input"
-          className="switch-theme__label"
-          title={`Switch to ${'dark' === theme ? 'light' : 'dark'} mode`}
-        >
-          <span className="switch-theme__icon">
-            <Moon />
-            <Sun />
-          </span>
-        </label>
-      </div>
-    )}
+    {({ theme, toggleTheme }) => {
+      if (null === theme) {
+        return null;
+      }
+
+      return (
+        <div className="switch-theme">
+          <input
+            id="switch-theme__input"
+            name="switch-theme__input"
+            className="switch-theme__input"
+            type="checkbox"
+            onChange={(e) => toggleTheme(e.target.checked ? 'dark' : 'light')}
+            checked={'dark' === theme}
+          />
+          <label
+            htmlFor="switch-theme__input"
+            className="switch-theme__label"
+            title={`Switch to ${'dark' === theme ? 'light' : 'dark'} mode`}
+          >
+            <span className="switch-theme__icon">
+              <Moon />
+              <Sun />
+            </span>
+          </label>
+        </div>
+      );
+    }}
   </ThemeToggler>
 );
 
