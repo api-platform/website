@@ -31,9 +31,9 @@ const References = () => (
       <h2 className="h1-like references__title">
         They use <strong>API Platform</strong>
       </h2>
-      <h3 className="h4-like">Open source projects</h3>
+      <h3 className="references__subtitle h4-like">Open source projects</h3>
       <div className="references__list">{openSourceList}</div>
-      <h3 className="h4-like">Companies</h3>
+      <h3 className="references__subtitle h4-like">Companies</h3>
       <div className="references__list list__other">{otherList}</div>
     </div>
   </section>

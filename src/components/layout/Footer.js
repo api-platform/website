@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Logo from '../../images/logo.svg';
-import SwitchTheme from '../common/SwitchTheme';
 
 const createWidget = (twitterButton) => () =>
   twttr.widgets.createFollowButton('ApiPlatform', twitterButton, {
@@ -58,9 +57,6 @@ export default () => {
       </p>
       <p className="footer__policy">
         <Link to="/trademark-policy">Trademark policy</Link>
-      </p>
-      <p className="footer__switch-theme">
-        <SwitchTheme />
       </p>
       <div className="footer__follow">
         <iframe

@@ -1,6 +1,6 @@
 $white: #fff;
-$black: #1d1e1c;
-$blackblue: #253032;
+$black: #151c1e;
+$blackblue: #1c3335;
 $clearblue: #c4f0f0;
 $lightblue: #68cdce;
 $blue: #2895a0;
@@ -60,6 +60,8 @@ body {
   --icon-opacity: .5;
   --table-odd: #f9f9f9;
 
+  --search-placeholder: #{rgba($black, 0.4)};
+
   --code-background: #f7f7f7;
   --code-base: #333;
   --code-comment: #969896;
@@ -73,7 +75,7 @@ body {
 body.dark {
   --bg: #{$blackblue};
   --light-bg: #{rgba($darkblue, 0.3)};
-  --contrast-bg: #{$darkblue};
+  --contrast-bg: #{$black};
   --text: #{$white};
   --contrast-text: #{$lightgrey};
   --title: #{$lightblue};
@@ -89,7 +91,9 @@ body.dark {
   --icon-opacity: 1;
   --table-odd: #36393e;
 
-  --code-background: #2b2b2b;
+  --search-placeholder: #{rgba($white, 0.5)};
+
+  --code-background: #{lighten($black, 5%)};
   --code-base: #a9b7c6;
   --code-comment: #808080;
   --code-string: #6a8759;

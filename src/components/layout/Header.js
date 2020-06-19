@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { Link } from 'gatsby';
 import links from '../../data/menu';
 import LogoSpider from '../../images/logo_spider.svg';
+import SwitchTheme from '../common/SwitchTheme';
 import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';
@@ -49,6 +50,7 @@ const Header = () => {
           <span className="icon-github" />
         </a>
       </nav>
+      <SwitchTheme />
     </header>
   );
 };

@@ -19,6 +19,7 @@
     border: none;
     color: var(--contrast-text);
     font-size: 1.3em;
+    font-weight: $bold;
     padding: 0 10px;
     line-height: 40px;
     height: 40px;
@@ -28,5 +29,9 @@
       outline: none;
       background-color: var(--focus);
     }
+  }
+
+  .search__input::placeholder {
+    color: var(--search-placeholder);
   }
 }
