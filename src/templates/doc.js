@@ -47,13 +47,13 @@ const Template = ({ location, pageContext }) => (
       </div>
       <div className="container docs__nav">
         {pageContext.previous.slug && (
-          <Link className="prev" to={`/${pageContext.previous.slug}`}>
+          <Link className="prev" to={`${pageContext.previous.slug}`}>
             <span className="icon-chevron-left" />
             <span>{pageContext.previous.title}</span>
           </Link>
         )}
         {pageContext.next.slug && (
-          <Link className="next" to={`/${pageContext.next.slug}`}>
+          <Link className="next" to={`${pageContext.next.slug}`}>
             <span>{pageContext.next.title}</span>
             <span className="icon-chevron-right" />
           </Link>
