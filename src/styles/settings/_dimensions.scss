@@ -10,9 +10,9 @@ $max-width: 1200px;
 $page-padding: 40px;
 $page-padding-mobile: 15px;
 
-$blackLivesMatterH: 50px;
-$headerH: 80px + $blackLivesMatterH;
-$mobileHeaderH: 55px + $blackLivesMatterH;
+$headerMessageH: 0px;
+$headerH: 80px + $headerMessageH;
+$mobileHeaderH: 55px + $headerMessageH;
 $menuW: 260px;
 $docmenuW: 300px;
 

@@ -10,10 +10,10 @@
   background-color: var(--bg);
   z-index: z('header');
 
-  .header__black-lives-matter {
+  .header__additional-message {
     display: flex;
     flex: 0 0 100%;
-    height: $blackLivesMatterH;
+    height: $headerMessageH;
     justify-content: center;
     align-items: center;
     font-size: 3em;
@@ -30,7 +30,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
-    height: $headerH - $blackLivesMatterH;
+    height: $headerH - $headerMessageH;
   }
 
   .header__logo {
@@ -292,15 +292,15 @@
     height: $mobileHeaderH;
     .logo__circle,
     .logo__spider {
-      width: $mobileHeaderH - $blackLivesMatterH - 10px;
-      height: $mobileHeaderH - $blackLivesMatterH - 10px;
+      width: $mobileHeaderH - $headerMessageH - 10px;
+      height: $mobileHeaderH - $headerMessageH - 10px;
     }
 
     .header__logo,
     .header__nav,
     .header__search,
     .header__social {
-      height: $mobileHeaderH - $blackLivesMatterH;
+      height: $mobileHeaderH - $headerMessageH;
     }
 
     .logo__text {
