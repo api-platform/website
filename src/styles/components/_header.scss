@@ -255,7 +255,6 @@
   @include mq($min-width: $vw-huge + 1, $max-width: 1300px) {
     .search.header__search {
       width: 20px;
-      overflow: hidden;
     }
 
     .search.header__search form {
