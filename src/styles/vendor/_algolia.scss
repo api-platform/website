@@ -39,6 +39,9 @@
       box-shadow: none;
       border-bottom: 2px solid $lightblue;
     }
+    &:before {
+      background-color: var(--bg) !important;
+    }
 
     &[class*=ds-with-] {
       &:before,
