@@ -493,8 +493,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     localUrls.map((url) => {
-      let newUrl = url.replace(/(\/index)?\.md/, '/');
-      newUrl = `/${URL.resolve(nodePath, newUrl)}`;
+      let newUrl = `/${URL.resolve(nodePath, url)}`;
+      newUrl = newUrl.replace(/(\/index)?\.md/, '/');
       newUrl = newUrl.replace(`/${current}/`, '/');
       html = html.replace(url, newUrl);
       return true;
