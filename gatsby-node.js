@@ -378,6 +378,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = {};
     const next = {};
 
+    if ('.github' === section || !edge.node.headings.length) return; // ignore .github folder and untitled files
+
     const nav = navs[`${prefixedVersion}/`];
     nav.chapters
       .filter((chapter) => chapter.path === section)
@@ -406,7 +408,6 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         });
       });
-
     createPage({
       component: docPageTemplate,
       context: {
