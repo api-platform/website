@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { MeetupEventType, ContributorType } from '../types';
@@ -87,8 +87,8 @@ const CommunityPage = ({ location, data }) => {
                     rel="noopener noreferrer"
                   >
                     Stack Overflow
-                  </a>{' '}
-                  using the api-platform.com tag.
+                  </a>
+                  .
                 </p>
                 <br />
                 <p>
@@ -106,8 +106,15 @@ const CommunityPage = ({ location, data }) => {
                   <a href="https://les-tilleuls.coop/en" target="_blank" rel="noopener noreferrer">
                     Les-Tilleuls.coop
                   </a>{' '}
-                  provides professional services for API Platform and Symfony including training, development and API
-                  design.
+                  provides professional services for API Platform,{' '}
+                  <a href="https://mercure.rocks" target="_blank" rel="noopener noreferrer">
+                    Mercure
+                  </a>
+                  ,{' '}
+                  <a href="https://mercure.rocks" target="_blank" rel="noopener noreferrer">
+                    Vulcain
+                  </a>{' '}
+                  and Symfony including training, development and API design.
                 </p>
                 <br />
                 <p>
@@ -134,56 +141,55 @@ const CommunityPage = ({ location, data }) => {
                   >
                     report issues
                   </a>
-                  , help fix bugs or implement new features via <strong>creating a Pull Request</strong>.
+                  , help fix bugs or implement new features by <strong>creating a Pull Request</strong> on GitHub.
                 </p>
               </CommunityCard>
             </GridItem>
             <GridItem>
               <CommunityCard image={CommunitySettings} title="Help your local community">
-                <p>Help us by connecting with your local community. Here is a few actions you can undertake :</p>
+                <p>Help us by connecting with your local community. Here is a few actions you can undertake:</p>
                 <br />
                 <p>
-                  Spread the word with{' '}
-                  <a href="https://twitter.com/search?q=apiplatform&src=typd" target="_blank" rel="noopener noreferrer">
-                    social media
+                  Spread the word on{' '}
+                  <a
+                    href="https://twitter.com/intent/tweet?screen_name=ApiPlatform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Twitter
                   </a>{' '}
-                  or{' '}
-                  <a href="https://www.meetup.com/fr-FR/api-platform/" target="_blank" rel="noopener noreferrer">
-                    organise a meetup
-                  </a>{' '}
-                  (discover the upcoming conferences).
+                  or <Link to="/community/events/">attend to the upcoming conferences</Link>.
                 </p>
               </CommunityCard>
             </GridItem>
             <GridItem>
-              <CommunityCard image={CommunitySecurity} title="Security issues">
+              <CommunityCard image={CommunitySecurity} title="Security">
                 <p>
-                  If you think you have found a security issue,{' '}
-                  <a href="https://les-tilleuls.coop/en/contact" target="_blank" rel="noopener noreferrer">
-                    contact us.
-                  </a>{' '}
-                  <br />
-                  Please do not report security problems publicly.
-                </p>{' '}
+                  API Platform is available as part of{' '}
+                  <Link to="https://tidelift.com/subscription/pkg/packagist-api-platform-core?utm_source=packagist-api-platform-core&utm_medium=referral&utm_campaign=enterprise">
+                    the Tidelift Subscription
+                  </Link>
+                  : verified updates for zero-day vulnerabilities, coordinated security responses, and immediate
+                  notifications of which of your applications are impacted, with the fix prepared for you!
+                </p>
                 <br />
                 <p>
-                  We will disclose details of the issue and credit you after having released a new version including a
-                  fix.
+                  <Link to="/docs/extra/security">Report a security issue.</Link>
                 </p>
               </CommunityCard>
             </GridItem>
             <GridItem>
               <CommunityCard image={CommunityTraining} title="Training">
                 <p>
-                  You can be trained by <strong>API Platform core team</strong> (2 day sessions in French or English).
+                  Be trained by the <strong>API Platform core team</strong>! Sessions available in English and in
+                  French.
                 </p>{' '}
                 <br />
                 <p>
-                  Les-Tilleuls.coop can also organize tailored training courses:{' '}
                   <a href="https://les-tilleuls.coop/en/contact" target="_blank" rel="noopener noreferrer">
-                    contact us
+                    Contact Les-Tilleuls.coop
                   </a>{' '}
-                  for more information.
+                  to organize a tailored training course.
                 </p>
               </CommunityCard>
             </GridItem>
