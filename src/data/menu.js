@@ -28,6 +28,10 @@ const menu = [
         text: 'Deployment',
         path: '/docs/deployment/',
       },
+      {
+        text: 'General Information',
+        path: '/docs/extra/',
+      },
     ],
   },
   {

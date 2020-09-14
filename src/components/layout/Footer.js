@@ -40,6 +40,10 @@ export default () => {
       <p className="footer__tilleuls">
         Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
       </p>
+      <p className="footer__policy">
+        <Link to="/docs/extra/enterprise">Enterprise subscription</Link> -{' '}
+        <Link to="/docs/extra/security">Security policy</Link> - <Link to="/trademark-policy">Trademark policy</Link>
+      </p>
       <p className="footer__licence">
         Code licensed under{' '}
         <a
@@ -54,9 +58,6 @@ export default () => {
           CC BY 3.0
         </a>
         .
-      </p>
-      <p className="footer__policy">
-        <Link to="/trademark-policy">Trademark policy</Link>
       </p>
       <div className="footer__follow">
         <iframe
