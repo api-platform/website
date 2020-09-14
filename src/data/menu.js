@@ -30,7 +30,7 @@ const menu = [
       },
       {
         text: 'General Information',
-        path: '/docs/extra/',
+        path: '/docs/extra/philosophy/',
       },
     ],
   },
