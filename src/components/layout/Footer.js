@@ -41,8 +41,8 @@ export default () => {
         Sponsored by <a href="https://les-tilleuls.coop">Les-Tilleuls.coop</a>
       </p>
       <p className="footer__policy">
-        <Link to="/docs/extra/enterprise">Enterprise subscription</Link> -{' '}
-        <Link to="/docs/extra/security">Security policy</Link> - <Link to="/trademark-policy">Trademark policy</Link>
+        <Link to="/docs/extra/enterprise/">Enterprise subscription</Link> -{' '}
+        <Link to="/docs/extra/security/">Security policy</Link> - <Link to="/trademark-policy">Trademark policy</Link>
       </p>
       <p className="footer__licence">
         Code licensed under{' '}

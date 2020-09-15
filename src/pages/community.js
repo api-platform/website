@@ -233,7 +233,7 @@ const CommunityPage = ({ location, data }) => {
                 text="See all events"
                 icon="chevron-right"
                 className="community__button small"
-                link="/community/events"
+                link="/community/events/"
               />
             </div>
           </section>
