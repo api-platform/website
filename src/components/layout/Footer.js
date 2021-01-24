@@ -47,7 +47,7 @@ export default () => {
       <p className="footer__licence">
         Code licensed under{' '}
         <a
-          href="https://github.com/api-platform/api-platform/blob/master/LICENSE"
+          href="https://github.com/api-platform/api-platform/blob/main/LICENSE"
           target="_blank"
           rel="noopener noreferrer"
         >

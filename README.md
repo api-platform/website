@@ -4,7 +4,7 @@ This repository contains the source code and documentation powering [api-platfor
 
 Single Page Application built with [React](https://facebook.github.io/react/) and powered by [Gatsby](https://www.gatsbyjs.org/).
 
-[![Build Status](https://travis-ci.org/api-platform/website.svg?branch=master)](https://travis-ci.org/api-platform/website)
+[![Build Status](https://travis-ci.org/api-platform/website.svg?branch=main)](https://travis-ci.org/api-platform/website)
 
 ## Project structure
 
@@ -60,7 +60,8 @@ yarn gatsby serve
       "url": "https://api-platform.com/docs/(?P<version>.*?)/",
       "variables": {
         "version": [
-          "master",
+          "main",
+          "2.6",
           "2.5",
           "2.4",
           "2.3",
@@ -75,14 +76,14 @@ yarn gatsby serve
 }
 ```
 
-3. Add the new version in [`constants.js`](https://github.com/api-platform/website/blob/master/constants.js)
+3. Add the new version in [`constants.js`](https://github.com/api-platform/website/blob/main/constants.js)
 
 ```javascript
 module.exports = Object.freeze({
   // ...
-  versions: ['master', '2.4', '2.3', '2.2', '2.1'],
-  currentVersion: '2.5',
-  masterVersion: '2.6',
+  versions: ['main', '2.5', '2.4', '2.3', '2.2', '2.1'],
+  currentVersion: '2.6',
+  mainVersion: '2.7',
   // ...
 });
 ```
