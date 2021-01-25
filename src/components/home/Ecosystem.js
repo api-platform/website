@@ -54,7 +54,7 @@ const Ecosystem = () => (
           <EcosystemCard
             image={schemaImage}
             link="/docs/schema-generator"
-            text="Instantly generates a PHP data model from the Schema.org vocabulary. Let the ORM create the related tables."
+            text="Generate a PHP data model from the RDF vocabularies and ontologies. Let the ORM create the related tables."
             title="Schema Gen Component"
           />
         </GridItem>
@@ -62,7 +62,7 @@ const Ecosystem = () => (
           <EcosystemCard
             image={adminImage}
             link="/docs/admin"
-            text="Adds a convenient Material Design administration interface built with React without writing a line of code. It's a Progressive Web App!"
+            text="Enjoy a beautiful administration interface built with React without writing a line of code."
             title="Admin Component"
           />
         </GridItem>
@@ -70,7 +70,7 @@ const Ecosystem = () => (
           <EcosystemCard
             image={scaffoldingImage}
             link="/docs/client-generator"
-            text="Scaffolds a Progressive Web App (React or Vue.js) or a native mobile app (React Native), and edit it to fit your needs."
+            text="Scaffold a Next.js, Nuxt.js, Vuetify, Quasar, React, Vue.js or React Native app, tweak it to fit your needs."
             title="Client Gen Component"
           />
         </GridItem>

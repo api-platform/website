@@ -4,7 +4,7 @@ import HomeList from './HomeList';
 
 const data = [
   'extend the framework with thousands of existing <a href="https://symfony.com/doc/bundles/" target="_blank" rel="noopener noreferrer">Symfony bundles</a> and <a href="https://reactjs.org/community/ui-components.html" target="_blank" rel="noopener noreferrer">React components</a>',
-  'use the server library in any existing Symfony or PHP app, use client components with any Hydra-enabled API, regardless of its programming language',
+  'use the server library in any existing Symfony or PHP app, use client components with any API documented with Hydra or OpenAPI, regardless of its programming language',
   'reuse all your Symfony, React and Docker skills and benefit of their high quality docs; you are in known territory',
 ];
 
@@ -17,9 +17,9 @@ const Giants = () => (
       <div className="giants__content">
         <p className="hidden-small">
           API Platform is built on top of <strong>battle-tested products</strong>. The server skeleton includes the
-          famous <strong>Symfony 4</strong> microframework and the <strong>Doctrine</strong> ORM. Client-side components
-          use Facebook&apos;s <strong>React</strong> (a Vue.js integration is also available). The development
-          environment and the deployment mechanism leverage <strong>Docker, Kubernetes and Helm</strong>.
+          famous <strong>Symfony</strong> framework and the <strong>Doctrine</strong> ORM. Our scaffolding tool supports
+          the most popular JavaScript libraries. The development environment and the deployment mechanism leverage{' '}
+          <strong>Docker, Kubernetes and Helm</strong>.
         </p>
         <HomeList data={data} className="giants__list" />
         <p className="hidden-small">

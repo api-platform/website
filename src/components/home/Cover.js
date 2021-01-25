@@ -13,8 +13,8 @@ const Cover = () => (
       </div>
       <Logo className="cover__logo" />
       <h1 className="cover__title h2-like">
-        <strong className="accessibility__hidden-block">API PLATFORM:</strong>
-        REST and GraphQL framework to build modern API-driven projects
+        <strong className="accessibility__hidden-block">API PLATFORM:</strong> Create REST and GraphQL APIs, scaffold
+        Jamstack webapps, stream changes in real-time.
       </h1>
       <div className="cover__buttons">
         <Button empty text="Download" icon="download" link="https://github.com/api-platform/api-platform/releases" />
