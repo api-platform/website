@@ -44,7 +44,7 @@ const Schema = () => (
   <section className="home__part home__schema">
     <div className="container schema__container">
       <h2 className="h1-like schema__title">
-        Creating Linked Data <strong>REST</strong> APIs has Never Been so Easy
+        Creating <strong>REST</strong> and <strong>GraphQL</strong> APIs has Never Been so Easy
       </h2>
       {dataSchema.map((part) => (
         <SchemaPart key={part.title} {...part} />

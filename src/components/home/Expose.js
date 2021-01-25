@@ -3,9 +3,9 @@ import spider from '../../images/expose.svg';
 import HomeList from './HomeList';
 
 const data = [
-  '<strong>Javascript apps</strong> (including but not limited to React and Angular)',
+  '<strong>Javascript apps</strong> (including but not limited to React, Vue.js and Angular)',
   '<strong>Native mobile apps</strong> (iOS, Android...)',
-  '<strong>All modern programming languages</strong> (PHP, Java, .Net, Ruby, Python...)',
+  '<strong>IoT devices</strong> (Rust, Go, C, Java...)',
 ];
 
 const Expose = () => (

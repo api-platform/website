@@ -7,7 +7,7 @@ const schema = [
         link: '/docs/schema-generator',
         title: 'Create a Model',
         text:
-          'Design your own data model as plain old PHP classes or import an existing structure from the Schema.org vocabulary.',
+          'Design your own data model as plain old PHP classes or import an existing structure from RDF vocabularies such as Schema.org.',
       },
     ],
   },
@@ -19,7 +19,7 @@ const schema = [
         link: '/docs/core',
         title: 'Expose your API',
         text:
-          'Embrace the open web: JSON-LD/Hydra, GraphQL, JSON API, HAL, YAML, JSON, XML and CSV are supported out of the box.',
+          'Get your API in minutes. Stream changes in real-time using Mercure. Embrace the open web with JSON-LD/Hydra, GraphQL, JSON:API and many more.',
       },
       {
         icon: 'security',
@@ -43,7 +43,7 @@ const schema = [
         icon: 'app',
         link: '/docs/client-generator',
         title: 'PWA and Mobile',
-        text: 'Generate React, React Native and Vue.js apps from the API docs.',
+        text: 'Generate Next.js, Nuxt.js, Vuetify, Quasar, Vue.js, React and React Native apps from the API docs.',
       },
       {
         icon: 'admin',
@@ -59,9 +59,8 @@ const schema = [
       {
         icon: 'test',
         link: '/docs/distribution/testing',
-        title: 'Specs & Tests',
-        text:
-          'Add unit tests with PHPUnit. Create specs and tests with a developer friendly API testing tool on top of Behat. A Postman integration is also provided.',
+        title: 'Tests',
+        text: 'Add tests with ease using our developer friendly API testing tool.',
       },
     ],
   },
