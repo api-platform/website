@@ -30,7 +30,7 @@ const schema = [
       },
       {
         icon: 'doc',
-        link: '/docs/core/swagger',
+        link: '/docs/core/openapi',
         title: 'Browse the Docs',
         text: 'Enjoy the beautiful, automatically generated, API documentation (Swagger/OpenAPI).',
       },
