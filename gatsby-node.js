@@ -337,6 +337,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Redirect 301 old page
   createRedirect({ fromPath: '/news/', toPath: '/resources/news/', isPermanent: true, redirectInBrowser: true });
   createRedirect({ fromPath: '/support/', toPath: '/community/', isPermanent: true, redirectInBrowser: true });
+  createRedirect({ fromPath: '/docs/core/swagger/', toPath: '/docs/core/openapi/', isPermanent: true, redirectInBrowser: true });
 
   // Documentation pages
   const docPageTemplate = path.resolve('src/templates/doc.js');
