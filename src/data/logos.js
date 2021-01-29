@@ -68,9 +68,19 @@ export const otherData = [
     link: 'https://www.adeo.com/',
   },
   {
+    name: 'Agence Koul',
+    logo: 'agence-koul',
+    link: 'https://koul.io/',
+  },
+  {
     name: 'Alstom',
     logo: 'alstom',
     link: 'https://www.alstom.com/',
+  },
+  {
+    name: 'Arte',
+    logo: 'arte',
+    link: 'https://www.arte.tv/fr/',
   },
   {
     name: 'beIN SPORTS',
@@ -86,6 +96,11 @@ export const otherData = [
     name: 'BNP',
     logo: 'bnp',
     link: 'https://mabanque.bnpparibas/',
+  },
+  {
+    name: 'Bonjour',
+    logo: 'bonjour-io',
+    link: 'https://bonjour.io/',
   },
   {
     name: 'Campings.com',
@@ -118,6 +133,11 @@ export const otherData = [
     link: 'https://www.france24.com/',
   },
   {
+    name: 'France TV',
+    logo: 'france-tv',
+    link: 'https://www.france.tv/',
+  },
+  {
     name: 'General Electric',
     logo: 'general-electric',
     link: 'https://www.ge.com/',
@@ -126,6 +146,11 @@ export const otherData = [
     name: 'izi by eDF',
     logo: 'izi',
     link: 'https://izi-by-edf.fr/',
+  },
+  {
+    name: 'Leah',
+    logo: 'leah',
+    link: 'https://www.leah.care/',
   },
   {
     name: "L'Express",
@@ -148,6 +173,11 @@ export const otherData = [
     link: 'https://www.linx.net/',
   },
   {
+    name: 'Locastic',
+    logo: 'locastic',
+    link: 'https://locastic.com/',
+  },
+  {
     name: 'M6',
     logo: 'm6',
     link: 'https://www.groupem6.fr/',
@@ -156,6 +186,11 @@ export const otherData = [
     name: 'MEL',
     logo: 'mel',
     link: 'https://www.lillemetropole.fr/',
+  },
+  {
+    name: 'Meero',
+    logo: 'meero',
+    link: 'https://www.meero.com/fr/',
   },
   {
     name: 'Microdon',
@@ -193,14 +228,54 @@ export const otherData = [
     link: 'https://www.saveur-biere.com/',
   },
   {
+    name: 'Semji',
+    logo: 'semji',
+    link: 'https://semji.com/fr/',
+  },
+  {
     name: 'SensioLabs',
     logo: 'sensio-labs',
     link: 'https://sensiolabs.com/',
   },
   {
+    name: 'Sezane',
+    logo: 'sezane',
+    link: 'https://www.sezane.com/',
+  },
+  {
+    name: 'Simplon',
+    logo: 'simplon',
+    link: 'https://simplon.co/',
+  },
+  {
     name: 'Smile',
     logo: 'smile',
     link: 'https://www.smile.eu/',
+  },
+  {
+    name: 'SpotAtHome',
+    logo: 'spotathome',
+    link: 'https://www.spotahome.com/fr',
+  },
+  {
+    name: 'Stafflist',
+    logo: 'stafflist',
+    link: 'https://stafflist.io/en',
+  },
+  {
+    name: 'Staphyt',
+    logo: 'staphyt',
+    link: 'https://www.staphyt.com/ ',
+  },
+  {
+    name: 'Student Pop',
+    logo: 'student-pop',
+    link: 'https://www.studentpop.fr/',
+  },
+  {
+    name: 'Tagether',
+    logo: 'tagether',
+    link: 'https://tagether.fr/',
   },
   {
     name: 'TMM',
