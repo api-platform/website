@@ -49,6 +49,7 @@
 
   .references__item {
     display: flex;
+    align-items: center;
     &:not(.big) {
       @include grayscale-effect(0.5);
       padding: 15px;
