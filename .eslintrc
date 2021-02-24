@@ -7,12 +7,36 @@
     "prettier",
     "prettier/react"
   ],
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["@components", "./src/components"],
+        ["@styles", "./src/styles"]
+      ]
+    }
+  },
   "plugins": ["prettier"],
   "env": {
     "browser": true,
     "es6": true,
     "node": true
   },
+    "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"]
+      },
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ]
+    }
+  ],
   "rules": {
     "prettier/prettier": ["error"],
     "object-curly-newline": 0,

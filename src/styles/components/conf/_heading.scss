@@ -1,0 +1,43 @@
+* {
+  font-family: inherit;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 60px;
+  font-weight: 200;
+  strong {
+    font-weight: 900;
+  }
+}
+
+h3 {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+
+p {
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+}
+

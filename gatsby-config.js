@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const fs = require('fs');
 const dotenv = require('dotenv').config({ path: '.env.gatsby' });
+const path = require('path');
 
 module.exports = {
   siteMetadata: {

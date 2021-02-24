@@ -2,9 +2,12 @@
   "name": "api-platform-website",
   "license": "MIT",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
     "classnames": "^2.2.5",
     "dayjs": "^1.8.21",
     "eject": "^0.0.4",
+    "eslint-import-resolver-alias": "^1.1.2",
     "gatsby": "^2.0.91",
     "gatsby-plugin-build-date": "^1.0.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
@@ -14,6 +17,7 @@
     "gatsby-plugin-offline": "^2.0.21",
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-root-import": "^2.0.6",
     "gatsby-plugin-sass": "^2.1.14",
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-sitemap": "^2.0.4",
@@ -24,6 +28,7 @@
     "gatsby-remark-relative-images": "^0.2.1",
     "gatsby-transformer-sharp": "^2.2.14",
     "gatsby-transformer-yaml": "^2.2.9",
+    "gsap": "^3.6.0",
     "h5o": "^0.11.3",
     "jsdom": "^11.11.0",
     "node-fetch": "^2.6.0",
@@ -37,6 +42,7 @@
     "react-helmet": "^5.2.0",
     "react-html-parser": "^2.0.1",
     "react-router-dom": "^4.3.1",
+    "typescript": "^4.2.0",
     "webpack": "^4.28.1"
   },
   "devDependencies": {
@@ -74,7 +80,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": [
+    "*.{js,ts,tsx,css,md}": [
       "eslint --fix"
     ]
   },

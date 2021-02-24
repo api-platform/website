@@ -1,0 +1,94 @@
+.conf__cover {
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 30px 20px;
+  background: radial-gradient(ellipse farthest-corner at 52% 160%, rgba(213, 33, 137, 0.8), transparent 50%),
+    radial-gradient(at right 60%, rgba(17, 229, 240, 0.3), transparent 50%),
+    radial-gradient(circle at 75% 50%, rgba(17, 230, 240, 0.2), transparent 50%), var(--blackblue);
+
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+
+  & .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: static;
+  }
+
+  & > .conf__button {
+    margin: 20px 0;
+  }
+
+  .conf__cover-baseline {
+    font-size: 32px;
+    padding: 50px 0;
+    font-weight: 400;
+  }
+
+  .conf__cover-date {
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 2px solid #fff;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-bottom: 40px;
+  }
+
+  .conf__cover-logo {
+    max-height: 30vh;
+    max-width: 800px;
+  }
+
+  .web-line {
+    fill: none;
+    stroke: #33cad1;
+    stroke-dasharray: 1 5;
+    // animation: dash 2s infinite linear;
+    transform-origin: center center;
+  }
+
+  .wave-line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 0 6;
+    stroke: #33cad1;
+  }
+
+  .conf__cover-web {
+    position: absolute;
+    z-index: 0;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    left: 80%;
+    top: 50%;
+    opacity: 0.6;
+  }
+
+  .conf__cover-wave {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    opacity: 0.3;
+    height: 60vh;
+    max-width: none;
+    right: 22%;
+    top: 58%;
+    transform: translateY(-50%) rotate(10deg);
+  }
+  @keyframes dash {
+    from {
+      stroke-dashoffset: 0;
+    }
+
+    to {
+      stroke-dashoffset: 12;
+    }
+  }
+}

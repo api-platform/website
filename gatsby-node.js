@@ -337,7 +337,12 @@ exports.createPages = async ({ graphql, actions }) => {
   // Redirect 301 old page
   createRedirect({ fromPath: '/news/', toPath: '/resources/news/', isPermanent: true, redirectInBrowser: true });
   createRedirect({ fromPath: '/support/', toPath: '/community/', isPermanent: true, redirectInBrowser: true });
-  createRedirect({ fromPath: '/docs/core/swagger/', toPath: '/docs/core/openapi/', isPermanent: true, redirectInBrowser: true });
+  createRedirect({
+    fromPath: '/docs/core/swagger/',
+    toPath: '/docs/core/openapi/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Documentation pages
   const docPageTemplate = path.resolve('src/templates/doc.js');
@@ -521,4 +526,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug,
     });
   }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+      },
+    },
+  });
 };

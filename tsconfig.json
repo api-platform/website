@@ -1,0 +1,13 @@
+{
+  "include": ["./src/**/*"],
+  "files": ["images.d.ts"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"]
+    }
+  }
+}
