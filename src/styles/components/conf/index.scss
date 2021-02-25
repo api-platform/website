@@ -1,6 +1,8 @@
 @import './colors';
 @import './cover';
+@import './speakers';
 @import './heading';
+@import '../../tools/shadows';
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&family=Raleway:wght@400;700&display=swap');
@@ -43,26 +45,53 @@
   position: fixed;
   z-index: 10;
   width: 100%;
-  padding: 12px;
+  padding: 24px 12px 12px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  transition: all ease 0.5s;
+  color: #fff;
+  .conf__menu-logo {
+    height: 40px;
+    flex: 1;
+    opacity: 0;
+    display: flex;
+    justify-content: flex-start;
+    transform: translateY(-100%);
+    transition: all ease 0.3s 0.2s;
+  }
   & > * {
     margin: 0 10px;
+  }
+  &.with-logo {
+    @include z-depth-3;
+    background: rgba(var(--blackblue-rgb), 0.9);
+    padding: 12px;
+    .conf__menu-logo {
+      opacity: 1;
+      transform: translateY(0);
+
+    }
   }
 }
 
 .conf__menu-item {
-  color: white;
+  color: inherit;
   text-transform: uppercase;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  font-weight: 800;
+  transition: all ease 0.3s;
+  &:hover {
+    color: var(--blue);
+    transform: scale(0.95);
+  }
 }
 
 .lined {
   position: relative;
   &:after {
-    content: "";
+    content: '';
     width: 200px;
     height: 3px;
     left: 50%;
@@ -70,5 +99,42 @@
     background-color: var(--blue);
     transform: translateX(-50%);
     border-radius: 3px;
+  }
+}
+
+.conf__section-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--blackblue);
+  padding-top: 70px;
+  padding-bottom: 30px;
+
+  h2 {
+    position: relative;
+    z-index: 1;
+  }
+
+  & > span {
+    font-size: 120px;
+    font-weight: 200;
+    position: absolute;
+    z-index: 0;
+    width: 200%;
+    left: 50%;
+    top: 65px;
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    color: var(--blue);
+
+    strong {
+      font-weight: 900;
+    }
+  }
+
+  &.dark {
+    color: #fff;
+    & > span {
+      color: var(--pink);
+    }
   }
 }

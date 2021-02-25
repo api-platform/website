@@ -1,10 +1,16 @@
+.conf {
 * {
   font-family: inherit;
 }
 
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  color: inherit;
 }
 
 h1 {
@@ -17,6 +23,7 @@ h2 {
   font-weight: 200;
   strong {
     font-weight: 900;
+    color: inherit;
   }
 }
 
@@ -35,9 +42,9 @@ h5 {
   text-transform: uppercase;
 }
 
-
 p {
   font-size: 18px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
+}

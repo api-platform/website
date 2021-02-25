@@ -1,5 +1,12 @@
-:root {
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+.conf {
   --blackblue: #001226;
+  --blackblue-rgb: #{hexToRGB(#001226)};
+
   --blue: #33cad1;
   --darkblue: #2b9898;
+  --pink: #c32186;
 }
