@@ -90,15 +90,18 @@
 
 .lined {
   position: relative;
+  padding-bottom: 20px;
   &:after {
     content: '';
-    width: 200px;
-    height: 3px;
+    position: absolute;
+    width: 80px;
+    height: 6px;
     left: 50%;
-    bottom: -5px;
+    bottom: 5px;
     background-color: var(--blue);
     transform: translateX(-50%);
     border-radius: 3px;
+    transition: all ease 0.3s;
   }
 }
 
