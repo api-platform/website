@@ -1,6 +1,8 @@
 @import './colors';
+@import './mixins';
 @import './cover';
 @import './speakers';
+@import './schedule';
 @import './heading';
 @import '../../tools/shadows';
 
@@ -10,14 +12,13 @@
 #___gatsby > div:first-child {
   height: 100%;
 }
-
 .conf__button {
   border-radius: 5px;
   padding: 10px 30px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   font-weight: 900;
@@ -38,6 +39,14 @@
   &.small {
     font-size: 16px;
     padding: 5px 15px;
+  }
+
+  &.empty {
+    background-image: linear-gradient(30deg, transparent 50%, var(--blue) 50%);
+    color: var(--blue);
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -70,7 +79,6 @@
     .conf__menu-logo {
       opacity: 1;
       transform: translateY(0);
-
     }
   }
 }
@@ -102,6 +110,12 @@
     transform: translateX(-50%);
     border-radius: 3px;
     transition: all ease 0.3s;
+  }
+  &.lined-left {
+    &:after {
+      left: 0;
+      transform: none;
+    }
   }
 }
 

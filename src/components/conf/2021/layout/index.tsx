@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import Nav from './Nav';
+
+dayjs.extend(localizedFormat);
 
 const Layout: React.ComponentType = ({ children }) => {
   const [hasScroll, setHasScroll] = useState(false);
@@ -17,6 +21,9 @@ const Layout: React.ComponentType = ({ children }) => {
       window.removeEventListener('touchemove', onScroll);
     };
   }, [onScroll]);
+
+  dayjs.extend(localizedFormat);
+
   return (
     <div className="conf full scrollable" ref={container}>
       <Nav withScroll={hasScroll} />

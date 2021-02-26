@@ -1,57 +1,67 @@
 .conf {
-* {
-  font-family: inherit;
-}
+  * {
+    font-family: 'Raleway', sans-serif;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Poppins', sans-serif;
-  color: inherit;
-}
-
-h1, .h1 {
-  font-size: 120px;
-  font-weight: 900;
-}
-
-h2, .h2 {
-  font-size: 60px;
-  font-weight: 200;
-  strong {
-    font-weight: 900;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    font-family: 'Poppins', sans-serif;
     color: inherit;
   }
-}
 
-h3, .h3 {
-  font-size: 40px;
-  text-transform: uppercase;
-}
+  h1,
+  .h1 {
+    font-size: 120px;
+    font-weight: 900;
+  }
 
-h4, .h4 {
-  font-size: 28px;
-  text-transform: uppercase;
-}
+  h2,
+  .h2 {
+    font-size: 60px;
+    font-weight: 200;
+    strong {
+      font-weight: 900;
+      color: inherit;
+    }
+  }
 
-h5, .h5 {
-  font-size: 22px;
-  text-transform: uppercase;
-}
+  h3,
+  .h3 {
+    font-size: 40px;
+    text-transform: uppercase;
+  }
 
-p {
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif;
-}
+  h4,
+  .h4 {
+    font-size: 28px;
+    text-transform: uppercase;
+  }
 
-.overline {
-  text-transform: uppercase;
-  font-weight: 200;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  color: var(--darkblue);
-}
+  h5,
+  .h5 {
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .overline {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--darkblue);
+  }
 }

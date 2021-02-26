@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import Logo from '../images/logo.svg';
 
 const Nav: React.ComponentType<{ withScroll: boolean }> = ({ withScroll }) => {
   return (
     <nav
-      className={classnames('conf__menu', {
+      className={classNames('conf__menu', {
         'with-logo': withScroll,
       })}
     >
