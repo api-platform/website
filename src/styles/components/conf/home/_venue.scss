@@ -1,0 +1,101 @@
+.conf__venue {
+  background: var(--lightgrey);
+  transform: translateY(-100px);
+  padding-top: 100px;
+
+  .venue__place {
+    position: relative;
+    padding: 0 50px;
+    &:before {
+      content: '';
+      background: var(--blue);
+      width: 50%;
+      height: 350px;
+      position: absolute;
+      transform: translateY(-10px);
+    }
+  }
+  .venue__description {
+    width: 55%;
+    margin-left: auto;
+    background: #fff;
+    @include z-depth-3;
+    padding: 50px 30px 50px 150px;
+    text-align: center;
+    z-index: 1;
+    transform: translateY(40px);
+  }
+  .venue__location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .venue__map {
+    width: 50%;
+    height: 350px;
+    position: absolute;
+    z-index: 2;
+    transform: translateX(10px);
+  }
+  .venue__transportation {
+    display: flex;
+    flex-direction: row;
+    transform: translateY(20px);
+    margin-top: 70px;
+    @include z-depth-3;
+    .venue__transport {
+      @include blue-gradient-linear;
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0px 20px 10px;
+      color: #fff;
+      position: relative;
+      border-top: 10px solid var(--blue);
+      &:after {
+        content: '';
+        position: absolute;
+        height: 90%;
+        width: 1px;
+        border-left: 2px dotted #fff;
+        right: 0;
+        top: 5%;
+        z-index: 2;
+        opacity: 0.5;
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+      .transport__square {
+        background: var(--blue);
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(-20px);
+      }
+      .transport__title {
+        font-weight: 900;
+        font-family: 'Poppins', sans-serif;
+      }
+      .transport__icon {
+        flex: 1;
+        position: relative;
+        img {
+          position: absolute;
+          width: 100%;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

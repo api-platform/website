@@ -1,15 +1,18 @@
 .conf__schedule {
-  @include conf-gradient;
   color: #fff;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
+  background: #fff;
+  width: 100%;
+  overflow: hidden auto;
   &:before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 500px;
+    height: 300px;
+    @include conf-gradient;
   }
   &:after {
     content: '';
@@ -75,6 +78,7 @@
     background: #fff;
     flex: 1;
     overflow-x: hidden;
+    @include z-depth-5;
   }
   .schedule__program-morning,
   .schedule__program-afternoon {

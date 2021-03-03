@@ -57,7 +57,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
         <span className="overline">{convertTime(time)}</span>
         <h3 className={classNames('h5 lined', { 'lined-left': speakers?.length })}>{title}</h3>
         {speakers?.length ? (
-          <span>
+          <span className="body2">
             {'by '}
             {speakers.map((speaker, index) => (
               <>
@@ -67,7 +67,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
             ))}
           </span>
         ) : null}
-        {speakers?.length ? <span>{speakerTitle || speakers[0].job}</span> : null}
+        {speakers?.length ? <span className="body2">{speakerTitle || speakers[0].job}</span> : null}
       </div>
     </div>
   );

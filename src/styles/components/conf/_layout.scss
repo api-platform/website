@@ -1,0 +1,45 @@
+.conf__menu {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding: 24px 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: all ease 0.5s;
+  color: #fff;
+  .conf__menu-logo {
+    height: 40px;
+    flex: 1;
+    opacity: 0;
+    display: flex;
+    justify-content: flex-start;
+    transform: translateY(-100%);
+    transition: all ease 0.3s 0.2s;
+  }
+  & > * {
+    margin: 0 10px;
+  }
+  &.with-logo {
+    @include z-depth-3;
+    background: rgba(var(--blackblue-rgb), 0.9);
+    padding: 12px;
+    .conf__menu-logo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.conf__menu-item {
+  color: inherit;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  transition: all ease 0.3s;
+  &:hover {
+    color: var(--blue);
+    transform: scale(0.95);
+  }
+}

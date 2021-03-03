@@ -7,3 +7,8 @@
 @mixin blue-gradient {
   background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 120%), var(--blue) ;
 }
+
+@mixin blue-gradient-linear {
+  background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%), var(--blue);
+}
+

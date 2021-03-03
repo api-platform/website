@@ -1,0 +1,128 @@
+.conf__button {
+  border-radius: 5px;
+  padding: 10px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 3px solid var(--blue);
+  background-image: linear-gradient(30deg, var(--blue) 50%, transparent 50%);
+  background-size: 300%;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  transition: background 300ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-position: 100%;
+    color: var(--blue);
+  }
+
+  &.small {
+    font-size: 16px;
+    padding: 5px 15px;
+  }
+
+  &.empty {
+    background-image: linear-gradient(30deg, transparent 50%, var(--blue) 50%);
+    color: var(--blue);
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.lined {
+  position: relative;
+  padding-bottom: 20px;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    left: 50%;
+    bottom: 5px;
+    background-color: var(--blue);
+    transform: translateX(-50%);
+    border-radius: 3px;
+    transition: all ease 0.3s;
+  }
+  &.lined-left {
+    &:after {
+      left: 0;
+      transform: none;
+    }
+  }
+  &.lined-dark {
+    &:after {
+      background-color: var(--darkblue);
+    }
+  }
+}
+
+.dotted-corner {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' height='100%' width='100%'><defs><pattern id='dots' width='6' height='6' patternTransform='rotate(45 0 0)' patternUnits='userSpaceOnUse'><circle cx='3' cy='3' r='1' style='stroke:none; fill:%232FC1C1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23dots)'/></svg>");
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    top: 0;
+    left: 100%;
+  }
+  &.corner-bottom {
+    &:before {
+      top: 100%;
+      left: 0;
+    }
+  }
+  &.corner-over {
+    &:before {
+      z-index: 5;
+    }
+  }
+}
+
+.conf__section-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--blackblue);
+  padding-top: 70px;
+  padding-bottom: 30px;
+
+  h2 {
+    position: relative;
+    z-index: 1;
+  }
+
+  & > span {
+    font-size: 120px;
+    font-weight: 200;
+    position: absolute;
+    z-index: 0;
+    width: 200%;
+    left: 50%;
+    top: 65px;
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    color: var(--blue);
+
+    strong {
+      font-weight: 900;
+    }
+  }
+
+  &.dark {
+    color: #fff;
+    & > span {
+      color: var(--pink);
+    }
+  }
+}

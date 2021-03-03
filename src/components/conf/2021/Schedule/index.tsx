@@ -31,7 +31,7 @@ const Schedule: React.ComponentType = () => {
     <div className="conf__schedule">
       <div className="container">
         <SectionTitle dark>
-          Our <strong>schedule</strong>
+          Event <strong>schedule</strong>
         </SectionTitle>
         <div className="conf__schedule-content">
           <DaySelector selectedDay={selectedDay} setSelectedDay={setSelectedDay} />

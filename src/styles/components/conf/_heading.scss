@@ -52,8 +52,17 @@
     text-transform: uppercase;
   }
 
-  p {
+  h6,
+  .h6 {
     font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  p,
+  div,
+  span {
+    font-size: 16px;
     font-family: 'Raleway', sans-serif;
   }
 
@@ -63,5 +72,17 @@
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     color: var(--darkblue);
+  }
+  .body2 {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  p {
+    margin-bottom: 10px;
+    span,
+    strong {
+      font-size: inherit;
+    }
   }
 }
