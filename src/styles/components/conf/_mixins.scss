@@ -12,3 +12,10 @@
   background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%), var(--blue);
 }
 
+@mixin flex-center($direction: column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+

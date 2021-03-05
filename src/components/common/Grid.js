@@ -20,7 +20,7 @@ Grid.defaultProps = {
 export const GridItem = ({ className, padding, limitWidth, full, children, autosize }) => (
   <div
     className={classnames(className, 'grid__item', {
-      [`p-${padding}`]: padding,
+      [`p-${padding}`]: !!padding || 0 === padding,
       'no-min': !limitWidth,
       auto: autosize,
       full,

@@ -33,3 +33,15 @@ export type Day = {
   day: number;
   date: string;
 };
+
+export type Offer = {
+  title: string;
+  price: number;
+};
+
+export type Price = {
+  id: number;
+  limitDate: string;
+  title: string;
+  offers: Offer[];
+};

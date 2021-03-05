@@ -1,0 +1,117 @@
+.conf__pricing {
+  @include conf-gradient;
+  padding-bottom: 100px;
+  .grid__container {
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+  .conf__pricing-item {
+    position: relative;
+    .conf__pricing-card {
+      width: 100%;
+      @include flex-center;
+
+      transform: scale(1.1);
+      @include z-depth-3;
+      transition: all ease 0.3s;
+    }
+    &:not(.disabled) {
+      z-index: 2;
+      .conf__pricing-card {
+        cursor: pointer;
+        &:hover {
+          @include z-depth-5;
+          transform: scale(1.12);
+        }
+      }
+    }
+    &.disabled {
+      z-index: 1;
+      .conf__pricing-card {
+        @include z-depth-1;
+
+        transform: scale(1);
+        filter: saturate(0.3);
+      }
+    }
+    @include mq($max-width: $vw-large) {
+      width: 33%;
+      min-width: 0;
+    }
+    @include mq($max-width: $vw-medium) {
+      width: 100%;
+      min-width: 350px;
+      transform: none !important;
+      .conf__pricing-card {
+        transform: scale(1) !important;
+      }
+      margin-bottom: 50px;
+    }
+  }
+  .pricing__active-2 .conf__pricing-item:first-child,
+  .pricing__active-0 .conf__pricing-item:last-child {
+    .conf__pricing-card {
+      transform: scale(0.95);
+      filter: saturate(0.15);
+    }
+  }
+  .pricing__active-2 .conf__pricing-item:nth-child(2) {
+    transform: translateX(-10%);
+  }
+  .pricing__active-0 .conf__pricing-item:first-child {
+    transform: translateX(10%);
+  }
+  .pricing__active-0 .conf__pricing-item:nth-child(3) {
+    z-index: 0;
+    .conf__pricing-card {
+      transform: scale(0.95);
+      filter: saturate(0.15);
+    }
+  }
+  .pricing__active-0 .conf__pricing-item:nth-child(2) {
+    transform: translateX(10%);
+  }
+  .pricing__active-2 .conf__pricing-item:last-child {
+    transform: translateX(-10%);
+  }
+
+  .pricing__header {
+    width: 100%;
+    background: var(--blue);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    .overline {
+      font-weight: 600;
+    }
+  }
+  .pricing__content {
+    @include flex-center;
+    width: 100%;
+    flex: 1;
+    background: #fff;
+    padding: 20px 50px;
+    text-align: center;
+    border-bottom: 8px solid var(--blue);
+
+    & > div {
+      width: 100%;
+      padding: 10px 0;
+      @include flex-center;
+      &:not(:last-child) {
+        border-bottom: 2px dotted var(--lightblue);
+      }
+    }
+    .pricing__amount {
+      color: var(--blue);
+      font-weight: 900;
+    }
+  }
+  .conf__button {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(30deg, var(--blue) 50%, #fff 50%);
+  }
+}
