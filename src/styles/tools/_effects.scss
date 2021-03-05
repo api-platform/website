@@ -1,0 +1,9 @@
+@mixin grayscale-effect($initialOpacity: 0.8) {
+  filter: grayscale(100%);
+  opacity: $initialOpacity;
+  transition: all ease-out 0.3s;
+  &:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}

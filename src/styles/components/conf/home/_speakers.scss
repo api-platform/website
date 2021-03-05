@@ -125,6 +125,7 @@
       background-repeat: no-repeat;
       background-position: 0%;
       transition: background 300ms ease-in-out;
+      filter: none;
 
       & > * {
         position: absolute;

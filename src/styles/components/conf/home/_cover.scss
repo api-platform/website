@@ -39,8 +39,11 @@
   }
 
   .conf__cover-logo {
-    max-height: 30vh;
+    width: 100%;
     max-width: 800px;
+    img {
+      max-height: 30vh;
+    }
   }
 
   .web-line {

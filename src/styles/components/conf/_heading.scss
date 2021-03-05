@@ -71,7 +71,7 @@
     font-weight: 200;
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
-    color: var(--darkblue);
+    color: var(--darkestblue);
   }
   .body2 {
     font-size: 14px;
@@ -83,6 +83,14 @@
     span,
     strong {
       font-size: inherit;
+    }
+  }
+
+  a {
+    color: var(--darkblue);
+    cursor: pointer;
+    &:hover {
+      color: var(--blue);
     }
   }
 }

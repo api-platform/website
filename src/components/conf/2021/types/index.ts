@@ -45,3 +45,9 @@ export type Price = {
   title: string;
   offers: Offer[];
 };
+
+export type Partner = {
+  logo: string;
+  name: string;
+  link: string;
+};

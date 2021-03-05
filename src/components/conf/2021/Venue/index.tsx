@@ -8,10 +8,9 @@ import MetroIcon from '../images/metro.svg';
 import CarIcon from '../images/car.svg';
 import BikeIcon from '../images/bike.svg';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2luaWZpenoiLCJhIjoiY2tsZ2c3d3Z1MWs1MDJvbWpvdjM2MGg4ZSJ9.5jBAlLJbO-gf2_BQGzfZ0Q';
-
 const Venue: React.ComponentType = () => {
   useLayoutEffect(() => {
+    mapboxgl.accessToken = process.env.GATSBY_MAPBOX_KEY;
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/ginifizz/cklgmlhwf758f17nulkah36re',

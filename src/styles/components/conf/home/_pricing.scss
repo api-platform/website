@@ -1,9 +1,10 @@
 .conf__pricing {
   @include conf-gradient;
-  padding-bottom: 100px;
+  margin-bottom: 100px;
   .grid__container {
     max-width: 900px;
-    margin: 40px auto 0;
+    margin: -60px auto 0;
+    transform: translateY(80px);
   }
   .conf__pricing-item {
     position: relative;
