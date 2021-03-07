@@ -1,5 +1,9 @@
 .conf__partners {
-  padding-top: 50px;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  position: relative;
+  background-color: #fff;
+
   .partners__grid {
     display: flex;
     flex-wrap: wrap;

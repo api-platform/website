@@ -1,6 +1,21 @@
 .conf__pricing {
   @include conf-gradient;
-  margin-bottom: 100px;
+  position: relative;
+  &:after {
+  content: '';
+  position: absolute;
+  width: 1300px;
+  height: 800px;
+  background: url('../../../components/conf/2021/images/wave3.svg');
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%) rotate(5deg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  opacity: 0.5;
+}
+
   .grid__container {
     max-width: 900px;
     margin: -60px auto 0;
