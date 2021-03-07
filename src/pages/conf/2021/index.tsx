@@ -6,6 +6,7 @@ import Layout from '@components/conf/2021/layout';
 import Venue from '@components/conf/2021/Venue';
 import Partners from '@components/conf/2021/Partners';
 import Pricing from '@components/conf/2021/Pricing';
+import Contact from '@components/conf/2021/Contact';
 import '@styles/components/conf/index.scss';
 
 const Conf2021: React.ComponentType = () => {
@@ -17,6 +18,7 @@ const Conf2021: React.ComponentType = () => {
       <Venue />
       <Pricing />
       <Partners />
+      <Contact />
     </Layout>
   );
 };
