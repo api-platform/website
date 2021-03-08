@@ -1,7 +1,17 @@
 .conf__venue {
-  background: var(--lightgrey);
-  transform: translateY(-100px);
-  padding-top: 100px;
+  position: relative;
+  z-index: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--lightgrey);
+    transform: translateY(-100px);
+  }
 
   .venue__place {
     position: relative;
@@ -41,7 +51,7 @@
   .venue__transportation {
     display: flex;
     flex-direction: row;
-    transform: translateY(20px);
+    transform: translateY(30px);
     margin-top: 70px;
     @include z-depth-3;
     .venue__transport {

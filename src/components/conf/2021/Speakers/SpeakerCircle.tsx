@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { Speaker } from '../types';
 import circle from '../images/circle.svg';
 
@@ -10,6 +11,16 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker }) => 
   const { image, name, job, github, twitter } = speaker;
   return (
     <div className="conf__speaker-circle">
+      <Helmet>
+        <script type="application/ld+json">{`
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "${speaker.name}",
+      "jobTitle": "${speaker.job}"
+    }
+  `}</script>
+      </Helmet>
       <div className="hoverable">
         <img className="circle__effect" src={circle} alt="effect" />
         <div className="circle">

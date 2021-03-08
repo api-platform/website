@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import SectionTitle from '../common/SectionTitle';
@@ -9,10 +9,12 @@ import CarIcon from '../images/car.svg';
 import BikeIcon from '../images/bike.svg';
 
 const Venue: React.ComponentType = () => {
-  useLayoutEffect(() => {
+  const mapContainerRef = useRef(null);
+
+  useEffect(() => {
     mapboxgl.accessToken = process.env.GATSBY_MAPBOX_KEY;
-    const map = new mapboxgl.Map({
-      container: 'map',
+    const newMap = new mapboxgl.Map({
+      container: mapContainerRef.current,
       style: 'mapbox://styles/ginifizz/cklgmlhwf758f17nulkah36re',
       center: [3.0179366, 50.6331443],
       zoom: 14,
@@ -22,8 +24,11 @@ const Venue: React.ComponentType = () => {
     new mapboxgl.Marker()
       .setOffset([0, -50 / 2])
       .setLngLat([3.0179366, 50.6331443])
-      .addTo(map);
-  }, []);
+      .addTo(newMap);
+
+    return () => newMap.remove();
+  }, [mapContainerRef]);
+
   return (
     <section className="conf__venue">
       <div className="container">
@@ -31,7 +36,7 @@ const Venue: React.ComponentType = () => {
           The <strong>venue</strong>
         </SectionTitle>
         <div className="venue__place">
-          <div id="map" className="venue__map dotted-corner corner-bottom corner-over" />
+          <div ref={mapContainerRef} className="venue__map dotted-corner corner-bottom corner-over" />
           <div className="venue__description dotted-corner">
             <h3 className="h4 lined">Euratechnologies</h3>
             <div className="overline venue__location">

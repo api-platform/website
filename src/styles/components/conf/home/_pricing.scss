@@ -1,6 +1,7 @@
 .conf__pricing {
   @include conf-gradient;
   position: relative;
+  padding-top: 70px;
   &:after {
   content: '';
   position: absolute;
