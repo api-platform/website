@@ -13,7 +13,7 @@ const Transport: React.ComponentType<TransportProps> = ({ icon, title, children 
         <img src={icon} alt={title} />
       </div>
     </div>
-    {children}
+    <div className="transport__content">{children}</div>
   </div>
 );
 

@@ -1,5 +1,6 @@
 .conf__partners {
-  padding-top: 150px;
+  padding-top: 100px;
+  padding-bottom: 150px;
   position: relative;
   background-color: #fff;
 
@@ -18,6 +19,7 @@
 
     img {
       max-width: 90%;
+      height: auto;
     }
   }
   @include mq($max-width: $vw-large) {

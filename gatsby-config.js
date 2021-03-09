@@ -43,6 +43,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/components/conf/2021/images/speakers`,
+        name: 'speakers',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/special`,
         name: 'special',
       },

@@ -1,26 +1,45 @@
 .conf__pricing {
-  @include conf-gradient;
   position: relative;
   padding-top: 70px;
+  background: #fff;
+  @include mq($max-width: $vw-medium) {
+    padding-top: 40px;
+  }
+  &:before {
+    content: '';
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    @include conf-gradient;
+    transform: translateY(-60px);
+    @include mq($max-width: $vw-medium) {
+      transform: translateY(-100px);
+    }
+  }
   &:after {
-  content: '';
-  position: absolute;
-  width: 1300px;
-  height: 800px;
-  background: url('../../../components/conf/2021/images/wave3.svg');
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%) rotate(5deg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center top;
-  opacity: 0.5;
-}
+    content: '';
+    position: absolute;
+    width: 1300px;
+    height: 800px;
+    background: url('../../../components/conf/2021/images/wave3.svg');
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    opacity: 0.5;
+  }
+  .conf__section-title {
+    margin-bottom: 20px;
+  }
 
   .grid__container {
     max-width: 900px;
-    margin: -60px auto 0;
-    transform: translateY(80px);
+    margin: 0 auto;
   }
   .conf__pricing-item {
     position: relative;
@@ -56,8 +75,7 @@
       min-width: 0;
     }
     @include mq($max-width: $vw-medium) {
-      width: 100%;
-      min-width: 350px;
+      width: 90%;
       transform: none !important;
       .conf__pricing-card {
         transform: scale(1) !important;

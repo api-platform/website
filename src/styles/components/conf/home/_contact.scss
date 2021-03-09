@@ -13,8 +13,10 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    position: relative;
-    transform: translateY(130px);
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
 
     &:after {
       content: '';

@@ -5,6 +5,7 @@ export type Speaker = {
   github?: string;
   image: string;
   job: string;
+  list: boolean;
 };
 
 export type Conference = {

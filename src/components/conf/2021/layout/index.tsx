@@ -15,11 +15,11 @@ const Layout: React.ComponentType = ({ children }) => {
   }, [container]);
   useEffect(() => {
     if (container.current) {
-      window.addEventListener('mousewheel', onScroll);
+      window.addEventListener('wheel', onScroll);
       window.addEventListener('touchmove', onScroll);
     }
     return () => {
-      window.removeEventListener('mousewheel', onScroll);
+      window.removeEventListener('wheel', onScroll);
       window.removeEventListener('touchemove', onScroll);
     };
   }, [onScroll]);

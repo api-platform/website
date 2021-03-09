@@ -16,7 +16,7 @@
     background-size: 300%;
     background-repeat: no-repeat;
     background-position: 0%;
-    transition: all 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
     cursor: pointer;
 
     &:not(.disabled):hover {
@@ -110,6 +110,7 @@
     color: var(--blackblue);
     padding-top: 70px;
     padding-bottom: 30px;
+    position: relative;
 
     & * {
       font-family: 'Poppins', sans-serif;
@@ -125,10 +126,14 @@
       z-index: 0;
       width: 200%;
       left: 50%;
-      top: 65px;
-      transform: translate(-50%, -50%) scale(2) ;
+      bottom: 70px;
+      transform: translateX(-50%) scale(2);
       opacity: 0.15;
       color: var(--blue);
+      @include mq($max-width: $vw-small) {
+        bottom: 60px;
+        transform: translateX(-50%) scale(1.5);
+      }
     }
 
     &.dark {

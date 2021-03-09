@@ -18,7 +18,8 @@
       transform: translateY(-100%);
       transition: all ease 0.3s;
     }
-    & > .conf__menu-item, .conf__button {
+    & > .conf__menu-item,
+    .conf__button {
       margin: 0 10px;
     }
     &.with-logo {
@@ -69,17 +70,10 @@
       padding-top: 250px;
     }
     .footer__tilleuls {
-      width: 100px;
-      height: 100px;
-      background: #fff;
-      border-radius: 50%;
-      position: relative;
+      text-align: center;
       img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 100%;
-        transform: translate(-50%, -50%) scale(1.1);
+        width: 100px;
+        height: 100px;
       }
     }
     .footer__by {
@@ -91,6 +85,10 @@
     }
     .footer__copyright {
       align-self: flex-end;
+      margin-top: 10px;
+      @include mq($max-width: $vw-medium) {
+        align-self: center;
+      }
       a {
         color: #fff;
       }
