@@ -24,12 +24,15 @@
       position: absolute;
       transform: translateY(-10px);
       @include mq($max-width: $vw-large) {
-        width: 40%;
+        width: 45%;
       }
 
       @include mq($max-width: $vw-medium) {
         content: none;
       }
+    }
+    @include mq($max-width: $vw-large) {
+      padding: 0;
     }
     @include mq($max-width: $vw-medium) {
       padding: 0;
@@ -73,7 +76,7 @@
     z-index: 2;
     transform: translateX(10px);
     @include mq($max-width: $vw-large) {
-      width: 40%;
+      width: 45%;
     }
     @include mq($max-width: $vw-medium) {
       position: relative;

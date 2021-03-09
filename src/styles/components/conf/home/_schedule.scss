@@ -4,7 +4,6 @@
   padding-bottom: 40px;
   background: #fff;
   width: 100%;
-  overflow: hidden auto;
   &:before {
     content: '';
     position: absolute;
@@ -70,7 +69,8 @@
     text-align: right;
     width: 330px;
     padding: 20px;
-    position: relative;
+    position: sticky;
+    top: 64px;
     margin-right: 10px;
     @include blue-gradient;
     @include mq($max-width: $vw-large) {

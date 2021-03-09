@@ -5,7 +5,7 @@ import AnimatedWave from './AnimatedWave';
 import Web from './Web';
 
 const Cover: React.ComponentType = () => (
-  <div className="conf__cover parallax">
+  <div className="conf__cover">
     <div className="container">
       <span className="conf__cover-date">September 10, 2021 - Lille</span>
       <h1 className="conf__cover-logo">
