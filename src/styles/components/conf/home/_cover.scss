@@ -1,7 +1,17 @@
+.conf {
+    .cover__background {
+    @include conf-gradient;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+  }
+}
 .conf__cover {
-  @include conf-gradient;
   font-family: 'Poppins', sans-serif;
-  padding: 50px 30px 20px;
+  padding: 70px 30px 20px;
   min-height: 100%;
   position: relative;
   overflow: hidden;
@@ -10,7 +20,6 @@
   flex-direction: column;
   color: #fff;
   text-align: center;
-
 
   & .container {
     display: flex;

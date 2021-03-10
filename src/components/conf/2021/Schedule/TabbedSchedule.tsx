@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import DaySelector from './DaySelector';
 import days from '../data/days';
@@ -8,6 +8,7 @@ import { FullConference } from '../types/index';
 import Button from '../common/Button';
 
 const TabbedSchedule: React.ComponentType = () => {
+  const swipeableViews = useRef(null);
   const [selectedDay, setSelectedDay] = useState(days.length);
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
 
@@ -27,11 +28,32 @@ const TabbedSchedule: React.ComponentType = () => {
 
   useEffect(() => handleChangeIndex(0), [selectedDay]);
 
+  const onResize = useCallback(() => {
+    if (swipeableViews.current) swipeableViews.current.updateHeight();
+  }, [swipeableViews]);
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, [onResize]);
+
+  useLayoutEffect(() => {
+    onResize();
+  }, [onResize]);
+
   return (
     <div className="conf__schedule-tabbed">
       <DaySelector selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
       <div className="schedule__program">
-        <SwipeableViews key={selectedDay} index={selectedMomentDay} onChangeIndex={handleChangeIndex} animateHeight>
+        <SwipeableViews
+          key={selectedDay}
+          index={selectedMomentDay}
+          onChangeIndex={handleChangeIndex}
+          animateHeight
+          ref={swipeableViews}
+        >
           <div className="schedule__program-morning">
             {morningConferences.map((conference) => (
               <SlotItem conference={conference} />

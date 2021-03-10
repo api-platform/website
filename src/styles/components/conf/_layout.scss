@@ -7,8 +7,24 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    transition: all ease 0.5s;
+    transition: all ease 0.2s 0.5s;
     color: #fff;
+    background-size: 300%;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    overflow: hidden;
+    &:after {
+      content: '';
+      width: 0%;
+      height: 1px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      transition: width ease 0.5s;
+      position: absolute;
+    }
+
     .conf__menu-logo {
       height: 40px;
       flex: 1;
@@ -21,11 +37,20 @@
     & > .conf__menu-item,
     .conf__button {
       margin: 0 10px;
+      z-index: 10;
     }
     &.with-logo {
       @include z-depth-3;
-      background: var(--blackblue);
+      @include conf-gradient;
+      background-size: 100% 100vh;
       padding: 12px;
+transition: padding ease 0.5s, background-image linear 0.1s, border linear 0.1s;
+
+
+      &:after {
+        width: 100%;
+      }
+
       .conf__menu-logo {
         opacity: 1;
         transform: translateY(0);
@@ -44,6 +69,9 @@
     &:hover {
       color: var(--blue);
       transform: scale(0.95);
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0 !important;
     }
     &:after {
       content: '';
@@ -67,7 +95,6 @@
   .conf__footer {
     color: #fff;
     position: relative;
-    background: var(--blackblue);
     &:before {
       content: '';
       width: 1200px;

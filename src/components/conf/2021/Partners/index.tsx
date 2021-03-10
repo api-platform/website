@@ -1,9 +1,10 @@
 import React from 'react';
 import SectionTitle from '../common/SectionTitle';
 import data from '../data/partners';
+import Section from '../layout/Section';
 
 const Partners: React.ComponentType = () => (
-  <div className="conf__partners">
+  <Section className="conf__partners" section="partners">
     <div className="container">
       <SectionTitle>
         Our <strong>partners</strong>
@@ -23,7 +24,7 @@ const Partners: React.ComponentType = () => (
         ))}
       </div>
     </div>
-  </div>
+  </Section>
 );
 
 export default Partners;

@@ -11,10 +11,11 @@ import Contact from '@components/conf/2021/Contact';
 import '@styles/components/conf/index.scss';
 import Footer from '@components/conf/2021/layout/Footer';
 import Nav from '@components/conf/2021/layout/Nav';
+import { PageProps } from 'gatsby';
 
 export const ConfContext = createContext(null);
 
-const Conf2021: React.ComponentType = () => {
+const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
   const websiteData = {
     '@context': 'https://schema.org',
     '@type': 'Website',
@@ -49,10 +50,10 @@ const Conf2021: React.ComponentType = () => {
     },
   };
   const [activeLink, setActiveLink] = useState('home');
-  const [hasScroll, setHasScroll] = useState(false);
+  const [hasScroll, setHasScroll] = useState(!('#home' === location.hash || '' === location.hash));
   const container = useRef(null);
   const onScroll = useCallback(() => {
-    setHasScroll(50 < container.current?.scrollTop);
+    setHasScroll(10 < container.current?.scrollTop);
   }, [container]);
   useEffect(() => {
     if (container.current) {
@@ -61,12 +62,21 @@ const Conf2021: React.ComponentType = () => {
     }
     return () => {
       window.removeEventListener('wheel', onScroll);
-      window.removeEventListener('touchemove', onScroll);
+      window.removeEventListener('touchmove', onScroll);
     };
   }, [onScroll]);
 
+  const goToLink = useCallback(
+    (section) => {
+      const element = document.querySelector(`#${section}`);
+      element.scrollIntoView({ behavior: 'smooth' });
+      setHasScroll('home' !== section);
+    },
+    [setHasScroll]
+  );
+
   return (
-    <ConfContext.Provider value={{ activeLink, setActiveLink }}>
+    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink, rootContainer: container.current }}>
       <Layout>
         <Helmet>
           <title>Api Platform Conference 2021</title>
@@ -75,6 +85,7 @@ const Conf2021: React.ComponentType = () => {
           <script type="application/ld+json">{JSON.stringify(eventData)}</script>
         </Helmet>
         <div className="conf full scrollable" ref={container} id="conf">
+          <div className="cover__background" />
           <Nav withScroll={hasScroll} />
           <Cover />
           <Speakers />

@@ -5,17 +5,19 @@ import Logo from '../images/logo.svg';
 import { ConfContext } from '../../../../pages/conf/2021/index';
 
 const NavLink: React.ComponentType<{ to: string }> = ({ to, children }) => {
-  const { activeLink } = useContext(ConfContext);
+  const { activeLink, goToLink } = useContext(ConfContext);
+
   return (
-    <Link
+    <a
       className={classNames('conf__menu-item', {
         active: to === activeLink,
       })}
-      to={`#${to}`}
-      activeClassName="active"
+      onClick={() => goToLink(to)}
+      role="button"
+      tabIndex={0}
     >
       {children}
-    </Link>
+    </a>
   );
 };
 
