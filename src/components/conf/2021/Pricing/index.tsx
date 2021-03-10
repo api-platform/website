@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import SectionTitle from '../common/SectionTitle';
 import prices from '../data/prices';
 import PricingCard from './PricingCard';
+import Section from '../layout/Section';
 
 const Pricing: React.ComponentType = () => {
   const sortedPrices = prices.sort((a, b) => {
@@ -14,7 +15,7 @@ const Pricing: React.ComponentType = () => {
   const activeIndex = sortedPrices.findIndex((price) => dayjs(price.limitDate).isAfter(dayjs()));
 
   return (
-    <div className="conf__pricing">
+    <Section className="conf__pricing" section="pricing">
       <div className="container">
         <SectionTitle dark>
           <strong>Pricing</strong>
@@ -25,7 +26,7 @@ const Pricing: React.ComponentType = () => {
           ))}
         </Grid>
       </div>
-    </div>
+    </Section>
   );
 };
 

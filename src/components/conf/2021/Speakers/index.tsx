@@ -3,12 +3,12 @@ import { Grid, GridItem } from '@components/common/Grid';
 import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import { getSpeakerList } from '../data/api';
+import Section from '../layout/Section';
 
 const Speakers: React.ComponentType = () => {
   const speakers = getSpeakerList();
-
   return (
-    <div className="conf__speakers">
+    <Section className="conf__speakers" section="speakers">
       <div className="container">
         <SectionTitle>
           Our <strong>speakers</strong>
@@ -21,7 +21,7 @@ const Speakers: React.ComponentType = () => {
           ))}
         </Grid>
       </div>
-    </div>
+    </Section>
   );
 };
 

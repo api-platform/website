@@ -40,9 +40,28 @@
     font-size: 16px;
     font-weight: 800;
     transition: all ease 0.3s;
+    position: relative;
     &:hover {
       color: var(--blue);
       transform: scale(0.95);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 4px;
+      left: 50%;
+      top: calc(100% + 5px);
+      background-color: var(--blue);
+      transform: translateX(-50%);
+      border-radius: 3px;
+      transition: all ease 0.3s;
+    }
+    &.active {
+      color: var(--lightblue);
+      &:after {
+        width: 20px;
+      }
     }
   }
   .conf__footer {

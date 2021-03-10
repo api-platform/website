@@ -7,6 +7,7 @@ import BusIcon from '../images/bus.svg';
 import MetroIcon from '../images/metro.svg';
 import CarIcon from '../images/car.svg';
 import BikeIcon from '../images/bike.svg';
+import Section from '../layout/Section';
 
 const Venue: React.ComponentType = () => {
   const mapContainerRef = useRef(null);
@@ -30,7 +31,7 @@ const Venue: React.ComponentType = () => {
   }, [mapContainerRef]);
 
   return (
-    <section className="conf__venue">
+    <Section className="conf__venue" section="venue">
       <div className="container">
         <SectionTitle>
           The <strong>venue</strong>
@@ -91,7 +92,7 @@ const Venue: React.ComponentType = () => {
           </Transport>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
+import { SectionContext } from '../layout/Section';
 
 interface WebProps {
   className?: string;
@@ -9,23 +10,29 @@ const Web: React.ComponentType<WebProps> = ({ className }) => {
   const group2 = useRef(null);
   const group3 = useRef(null);
 
+  const isVisible = useContext(SectionContext);
+
   useEffect(() => {
-    group1?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
-      duration: 1000,
-      iterations: Infinity,
-    });
-    group2?.current?.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: 12 }], {
-      duration: 1000,
-      iterations: Infinity,
-    });
-    group3?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
-      duration: 1000,
-      iterations: Infinity,
-    });
+    if (!isVisible) {
+      document.getAnimations().map((animation) => animation.cancel());
+    } else {
+      group1?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
+        duration: 1000,
+        iterations: Infinity,
+      });
+      group2?.current?.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: 12 }], {
+        duration: 1000,
+        iterations: Infinity,
+      });
+      group3?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
+        duration: 1000,
+        iterations: Infinity,
+      });
+    }
     return () => {
       document.getAnimations().map((animation) => animation.cancel());
     };
-  }, [group1, group2, group3]);
+  }, [group1, group2, group3, isVisible]);
 
   return (
     <svg className={className} viewBox="0 0 464 464" xmlns="http://www.w3.org/2000/svg">

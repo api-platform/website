@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState, useRef, useCallback, useEffect } from 'react';
 import Cover from '@components/conf/2021/Cover';
 import Helmet from 'react-helmet';
 import Speakers from '@components/conf/2021/Speakers';
@@ -9,6 +9,10 @@ import Partners from '@components/conf/2021/Partners';
 import Pricing from '@components/conf/2021/Pricing';
 import Contact from '@components/conf/2021/Contact';
 import '@styles/components/conf/index.scss';
+import Footer from '@components/conf/2021/layout/Footer';
+import Nav from '@components/conf/2021/layout/Nav';
+
+export const ConfContext = createContext(null);
 
 const Conf2021: React.ComponentType = () => {
   const websiteData = {
@@ -44,23 +48,45 @@ const Conf2021: React.ComponentType = () => {
       },
     },
   };
+  const [activeLink, setActiveLink] = useState('home');
+  const [hasScroll, setHasScroll] = useState(false);
+  const container = useRef(null);
+  const onScroll = useCallback(() => {
+    setHasScroll(50 < container.current?.scrollTop);
+  }, [container]);
+  useEffect(() => {
+    if (container.current) {
+      window.addEventListener('wheel', onScroll);
+      window.addEventListener('touchmove', onScroll);
+    }
+    return () => {
+      window.removeEventListener('wheel', onScroll);
+      window.removeEventListener('touchemove', onScroll);
+    };
+  }, [onScroll]);
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Api Platform Conference 2021</title>
-        <meta name="description" content="The first event dedicated to Api Platform and its ecosystem" />
-        <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
-        <script type="application/ld+json">{JSON.stringify(eventData)}</script>
-      </Helmet>
-      <Cover />
-      <Speakers />
-      <Schedule />
-      <Venue />
-      <Pricing />
-      <Partners />
-      <Contact />
-    </Layout>
+    <ConfContext.Provider value={{ activeLink, setActiveLink }}>
+      <Layout>
+        <Helmet>
+          <title>Api Platform Conference 2021</title>
+          <meta name="description" content="The first event dedicated to Api Platform and its ecosystem" />
+          <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
+          <script type="application/ld+json">{JSON.stringify(eventData)}</script>
+        </Helmet>
+        <div className="conf full scrollable" ref={container} id="conf">
+          <Nav withScroll={hasScroll} />
+          <Cover />
+          <Speakers />
+          <Schedule />
+          <Venue />
+          <Pricing />
+          <Partners />
+          <Contact />
+          <Footer />
+        </div>
+      </Layout>
+    </ConfContext.Provider>
   );
 };
 
