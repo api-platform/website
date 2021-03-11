@@ -75,7 +75,7 @@
     position: absolute;
     z-index: 0;
     height: 100vh;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
     left: 80%;
     top: 50%;
     opacity: 0.6;

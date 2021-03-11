@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext, useState } from 'react';
 import { SectionContext } from '../layout/Section';
 
 interface WebProps {
@@ -10,29 +10,55 @@ const Web: React.ComponentType<WebProps> = ({ className }) => {
   const group2 = useRef(null);
   const group3 = useRef(null);
 
+  const [animations, setAnimations] = useState<Animation[]>([]);
+
   const isVisible = useContext(SectionContext);
 
   useEffect(() => {
-    if (!isVisible) {
-      document.getAnimations().map((animation) => animation.cancel());
-    } else {
-      group1?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
-        duration: 1000,
-        iterations: Infinity,
-      });
-      group2?.current?.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: 12 }], {
-        duration: 1000,
-        iterations: Infinity,
-      });
-      group3?.current?.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
-        duration: 1000,
-        iterations: Infinity,
-      });
+    const elem1 = group1?.current;
+    const elem2 = group2?.current;
+    const elem3 = group3?.current;
+    const anims = [];
+    if (elem1) {
+      anims.push(
+        elem1.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
+          duration: 1000,
+          iterations: Infinity,
+        })
+      );
     }
+    if (elem2) {
+      anims.push(
+        elem2.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: 12 }], {
+          duration: 1000,
+          iterations: Infinity,
+        })
+      );
+    }
+    if (elem3) {
+      anims.push(
+        elem3.animate([{ strokeDashoffset: 12 }, { strokeDashoffset: 0 }], {
+          duration: 1000,
+          iterations: Infinity,
+        })
+      );
+    }
+    setAnimations(anims);
+  }, [setAnimations]);
+
+  useEffect(() => {
     return () => {
-      document.getAnimations().map((animation) => animation.cancel());
+      animations.map((anim) => anim.cancel());
     };
-  }, [group1, group2, group3, isVisible]);
+  }, [animations]);
+
+  useEffect(() => {
+    if (!isVisible) {
+      animations.map((anim) => 'running' === anim.playState && anim.pause());
+    } else {
+      animations.map((anim) => 'paused' === anim.playState && anim.play());
+    }
+  }, [animations, isVisible]);
 
   return (
     <svg className={className} viewBox="0 0 464 464" xmlns="http://www.w3.org/2000/svg">
