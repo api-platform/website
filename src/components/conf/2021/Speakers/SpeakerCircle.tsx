@@ -16,10 +16,10 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker }) => 
         nodes {
           name
           childImageSharp {
-            base: resize(width: 240, height: 240, quality: 100) {
+            base: resize(width: 240, height: 240) {
               src
             }
-            retina: resize(width: 480, height: 480, quality: 100) {
+            retina: resize(width: 480, height: 480) {
               src
             }
           }

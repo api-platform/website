@@ -21,7 +21,7 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price, active }) =
         </div>
         <div className="pricing__content dotted-corner corner-bottom">
           {offers.map((offer) => (
-            <div>
+            <div key={offer.title}>
               <span className="overline">{offer.title}</span>
               <span className="h4 pricing__amount">{offer.price}$</span>
             </div>

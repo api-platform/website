@@ -27,6 +27,7 @@ const DaySelector: React.ComponentType<DaySelectorProps> = ({ selectedDay, setSe
     <div className="schedule__day-selector">
       {days.map((day) => (
         <div
+          key={day.index}
           className={classNames('schedule__day', {
             selected: day.index === selectedDay,
           })}

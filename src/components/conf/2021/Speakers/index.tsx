@@ -15,7 +15,7 @@ const Speakers: React.ComponentType = () => {
         </SectionTitle>
         <Grid>
           {speakers.map((speaker) => (
-            <GridItem>
+            <GridItem key={speaker.name}>
               <SpeakerCircle speaker={speaker} />
             </GridItem>
           ))}

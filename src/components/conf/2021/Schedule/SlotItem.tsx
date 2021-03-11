@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import { useStaticQuery, graphql } from 'gatsby';
 import dayjs from 'dayjs';
@@ -36,6 +36,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
 
         return (
           <div
+            key={speaker.name}
             className="avatar__circle"
             style={{
               width: `${getSize(speakers.length)}px`,
@@ -51,7 +52,6 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
               alt={speaker.name}
               srcSet={`${images?.base.src} 1x, ${images?.retina.src} 2x`}
             />
-            <img loading="lazy" width="240" height="240" src={speaker.image} alt={speaker.name} />
           </div>
         );
       })}
@@ -91,10 +91,10 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
           <span className="body2">
             {'by '}
             {speakers.map((speaker, index) => (
-              <>
+              <Fragment key={speaker.name}>
                 <a>{speaker.name}</a>
                 {index < speakers.length - 1 && ' & '}
-              </>
+              </Fragment>
             ))}
           </span>
         ) : null}

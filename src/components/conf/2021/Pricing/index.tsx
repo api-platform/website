@@ -22,7 +22,7 @@ const Pricing: React.ComponentType = () => {
         </SectionTitle>
         <Grid className={`pricing__active-${activeIndex}`}>
           {sortedPrices.map((price, index) => (
-            <PricingCard price={price} active={activeIndex === index} />
+            <PricingCard key={price.id} price={price} active={activeIndex === index} />
           ))}
         </Grid>
       </div>

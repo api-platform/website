@@ -56,7 +56,7 @@ const TabbedSchedule: React.ComponentType = () => {
         >
           <div className="schedule__program-morning">
             {morningConferences.map((conference) => (
-              <SlotItem conference={conference} />
+              <SlotItem key={conference.id} conference={conference} />
             ))}
             {afternoonConferences.length ? (
               <Button empty size="small" onClick={() => handleChangeIndex(1)}>
@@ -68,7 +68,7 @@ const TabbedSchedule: React.ComponentType = () => {
           {!!afternoonConferences.length && (
             <div className="schedule__program-afternoon">
               {afternoonConferences.map((conference) => (
-                <SlotItem conference={conference} />
+                <SlotItem key={conference.id} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(0)}>
                 <span className="icon-chevron-left" />
