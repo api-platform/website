@@ -1,4 +1,9 @@
 .conf {
+  @include mq($max-width: $vw-medium) {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
   .conf__menu {
     position: fixed;
     z-index: 10;
@@ -94,18 +99,7 @@
   .conf__footer {
     color: #fff;
     position: relative;
-    &:before {
-      content: '';
-      width: 1200px;
-      height: 500px;
-      left: 50%;
-      transform: translateX(-50%);
-      position: absolute;
-      background: url('../../../components/conf/2021/images/wave.svg');
-      background-repeat: no-repeat;
-      background-position: center -50px;
-      opacity: 0.5;
-    }
+    overflow: hidden;
 
     .container {
       display: flex;
@@ -127,6 +121,17 @@
     }
     .footer__logo {
       width: 250px;
+    }
+    .footer__wave {
+      position: absolute;
+      width: 1200px;
+      height: 500px;
+      max-width: 1200px;
+      left: 50%;
+      top: -120px;
+      transform: translate3d(-50%, 0, 0);
+      opacity: 0.5;
+      z-index: 0;
     }
     .footer__copyright {
       align-self: flex-end;

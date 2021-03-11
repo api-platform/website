@@ -1,17 +1,21 @@
 .conf {
   .conf__background {
     @include conf-gradient;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     z-index: 0;
   }
   .conf__content {
     z-index: 1;
   }
-
+  .wave-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0 6;
+  stroke: #67cece;
+}
   .conf__button {
     border-radius: 5px;
     padding: 10px 30px;

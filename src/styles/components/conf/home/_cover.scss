@@ -52,14 +52,6 @@
     transform-origin: center center;
   }
 
-  .wave-line {
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 0 6;
-    stroke: #67cece;
-  }
-
   .conf__cover-web {
     position: absolute;
     z-index: 0;
@@ -81,14 +73,5 @@
     right: 22%;
     top: 58%;
     transform: translateY(-50%) rotate(10deg);
-  }
-  @keyframes dash {
-    from {
-      stroke-dashoffset: 0;
-    }
-
-    to {
-      stroke-dashoffset: 12;
-    }
   }
 }

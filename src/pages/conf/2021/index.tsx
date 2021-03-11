@@ -83,8 +83,8 @@ const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
         </Helmet>
         <div className="conf" id="conf">
           <div className="conf__background" />
+          <Nav withScroll={hasScroll} />
           <div className="conf__content" id="conf">
-            <Nav withScroll={hasScroll} />
             <Cover />
             <Speakers />
             <Schedule />
