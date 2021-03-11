@@ -1,4 +1,4 @@
-import React, { createContext, useState, useRef, useCallback, useEffect } from 'react';
+import React, { createContext, useState, useCallback, useEffect } from 'react';
 import Cover from '@components/conf/2021/Cover';
 import Helmet from 'react-helmet';
 import Speakers from '@components/conf/2021/Speakers';
@@ -51,18 +51,15 @@ const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
   };
   const [activeLink, setActiveLink] = useState('home');
   const [hasScroll, setHasScroll] = useState(!('#home' === location.hash || '' === location.hash));
-  const container = useRef(null);
+
   const onScroll = useCallback(() => {
-    setHasScroll(10 < container.current?.scrollTop);
-  }, [container]);
+    setHasScroll(50 < window.scrollY);
+  }, []);
+
   useEffect(() => {
-    if (container.current) {
-      window.addEventListener('wheel', onScroll);
-      window.addEventListener('touchmove', onScroll);
-    }
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener('wheel', onScroll);
-      window.removeEventListener('touchmove', onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, [onScroll]);
 
@@ -76,7 +73,7 @@ const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
   );
 
   return (
-    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink, rootContainer: container.current }}>
+    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink }}>
       <Layout>
         <Helmet>
           <title>Api Platform Conference 2021</title>
@@ -84,17 +81,19 @@ const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
           <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
           <script type="application/ld+json">{JSON.stringify(eventData)}</script>
         </Helmet>
-        <div className="conf full scrollable" ref={container} id="conf">
-          <div className="cover__background" />
-          <Nav withScroll={hasScroll} />
-          <Cover />
-          <Speakers />
-          <Schedule />
-          <Venue />
-          <Pricing />
-          <Partners />
-          <Contact />
-          <Footer />
+        <div className="conf" id="conf">
+          <div className="conf__background" />
+          <div className="conf__content" id="conf">
+            <Nav withScroll={hasScroll} />
+            <Cover />
+            <Speakers />
+            <Schedule />
+            <Venue />
+            <Pricing />
+            <Partners />
+            <Contact />
+            <Footer />
+          </div>
         </div>
       </Layout>
     </ConfContext.Provider>

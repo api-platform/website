@@ -1,4 +1,17 @@
 .conf {
+  .conf__background {
+    @include conf-gradient;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 0;
+  }
+  .conf__content {
+    z-index: 1;
+  }
+
   .conf__button {
     border-radius: 5px;
     padding: 10px 30px;
@@ -123,6 +136,7 @@
 
     .title__layer {
       position: absolute;
+      user-select: none;
       z-index: 0;
       width: 200%;
       left: 50%;

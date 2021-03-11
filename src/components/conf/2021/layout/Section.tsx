@@ -11,10 +11,9 @@ export const SectionContext = createContext(null);
 const Section: React.ComponentType<SectionProps> = ({ className, section, children }) => {
   const containerRef = useRef(null);
 
-  const { activeLink, setActiveLink, rootContainer } = useContext(ConfContext);
+  const { activeLink, setActiveLink } = useContext(ConfContext);
 
   const intersection = useIntersection(containerRef, {
-    root: rootContainer,
     rootMargin: '20px 0px -80%',
     threshold: 0,
   });

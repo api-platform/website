@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    transition: all ease 0.2s 0.5s;
+    transition: all ease 0.2s 0.4s;
     color: #fff;
     background-size: 300%;
     background-repeat: no-repeat;
@@ -44,8 +44,7 @@
       @include conf-gradient;
       background-size: 100% 100vh;
       padding: 12px;
-transition: padding ease 0.5s, background-image linear 0.1s, border linear 0.1s;
-
+      transition: padding ease 0.5s, background-image linear 0.1s, border linear 0.1s;
 
       &:after {
         width: 100%;
