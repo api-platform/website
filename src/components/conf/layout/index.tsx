@@ -70,6 +70,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
         />
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
+        <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" />
       </Helmet>
       <div className="conf" id="conf">
         <div className="conf__background" />

@@ -25,6 +25,9 @@
     font-size: 32px;
     padding: 50px 0;
     font-weight: 400;
+    @include mq($max-width: $vw-small) {
+      font-size: 26px;
+    }
   }
 
   .conf__cover-date {

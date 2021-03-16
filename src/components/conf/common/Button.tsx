@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'large';
   className?: string;
   empty?: boolean;

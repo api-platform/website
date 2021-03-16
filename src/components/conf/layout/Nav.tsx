@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import classNames from 'classnames';
 import Logo from '../images/logo.svg';
 import { ConfContext } from '.';
+import BuyButton from '../common/BuyButton';
 
 interface NavLinkProps {
   to: string;
@@ -40,7 +41,7 @@ interface NavProps {
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
   const { activeLink } = useContext(ConfContext);
   const isHomePage = '/conf/' === location.pathname;
-  const [minified, setMinified] = useState(50 > window.scrollY && isHomePage && 'home' === activeLink);
+  const [minified, setMinified] = useState(isHomePage && 'home' === activeLink);
   const onScroll = useCallback(() => {
     setMinified(50 > window.scrollY && isHomePage);
   }, [isHomePage]);
@@ -76,9 +77,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
       <NavLink anchorLink={isHomePage} to="pricing">
         Pricing
       </NavLink>
-      <Link className="conf__button small" to="/" activeClassName="active">
-        Buy tickets
-      </Link>
+      <BuyButton size="small">Buy tickets</BuyButton>
     </nav>
   );
 };

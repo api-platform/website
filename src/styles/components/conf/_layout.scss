@@ -70,6 +70,9 @@
     font-weight: 800;
     transition: all ease 0.3s;
     position: relative;
+    @include mq($max-width: $vw-medium) {
+      display: none;
+    }
     &:hover {
       color: var(--blue);
       transform: scale(0.95);

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
 import { Price } from '../types';
-import Button from '../common/Button';
+import BuyButton from '../common/BuyButton';
 
 interface PricingCardProps {
   price: Price;
@@ -17,9 +17,21 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
   });
   const activeIndex = sortedOffers.findIndex((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
 
+  useLayoutEffect(() => {
+    const onOrderComplete = () => console.log('order complete!');
+
+    window.EBWidgets?.createWidget({
+      widgetType: 'checkout',
+      eventId: '146559873527',
+      modal: true,
+      modalTriggerElementId: `price${price.id}`,
+      onOrderComplete,
+    });
+  }, [price.id]);
+
   return (
     <GridItem padding={5} className="conf__pricing-item">
-      <div className="conf__pricing-card">
+      <div className="conf__pricing-card" id={`price${price.id}`}>
         <div className="pricing__header">
           <h3 className="h5 lined lined-white">{price.title}</h3>
         </div>
@@ -32,9 +44,9 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
             </div>
           ))}
         </div>
-        <Button className="square" size="small">
+        <BuyButton className="square" size="small">
           Buy tickets
-        </Button>
+        </BuyButton>
       </div>
     </GridItem>
   );
