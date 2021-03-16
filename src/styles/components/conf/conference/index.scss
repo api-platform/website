@@ -1,0 +1,39 @@
+.conf__conference {
+  position: relative;
+  padding-top: 80px;
+  min-height: 100vh;
+  &:before {
+    content: '';
+    background: var(--lightgrey);
+    height: calc(100% - 300px);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  .conference__content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .conference__details {
+    width: 330px;
+    padding: 20px;
+    position: sticky;
+    top: 64px;
+    margin-right: 10px;
+    @include blue-gradient;
+
+  }
+  .conference__abstract {
+    @include z-depth-3;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+
+    h1 {
+      display: none;
+    }
+  }
+}

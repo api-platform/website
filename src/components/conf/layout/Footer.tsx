@@ -1,4 +1,4 @@
-import Wave from '@components/common/Wave';
+import Wave from '@components/conf/common/Wave';
 import React from 'react';
 import Logo from '../images/logo.svg';
 import Tilleuls from '../images/tilleuls.svg';

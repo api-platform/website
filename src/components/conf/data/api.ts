@@ -1,6 +1,7 @@
 import { FullConference, Speaker } from '../types';
-import conferences from './conferences';
 import speakers from './speakers';
+
+export const conferences = [];
 
 // eslint-disable-next-line import/prefer-default-export
 export const getFullConferencesByDay: (day: number) => FullConference[] = (day) => {
@@ -12,5 +13,7 @@ export const getFullConferencesByDay: (day: number) => FullConference[] = (day) 
       : undefined,
   }));
 };
+
+export const getConferences = () => conferences;
 
 export const getSpeakerList: () => Speaker[] = () => speakers.filter((speaker) => speaker.list);

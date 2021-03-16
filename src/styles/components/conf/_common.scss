@@ -10,12 +10,12 @@
     z-index: 1;
   }
   .wave-line {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 0 6;
-  stroke: #67cece;
-}
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 0 6;
+    stroke: #67cece;
+  }
   .conf__button {
     border-radius: 5px;
     padding: 10px 30px;
@@ -120,6 +120,13 @@
         z-index: 5;
       }
     }
+  }
+
+  .conf__section-subtitle {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0.6;
   }
 
   .conf__section-title {

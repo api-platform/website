@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../images/logo.svg';
 import Button from '../common/Button';
-import Wave from '../../../common/Wave';
+import Wave from '../common/Wave';
 import Web from './Web';
 import Section from '../layout/Section';
 

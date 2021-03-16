@@ -17,13 +17,22 @@
     position: absolute;
     width: 800px;
     height: 500px;
-    background: url('../../../components/conf/2021/images/wave.svg');
+    background: url('../../../components/conf/images/wave.svg');
     top: -230px;
     left: calc(50% + 200px);
     background-repeat: no-repeat;
     background-size: 200%;
     background-position: top left;
     opacity: 0.3;
+  }
+  &.empty {
+    &:before {
+      content: none;
+    }
+  }
+  .conf__section-subtitle {
+    padding-bottom: 50px;
+    padding-top: 50px;
   }
   .conf__schedule-tabbed {
     display: flex;
@@ -107,6 +116,16 @@
     flex: 1;
     overflow-x: hidden;
     @include z-depth-5;
+    .schedule__program-empty {
+      background: var(--lightgrey);
+      width: 100%;
+      min-height: 400px;
+      color: var(--blackblue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
   }
   .schedule__program-morning,
   .schedule__program-afternoon {

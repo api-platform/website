@@ -173,3 +173,10 @@
     }
   }
 }
+
+.conf__schedule.empty + .conf__venue {
+  &:before {
+    height: 100%;
+    transform: none;
+  }
+}

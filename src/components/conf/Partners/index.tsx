@@ -19,7 +19,7 @@ const Partners: React.ComponentType = () => (
             rel="nofollow noreferrer noopener"
             className="partners__item"
           >
-            <img width="300" height="110" loading="lazy" src={`/references/${logo}.png`} alt={name} />
+            <img width="300" height="110" loading="lazy" src={`/conf/partners/${logo}.png`} alt={name} />
           </a>
         ))}
       </div>

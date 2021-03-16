@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef, useEffect } from 'react';
 import { useIntersection } from 'react-use';
-import { ConfContext } from '../../../../pages/conf/2021';
+import { ConfContext } from '.';
 
 interface SectionProps {
   className: string;
