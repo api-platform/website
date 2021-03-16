@@ -9,16 +9,18 @@ const Contact: React.ComponentType = () => (
       </div>
       <div className="contact__content">
         <span className="h4 contact__title">Any question ?</span>
-        <div className="conf__button small square">Contact us!</div>
+        <a className="conf__button small square" href="mailto:contact@les-tilleuls.coop">
+          Contact us!
+        </a>
         <div className="overline">or follow us on social networks</div>
         <div className="contact__social">
-          <a href="aa" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/les.tilleuls.coop" target="_blank" rel="noopener noreferrer">
             <i className="icon-facebook" />
           </a>
-          <a href="aa" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noopener noreferrer">
             <i className="icon-twitter" />
           </a>
-          <a href="aa" target="_blank" rel="noopener noreferrer">
+          <a href="https://fr.linkedin.com/company/les-tilleuls-coop" target="_blank" rel="noopener noreferrer">
             <i className="icon-linkedin" />
           </a>
         </div>

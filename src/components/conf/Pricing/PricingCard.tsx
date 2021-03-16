@@ -1,34 +1,39 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
 import { Price } from '../types';
 import Button from '../common/Button';
 
 interface PricingCardProps {
-  active: boolean;
   price: Price;
 }
 
-const PricingCard: React.ComponentType<PricingCardProps> = ({ price, active }) => {
-  const { offers, title, limitDate } = price;
+const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
+  const sortedOffers = price.offers.sort((a, b) => {
+    if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
+    if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
+    return 0;
+  });
+  const activeIndex = sortedOffers.findIndex((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
+
   return (
-    <GridItem padding={0} className={classnames('conf__pricing-item', { disabled: !active })}>
+    <GridItem padding={5} className="conf__pricing-item">
       <div className="conf__pricing-card">
         <div className="pricing__header">
-          <div className="overline">{`until ${dayjs(limitDate).format('LL')}`}</div>
-          <h3 className="h5 lined lined-white">{title}</h3>
+          <h3 className="h5 lined lined-white">{price.title}</h3>
         </div>
         <div className="pricing__content dotted-corner corner-bottom">
-          {offers.map((offer) => (
-            <div key={offer.title}>
-              <span className="overline">{offer.title}</span>
+          {sortedOffers.map((offer, index) => (
+            <div key={offer.title} className={classNames('pricing__offer', { active: index === activeIndex })}>
+              <span className="overline offer__limit">{`until ${dayjs(offer.limitDate).format('LL')}`}</span>
+              <span className="overline offer__title">{offer.title}</span>
               <span className="h4 pricing__amount">{offer.price}$</span>
             </div>
           ))}
         </div>
-        <Button className="square" size="small" disabled={!active}>
-          {active ? 'Buy tickets' : 'unavailable'}
+        <Button className="square" size="small">
+          Buy tickets
         </Button>
       </div>
     </GridItem>
