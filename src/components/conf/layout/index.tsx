@@ -5,6 +5,8 @@ import '@styles/components/conf/index.scss';
 import Footer from '@components/conf/layout/Footer';
 import Nav from '@components/conf/layout/Nav';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import helmetConfig from '../../../helmetConfig';
+import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
 
 dayjs.extend(localizedFormat);
 
@@ -62,12 +64,20 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
 
   return (
     <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink }}>
-      <Helmet>
-        <title>Api Platform Conference 2021</title>
-        <meta
-          name="description"
-          content="The first international conference dedicated to API Platform and its ecosystem"
-        />
+      <Helmet {...helmetConfig.head}>
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
+        <meta property="og:url" content="https://api-platform.com/conf" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@coopTilleuls" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
+
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
         <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" />
