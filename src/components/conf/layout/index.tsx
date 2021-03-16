@@ -29,7 +29,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: 'API Platform Conference 2021',
-    description: 'The first event dedicated to Api Platform and its ecosystem',
+    description: 'The first international conference dedicated to API Platform and its ecosystem',
     url: 'https://api-platform.com/conf',
     eventStatus: 'http://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
@@ -64,7 +64,10 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink }}>
       <Helmet>
         <title>Api Platform Conference 2021</title>
-        <meta name="description" content="The first event dedicated to Api Platform and its ecosystem" />
+        <meta
+          name="description"
+          content="The first international conference dedicated to API Platform and its ecosystem"
+        />
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
       </Helmet>

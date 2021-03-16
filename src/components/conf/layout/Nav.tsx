@@ -77,7 +77,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
         Pricing
       </NavLink>
       <Link className="conf__button small" to="/" activeClassName="active">
-        Buy ticket
+        Buy tickets
       </Link>
     </nav>
   );

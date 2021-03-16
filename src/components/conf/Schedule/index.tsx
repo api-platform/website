@@ -21,7 +21,7 @@ const Schedule: React.ComponentType = () => {
               <FullSchedule />
             </>
           ) : (
-            <p className="conf__section-subtitle">The schedule will be communicated soon !</p>
+            <p className="conf__section-subtitle">Come back later to discover the schedule!</p>
           )}
         </div>
       </Section>

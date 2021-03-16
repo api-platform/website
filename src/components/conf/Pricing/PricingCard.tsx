@@ -28,7 +28,7 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price, active }) =
           ))}
         </div>
         <Button className="square" size="small" disabled={!active}>
-          {active ? 'Buy ticket' : 'unavailable'}
+          {active ? 'Buy tickets' : 'unavailable'}
         </Button>
       </div>
     </GridItem>

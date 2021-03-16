@@ -15,7 +15,7 @@ const Speakers: React.ComponentType = () => {
         <SectionTitle>
           Our <strong>speakers</strong>
         </SectionTitle>
-        <p className="conf__section-subtitle">Our speaker list will be communicated soon!</p>
+        <p className="conf__section-subtitle">Speakers will be announced very soon... Come back later!</p>
         <Grid>
           {0 === speakers.length ? (
             <>

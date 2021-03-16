@@ -10,12 +10,14 @@ const Cover: React.ComponentType = () => {
     <>
       <Section className="conf__cover" section="home">
         <div className="container">
-          <span className="conf__cover-date">September 10, 2021 - Lille</span>
+          <span className="conf__cover-date">September 10, 2021 - Lille & online</span>
           <h1 className="conf__cover-logo">
             <img src={Logo} alt="Api Platform Conference" />
           </h1>
-          <span className="conf__cover-baseline">The first event dedicated to Api Platform and its ecosystem</span>
-          <Button>Buy ticket</Button>
+          <span className="conf__cover-baseline">
+            The first international conference dedicated to API Platform and its ecosystem
+          </span>
+          <Button>Buy tickets</Button>
           <Web className="conf__cover-web" />
         </div>
         <Wave className="conf__cover-wave" animated={false} />

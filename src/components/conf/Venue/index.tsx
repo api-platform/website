@@ -36,6 +36,10 @@ const Venue: React.ComponentType = () => {
         <SectionTitle>
           The <strong>venue</strong>
         </SectionTitle>
+        <p className="conf__section-subtitle">
+          The physical edition will take place in Lille, meeting point of European capitals and touristic capitals of
+          the Flemish region.
+        </p>
         <div className="venue__place">
           <div ref={mapContainerRef} className="venue__map dotted-corner corner-bottom corner-over" />
           <div className="venue__description dotted-corner">
@@ -46,8 +50,8 @@ const Venue: React.ComponentType = () => {
               <span>59000 Lille</span>
             </div>
             <p>
-              EuraTechnologies, the 1st incubator & accelerator in France, is a center of excellence and innovation
-              located in Lille over 80,000 m² and on 3 other sectoral campuses in Roubaix, Willems and Saint-Quentin.
+              Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France. Be part
+              of this exceptional edition located at less than 1 hour from Paris and Brussels, 1h30 from London.
             </p>
           </div>
         </div>
