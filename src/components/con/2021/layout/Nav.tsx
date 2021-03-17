@@ -25,7 +25,7 @@ const NavLink: React.ComponentType<NavLinkProps> = ({ to, children, anchorLink }
       {children}
     </a>
   ) : (
-    <Link className="conf__menu-item" to={`/conf/#${to}`}>
+    <Link className="conf__menu-item" to={`/con/2021/#${to}`}>
       {children}
     </Link>
   );
@@ -40,7 +40,7 @@ interface NavProps {
 
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
   const { activeLink, sectionsVisibles } = useContext(ConfContext);
-  const isHomePage = '/conf/' === location.pathname;
+  const isHomePage = '/con/2021/' === location.pathname;
 
   const [minified, setMinified] = useState(isHomePage && 'home' === activeLink);
   const onScroll = useCallback(() => {

@@ -445,7 +445,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // conferences pages
-  /* const conferenceTemplate = path.resolve('src/components/conf/templates/ConferenceTemplate.tsx');
+  /* const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
   const conferencesResult = await graphql(`
     {
       allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
@@ -476,7 +476,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
   conferencePages.forEach((edge) => {
     createPage({
-      path: `/conf/${slugify(edge.node.frontmatter.title)}`,
+      path: `/con/2021/${slugify(edge.node.frontmatter.title)}`,
       component: conferenceTemplate,
       context: {
         html: edge.node.html,
@@ -484,6 +484,13 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   }); */
+
+  createRedirect({
+    fromPath: '/con/',
+    toPath: '/con/2021',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Contributors page
   const contributors = await graphql(`

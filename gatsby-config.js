@@ -43,7 +43,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/components/conf/images/speakers`,
+        path: `${__dirname}/src/components/con/2021/images/speakers`,
         name: 'speakers',
       },
     },
@@ -57,7 +57,7 @@ module.exports = {
     /* {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/components/conf/data/conferences`,
+        path: `${__dirname}/src/components/con/2021/data/conferences`,
         name: 'conferences',
       },
     }, */

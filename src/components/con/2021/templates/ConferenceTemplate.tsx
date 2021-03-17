@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '@components/conf/layout';
-import SectionTitle from '@components/conf/common/SectionTitle';
+import Layout from '@components/con/2021/layout';
+import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps } from 'gatsby';
 
 interface ConferenceTemplateProps extends PageProps {

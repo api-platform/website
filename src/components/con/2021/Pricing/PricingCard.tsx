@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useContext } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
-import Button from '@components/conf/common/Button';
+import Button from '@components/con/2021/common/Button';
 import { Price } from '../types';
 import { ConfContext } from '../layout';
 

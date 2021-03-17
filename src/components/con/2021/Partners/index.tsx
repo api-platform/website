@@ -14,7 +14,7 @@ const Partners: React.ComponentType = () => (
         {data.map(({ name, logo, link }) => (
           <GridItem autosize padding={20} className="partners__item">
             <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
-              <img width="200" height="200" loading="lazy" src={`/conf/partners/${logo}.png`} alt={name} />
+              <img width="200" height="200" loading="lazy" src={`/con/2021/partners/${logo}.png`} alt={name} />
               <span className="h6 lined partners__title">{name}</span>
             </a>
           </GridItem>
