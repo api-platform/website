@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext, useState } from 'react';
-import { SectionContext } from '../layout/Section';
+import { SectionContext } from '../common/Section';
 
 interface WebProps {
   className?: string;

@@ -56,6 +56,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   };
 
   const [activeLink, setActiveLink] = useState('home');
+  const [sectionsVisibles, setSectionsVisibles] = useState<string[]>([]);
   const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
 
   const goToLink = useCallback((section) => {
@@ -73,7 +74,9 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   }, [setIsEventBriteLoaded]);
 
   return (
-    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink, isEventBriteLoaded }}>
+    <ConfContext.Provider
+      value={{ activeLink, setActiveLink, goToLink, isEventBriteLoaded, sectionsVisibles, setSectionsVisibles }}
+    >
       <Helmet {...helmetConfig.head}>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />

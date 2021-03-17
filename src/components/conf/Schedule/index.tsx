@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import SectionTitle from '../common/SectionTitle';
 import TabbedSchedule from './TabbedSchedule';
 import FullSchedule from './FullSchedule';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 import { getConferences } from '../data/api';
 
 const Schedule: React.ComponentType = () => {

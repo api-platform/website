@@ -3,7 +3,7 @@ import { Grid, GridItem } from '@components/common/Grid';
 import SectionTitle from '../common/SectionTitle';
 import prices from '../data/prices';
 import PricingCard from './PricingCard';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 
 const Pricing: React.ComponentType = () => {
   return (

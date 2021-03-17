@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef, useEffect } from 'react';
 import { useIntersection } from 'react-use';
-import { ConfContext } from '.';
+import { ConfContext } from '../layout';
 
 interface SectionProps {
   className: string;
@@ -11,7 +11,7 @@ export const SectionContext = createContext(null);
 const Section: React.ComponentType<SectionProps> = ({ className, section, children }) => {
   const containerRef = useRef(null);
 
-  const { activeLink, setActiveLink } = useContext(ConfContext);
+  const { activeLink, setActiveLink, sectionsVisibles, setSectionsVisibles } = useContext(ConfContext);
 
   const intersection = useIntersection(containerRef, {
     rootMargin: '20px 0px -80%',
@@ -19,6 +19,14 @@ const Section: React.ComponentType<SectionProps> = ({ className, section, childr
   });
 
   const isVisible = intersection?.isIntersecting;
+
+  useEffect(() => {
+    if (isVisible && !sectionsVisibles.includes(section)) {
+      setSectionsVisibles([...sectionsVisibles, section]);
+    } else if (!isVisible && sectionsVisibles.includes(section)) {
+      setSectionsVisibles(sectionsVisibles.filter((sectionVisible) => sectionVisible !== section));
+    }
+  }, [isVisible, setSectionsVisibles, sectionsVisibles, section]);
 
   useEffect(() => {
     if (isVisible) {

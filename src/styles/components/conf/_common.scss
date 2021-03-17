@@ -35,6 +35,10 @@
     background-position: 0%;
     transition: background 300ms ease-in-out;
     cursor: pointer;
+    @include mq($max-width: $vw-small) {
+      padding: 8px 20px;
+      font-size: 16px;
+    }
 
     &:not(.disabled):hover {
       background-position: 100%;
@@ -44,6 +48,10 @@
     &.small {
       font-size: 16px;
       padding: 5px 15px;
+      @include mq($max-width: $vw-small) {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
     }
 
     &.square {

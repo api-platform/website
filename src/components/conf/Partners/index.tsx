@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
 import SectionTitle from '../common/SectionTitle';
 import data from '../data/partners';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 
 const Partners: React.ComponentType = () => (
   <Section className="conf__partners" section="partners">

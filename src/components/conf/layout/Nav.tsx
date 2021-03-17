@@ -39,8 +39,9 @@ interface NavProps {
 }
 
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
-  const { activeLink } = useContext(ConfContext);
+  const { activeLink, sectionsVisibles } = useContext(ConfContext);
   const isHomePage = '/conf/' === location.pathname;
+
   const [minified, setMinified] = useState(isHomePage && 'home' === activeLink);
   const onScroll = useCallback(() => {
     setMinified(50 > window.scrollY && isHomePage);
@@ -56,10 +57,12 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
       window.removeEventListener('scroll', onScroll);
     };
   }, [onScroll]);
+
   return (
     <nav
       className={classNames('conf__menu', {
         'with-logo': !minified,
+        'with-button': !isHomePage || !sectionsVisibles.includes('home'),
       })}
     >
       <div className="conf__menu-logo">

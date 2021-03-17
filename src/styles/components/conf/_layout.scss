@@ -48,6 +48,18 @@
       margin: 0 10px;
       z-index: 10;
     }
+    .conf__button {
+      transition: all ease 0.3s;
+    }
+    &:not(.with-button) {
+      .conf__menu-item {
+        transform: translateX(120px);
+      }
+      .conf__button {
+        transform: translateX(120px);
+        opacity: 0;
+      }
+    }
     &.with-logo {
       @include z-depth-3;
       @include conf-gradient;

@@ -7,7 +7,7 @@ import BusIcon from '../images/bus.svg';
 import MetroIcon from '../images/metro.svg';
 import CarIcon from '../images/car.svg';
 import BikeIcon from '../images/bike.svg';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 
 const Venue: React.ComponentType = () => {
   const mapContainerRef = useRef(null);

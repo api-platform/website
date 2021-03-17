@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
 import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
 import { getSpeakerList } from '../data/api';
 

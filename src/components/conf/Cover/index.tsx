@@ -3,7 +3,7 @@ import Logo from '../images/logo.svg';
 import BuyButton from '../common/BuyButton';
 import Wave from '../common/Wave';
 import Web from './Web';
-import Section from '../layout/Section';
+import Section from '../common/Section';
 
 const Cover: React.ComponentType = () => {
   return (
