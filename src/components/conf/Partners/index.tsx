@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid, GridItem } from '@components/common/Grid';
 import SectionTitle from '../common/SectionTitle';
 import data from '../data/partners';
 import Section from '../layout/Section';
@@ -9,20 +10,16 @@ const Partners: React.ComponentType = () => (
       <SectionTitle>
         Our <strong>partners</strong>
       </SectionTitle>
-      <div className="partners__grid">
+      <Grid>
         {data.map(({ name, logo, link }) => (
-          <a
-            href={link}
-            title={`${name} (new window)`}
-            key={name}
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            className="partners__item"
-          >
-            <img width="300" height="110" loading="lazy" src={`/conf/partners/${logo}.png`} alt={name} />
-          </a>
+          <GridItem autosize padding={20} className="partners__item">
+            <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
+              <img width="200" height="200" loading="lazy" src={`/conf/partners/${logo}.png`} alt={name} />
+              <span className="h6 lined partners__title">{name}</span>
+            </a>
+          </GridItem>
         ))}
-      </div>
+      </Grid>
     </div>
   </Section>
 );

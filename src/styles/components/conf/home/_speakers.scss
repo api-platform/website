@@ -90,8 +90,7 @@
         }
         .circle {
           .circle__picture {
-            width: 110%;
-            height: 110%;
+            transform: scale(1.05);
           }
           .circle__plus {
             width: 50px;
