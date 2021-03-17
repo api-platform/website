@@ -22,12 +22,7 @@ const Pricing: React.ComponentType = () => {
               <p>
                 Contact us for <strong>a special discount</strong>.
               </p>
-              <a
-                className="conf__button small square white"
-                href="mailto:events@les-tilleuls.coop"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="conf__button small square white" href="mailto:events@les-tilleuls.coop">
                 Contact us!
               </a>
             </div>

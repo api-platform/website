@@ -93,6 +93,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
 
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
+        <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" />
       </Helmet>
       <div className="conf" id="conf">
         <div className="conf__background" />
