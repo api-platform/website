@@ -27,6 +27,23 @@ const Venue: React.ComponentType = () => {
       .setLngLat([3.0179366, 50.6331443])
       .addTo(newMap);
 
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+      newMap.dragPan.disable();
+      newMap.scrollZoom.disable();
+      newMap.touchPitch.disable();
+      newMap.on('touchstart', function (e) {
+        const oe = e.originalEvent;
+        if (oe && 'touches' in oe) {
+          if (1 < oe.touches.length) {
+            oe.stopImmediatePropagation();
+            newMap.dragPan.enable();
+          } else {
+            newMap.dragPan.disable();
+          }
+        }
+      });
+    }
+
     return () => newMap.remove();
   }, [mapContainerRef]);
 
