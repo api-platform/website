@@ -14,7 +14,7 @@ const Footer: React.ComponentType = () => (
       <span className="body2 footer__copyright">
         Copyright © 2021{' '}
         <a href="https://les-tilleuls.coop/en" target="_blank" rel="noreferrer noopener">
-          Les-tilleuls.coop
+          Les-Tilleuls.coop
         </a>
       </span>
     </div>

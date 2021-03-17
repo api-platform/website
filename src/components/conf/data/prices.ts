@@ -13,7 +13,7 @@ const prices: Price[] = [
       {
         title: 'Regular ticket',
         limitDate: '2021-08-20',
-        price: 79,
+        price: 89,
       },
       {
         title: 'Late bird',

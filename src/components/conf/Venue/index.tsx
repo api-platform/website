@@ -37,8 +37,8 @@ const Venue: React.ComponentType = () => {
           The <strong>venue</strong>
         </SectionTitle>
         <p className="conf__section-subtitle">
-          The physical edition will take place in Lille, meeting point of European capitals and touristic capitals of
-          the Flemish region.
+          The physical edition will take place in Lille, meeting point of European cities and touristic capital of the
+          Flemish region. If you can&apos;t attend the event physically, you can watch it online.
         </p>
         <div className="venue__place">
           <div ref={mapContainerRef} className="venue__map dotted-corner corner-bottom corner-over" />
