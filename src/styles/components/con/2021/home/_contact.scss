@@ -13,20 +13,14 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translate(-50%, -50%);
+    @include absolute-center(50%, 0);
 
     &:after {
       content: '';
       width: calc(100% - 40px);
       height: calc(100% - 40px);
-      position: absolute;
+      @include absolute-center;
       border: 2px dotted #fff;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: 0;
       opacity: 0.5;
@@ -88,10 +82,7 @@
       filter: none;
 
       & > * {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        @include absolute-center;
       }
       &:hover {
         background-position: 100%;

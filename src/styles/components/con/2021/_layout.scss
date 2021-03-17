@@ -1,5 +1,6 @@
 .conf {
-  @include mq($max-width: $vw-medium) { // only on small size cause overflow hidden cancel sticky effects
+  @include mq($max-width: $vw-medium) {
+    // only on small size cause overflow hidden cancel sticky effects
     overflow-x: hidden;
     overflow-y: visible;
   }
@@ -17,7 +18,7 @@
     background-size: 300%;
     background-repeat: no-repeat;
     background-position: 100%;
-    overflow: hidden;
+    height: 64px;
     &:after {
       content: '';
       width: 0%;
@@ -31,13 +32,18 @@
     }
 
     .conf__menu-logo {
-      height: 40px;
+      height: 36px;
       flex: 1;
       opacity: 0;
       display: flex;
       justify-content: flex-start;
       transform: translateY(-100%);
       transition: all ease 0.3s;
+      padding-left: 80px;
+      &:focus:not(:focus-visible) {
+        outline: 0 !important;
+      }
+
       img {
         max-width: 180px;
         height: auto;
@@ -60,6 +66,31 @@
         opacity: 0;
       }
     }
+    .conf__menu-back {
+      position: absolute;
+      width: 84px;
+      height: 64px;
+      left: 10px;
+      top: 0;
+      border-radius: 0 0 10px 10px;
+      cursor: pointer;
+      @include blue-gradient;
+      z-index: 10;
+      font-size: 14px;
+      transition: all ease 0.3s;
+      @include flex-center;
+      &:hover {
+        filter: brightness(120%);
+      }
+      .back__circle {
+        width: 50px;
+        height: 50px;
+        background: var(--lightblue);
+        border-radius: 50%;
+        transition: all ease 0.3s;
+        @include flex-center;
+      }
+    }
     &.with-logo {
       @include z-depth-3;
       @include conf-gradient;
@@ -74,6 +105,12 @@
       .conf__menu-logo {
         opacity: 1;
         transform: translateY(0);
+      }
+      .conf__menu-back {
+        border-radius: 0;
+        left: 0;
+        padding-right: 10px;
+        clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
       }
     }
   }

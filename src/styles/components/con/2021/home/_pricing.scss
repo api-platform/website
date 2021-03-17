@@ -84,10 +84,7 @@
       }
     }
     .conf__button {
-      position: absolute;
-      left: 50%;
-      top: 100%;
-      transform: translate(-50%, -50%);
+      @include absolute-center(50%, 100%);
       background-image: linear-gradient(30deg, var(--blue) 50%, #fff 50%);
     }
 

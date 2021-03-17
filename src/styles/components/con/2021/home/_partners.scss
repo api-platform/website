@@ -4,12 +4,6 @@
   position: relative;
   background-color: #fff;
 
-  .partners__grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
   .partners__item {
     @include grayscale-effect(0.5);
     a {
@@ -19,10 +13,7 @@
       max-width: 200px;
       margin: 0 auto;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @include flex-center(column);
       border-radius: 50%;
     }
     img {

@@ -121,9 +121,7 @@
       width: 100%;
       min-height: 400px;
       color: var(--blackblue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center;
       font-size: 20px;
     }
   }

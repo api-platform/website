@@ -1,7 +1,8 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import classNames from 'classnames';
 import Logo from '../images/logo.svg';
+import LogoSpider from '../../../../images/logo_spider.svg';
 import { ConfContext } from '.';
 import BuyButton from '../common/BuyButton';
 
@@ -39,7 +40,7 @@ interface NavProps {
 }
 
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
-  const { activeLink, sectionsVisibles } = useContext(ConfContext);
+  const { activeLink, goToLink, sectionsVisibles } = useContext(ConfContext);
   const isHomePage = '/con/2021/' === location.pathname;
 
   const [minified, setMinified] = useState(isHomePage && 'home' === activeLink);
@@ -58,6 +59,11 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
     };
   }, [onScroll]);
 
+  const onLogoClick = useCallback(() => {
+    if (isHomePage) goToLink('home');
+    else navigate('/con/2021');
+  }, [isHomePage, goToLink]);
+
   return (
     <nav
       className={classNames('conf__menu', {
@@ -65,13 +71,22 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
         'with-button': !isHomePage || !sectionsVisibles.includes('home'),
       })}
     >
-      <div className="conf__menu-logo">
+      <div role="button" tabIndex={0} className="conf__menu-logo" onClick={onLogoClick}>
         <img src={Logo} alt="Api Platform conference" width="180" height="40" />
       </div>
+      <Link to="/" className="conf__menu-back">
+        <div className="back__circle">
+          <img
+            className="back__spider"
+            src={LogoSpider}
+            alt="Back to API Platform website"
+            title="Back to API Platform website"
+            width="50"
+            height="29"
+          />
+        </div>
+      </Link>
 
-      <NavLink anchorLink={isHomePage} to="home">
-        Home
-      </NavLink>
       <NavLink anchorLink={isHomePage} to="speakers">
         Speakers
       </NavLink>

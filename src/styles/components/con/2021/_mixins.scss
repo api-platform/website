@@ -19,3 +19,10 @@
   flex-direction: $direction;
 }
 
+@mixin absolute-center($left: 50%, $top: 50%) {
+  position: absolute;
+  left: $left;
+  top: $top;
+  transform: translate(-50%, -50%);
+}
+

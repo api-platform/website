@@ -42,22 +42,16 @@
         transition: all ease 0.8s;
       }
       .circle__plus {
+        @include absolute-center;
         fill: #fff;
-        position: absolute;
         z-index: 3;
-        left: 50%;
-        top: 50%;
         width: 100px;
         opacity: 0;
-        transform: translate(-50%, -50%);
       }
     }
     .hoverable {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @include flex-center(column);
 
       &:not(.disabled) {
         cursor: pointer;
@@ -72,11 +66,8 @@
         width: 270px;
         height: 270px;
         max-width: none;
-        position: absolute;
-        left: 50%;
-        top: 120px;
         transition: transform ease 1s;
-        transform: translate(-50%, -50%);
+        @include absolute-center(50%, 120px);
       }
 
       &:hover {
@@ -117,9 +108,7 @@
         border: 2px solid var(--blue);
         width: 36px;
         height: 36px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
         color: var(--blue);
         font-size: 20px;
         margin: 5px;
@@ -133,10 +122,7 @@
         filter: none;
 
         & > * {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
+          @include absolute-center;
         }
         &:hover {
           background-position: 100%;
