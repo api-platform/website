@@ -47,6 +47,10 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
   }, [isHomePage]);
 
   useEffect(() => {
+    setMinified(isHomePage && 'home' === activeLink);
+  }, [activeLink, isHomePage]);
+
+  useEffect(() => {
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -59,7 +63,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
       })}
     >
       <div className="conf__menu-logo">
-        <img src={Logo} alt="Api Platform conference" />
+        <img src={Logo} alt="Api Platform conference" width="180" height="40" />
       </div>
 
       <NavLink anchorLink={isHomePage} to="home">

@@ -9,7 +9,7 @@ const Footer: React.ComponentType = () => (
       <img src={Logo} className="footer__logo" alt="Api Platform Conference" />
       <span className="footer__by">an event by</span>
       <a className="footer__tilleuls" href="https://les-tilleuls.coop/en" target="_blank" rel="noreferrer noopener">
-        <img src={Tilleuls} alt="Les-Tilleuls.coop" />
+        <img src={Tilleuls} alt="Les-Tilleuls.coop" width="100" height="100" />
       </a>
       <span className="body2 footer__copyright">
         Copyright © 2021{' '}

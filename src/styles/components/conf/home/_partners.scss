@@ -28,6 +28,7 @@
     }
   }
   @include mq($max-width: $vw-medium) {
+    padding-top: 0;
     .partners__item {
       width: calc(100% / 3); ;
 

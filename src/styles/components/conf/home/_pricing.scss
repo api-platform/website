@@ -42,6 +42,10 @@
   .conf__pricing-item {
     position: relative;
     transition: all ease 0.3s;
+    @include mq($min-width: $vw-medium + 1) {
+      width: 300px;
+      min-width: unset;
+    }
     &:first-child {
       z-index: 2;
       transform: scale(1.1);
@@ -67,12 +71,7 @@
         @include z-depth-5;
       }
     }
-    @include mq($max-width: $vw-large) {
-      width: 33%;
-      min-width: 0;
-    }
     @include mq($max-width: $vw-medium) {
-      width: 90%;
       transform: none !important;
       .conf__pricing-card {
         transform: scale(1) !important;
@@ -100,7 +99,7 @@
     flex: 1;
     background: #fff;
 
-    padding: 20px 50px;
+    padding: 20px;
     text-align: center;
     border-bottom: 8px solid var(--blue);
 
@@ -115,7 +114,6 @@
     .offer__limit {
       font-size: 11px;
       font-weight: 900;
-
     }
     .offer__title {
       font-size: 16px;

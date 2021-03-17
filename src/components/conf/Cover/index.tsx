@@ -12,7 +12,7 @@ const Cover: React.ComponentType = () => {
         <div className="container">
           <span className="conf__cover-date">September 10, 2021 - Lille & online</span>
           <h1 className="conf__cover-logo">
-            <img src={Logo} alt="Api Platform Conference" />
+            <img src={Logo} alt="Api Platform Conference" width="800" height="172" />
           </h1>
           <span className="conf__cover-baseline">
             The first international conference dedicated to API Platform and its ecosystem

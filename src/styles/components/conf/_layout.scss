@@ -38,6 +38,10 @@
       justify-content: flex-start;
       transform: translateY(-100%);
       transition: all ease 0.3s;
+      img {
+        max-width: 180px;
+        height: auto;
+      }
     }
     & > .conf__menu-item,
     .conf__button {
