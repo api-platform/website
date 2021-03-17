@@ -81,7 +81,9 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
       <NavLink anchorLink={isHomePage} to="pricing">
         Pricing
       </NavLink>
-      <BuyButton size="small">Buy tickets</BuyButton>
+      <BuyButton id="nav" size="small">
+        Buy tickets
+      </BuyButton>
     </nav>
   );
 };

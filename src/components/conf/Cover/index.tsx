@@ -17,8 +17,8 @@ const Cover: React.ComponentType = () => {
           <span className="conf__cover-baseline">
             The first international conference dedicated to API Platform and its ecosystem
           </span>
-          <BuyButton>Buy tickets</BuyButton>
           <Web className="conf__cover-web" />
+          <BuyButton id="cover">Buy tickets</BuyButton>
         </div>
         <Wave className="conf__cover-wave" animated={false} />
       </Section>

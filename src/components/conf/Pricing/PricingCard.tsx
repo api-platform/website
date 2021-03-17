@@ -1,15 +1,17 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useContext } from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
+import Button from '@components/conf/common/Button';
 import { Price } from '../types';
-import BuyButton from '../common/BuyButton';
+import { ConfContext } from '../layout';
 
 interface PricingCardProps {
   price: Price;
 }
 
 const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
+  const { isEventBriteLoaded } = useContext(ConfContext);
   const sortedOffers = price.offers.sort((a, b) => {
     if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
     if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
@@ -19,15 +21,16 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
 
   useLayoutEffect(() => {
     const onOrderComplete = () => console.log('order complete!');
-
-    window.EBWidgets?.createWidget({
-      widgetType: 'checkout',
-      eventId: '146559873527',
-      modal: true,
-      modalTriggerElementId: `price${price.id}`,
-      onOrderComplete,
-    });
-  }, [price.id]);
+    if (isEventBriteLoaded) {
+      window.EBWidgets?.createWidget({
+        widgetType: 'checkout',
+        eventId: '146559873527',
+        modal: true,
+        modalTriggerElementId: `price${price.id}`,
+        onOrderComplete,
+      });
+    }
+  }, [isEventBriteLoaded, price.id]);
 
   return (
     <GridItem padding={5} className="conf__pricing-item">
@@ -44,9 +47,9 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
             </div>
           ))}
         </div>
-        <BuyButton className="square" size="small">
+        <Button className="square" size="small">
           Buy tickets
-        </BuyButton>
+        </Button>
       </div>
     </GridItem>
   );

@@ -1,22 +1,27 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useContext } from 'react';
+import { ConfContext } from '../layout';
 import Button, { ButtonProps } from './Button';
 
-const ID = () => `_${Math.random().toString(36).substr(2, 9)}`;
+interface BuyButtonProps extends ButtonProps {
+  id: string;
+}
 
-const ButtonBuy: React.ComponentType<ButtonProps> = ({ children, ...props }) => {
-  const id = ID();
+const BuyButton: React.ComponentType<BuyButtonProps> = ({ children, id, ...props }) => {
+  const { isEventBriteLoaded } = useContext(ConfContext);
 
   useLayoutEffect(() => {
+    console.log('layoutEffectButton');
     const onOrderComplete = () => console.log('order complete!');
-
-    window.EBWidgets?.createWidget({
-      widgetType: 'checkout',
-      eventId: '146559873527',
-      modal: true,
-      modalTriggerElementId: id,
-      onOrderComplete,
-    });
-  }, [id]);
+    if (isEventBriteLoaded) {
+      window.EBWidgets?.createWidget({
+        widgetType: 'checkout',
+        eventId: '146559873527',
+        modal: true,
+        modalTriggerElementId: id,
+        onOrderComplete,
+      });
+    }
+  }, [id, isEventBriteLoaded]);
 
   return (
     <Button id={id} {...props}>
@@ -25,4 +30,4 @@ const ButtonBuy: React.ComponentType<ButtonProps> = ({ children, ...props }) => 
   );
 };
 
-export default ButtonBuy;
+export default BuyButton;

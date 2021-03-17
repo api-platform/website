@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback } from 'react';
+import React, { createContext, useState, useCallback, useEffect } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import '@styles/components/conf/index.scss';
@@ -56,14 +56,24 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   };
 
   const [activeLink, setActiveLink] = useState('home');
+  const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
 
   const goToLink = useCallback((section) => {
     const element = document.querySelector(`#${section}`);
     element.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
+  useEffect(() => {
+    const s = document.createElement('script');
+    s.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+    s.onload = () => {
+      setIsEventBriteLoaded(true);
+    };
+    document.body.appendChild(s);
+  }, [setIsEventBriteLoaded]);
+
   return (
-    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink }}>
+    <ConfContext.Provider value={{ activeLink, setActiveLink, goToLink, isEventBriteLoaded }}>
       <Helmet {...helmetConfig.head}>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
@@ -80,7 +90,6 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
 
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
-        <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js" />
       </Helmet>
       <div className="conf" id="conf">
         <div className="conf__background" />
