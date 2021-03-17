@@ -9,7 +9,12 @@ const Contact: React.ComponentType = () => (
       </div>
       <div className="contact__content">
         <span className="h4 contact__title">Any question ?</span>
-        <a className="conf__button small square" href="mailto:events@les-tilleuls.coop">
+        <a
+          className="conf__button small square white"
+          href="mailto:events@les-tilleuls.coop"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Contact us!
         </a>
         <div className="overline">or follow us on social networks</div>

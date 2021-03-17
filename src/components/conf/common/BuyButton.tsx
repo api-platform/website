@@ -10,9 +10,9 @@ const BuyButton: React.ComponentType<BuyButtonProps> = ({ children, id, ...props
   const { isEventBriteLoaded } = useContext(ConfContext);
 
   useLayoutEffect(() => {
-    console.log('layoutEffectButton');
     const onOrderComplete = () => console.log('order complete!');
     if (isEventBriteLoaded) {
+      // @ts-expect-error eventbrite widget
       window.EBWidgets?.createWidget({
         widgetType: 'checkout',
         eventId: '146559873527',

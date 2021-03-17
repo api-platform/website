@@ -9,6 +9,9 @@
   flex-direction: column;
   color: #fff;
   text-align: center;
+  @include mq($max-width: $vw-small) {
+    padding: 70px 0px 20px;
+  }
 
   & .container {
     display: flex;
@@ -27,16 +30,21 @@
     font-weight: 400;
     @include mq($max-width: $vw-small) {
       font-size: 26px;
+      padding: 20px 10px 30px;
     }
   }
 
   .conf__cover-date {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 16px;
     border: 2px solid #fff;
     font-weight: 600;
     padding: 10px 15px;
     margin-bottom: 40px;
+    @include mq($max-width: $vw-medium) {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
   }
 
   .conf__cover-logo {

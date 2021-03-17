@@ -67,8 +67,9 @@ const Venue: React.ComponentType = () => {
               <span>59000 Lille</span>
             </div>
             <p>
-              Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France. Be part
-              of this exceptional edition located at less than 1 hour from Paris and Brussels, 1h30 from London.
+              Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France. <br />
+              <br />
+              Be part of this exceptional edition located at less than 1 hour from Paris and Brussels, 1h30 from London.
             </p>
           </div>
         </div>
