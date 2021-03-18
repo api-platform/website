@@ -5,8 +5,14 @@ import '@styles/components/con/2021/index.scss';
 import Footer from '@components/con/2021/layout/Footer';
 import Nav from '@components/con/2021/layout/Nav';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import helmetConfig from '../../../../helmetConfig';
+import Poppins300 from '@styles/components/con/2021/fonts/poppins-v15-latin-300.woff';
+import Poppins600 from '@styles/components/con/2021/fonts/poppins-v15-latin-600.woff';
+import Poppins800 from '@styles/components/con/2021/fonts/poppins-v15-latin-800.woff';
+import Poppins from '@styles/components/con/2021/fonts/poppins-v15-latin-regular.woff';
+import Raleway from '@styles/components/con/2021/fonts/raleway-v19-latin-regular.woff';
+import RalewayBold from '@styles/components/con/2021/fonts/raleway-v19-latin-700.woff';
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
+import helmetConfig from '../../../../helmetConfig';
 
 dayjs.extend(localizedFormat);
 
@@ -94,6 +100,12 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
         <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" />
+        <link rel="preload" as="font" href={Poppins300} type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href={Poppins600} type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href={Poppins800} type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href={Poppins} type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href={Raleway} type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" as="font" href={RalewayBold} type="font/woff" crossOrigin="anonymous" />
       </Helmet>
       <div className="conf" id="conf">
         <div className="conf__background" />

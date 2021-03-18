@@ -14,7 +14,7 @@ const Section: React.ComponentType<SectionProps> = ({ className, section, childr
   const { activeLink, setActiveLink, sectionsVisibles, setSectionsVisibles } = useContext(ConfContext);
 
   const intersection = useIntersection(containerRef, {
-    rootMargin: '20px 0px -80%',
+    rootMargin: '20px 0px -60%',
     threshold: 0,
   });
 

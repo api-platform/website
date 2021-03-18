@@ -1,8 +1,9 @@
 import React from 'react';
 import spider from '@images/spider_schema.svg';
+import Section from '../common/Section';
 
 const Contact: React.ComponentType = () => (
-  <div className="conf__contact">
+  <Section className="conf__contact" section="contact">
     <div className="contact__card dotted-corner">
       <div className="contact__spider">
         <img src={spider} alt="spider" width="256" height="422" />
@@ -31,7 +32,7 @@ const Contact: React.ComponentType = () => (
         </div>
       </div>
     </div>
-  </div>
+  </Section>
 );
 
 export default Contact;
