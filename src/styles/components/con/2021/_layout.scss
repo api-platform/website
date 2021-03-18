@@ -1,0 +1,204 @@
+.conf {
+  @include mq($max-width: $vw-medium) {
+    // only on small size cause overflow hidden cancel sticky effects
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .conf__menu {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding: 24px 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: all ease 0.2s 0.4s;
+    color: #fff;
+    background-size: 300%;
+    background-repeat: no-repeat;
+    background-position: 100%;
+    height: 64px;
+    &:after {
+      content: '';
+      width: 0%;
+      height: 1px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      transition: width ease 0.5s;
+      position: absolute;
+    }
+
+    .conf__menu-logo {
+      height: 36px;
+      flex: 1;
+      opacity: 0;
+      display: flex;
+      justify-content: flex-start;
+      transform: translateY(-100%);
+      transition: all ease 0.3s;
+      padding-left: 80px;
+      cursor: pointer;
+      &:focus:not(:focus-visible) {
+        outline: 0 !important;
+      }
+
+      img {
+        max-width: 180px;
+        height: auto;
+      }
+    }
+    & > .conf__menu-item,
+    .conf__button {
+      margin: 0 10px;
+      z-index: 10;
+    }
+    .conf__button {
+      transition: all ease 0.3s;
+    }
+    &:not(.with-button) {
+      .conf__menu-item {
+        transform: translateX(120px);
+      }
+      .conf__button {
+        transform: translateX(120px);
+        opacity: 0;
+      }
+    }
+    .conf__menu-back {
+      position: absolute;
+      width: 84px;
+      height: 64px;
+      left: 10px;
+      top: 0;
+      border-radius: 0 0 10px 10px;
+      cursor: pointer;
+      @include blue-gradient;
+      z-index: 10;
+      font-size: 14px;
+      transition: all ease 0.3s;
+      @include flex-center;
+      &:hover {
+        filter: brightness(120%);
+      }
+      .back__circle {
+        width: 50px;
+        height: 50px;
+        background: var(--lightblue);
+        border-radius: 50%;
+        transition: all ease 0.3s;
+        @include flex-center;
+      }
+    }
+    &.with-logo {
+      @include z-depth-3;
+      @include conf-gradient;
+      background-size: 100% 100vh;
+      padding: 12px;
+      transition: padding ease 0.5s, background-image linear 0.1s, border linear 0.1s;
+
+      &:after {
+        width: 100%;
+      }
+
+      .conf__menu-logo {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .conf__menu-back {
+        border-radius: 0;
+        left: 0;
+        padding-right: 10px;
+        clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+      }
+    }
+  }
+
+  .conf__menu-item {
+    color: inherit;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    transition: all ease 0.3s;
+    position: relative;
+    @include mq($max-width: $vw-medium) {
+      display: none;
+    }
+    &:hover {
+      color: var(--blue);
+      transform: scale(0.95);
+    }
+    &:focus:not(:focus-visible) {
+      outline: 0 !important;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 4px;
+      left: 50%;
+      top: calc(100% + 5px);
+      background-color: var(--blue);
+      transform: translateX(-50%);
+      border-radius: 3px;
+      transition: all ease 0.3s;
+    }
+    &.active {
+      color: var(--lightblue);
+      &:after {
+        width: 20px;
+      }
+    }
+  }
+  .conf__footer {
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 500px;
+      padding-top: 250px;
+    }
+    .footer__tilleuls {
+      text-align: center;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .footer__by {
+      font-weight: 900;
+      padding: 10px 0;
+    }
+    .footer__logo {
+      width: 250px;
+    }
+    .footer__wave {
+      position: absolute;
+      width: 1200px;
+      height: 500px;
+      max-width: 1200px;
+      left: 50%;
+      top: -120px;
+      transform: translate3d(-50%, 0, 0);
+      opacity: 0.5;
+      z-index: 0;
+    }
+    .footer__copyright {
+      align-self: flex-end;
+      margin-top: 10px;
+      @include mq($max-width: $vw-medium) {
+        align-self: center;
+      }
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

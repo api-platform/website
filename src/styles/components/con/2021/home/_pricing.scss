@@ -1,0 +1,159 @@
+.conf__pricing {
+  position: relative;
+  padding-top: 70px;
+  @include mq($max-width: $vw-medium) {
+    padding-top: 40px;
+  }
+  &:before {
+    content: '';
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 600px);
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    @include mq($max-width: $vw-medium) {
+      height: 100px;
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    width: 1300px;
+    height: 800px;
+    background: url('../../../../components/con/2021/images/wave3.svg');
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    opacity: 0.5;
+  }
+  .conf__section-title {
+    margin-bottom: 20px;
+  }
+  .pricing__discount {
+    padding-left: 40px;
+    padding-right: 0;
+    display: block;
+    align-self: center;
+    margin-top: 60px;
+    @include mq($max-width: $vw-large) {
+      padding: 0;
+    }
+    @include mq($max-width: $vw-medium) {
+      margin-top: 40px;
+    }
+
+    .discount__content {
+      font-weight: 600;
+      color: var(--darkestblue);
+      text-align: center;
+      padding: 20px 20px 10px;
+      border: 5px solid var(--darkblue);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include blue-gradient;
+      @include z-depth-5;
+    }
+    .discount__title {
+      color: #fff;
+    }
+    small {
+      margin-top: 20px;
+    }
+  }
+  .grid__container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .conf__pricing-item {
+    position: relative;
+    transition: all ease 0.3s;
+    max-width: 350px;
+    &:first-child {
+      z-index: 2;
+      transform: scale(1.1);
+      .conf__pricing-card:hover {
+        transform: scale(1.05) rotate(-2deg) translateX(-10px);
+      }
+    }
+    &:nth-child(2) {
+      z-index: 1;
+      filter: saturate(0.6);
+      .conf__pricing-card:hover {
+        transform: scale(1.02) rotate(2deg) translateX(10px);
+      }
+    }
+    .conf__button {
+      @include absolute-center(50%, 100%);
+      background-image: linear-gradient(30deg, var(--blue) 50%, #fff 50%);
+    }
+
+    .conf__pricing-card {
+      width: 100%;
+      @include flex-center;
+      @include z-depth-3;
+      transition: all ease 0.3s;
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        @include z-depth-5;
+      }
+    }
+    @include mq($max-width: $vw-medium) {
+      transform: none !important;
+      .conf__pricing-card {
+        transform: scale(1) !important;
+      }
+      margin-bottom: 50px;
+    }
+  }
+
+  .pricing__header {
+    width: 100%;
+    background: var(--blue);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    .overline {
+      font-weight: 600;
+    }
+  }
+  .pricing__offer:not(.active) {
+    opacity: 0.5;
+  }
+  .pricing__content {
+    @include flex-center;
+    width: 100%;
+    flex: 1;
+    background: #fff;
+
+    padding: 20px;
+    text-align: center;
+    border-bottom: 8px solid var(--blue);
+
+    & > div {
+      width: 100%;
+      padding: 10px 0;
+      @include flex-center;
+      &:not(:last-child) {
+        border-bottom: 2px dotted var(--lightblue);
+      }
+    }
+    .offer__limit {
+      font-size: 11px;
+      font-weight: 900;
+    }
+    .offer__title {
+      font-size: 16px;
+    }
+    .pricing__amount {
+      color: var(--blue);
+      font-weight: 900;
+    }
+  }
+}

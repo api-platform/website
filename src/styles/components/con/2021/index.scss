@@ -1,0 +1,25 @@
+@import './colors';
+@import './mixins';
+@import '../../../settings/dimensions';
+@import '../../../tools/viewportSizes';
+@import '../../../tools/shadows';
+@import '../../../tools/effects';
+@import '../../../tools/medias';
+@import './heading';
+@import './layout';
+@import './common';
+@import './fonts';
+@import './home';
+@import './conference';
+
+body, html {
+  background-color: #001226;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+.mapboxgl-ctrl-bottom-left {
+  display: none;
+}

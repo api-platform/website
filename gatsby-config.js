@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const fs = require('fs');
 const dotenv = require('dotenv').config({ path: '.env.gatsby' });
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -42,10 +43,24 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/components/con/2021/images/speakers`,
+        name: 'speakers',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/special`,
         name: 'special',
       },
     },
+    /* {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/components/con/2021/data/conferences`,
+        name: 'conferences',
+      },
+    }, */
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -90,40 +105,14 @@ module.exports = {
         lang: 'en',
         icons: [
           {
-            src: '/android-icon-36x36.png',
-            sizes: '36x36',
-            type: 'image/png',
-            density: '0.75',
-          },
-          {
-            src: '/android-icon-48x48.png',
-            sizes: '48x48',
-            type: 'image/png',
-            density: '1.0',
-          },
-          {
-            src: '/android-icon-72x72.png',
-            sizes: '72x72',
-            type: 'image/png',
-            density: '1.5',
-          },
-          {
-            src: '/android-icon-96x96.png',
-            sizes: '96x96',
-            type: 'image/png',
-            density: '2.0',
-          },
-          {
-            src: '/android-icon-144x144.png',
-            sizes: '144x144',
-            type: 'image/png',
-            density: '3.0',
-          },
-          {
-            src: '/android-icon-192x192.png',
+            src: '/192.png',
             sizes: '192x192',
             type: 'image/png',
-            density: '4.0',
+          },
+          {
+            src: '/512.png',
+            sizes: '512x512',
+            type: 'image/png',
           },
         ],
       },

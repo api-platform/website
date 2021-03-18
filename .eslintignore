@@ -5,3 +5,4 @@ package.json
 public/
 vendor/
 README.md
+*.d.ts

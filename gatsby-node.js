@@ -337,15 +337,21 @@ exports.createPages = async ({ graphql, actions }) => {
   // Redirect 301 old page
   createRedirect({ fromPath: '/news/', toPath: '/resources/news/', isPermanent: true, redirectInBrowser: true });
   createRedirect({ fromPath: '/support/', toPath: '/community/', isPermanent: true, redirectInBrowser: true });
-  createRedirect({ fromPath: '/docs/core/swagger/', toPath: '/docs/core/openapi/', isPermanent: true, redirectInBrowser: true });
+  createRedirect({
+    fromPath: '/docs/core/swagger/',
+    toPath: '/docs/core/openapi/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Documentation pages
   const docPageTemplate = path.resolve('src/templates/doc.js');
-  const result = await graphql(`
+  const docResult = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: null } } }) {
         edges {
           node {
+            fileAbsolutePath
             html
             headings {
               value
@@ -360,13 +366,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  if (result.errors) {
-    throw result.errors;
+  if (docResult.errors) {
+    throw docResult.errors;
   }
 
-  const pages = result.data.allMarkdownRemark.edges;
+  const docPages = docResult.data.allMarkdownRemark.edges;
 
-  pages.forEach((edge) => {
+  docPages.forEach((edge) => {
     const { redirect } = edge.node.fields;
     const slug = edge.node.fields.slug.replace(`${current}/`, '');
     const slugArray = edge.node.fields.slug.split('/');
@@ -436,6 +442,54 @@ exports.createPages = async ({ graphql, actions }) => {
         redirectInBrowser: true,
       })
     );
+  });
+
+  // conferences pages
+  /* const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
+  const conferencesResult = await graphql(`
+    {
+      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
+        edges {
+          node {
+            html
+            frontmatter {
+              date
+              slot
+              title
+              type
+              speakers {
+                description
+                github
+                image
+                job
+                list
+                name
+                twitter
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
+  conferencePages.forEach((edge) => {
+    createPage({
+      path: `/con/2021/${slugify(edge.node.frontmatter.title)}`,
+      component: conferenceTemplate,
+      context: {
+        html: edge.node.html,
+        ...edge.node.frontmatter,
+      },
+    });
+  }); */
+
+  createRedirect({
+    fromPath: '/con/',
+    toPath: '/con/2021',
+    isPermanent: true,
+    redirectInBrowser: true,
   });
 
   // Contributors page
@@ -521,4 +575,29 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug,
     });
   }
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@images': path.resolve(__dirname, 'src/images'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+      },
+    },
+  });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      type: String
+    }
+  `;
+  createTypes(typeDefs);
 };
