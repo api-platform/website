@@ -62,7 +62,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   };
 
   const [activeLink, setActiveLink] = useState('home');
-  const [sectionsVisibles, setSectionsVisibles] = useState<string[]>([]);
+  const [sectionsVisibles, setSectionsVisibles] = useState<string[]>(['home']);
   const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
 
   const goToLink = useCallback((section) => {

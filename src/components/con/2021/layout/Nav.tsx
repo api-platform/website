@@ -40,17 +40,19 @@ interface NavProps {
 }
 
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
-  const { activeLink, goToLink, sectionsVisibles } = useContext(ConfContext);
+  const { goToLink, sectionsVisibles } = useContext(ConfContext);
   const isHomePage = '/con/2021/' === location.pathname;
 
-  const [minified, setMinified] = useState(isHomePage && 'home' === activeLink);
+  const [minified, setMinified] = useState(
+    isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home')
+  );
   const onScroll = useCallback(() => {
     setMinified(50 > window.scrollY && isHomePage);
   }, [isHomePage]);
 
   useEffect(() => {
-    setMinified(isHomePage && 'home' === activeLink);
-  }, [activeLink, isHomePage]);
+    setMinified(isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home'));
+  }, [sectionsVisibles, isHomePage]);
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
@@ -64,11 +66,12 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
     else navigate('/con/2021');
   }, [isHomePage, goToLink]);
 
+  const isButtonHidden = isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home');
   return (
     <nav
       className={classNames('conf__menu', {
         'with-logo': !minified,
-        'with-button': !isHomePage || !sectionsVisibles.includes('home'),
+        'with-button': !isButtonHidden,
       })}
     >
       <div role="button" tabIndex={0} className="conf__menu-logo" onClick={onLogoClick}>

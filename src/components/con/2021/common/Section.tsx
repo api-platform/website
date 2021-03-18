@@ -19,11 +19,10 @@ const Section: React.ComponentType<SectionProps> = ({ className, section, childr
   });
 
   const isVisible = intersection?.isIntersecting;
-
   useEffect(() => {
     if (isVisible && !sectionsVisibles.includes(section)) {
       setSectionsVisibles([...sectionsVisibles, section]);
-    } else if (!isVisible && sectionsVisibles.includes(section)) {
+    } else if (false === isVisible && sectionsVisibles.includes(section)) {
       setSectionsVisibles(sectionsVisibles.filter((sectionVisible) => sectionVisible !== section));
     }
   }, [isVisible, setSectionsVisibles, sectionsVisibles, section]);
