@@ -63,7 +63,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
 
   const onLogoClick = useCallback(() => {
     if (isHomePage) goToLink('home');
-    else navigate('/con/2021');
+    else navigate('/con/2021/');
   }, [isHomePage, goToLink]);
 
   const isButtonHidden = isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home');

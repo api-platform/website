@@ -50,14 +50,14 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     '@context': 'https://schema.org',
     '@type': 'Website',
     name: 'API Platform Conference',
-    url: 'https://api-platform.com/con/2021',
+    url: 'https://api-platform.com/con/2021/',
   };
   const eventData = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: 'API Platform Conference 2021',
     description: 'The first international conference dedicated to API Platform and its ecosystem',
-    url: 'https://api-platform.com/con/2021',
+    url: 'https://api-platform.com/con/2021/',
     eventStatus: 'http://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     startDate: '2021-09-08',
@@ -107,7 +107,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
       <Helmet {...helmetConfig.head}>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
-        <meta property="og:url" content="https://api-platform.com/con/2021" />
+        <meta property="og:url" content="https://api-platform.com/con/2021/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={TITLE} />
         <meta property="og:description" content={DESCRIPTION} />
