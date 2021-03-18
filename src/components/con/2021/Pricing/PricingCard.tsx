@@ -38,13 +38,14 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
       <div className="conf__pricing-card" id={`price${price.id}`}>
         <div className="pricing__header">
           <h3 className="h5 lined lined-white">{price.title}</h3>
+          <span className="overline">{price.languages}</span>
         </div>
         <div className="pricing__content dotted-corner corner-bottom">
           {sortedOffers.map((offer, index) => (
             <div key={offer.title} className={classNames('pricing__offer', { active: index === activeIndex })}>
               <span className="overline offer__limit">{`until ${dayjs(offer.limitDate).format('LL')}`}</span>
               <span className="overline offer__title">{offer.title}</span>
-              <span className="h4 pricing__amount">{offer.price}€*</span>
+              <span className="h4 pricing__amount">{offer.price}€</span>
             </div>
           ))}
         </div>

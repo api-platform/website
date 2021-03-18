@@ -7,11 +7,6 @@ const partners: Partner[] = [
     link: 'https://www.euratechnologies.com/',
   },
   {
-    name: 'Les-Tilleuls.coop',
-    logo: 'les-tilleuls',
-    link: 'https://les-tilleuls.coop/',
-  },
-  {
     name: 'You?',
     logo: 'you',
     link: 'mailto:events@les-tilleuls.coop?subject=I want to become a partner',

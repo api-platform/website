@@ -10,7 +10,7 @@ const Cover: React.ComponentType = () => {
     <>
       <Section className="conf__cover" section="home">
         <div className="container">
-          <span className="conf__cover-date">September 10, 2021 - Lille & live online</span>
+          <span className="conf__cover-date">September 10, 2021 - Lille & online</span>
           <h1 className="conf__cover-logo">
             <img src={Logo} alt="Api Platform Conference" width="800" height="172" />
           </h1>

@@ -9,7 +9,7 @@ const Contact: React.ComponentType = () => (
         <img src={spider} alt="spider" width="256" height="422" />
       </div>
       <div className="contact__content">
-        <span className="h4 contact__title">Any question ?</span>
+        <span className="h4 contact__title">Questions?</span>
         <a
           className="conf__button small square white"
           href="mailto:events@les-tilleuls.coop"
@@ -20,8 +20,8 @@ const Contact: React.ComponentType = () => (
         </a>
         <div className="overline">or follow us on social networks</div>
         <div className="contact__social">
-          <a href="https://www.facebook.com/les.tilleuls.coop" target="_blank" rel="noopener noreferrer">
-            <i className="icon-facebook" />
+          <a href="https://mastodon.online/@cooptilleuls" target="_blank" rel="noopener noreferrer">
+            <i className="icon-mastodon" />
           </a>
           <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noopener noreferrer">
             <i className="icon-twitter" />

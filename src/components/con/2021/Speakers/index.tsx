@@ -16,8 +16,8 @@ const Speakers: React.ComponentType = () => {
           Our <strong>speakers</strong>
         </SectionTitle>
         <p className="conf__section-subtitle">
-          Join French and international speakers sharing their knowledge in an English-speaking conference. Line up will
-          be announced very soon... Come back in April to discover the first names!
+          Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking
+          tracks. Line up will be announced very soon... Come back in April to discover the first names!
         </p>
         <Grid>
           {0 === speakers.length ? (

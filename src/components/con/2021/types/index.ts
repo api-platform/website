@@ -44,6 +44,7 @@ export type Offer = {
 export type Price = {
   id: number;
   title: string;
+  languages: string;
   offers: Offer[];
 };
 

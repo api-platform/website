@@ -48,17 +48,22 @@
     }
 
     .discount__content {
-      font-weight: 900;
-      color: #fff;
+      font-weight: 600;
+      color: var(--darkestblue);
       text-align: center;
-      padding: 20px;
+      padding: 20px 20px 10px;
       border: 5px solid var(--darkblue);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       @include blue-gradient;
       @include z-depth-5;
     }
-    p:first-child {
-      position: relative;
-      z-index: 2;
+    .discount__title {
+      color: #fff;
+    }
+    small {
+      margin-top: 20px;
     }
   }
   .grid__container {

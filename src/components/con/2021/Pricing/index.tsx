@@ -18,13 +18,14 @@ const Pricing: React.ComponentType = () => {
           ))}
           <GridItem className="pricing__discount">
             <div className="discount__content dotted-corner">
-              <p className="h6 lined lined-white">Web-development student or unemployed developer?</p>
+              <p className="discount__title h6 lined lined-white">Student or unemployed developer?</p>
               <p>
-                Contact us for <strong>a special discount</strong>.
+                Online edition (English-speaking track) is <strong>free*</strong>
               </p>
               <a className="conf__button small square white" href="mailto:events@les-tilleuls.coop">
                 Contact us!
               </a>
+              <small>*certificate will be needed</small>
             </div>
           </GridItem>
         </Grid>

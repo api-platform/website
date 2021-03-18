@@ -3,7 +3,8 @@ import { Price } from '../types';
 const prices: Price[] = [
   {
     id: 1,
-    title: 'Physical edition',
+    title: 'On-site edition',
+    languages: 'French and english-speaking tracks',
     offers: [
       {
         title: 'Early bird',
@@ -25,6 +26,7 @@ const prices: Price[] = [
   {
     id: 2,
     title: 'Online edition',
+    languages: 'English-speaking track',
     offers: [
       {
         title: 'Online ticket',

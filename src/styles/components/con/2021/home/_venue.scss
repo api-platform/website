@@ -13,9 +13,15 @@
     transform: translateY(-100px);
   }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .venue__place {
     position: relative;
     padding: 0 50px;
+    margin-bottom: 90px;
     &:before {
       content: '';
       background: var(--blue);
@@ -75,6 +81,8 @@
     position: absolute;
     z-index: 2;
     transform: translateX(10px);
+    background: #2e2e2e;
+    color: #fff;
     @include mq($max-width: $vw-large) {
       width: 45%;
     }
@@ -84,17 +92,80 @@
       transform: none;
     }
   }
+  .venue__warning {
+    padding: 10px 20px;
+    font-weight: 900;
+    margin: 20px auto;
+    text-align: left;
+    border: 5px dotted var(--lightblue);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    img {
+      height: 60px;
+      margin-right: 20px;
+    }
+    .warning__content {
+      color: var(--blackblue);
+      .warning__body {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+    }
+    @include mq($max-width: $vw-medium) {
+      max-width: 500px;
+      margin: 20px auto 0;
+    }
+  }
+
   .venue__transportation {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     transform: translateY(30px);
-    margin-top: 70px;
     @include z-depth-3;
     @include blue-gradient-linear;
     @include mq($max-width: $vw-medium) {
       flex-direction: column;
       margin-top: 20px;
+    }
+    .transport__line {
+      text-transform: uppercase;
+      color: #fff;
+      .transport__time {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 1;
+      }
+      .transport__from {
+        font-size: 11px;
+        font-weight: 900;
+      }
+      .transport__details {
+        margin-top: 10px;
+        font-size: 12px;
+        text-transform: none;
+        font-weight: bold;
+      }
+      &:not(:last-child) {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+      }
+      @include mq($min-width: $vw-small, $max-width: $vw-medium) {
+        width: calc(100% / 3);
+        padding: 10px;
+        &.full-line {
+          width: 100%;
+        }
+        &:not(:last-child) {
+          margin-bottom: 0;
+          border-right: 2px dotted var(--lightblue);
+        }
+      }
+      @include mq($max-width: $vw-small) {
+        width: 100%;
+      }
     }
 
     .venue__transport {
@@ -149,9 +220,12 @@
         }
       }
       .transport__content {
-        padding: 10px 0;
-        p:not(:last-child) {
-          margin-bottom: 20px;
+        padding: 10px;
+        flex: 1;
+        width: 100%;
+        @include mq($max-width: $vw-medium) {
+          @include flex-center(row);
+          flex-wrap: wrap;
         }
       }
       .transport__icon {

@@ -12,6 +12,7 @@ import Poppins from '@styles/components/con/2021/fonts/poppins-v15-latin-regular
 import Raleway from '@styles/components/con/2021/fonts/raleway-v19-latin-regular.woff';
 import RalewayBold from '@styles/components/con/2021/fonts/raleway-v19-latin-700.woff';
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
+import prices from '../data/prices';
 import helmetConfig from '../../../../helmetConfig';
 
 dayjs.extend(localizedFormat);
@@ -27,6 +28,24 @@ interface LayoutProps {
 
 const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   dayjs.extend(localizedFormat);
+
+  const offersData = prices.map((price) => {
+    const sortedOffers = price.offers.sort((a, b) => {
+      if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
+      if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
+      return 0;
+    });
+    const activeOffer = sortedOffers.find((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
+    return {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      price: `${activeOffer.price}.00`,
+      name: 1 === price.offers.length ? price.title : `${price.title} - ${activeOffer.title}`,
+      priceCurrency: 'EUR',
+      url: 'https://www.eventbrite.fr/e/api-platform-conference-2021-tickets-146559873527',
+    };
+  });
+
   const websiteData = {
     '@context': 'https://schema.org',
     '@type': 'Website',
@@ -59,6 +78,8 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
         streetAddress: 'Place de Saintignon, 165 avenue de Bretagne',
       },
     },
+    image: OG_IMAGE,
+    offers: offersData,
   };
 
   const [activeLink, setActiveLink] = useState('home');
