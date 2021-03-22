@@ -4,6 +4,8 @@ import SectionTitle from '../common/SectionTitle';
 import prices from '../data/prices';
 import PricingCard from './PricingCard';
 import Section from '../common/Section';
+import Warning from '../common/Warning';
+import Covid from '../images/covid.svg';
 
 const Pricing: React.ComponentType = () => {
   return (
@@ -29,6 +31,12 @@ const Pricing: React.ComponentType = () => {
             </div>
           </GridItem>
         </Grid>
+        <Warning title="COVID-19 information" img={Covid} className="pricing__warning">
+          <p>
+            Tickets may be refunded (except for the Eventbrite fees) if the event has to be cancelled due to the
+            COVID-19 pandemic, or if you are unable to attend the event due to contamination.
+          </p>
+        </Warning>
       </div>
     </Section>
   );

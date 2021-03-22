@@ -92,31 +92,6 @@
       transform: none;
     }
   }
-  .venue__warning {
-    padding: 10px 20px;
-    font-weight: 900;
-    margin: 20px auto;
-    text-align: left;
-    border: 5px dotted var(--lightblue);
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    img {
-      height: 60px;
-      margin-right: 20px;
-    }
-    .warning__content {
-      color: var(--blackblue);
-      .warning__body {
-        font-size: 14px;
-        opacity: 0.8;
-      }
-    }
-    @include mq($max-width: $vw-medium) {
-      max-width: 500px;
-      margin: 20px auto 0;
-    }
-  }
 
   .venue__transportation {
     display: flex;
