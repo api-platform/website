@@ -43,6 +43,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
       name: 1 === price.offers.length ? price.title : `${price.title} - ${activeOffer.title}`,
       priceCurrency: 'EUR',
       url: 'https://www.eventbrite.fr/e/api-platform-conference-2021-tickets-146559873527',
+      validFrom: '2021-03-19',
     };
   });
 
@@ -59,25 +60,31 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     description: 'The first international conference dedicated to API Platform and its ecosystem',
     url: 'https://api-platform.com/con/2021/',
     eventStatus: 'http://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    startDate: '2021-09-08',
+    eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+    startDate: '2021-09-10',
     endDate: '2021-09-10',
     organizer: {
       '@type': 'Organization',
       name: 'Les-Tilleuls.coop',
       url: 'https://les-tilleuls.coop/en',
     },
-    location: {
-      '@type': 'Place',
-      name: 'Euratechnologies',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Lille',
-        addressRegion: 'Hauts de France',
-        postalCode: '59000',
-        streetAddress: 'Place de Saintignon, 165 avenue de Bretagne',
+    location: [
+      {
+        '@type': 'Place',
+        name: 'Euratechnologies',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Lille',
+          addressRegion: 'Hauts de France',
+          postalCode: '59000',
+          streetAddress: 'Place de Saintignon, 165 avenue de Bretagne',
+        },
       },
-    },
+      {
+        '@type': 'VirtualLocation',
+        url: 'https://api-platform.com/con/2021/',
+      },
+    ],
     image: OG_IMAGE,
     offers: offersData,
   };
@@ -127,6 +134,11 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
         <link rel="preload" as="font" href={Poppins} type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" as="font" href={Raleway} type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" as="font" href={RalewayBold} type="font/woff" crossOrigin="anonymous" />
+        <style type="text/css">{`
+          body, html {
+            background-color: #001226;
+          }
+    `}</style>
       </Helmet>
       <div className="conf" id="conf">
         <div className="conf__background" />

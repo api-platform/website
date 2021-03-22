@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, useContext } from 'react';
-import { ConfContext } from '../layout';
+import React from 'react';
+import useEventBriteModal from '../hooks/useEventBriteModal';
 import Button, { ButtonProps } from './Button';
 
 interface BuyButtonProps extends ButtonProps {
@@ -7,21 +7,7 @@ interface BuyButtonProps extends ButtonProps {
 }
 
 const BuyButton: React.ComponentType<BuyButtonProps> = ({ children, id, ...props }) => {
-  const { isEventBriteLoaded } = useContext(ConfContext);
-
-  useLayoutEffect(() => {
-    const onOrderComplete = () => console.log('order complete!');
-    if (isEventBriteLoaded) {
-      // @ts-expect-error eventbrite widget
-      window.EBWidgets?.createWidget({
-        widgetType: 'checkout',
-        eventId: '146559873527',
-        modal: true,
-        modalTriggerElementId: id,
-        onOrderComplete,
-      });
-    }
-  }, [id, isEventBriteLoaded]);
+  useEventBriteModal(id);
 
   return (
     <Button id={id} {...props}>

@@ -1,37 +1,23 @@
-import React, { useLayoutEffect, useContext } from 'react';
+import React from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
 import Button from '@components/con/2021/common/Button';
 import { Price } from '../types';
-import { ConfContext } from '../layout';
+import useEventBriteModal from '../hooks/useEventBriteModal';
 
 interface PricingCardProps {
   price: Price;
 }
 
 const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
-  const { isEventBriteLoaded } = useContext(ConfContext);
+  useEventBriteModal(`price${price.id}`);
   const sortedOffers = price.offers.sort((a, b) => {
     if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
     if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
     return 0;
   });
   const activeIndex = sortedOffers.findIndex((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
-
-  useLayoutEffect(() => {
-    const onOrderComplete = () => console.log('order complete!');
-    if (isEventBriteLoaded) {
-      // @ts-expect-error eventbrite widget
-      window.EBWidgets?.createWidget({
-        widgetType: 'checkout',
-        eventId: '146559873527',
-        modal: true,
-        modalTriggerElementId: `price${price.id}`,
-        onOrderComplete,
-      });
-    }
-  }, [isEventBriteLoaded, price.id]);
 
   return (
     <GridItem padding={5} className="conf__pricing-item">
