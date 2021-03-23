@@ -8,6 +8,7 @@ import CarIcon from '../images/car.svg';
 import BikeIcon from '../images/bike.svg';
 import Tip from '../images/tip.svg';
 import Section from '../common/Section';
+import Warning from '../common/Warning';
 import Place from './Place';
 
 const Venue: React.ComponentType = () => (
@@ -21,15 +22,9 @@ const Venue: React.ComponentType = () => (
         Flemish region. If you can&apos;t attend the event physically, you can watch the English-speaking track online.
       </p>
       <Place />
-      <div className="venue__warning">
-        <img src={Tip} alt="tip" width="58" height="60" />
-        <div className="warning__content">
-          <p className="h5 lined lined-left">Tip</p>
-          <p className="warning__body ">
-            Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.
-          </p>
-        </div>
-      </div>
+      <Warning title="Tip" img={Tip}>
+        <p>Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.</p>
+      </Warning>
       <div className="venue__transportation">
         <Transport title="By train" icon={TrainIcon}>
           <div className="transport__line">

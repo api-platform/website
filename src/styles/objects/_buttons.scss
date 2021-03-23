@@ -78,14 +78,15 @@
   width: 40px;
   height: 40px;
   position: fixed;
-  top: $headerMessageH + ($headerH - $headerMessageH) / 2;
+  top: $headerH / 2;
   transform: translateY(-50%);
-  transition: transform ease .3s, right ease .5s;
+  transition: transform ease .3s, right ease .5s, top ease 0.5s;
   right: 10px;
   z-index: z("sidemenu") + 1;
   cursor: pointer;
   background: none;
   display: none;
+  top: ($headerH + $headerMessageH) / 2;
 
   .btn-burger__back {
     position: relative;
@@ -149,7 +150,7 @@
   }
 
   @include mq($max-width: $vw-small) {
-    top: $headerMessageH + ($mobileHeaderH - $headerMessageH) / 2;
+    top: ($headerMessageH + $mobileHeaderH) / 2;
   }
 
   @include mq($max-width: $vw-mobile-menu) {

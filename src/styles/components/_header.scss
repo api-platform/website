@@ -5,22 +5,12 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
   height: $headerH;
+  padding-top: $headerMessageH;
   width: 100%;
   background-color: var(--bg);
   z-index: z('header');
-
-  .header__additional-message {
-    display: flex;
-    flex: 0 0 100%;
-    height: $headerMessageH;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    font-weight: $bold;
-    color: $white;
-    background-color: $black;
-  }
 
   .header__logo,
   .header__nav,

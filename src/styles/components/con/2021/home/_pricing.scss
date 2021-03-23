@@ -12,9 +12,9 @@
     height: calc(100% - 600px);
     left: 0;
     bottom: 0;
-    background: #fff;
+    background: var(--lightgrey);
     @include mq($max-width: $vw-medium) {
-      height: 100px;
+      height: 400px;
     }
   }
   &:after {
@@ -155,5 +155,8 @@
       color: var(--blue);
       font-weight: 900;
     }
+  }
+  .pricing__warning {
+    margin: 80px auto 60px auto;
   }
 }
