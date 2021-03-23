@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Header from './layout/Header';
-import BurgerButton from './layout/BurgerButton';
 import Footer from './layout/Footer';
 import SideMenu from './layout/SideMenu';
 import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
+import NavContext from './layout/NavContext';
 
-class Layout extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { showResponsiveMenu: false };
-  }
+const Layout = ({ children, location }) => {
+  const [showResponsiveMenu, setShowResponsiveMenu] = useState(false);
+  const withSecondMenuDisplayed = -1 !== location.pathname.search('/docs');
 
-  showMenu = (open) => {
-    this.setState((prevState) => ({ ...prevState, showResponsiveMenu: open }));
-  };
-
-  render() {
-    const { children, location } = this.props;
-    const { showResponsiveMenu: open } = this.state;
-    const withSecondMenuDisplayed = -1 !== location.pathname.search('/docs');
-
-    return (
-      <div className={classNames('main full', { open, 'with-second-menu-displayed': withSecondMenuDisplayed })}>
+  return (
+    <NavContext.Provider value={{ showResponsiveMenu, setShowResponsiveMenu }}>
+      <div
+        className={classNames('main full', {
+          open: showResponsiveMenu,
+          'with-second-menu-displayed': withSecondMenuDisplayed,
+        })}
+      >
         <div className="full">
           <Helmet {...helmetConfig.head}>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2.5/docsearch.min.css" />
@@ -34,13 +29,12 @@ class Layout extends Component {
           <div className="page openable">{children}</div>
           <Footer />
         </div>
-        <BurgerButton onClick={this.showMenu.bind(null, !open)} status={open ? 'close' : 'burger'} />
-        <div role="presentation" className="overlay" onClick={this.showMenu.bind(null, false)} />
-        <SideMenu open={open} />
+        <div role="presentation" className="overlay" onClick={() => setShowResponsiveMenu(false)} />
+        <SideMenu open={showResponsiveMenu} />
       </div>
-    );
-  }
-}
+    </NavContext.Provider>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.any,

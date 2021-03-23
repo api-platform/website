@@ -5,22 +5,13 @@
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
   height: $headerH;
+  padding-top: $headerMessageH;
   width: 100%;
   background-color: var(--bg);
   z-index: z('header');
-
-  .header__additional-message {
-    display: flex;
-    flex: 0 0 100%;
-    height: $headerMessageH;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    font-weight: $bold;
-    color: $white;
-    background-color: $black;
-  }
+  transition: all ease 0.2s;
 
   .header__logo,
   .header__nav,
@@ -30,7 +21,11 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
-    height: $headerH - $headerMessageH;
+    @if $headerMessageH == 0 {
+      height: $headerH;
+    } @else {
+      height: $headerH - $headerMessageH;
+    }
   }
 
   .header__logo {
@@ -292,15 +287,15 @@
     height: $mobileHeaderH;
     .logo__circle,
     .logo__spider {
-      width: $mobileHeaderH - $headerMessageH - 10px;
-      height: $mobileHeaderH - $headerMessageH - 10px;
+      width: $mobileHeaderH - 10px;
+      height: $mobileHeaderH - 10px;
     }
 
     .header__logo,
     .header__nav,
     .header__search,
     .header__social {
-      height: $mobileHeaderH - $headerMessageH;
+      height: $mobileHeaderH;
     }
 
     .logo__text {

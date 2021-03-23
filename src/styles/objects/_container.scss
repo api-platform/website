@@ -7,22 +7,22 @@
 }
 
 .main {
-  transition: transform ease .5s;
+  transition: transform ease 0.5s;
 
   .overlay {
     position: fixed;
-    z-index: z("header");
+    z-index: z('header') + 2;
     left: 0;
     top: 0;
     width: 0;
     height: 0;
     opacity: 0;
-    background-color: $blackblue;
-    transition: opacity ease .5s, width linear .01s .5s, height linear .01s .5s;
+    background-color: $black;
+    transition: opacity ease 0.5s, width linear 0.01s 0.5s, height linear 0.01s 0.5s;
   }
 
   .openable {
-    transition: all ease .5s;
+    transition: all ease 0.5s;
   }
 
   &.open {
@@ -30,8 +30,8 @@
       .overlay {
         width: 100%;
         height: 100%;
-        opacity: .5;
-        transition: opacity ease .5s;
+        opacity: 0.85;
+        transition: opacity ease 0.5s;
       }
 
       .openable {
@@ -62,7 +62,7 @@
   padding: 0 $page-padding;
   width: 100%;
   max-width: $max-width;
-  z-index: z("default");
+  z-index: z('default');
   position: relative;
   @include mq($max-width: $vw-small) {
     padding: $page-padding-mobile;
