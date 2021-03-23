@@ -1,65 +1,78 @@
+$message-background: #001226;
+$message-color: #2ce6e6;
+$message-arrow-color: #c32186;
+$message-animation-duration: 30s;
+
 .header__additional-message {
   display: flex;
   height: $headerMessageH;
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
-  color: $white;
-  background-color: #001226;
+  background-color: $message-background;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  transition: all ease 0.5s;
+  transition: filter ease 0.5s;
   z-index: z('header') + 1;
+  &:after,
+  &:before {
+    content: '';
+    width: calc((100% - 800px) / 2);
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+  &:before {
+    left: 0;
+    background: linear-gradient(90deg, $message-background 0%, $message-background 10%, transparent);
+  }
+  &:after {
+    right: 0;
+    background: linear-gradient(-90deg,  $message-background 0%, $message-background 10%, transparent);
+  }
   .message__content {
-    position: relative;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: none;
     transition: transform ease 0.2s;
-    padding-left: 20px;
-    background: linear-gradient(
-      45deg,
-      #67cece 0%,
-      #67cece 50%,
-      #c4f0ef 51%,
-      #c4f0ef 54%,
-      #67cece 55%,
-      #67cece 74%,
-      #c4f0ef 75%,
-      #c4f0ef 76%,
-      #67cece 77%,
-      #67cece 100%
-    );
-    background-size: 300% 100%;
+    color: $message-color;
+    animation: move $message-animation-duration infinite linear;
+    & > * {
+      white-space: nowrap;
+      margin-right: 25vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
 
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    color: #26ffe6;
-
-    animation: backgroundGradient 10s infinite linear;
-
-    @keyframes backgroundGradient {
+    @keyframes move {
       0% {
-        background-position: 100% 50%;
+        transform: translateX(0);
       }
       100% {
-        background-position: 0% 50%;
+        transform: translateX(calc(-100% / 3));
       }
     }
   }
 
   .message__arrow {
-    position: absolute;
-    top: 50%;
-    left: 0;
     transform: rotate(-45deg);
     transition: all ease 0.2s;
+    position: relative;
+    margin-right: 20px;
     &:before,
     &:after {
       position: absolute;
       content: '';
-      border-right: 2px solid #c32186;
-      border-bottom: 2px solid #c32186;
+      border-right: 2px solid $message-arrow-color;
+      border-bottom: 2px solid $message-arrow-color;
       animation: arrow-wave 3s infinite;
     }
     &:before {
@@ -87,14 +100,6 @@
     }
   }
   &:hover {
-    filter: brightness(1.4);
-    .message__content {
-      transform: translateX(-10px);
-    }
-    .message__arrow {
-      left: 100%;
-      transform: translateX(10px) rotate(-45deg);
-
-    }
+    filter: brightness(2);
   }
 }

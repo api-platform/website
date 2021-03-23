@@ -150,7 +150,7 @@
   }
 
   @include mq($max-width: $vw-small) {
-    top: $headerMessageH + ($mobileHeaderH / 2);
+    top: ($headerMessageH + $mobileHeaderH) / 2;
   }
 
   @include mq($max-width: $vw-mobile-menu) {

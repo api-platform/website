@@ -11,7 +11,6 @@
   width: 100%;
   background-color: var(--bg);
   z-index: z('header');
-  transition: all ease 0.2s;
 
   .header__logo,
   .header__nav,
@@ -21,11 +20,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
-    @if $headerMessageH == 0 {
-      height: $headerH;
-    } @else {
-      height: $headerH - $headerMessageH;
-    }
+    height: $headerH - $headerMessageH;
   }
 
   .header__logo {
@@ -287,15 +282,15 @@
     height: $mobileHeaderH;
     .logo__circle,
     .logo__spider {
-      width: $mobileHeaderH - 10px;
-      height: $mobileHeaderH - 10px;
+      width: $mobileHeaderH - $headerMessageH - 10px;
+      height: $mobileHeaderH - $headerMessageH - 10px;
     }
 
     .header__logo,
     .header__nav,
     .header__search,
     .header__social {
-      height: $mobileHeaderH;
+      height: $mobileHeaderH - $headerMessageH;
     }
 
     .logo__text {

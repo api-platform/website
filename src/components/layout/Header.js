@@ -33,8 +33,14 @@ const Header = () => {
       <Link to="/con/">
         <div className="header__additional-message openable">
           <div className="message__content">
-            <div className="message__arrow" />
-            <strong>API Platform Conference</strong>: the 1st international conference dedicated to API Platform !
+            {[1, 2, 3].map((index) => (
+              /* put the information message content here */
+              <div className={`message${index}`}>
+                <div className="message__arrow" />
+                <strong>API Platform Con 2021</strong>: join us in Lille (France) or online on September 10 for our 1st
+                international conference.
+              </div>
+            ))}
           </div>
         </div>
       </Link>
