@@ -1,18 +1,18 @@
 import React, { useState, useMemo, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import DaySelector from './DaySelector';
-import days from '../data/days';
+import TrackSelector from './TrackSelector';
+import tracks from '../data/tracks';
 import SlotItem from './SlotItem';
-import { getFullConferencesByDay } from '../data/api';
+import { getFullConferencesByTrack } from '../data/api';
 import { FullConference } from '../types/index';
 import Button from '../common/Button';
 
 const TabbedSchedule: React.ComponentType = () => {
   const swipeableViews = useRef(null);
-  const [selectedDay, setSelectedDay] = useState(days.length);
+  const [selectedTrack, setSelectedTrack] = useState(tracks.length);
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
 
-  const conferences: FullConference[] = useMemo(() => getFullConferencesByDay(selectedDay), [selectedDay]);
+  const conferences: FullConference[] = useMemo(() => getFullConferencesByTrack(selectedTrack), [selectedTrack]);
   const morningConferences = useMemo(
     () => conferences.filter((conference) => 12 >= parseInt(conference.time?.[0].split(':')[0], 10)),
     [conferences]
@@ -26,7 +26,7 @@ const TabbedSchedule: React.ComponentType = () => {
     setSelectedMomentDay(index);
   };
 
-  useEffect(() => handleChangeIndex(0), [selectedDay]);
+  useEffect(() => handleChangeIndex(0), [selectedTrack]);
 
   const onResize = useCallback(() => {
     if (swipeableViews.current) swipeableViews.current.updateHeight();
@@ -45,10 +45,10 @@ const TabbedSchedule: React.ComponentType = () => {
 
   return (
     <div className="conf__schedule-tabbed">
-      <DaySelector selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+      <TrackSelector selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack} />
       <div className="schedule__program">
         <SwipeableViews
-          key={selectedDay}
+          key={selectedTrack}
           index={selectedMomentDay}
           onChangeIndex={handleChangeIndex}
           animateHeight

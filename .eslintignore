@@ -6,3 +6,4 @@ public/
 vendor/
 README.md
 *.d.ts
+*.md

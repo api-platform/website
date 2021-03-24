@@ -23,7 +23,7 @@ const EmptySpeakerCircle: React.ComponentType<EmptySpeakerCircleProps> = ({ inde
 
   return (
     <div className="conf__speaker-circle">
-      <div className="hoverable disabled">
+      <div className="conf__speaker-content hoverable disabled">
         <img width="270" height="270" className="circle__effect" src={circle} alt="effect" />
         <div className="circle">
           <img width="240" height="240" src={image} alt="Coming soon..." className="circle__picture" />

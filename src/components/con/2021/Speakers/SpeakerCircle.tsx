@@ -1,14 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import classNames from 'classnames';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Speaker } from '../types';
 import circle from '../images/circle.svg';
 
 interface SpeakerCircleProps {
   speaker: Speaker;
+  social?: boolean;
+  hoverable?: boolean;
 }
 
-const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker }) => {
+const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, social = true, hoverable = true }) => {
   const { image, name, job, github, twitter } = speaker;
   const data = useStaticQuery(graphql`
     query {
@@ -29,20 +32,19 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker }) => 
   `);
 
   const images = data.allFile.nodes.filter((imageData) => imageData.name === image)?.[0]?.childImageSharp;
+  const speakerData = {
+    '@context': 'http://schema.org',
+    '@type': 'Person',
+    name: speaker.name,
+    jobTitle: speaker.job,
+  };
 
   return (
     <div className="conf__speaker-circle">
       <Helmet>
-        <script type="application/ld+json">{`
-    {
-      "@context": "http://schema.org",
-      "@type": "Person",
-      "name": "${speaker.name}",
-      "jobTitle": "${speaker.job}"
-    }
-  `}</script>
+        <script type="application/ld+json">{JSON.stringify(speakerData)}</script>
       </Helmet>
-      <div className="hoverable">
+      <div className={classNames('conf__speaker-content', { hoverable })}>
         <img width="270" height="270" className="circle__effect" src={circle} alt="effect" />
         <div className="circle">
           <img
@@ -63,18 +65,20 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker }) => 
           <h3 className="h5 lined">{name}</h3>
         </div>
       </div>
-      <div className="speaker__social">
-        {github && (
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            <span className="icon-github" />
-          </a>
-        )}
-        {twitter && (
-          <a href={twitter} target="_blank" rel="noopener noreferrer">
-            <span className="icon-twitter" />
-          </a>
-        )}
-      </div>
+      {social && (
+        <div className="speaker__social">
+          {github && (
+            <a href={github} target="_blank" rel="noopener noreferrer">
+              <span className="icon-github" />
+            </a>
+          )}
+          {twitter && (
+            <a href={twitter} target="_blank" rel="noopener noreferrer">
+              <span className="icon-twitter" />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 };

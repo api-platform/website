@@ -10,6 +10,7 @@ const { readFileSync } = require('fs');
 const fs = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
+const slugify = require('./src/lib/slugHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
 
@@ -445,7 +446,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // conferences pages
-  /* const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
+  const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
   const conferencesResult = await graphql(`
     {
       allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
@@ -453,19 +454,13 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             html
             frontmatter {
-              date
-              slot
               title
               type
-              speakers {
-                description
-                github
-                image
-                job
-                list
-                name
-                twitter
-              }
+              speaker
+              track
+              start
+              end
+              short
             }
           }
         }
@@ -475,6 +470,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
   conferencePages.forEach((edge) => {
+    console.log(`/con/2021/${slugify(edge.node.frontmatter.title)}`);
     createPage({
       path: `/con/2021/${slugify(edge.node.frontmatter.title)}`,
       component: conferenceTemplate,
@@ -483,7 +479,7 @@ exports.createPages = async ({ graphql, actions }) => {
         ...edge.node.frontmatter,
       },
     });
-  }); */
+  });
 
   createRedirect({
     fromPath: '/con/',

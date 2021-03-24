@@ -1,5 +1,5 @@
 export type Speaker = {
-  id: string | number;
+  id: string;
   name: string;
   twitter?: string;
   github?: string;
@@ -15,7 +15,7 @@ export type Conference = {
   title: string;
   description?: string;
   time: string[];
-  day: number;
+  track: number;
 };
 
 export type FullConference = {
@@ -25,13 +25,12 @@ export type FullConference = {
   title: string;
   description?: string;
   time: string[];
-  day: number;
+  track: number;
 };
 
-export type Day = {
+export type Track = {
   index: number;
   type: string;
-  day: number;
   date: string;
 };
 

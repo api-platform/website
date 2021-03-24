@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
-import days from '../data/days';
+import tracks from '../data/tracks';
 
-interface DaySelectorProps {
-  selectedDay: number;
-  setSelectedDay: (val: number) => void;
+interface TrackSelectorProps {
+  selectedTrack: number;
+  setSelectedTrack: (val: number) => void;
 }
 
-const DaySelector: React.ComponentType<DaySelectorProps> = ({ selectedDay, setSelectedDay }) => {
+const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack, setSelectedTrack }) => {
   const [arrowPosition, setArrowPosition] = useState<number>(0);
   const arrow = useRef<HTMLDivElement>();
   const refs = useRef({});
@@ -16,34 +16,34 @@ const DaySelector: React.ComponentType<DaySelectorProps> = ({ selectedDay, setSe
   };
 
   useEffect(() => {
-    const obj = refs.current?.[selectedDay];
+    const obj = refs.current?.[selectedTrack];
     if (!obj) return;
     const childPos = obj.offsetTop;
     const height = obj.offsetHeight;
     setArrowPosition(childPos + height / 2);
-  }, [selectedDay, setArrowPosition, refs]);
+  }, [selectedTrack, setArrowPosition, refs]);
 
   return (
     <div className="schedule__day-selector">
-      {days.map((day) => (
+      {tracks.map((track) => (
         <div
-          key={day.index}
+          key={track.index}
           className={classNames('schedule__day', {
-            selected: day.index === selectedDay,
+            selected: track.index === selectedTrack,
           })}
-          ref={addRef(day.index)}
+          ref={addRef(track.index)}
           role="button"
           tabIndex={0}
           onClick={(e) => {
             e.preventDefault();
-            setSelectedDay(day.index);
+            setSelectedTrack(track.index);
           }}
         >
           <div className="h5" data-value="type">
-            {day.type}
+            {track.type}
           </div>
-          <div className="h5" data-value="day">{`day ${day.day}`}</div>
-          <div className="overline" data-value="date">{`day ${day.date}`}</div>
+          <div className="h5" data-value="day">{`track #${track.index}`}</div>
+          <div className="overline" data-value="date">{`day ${track.date}`}</div>
         </div>
       ))}
       <div className="schedule__arrow" ref={arrow} style={{ top: arrowPosition }} />
@@ -51,4 +51,4 @@ const DaySelector: React.ComponentType<DaySelectorProps> = ({ selectedDay, setSe
   );
 };
 
-export default DaySelector;
+export default TrackSelector;
