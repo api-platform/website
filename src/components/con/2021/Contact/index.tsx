@@ -19,7 +19,7 @@ const Contact: React.ComponentType = () => (
           Contact us!
         </a>
         <div className="overline">or follow us on social networks</div>
-        <div className="contact__social">
+        <div className="social__list white">
           <a href="https://mastodon.online/@cooptilleuls" target="_blank" rel="noopener noreferrer">
             <i className="icon-mastodon" />
           </a>

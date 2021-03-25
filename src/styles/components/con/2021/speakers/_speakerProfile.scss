@@ -1,0 +1,72 @@
+.conf {
+  .conf__speaker-profile {
+    padding-top: 80px;
+    margin-bottom: -100px;
+    position: relative;
+    z-index: 5;
+    .circle__picture {
+      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+    }
+    .speaker__job {
+      color: #fff;
+      text-align: center;
+      max-width: 300px;
+      margin: 0 auto;
+      font-size: 20px;
+    }
+    .speaker__conference {
+      @include z-depth-3;
+      background: var(--lightgrey);
+      display: flex;
+      flex-direction: row;
+    }
+    .speaker__about {
+      background: var(--lightgrey);
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 40px 40px 120px;
+      margin-top: 50px;
+    }
+    .speaker__details {
+      flex: 1;
+      padding: 50px;
+      p {
+        line-height: 1.5;
+        text-align: justify;
+      }
+      .social__list {
+        justify-content: flex-start;
+        a:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+    .speaker__schedule {
+      text-align: center;
+      transform: translateY(-80px);
+    }
+    .conference__track {
+      width: 200px;
+      text-align: center;
+      @include blue-gradient;
+      color: #fff;
+      padding: 20px;
+      @include flex-center;
+      font-weight: 900;
+      .overline {
+        font-weight: 500;
+      }
+    }
+    .conference__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+      padding: 20px 40px;
+      text-align: left;
+    }
+  }
+}

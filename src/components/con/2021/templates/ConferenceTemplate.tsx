@@ -44,7 +44,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
           <div className="conference__content">
             <div className="conference__speaker">
               <SpeakerCircle speaker={speaker} hoverable={false} social={false} />
-              <Button className="white square" size="small" to={`/con/2021/${slugify(speaker.name)}`}>
+              <Button className="white square" size="small" to={`/con/2021/speakers/${slugify(speaker.name)}`}>
                 See speaker details
               </Button>
             </div>

@@ -1,6 +1,8 @@
 import { FullConference, Speaker, Track } from '../types';
-import speakers from './speakers';
+// import speakers from './speakers';
 import tracks from './tracks';
+
+const speakers = require('./speakers');
 
 export const conferences = [];
 

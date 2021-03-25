@@ -6,16 +6,18 @@ export type Speaker = {
   image: string;
   job: string;
   list: boolean;
+  description: string;
 };
 
 export type Conference = {
   id: number;
-  speakers?: number[];
-  speakerTitle?: string;
   title: string;
   description?: string;
-  time: string[];
+  start: string;
+  end: string;
+  short: string;
   track: number;
+  slug: string;
 };
 
 export type FullConference = {

@@ -14,6 +14,8 @@ const slugify = require('./src/lib/slugHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
 
+const speakers2021 = require('./src/components/con/2021/data/speakers.json');
+
 if (fs.existsSync('.env.local')) {
   // eslint-disable-next-line global-require
   require('dotenv').config({
@@ -453,8 +455,13 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             html
+            headings(depth: h1) {
+              value
+            }
+            fields {
+              slug
+            }
             frontmatter {
-              title
               type
               speaker
               track
@@ -470,13 +477,13 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
   conferencePages.forEach((edge) => {
-    console.log(`/con/2021/${slugify(edge.node.frontmatter.title)}`);
     createPage({
-      path: `/con/2021/${slugify(edge.node.frontmatter.title)}`,
+      path: edge.node.fields.slug,
       component: conferenceTemplate,
       context: {
         html: edge.node.html,
         ...edge.node.frontmatter,
+        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
       },
     });
   });
@@ -484,6 +491,24 @@ exports.createPages = async ({ graphql, actions }) => {
   createRedirect({
     fromPath: '/con/',
     toPath: '/con/2021/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+
+  // speakers pages
+  const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
+
+  speakers2021.forEach((speaker) => {
+    createPage({
+      path: `/con/2021/speakers/${slugify(speaker.name)}`,
+      component: speakerTemplate,
+      context: speaker,
+    });
+  });
+
+  createRedirect({
+    fromPath: '/con/2021/speakers/',
+    toPath: '/con/2021/#speakers',
     isPermanent: true,
     redirectInBrowser: true,
   });

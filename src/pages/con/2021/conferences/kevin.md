@@ -1,6 +1,5 @@
 ---
 type: conference
-title: What's new in API Platform ?
 speaker: kevin
 track: 1
 start: '09:00'

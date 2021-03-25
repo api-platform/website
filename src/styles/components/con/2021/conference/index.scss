@@ -2,6 +2,7 @@
   position: relative;
   padding-top: 80px;
   min-height: 100vh;
+  z-index: 5;
   &:before {
     content: '';
     position: absolute;
@@ -67,7 +68,7 @@
     .lined:after {
       background-color: var(--lightblue);
     }
-    .circle__effect {
+    .circle__effect:before {
       filter: brightness(1.2);
     }
   }
