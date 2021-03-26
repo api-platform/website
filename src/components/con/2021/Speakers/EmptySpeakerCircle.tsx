@@ -21,7 +21,7 @@ const EmptySpeakerCircle: React.ComponentType<EmptySpeakerCircleProps> = ({ inde
   }
 
   return (
-    <div className="conf__speaker-circle">
+    <div className="conf__speaker-resume">
       <div className="conf__speaker-content hoverable disabled">
         <div className="circle__effect">
           <div className="circle">

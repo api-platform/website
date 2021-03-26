@@ -26,7 +26,8 @@ export type FullConference = {
   speakerTitle?: string;
   title: string;
   description?: string;
-  time: string[];
+  start: string;
+  end: string;
   track: number;
 };
 

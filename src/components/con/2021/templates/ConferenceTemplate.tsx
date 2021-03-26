@@ -6,6 +6,7 @@ import { getSpeaker, getTrack } from '../data/api';
 import Button from '../common/Button';
 import slugify from '../../../../lib/slugHelper';
 import SpeakerCircle from '../Speakers/SpeakerCircle';
+import { convertTime } from '../utils';
 
 interface ConferenceTemplateProps extends PageProps {
   pageContext: {
@@ -28,7 +29,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
       <div className="conf__conference">
         <div className="container">
           <div className="conference__header">
-            <SectionTitle dark lined>
+            <SectionTitle dark lined h1>
               <strong>{title}</strong>
             </SectionTitle>
             {track ? (
@@ -37,7 +38,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
                   <strong>{`Track #${track.index} `}</strong>
                   {`- ${track.type}`}
                 </p>
-                <p className="header__date">{`September, 10 2021 · ${start} - ${end}`}</p>
+                <p className="header__date">{`September, 10 2021 · ${convertTime(start)} - ${convertTime(end)}`}</p>
               </>
             ) : null}
           </div>

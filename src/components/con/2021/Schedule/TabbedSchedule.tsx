@@ -5,6 +5,7 @@ import tracks from '../data/tracks';
 import SlotItem from './SlotItem';
 import { getFullConferencesByTrack } from '../data/api';
 import { FullConference } from '../types/index';
+import { isMorningTime } from '../utils';
 import Button from '../common/Button';
 
 const TabbedSchedule: React.ComponentType = () => {
@@ -13,14 +14,12 @@ const TabbedSchedule: React.ComponentType = () => {
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
 
   const conferences: FullConference[] = useMemo(() => getFullConferencesByTrack(selectedTrack), [selectedTrack]);
-  const morningConferences = useMemo(
-    () => conferences.filter((conference) => 12 >= parseInt(conference.time?.[0].split(':')[0], 10)),
-    [conferences]
-  );
-  const afternoonConferences = useMemo(
-    () => conferences.filter((conference) => 12 < parseInt(conference.time?.[0].split(':')[0], 10)),
-    [conferences]
-  );
+  const morningConferences = useMemo(() => conferences.filter((conference) => isMorningTime(conference.start)), [
+    conferences,
+  ]);
+  const afternoonConferences = useMemo(() => conferences.filter((conference) => !isMorningTime(conference.start)), [
+    conferences,
+  ]);
 
   const handleChangeIndex = (index: 0 | 1) => {
     setSelectedMomentDay(index);

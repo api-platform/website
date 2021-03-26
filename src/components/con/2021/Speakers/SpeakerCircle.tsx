@@ -41,7 +41,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
   };
 
   return (
-    <div className="conf__speaker-circle">
+    <div className="conf__speaker-resume">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(speakerData)}</script>
       </Helmet>

@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@components/con/2021/layout';
 import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
-import dayjs from 'dayjs';
+import { convertTime } from '../utils';
 import { getTrack } from '../data/api';
 import Button from '../common/Button';
 import { Conference, Speaker } from '../types';
@@ -11,21 +11,6 @@ import SpeakerSocialList from '../Speakers/SpeakerSocialList';
 const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
   const track = getTrack(conference.track);
 
-  const convertTime = (timeRange: string[]) => {
-    if (2 > timeRange.length) return 'invalid time range';
-    const startTimeParts = timeRange[0].split(':');
-    const endTimeParts = timeRange[1].split(':');
-    const startDate = dayjs()
-      .set('hour', parseInt(startTimeParts?.[0], 10))
-      .set('minute', parseInt(startTimeParts?.[1], 10))
-      .format('LT');
-    const endDate = dayjs()
-      .set('hour', parseInt(endTimeParts?.[0], 10))
-      .set('minute', parseInt(endTimeParts?.[1], 10))
-      .format('LT');
-    return `${startDate} - ${endDate}`;
-  };
-
   return (
     <div className="speaker__conference dotted-corner">
       <div className="conference__track">
@@ -33,8 +18,10 @@ const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = (
         <span className="overline">{track.type}</span>
       </div>
       <div className="conference__content">
-        <span className="overline">{convertTime([conference.start, conference.end])}</span>
-        <h3 className="h5 lined lined-left">{conference.title}</h3>
+        <span className="overline">{`Sep, 10 2021 · ${convertTime(conference.start)} - ${convertTime(
+          conference.end
+        )}`}</span>
+        <h3 className="h6 lined lined-left">{conference.title}</h3>
         <p>{conference.short}</p>
         <Button className="square" size="small" to={conference.slug}>
           See details
@@ -100,7 +87,7 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
     <Layout location={location}>
       <div className="conf__speaker-profile">
         <div className="speaker__header">
-          <SectionTitle dark lined>
+          <SectionTitle dark lined h1>
             <strong>{name}</strong>
           </SectionTitle>
           <div className="overline speaker__job">{job}</div>
@@ -120,13 +107,12 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
               </div>
             </div>
             <div className="speaker__details">
-              <div className="h5 lined lined-left">{`About ${firstname}`}</div>
+              <h2 className="about__title h4 lined lined-left">{`About ${firstname}`}</h2>
               <p>{description}</p>
               <SpeakerSocialList speaker={pageContext} />
             </div>
-          </div>
-          <div className="speaker__schedule">
-            <div className="container">
+            <div className="speaker__schedule">
+              <h2 className="schedule__title h5">{`${firstname}'s schedule`}</h2>
               {conferences.map((conference) => (
                 <SpeakerConferenceSlot conference={conference} />
               ))}

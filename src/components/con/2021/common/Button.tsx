@@ -7,7 +7,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> 
   className?: string;
   empty?: boolean;
   disabled?: boolean;
-  to: string;
+  to?: string;
 }
 
 const Button: React.ComponentType<ButtonProps> = ({
