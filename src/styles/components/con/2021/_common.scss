@@ -129,7 +129,6 @@
     }
     &.lined-white {
       @include lined(#fff);
-
     }
   }
 
@@ -165,7 +164,6 @@
     margin-bottom: 40px;
     opacity: 0.6;
   }
-
   .conf__section-title {
     text-align: center;
     color: var(--blackblue);
@@ -180,6 +178,11 @@
     .h2 {
       position: relative;
       z-index: 1;
+    }
+    &.small {
+      .h2 {
+        font-size: 50px;
+      }
     }
 
     .title__layer {

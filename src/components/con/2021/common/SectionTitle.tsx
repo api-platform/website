@@ -5,6 +5,7 @@ interface SectionTitleProps {
   dark?: boolean;
   lined?: boolean;
   h1?: boolean;
+  small?: boolean;
 }
 
 const SectionTitle: React.ComponentType<SectionTitleProps> = ({
@@ -12,10 +13,11 @@ const SectionTitle: React.ComponentType<SectionTitleProps> = ({
   dark = false,
   lined = false,
   h1 = false,
+  small = false,
 }) => (
-  <div className={classnames('conf__section-title', { dark })}>
+  <div className={classnames('conf__section-title', { dark, small })}>
     {h1 ? <h1 className="h2 title__layer">{children}</h1> : <h2 className="title__layer">{children}</h2>}
-    <span className={classnames('h2', { lined })}>{children}</span>
+    <div className={classnames('h2', { lined })}>{children}</div>
   </div>
 );
 

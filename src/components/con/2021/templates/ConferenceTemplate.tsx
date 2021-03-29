@@ -29,7 +29,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
       <div className="conf__conference">
         <div className="container">
           <div className="conference__header">
-            <SectionTitle dark lined h1>
+            <SectionTitle dark lined h1 small={50 < title.length}>
               <strong>{title}</strong>
             </SectionTitle>
             {track ? (
@@ -38,7 +38,9 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
                   <strong>{`Track #${track.index} `}</strong>
                   {`- ${track.type}`}
                 </p>
-                <p className="header__date">{`September, 10 2021 · ${convertTime(start)} - ${convertTime(end)}`}</p>
+                <p className="header__date">
+                  {end && start ? `September, 10 2021 · ${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
+                </p>
               </>
             ) : null}
           </div>

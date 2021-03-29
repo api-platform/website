@@ -11,7 +11,7 @@ import tracks from '../data/tracks';
 
 const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
   const track = tracks.find((t) => t.index === conference.track);
-
+  const { start, end, title, slug, short } = conference;
   return (
     <div className="speaker__conference dotted-corner">
       <div className="conference__track">
@@ -19,12 +19,12 @@ const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = (
         <span className="overline">{track.type}</span>
       </div>
       <div className="conference__content">
-        <span className="overline">{`Sep, 10 2021 · ${convertTime(conference.start)} - ${convertTime(
-          conference.end
-        )}`}</span>
-        <h3 className="h6 lined lined-left">{conference.title}</h3>
-        <p>{conference.short}</p>
-        <Button className="square" size="small" to={conference.slug}>
+        <span className="overline">
+          {start && end ? `Sep, 10 2021 · ${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
+        </span>
+        <h3 className="h6 lined lined-left">{title}</h3>
+        <p>{short}</p>
+        <Button className="square" size="small" to={slug}>
           See details
         </Button>
       </div>

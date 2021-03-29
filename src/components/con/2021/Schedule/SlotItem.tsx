@@ -18,7 +18,9 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
     <Link to={slug} className={classNames('schedule__slot', { 'no-speaker': !speakers?.length })}>
       {speakers?.length && <Avatar speakers={speakers} />}
       <div className="schedule__slot-infos">
-        <span className="overline">{`${convertTime(start)} - ${convertTime(end)}`}</span>
+        <span className="overline">
+          {start && end ? `${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
+        </span>
         <h3 className={classNames('h6 lined', { 'lined-left': speakers?.length })}>{title}</h3>
         {speakers?.length ? (
           <span className="body2">

@@ -10,7 +10,7 @@
     width: 100%;
     height: calc(100% - 300px);
     bottom: 0;
-    background: #fff;
+    background: var(--lightgrey);
   }
   &:after {
     content: '';
@@ -153,7 +153,6 @@
     font-weight: inherit;
     overflow: hidden;
     position: relative;
-    transition: all ease 0.5s;
     &:after {
       content: '';
       opacity: 0.2;
@@ -163,7 +162,7 @@
       top: 0;
       position: absolute;
       background-image: linear-gradient(30deg, transparent 50%, var(--blackblue) 50%);
-      background-size: 250%;
+      background-size: 280%;
       background-repeat: no-repeat;
       background-position: 0px;
       transition: background-position ease 0.5s;

@@ -9,7 +9,9 @@ github: https://github.com/lchrusciel
 
 ## About Łukasz
 
-Łukasz is currently solely focused on **development of Sylius products**. His main area of interests are **solving development problems and increasing knowledge** of less experienced fellow software engineers. He is cooperating with our Product Owner in terms of technical features.
+Łukasz is **involved in Sylius development** for the last six years, currently a **core team member**. In the role of trainer, he provided **several speeches and training across Europe**. Kind of an API-guy, Pragmatic developer with the love to clean, quality code, and automatization.
+
+In private traveler, board game fan, and amateur lacrosse player.
 
 You may spot him on Github, answering your issues and reviewing your PR’s.
 

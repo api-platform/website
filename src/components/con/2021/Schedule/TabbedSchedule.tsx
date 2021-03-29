@@ -17,11 +17,12 @@ const TabbedSchedule: React.ComponentType = () => {
     selectedTrack,
   ]);
 
-  const morningConferences = useMemo(() => trackConferences.filter((conference) => isMorningTime(conference.start)), [
-    trackConferences,
-  ]);
+  const morningConferences = useMemo(
+    () => trackConferences.filter((conference) => isMorningTime(conference.start) || !conference.start),
+    [trackConferences]
+  );
   const afternoonConferences = useMemo(
-    () => trackConferences.filter((conference) => !isMorningTime(conference.start)),
+    () => trackConferences.filter((conference) => conference.start && !isMorningTime(conference.start)),
     [trackConferences]
   );
 
