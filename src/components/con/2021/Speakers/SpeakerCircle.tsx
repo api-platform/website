@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { Speaker } from '../types';
 import SpeakerSocialList from './SpeakerSocialList';
-import slugify from '../../../../lib/slugHelper';
 
 interface SpeakerCircleProps {
   speaker: Speaker;
@@ -13,10 +12,10 @@ interface SpeakerCircleProps {
 }
 
 const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, social = true, hoverable = true }) => {
-  const { image, name, job } = speaker;
+  const { id, name, job } = speaker;
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "speakers" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "speakersImages" } }) {
         nodes {
           name
           childImageSharp {
@@ -32,7 +31,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
     }
   `);
 
-  const images = data.allFile.nodes.filter((imageData) => imageData.name === image)?.[0]?.childImageSharp;
+  const images = data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0]?.childImageSharp;
   const speakerData = {
     '@context': 'http://schema.org',
     '@type': 'Person',
@@ -45,10 +44,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(speakerData)}</script>
       </Helmet>
-      <Link
-        className={classNames('conf__speaker-content', { hoverable })}
-        to={`/con/2021/speakers/${slugify(speaker.name)}`}
-      >
+      <Link className={classNames('conf__speaker-content', { hoverable })} to={speaker.slug}>
         <div className="circle__effect">
           <div className="circle">
             <img

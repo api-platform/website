@@ -24,11 +24,11 @@ const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack,
   }, [selectedTrack, setArrowPosition, refs]);
 
   return (
-    <div className="schedule__day-selector">
+    <div className="schedule__track-selector">
       {tracks.map((track) => (
         <div
           key={track.index}
-          className={classNames('schedule__day', {
+          className={classNames('schedule__track', {
             selected: track.index === selectedTrack,
           })}
           ref={addRef(track.index)}
@@ -39,11 +39,8 @@ const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack,
             setSelectedTrack(track.index);
           }}
         >
-          <div className="h5" data-value="type">
-            {track.type}
-          </div>
           <div className="h5" data-value="day">{`track #${track.index}`}</div>
-          <div className="overline" data-value="date">{`day ${track.date}`}</div>
+          <div className="overline" data-value="type">{`${track.type}`}</div>
         </div>
       ))}
       <div className="schedule__arrow" ref={arrow} style={{ top: arrowPosition }} />

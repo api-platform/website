@@ -8,7 +8,7 @@ const tracks: Track[] = [
   },
   {
     index: 2,
-    type: 'French and english-speaking track',
+    type: 'French-speaking track',
     date: '10 sep, 2021',
   },
 ];

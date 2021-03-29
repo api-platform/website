@@ -47,7 +47,6 @@
         }
       }
     }
-    .about__title,
     .schedule__title {
       font-weight: 900;
     }
@@ -60,9 +59,23 @@
     .speaker__details {
       flex: 1;
       padding: 0 50px;
+      .anchor {
+        display: none;
+      }
+      h2 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: 900;
+        @include lined;
+        @include lined-left;
+        margin-bottom: 20px;
+      }
+
       p {
         line-height: 1.5;
         text-align: justify;
+        font-size: 18px;
       }
       .social__list {
         justify-content: flex-start;

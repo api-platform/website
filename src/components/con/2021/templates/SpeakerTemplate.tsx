@@ -3,13 +3,14 @@ import Layout from '@components/con/2021/layout';
 import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
 import { convertTime } from '../utils';
-import { getTrack } from '../data/api';
 import Button from '../common/Button';
 import { Conference, Speaker } from '../types';
 import SpeakerSocialList from '../Speakers/SpeakerSocialList';
+import useConferences from '../hooks/useConferences';
+import tracks from '../data/tracks';
 
 const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
-  const track = getTrack(conference.track);
+  const track = tracks.find((t) => t.index === conference.track);
 
   return (
     <div className="speaker__conference dotted-corner">
@@ -36,10 +37,11 @@ interface ConferenceTemplateProps extends PageProps {
 }
 
 const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext, location }) => {
-  const { id, name, job, description, image } = pageContext;
+  const { id, name, job, description } = pageContext;
+  const conferences = useConferences(id);
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "speakers" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "speakersImages" } }) {
         nodes {
           name
           childImageSharp {
@@ -52,34 +54,9 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
           }
         }
       }
-      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
-        nodes {
-          frontmatter {
-            title
-            speaker
-            track
-            start
-            end
-            short
-          }
-          headings(depth: h1) {
-            value
-          }
-          fields {
-            slug
-          }
-        }
-      }
     }
   `);
-  const images = data.allFile.nodes.filter((imageData) => imageData.name === image)?.[0]?.childImageSharp;
-  const conferences = data.allMarkdownRemark.nodes
-    .filter((conferenceData) => conferenceData.frontmatter.speaker === id)
-    .map((conference) => ({
-      ...conference.frontmatter,
-      title: conference.headings?.[0].value,
-      slug: conference.fields.slug,
-    }));
+  const images = data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0]?.childImageSharp;
 
   const firstname = name.split(' ')[0];
 
@@ -107,8 +84,11 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
               </div>
             </div>
             <div className="speaker__details">
-              <h2 className="about__title h4 lined lined-left">{`About ${firstname}`}</h2>
-              <p>{description}</p>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: description,
+                }}
+              />
               <SpeakerSocialList speaker={pageContext} />
             </div>
             <div className="speaker__schedule">

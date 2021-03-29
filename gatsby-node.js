@@ -10,11 +10,8 @@ const { readFileSync } = require('fs');
 const fs = require('fs');
 const { current, versions } = require('./constants');
 const versionHelper = require('./src/lib/versionHelper');
-const slugify = require('./src/lib/slugHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
-
-const speakers2021 = require('./src/components/con/2021/data/speakers.json');
 
 if (fs.existsSync('.env.local')) {
   // eslint-disable-next-line global-require
@@ -498,7 +495,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // speakers pages
   const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
 
-  speakers2021.forEach((speaker) => {
+  /* speakers2021.forEach((speaker) => {
     createPage({
       path: `/con/2021/speakers/${slugify(speaker.name)}`,
       component: speakerTemplate,
@@ -509,6 +506,51 @@ exports.createPages = async ({ graphql, actions }) => {
   createRedirect({
     fromPath: '/con/2021/speakers/',
     toPath: '/con/2021/#speakers',
+    isPermanent: true,
+    redirectInBrowser: true,
+  }); */
+
+  const speakerResult = await graphql(`
+    {
+      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "speaker" } } }) {
+        edges {
+          node {
+            html
+            headings(depth: h1) {
+              value
+            }
+            fields {
+              slug
+            }
+            frontmatter {
+              name
+              id
+              job
+              twitter
+              github
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const speakerPages = speakerResult.data.allMarkdownRemark.edges;
+  speakerPages.forEach((edge) => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: speakerTemplate,
+      context: {
+        description: edge.node.html,
+        ...edge.node.frontmatter,
+        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
+      },
+    });
+  });
+
+  createRedirect({
+    fromPath: '/con/',
+    toPath: '/con/2021/',
     isPermanent: true,
     redirectInBrowser: true,
   });

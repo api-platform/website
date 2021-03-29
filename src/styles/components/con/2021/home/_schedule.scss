@@ -49,7 +49,7 @@
     text-align: center;
     padding: 10px;
     background: #fff;
-    .schedule__day {
+    .schedule__track:not(:last-child) {
       margin-bottom: 10px;
     }
     @include mq($min-width: $vw-medium + 1) {
@@ -57,23 +57,20 @@
     }
   }
 
-  .schedule__day {
+  .schedule__track {
     padding: 10px;
     @include blue-gradient;
     width: 100%;
 
-    [data-value='type'] {
-      line-height: 0.8;
-    }
     [data-value='day'] {
       font-weight: 900;
     }
-    [data-value='date'] {
+    [data-value='type'] {
       font-weight: 600;
     }
   }
 
-  .schedule__day-selector {
+  .schedule__track-selector {
     text-align: right;
     width: 330px;
     padding: 20px;
@@ -85,11 +82,12 @@
       width: 280px;
     }
 
-    .schedule__day {
+    .schedule__track {
       background: none;
-      margin-bottom: 20px;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
       cursor: pointer;
-
       &.selected {
         background: var(--blue);
         background-blend-mode: hard-light;
@@ -116,6 +114,7 @@
     flex: 1;
     overflow-x: hidden;
     @include z-depth-5;
+    min-height: 200px;
     .schedule__program-empty {
       background: var(--lightgrey);
       width: 100%;
@@ -145,12 +144,63 @@
   }
 
   .schedule__slot {
-    background: var(--lightgrey);
+    background-color: var(--lightgrey);
     padding: 20px;
     display: flex;
     flex-direction: row;
     color: var(--blackblue);
     text-align: left;
+    font-weight: inherit;
+    overflow: hidden;
+    position: relative;
+    transition: all ease 0.5s;
+    &:after {
+      content: '';
+      opacity: 0.2;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+      background-image: linear-gradient(30deg, transparent 50%, var(--blackblue) 50%);
+      background-size: 250%;
+      background-repeat: no-repeat;
+      background-position: 0px;
+      transition: background-position ease 0.5s;
+    }
+
+    .schedule__slot-avatar,
+    .schedule__slot-infos {
+      transition: transform ease 0.5s;
+    }
+    .schedule__slot-plus {
+      width: 100px;
+      height: auto;
+      fill: #fff;
+      position: absolute;
+      z-index: 2;
+      left: calc(100% - 75px);
+      top: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      transition: all ease 0.5s;
+    }
+    &:hover {
+      color: var(--blackblue);
+      &:after {
+        background-position: 100%;
+      }
+
+      .schedule__slot-avatar,
+      .schedule__slot-infos {
+        transform: translateX(-150px);
+      }
+      .schedule__slot-plus {
+        width: 50px;
+        transform: translate(-50%, -50%) rotate(0);
+        opacity: 1;
+      }
+    }
     &:not(:last-child) {
       margin-bottom: 10px;
     }

@@ -3,10 +3,9 @@ export type Speaker = {
   name: string;
   twitter?: string;
   github?: string;
-  image: string;
   job: string;
-  list: boolean;
   description: string;
+  slug: string;
 };
 
 export type Conference = {
@@ -18,17 +17,7 @@ export type Conference = {
   short: string;
   track: number;
   slug: string;
-};
-
-export type FullConference = {
-  id: number;
-  speakers?: Speaker[];
-  speakerTitle?: string;
-  title: string;
-  description?: string;
-  start: string;
-  end: string;
-  track: number;
+  speaker: string;
 };
 
 export type Track = {

@@ -5,7 +5,7 @@
 }
 
 @mixin blue-gradient {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 120%), var(--blue) ;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 120%), var(--blue);
 }
 
 @mixin blue-gradient-linear {
@@ -26,3 +26,25 @@
   transform: translate(-50%, -50%);
 }
 
+@mixin lined($color: var(--blue)) {
+  position: relative;
+  padding-bottom: 20px;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    left: 50%;
+    bottom: 5px;
+    background-color: $color;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    transition: all ease 0.3s;
+  }
+}
+@mixin lined-left {
+  &:after {
+    left: 0;
+    transform: none;
+  }
+}

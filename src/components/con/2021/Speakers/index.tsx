@@ -4,10 +4,11 @@ import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import Section from '../common/Section';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
-import { getSpeakerList } from '../data/api';
+import useSpeakers from '../hooks/useSpeakers';
+import { Speaker } from '../types';
 
 const Speakers: React.ComponentType = () => {
-  const speakers = getSpeakerList();
+  const speakers: Speaker[] = useSpeakers();
 
   return (
     <Section className="conf__speakers" section="speakers">
