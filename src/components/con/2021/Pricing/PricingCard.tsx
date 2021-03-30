@@ -31,7 +31,7 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
             <div key={offer.title} className={classNames('pricing__offer', { active: index === activeIndex })}>
               <span className="overline offer__limit">{`until ${dayjs(offer.limitDate).format('LL')}`}</span>
               <span className="overline offer__title">{offer.title}</span>
-              <span className="h4 pricing__amount">{offer.price}€</span>
+              <span className="h4 pricing__amount">{offer.price}€*</span>
             </div>
           ))}
         </div>
