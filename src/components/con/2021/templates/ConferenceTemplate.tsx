@@ -13,7 +13,7 @@ interface ConferenceTemplateProps extends PageProps {
     html: string;
     title: string;
     speaker: string;
-    track: number;
+    track: 'FR' | 'EN';
     start: string;
     end: string;
   };
@@ -22,7 +22,7 @@ interface ConferenceTemplateProps extends PageProps {
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext, location }) => {
   const { html, title, speaker: speakerId, track: trackID, start, end } = pageContext;
   const speaker = useSpeaker(speakerId);
-  const track = tracks.find((t) => t.index === trackID);
+  const track = tracks.find((t) => t.id === trackID);
 
   return (
     <Layout location={location}>
@@ -35,7 +35,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
             {track ? (
               <>
                 <p className="overline header__subtitle">
-                  <strong>{`Track #${track.index} `}</strong>
+                  <strong>{`Track #${track.id} `}</strong>
                   {`- ${track.type}`}
                 </p>
                 <p className="header__date">

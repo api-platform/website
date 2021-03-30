@@ -6,12 +6,12 @@ import { Track } from '../types';
 
 const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
   const allConferences = useConferences();
-  const conferences = allConferences.filter((conference) => conference.track === track.index);
+  const conferences = allConferences.filter((conference) => conference.track === track.id);
 
   return (
     <>
       <div className="schedule__track">
-        <div className="h5" data-value="day">{`Track #${track.index}`}</div>
+        <div className="h5" data-value="day">{`Track #${track.id}`}</div>
         <div className="overline" data-value="type">
           {track.type}
         </div>
@@ -27,7 +27,7 @@ const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
 const FullSchedule: React.ComponentType = () => (
   <div className="conf__schedule-full">
     {tracks.map((track) => (
-      <ScheduleByTrack track={track} key={track.index} />
+      <ScheduleByTrack track={track} key={track.id} />
     ))}
   </div>
 );

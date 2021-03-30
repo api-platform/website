@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import tracks from '../data/tracks';
 
 interface TrackSelectorProps {
-  selectedTrack: number;
-  setSelectedTrack: (val: number) => void;
+  selectedTrack: 'FR' | 'EN';
+  setSelectedTrack: (val: 'FR' | 'EN') => void;
 }
 
 const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack, setSelectedTrack }) => {
@@ -27,19 +27,19 @@ const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack,
     <div className="schedule__track-selector">
       {tracks.map((track) => (
         <div
-          key={track.index}
+          key={track.id}
           className={classNames('schedule__track', {
-            selected: track.index === selectedTrack,
+            selected: track.id === selectedTrack,
           })}
-          ref={addRef(track.index)}
+          ref={addRef(track.id)}
           role="button"
           tabIndex={0}
           onClick={(e) => {
             e.preventDefault();
-            setSelectedTrack(track.index);
+            setSelectedTrack(track.id);
           }}
         >
-          <div className="h5" data-value="day">{`track #${track.index}`}</div>
+          <div className="h5" data-value="day">{`track #${track.id}`}</div>
           <div className="overline" data-value="type">{`${track.type}`}</div>
         </div>
       ))}

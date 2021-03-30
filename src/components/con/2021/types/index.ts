@@ -15,13 +15,13 @@ export type Conference = {
   start: string;
   end: string;
   short: string;
-  track: number;
+  track: 'FR' | 'EN';
   slug: string;
   speaker: string;
 };
 
 export type Track = {
-  index: number;
+  id: 'FR' | 'EN';
   type: string;
   date: string;
 };

@@ -8,7 +8,7 @@ import useConferences from '../hooks/useConferences';
 
 const TabbedSchedule: React.ComponentType = () => {
   const swipeableViews = useRef(null);
-  const [selectedTrack, setSelectedTrack] = useState(1);
+  const [selectedTrack, setSelectedTrack] = useState<'EN' | 'FR'>('EN');
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
   const conferences = useConferences();
 

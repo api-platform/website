@@ -10,12 +10,12 @@ import useConferences from '../hooks/useConferences';
 import tracks from '../data/tracks';
 
 const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
-  const track = tracks.find((t) => t.index === conference.track);
+  const track = tracks.find((t) => t.id === conference.track);
   const { start, end, title, slug, short } = conference;
   return (
     <div className="speaker__conference dotted-corner">
       <div className="conference__track">
-        <span className="h6">{`Track #${track.index}`}</span>
+        <span className="h6">{`Track #${track.id}`}</span>
         <span className="overline">{track.type}</span>
       </div>
       <div className="conference__content">

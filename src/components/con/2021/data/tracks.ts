@@ -2,12 +2,12 @@ import { Track } from '../types';
 
 const tracks: Track[] = [
   {
-    index: 1,
+    id: 'EN',
     type: 'English-speaking track',
     date: '10 sep, 2021',
   },
   {
-    index: 2,
+    id: 'FR',
     type: 'French-speaking track',
     date: '10 sep, 2021',
   },
