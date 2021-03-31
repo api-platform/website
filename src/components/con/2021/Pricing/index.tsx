@@ -31,10 +31,10 @@ const Pricing: React.ComponentType = () => {
             </div>
           </GridItem>
         </Grid>
-        <Warning title="COVID-19 information" img={Covid} className="pricing__warning">
+        <Warning title="*COVID-19 information" img={Covid} className="pricing__warning">
           <p>
             Tickets may be refunded (except for the Eventbrite fees) if the event has to be cancelled due to the
-            COVID-19 pandemic, or if you are unable to attend the event due to contamination.
+            COVID-19 pandemic, or if you are unable to attend the event due to this sanitary context.
           </p>
         </Warning>
       </div>

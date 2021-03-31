@@ -18,6 +18,7 @@ import CommunitySecurity from '../images/community_security.svg';
 import CommunityTraining from '../images/community_training.svg';
 import Puzzle1 from '../images/puzzle-01.svg';
 import Puzzle2 from '../images/puzzle-02.svg';
+import { confEvent } from './community/events';
 
 const CommunityCard = ({ children, image, title }) => (
   <div className="card community__card">
@@ -50,7 +51,7 @@ const CommunityPage = ({ location, data }) => {
     setContributors(shuffledContributors.slice(0, 3));
   }, [data.allContributor.nodes]);
 
-  const events = [...upcomingEvents, ...pastEvents].splice(0, 3);
+  const events = [confEvent, ...upcomingEvents, ...pastEvents].splice(0, 3);
   return (
     <Layout location={location}>
       <div className="community">

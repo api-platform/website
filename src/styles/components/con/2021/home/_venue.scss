@@ -208,8 +208,7 @@
         position: relative;
         img {
           @include absolute-center;
-          width: 100%;
-          padding: 20px;
+          width: 70%;
         }
       }
     }
