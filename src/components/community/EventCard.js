@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import { Link } from 'gatsby';
 import { MeetupEventType } from '../../types';
 
 const EventInfos = ({ event, big }) => (
@@ -27,19 +28,41 @@ EventInfos.propTypes = {
 EventInfos.defaultProps = {
   big: false,
 };
+
+const EventLink = ({ children, link, isLocal, ...props }) => {
+  if (isLocal) {
+    return (
+      <Link to={link} {...props}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={link} target="_blank" rel="nofollow noreferrer noopener" {...props}>
+      {children}
+    </a>
+  );
+};
+
+EventLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  link: PropTypes.string.isRequired,
+  isLocal: PropTypes.bool.isRequired,
+};
+
 /* eslint-disable camelcase */
 const EventCard = ({ event, big, noDesc }) => {
   const description = event.description.replace(/<p>/gi, '').replace(/<\/p>/gi, '');
+  const isLocalLink = event.localUrl;
   return (
-    <a
-      href={event.link}
-      target="_blank"
-      rel="nofollow noreferrer noopener"
+    <EventLink
+      link={event.link}
       className={classNames('card__event card p-10 clickable', {
         big,
         'full-row': big,
         past: dayjs(event.local_date).isBefore(dayjs()),
       })}
+      isLocal={!!isLocalLink}
     >
       <div className="event__left-big">
         <img
@@ -61,7 +84,7 @@ const EventCard = ({ event, big, noDesc }) => {
         )}
         <EventInfos event={event} />
       </div>
-    </a>
+    </EventLink>
   );
 };
 /* eslint-enable camelcase */

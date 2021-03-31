@@ -3,52 +3,54 @@ import SectionTitle from '../common/SectionTitle';
 import Section from '../common/Section';
 import Ventilation from '../images/ventilation.svg';
 import Mask from '../images/mask.svg';
+import Mask2 from '../images/mask2.svg';
 import Seats from '../images/seats.svg';
 import Capacities from '../images/capacities.svg';
+import Disinfectant from '../images/disinfectant.svg';
+
+interface CovidMeasureProps {
+  icon: string;
+  alt: string;
+}
+
+const CovidMeasure: React.ComponentType<CovidMeasureProps> = ({ icon, alt, children }) => (
+  <div className="covid__measure">
+    <img className="covid__icon" src={icon} alt={alt} width={80} height={60} />
+    <div className="covid__content">
+      <p>{children}</p>
+    </div>
+  </div>
+);
 
 const Covid: React.ComponentType = () => (
   <Section className="conf__covid" section="covid">
     <div className="container">
       <SectionTitle dark>
-        <strong>Covid</strong> sanitary measures
+        <strong>Covid-19</strong> sanitary measures
       </SectionTitle>
       <p className="conf__section-subtitle">
-        With this Con, we are working to give you the best experience. The on-site event will follow the sanitary
-        protocols recommended by official health organisations.
+        To allow you to enjoy the conference in the safest conditions, the on-site event will follow the sanitary
+        protocols recommended by official health organizations.
       </p>
       <div className="covid__grid">
-        <div className="covid__measure">
-          <img className="covid__icon" src={Ventilation} alt="ventilation" />
-          <div className="covid__content">
-            <p>
-              The rooms will be naturally <strong>ventilated</strong>
-            </p>
-          </div>
-        </div>
-        <div className="covid__measure">
-          <img className="covid__icon" src={Capacities} alt="room capacities" />
-          <div className="covid__content">
-            <p>
-              The rooms capacities are <strong>reduced</strong>
-            </p>
-          </div>
-        </div>
-        <div className="covid__measure">
-          <img className="covid__icon" src={Seats} alt="seats" />
-          <div className="covid__content">
-            <p>
-              <strong>One in two seats</strong> will not be vacant
-            </p>
-          </div>
-        </div>
-        <div className="covid__measure">
-          <img className="covid__icon" src={Mask} alt="mask" />
-          <div className="covid__content">
-            <p>
-              Wearing a <strong>mask</strong> will be mandatory
-            </p>
-          </div>
-        </div>
+        <CovidMeasure icon={Ventilation} alt="ventilation">
+          The rooms will be naturally <strong>ventilated</strong>
+        </CovidMeasure>
+        <CovidMeasure icon={Capacities} alt="room capacities">
+          The rooms capacities will be <strong>reduced</strong>
+        </CovidMeasure>
+        <CovidMeasure icon={Mask2} alt="mandatory masks">
+          Wearing a <strong>mask</strong> will be mandatory.
+        </CovidMeasure>
+        <CovidMeasure icon={Seats} alt="seats">
+          Only <strong>one in two seats</strong> will be available
+        </CovidMeasure>
+        <CovidMeasure icon={Disinfectant} alt="disinfectant">
+          <strong>Disinfectants</strong> will be provided throughout the conference spaces.
+        </CovidMeasure>
+        <CovidMeasure icon={Mask} alt="mask">
+          Face masks will be given out.
+        </CovidMeasure>
       </div>
       <p className="conf__section-subtitle">We will update these recommendations as necessary.</p>
     </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import SectionTitle from '../common/SectionTitle';
 import Transport from './Transport';
 import PlaneIcon from '../images/plane.svg';

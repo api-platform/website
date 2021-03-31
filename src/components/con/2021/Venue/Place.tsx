@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useRef, useContext, useState, useCallback } from 'react';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { SectionContext } from '../common/Section';
 
 const Place: React.ComponentType = () => {
@@ -14,14 +15,11 @@ const Place: React.ComponentType = () => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/ginifizz/cklgmlhwf758f17nulkah36re',
       center: [3.0179366, 50.6331443],
-      zoom: 14,
+      zoom: 5,
       maxZoom: 16,
       minZoom: 1,
     });
-    new mapboxgl.Marker()
-      .setOffset([0, -50 / 2])
-      .setLngLat([3.0179366, 50.6331443])
-      .addTo(newMap);
+    new mapboxgl.Marker().setLngLat([3.020125223382465, 50.63318866197429]).addTo(newMap);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
       newMap.dragPan.disable();

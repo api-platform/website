@@ -8,6 +8,25 @@ import Layout from '../../components/Layout';
 import EventCard from '../../components/community/EventCard';
 import { Grid, GridItem } from '../../components/common/Grid';
 
+/** API PLATFORM CONFERENCE */
+export const confEvent = {
+  local_date: '2021-09-10',
+  local_time: '09:00',
+  name: 'API Platform Conference 2021',
+  venue: {
+    name: 'Euratechnologies',
+    city: 'Lille',
+  },
+  description:
+    '<p><strong>The first conference dedicated to API Platform framework ans its ecosystem!</strong></p><br/><br/><p>Join us for a 1-day conference (mostly English-speaking) with unheard quality tech talks and large topics from French and international speakers. This year, we celebrate Les-Tilleuls.coop’s (API Platform’s creator and sponsor) 10th anniversary: be part of this exceptional edition!</p>',
+  featured_photo: {
+    photo_link: `${process.env.GATSBY_ROOT_URL}/conf-facebook.png`,
+  },
+  status: 'Live and online event',
+  link: '/con/2021',
+  localUrl: true,
+};
+
 const EventsPage = ({ location, data }) => {
   const events = [...data.allEvent.nodes];
 
@@ -26,6 +45,8 @@ const EventsPage = ({ location, data }) => {
   const upcomingEvents = events.filter((event) => dayjs(event.local_date).isAfter(dayjs())).sort(dateAsc);
 
   const pastEvents = events.filter((event) => !dayjs(event.local_date).isAfter(dayjs())).sort(dateDesc);
+
+  upcomingEvents.unshift(confEvent);
 
   return (
     <Layout location={location}>
