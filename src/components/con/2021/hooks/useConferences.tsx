@@ -13,6 +13,7 @@ const useConferences: (speaker?: string) => Conference[] = (speaker) => {
             start
             end
             short
+            github
           }
           headings(depth: h1) {
             value

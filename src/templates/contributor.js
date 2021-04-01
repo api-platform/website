@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Layout from '../components/Layout';
-import { Grid, GridItem } from '../components/common/Grid';
+import useContributorConferences from '@components/con/2021/hooks/useContributorConferences';
+import Layout from '@components/Layout';
+import { Link } from 'gatsby';
+import { Grid, GridItem } from '@components/common/Grid';
+import ContributorConference from '@components/con/2021/ContributorConference/index';
 import { isCoreTeam, getName } from '../helpers/contributorHelper';
 
 const externalLinkAttributes = 'target="_blank" rel="nofollow noopener noreferrer"';
@@ -85,6 +88,9 @@ const Template = ({ location, pageContext: contributor }) => {
     return `${reposName.join(', ')} and ${lastRepo}`;
   };
 
+  /* API PLATFORM CON */
+  const conferences = useContributorConferences(`https://github.com/${contributor.login}`);
+
   return (
     <Layout location={location}>
       <div className="contributor">
@@ -134,6 +140,22 @@ const Template = ({ location, pageContext: contributor }) => {
               </div>
             </div>
             <div className="contributor__content">
+              {conferences.length ? (
+                <div className="contributor__conferences">
+                  {conferences.length && (
+                    <p className="text-big">
+                      <span>{`Don't miss ${contributorName}'s talk at the `}</span>
+                      <Link to="/con/2021">API Platform Conference</Link>
+                      <span>!</span>
+                    </p>
+                  )}
+                  <div className="contributor__conferences-list conf">
+                    {conferences.map((conference) => (
+                      <ContributorConference conference={conference} />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
               <div className="contributor__description">
                 <p
                   className="text-big"

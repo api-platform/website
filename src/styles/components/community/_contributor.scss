@@ -131,6 +131,16 @@
     }
   }
 
+  .contributor__conferences {
+    padding-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $lightblue;
+    text-align: center;
+    .contributor__conferences-list {
+      margin: 30px 0;
+    }
+  }
+
   .contributor__projects {
     @include mq($min-width: $vw-large + 1) {
       justify-content: flex-start;

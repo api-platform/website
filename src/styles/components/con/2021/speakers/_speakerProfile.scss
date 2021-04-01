@@ -1,4 +1,44 @@
 .conf {
+  .speaker__conference-slot {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    @include z-depth-3;
+
+    @include mq($max-width: $vw-medium) {
+      flex-direction: column;
+    }
+    .conference__track {
+      width: 200px;
+      text-align: center;
+      background: var(--blue);
+      color: #fff;
+      padding: 20px;
+      @include flex-center;
+      font-weight: 900;
+      .overline {
+        font-weight: 500;
+      }
+      @include mq($max-width: $vw-medium) {
+        width: 100%;
+      }
+    }
+    .conference__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+      padding: 20px 40px;
+      text-align: left;
+      p {
+        font-size: 14px;
+      }
+      @include mq($max-width: $vw-small) {
+        padding: 20px;
+      }
+    }
+  }
+
   .conf__speaker-profile {
     padding-top: 80px;
     position: relative;
@@ -89,46 +129,6 @@
       width: 100%;
       max-width: 800px;
       margin: 50px auto -60px;
-    }
-    .speaker__conference {
-      display: flex;
-      flex-direction: row;
-      background: #fff;
-      @include z-depth-3;
-
-      @include mq($max-width: $vw-medium) {
-        flex-direction: column;
-      }
-    }
-
-    .conference__track {
-      width: 200px;
-      text-align: center;
-      background: var(--blue);
-      color: #fff;
-      padding: 20px;
-      @include flex-center;
-      font-weight: 900;
-      .overline {
-        font-weight: 500;
-      }
-      @include mq($max-width: $vw-medium) {
-        width: 100%;
-      }
-    }
-    .conference__content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex: 1;
-      padding: 20px 40px;
-      text-align: left;
-      p {
-        font-size: 14px;
-      }
-      @include mq($max-width: $vw-small) {
-        padding: 20px;
-      }
     }
   }
 }

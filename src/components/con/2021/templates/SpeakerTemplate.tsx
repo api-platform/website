@@ -9,11 +9,11 @@ import SpeakerSocialList from '../Speakers/SpeakerSocialList';
 import useConferences from '../hooks/useConferences';
 import tracks from '../data/tracks';
 
-const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
+export const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference }> = ({ conference }) => {
   const track = tracks.find((t) => t.id === conference.track);
   const { start, end, title, slug, short } = conference;
   return (
-    <div className="speaker__conference dotted-corner">
+    <div className="speaker__conference-slot dotted-corner">
       <div className="conference__track">
         <span className="h6">{`Track #${track.id}`}</span>
         <span className="overline">{track.type}</span>
@@ -91,12 +91,14 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
               />
               <SpeakerSocialList speaker={pageContext} />
             </div>
-            <div className="speaker__schedule">
-              <h2 className="schedule__title h5">{`${firstname}'s schedule`}</h2>
-              {conferences.map((conference) => (
-                <SpeakerConferenceSlot conference={conference} />
-              ))}
-            </div>
+            {0 < conferences.length ? (
+              <div className="speaker__schedule">
+                <h2 className="schedule__title h5">{`${firstname}'s schedule`}</h2>
+                {conferences.map((conference) => (
+                  <SpeakerConferenceSlot conference={conference} />
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

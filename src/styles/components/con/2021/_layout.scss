@@ -1,4 +1,4 @@
-.conf {
+.conf.conf__layout {
   @include mq($max-width: $vw-medium) {
     // only on small size cause overflow hidden cancel sticky effects
     overflow-x: hidden;
