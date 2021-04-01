@@ -495,20 +495,12 @@ exports.createPages = async ({ graphql, actions }) => {
   // speakers pages
   const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
 
-  /* speakers2021.forEach((speaker) => {
-    createPage({
-      path: `/con/2021/speakers/${slugify(speaker.name)}`,
-      component: speakerTemplate,
-      context: speaker,
-    });
-  });
-
   createRedirect({
     fromPath: '/con/2021/speakers/',
     toPath: '/con/2021/#speakers',
     isPermanent: true,
     redirectInBrowser: true,
-  }); */
+  });
 
   const speakerResult = await graphql(`
     {

@@ -84,11 +84,7 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
               </div>
             </div>
             <div className="speaker__details">
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: description,
-                }}
-              />
+              <div dangerouslySetInnerHTML={{ __html: description }} />
               <SpeakerSocialList speaker={pageContext} />
             </div>
             {0 < conferences.length ? (
