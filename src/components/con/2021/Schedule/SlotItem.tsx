@@ -1,106 +1,45 @@
 import React, { Fragment } from 'react';
 import classNames from 'classnames';
-import { useStaticQuery, graphql } from 'gatsby';
-import dayjs from 'dayjs';
-import { FullConference, Speaker } from '../types';
-
-const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(filter: { sourceInstanceName: { eq: "speakers" } }) {
-        nodes {
-          name
-          childImageSharp {
-            base: resize(width: 90, height: 90, quality: 100) {
-              src
-            }
-            retina: resize(width: 180, height: 180, quality: 100) {
-              src
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const getImages = (image) => data.allFile.nodes.filter((imageData) => imageData.name === image)?.[0]?.childImageSharp;
-  const getSize = (total) => {
-    if (1 === total) return 90;
-    if (2 === total) return 70;
-    return 50;
-  };
-  return (
-    <div className="schedule__slot-avatar">
-      {speakers.map((speaker, index) => {
-        const images = getImages(speaker.image);
-
-        return (
-          <div
-            key={speaker.name}
-            className="avatar__circle"
-            style={{
-              width: `${getSize(speakers.length)}px`,
-              height: `${getSize(speakers.length)}px`,
-              left: `${(100 / (speakers.length + 1)) * (index + 1)}%`,
-              top: `${(100 / (speakers.length + 1)) * (index + 1)}%`,
-            }}
-          >
-            <img
-              width="90"
-              height="90"
-              src={images?.base.src}
-              alt={speaker.name}
-              srcSet={`${images?.base.src} 1x, ${images?.retina.src} 2x`}
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+import { Link } from 'gatsby';
+import Avatar from './SlotAvatar';
+import { Conference } from '../types';
+import { convertTime } from '../utils';
+import useSpeakers from '../hooks/useSpeakers';
 
 interface SlotItemProps {
-  conference: FullConference;
+  conference: Conference;
 }
 
 const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
-  const { speakers, title, time, speakerTitle } = conference;
-
-  const convertTime = (timeRange: string[]) => {
-    if (2 > timeRange.length) return 'invalid time range';
-    const startTimeParts = timeRange[0].split(':');
-    const endTimeParts = timeRange[1].split(':');
-    const startDate = dayjs()
-      .set('hour', parseInt(startTimeParts?.[0], 10))
-      .set('minute', parseInt(startTimeParts?.[1], 10))
-      .format('LT');
-    const endDate = dayjs()
-      .set('hour', parseInt(endTimeParts?.[0], 10))
-      .set('minute', parseInt(endTimeParts?.[1], 10))
-      .format('LT');
-    return `${startDate} - ${endDate}`;
-  };
+  const { title, start, end, slug } = conference;
+  const speakers = useSpeakers([conference.speaker]);
 
   return (
-    <div className={classNames('schedule__slot', { 'no-speaker': !speakers?.length })}>
+    <Link to={slug} className={classNames('schedule__slot', { 'no-speaker': !speakers?.length })}>
       {speakers?.length && <Avatar speakers={speakers} />}
       <div className="schedule__slot-infos">
-        <span className="overline">{convertTime(time)}</span>
-        <h3 className={classNames('h5 lined', { 'lined-left': speakers?.length })}>{title}</h3>
+        <span className="overline">
+          {start && end ? `${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
+        </span>
+        <h3 className={classNames('h6 lined', { 'lined-left': speakers?.length })}>{title}</h3>
         {speakers?.length ? (
           <span className="body2">
             {'by '}
             {speakers.map((speaker, index) => (
               <Fragment key={speaker.name}>
-                <a>{speaker.name}</a>
+                <Link to={speaker.slug}>{speaker.name}</Link>
                 {index < speakers.length - 1 && ' & '}
               </Fragment>
             ))}
           </span>
         ) : null}
-        {speakers?.length ? <span className="body2">{speakerTitle || speakers[0].job}</span> : null}
+        {speakers?.length ? <span className="body2">{speakers[0].job}</span> : null}
       </div>
-    </div>
+      <svg className="schedule__slot-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.49 281.49">
+        <path d="M140.74,0C63.14,0,0,63.14,0,140.74S63.14,281.49,140.74,281.49s140.75-63.14,140.75-140.75S218.35,0,140.74,0Zm0,263.49A122.75,122.75,0,1,1,263.49,140.74,122.88,122.88,0,0,1,140.74,263.49Z" />
+        <path d="M210.91,131.74H149.74V70.58a9,9,0,1,0-18,0v61.16H70.58a9,9,0,1,0,0,18h61.16v61.17a9,9,0,0,0,18,0V149.74h61.17a9,9,0,0,0,0-18Z" />
+      </svg>
+    </Link>
   );
 };
 

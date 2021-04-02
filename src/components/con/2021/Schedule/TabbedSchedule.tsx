@@ -1,32 +1,36 @@
 import React, { useState, useMemo, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import DaySelector from './DaySelector';
-import days from '../data/days';
+import TrackSelector from './TrackSelector';
 import SlotItem from './SlotItem';
-import { getFullConferencesByDay } from '../data/api';
-import { FullConference } from '../types/index';
+import { isMorningTime } from '../utils';
 import Button from '../common/Button';
+import useConferences from '../hooks/useConferences';
 
 const TabbedSchedule: React.ComponentType = () => {
   const swipeableViews = useRef(null);
-  const [selectedDay, setSelectedDay] = useState(days.length);
+  const [selectedTrack, setSelectedTrack] = useState<'EN' | 'FR'>('EN');
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
+  const conferences = useConferences();
 
-  const conferences: FullConference[] = useMemo(() => getFullConferencesByDay(selectedDay), [selectedDay]);
+  const trackConferences = useMemo(() => conferences.filter((conference) => conference.track === selectedTrack), [
+    conferences,
+    selectedTrack,
+  ]);
+
   const morningConferences = useMemo(
-    () => conferences.filter((conference) => 12 >= parseInt(conference.time?.[0].split(':')[0], 10)),
-    [conferences]
+    () => trackConferences.filter((conference) => isMorningTime(conference.start) || !conference.start),
+    [trackConferences]
   );
   const afternoonConferences = useMemo(
-    () => conferences.filter((conference) => 12 < parseInt(conference.time?.[0].split(':')[0], 10)),
-    [conferences]
+    () => trackConferences.filter((conference) => conference.start && !isMorningTime(conference.start)),
+    [trackConferences]
   );
 
   const handleChangeIndex = (index: 0 | 1) => {
     setSelectedMomentDay(index);
   };
 
-  useEffect(() => handleChangeIndex(0), [selectedDay]);
+  useEffect(() => handleChangeIndex(0), [selectedTrack]);
 
   const onResize = useCallback(() => {
     if (swipeableViews.current) swipeableViews.current.updateHeight();
@@ -45,10 +49,10 @@ const TabbedSchedule: React.ComponentType = () => {
 
   return (
     <div className="conf__schedule-tabbed">
-      <DaySelector selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+      <TrackSelector selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack} />
       <div className="schedule__program">
         <SwipeableViews
-          key={selectedDay}
+          key={selectedTrack}
           index={selectedMomentDay}
           onChangeIndex={handleChangeIndex}
           animateHeight

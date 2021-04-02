@@ -1,37 +1,28 @@
 export type Speaker = {
-  id: string | number;
+  id: string;
   name: string;
   twitter?: string;
   github?: string;
-  image: string;
   job: string;
-  list: boolean;
+  description: string;
+  slug: string;
 };
 
 export type Conference = {
   id: number;
-  speakers?: number[];
-  speakerTitle?: string;
   title: string;
   description?: string;
-  time: string[];
-  day: number;
+  start: string;
+  end: string;
+  short: string;
+  track: 'FR' | 'EN';
+  slug: string;
+  speaker: string;
 };
 
-export type FullConference = {
-  id: number;
-  speakers?: Speaker[];
-  speakerTitle?: string;
-  title: string;
-  description?: string;
-  time: string[];
-  day: number;
-};
-
-export type Day = {
-  index: number;
+export type Track = {
+  id: 'FR' | 'EN';
   type: string;
-  day: number;
   date: string;
 };
 

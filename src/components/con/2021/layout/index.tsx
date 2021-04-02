@@ -140,7 +140,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
           }
     `}</style>
       </Helmet>
-      <div className="conf" id="conf">
+      <div className="conf conf__layout" id="conf">
         <div className="conf__background" />
         <Nav location={location} />
         <div className="conf__content">

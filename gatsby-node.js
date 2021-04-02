@@ -445,27 +445,26 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // conferences pages
-  /* const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
+  const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
   const conferencesResult = await graphql(`
     {
       allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
         edges {
           node {
             html
+            headings(depth: h1) {
+              value
+            }
+            fields {
+              slug
+            }
             frontmatter {
-              date
-              slot
-              title
               type
-              speakers {
-                description
-                github
-                image
-                job
-                list
-                name
-                twitter
-              }
+              speaker
+              track
+              start
+              end
+              short
             }
           }
         }
@@ -476,14 +475,70 @@ exports.createPages = async ({ graphql, actions }) => {
   const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
   conferencePages.forEach((edge) => {
     createPage({
-      path: `/con/2021/${slugify(edge.node.frontmatter.title)}`,
+      path: edge.node.fields.slug,
       component: conferenceTemplate,
       context: {
         html: edge.node.html,
         ...edge.node.frontmatter,
+        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
       },
     });
-  }); */
+  });
+
+  createRedirect({
+    fromPath: '/con/',
+    toPath: '/con/2021/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+
+  // speakers pages
+  const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
+
+  createRedirect({
+    fromPath: '/con/2021/speakers/',
+    toPath: '/con/2021/#speakers',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+
+  const speakerResult = await graphql(`
+    {
+      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "speaker" } } }) {
+        edges {
+          node {
+            html
+            headings(depth: h1) {
+              value
+            }
+            fields {
+              slug
+            }
+            frontmatter {
+              name
+              id
+              job
+              twitter
+              github
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const speakerPages = speakerResult.data.allMarkdownRemark.edges;
+  speakerPages.forEach((edge) => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: speakerTemplate,
+      context: {
+        description: edge.node.html,
+        ...edge.node.frontmatter,
+        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
+      },
+    });
+  });
 
   createRedirect({
     fromPath: '/con/',

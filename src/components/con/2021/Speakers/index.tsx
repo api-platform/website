@@ -4,10 +4,11 @@ import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import Section from '../common/Section';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
-import { getSpeakerList } from '../data/api';
+import useSpeakers from '../hooks/useSpeakers';
+import { Speaker } from '../types';
 
 const Speakers: React.ComponentType = () => {
-  const speakers = getSpeakerList();
+  const speakers: Speaker[] = useSpeakers();
 
   return (
     <Section className="conf__speakers" section="speakers">
@@ -17,7 +18,7 @@ const Speakers: React.ComponentType = () => {
         </SectionTitle>
         <p className="conf__section-subtitle">
           Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking
-          tracks. Line up will be announced very soon... Come back in April to discover the first names!
+          tracks. Meet our first speakers and come back in a couple of days to discover other names!
         </p>
         <Grid>
           {0 === speakers.length ? (

@@ -1,88 +1,89 @@
-.conf__cover {
-  font-family: 'Poppins', sans-serif;
-  padding: 70px 30px 20px;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  color: #fff;
-  text-align: center;
-  @include mq($max-width: $vw-small) {
-    padding: 70px 0px 20px;
-  }
-
-  & .container {
+.conf {
+  .conf__cover {
+    font-family: 'Poppins', sans-serif;
+    padding: 70px 30px 20px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     flex-direction: column;
-    position: static;
-  }
-
-  & > .conf__button {
-    margin: 20px 0;
-  }
-
-  .conf__cover-baseline {
-    font-size: 32px;
-    padding: 50px 0;
-    font-weight: 400;
+    color: #fff;
+    text-align: center;
     @include mq($max-width: $vw-small) {
-      font-size: 26px;
-      padding: 20px 10px 30px;
+      padding: 70px 0px 20px;
+    }
+
+    & .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: static;
+    }
+
+    & > .conf__button {
+      margin: 20px 0;
+    }
+
+    .conf__cover-baseline {
+      font-size: 32px;
+      padding: 50px 0;
+      font-weight: 400;
+      @include mq($max-width: $vw-small) {
+        font-size: 26px;
+        padding: 20px 10px 30px;
+      }
+    }
+
+    .conf__cover-date {
+      text-transform: uppercase;
+      font-size: 16px;
+      border: 2px solid #fff;
+      font-weight: 600;
+      padding: 10px 15px;
+      margin-bottom: 40px;
+      @include mq($max-width: $vw-medium) {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .conf__cover-logo {
+      width: 100%;
+      max-width: 800px;
+      img {
+        max-height: 30vh;
+      }
+    }
+
+    .conf__cover-web {
+      position: absolute;
+      z-index: 0;
+      height: 100vh;
+      transform: translate3d(-50%, -50%, 0);
+      left: 80%;
+      top: 50%;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .conf__cover-wave {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      opacity: 0.3;
+      height: 60vh;
+      max-width: none;
+      right: 22%;
+      top: 58%;
+      transform: translateY(-50%) rotate(10deg);
     }
   }
-
-  .conf__cover-date {
-    text-transform: uppercase;
-    font-size: 16px;
-    border: 2px solid #fff;
-    font-weight: 600;
-    padding: 10px 15px;
-    margin-bottom: 40px;
-    @include mq($max-width: $vw-medium) {
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-  }
-
-  .conf__cover-logo {
-    width: 100%;
-    max-width: 800px;
-    img {
-      max-height: 30vh;
-    }
-  }
-
   .web-line {
     fill: none;
     stroke: #67cece;
     stroke-dasharray: 1 5;
     // animation: dash 2s infinite linear;
     transform-origin: center center;
-  }
-
-  .conf__cover-web {
-    position: absolute;
-    z-index: 0;
-    height: 100vh;
-    transform: translate3d(-50%, -50%, 0);
-    left: 80%;
-    top: 50%;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  .conf__cover-wave {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    opacity: 0.3;
-    height: 60vh;
-    max-width: none;
-    right: 22%;
-    top: 58%;
-    transform: translateY(-50%) rotate(10deg);
   }
 }

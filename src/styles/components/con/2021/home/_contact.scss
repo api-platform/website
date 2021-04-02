@@ -60,34 +60,4 @@
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  .contact__social {
-    a {
-      border-radius: 50%;
-      border: 2px solid #fff;
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 20px;
-      margin: 5px;
-      position: relative;
-      overflow: hidden;
-      background-image: linear-gradient(-120deg, #fff 50%, transparent 50%);
-      background-size: 300%;
-      background-repeat: no-repeat;
-      background-position: 0%;
-      transition: all 300ms ease-in-out;
-      filter: none;
-
-      & > * {
-        @include absolute-center;
-      }
-      &:hover {
-        background-position: 100%;
-        color: var(--blue);
-      }
-    }
-  }
 }

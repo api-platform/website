@@ -3,9 +3,10 @@ import { SectionContext } from '../common/Section';
 
 interface WebProps {
   className?: string;
+  animated?: boolean;
 }
 
-const Web: React.ComponentType<WebProps> = ({ className }) => {
+const Web: React.ComponentType<WebProps> = ({ className, animated = true }) => {
   const group1 = useRef(null);
   const group2 = useRef(null);
   const group3 = useRef(null);
@@ -15,6 +16,7 @@ const Web: React.ComponentType<WebProps> = ({ className }) => {
   const isVisible = useContext(SectionContext);
 
   useEffect(() => {
+    if (!animated) return;
     const elem1 = group1?.current;
     const elem2 = group2?.current;
     const elem3 = group3?.current;
@@ -44,7 +46,7 @@ const Web: React.ComponentType<WebProps> = ({ className }) => {
       );
     }
     setAnimations(anims);
-  }, [setAnimations]);
+  }, [setAnimations, animated]);
 
   useEffect(() => {
     return () => {
@@ -53,12 +55,13 @@ const Web: React.ComponentType<WebProps> = ({ className }) => {
   }, [animations]);
 
   useEffect(() => {
+    if (!animated) return;
     if (!isVisible) {
       animations.map((anim) => 'running' === anim.playState && anim.pause());
     } else {
       animations.map((anim) => 'paused' === anim.playState && anim.play());
     }
-  }, [animations, isVisible]);
+  }, [animated, animations, isVisible]);
 
   return (
     <svg className={className} viewBox="0 0 464 464" xmlns="http://www.w3.org/2000/svg">

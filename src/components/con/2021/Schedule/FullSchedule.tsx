@@ -1,24 +1,33 @@
-import React, { Fragment } from 'react';
-import { getFullConferencesByDay } from '../data/api';
-import days from '../data/days';
+import React from 'react';
+import tracks from '../data/tracks';
 import SlotItem from './SlotItem';
+import useConferences from '../hooks/useConferences';
+import { Track } from '../types';
+
+const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
+  const allConferences = useConferences();
+  const conferences = allConferences.filter((conference) => conference.track === track.id);
+
+  return (
+    <>
+      <div className="schedule__track">
+        <div className="h5" data-value="day">{`Track #${track.id}`}</div>
+        <div className="overline" data-value="type">
+          {track.type}
+        </div>
+      </div>
+      {conferences.map((conference) => (
+        <SlotItem key={conference.id} conference={conference} />
+      ))}
+      {0 === conferences.length ? <span className="overline">No program yet</span> : null}
+    </>
+  );
+};
 
 const FullSchedule: React.ComponentType = () => (
   <div className="conf__schedule-full">
-    {days.map((day) => (
-      <Fragment key={day.index}>
-        <div className="schedule__day">
-          <div className="h5" data-value="type">
-            {day.type}
-          </div>
-          <div className="h5" data-value="day">{`day ${day.day}`}</div>
-          <div className="overline" data-value="date">{`day ${day.date}`}</div>
-        </div>
-        {getFullConferencesByDay(day.index).map((conference) => (
-          <SlotItem key={conference.id} conference={conference} />
-        ))}
-        {0 === getFullConferencesByDay(day.index).length ? <span className="overline">No program yet</span> : null}
-      </Fragment>
+    {tracks.map((track) => (
+      <ScheduleByTrack track={track} key={track.id} />
     ))}
   </div>
 );

@@ -4,10 +4,11 @@ import SectionTitle from '../common/SectionTitle';
 import TabbedSchedule from './TabbedSchedule';
 import FullSchedule from './FullSchedule';
 import Section from '../common/Section';
-import { getConferences } from '../data/api';
+import useConferences from '../hooks/useConferences';
+import { Conference } from '../types';
 
 const Schedule: React.ComponentType = () => {
-  const conferences = getConferences();
+  const conferences: Conference[] = useConferences();
   return (
     <>
       <Section className={classNames('conf__schedule', { empty: 0 === conferences.length })} section="schedule">

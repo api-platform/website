@@ -13,6 +13,27 @@
   .conf__content {
     z-index: 1;
   }
+  .circle__effect {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      background-image: url('../../../../components/con/2021/images/circle.svg');
+      background-repeat: no-repeat;
+      width: calc(100% + 30px);
+      height: calc(100% + 30px);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform ease 1s;
+      pointer-events: none;
+    }
+  }
+  .hoverable:hover .circle__effect {
+    &:before {
+      transform: translate(-55%, -50%) rotate(50deg);
+    }
+  }
   .wave-line {
     fill: none;
     stroke-linecap: round;
@@ -85,6 +106,7 @@
   }
 
   .lined {
+    @include lined;
     position: relative;
     padding-bottom: 20px;
     &:after {
@@ -100,20 +122,13 @@
       transition: all ease 0.3s;
     }
     &.lined-left {
-      &:after {
-        left: 0;
-        transform: none;
-      }
+      @include lined-left;
     }
     &.lined-dark {
-      &:after {
-        background-color: var(--darkblue);
-      }
+      @include lined(var(--darkblue));
     }
     &.lined-white {
-      &:after {
-        background-color: #fff;
-      }
+      @include lined(#fff);
     }
   }
 
@@ -149,7 +164,6 @@
     margin-bottom: 40px;
     opacity: 0.6;
   }
-
   .conf__section-title {
     text-align: center;
     color: var(--blackblue);
@@ -161,9 +175,14 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    h2 {
+    .h2 {
       position: relative;
       z-index: 1;
+    }
+    &.small {
+      .h2 {
+        font-size: 50px;
+      }
     }
 
     .title__layer {
@@ -216,6 +235,47 @@
     @include mq($max-width: $vw-medium) {
       max-width: 500px;
       margin: 20px auto 0;
+    }
+  }
+
+  .social__list {
+    @include flex-center(row);
+    a {
+      border-radius: 50%;
+      border: 2px solid var(--blue);
+      width: 36px;
+      height: 36px;
+      @include flex-center;
+      color: var(--blue);
+      font-size: 20px;
+      margin: 5px;
+      position: relative;
+      overflow: hidden;
+      background-image: linear-gradient(-120deg, var(--blue) 50%, transparent 50%);
+      background-size: 300%;
+      background-repeat: no-repeat;
+      background-position: 0%;
+      transition: background 300ms ease-in-out;
+      filter: none;
+
+      & > * {
+        @include absolute-center;
+      }
+      &:hover {
+        background-position: 100%;
+        color: #fff;
+      }
+    }
+    &.white {
+      a {
+        color: #fff;
+        border: 2px solid #fff;
+        background-image: linear-gradient(-120deg, #fff 50%, transparent 50%);
+        &:hover {
+          background-position: 100%;
+          color: var(--blue);
+        }
+      }
     }
   }
 }
