@@ -495,13 +495,6 @@ exports.createPages = async ({ graphql, actions }) => {
   // speakers pages
   const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
 
-  createRedirect({
-    fromPath: '/con/2021/speakers/',
-    toPath: '/con/2021/#speakers',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-
   const speakerResult = await graphql(`
     {
       allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "speaker" } } }) {

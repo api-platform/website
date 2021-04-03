@@ -1,0 +1,25 @@
+.conf__speakers-list {
+  padding-top: 80px;
+  .speakers__header {
+    color: #fff;
+  }
+  .speakers-list__content {
+    position: relative;
+    padding: 30px 0 150px;
+    &:before {
+      //content: "";
+      width: 100vw;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      background:white;
+      position: absolute;
+    }
+  }
+  .conf__speaker-resume {
+    .infos, .overline {
+      color: #fff;
+    }
+  }
+}

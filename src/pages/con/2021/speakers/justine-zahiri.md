@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: justine
-name: Justine Bruneau-Zahiri
+name: Justine Zahiri
 job: API Platform contributor
 twitter: https://twitter.com/zahirij
 github: https://github.com/justinezahiri
