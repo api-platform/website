@@ -12,7 +12,7 @@ interface SlotItemProps {
 
 const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
   const { title, start, end, slug } = conference;
-  const speakers = useSpeakers([conference.speaker]);
+  const speakers = useSpeakers(conference.speakers);
 
   return (
     <Link to={slug} className={classNames('schedule__slot', { 'no-speaker': !speakers?.length })}>
@@ -33,7 +33,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
             ))}
           </span>
         ) : null}
-        {speakers?.length ? <span className="body2">{speakers[0].job}</span> : null}
+        {1 === speakers.length ? <span className="body2">{speakers[0].job}</span> : null}
       </div>
       <svg className="schedule__slot-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.49 281.49">
         <path d="M140.74,0C63.14,0,0,63.14,0,140.74S63.14,281.49,140.74,281.49s140.75-63.14,140.75-140.75S218.35,0,140.74,0Zm0,263.49A122.75,122.75,0,1,1,263.49,140.74,122.88,122.88,0,0,1,140.74,263.49Z" />

@@ -1,6 +1,6 @@
 ---
 type: conference
-speaker: justine
+speakers: -justine
 track: FR
 start: ''
 end: ''

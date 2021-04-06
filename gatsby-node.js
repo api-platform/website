@@ -460,7 +460,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               type
-              speaker
+              speakers
               track
               start
               end

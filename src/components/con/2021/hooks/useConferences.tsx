@@ -8,7 +8,7 @@ const useConferences: (speaker?: string) => Conference[] = (speaker) => {
         nodes {
           frontmatter {
             title
-            speaker
+            speakers
             track
             start
             end
@@ -26,7 +26,7 @@ const useConferences: (speaker?: string) => Conference[] = (speaker) => {
     }
   `);
   return data.allMarkdownRemark.nodes
-    .filter((conferenceData) => !speaker || conferenceData.frontmatter.speaker === speaker)
+    .filter((conferenceData) => !speaker || conferenceData.frontmatter.speakers.includes(speaker))
     .map((conference) => ({
       ...conference.frontmatter,
       title: conference.headings?.[0].value,

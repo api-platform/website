@@ -2,17 +2,18 @@ import React from 'react';
 import Layout from '@components/con/2021/layout';
 import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps } from 'gatsby';
+import classNames from 'classnames';
 import tracks from '../data/tracks';
 import Button from '../common/Button';
 import SpeakerCircle from '../Speakers/SpeakerCircle';
 import { convertTime } from '../utils';
-import useSpeaker from '../hooks/useSpeaker';
+import useSpeakers from '../hooks/useSpeakers';
 
 interface ConferenceTemplateProps extends PageProps {
   pageContext: {
     html: string;
     title: string;
-    speaker: string;
+    speakers: string[];
     track: 'FR' | 'EN';
     start: string;
     end: string;
@@ -20,8 +21,8 @@ interface ConferenceTemplateProps extends PageProps {
 }
 
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext, location }) => {
-  const { html, title, speaker: speakerId, track: trackID, start, end } = pageContext;
-  const speaker = useSpeaker(speakerId);
+  const { html, title, speakers: speakerIds, track: trackID, start, end } = pageContext;
+  const speakers = useSpeakers(speakerIds);
   const track = tracks.find((t) => t.id === trackID);
 
   return (
@@ -45,11 +46,15 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
             ) : null}
           </div>
           <div className="conference__content">
-            <div className="conference__speaker">
-              <SpeakerCircle speaker={speaker} hoverable={false} social={false} />
-              <Button className="white square" size="small" to={speaker.slug}>
-                See speaker details
-              </Button>
+            <div className={classNames('conference__speaker', { minified: 1 < speakers.length })}>
+              {speakers.map((speaker) => (
+                <>
+                  <SpeakerCircle speaker={speaker} hoverable={false} social={false} />
+                  <Button className="white square" size="small" to={speaker.slug}>
+                    See speaker details
+                  </Button>
+                </>
+              ))}
             </div>
             <div
               className="conference__abstract dotted-corner corner-bottom"

@@ -1,6 +1,6 @@
 ---
 type: conference
-speaker: lukasz
+speakers: -lukasz
 track: EN
 start: ''
 end: ''
