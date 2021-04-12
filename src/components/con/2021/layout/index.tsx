@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import '@styles/components/con/2021/index.scss';
 import Footer from '@components/con/2021/layout/Footer';
 import Nav from '@components/con/2021/layout/Nav';
+import MobileNav from '@components/con/2021/layout/MobileNav';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import Poppins300 from '@styles/components/con/2021/fonts/poppins-v15-latin-300.woff';
 import Poppins600 from '@styles/components/con/2021/fonts/poppins-v15-latin-600.woff';
@@ -143,6 +144,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
       <div className="conf conf__layout" id="conf">
         <div className="conf__background" />
         <Nav location={location} />
+        <MobileNav />
         <div className="conf__content">
           {children}
           <Footer />

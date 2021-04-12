@@ -67,6 +67,12 @@
         opacity: 0;
       }
     }
+    @include mq($max-width: $vw-medium) {
+      .conf__button {
+        display: none;
+      }
+    }
+
     .conf__menu-back {
       position: absolute;
       width: 84px;
@@ -112,6 +118,15 @@
         left: 0;
         padding-right: 10px;
         clip-path: polygon(100% 0%, 85% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+      }
+    }
+    @include mq($max-width: $vw-medium) {
+      padding-right: 60px !important;
+    }
+    @include mq($max-width: $vw-small) {
+      .conf__menu-logo {
+        height: 28px;
+        padding-left: 60px;
       }
     }
   }
@@ -242,6 +257,115 @@
       }
       a {
         color: #fff;
+      }
+    }
+  }
+  .conf__mobile-nav {
+    position: fixed;
+    z-index: 49;
+    width: 100vw;
+    height: 100vh;
+    @include flex-center(column);
+    left: 100vw;
+    top: 0;
+    opacity: 0;
+    background: var(--blackblue);
+    &:after {
+      content: '';
+      @include conf-gradient;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      position: fixed;
+    }
+    pointer-events: none;
+    transition: opacity ease 0.3s 0.5s, left linear 0s 1s;
+
+    .conf__mobile-item {
+      font-size: 5vh;
+      padding: 2vh;
+      text-transform: uppercase;
+      font-family: Poppins, sans-serif;
+      color: #fff;
+      transform: translateX(40px);
+      opacity: 0;
+      transition: all ease 0.3s;
+      position: relative;
+      z-index: 50;
+      &.active {
+        color: var(--lightblue);
+      }
+    }
+    @for $i from 0 to 10 {
+      .conf__mobile-item:nth-child(#{$i}) {
+        transition-delay: $i * 0.05s;
+      }
+    }
+
+    &.opened {
+      left: 0;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity ease 0.3s;
+      .conf__mobile-item {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+  .conf__burger-btn {
+    position: fixed;
+    right: 5px;
+    top: 0px;
+    width: 64px;
+    height: 64px;
+    z-index: 50;
+    cursor: pointer;
+    display: none;
+    @include mq($max-width: $vw-medium) {
+      display: block;
+    }
+
+    .burger-btn__line {
+      position: relative;
+      width: 40px;
+      height: 4px;
+      background: #fff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: width ease 0.3s;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        background: #fff;
+        transition: transform ease 0.3s;
+      }
+      &:before {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% + 10px));
+      }
+      &:after {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 10px));
+      }
+    }
+    &.opened {
+      .burger-btn__line {
+        width: 0;
+        &:before {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
       }
     }
   }

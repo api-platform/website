@@ -6,6 +6,7 @@ import Logo from '../images/logo.svg';
 import LogoSpider from '../../../../images/logo_spider.svg';
 import { ConfContext } from '.';
 import BuyButton from '../common/BuyButton';
+import links from '../data/nav';
 
 interface NavLinkProps {
   to?: string;
@@ -97,17 +98,11 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
           />
         </div>
       </Link>
-
-      <NavLink to="/con/2021/speakers/">Speakers</NavLink>
-      <NavLink anchor={isHomePage && 'schedule'} to="/con/2021/#schedule">
-        Schedule
-      </NavLink>
-      <NavLink anchor={isHomePage && 'venue'} to="/con/2021/#venue">
-        Venue
-      </NavLink>
-      <NavLink anchor={isHomePage && 'pricing'} to="/con/2021/#pricing">
-        Pricing
-      </NavLink>
+      {links.map((link) => (
+        <NavLink anchor={isHomePage && link.anchor} to={link.to}>
+          {link.text}
+        </NavLink>
+      ))}
       <BuyButton id="nav" size="small">
         Buy tickets
       </BuyButton>

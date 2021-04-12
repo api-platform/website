@@ -25,6 +25,7 @@ const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack,
 
   return (
     <div className="schedule__track-selector">
+      <div className="schedule__arrow" ref={arrow} style={{ top: arrowPosition }} />
       {tracks.map((track) => (
         <div
           key={track.id}
@@ -43,7 +44,6 @@ const TrackSelector: React.ComponentType<TrackSelectorProps> = ({ selectedTrack,
           <div className="overline" data-value="type">{`${track.type}`}</div>
         </div>
       ))}
-      <div className="schedule__arrow" ref={arrow} style={{ top: arrowPosition }} />
     </div>
   );
 };
