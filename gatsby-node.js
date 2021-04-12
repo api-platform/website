@@ -485,13 +485,6 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  createRedirect({
-    fromPath: '/con/',
-    toPath: '/con/2021/',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-
   // speakers pages
   const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
 
@@ -528,6 +521,39 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         description: edge.node.html,
         ...edge.node.frontmatter,
+        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
+      },
+    });
+  });
+
+  // conf legal pages
+  const legalTemplate = path.resolve('src/components/con/2021/templates/LegalTemplate.tsx');
+
+  const legalResult = await graphql(`
+    {
+      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "legal" } } }) {
+        edges {
+          node {
+            html
+            headings(depth: h1) {
+              value
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const legalPages = legalResult.data.allMarkdownRemark.edges;
+  legalPages.forEach((edge) => {
+    createPage({
+      path: edge.node.fields.slug,
+      component: legalTemplate,
+      context: {
+        html: edge.node.html,
         title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
       },
     });
