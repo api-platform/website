@@ -31,5 +31,5 @@ If someone makes you or anyone else feel unsafe or unwelcome, please **report it
 You can make a personal report by:
 - Contacting a **staff member**, identified by staff badges, buttons or shirts
 - Emailing us: <events@les-tilleuls.coop>
-- Calling us: We’ll publish a phone number that is staffed during main conference hours
+- **Calling us**: We’ll publish a phone number that is staffed during main conference hours
 
