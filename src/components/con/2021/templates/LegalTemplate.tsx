@@ -13,6 +13,7 @@ interface LegalTemplateProps extends PageProps {
 
 const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext, location }) => {
   const { html, title } = pageContext;
+  const htmlWithLinks = html.replace(/href="#/g, 'href="/con/2021/#').replace(/href="\/\//g, 'href="/'); // fix home anchors links
 
   return (
     <Layout location={location}>
@@ -24,7 +25,7 @@ const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext, l
             </SectionTitle>
           </div>
           <div className="legal__content dotted-corner">
-            <div className="conference__abstract" dangerouslySetInnerHTML={{ __html: html }} />
+            <div className="conference__abstract" dangerouslySetInnerHTML={{ __html: htmlWithLinks }} />
           </div>
           <div className="conf__contact">
             <ContactCard />

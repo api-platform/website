@@ -26,6 +26,7 @@ const Footer: React.ComponentType = () => (
           <span className="h6 footer__title">Legal</span>
           <Link to="/con/2021/code-of-conduct">Code of conduct</Link>
           <Link to="/con/2021/faq">FAQ</Link>
+          <Link to="/con/2021/transparency">Revenues transparency</Link>
         </div>
       </div>
       <span className="body2 footer__copyright">
