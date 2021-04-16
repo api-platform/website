@@ -1,32 +1,40 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
 import { Link, navigate } from 'gatsby';
 import classNames from 'classnames';
+import { useLocation } from '@reach/router';
 import Logo from '../images/logo.svg';
 import LogoSpider from '../../../../images/logo_spider.svg';
 import { ConfContext } from '.';
 import BuyButton from '../common/BuyButton';
+import links from '../data/nav';
 
 interface NavLinkProps {
-  to: string;
-  anchorLink: boolean;
+  to?: string;
+  anchor?: string;
 }
 
-const NavLink: React.ComponentType<NavLinkProps> = ({ to, children, anchorLink }) => {
+const NavLink: React.ComponentType<NavLinkProps> = ({ to, children, anchor }) => {
   const { activeLink, goToLink } = useContext(ConfContext);
+  const { pathname } = useLocation();
 
-  return anchorLink ? (
+  return anchor ? (
     <a
       className={classNames('conf__menu-item', {
-        active: to === activeLink,
+        active: anchor === activeLink,
       })}
-      onClick={() => goToLink(to)}
+      onClick={() => goToLink(anchor)}
       role="button"
       tabIndex={0}
     >
       {children}
     </a>
   ) : (
-    <Link className="conf__menu-item" to={`/con/2021/#${to}`}>
+    <Link
+      className={classNames('conf__menu-item', {
+        active: to === pathname,
+      })}
+      to={to}
+    >
       {children}
     </Link>
   );
@@ -46,6 +54,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
   const [minified, setMinified] = useState(
     isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home')
   );
+
   const onScroll = useCallback(() => {
     setMinified(50 > window.scrollY && isHomePage);
   }, [isHomePage]);
@@ -89,19 +98,11 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
           />
         </div>
       </Link>
-
-      <NavLink anchorLink={isHomePage} to="speakers">
-        Speakers
-      </NavLink>
-      <NavLink anchorLink={isHomePage} to="schedule">
-        Schedule
-      </NavLink>
-      <NavLink anchorLink={isHomePage} to="venue">
-        Venue
-      </NavLink>
-      <NavLink anchorLink={isHomePage} to="pricing">
-        Pricing
-      </NavLink>
+      {links.map((link) => (
+        <NavLink anchor={isHomePage && link.anchor} to={link.to}>
+          {link.text}
+        </NavLink>
+      ))}
       <BuyButton id="nav" size="small">
         Buy tickets
       </BuyButton>

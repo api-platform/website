@@ -49,7 +49,7 @@
     text-align: center;
     padding: 10px;
     background: #fff;
-    .schedule__track:not(:last-child) {
+    .schedule__track:not(:last-of-type) {
       margin-bottom: 10px;
     }
     @include mq($min-width: $vw-medium + 1) {
@@ -84,7 +84,7 @@
 
     .schedule__track {
       background: none;
-      &:not(:last-child) {
+      &:not(:last-of-type) {
         margin-bottom: 20px;
       }
       cursor: pointer;

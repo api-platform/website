@@ -17,7 +17,7 @@ export type Conference = {
   short: string;
   track: 'FR' | 'EN';
   slug: string;
-  speaker: string;
+  speakers: string[];
 };
 
 export type Track = {

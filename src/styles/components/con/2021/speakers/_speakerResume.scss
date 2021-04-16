@@ -9,7 +9,6 @@
       overflow: hidden;
       width: 240px;
       height: 240px;
-      margin-bottom: 30px;
       position: relative;
       &:after {
         position: absolute;
@@ -43,6 +42,7 @@
       @include flex-center(column);
       color: inherit;
       .infos {
+        margin-top: 30px;
         .overline {
           margin-bottom: 3px;
           display: block;

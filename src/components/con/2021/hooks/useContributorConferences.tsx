@@ -8,7 +8,7 @@ const useContributorConferences: (login?: string) => Conference[] = (login) => {
         nodes {
           frontmatter {
             title
-            speaker
+            speakers
             track
             start
             end
@@ -38,7 +38,7 @@ const useContributorConferences: (login?: string) => Conference[] = (login) => {
 
   const conferences = speaker
     ? data.conferences.nodes
-        .filter((conferenceData) => conferenceData.frontmatter.speaker === speaker.frontmatter.id)
+        .filter((conferenceData) => conferenceData.frontmatter.speakers.includes(speaker.frontmatter.id))
         .map((conference) => ({
           ...conference.frontmatter,
           title: conference.headings?.[0].value,
