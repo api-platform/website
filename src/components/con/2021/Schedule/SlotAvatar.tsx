@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Speaker } from '../types';
 
 const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
@@ -9,19 +10,14 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
         nodes {
           name
           childImageSharp {
-            base: resize(width: 90, height: 90, quality: 100) {
-              src
-            }
-            retina: resize(width: 180, height: 180, quality: 100) {
-              src
-            }
+            gatsbyImageData(width: 400, placeholder: DOMINANT_COLOR)
           }
         }
       }
     }
   `);
 
-  const getImages = (image) => data.allFile.nodes.filter((imageData) => imageData.name === image)?.[0]?.childImageSharp;
+  const getSpeakerImage = (name) => getImage(data.allFile.nodes.filter((imageData) => imageData.name === name)?.[0]);
   const getSize = (total) => {
     if (1 === total) return 90;
     if (2 === total) return 70;
@@ -30,7 +26,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
   return (
     <div className="schedule__slot-avatar">
       {speakers.map((speaker, index) => {
-        const images = getImages(speaker.id);
+        const image = getSpeakerImage(speaker.id);
 
         return (
           <Link
@@ -44,13 +40,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
               top: `${(100 / (speakers.length + 1)) * (index + 1)}%`,
             }}
           >
-            <img
-              width="90"
-              height="90"
-              src={images?.base.src}
-              alt={speaker.name}
-              srcSet={`${images?.base.src} 1x, ${images?.retina.src} 2x`}
-            />
+            <GatsbyImage image={image} className="circle__picture" alt={speaker.name} />
           </Link>
         );
       })}

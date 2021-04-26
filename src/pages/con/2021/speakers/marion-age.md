@@ -2,7 +2,7 @@
 type: speaker
 id: marion
 name: Marion Agé
-job: CTO at Les-Tilleuls.coop
+job: Les-Tilleuls.coop CTO
 twitter: https://twitter.com/marion_age
 github: https://github.com/K-mos
 ---

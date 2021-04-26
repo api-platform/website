@@ -2,7 +2,7 @@
 type: speaker
 id: olivier
 name: Olivier Doucet
-job: Co-founder at Oxeva
+job: Oxeva co-founder
 twitter: https://twitter.com/ezameku
 github: https://github.com/odoucet
 ---
