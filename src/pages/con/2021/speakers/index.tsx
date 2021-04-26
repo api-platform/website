@@ -9,6 +9,7 @@ import ContactCard from '@components/con/2021/layout/ContactCard';
 
 const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
   const speakers = useSpeakers();
+
   return (
     <Layout location={location}>
       <div className="conf__speakers-list">

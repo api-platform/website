@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@components/con/2021/layout';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
 import { convertTime } from '../utils';
@@ -45,19 +46,13 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
         nodes {
           name
           childImageSharp {
-            base: resize(width: 400, height: 400) {
-              src
-            }
-            retina: resize(width: 800, height: 800) {
-              src
-            }
+            gatsbyImageData(width: 400, placeholder: DOMINANT_COLOR)
           }
         }
       }
     }
   `);
-  const images = data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0]?.childImageSharp;
-
+  const image = getImage(data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0]);
   const firstname = name.split(' ')[0];
 
   return (
@@ -73,14 +68,7 @@ const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageCon
           <div className="speaker__about">
             <div className="speaker__picture">
               <div className="circle__effect">
-                <img
-                  width="400"
-                  height="400"
-                  src={images?.base.src}
-                  alt={name}
-                  srcSet={`${images?.base.src} 1x, ${images?.retina.src} 2x`}
-                  className="circle__picture"
-                />
+                <GatsbyImage image={image} className="circle__picture" alt={name} />
               </div>
             </div>
             <div className="speaker__details">
