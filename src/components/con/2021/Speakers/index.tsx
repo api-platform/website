@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
+import { Link } from 'gatsby';
 import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import Section from '../common/Section';
@@ -9,6 +10,7 @@ import { Speaker } from '../types';
 
 const Speakers: React.ComponentType = () => {
   const speakers: Speaker[] = useSpeakers();
+  const visibleSpeakers = speakers.slice(0, 6);
 
   return (
     <Section className="conf__speakers" section="speakers">
@@ -34,7 +36,7 @@ const Speakers: React.ComponentType = () => {
               </GridItem>
             </>
           ) : (
-            speakers.map((speaker) => (
+            visibleSpeakers.map((speaker) => (
               <GridItem key={speaker.name}>
                 <SpeakerCircle speaker={speaker} />
               </GridItem>
@@ -42,6 +44,11 @@ const Speakers: React.ComponentType = () => {
           )}
         </Grid>
       </div>
+      {6 < speakers.length ? (
+        <Link className="conf__button" to="/con/2021/speakers/">
+          See all our speakers
+        </Link>
+      ) : null}
     </Section>
   );
 };

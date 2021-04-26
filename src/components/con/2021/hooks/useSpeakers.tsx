@@ -4,7 +4,11 @@ import { Speaker } from '../types';
 const useSpeakers: (ids?: string[]) => Speaker[] = (ids) => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "speaker" } } }) {
+      allMarkdownRemark(
+        limit: 1000
+        filter: { frontmatter: { type: { eq: "speaker" } } }
+        sort: { fields: frontmatter___id, order: ASC }
+      ) {
         nodes {
           fields {
             slug
