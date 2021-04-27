@@ -30,6 +30,7 @@ const MobileNav: React.ComponentType = () => {
         </Link>
         {links.map((link) => (
           <Link
+            key={link.text}
             to={link.to}
             className={classNames('conf__mobile-item', {
               active: link.to === pathname,

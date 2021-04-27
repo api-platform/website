@@ -51,36 +51,40 @@ const TabbedSchedule: React.ComponentType = () => {
     <div className="conf__schedule-tabbed">
       <TrackSelector selectedTrack={selectedTrack} setSelectedTrack={setSelectedTrack} />
       <div className="schedule__program">
-        <SwipeableViews
-          key={selectedTrack}
-          index={selectedMomentDay}
-          onChangeIndex={handleChangeIndex}
-          animateHeight
-          ref={swipeableViews}
-        >
-          <div className="schedule__program-morning">
-            {morningConferences.map((conference) => (
-              <SlotItem key={conference.id} conference={conference} />
-            ))}
-            {afternoonConferences.length ? (
+        {afternoonConferences.length ? (
+          <SwipeableViews
+            key={selectedTrack}
+            index={selectedMomentDay}
+            onChangeIndex={handleChangeIndex}
+            animateHeight
+            ref={swipeableViews}
+          >
+            <div className="schedule__program-morning">
+              {morningConferences.map((conference) => (
+                <SlotItem key={conference.slug} conference={conference} />
+              ))}
               <Button empty size="small" onClick={() => handleChangeIndex(1)}>
                 Afternoon
                 <span className="icon-chevron-right" />
               </Button>
-            ) : null}
-          </div>
-          {!!afternoonConferences.length && (
+            </div>
             <div className="schedule__program-afternoon">
               {afternoonConferences.map((conference) => (
-                <SlotItem key={conference.id} conference={conference} />
+                <SlotItem key={conference.slug} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(0)}>
                 <span className="icon-chevron-left" />
                 Morning
               </Button>
             </div>
-          )}
-        </SwipeableViews>
+          </SwipeableViews>
+        ) : (
+          <div className="schedule__program-morning">
+            {morningConferences.map((conference) => (
+              <SlotItem key={conference.slug} conference={conference} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

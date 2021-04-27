@@ -1,11 +1,12 @@
 .conf__partners {
   padding-top: 50px;
-  padding-bottom: 300px;
+  padding-bottom: 200px;
   position: relative;
   background-color: #fff;
 
   .partners__item {
     @include grayscale-effect(0.5);
+    min-width: 0;
     a {
       width: 100%;
       text-align: center;
@@ -14,7 +15,6 @@
       margin: 0 auto;
       position: relative;
       @include flex-center(column);
-      border-radius: 50%;
     }
     img {
       width: 80%;
@@ -28,7 +28,7 @@
       transition: all ease 0.3s;
     }
     &:hover {
-      .partners__title  {
+      .partners__title {
         transform: translateY(20px);
         &:after {
           background-color: var(--darkblue);
@@ -43,5 +43,48 @@
   }
   @include mq($max-width: $vw-medium) {
     padding-top: 0;
+  }
+  .partners__section {
+    text-align: center;
+    margin: 20px auto;
+    position: relative;
+    width: 100%;
+    &:not(:last-child) {
+      &:after {
+        content: "";
+        width: 80%;
+        max-width:500px;
+        border-bottom: 2px dotted var(--lightgrey);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .partners__section-title {
+      color: var(--darkblue);
+    }
+    &.partners__gold {
+      .partners__item a {
+        max-width: 400px;
+      }
+    }
+    &.partners__silver {
+      .partners__item a {
+        max-width: 300px;
+      }
+    }
+
+    &.partners__bronze {
+      .partners__item a {
+        max-width: 240px;
+      }
+    }
+
+    &.partners__partners {
+      .partners__item a {
+        max-width: 120px;
+      }
+    }
   }
 }

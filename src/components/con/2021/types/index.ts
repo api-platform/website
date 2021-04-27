@@ -9,7 +9,6 @@ export type Speaker = {
 };
 
 export type Conference = {
-  id: number;
   title: string;
   description?: string;
   start: string;
@@ -43,4 +42,5 @@ export type Partner = {
   logo: string;
   name: string;
   link: string;
+  rank: number;
 };
