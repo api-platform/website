@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Speaker } from '../types';
 
@@ -29,8 +29,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
         const image = getSpeakerImage(speaker.id);
 
         return (
-          <Link
-            to={speaker.slug}
+          <div
             key={speaker.name}
             className="avatar__circle"
             style={{
@@ -41,7 +40,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
             }}
           >
             <GatsbyImage image={image} className="circle__picture" alt={speaker.name} />
-          </Link>
+          </div>
         );
       })}
     </div>

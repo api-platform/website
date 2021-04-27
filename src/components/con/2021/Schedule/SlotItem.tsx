@@ -27,7 +27,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
             {'by '}
             {speakers.map((speaker, index) => (
               <Fragment key={speaker.name}>
-                <Link to={speaker.slug}>{speaker.name}</Link>
+                <strong className="slot-speaker">{speaker.name}</strong>
                 {index < speakers.length - 1 && ' & '}
               </Fragment>
             ))}

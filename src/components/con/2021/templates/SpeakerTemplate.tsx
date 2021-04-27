@@ -33,11 +33,11 @@ export const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference
   );
 };
 
-interface ConferenceTemplateProps extends PageProps {
+interface SpeakerTemplateProps extends PageProps {
   pageContext: Speaker;
 }
 
-const SpeakerTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext, location }) => {
+const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ pageContext, location }) => {
   const { id, name, job, description } = pageContext;
   const conferences = useConferences(id);
   const data = useStaticQuery(graphql`

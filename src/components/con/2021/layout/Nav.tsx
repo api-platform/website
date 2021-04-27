@@ -99,7 +99,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
         </div>
       </Link>
       {links.map((link) => (
-        <NavLink anchor={isHomePage && link.anchor} to={link.to}>
+        <NavLink key={link.text} anchor={isHomePage && link.anchor} to={link.to}>
           {link.text}
         </NavLink>
       ))}

@@ -48,12 +48,12 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ page
           <div className="conference__content">
             <div className={classNames('conference__speaker', { minified: 1 < speakers.length })}>
               {speakers.map((speaker) => (
-                <>
+                <React.Fragment key={speaker.name}>
                   <SpeakerCircle speaker={speaker} hoverable={false} social={false} />
                   <Button className="white square" size="small" to={speaker.slug}>
                     See speaker details
                   </Button>
-                </>
+                </React.Fragment>
               ))}
             </div>
             <div

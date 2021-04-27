@@ -10,6 +10,7 @@
       width: 240px;
       height: 240px;
       position: relative;
+      -webkit-mask-image: -webkit-radial-gradient(white, black); // fix safari circle crop issue
       &:after {
         position: absolute;
         content: '';

@@ -17,7 +17,7 @@ const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
         </div>
       </div>
       {conferences.map((conference) => (
-        <SlotItem key={conference.id} conference={conference} />
+        <SlotItem key={conference.slug} conference={conference} />
       ))}
       {0 === conferences.length ? <span className="overline">No program yet</span> : null}
     </>
