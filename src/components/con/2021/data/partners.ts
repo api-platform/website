@@ -8,6 +8,12 @@ const partners: Partner[] = [
     rank: 1,
   },
   {
+    name: 'Wine in black',
+    logo: 'wine-in-black',
+    link: 'https://www.wine-in-black.de/',
+    rank: 2,
+  },
+  {
     name: 'Euratechnologies',
     logo: 'euratechnologies',
     link: 'https://www.euratechnologies.com/',
