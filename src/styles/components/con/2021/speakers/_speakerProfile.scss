@@ -62,6 +62,8 @@
         border-radius: 50%;
         width: 400px;
         height: 400px;
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black); // fix safari circle crop issue
       }
       @include mq($max-width: $vw-large) {
         .circle__picture {
