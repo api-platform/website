@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+const { currentVersion } = require('../constants');
+
+const xsdMetadataCoreFilepath = 'src/Metadata/schema/metadata.xsd';
+const xsdMetadataPath = 'static/metadata';
+const xsdMetadataFilename = 'metadata-2.0.xsd';
+
+console.info('\x1b[36m', `Retrieve current (${currentVersion}) metadata XSD`, '\x1b[37m');
+
+const checkStatus = response => {
+  if (response.ok) {
+    return response;
+  } else {
+    throw new Error(`HTTP Error Response: ${response.status} ${response.statusText}`);
+  }
+};
+
+(async () => {
+  try {
+    const res = await fetch(`${process.env.CORE_REPOSITORY.replace('.git', '')}/raw/${currentVersion}/${xsdMetadataCoreFilepath}`);
+    checkStatus(res);
+    const xsd = await res.text();
+    fs.mkdirSync(path.resolve(__dirname, `../${xsdMetadataPath}`), { recursive: true });
+    fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/${xsdMetadataFilename}`), xsd);
+    console.info('\x1b[36m', 'XSD metadata file retrieved', '\x1b[37m');
+  } catch (error) {
+    console.warn('\x1b[31m', `Failed to retrieve metadata XSD file: ${error}`, '\x1b[37m');
+    process.exit(1);
+  }
+})();
