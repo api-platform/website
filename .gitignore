@@ -3,4 +3,4 @@ node_modules/
 public/
 src/pages/docs/
 .env.local
-static/metadata/metadata-2.0.xsd
+static/schema/metadata/metadata-2.0.xsd

@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 const { currentVersion } = require('../constants');
 
 const xsdMetadataCoreFilepath = 'src/Metadata/schema/metadata.xsd';
-const xsdMetadataPath = 'static/metadata';
+const xsdMetadataPath = 'static/schema/metadata';
 const xsdMetadataFilename = 'metadata-2.0.xsd';
 
 console.info('\x1b[36m', `Retrieve current (${currentVersion}) metadata XSD`, '\x1b[37m');
