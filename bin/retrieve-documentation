@@ -10,3 +10,7 @@ bin/checkout-github-template
 
 bin/check-outline
 bin/generate-nav
+
+# Retrieve metadata XSD file
+
+bin/retrieve-metadata-xsd
