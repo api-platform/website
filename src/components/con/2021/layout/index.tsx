@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useState, useCallback, useEffect, useMemo } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import '@styles/components/con/2021/index.scss';
@@ -90,9 +90,12 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     offers: offersData,
   };
 
-  const [activeLink, setActiveLink] = useState('home');
   const [sectionsVisibles, setSectionsVisibles] = useState<string[]>(['home']);
   const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
+
+  const activeLink = useMemo(() => (sectionsVisibles.length ? sectionsVisibles[sectionsVisibles.length - 1] : 'home'), [
+    sectionsVisibles,
+  ]);
 
   const goToLink = useCallback((section) => {
     const element = document.querySelector(`#${section}`);
@@ -108,10 +111,12 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     document.body.appendChild(s);
   }, [setIsEventBriteLoaded]);
 
+  useEffect(() => {
+    window.history.replaceState({}, '', 'home' === activeLink ? window.location.href.split('#')[0] : `#${activeLink}`);
+  }, [activeLink]);
+
   return (
-    <ConfContext.Provider
-      value={{ activeLink, setActiveLink, goToLink, isEventBriteLoaded, sectionsVisibles, setSectionsVisibles }}
-    >
+    <ConfContext.Provider value={{ activeLink, goToLink, isEventBriteLoaded, sectionsVisibles, setSectionsVisibles }}>
       <Helmet {...helmetConfig.head}>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
