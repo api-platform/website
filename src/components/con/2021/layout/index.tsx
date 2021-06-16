@@ -15,6 +15,7 @@ import RalewayBold from '@styles/components/con/2021/fonts/raleway-v19-latin-700
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
 import prices from '../data/prices';
 import helmetConfig from '../../../../helmetConfig';
+import useDebouncedEffect from '../hooks/useDebounceEffect';
 
 dayjs.extend(localizedFormat);
 
@@ -111,9 +112,17 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
     document.body.appendChild(s);
   }, [setIsEventBriteLoaded]);
 
-  useEffect(() => {
-    window.history.replaceState({}, '', 'home' === activeLink ? window.location.href.split('#')[0] : `#${activeLink}`);
-  }, [activeLink]);
+  useDebouncedEffect(
+    () => {
+      window.history.replaceState(
+        {},
+        '',
+        'home' === activeLink ? window.location.href.split('#')[0] : `#${activeLink}`
+      );
+    },
+    300,
+    [activeLink]
+  );
 
   return (
     <ConfContext.Provider value={{ activeLink, goToLink, isEventBriteLoaded, sectionsVisibles, setSectionsVisibles }}>
