@@ -2,6 +2,12 @@ import { Partner } from '../types';
 
 const partners: Partner[] = [
   {
+    name: 'Saveur Bière',
+    logo: 'saveur-biere',
+    link: 'https://interdrinks.welcomekit.co/',
+    rank: 1,
+  },
+  {
     name: 'SensioLabs',
     logo: 'sensiolabs',
     link: 'https://sensiolabs.com/fr/',

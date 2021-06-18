@@ -41,8 +41,12 @@ const Partners: React.ComponentType = () => {
         {gold.length ? (
           <PartnersSection type="gold" partners={gold} title={1 === gold.length ? 'Gold sponsor' : 'Gold sponsors'} />
         ) : null}
-        {silver.length ? <PartnersSection type="silver" partners={silver} title="Silver sponsors" /> : null}
-        {bronze.length ? <PartnersSection type="bronze" partners={bronze} title="Bronze sponsors" /> : null}
+        {silver.length ? (
+          <PartnersSection type="silver" partners={silver} title={`Silver sponsor${1 !== silver.length ? 's' : ''}`} />
+        ) : null}
+        {bronze.length ? (
+          <PartnersSection type="bronze" partners={bronze} title={`Bronze sponsor${1 !== bronze.length ? 's' : ''}`} />
+        ) : null}
         {partners.length ? <PartnersSection type="partners" partners={partners} title="Partners" /> : null}
         <div className="partners__section">
           <a
