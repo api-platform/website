@@ -186,6 +186,18 @@
       display: none;
     }
 
+    .anchor {
+      display: none;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      color: var(--darkblue);
+      margin-bottom: 10px;
+    }
+
     p {
       margin-bottom: 40px;
       font-size: 18px;
