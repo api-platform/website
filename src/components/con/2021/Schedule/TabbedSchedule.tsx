@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef, useLayoutEffect, useCallba
 import SwipeableViews from 'react-swipeable-views';
 import TrackSelector from './TrackSelector';
 import SlotItem from './SlotItem';
-import { isMorningTime } from '../utils';
+import { isMorningTime, sortByStartDate } from '../utils';
 import Button from '../common/Button';
 import useConferences from '../hooks/useConferences';
 
@@ -10,19 +10,26 @@ const TabbedSchedule: React.ComponentType = () => {
   const swipeableViews = useRef(null);
   const [selectedTrack, setSelectedTrack] = useState<'EN' | 'FR'>('EN');
   const [selectedMomentDay, setSelectedMomentDay] = useState(0);
-  const conferences = useConferences();
+  const conferences = useConferences(null, true);
 
-  const trackConferences = useMemo(() => conferences.filter((conference) => conference.track === selectedTrack), [
-    conferences,
-    selectedTrack,
-  ]);
+  const trackConferences = useMemo(
+    () => conferences.filter((conference) => conference.track === selectedTrack || !conference.track),
+    [conferences, selectedTrack]
+  );
 
   const morningConferences = useMemo(
-    () => trackConferences.filter((conference) => isMorningTime(conference.start) || !conference.start),
+    () =>
+      trackConferences
+        .filter((conference) => isMorningTime(conference.start) || !conference.start)
+        .sort(sortByStartDate),
     [trackConferences]
   );
+
   const afternoonConferences = useMemo(
-    () => trackConferences.filter((conference) => conference.start && !isMorningTime(conference.start)),
+    () =>
+      trackConferences
+        .filter((conference) => conference.start && !isMorningTime(conference.start))
+        .sort(sortByStartDate),
     [trackConferences]
   );
 

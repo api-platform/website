@@ -1,9 +1,9 @@
 ---
 type: conference
 speakers: -nicolas
-track: FR
-start: ''
-end: ''
+track: EN
+start: '15:10'
+end: '15:50'
 short: How a new Symfony component could become essential in the PHP ecosystem.
 ---
 
