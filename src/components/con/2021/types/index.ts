@@ -10,13 +10,13 @@ export type Speaker = {
 
 export type Conference = {
   title: string;
-  description?: string;
   start: string;
   end: string;
-  short: string;
   track: 'FR' | 'EN';
-  slug: string;
-  speakers: string[];
+  description?: string;
+  short?: string;
+  slug?: string;
+  speakers?: string[];
 };
 
 export type Track = {

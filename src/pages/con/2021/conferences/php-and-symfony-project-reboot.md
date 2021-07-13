@@ -2,8 +2,8 @@
 type: conference
 speakers: -olivier
 track: FR
-start: ''
-end: ''
+start: '09:55'
+end: '10:35'
 short: Why we choose API Platform ecosystem to build a fast and scalable application.
 ---
 

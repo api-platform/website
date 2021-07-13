@@ -3,10 +3,13 @@ import tracks from '../data/tracks';
 import SlotItem from './SlotItem';
 import useConferences from '../hooks/useConferences';
 import { Track } from '../types';
+import { sortByStartDate } from '../utils';
 
 const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
-  const allConferences = useConferences();
-  const conferences = allConferences.filter((conference) => conference.track === track.id);
+  const allConferences = useConferences(null, true);
+  const conferences = allConferences
+    .filter((conference) => conference.track === track.id || !conference.track)
+    .sort(sortByStartDate);
 
   return (
     <>

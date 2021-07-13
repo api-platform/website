@@ -228,6 +228,16 @@
       }
     }
     &.no-speaker {
+      pointer-events: none;
+      background: none;
+      border: 2px dashed var(--clearblue);
+      padding: 10px;
+      .lined {
+        padding-bottom: 0;
+        &:after {
+          content: none;
+        }
+      }
       .schedule__slot-infos {
         align-items: center;
       }

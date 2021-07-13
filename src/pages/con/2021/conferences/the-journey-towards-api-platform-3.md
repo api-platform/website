@@ -2,8 +2,8 @@
 type: conference
 speakers: -antoine
 track: EN
-start: ''
-end: ''
+start: '09:55'
+end: '10:35'
 short: Go behind the scenes of API Platform' new release.
 ---
 ​

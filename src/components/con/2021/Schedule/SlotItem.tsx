@@ -12,11 +12,13 @@ interface SlotItemProps {
 
 const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
   const { title, start, end, slug } = conference;
-  const speakers = useSpeakers(conference.speakers);
+  let speakers = useSpeakers(conference.speakers);
+
+  if (!conference.speakers) speakers = [];
 
   return (
     <Link to={slug} className={classNames('schedule__slot', { 'no-speaker': !speakers?.length })}>
-      {speakers?.length && <Avatar speakers={speakers} />}
+      {speakers?.length ? <Avatar speakers={speakers} /> : null}
       <div className="schedule__slot-infos">
         <span className="overline">
           {start && end ? `${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}

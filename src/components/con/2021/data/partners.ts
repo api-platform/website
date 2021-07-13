@@ -20,6 +20,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: 'Fairness',
+    logo: 'fairness',
+    link: 'https://fairness.coop/',
+    rank: 3,
+  },
+  {
     name: 'Euratechnologies',
     logo: 'euratechnologies',
     link: 'https://www.euratechnologies.com/',
