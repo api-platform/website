@@ -14,6 +14,12 @@ const partners: Partner[] = [
     rank: 1,
   },
   {
+    name: 'Vestiaire Collective',
+    logo: 'vestiaire-collective',
+    link: 'https://fr.vestiairecollective.com/',
+    rank: 1,
+  },
+  {
     name: 'Wine in black',
     logo: 'wine-in-black',
     link: 'https://www.wine-in-black.de/',
@@ -23,6 +29,12 @@ const partners: Partner[] = [
     name: 'Fairness',
     logo: 'fairness',
     link: 'https://fairness.coop/',
+    rank: 3,
+  },
+  {
+    name: 'Orbitale.io',
+    logo: 'orbitale',
+    link: 'https://www.orbitale.io/en/',
     rank: 3,
   },
   {
