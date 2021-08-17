@@ -12,6 +12,7 @@ import Poppins800 from '@styles/components/con/2021/fonts/poppins-v15-latin-800.
 import Poppins from '@styles/components/con/2021/fonts/poppins-v15-latin-regular.woff';
 import Raleway from '@styles/components/con/2021/fonts/raleway-v19-latin-regular.woff';
 import RalewayBold from '@styles/components/con/2021/fonts/raleway-v19-latin-700.woff';
+import MovingMessage from '@components/common/MovingMessage';
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
 import prices from '../data/prices';
 import helmetConfig from '../../../../helmetConfig';
@@ -157,6 +158,10 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
       </Helmet>
       <div className="conf conf__layout" id="conf">
         <div className="conf__background" />
+        <MovingMessage>
+          On-site attendees: a proof of COVID-19 vaccination (Pass sanitaire) or a negative COVID-19 viral test taken
+          within 2 calendar days will be required at the entrance of the event.
+        </MovingMessage>
         <Nav location={location} />
         <MobileNav />
         <div className="conf__content">

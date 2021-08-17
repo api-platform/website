@@ -9,6 +9,7 @@ import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';
 import NavContext from './NavContext';
+import MovingMessage from '../common/MovingMessage';
 
 const nav = links.map((link) => <MenuItem key={link.text} {...link} />);
 
@@ -31,18 +32,10 @@ const Header = () => {
   return (
     <>
       <Link to="/con/">
-        <div className="header__additional-message openable">
-          <div className="message__content">
-            {[1, 2, 3].map((index) => (
-              /* put the information message content here */
-              <div className={`message${index}`}>
-                <div className="message__arrow" />
-                <strong>API Platform Con 2021</strong>: join us in Lille (France) or online on September 10 for our 1st
-                international conference.
-              </div>
-            ))}
-          </div>
-        </div>
+        <MovingMessage>
+          <strong>API Platform Con 2021</strong>: join us in Lille (France) or online on September 10 for our 1st
+          international conference.
+        </MovingMessage>
       </Link>
       <header
         className={classnames('header openable', {

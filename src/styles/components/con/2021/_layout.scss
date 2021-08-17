@@ -4,6 +4,10 @@
     overflow-x: hidden;
     overflow-y: visible;
   }
+  .header__additional-message .message__content > * {
+    font-size: 13px!important;
+    font-weight: bold;
+  }
 
   .conf__menu {
     position: fixed;
@@ -19,6 +23,8 @@
     background-repeat: no-repeat;
     background-position: 100%;
     height: 64px;
+    top: $headerMessageH;
+    border-top: 1px solid var(--blue);
     &:after {
       content: '';
       width: 0%;

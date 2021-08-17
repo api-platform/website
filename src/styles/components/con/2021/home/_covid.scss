@@ -7,6 +7,15 @@
     .conf__section-subtitle {
       color: #fff;
     }
+    .covid__warning {
+      transform: translateY(-20px);
+      p {
+        color: #fff;
+      }
+      a {
+        color: var(--lightblue);
+      }
+    }
     .covid__grid {
       display: grid;
       width: 800px;
