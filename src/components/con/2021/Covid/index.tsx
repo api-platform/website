@@ -7,6 +7,8 @@ import Mask2 from '../images/mask2.svg';
 import Seats from '../images/seats.svg';
 import Capacities from '../images/capacities.svg';
 import Disinfectant from '../images/disinfectant.svg';
+import Covid from '../images/covid.svg';
+import Warning from '../common/Warning';
 
 interface CovidMeasureProps {
   icon: string;
@@ -22,16 +24,38 @@ const CovidMeasure: React.ComponentType<CovidMeasureProps> = ({ icon, alt, child
   </div>
 );
 
-const Covid: React.ComponentType = () => (
+const CovidMeasures: React.ComponentType = () => (
   <Section className="conf__covid" section="covid">
     <div className="container">
       <SectionTitle dark>
         <strong>Covid-19</strong> sanitary measures
       </SectionTitle>
       <p className="conf__section-subtitle">
-        To allow you to enjoy the conference in the safest conditions, the on-site event will follow the sanitary
+        In order to let our attendees enjoy the on-site conference in the safest conditions, we follow the sanitary
         protocols recommended by official health organizations.
       </p>
+      <Warning img={Covid} className="covid__warning">
+        <p>
+          A <strong>proof of COVID-19 vaccination </strong>
+          <a
+            href="https://www.gouvernement.fr/info-coronavirus/pass-sanitaire"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            (Pass sanitaire)
+          </a>
+          <strong> will be required</strong> and if you don’t have one,{' '}
+          <strong>you must provide a negative COVID-19 viral test taken within two calendar days</strong>.
+        </p>
+        <p>
+          COVID viral (PCR) testing is available at{' '}
+          <a href="https://www.sante.fr/cf/centres-depistage-covid.html" target="_blank" rel="noopener noreferrer">
+            many laboratories and testing centers
+          </a>
+          , usually by appointment. Many pharmacies can do serologic (antigen/rapid) tests.
+        </p>
+      </Warning>
+      <p className="conf__section-subtitle">Other sanitary informations :</p>
       <div className="covid__grid">
         <CovidMeasure icon={Ventilation} alt="ventilation">
           The rooms will be naturally <strong>ventilated</strong>
@@ -57,4 +81,4 @@ const Covid: React.ComponentType = () => (
   </Section>
 );
 
-export default Covid;
+export default CovidMeasures;
