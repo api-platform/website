@@ -18,7 +18,7 @@ const prices: Price[] = [
       },
       {
         title: 'Late bird',
-        limitDate: '2021-09-08',
+        limitDate: '2021-09-09',
         price: 109,
       },
     ],

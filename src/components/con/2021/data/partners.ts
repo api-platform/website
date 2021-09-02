@@ -20,6 +20,12 @@ const partners: Partner[] = [
     rank: 1,
   },
   {
+    name: 'Coopcycle',
+    logo: 'coopcycle',
+    link: 'https://coopcycle.org/en/',
+    rank: 1,
+  },
+  {
     name: 'Wine in black',
     logo: 'wine-in-black',
     link: 'https://www.wine-in-black.de/',
