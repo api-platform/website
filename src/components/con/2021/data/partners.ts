@@ -20,12 +20,6 @@ const partners: Partner[] = [
     rank: 1,
   },
   {
-    name: 'Coopcycle',
-    logo: 'coopcycle',
-    link: 'https://coopcycle.org/en/',
-    rank: 1,
-  },
-  {
     name: 'Wine in black',
     logo: 'wine-in-black',
     link: 'https://www.wine-in-black.de/',
@@ -44,21 +38,39 @@ const partners: Partner[] = [
     rank: 3,
   },
   {
+    name: 'Coopcycle',
+    logo: 'coopcycle',
+    link: 'https://coopcycle.org/en/',
+    rank: 4,
+  },
+  {
     name: 'Euratechnologies',
     logo: 'euratechnologies',
     link: 'https://www.euratechnologies.com/',
     rank: 4,
   },
   {
-    name: 'Sticker mule',
-    logo: 'sticker-mule',
-    link: 'https://mule.to/p1oo',
+    name: 'La fourche',
+    logo: 'la-fourche',
+    link: 'https://lafourche.fr/',
+    rank: 4,
+  },
+  {
+    name: 'Motoblouz',
+    logo: 'motoblouz',
+    link: 'https://www.motoblouz.com/',
     rank: 4,
   },
   {
     name: 'SymfonyCasts',
     logo: 'symfony-casts',
     link: 'https://symfonycasts.com/',
+    rank: 4,
+  },
+  {
+    name: 'Sticker mule',
+    logo: 'sticker-mule',
+    link: 'https://mule.to/p1oo',
     rank: 4,
   },
   {
