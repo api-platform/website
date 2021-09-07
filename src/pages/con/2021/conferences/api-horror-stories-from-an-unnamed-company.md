@@ -2,8 +2,8 @@
 type: conference
 speakers: -phil
 track: EN
-start: '17:00'
-end: '17:40'
+start: '15:10'
+end: '15:50'
 short: Get ready for spine-chilling stories about APIs
 ---
 

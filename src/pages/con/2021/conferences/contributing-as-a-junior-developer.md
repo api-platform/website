@@ -3,7 +3,7 @@ type: conference
 speakers: -justine
 track: FR
 start: '11:45'
-end: '12:25'
+end: '12:05'
 short: Or why you don't need to be an expert to contribute to the API Platform project.
 ---
 
