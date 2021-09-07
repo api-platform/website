@@ -20,7 +20,7 @@ const Speakers: React.ComponentType = () => {
         </SectionTitle>
         <p className="conf__section-subtitle">
           Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking
-          tracks. Meet our first speakers and come back in a couple of days to discover other names!
+          tracks.
         </p>
         <Grid>
           {0 === speakers.length ? (
