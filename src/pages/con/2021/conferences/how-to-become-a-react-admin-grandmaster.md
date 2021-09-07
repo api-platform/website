@@ -2,8 +2,8 @@
 type: conference
 speakers: -francois
 track: EN
-start: '14:25'
-end: '15:05'
+start: '14:45'
+end: '15:25'
 short: With this conference, you will want to start using JS.
 ---
 ​

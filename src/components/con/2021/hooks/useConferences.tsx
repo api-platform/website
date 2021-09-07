@@ -53,8 +53,8 @@ const useConferences: (speaker?: string, withBreaks?: boolean) => Conference[] =
         },
         {
           title: 'Afternoon break',
-          start: '15:50',
-          end: '16:15',
+          start: '16:10',
+          end: '16:25',
           track: 'EN',
         },
       ]

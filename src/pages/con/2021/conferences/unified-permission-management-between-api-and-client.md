@@ -2,8 +2,8 @@
 type: conference
 speakers: -marion
 track: FR
-start: '14:25'
-end: '15:05'
+start: '14:45'
+end: '15:25'
 short: Discover Marion's implementation to operate advanced permissions
 ---
 

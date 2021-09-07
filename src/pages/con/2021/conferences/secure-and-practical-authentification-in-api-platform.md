@@ -3,7 +3,7 @@ type: conference
 speakers: -robin
 track: FR
 start: '14:00'
-end: '14:20'
+end: '14:40'
 short: Take a look at Robin's tips to secure your API.
 ---
 

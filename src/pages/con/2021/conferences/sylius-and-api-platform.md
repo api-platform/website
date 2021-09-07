@@ -3,7 +3,7 @@ type: conference
 speakers: -lukasz
 track: EN
 start: '14:00'
-end: '14:20'
+end: '14:40'
 short: All you want to know about the integration of sylius and API Platform.
 ---
 
