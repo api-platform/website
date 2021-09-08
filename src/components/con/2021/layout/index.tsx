@@ -38,7 +38,8 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
       if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
       return 0;
     });
-    const activeOffer = sortedOffers.find((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
+    const activeOffer =
+      sortedOffers.find((offer) => dayjs(offer.limitDate).isAfter(dayjs())) || sortedOffers[sortedOffers.length - 1];
     return {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
