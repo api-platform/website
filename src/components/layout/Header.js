@@ -9,7 +9,6 @@ import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';
 import NavContext from './NavContext';
-import MovingMessage from '../common/MovingMessage';
 
 const nav = links.map((link) => <MenuItem key={link.text} {...link} />);
 
@@ -31,12 +30,6 @@ const Header = () => {
 
   return (
     <>
-      <Link to="/con/">
-        <MovingMessage>
-          <strong>API Platform Con 2021</strong>: join us in Lille (France) or online on September 10 for our 1st
-          international conference.
-        </MovingMessage>
-      </Link>
       <header
         className={classnames('header openable', {
           'expand-search': isSearchFocused,
