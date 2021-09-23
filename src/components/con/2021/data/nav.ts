@@ -14,11 +14,6 @@ const links = [
     to: '/con/2021/#venue',
     text: 'Venue',
   },
-  {
-    anchor: 'pricing',
-    to: '/con/2021/#pricing',
-    text: 'Pricing',
-  },
 ];
 
 export default links;

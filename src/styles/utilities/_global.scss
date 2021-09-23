@@ -1,0 +1,111 @@
+// padding utility
+@each $space, $value in $spacingSizes {
+  .p-#{$space} {
+    padding: $value !important;
+  }
+  .px-#{$space} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+  .py-#{$space} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+  .pt-#{$space} {
+    padding-top: $value !important;
+  }
+  .pb-#{$space} {
+    padding-bottom: $value !important;
+  }
+  .pr-#{$space} {
+    padding-right: $value !important;
+  }
+  .pl-#{$space} {
+    padding-left: $value !important;
+  }
+}
+
+// margin utilities
+@each $space, $value in $spacingSizes {
+  .m-#{$space} {
+    margin: $value !important;
+  }
+  .mx-#{$space} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+  .my-#{$space} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+  .mt-#{$space} {
+    margin-top: $value !important;
+  }
+  .mb-#{$space} {
+    margin-bottom: $value !important;
+  }
+  .mr-#{$space} {
+    margin-right: $value !important;
+  }
+  .ml-#{$space} {
+    margin-left: $value !important;
+  }
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-start {
+  align-self: start;
+}
+
+.self-end {
+  align-self: end;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+

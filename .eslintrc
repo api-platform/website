@@ -12,7 +12,8 @@
       "alias": [
         ["@components", "./src/components"],
         ["@images", "./src/images"],
-        ["@styles", "./src/styles"]
+        ["@styles", "./src/styles"],
+        ["@con", "./src/components/con"]
       ]
     }
   },
