@@ -67,8 +67,8 @@ const TabbedSchedule: React.ComponentType = () => {
             ref={swipeableViews}
           >
             <div className="schedule__program-morning">
-              {morningConferences.map((conference) => (
-                <SlotItem key={conference.slug} conference={conference} />
+              {morningConferences.map((conference, index) => (
+                <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(1)}>
                 Afternoon
@@ -76,8 +76,8 @@ const TabbedSchedule: React.ComponentType = () => {
               </Button>
             </div>
             <div className="schedule__program-afternoon">
-              {afternoonConferences.map((conference) => (
-                <SlotItem key={conference.slug} conference={conference} />
+              {afternoonConferences.map((conference, index) => (
+                <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(0)}>
                 <span className="icon-chevron-left" />
@@ -87,8 +87,8 @@ const TabbedSchedule: React.ComponentType = () => {
           </SwipeableViews>
         ) : (
           <div className="schedule__program-morning">
-            {morningConferences.map((conference) => (
-              <SlotItem key={conference.slug} conference={conference} />
+            {morningConferences.map((conference, index) => (
+              <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
             ))}
           </div>
         )}

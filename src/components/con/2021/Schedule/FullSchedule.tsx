@@ -19,8 +19,8 @@ const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
           {track.type}
         </div>
       </div>
-      {conferences.map((conference) => (
-        <SlotItem key={conference.slug} conference={conference} />
+      {conferences.map((conference, index) => (
+        <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
       ))}
       {0 === conferences.length ? <span className="overline">No program yet</span> : null}
     </>
@@ -29,8 +29,8 @@ const ScheduleByTrack: React.ComponentType<{ track: Track }> = ({ track }) => {
 
 const FullSchedule: React.ComponentType = () => (
   <div className="conf__schedule-full">
-    {tracks.map((track) => (
-      <ScheduleByTrack track={track} key={track.id} />
+    {tracks.map((track, index) => (
+      <ScheduleByTrack track={track} key={`${track.id} ${index}`} />
     ))}
   </div>
 );

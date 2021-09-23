@@ -19,6 +19,9 @@ const MobileNav: React.ComponentType = () => {
         <div className="burger-btn__line" />
       </div>
       <div className={classNames('conf__mobile-nav', { opened })}>
+        <Link to="/con/" className="conf__mobile-item conf__mobile-item-back" onClick={toggleOpen}>
+          {`< Current edition`}
+        </Link>
         <Link
           to="/con/2021/"
           className={classNames('conf__mobile-item', {

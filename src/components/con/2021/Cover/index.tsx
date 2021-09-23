@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Web from '@con/common/Web';
+import Wave from '@con/common/Wave';
+import Button from '@con/common/Button';
 import Logo from '../images/logo.svg';
-import BuyButton from '../common/BuyButton';
-import Wave from '../common/Wave';
-import Web from './Web';
-import Section from '../common/Section';
+import Section, { SectionContext } from '../common/Section';
+
+const CoverWeb: React.ComponentType = () => {
+  const isVisible = useContext(SectionContext);
+  return <Web className="conf__cover-web" animated isVisible={isVisible} />;
+};
 
 const Cover: React.ComponentType = () => (
   <Section className="conf__cover" section="home">
@@ -15,8 +20,8 @@ const Cover: React.ComponentType = () => (
       <span className="conf__cover-baseline">
         The first international conference dedicated to API Platform and its ecosystem
       </span>
-      <Web className="conf__cover-web" />
-      <BuyButton id="cover">Buy tickets</BuyButton>
+      <CoverWeb />
+      <Button to="/con">{`< Back to current edition`}</Button>
     </div>
     <Wave className="conf__cover-wave" animated={false} />
   </Section>

@@ -5,7 +5,6 @@ import { useLocation } from '@reach/router';
 import Logo from '../images/logo.svg';
 import LogoSpider from '../../../../images/logo_spider.svg';
 import { ConfContext } from '.';
-import BuyButton from '../common/BuyButton';
 import links from '../data/nav';
 
 interface NavLinkProps {
@@ -98,14 +97,15 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
           />
         </div>
       </Link>
+      <Link className="conf__menu-item conf__menu-item-back" to="/con">
+        {`< Back to current edition`}
+      </Link>
+      <div className="conf__menu-separator mx-15 text-right" />
       {links.map((link) => (
         <NavLink key={link.text} anchor={isHomePage && link.anchor} to={link.to}>
           {link.text}
         </NavLink>
       ))}
-      <BuyButton id="nav" size="small">
-        Buy tickets
-      </BuyButton>
     </nav>
   );
 };
