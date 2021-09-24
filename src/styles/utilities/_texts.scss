@@ -9,3 +9,26 @@
     font-size: $value !important;
   }
 }
+
+@each $weight, $value in $weightSizes {
+  .font-#{$weight} {
+    font-weight: $value !important;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+

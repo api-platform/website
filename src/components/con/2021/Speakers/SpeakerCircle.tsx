@@ -26,8 +26,8 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
       }
     }
   `);
-  const images = data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0];
-  const image = getImage(images);
+  const images = data.allFile.nodes.find((imageData) => imageData.name === id);
+  const image = images && getImage(images);
 
   const speakerData = {
     '@context': 'http://schema.org',

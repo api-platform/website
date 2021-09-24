@@ -6,13 +6,7 @@ import Footer from '@components/con/2021/layout/Footer';
 import Nav from '@components/con/2021/layout/Nav';
 import MobileNav from '@components/con/2021/layout/MobileNav';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import Poppins300 from '@styles/components/con/2021/fonts/poppins-v15-latin-300.woff';
-import Poppins600 from '@styles/components/con/2021/fonts/poppins-v15-latin-600.woff';
-import Poppins800 from '@styles/components/con/2021/fonts/poppins-v15-latin-800.woff';
-import Poppins from '@styles/components/con/2021/fonts/poppins-v15-latin-regular.woff';
-import Raleway from '@styles/components/con/2021/fonts/raleway-v19-latin-regular.woff';
-import RalewayBold from '@styles/components/con/2021/fonts/raleway-v19-latin-700.woff';
-import MovingMessage from '@components/common/MovingMessage';
+import PreloadFonts from '@con/layout/Fonts';
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
 import prices from '../data/prices';
 import helmetConfig from '../../../../helmetConfig';
@@ -145,24 +139,15 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
         <script type="application/ld+json">{JSON.stringify(websiteData)}</script>
         <script type="application/ld+json">{JSON.stringify(eventData)}</script>
         <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" />
-        <link rel="preload" as="font" href={Poppins300} type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href={Poppins600} type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href={Poppins800} type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href={Poppins} type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href={Raleway} type="font/woff" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href={RalewayBold} type="font/woff" crossOrigin="anonymous" />
         <style type="text/css">{`
           body, html {
             background-color: #001226;
           }
     `}</style>
       </Helmet>
+      <PreloadFonts />
       <div className="conf conf__layout" id="conf">
         <div className="conf__background" />
-        <MovingMessage>
-          On-site attendees: a proof of COVID-19 vaccination (Pass sanitaire) or a negative COVID-19 viral test taken
-          within 2 calendar days will be required at the entrance of the event.
-        </MovingMessage>
         <Nav location={location} />
         <MobileNav />
         <div className="conf__content">

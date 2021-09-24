@@ -1,6 +1,6 @@
 import React from 'react';
+import ContactCard from '@con/common/ContactCard';
 import Section from '../common/Section';
-import ContactCard from '../layout/ContactCard';
 
 const Contact: React.ComponentType = () => (
   <Section className="conf__contact" section="contact">

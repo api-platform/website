@@ -11,8 +11,8 @@ $page-padding: 40px;
 $page-padding-mobile: 15px;
 
 $headerMessageH: 0px;
-$headerH: 58px;
-$mobileHeaderH: 48px;
+$headerH: 70px;
+$mobileHeaderH: 60px;
 $menuW: 260px;
 $docmenuW: 300px;
 
@@ -30,10 +30,17 @@ $vw-huge: $max-width;
 $vw-mobile-menu: $vw-huge;
 
 /// Font weights
-
+$extrabold: 900;
 $bold: 700;
 $normal: 400;
 $light: 300;
+
+$weightSizes: (
+  bold: $bold,
+  normal: $normal,
+  light: $light,
+  extrabold: $extrabold
+);
 
 $text-extrasmall: 1.2rem;
 $text-small: 1.4rem;
@@ -56,5 +63,17 @@ $title-big: 3.6rem;
 $titleSizes: (
   small: $title-small,
   medium: $title-medium,
-  big: $title-big,
-)
+  big: $title-big
+);
+
+$spacingSizes: (
+  0: 0px,
+  5: 5px,
+  10: 10px,
+  15: 15px,
+  20: 20px,
+  30: 40px,
+  40: 40px,
+  50: 50px,
+  auto: 'auto'
+);

@@ -50,6 +50,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/components/con/images/editions`,
+        name: 'editionsImages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/special`,
         name: 'special',
       },

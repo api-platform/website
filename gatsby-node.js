@@ -559,13 +559,6 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  createRedirect({
-    fromPath: '/con/',
-    toPath: '/con/2021/',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-
   // Contributors page
   const contributors = await graphql(`
     {
@@ -658,6 +651,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '@components': path.resolve(__dirname, 'src/components'),
         '@images': path.resolve(__dirname, 'src/images'),
         '@styles': path.resolve(__dirname, 'src/styles'),
+        '@con': path.resolve(__dirname, 'src/components/con'),
       },
     },
   });
