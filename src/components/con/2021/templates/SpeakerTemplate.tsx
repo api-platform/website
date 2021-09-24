@@ -52,7 +52,7 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ pageContex
       }
     }
   `);
-  const image = getImage(data.allFile.nodes.filter((imageData) => imageData.name === id)?.[0]);
+  const image = getImage(data.allFile.nodes.find((imageData) => imageData.name === id));
   const firstname = name.split(' ')[0];
 
   return (

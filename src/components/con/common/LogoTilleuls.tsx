@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Logo = ({ width }): JSX.Element => {
+interface LogoProps {
+  width: string;
+}
+
+const Logo: React.ComponentType<LogoProps> = ({ width }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -48,7 +48,11 @@ const useAnimation: (
   direction?: DirectionType,
   intersectionParams?: { rootMargin?: string },
   duration?: number
-) => React.MutableRefObject<any> = (direction = 'right', intersectionParams = { rootMargin: '-10%' }, duration = 1) => {
+) => React.RefObject<HTMLDivElement> = (
+  direction = 'right',
+  intersectionParams = { rootMargin: '-10%' },
+  duration = 1
+) => {
   const ref = useRef(null);
   const intersection = useIntersection(ref, {
     root: null,

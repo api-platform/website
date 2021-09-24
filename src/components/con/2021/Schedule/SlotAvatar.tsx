@@ -17,7 +17,7 @@ const Avatar: React.ComponentType<{ speakers: Speaker[] }> = ({ speakers }) => {
     }
   `);
 
-  const getSpeakerImage = (name) => getImage(data.allFile.nodes.filter((imageData) => imageData.name === name)?.[0]);
+  const getSpeakerImage = (name) => getImage(data.allFile.nodes.find((imageData) => imageData.name === name));
   const getSize = (total) => {
     if (1 === total) return 90;
     if (2 === total) return 70;

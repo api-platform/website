@@ -17,7 +17,7 @@ const Footer: React.ComponentType = () => (
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Previous editions</span>
-          <Link to="/con/2021">2021</Link>
+          <Link to="/con/2021/">2021</Link>
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Follow us</span>

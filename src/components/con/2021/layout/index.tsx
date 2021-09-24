@@ -1,7 +1,7 @@
 import React, { createContext, useState, useCallback, useEffect, useMemo } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
-// import '@styles/components/con/2021/index.scss';
+import '@styles/components/con/2021/index.scss';
 import Footer from '@components/con/2021/layout/Footer';
 import Nav from '@components/con/2021/layout/Nav';
 import MobileNav from '@components/con/2021/layout/MobileNav';

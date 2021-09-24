@@ -25,8 +25,8 @@ const EditionCard: React.ComponentType<EditionCardProps> = ({ edition, size = 'b
     }
   `);
 
-  const images = data.allFile.nodes.filter((imageData) => imageData.name === edition.image)?.[0];
-  const image = getImage('big' === size ? images.big : images.small);
+  const images = data.allFile.nodes.find((imageData) => imageData.name === edition.image);
+  const image = images && getImage('big' === size ? images.big : images.small);
 
   return (
     <Link to={`/con/${edition.year}`} className="card clickable p-5 conf__edition-card">
