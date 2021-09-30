@@ -2,14 +2,14 @@ import React, { useRef } from 'react';
 import Wave from '@con/common/Wave';
 import Web from '@con/common/Web';
 import Logo from '@con/images/logo.svg';
-// import '@styles/components/con/home/index.scss';
+import { StaticImage } from 'gatsby-plugin-image';
 import editions from '@con/data/editions';
 import { Edition } from '@con/types';
 import ContactCard from '@con/common/ContactCard';
 import { useIntersection } from 'react-use';
 import useAnimation from '@con/hooks/useAnimation';
 import EditionCard from '../editions/EditionCard';
-import PictureGallery from './PictureGallery';
+import PictureGallery from '../common/PictureGallery';
 
 const Landing: React.ComponentType = () => {
   const lastEdition: Edition = editions?.[editions.length - 1];
@@ -21,7 +21,7 @@ const Landing: React.ComponentType = () => {
 
   const isWebVisible = intersection?.isIntersecting;
 
-  const animationPrevious = useAnimation('top', { rootMargin: '-10%' });
+  const animationPrevious = useAnimation('top');
 
   return (
     <>
@@ -39,7 +39,14 @@ const Landing: React.ComponentType = () => {
         </div>
         <Wave className="conf__landing-wave" animated={false} />
       </section>
-      <PictureGallery />
+      <PictureGallery>
+        <StaticImage src="./picture1.jpeg" alt="Api platform con 2021 picture" height={400} />
+        <StaticImage src="./picture2.jpeg" alt="Api platform con 2021 picture" height={400} />
+        <StaticImage src="./picture3.jpeg" alt="Api platform con 2021 picture" height={400} />
+        <StaticImage src="./picture4.jpeg" alt="Api platform con 2021 picture" height={400} />
+        <StaticImage src="./picture5.jpeg" alt="Api platform con 2021 picture" height={400} />
+        <StaticImage src="./picture6.jpeg" alt="Api platform con 2021 picture" height={400} />
+      </PictureGallery>
       <div className="conf__contact">
         <ContactCard />
       </div>

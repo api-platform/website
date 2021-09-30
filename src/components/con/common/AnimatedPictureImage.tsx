@@ -7,7 +7,7 @@ interface AnimatedPictureImageProps {
 }
 
 const AnimatedPictureImage: React.ComponentType<AnimatedPictureImageProps> = ({ direction = 'scale', children }) => {
-  const animation = useAnimation(direction, { rootMargin: '-10%' });
+  const animation = useAnimation(direction);
   return (
     <div className="conf__picture-image" ref={animation}>
       {children}

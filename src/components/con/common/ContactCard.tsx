@@ -3,7 +3,7 @@ import spider from '@images/spider_schema.svg';
 import useAnimation from '@con/hooks/useAnimation';
 
 const ContactCard: React.ComponentType = () => {
-  const animationContact = useAnimation('top', { rootMargin: '-10%' }, 0.5);
+  const animationContact = useAnimation('scale', 0.5, 1.5);
   return (
     <div ref={animationContact}>
       <div className="contact__card dotted-corner">
