@@ -4,12 +4,17 @@ import classNames from 'classnames';
 import Logo from '@con/2021/images/logo.svg';
 import LogoSpider from '@images/logo_spider.svg';
 
-const Nav: React.ComponentType = () => {
-  const [minified, setMinified] = useState('undefined' !== typeof window && 50 > window.scrollY);
+interface NavProps {
+  logoAlwaysVisible?: boolean;
+}
+
+const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false }) => {
+  const hasScroll = 'undefined' !== typeof window && 50 > window.scrollY;
+  const [minified, setMinified] = useState(hasScroll && !logoAlwaysVisible);
 
   const onScroll = useCallback(() => {
-    setMinified(50 > window.scrollY);
-  }, []);
+    setMinified(50 > window.scrollY && !logoAlwaysVisible);
+  }, [logoAlwaysVisible]);
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);

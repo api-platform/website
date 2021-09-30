@@ -4,9 +4,9 @@ import { PageProps } from 'gatsby';
 import Landing from '@con/home/Landing';
 import '@styles/components/con/home/index.scss';
 
-const Con: React.ComponentType<PageProps> = (pageProps) => {
+const Con: React.ComponentType<PageProps> = () => {
   return (
-    <Layout location={pageProps.location}>
+    <Layout>
       <Landing />
     </Layout>
   );

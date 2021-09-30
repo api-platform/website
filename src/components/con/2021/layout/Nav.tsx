@@ -48,7 +48,7 @@ interface NavProps {
 
 const Nav: React.ComponentType<NavProps> = ({ location }) => {
   const { goToLink, sectionsVisibles } = useContext(ConfContext);
-  const isHomePage = '/con/2021/' === location.pathname;
+  const isHomePage = ['/con/2021/', '/con/2021'].includes(location.pathname);
 
   const [minified, setMinified] = useState(
     isHomePage && 1 === sectionsVisibles.length && sectionsVisibles.includes('home')

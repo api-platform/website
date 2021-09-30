@@ -57,6 +57,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/components/con/2021/images/review`,
+        name: 'review2021',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/special`,
         name: 'special',
       },

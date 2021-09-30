@@ -11,19 +11,16 @@ dayjs.extend(localizedFormat);
 export const ConfContext = createContext(null);
 
 interface LayoutProps {
-  location: {
-    pathname?: string;
-    hash?: string;
-  };
+  logoAlwaysVisible?: boolean;
 }
 
-const Layout: React.ComponentType<LayoutProps> = ({ children }) => {
+const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible = false }) => {
   return (
     <>
       <PreloadFonts />
       <div className="conf conf__layout">
         <div className="conf__background" />
-        <Nav />
+        <Nav logoAlwaysVisible={logoAlwaysVisible} />
         <div className="conf__content">{children}</div>
         <Footer />
       </div>

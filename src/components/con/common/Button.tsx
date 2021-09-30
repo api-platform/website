@@ -19,12 +19,17 @@ const Button: React.ComponentType<ButtonProps> = ({
   size = 'large',
   ...props
 }) => {
-  const button = (
-    <div className={classnames('conf__button', { small: 'small' === size, empty, disabled }, className)} {...props}>
+  const classNames = classnames('conf__button', { small: 'small' === size, empty, disabled }, className);
+
+  return to ? (
+    <Link className={classNames} to={to}>
+      {children}
+    </Link>
+  ) : (
+    <div className={classNames} {...props}>
       {children}
     </div>
   );
-  return to ? <Link to={to}>{button}</Link> : button;
 };
 
 export default Button;

@@ -105,6 +105,14 @@
     }
   }
 
+  .conf__button + .conf__button {
+    margin-left: 10px;
+    @include mq($max-width: $vw-small) {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+
   .lined {
     @include lined;
     position: relative;
