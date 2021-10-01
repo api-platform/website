@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
@@ -62,11 +62,18 @@ const useAnimation: (
   rootMargin = '-10%'
 ) => {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const intersection = useIntersection(ref, {
     root: null,
     rootMargin,
   });
 
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setIsMobile(/Mobi/i.test(window.navigator.userAgent));
+    }
+  }, [setIsMobile]);
+  if (isMobile) return ref; // no animation on mobile device
   if (
     intersection &&
     ref.current &&
