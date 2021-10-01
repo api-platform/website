@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Edition } from '../types';
 
@@ -29,9 +29,9 @@ const EditionCard: React.ComponentType<EditionCardProps> = ({ edition, size = 'b
   const image = images && getImage('big' === size ? images.big : images.small);
 
   return (
-    <Link to={`/con/${edition.year}`} className="card clickable p-5 conf__edition-card">
+    <a href={`/con/${edition.year}`} className="card clickable p-5 conf__edition-card">
       <GatsbyImage image={image} alt={edition.image} />
-    </Link>
+    </a>
   );
 };
 

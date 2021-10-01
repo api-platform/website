@@ -122,6 +122,8 @@
       display: flex;
       align-items: center;
       width: 40%;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
       span {
         color: #fff;
         font-family: 'Poppins';
@@ -134,6 +136,7 @@
         font-size: 96px;
         color: var(--blue);
         font-family: 'Poppins';
+        line-height: 0.7;
       }
     }
     .conf__button {

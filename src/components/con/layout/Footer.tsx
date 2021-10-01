@@ -1,5 +1,4 @@
 import Wave from '@con/common/Wave';
-import { Link } from 'gatsby';
 import React from 'react';
 import LogoTilleuls from '@con/common/LogoTilleuls';
 import Logo from '../images/logo.svg';
@@ -17,7 +16,7 @@ const Footer: React.ComponentType = () => (
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Previous editions</span>
-          <Link to="/con/2021/">2021</Link>
+          <a href="/con/2021/">2021</a>
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Follow us</span>

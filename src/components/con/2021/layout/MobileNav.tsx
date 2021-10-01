@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useCallback } from 'react';
-import { Link } from 'gatsby';
 import classNames from 'classnames';
 import { useLocation } from '@reach/router';
 import links from '../data/nav';
@@ -19,29 +18,29 @@ const MobileNav: React.ComponentType = () => {
         <div className="burger-btn__line" />
       </div>
       <div className={classNames('conf__mobile-nav', { opened })}>
-        <Link to="/con/" className="conf__mobile-item conf__mobile-item-back" onClick={toggleOpen}>
+        <a href="/con/" className="conf__mobile-item conf__mobile-item-back" onClick={toggleOpen}>
           {`< Current edition`}
-        </Link>
-        <Link
-          to="/con/2021/"
+        </a>
+        <a
+          href="/con/2021/"
           className={classNames('conf__mobile-item', {
             active: '/con/2021/' === pathname,
           })}
           onClick={toggleOpen}
         >
           Home
-        </Link>
+        </a>
         {links.map((link) => (
-          <Link
+          <a
             key={link.text}
-            to={link.to}
+            href={link.to}
             className={classNames('conf__mobile-item', {
               active: link.to === pathname,
             })}
             onClick={toggleOpen}
           >
             {link.text}
-          </Link>
+          </a>
         ))}
       </div>
     </>

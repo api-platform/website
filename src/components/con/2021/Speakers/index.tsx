@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
-import { Link } from 'gatsby';
 import SectionTitle from '../common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import Section from '../common/Section';
@@ -45,9 +44,9 @@ const Speakers: React.ComponentType = () => {
         </Grid>
       </div>
       {6 < speakers.length ? (
-        <Link className="conf__button" to="/con/2021/speakers/">
+        <a className="conf__button" href="/con/2021/speakers/">
           See all our speakers
-        </Link>
+        </a>
       ) : null}
     </Section>
   );

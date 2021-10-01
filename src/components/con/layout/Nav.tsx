@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Link } from 'gatsby';
 import classNames from 'classnames';
 import Logo from '@con/2021/images/logo.svg';
 import LogoSpider from '@images/logo_spider.svg';
@@ -29,10 +28,10 @@ const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false }) => {
         'with-logo': !minified,
       })}
     >
-      <Link to="/con" className="conf__menu-logo">
+      <a href="/con" className="conf__menu-logo">
         <img src={Logo} alt="Api Platform conference" width="180" height="40" />
-      </Link>
-      <Link to="/" className="conf__menu-back">
+      </a>
+      <a href="/" className="conf__menu-back">
         <div className="back__circle">
           <img
             className="back__spider"
@@ -43,7 +42,7 @@ const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false }) => {
             height="29"
           />
         </div>
-      </Link>
+      </a>
     </nav>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { Link, navigate } from 'gatsby';
+import { navigate } from 'gatsby';
 import classNames from 'classnames';
 import { useLocation } from '@reach/router';
 import Logo from '../images/logo.svg';
@@ -28,14 +28,14 @@ const NavLink: React.ComponentType<NavLinkProps> = ({ to, children, anchor }) =>
       {children}
     </a>
   ) : (
-    <Link
+    <a
       className={classNames('conf__menu-item', {
         active: to === pathname,
       })}
-      to={to}
+      href={to}
     >
       {children}
-    </Link>
+    </a>
   );
 };
 
@@ -85,7 +85,7 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
       <div role="button" tabIndex={0} className="conf__menu-logo" onClick={onLogoClick}>
         <img src={Logo} alt="Api Platform conference" width="180" height="40" />
       </div>
-      <Link to="/" className="conf__menu-back">
+      <a href="/" className="conf__menu-back">
         <div className="back__circle">
           <img
             className="back__spider"
@@ -96,10 +96,10 @@ const Nav: React.ComponentType<NavProps> = ({ location }) => {
             height="29"
           />
         </div>
-      </Link>
-      <Link className="conf__menu-item conf__menu-item-back" to="/con">
+      </a>
+      <a className="conf__menu-item conf__menu-item-back" href="/con">
         {`< Back to current edition`}
-      </Link>
+      </a>
       <div className="conf__menu-separator mx-15 text-right" />
       {links.map((link) => (
         <NavLink key={link.text} anchor={isHomePage && link.anchor} to={link.to}>

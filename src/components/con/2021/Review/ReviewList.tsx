@@ -5,8 +5,10 @@ import ReviewItem from './ReviewItem';
 
 const ReviewList: React.ComponentType = () => {
   const [, setRef] = useDynamicRefs();
+  const reviewRef = setRef('review-list');
+
   return (
-    <section className="conf__review-list" ref={setRef('review-list')}>
+    <section className="conf__review-list" ref={reviewRef}>
       <div className="container">
         <ReviewItem
           imageId="place"
@@ -17,9 +19,7 @@ const ReviewList: React.ComponentType = () => {
             </>
           }
         >
-          <div className="h5 lined lined-left mb-20 font-bold" ref={setRef('review-list2')}>
-            In the heart of Europe...
-          </div>
+          <div className="h5 lined lined-left mb-20 font-bold">In the heart of Europe...</div>
           <p>
             API Platform Con took place in Lille, meeting point of European cities and touristic capital of the Flemish
             region.

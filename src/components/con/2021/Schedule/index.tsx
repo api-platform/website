@@ -10,23 +10,21 @@ import { Conference } from '../types';
 const Schedule: React.ComponentType = () => {
   const conferences: Conference[] = useConferences();
   return (
-    <>
-      <Section className={classNames('conf__schedule', { empty: 0 === conferences.length })} section="schedule">
-        <div className="container">
-          <SectionTitle dark>
-            Event <strong>schedule</strong>
-          </SectionTitle>
-          {conferences.length ? (
-            <>
-              <TabbedSchedule />
-              <FullSchedule />
-            </>
-          ) : (
-            <p className="conf__section-subtitle">Come back later to discover the schedule!</p>
-          )}
-        </div>
-      </Section>
-    </>
+    <Section className={classNames('conf__schedule', { empty: 0 === conferences.length })} section="schedule">
+      <div className="container">
+        <SectionTitle dark>
+          Event <strong>schedule</strong>
+        </SectionTitle>
+        {conferences.length ? (
+          <>
+            <TabbedSchedule />
+            <FullSchedule />
+          </>
+        ) : (
+          <p className="conf__section-subtitle">Come back later to discover the schedule!</p>
+        )}
+      </div>
+    </Section>
   );
 };
 

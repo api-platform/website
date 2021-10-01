@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, createRef, useCallback } from 'react';
 
 const mapRef = new Map<string, React.RefObject<HTMLDivElement>>();
 
-const listeners = new Set<() => void>();
+const updaters = new Set<() => void>();
 
-const setRef: (key: string) => React.RefObject<HTMLDivElement> = (key) => {
-  const ref = React.createRef<HTMLDivElement>();
+const setRef = (key: string) => {
+  if (mapRef.has(key)) return mapRef.get(key);
+  const ref = createRef<HTMLDivElement>();
   mapRef.set(key, ref);
-  listeners.forEach((listener) => listener());
+  updaters.forEach((updater) => updater());
   return ref;
 };
 
@@ -16,18 +17,15 @@ const useDynamicRefs: () => [
   (key: string) => React.RefObject<HTMLDivElement>
 ] = () => {
   const [refs, setRefs] = useState(mapRef);
-
+  const getRef = useCallback((key: string) => refs.get(key), [refs]);
   useEffect(() => {
-    const listener = () => {
+    const updater = () => {
       setRefs(mapRef);
     };
-    listeners.add(listener);
-    listener(); // in case it's already changed
-    return () => listeners.delete(listener); // cleanup
+    updaters.add(updater);
+    updater();
+    return () => updaters.delete(updater); // cleanup
   }, []);
-
-  const getRef = useCallback((key) => refs.get(key), [refs]);
-
   return [getRef, setRef];
 };
 

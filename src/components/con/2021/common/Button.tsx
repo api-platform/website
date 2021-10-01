@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Link } from 'gatsby';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'large';
@@ -24,7 +23,7 @@ const Button: React.ComponentType<ButtonProps> = ({
       {children}
     </div>
   );
-  return to ? <Link to={to}>{button}</Link> : button;
+  return to ? <a href={to}>{button}</a> : button;
 };
 
 export default Button;

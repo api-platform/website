@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback, useEffect, useMemo } from 'react';
+import React, { createContext, useState, useCallback, useMemo } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import '@styles/components/con/2021/index.scss';
@@ -7,6 +7,7 @@ import Nav from '@components/con/2021/layout/Nav';
 import MobileNav from '@components/con/2021/layout/MobileNav';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import PreloadFonts from '@con/layout/Fonts';
+import useDynamicRefs from '@con/hooks/useDynamicRefs';
 import { DESCRIPTION, TITLE, OG_IMAGE } from '../data/meta';
 import prices from '../data/prices';
 import helmetConfig from '../../../../helmetConfig';
@@ -88,25 +89,19 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   };
 
   const [sectionsVisibles, setSectionsVisibles] = useState<string[]>(['home']);
-  const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
+  const [getRef] = useDynamicRefs();
 
   const activeLink = useMemo(() => (sectionsVisibles.length ? sectionsVisibles[sectionsVisibles.length - 1] : 'home'), [
     sectionsVisibles,
   ]);
 
-  const goToLink = useCallback((section) => {
-    const element = document.querySelector(`#${section}`);
-    element.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
-  useEffect(() => {
-    const s = document.createElement('script');
-    s.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
-    s.onload = () => {
-      setIsEventBriteLoaded(true);
-    };
-    document.body.appendChild(s);
-  }, [setIsEventBriteLoaded]);
+  const goToLink = useCallback(
+    (section) => {
+      const element = getRef(`section-${section}`);
+      element?.current?.scrollIntoView({ behavior: 'smooth' });
+    },
+    [getRef]
+  );
 
   useDebouncedEffect(
     () => {
@@ -121,7 +116,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, location }) => {
   );
 
   return (
-    <ConfContext.Provider value={{ activeLink, goToLink, isEventBriteLoaded, sectionsVisibles, setSectionsVisibles }}>
+    <ConfContext.Provider value={{ activeLink, goToLink, sectionsVisibles, setSectionsVisibles }}>
       <Helmet {...helmetConfig.head}>
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />

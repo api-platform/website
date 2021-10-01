@@ -1,5 +1,4 @@
 import Wave from '@con/common/Wave';
-import { Link } from 'gatsby';
 import React from 'react';
 import LogoTilleuls from '@con/common/LogoTilleuls';
 import Logo from '../images/logo.svg';
@@ -17,16 +16,16 @@ const Footer: React.ComponentType = () => (
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">The event</span>
-          <Link to="/con/2021/speakers">Speakers</Link>
-          <Link to="/con/2021/#schedule">Schedule</Link>
-          <Link to="/con/2021/#venue">Venue</Link>
-          <Link to="/con/">Other editions</Link>
+          <a href="/con/2021/speakers">Speakers</a>
+          <a href="/con/2021/#schedule">Schedule</a>
+          <a href="/con/2021/#venue">Venue</a>
+          <a href="/con/">Other editions</a>
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Legal</span>
-          <Link to="/con/2021/code-of-conduct">Code of conduct</Link>
-          <Link to="/con/2021/faq">FAQ</Link>
-          <Link to="/con/2021/transparency">Revenues transparency</Link>
+          <a href="/con/2021/code-of-conduct">Code of conduct</a>
+          <a href="/con/2021/faq">FAQ</a>
+          <a href="/con/2021/transparency">Revenues transparency</a>
         </div>
       </div>
       <span className="body2 footer__copyright">

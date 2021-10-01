@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Link } from 'gatsby';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'large';
@@ -22,9 +21,9 @@ const Button: React.ComponentType<ButtonProps> = ({
   const classNames = classnames('conf__button', { small: 'small' === size, empty, disabled }, className);
 
   return to ? (
-    <Link className={classNames} to={to}>
+    <a className={classNames} href={to}>
       {children}
-    </Link>
+    </a>
   ) : (
     <div className={classNames} {...props}>
       {children}
