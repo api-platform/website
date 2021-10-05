@@ -37,7 +37,7 @@ interface SpeakerTemplateProps extends PageProps {
   pageContext: Speaker;
 }
 
-const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ pageContext, location }) => {
+const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ pageContext }) => {
   const { id, name, job, description } = pageContext;
   const conferences = useConferences(id);
   const data = useStaticQuery(graphql`
@@ -54,9 +54,8 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ pageContex
   `);
   const image = getImage(data.allFile.nodes.find((imageData) => imageData.name === id));
   const firstname = name.split(' ')[0];
-
   return (
-    <Layout location={location}>
+    <Layout logoAlwaysVisible>
       <div className="conf__speaker-profile">
         <div className="speaker__header">
           <SectionTitle dark lined h1>

@@ -1,38 +1,42 @@
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useIntersection } from 'react-use';
 import gsap from 'gsap';
 
 export type DirectionType = 'bottom' | 'left' | 'right' | 'top' | 'scale';
 
-const fadeIn = (element: gsap.TweenTarget, duration: number) => {
+const fadeIn = (element: gsap.TweenTarget, duration: number, delay: number) => {
   gsap.to(element, duration, {
     opacity: 1,
     x: 0,
     y: 0,
     scale: 1,
     ease: 'power4.out',
+    delay,
   });
 };
 
-const fadeOut = (element: gsap.TweenTarget, direction: DirectionType, duration: number) => {
+const fadeOut = (element: gsap.TweenTarget, direction: DirectionType, duration: number, animationValue: number) => {
   let x = 0;
   let y = 0;
   let scale = 1;
   switch (direction) {
     case 'bottom':
-      y = +100;
+      y = animationValue || +100;
       break;
     case 'left':
-      x = +100;
+      x = animationValue || +100;
       break;
     case 'right':
-      x = -100;
+      x = animationValue || -100;
       break;
     case 'scale':
-      scale = 0.8;
+      scale = animationValue || 0.8;
+      break;
+    case 'top':
+      y = animationValue || +100;
       break;
     default:
-      y = +100;
+      x = animationValue || +100;
   }
 
   gsap.to(element, duration, {
@@ -46,26 +50,37 @@ const fadeOut = (element: gsap.TweenTarget, direction: DirectionType, duration: 
 
 const useAnimation: (
   direction?: DirectionType,
-  intersectionParams?: { rootMargin?: string },
-  duration?: number
+  duration?: number,
+  animationValue?: number,
+  delay?: number,
+  rootMargin?: string
 ) => React.RefObject<HTMLDivElement> = (
   direction = 'right',
-  intersectionParams = { rootMargin: '-10%' },
-  duration = 1
+  duration = 1,
+  animationValue,
+  delay = 0,
+  rootMargin = '-10%'
 ) => {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
   const intersection = useIntersection(ref, {
     root: null,
-    ...intersectionParams,
+    rootMargin,
   });
 
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setIsMobile(/Mobi/i.test(window.navigator.userAgent));
+    }
+  }, [setIsMobile]);
+  if (isMobile) return ref; // no animation on mobile device
   if (
     intersection &&
     ref.current &&
     ('bottom' !== direction || 0 < intersection.boundingClientRect.y) // avoid intersection box issue
   ) {
-    if (intersection.isIntersecting) fadeIn(ref.current, duration);
-    else fadeOut(ref.current, direction, duration);
+    if (intersection.isIntersecting) fadeIn(ref.current, duration, delay);
+    else fadeOut(ref.current, direction, duration, animationValue);
   }
   return ref;
 };

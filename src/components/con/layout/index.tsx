@@ -2,32 +2,39 @@ import React, { createContext } from 'react';
 import dayjs from 'dayjs';
 import '@styles/components/con/index.scss';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import MobileNav from '@components/con/layout/MobileNav';
 import Nav from '@con/layout/Nav';
 import Footer from '@con/layout/Footer';
 import PreloadFonts from '@con/layout/Fonts';
+import { Navigation } from '@con/types';
+import nav from '@con/data/nav';
 
 dayjs.extend(localizedFormat);
 
-export const ConfContext = createContext(null);
-
-interface LayoutProps {
-  location: {
-    pathname?: string;
-    hash?: string;
-  };
+interface ConfContextInterface {
+  nav: Navigation;
+  activeLink?: string;
 }
 
-const Layout: React.ComponentType<LayoutProps> = ({ children }) => {
+export const ConfContext = createContext<ConfContextInterface>(null);
+
+interface LayoutProps {
+  logoAlwaysVisible?: boolean;
+  edition?: string;
+}
+
+const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible = false, edition }) => {
   return (
-    <>
+    <ConfContext.Provider value={{ nav }}>
       <PreloadFonts />
       <div className="conf conf__layout">
         <div className="conf__background" />
-        <Nav />
+        <Nav logoAlwaysVisible={logoAlwaysVisible} edition={edition} />
+        <MobileNav />
         <div className="conf__content">{children}</div>
         <Footer />
       </div>
-    </>
+    </ConfContext.Provider>
   );
 };
 

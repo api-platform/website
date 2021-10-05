@@ -80,14 +80,6 @@
     bottom: 50px;
     z-index: 1;
   }
-  .conf__landing-gallery {
-    background: #fff;
-    padding: 50px 0 200px;
-    position: relative;
-    & > .container {
-      max-width: 1400px;
-    }
-  }
   .conf__picture-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));

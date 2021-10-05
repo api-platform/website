@@ -16,7 +16,6 @@ const Conf2021: React.ComponentType<PageProps> = (pageProps) => {
       <Speakers />
       <Schedule />
       <Venue />
-      {/** <Pricing /> */}
       <Covid />
       <Partners />
       <Contact />

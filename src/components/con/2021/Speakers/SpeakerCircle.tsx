@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import classNames from 'classnames';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Speaker } from '../types';
 import SpeakerSocialList from './SpeakerSocialList';
@@ -41,7 +41,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(speakerData)}</script>
       </Helmet>
-      <Link className={classNames('conf__speaker-content', { hoverable })} to={speaker.slug}>
+      <a className={classNames('conf__speaker-content', { hoverable })} href={speaker.slug}>
         <div className="circle__effect">
           <div className="circle">
             <GatsbyImage image={image} className="circle__picture" alt={name} />
@@ -55,7 +55,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
           <span className="overline">{job}</span>
           <h3 className="h5 lined">{name}</h3>
         </div>
-      </Link>
+      </a>
       {social && <SpeakerSocialList speaker={speaker} />}
     </div>
   );

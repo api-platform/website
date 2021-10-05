@@ -5,13 +5,13 @@ import useSpeakers from '@components/con/2021/hooks/useSpeakers';
 import SectionTitle from '@components/con/2021/common/SectionTitle';
 import { PageProps } from 'gatsby';
 import SpeakerCircle from '@components/con/2021/Speakers/SpeakerCircle';
-import ContactCard from '@components/con/2021/layout/ContactCard';
+import ContactCard from '@con/common/ContactCard';
 
-const Conf2021: React.ComponentType<PageProps> = ({ location }) => {
+const Conf2021: React.ComponentType<PageProps> = () => {
   const speakers = useSpeakers();
 
   return (
-    <Layout location={location}>
+    <Layout logoAlwaysVisible>
       <div className="conf__speakers-list">
         <div className="container">
           <div className="speakers__header">

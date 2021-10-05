@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Link } from 'gatsby';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
   size?: 'small' | 'large';
@@ -8,6 +7,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> 
   empty?: boolean;
   disabled?: boolean;
   to?: string;
+  external?: boolean;
 }
 
 const Button: React.ComponentType<ButtonProps> = ({
@@ -17,14 +17,21 @@ const Button: React.ComponentType<ButtonProps> = ({
   disabled,
   to,
   size = 'large',
+  external = false,
   ...props
 }) => {
-  const button = (
-    <div className={classnames('conf__button', { small: 'small' === size, empty, disabled }, className)} {...props}>
+  const classNames = classnames('conf__button', { small: 'small' === size, empty, disabled }, className);
+  const externalProps = { target: '_blank', rel: 'noopener noreferrer' };
+
+  return to ? (
+    <a className={classNames} href={to} {...(external ? externalProps : {})}>
+      {children}
+    </a>
+  ) : (
+    <div className={classNames} {...props}>
       {children}
     </div>
   );
-  return to ? <Link to={to}>{button}</Link> : button;
 };
 
 export default Button;

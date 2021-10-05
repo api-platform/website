@@ -32,6 +32,7 @@
     "gatsby-transformer-yaml": "^2.2.9",
     "gsap": "^3.7.1",
     "h5o": "^0.11.3",
+    "intersection-observer": "^0.12.0",
     "jsdom": "^11.11.0",
     "mapbox-gl": "1.13.0",
     "node-fetch": "^2.6.0",

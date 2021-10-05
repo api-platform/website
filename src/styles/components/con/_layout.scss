@@ -39,21 +39,40 @@
 
     .conf__menu-logo {
       height: 36px;
-      flex: 1;
+      margin-right: auto;
       opacity: 0;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: center;
       transform: translateY(-100%);
       transition: all ease 0.3s;
       padding-left: 80px;
+      padding-right: 30px;
       cursor: pointer;
+      position: relative;
+      z-index: 10;
       &:focus:not(:focus-visible) {
         outline: 0 !important;
       }
 
       img {
-        max-width: 180px;
+        width: 100%;
+        max-width: 160px;
+        padding-right: 10px;
         height: auto;
+      }
+
+      .conf__menu-edition {
+        color: var(--blue);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 14px;
+        font-family: 'Poppins';
+        padding: 2px 5px;
+        border-top: 1px solid var(--blue);
+        transform: translateY(-50%) rotate(-90deg);
       }
     }
     & > .conf__menu-item {
@@ -119,7 +138,7 @@
     @include mq($max-width: $vw-small) {
       .conf__menu-logo {
         height: 28px;
-        padding-left: 60px;
+        padding-left: 80px;
       }
     }
   }
