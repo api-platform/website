@@ -26,7 +26,7 @@ const Conf2021: React.ComponentType<PageProps> = () => {
           <div className="speakers-list__content">
             <Grid className="speakers-list__grid">
               {speakers.map((speaker) => (
-                <GridItem>
+                <GridItem key={speaker.name}>
                   <SpeakerCircle speaker={speaker} />
                 </GridItem>
               ))}

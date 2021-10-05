@@ -7,11 +7,10 @@ import Venue from '@components/con/2021/Venue';
 import Partners from '@components/con/2021/Partners';
 import Contact from '@components/con/2021/Contact';
 import Covid from '@components/con/2021/Covid';
-import { PageProps } from 'gatsby';
 
-const Conf2021: React.ComponentType<PageProps> = (pageProps) => {
+const Conf2021: React.ComponentType = () => {
   return (
-    <Layout location={pageProps.location}>
+    <Layout>
       <Cover />
       <Speakers />
       <Schedule />

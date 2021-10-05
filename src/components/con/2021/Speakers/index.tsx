@@ -44,7 +44,7 @@ const Speakers: React.ComponentType = () => {
         </Grid>
       </div>
       {6 < speakers.length ? (
-        <a className="conf__button" href="/con/2021/speakers/">
+        <a className="conf__button" href="/con/2021/speakers">
           See all our speakers
         </a>
       ) : null}

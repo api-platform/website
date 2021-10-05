@@ -1,4 +1,4 @@
-import React, { createContext, useState, useMemo } from 'react';
+import React, { createContext, useState, useMemo, useEffect } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import '@styles/components/con/2021/index.scss';
@@ -94,8 +94,14 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
   const { pathname } = useLocation();
   const [sectionsVisibles, setSectionsVisibles] = useState<string[]>([]);
   const activeLink = useMemo(() => {
+    const lastSectionVisible = sectionsVisibles?.[sectionsVisibles.length - 1];
+    if (!lastSectionVisible || 'home' === lastSectionVisible) return pathname;
     return sectionsVisibles.length ? `${pathname}#${sectionsVisibles[sectionsVisibles.length - 1]}` : pathname;
   }, [sectionsVisibles, pathname]);
+
+  useEffect(() => {
+    window.history.replaceState({}, '', activeLink);
+  }, [activeLink]);
 
   return (
     <ConfContext.Provider value={{ nav, activeLink }}>
