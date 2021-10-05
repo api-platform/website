@@ -6,7 +6,7 @@ import { PageProps } from 'gatsby';
 
 const Conf2021: React.ComponentType<PageProps> = () => {
   return (
-    <Layout logoAlwaysVisible>
+    <Layout logoAlwaysVisible edition="2021">
       <Review />
       <div className="conf__contact">
         <ContactCard />

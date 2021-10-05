@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { useIntersection } from 'react-use';
 import useDynamicRefs from '@con/hooks/useDynamicRefs';
-import { ConfContext } from '../layout';
+import { SectionsContext } from '@con/2021/layout/index';
 
 interface SectionProps {
   className: string;
@@ -9,11 +9,11 @@ interface SectionProps {
 }
 
 export const SectionContext = createContext(null);
+
 const Section: React.ComponentType<SectionProps> = ({ className, section, children }) => {
   const [, setRef] = useDynamicRefs();
   const containerRef = setRef(`section-${section}`);
-
-  const { sectionsVisibles, setSectionsVisibles } = useContext(ConfContext);
+  const { sectionsVisibles, setSectionsVisibles } = useContext(SectionsContext);
 
   const intersection = useIntersection(containerRef, {
     threshold: 0.2,
@@ -28,6 +28,7 @@ const Section: React.ComponentType<SectionProps> = ({ className, section, childr
       setSectionsVisibles(sectionsVisibles.filter((sectionVisible) => sectionVisible !== section));
     }
   }, [isVisible, setSectionsVisibles, sectionsVisibles, section]);
+
   return (
     <SectionContext.Provider value={isVisible}>
       <section key={section} className={className} ref={containerRef} id={section}>

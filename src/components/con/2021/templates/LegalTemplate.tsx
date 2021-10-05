@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from '@components/con/2021/layout';
 import { PageProps } from 'gatsby';
+import ContactCard from '@con/common/ContactCard';
 import SectionTitle from '../common/SectionTitle';
-import ContactCard from '../layout/ContactCard';
 
 interface LegalTemplateProps extends PageProps {
   pageContext: {
@@ -11,12 +11,12 @@ interface LegalTemplateProps extends PageProps {
   };
 }
 
-const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext, location }) => {
+const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext }) => {
   const { html, title } = pageContext;
   const htmlWithLinks = html.replace(/href="#/g, 'href="/con/2021/#').replace(/href="\/\//g, 'href="/'); // fix home anchors links
 
   return (
-    <Layout location={location}>
+    <Layout logoAlwaysVisible>
       <div className="conf__legal">
         <div className="container">
           <div className="legal__header">

@@ -4,3 +4,16 @@ export type Edition = {
   startDate: string;
   endDate: string;
 };
+
+export type LinkAttributes = {
+  text: string;
+  to: string;
+  backLink?: boolean;
+  mobileOnly?: boolean;
+};
+
+export type Navigation = {
+  backLink?: LinkAttributes;
+  logoLink?: string;
+  links: LinkAttributes[];
+};

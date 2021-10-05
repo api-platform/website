@@ -6,9 +6,10 @@ import { Edition } from '../types';
 interface EditionCardProps {
   edition: Edition;
   size: 'small' | 'big';
+  link?: string;
 }
 
-const EditionCard: React.ComponentType<EditionCardProps> = ({ edition, size = 'big' }) => {
+const EditionCard: React.ComponentType<EditionCardProps> = ({ edition, size = 'big', link }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { sourceInstanceName: { eq: "editionsImages" } }) {
@@ -29,7 +30,7 @@ const EditionCard: React.ComponentType<EditionCardProps> = ({ edition, size = 'b
   const image = images && getImage('big' === size ? images.big : images.small);
 
   return (
-    <a href={`/con/${edition.year}`} className="card clickable p-5 conf__edition-card">
+    <a href={link || `/con/${edition.year}`} className="card clickable p-5 conf__edition-card">
       <GatsbyImage image={image} alt={edition.image} />
     </a>
   );

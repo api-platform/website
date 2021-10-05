@@ -16,7 +16,8 @@ const Footer: React.ComponentType = () => (
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Previous editions</span>
-          <a href="/con/2021/">2021</a>
+          <a href="/con/2021/">2021 archive</a>
+          <a href="/con/2021/">2021 review</a>
         </div>
         <div className="footer__column">
           <span className="h6 footer__title">Follow us</span>

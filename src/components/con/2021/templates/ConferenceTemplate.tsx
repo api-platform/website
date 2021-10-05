@@ -20,13 +20,13 @@ interface ConferenceTemplateProps extends PageProps {
   };
 }
 
-const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext, location }) => {
+const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ pageContext }) => {
   const { html, title, speakers: speakerIds, track: trackID, start, end } = pageContext;
   const speakers = useSpeakers(speakerIds);
   const track = tracks.find((t) => t.id === trackID);
 
   return (
-    <Layout location={location}>
+    <Layout logoAlwaysVisible>
       <div className="conf__conference">
         <div className="container">
           <div className="conference__header">

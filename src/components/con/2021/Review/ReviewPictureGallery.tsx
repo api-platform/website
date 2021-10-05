@@ -25,7 +25,7 @@ const ReviewPictureGallery: React.ComponentType = () => {
   }));
   return (
     <section>
-      <PictureGallery>
+      <PictureGallery link="https://www.flickr.com/photos/194052559@N02/albums/72157719936921021">
         {images.map(({ image, name }, index) => (
           <GatsbyImage key={`${name} ${index}`} image={image} alt={`API Platform con 2021 - ${name}`} />
         ))}
