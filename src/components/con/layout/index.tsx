@@ -2,6 +2,7 @@ import React, { createContext } from 'react';
 import dayjs from 'dayjs';
 import '@styles/components/con/index.scss';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import MobileNav from '@components/con/layout/MobileNav';
 import Nav from '@con/layout/Nav';
 import Footer from '@con/layout/Footer';
 import PreloadFonts from '@con/layout/Fonts';
@@ -29,6 +30,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible 
       <div className="conf conf__layout">
         <div className="conf__background" />
         <Nav logoAlwaysVisible={logoAlwaysVisible} edition={edition} />
+        <MobileNav />
         <div className="conf__content">{children}</div>
         <Footer />
       </div>
