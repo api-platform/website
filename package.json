@@ -4,7 +4,6 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
-    "add": "^2.0.6",
     "classnames": "^2.2.5",
     "dayjs": "^1.8.21",
     "diacritic": "^0.0.2",
@@ -50,8 +49,7 @@
     "react-swipeable-views": "^0.13.9",
     "react-use": "^17.1.1",
     "typescript": "^4.2.0",
-    "webpack": "^4.28.1",
-    "yarn": "^1.22.15"
+    "webpack": "^4.28.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

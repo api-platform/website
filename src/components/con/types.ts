@@ -8,7 +8,6 @@ export type Edition = {
 export type LinkAttributes = {
   text: string;
   to: string;
-  backLink?: boolean;
   mobileOnly?: boolean;
 };
 
