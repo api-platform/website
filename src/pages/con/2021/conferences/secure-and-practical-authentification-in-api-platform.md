@@ -9,6 +9,8 @@ short: Take a look at Robin's tips to secure your API.
 
 # Secure and Practical Authentication in API Platform
 
+[![Robin Chalas - Secure and Practical Authentication in API Platform](https://img.youtube.com/vi/iISeDdwN5lY/0.jpg)](https://www.youtube.com/watch?v=iISeDdwN5lY&list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&index=15)
+
 The Security part of your API is not something that belongs to API Platform itself.
 Instead, the framework lets you rely on the Symfony Security integration, including Symfony's built-in authenticators and community bundles that build on top of it.
 

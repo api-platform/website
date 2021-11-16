@@ -204,6 +204,10 @@
       text-align: justify;
       line-height: 1.5;
     }
+
+    img[src*="youtube"] {
+      width: 100%;
+    }
   }
 }
 .conf .contributor__conference {
