@@ -9,6 +9,8 @@ short: Get ready for spine-chilling stories about APIs
 
 # API Horror Stories from an Unnamed Coworking Company
 
+[![Phil Sturgeon - API Horror Stories from an Unnamed Coworking Company](https://img.youtube.com/vi/C72UE0ypr6c/0.jpg)](https://www.youtube.com/watch?v=C72UE0ypr6c&list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&index=8)
+
 I got a call from a friend who worked for Unnamed Coworking Company, "Phil, our APIs are all terrible, can you come and help?" After 18 months of almost daily P1's and P0's, I left that company drastically better off than it was, and picked up a lot of hilarious stories.
 
 ## 1) Monoliths? Megaliths!

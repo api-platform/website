@@ -9,6 +9,8 @@ short: Discover how Caddy Web Server and API Platform are complementary for your
 ​
 # Better PHP Sites with the Caddy Web Server
 ​
+[![Matt Holt - Better PHP Sites with the Caddy Web Server](https://img.youtube.com/vi/JaEH7Tfzvos/0.jpg)](https://www.youtube.com/watch?v=JaEH7Tfzvos&list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&index=4)
+
 Last year, API Platform refactored [its stack](https://github.com/api-platform/api-platform/pull/1693) to use Caddy as the web server, the crucial component that regulates all the traffic between your apps and clients.
 
 Although application developers often overlook the web server, understanding it can improve the quality of your services, simplify your stack, reduce costs, and make you more productive.

@@ -9,6 +9,8 @@ short: Why we choose API Platform ecosystem to build a fast and scalable applica
 
 # Project “reboot” : Why PHP and Symfony are still into the game for any new project
 
+[![Olivier Doucet - Why PHP and Symfony are still into the game](https://img.youtube.com/vi/aB6lKL_SvYQ/0.jpg)](https://www.youtube.com/watch?v=aB6lKL_SvYQ&list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4&index=14)
+
 In 2020 we faced an important challenge: **reboot a project from scratch** and think again the architecture and technologies chosen two years ago.
 
 This talk explains **why we chose Symfony + API-Platform + Mercure** in order to build **a fast and scalable application**, easy to improve and maintain.
