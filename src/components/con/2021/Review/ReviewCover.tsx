@@ -33,6 +33,7 @@ const Review: React.ComponentType = () => {
         </p>
         <div className="review__cover-buttons">
           <Button onClick={scrollToList}>Discover our review</Button>
+          <Button to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4">Watch the Conferences</Button>
         </div>
       </div>
     </section>
