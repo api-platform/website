@@ -60,7 +60,7 @@ const EventCard = ({ event, big, noDesc }) => {
       className={classNames('card__event card p-10 clickable', {
         big,
         'full-row': big,
-        past: dayjs(event.local_date).isBefore(dayjs()),
+        past: dayjs(event.local_date).isBefore(dayjs(), 'date'),
       })}
       isLocal={!!isLocalLink}
     >
