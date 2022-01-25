@@ -29,6 +29,20 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/con/data/2021`,
+        name: 'con2021',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/con/data/2022`,
+        name: 'con2022',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/colouring`,
         name: 'colouring',
       },
@@ -43,21 +57,28 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/components/con/2021/images/speakers`,
+        path: `${__dirname}/src/con/images/2021/speakers`,
         name: 'speakersImages',
       },
     },
+    /* {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/con/images/2022/speakers`,
+        name: 'speakersImages',
+      },
+    }, */
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/components/con/images/editions`,
+        path: `${__dirname}/src/con/images/editions`,
         name: 'editionsImages',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/components/con/2021/images/review`,
+        path: `${__dirname}/src/con/images/2021/review`,
         name: 'review2021',
       },
     },

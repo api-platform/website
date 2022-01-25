@@ -13,6 +13,8 @@ const versionHelper = require('./src/lib/versionHelper');
 const staticEventsData = require('./src/data/events.json');
 const repositories = require('./src/data/repositories.json');
 
+const { handleCon } = require(`./src/utils/gatsby-node-con`);
+
 if (fs.existsSync('.env.local')) {
   // eslint-disable-next-line global-require
   require('dotenv').config({
@@ -444,120 +446,16 @@ exports.createPages = async ({ graphql, actions }) => {
     );
   });
 
-  // conferences pages
-  const conferenceTemplate = path.resolve('src/components/con/2021/templates/ConferenceTemplate.tsx');
-  const conferencesResult = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "conference" } } }) {
-        edges {
-          node {
-            html
-            headings(depth: h1) {
-              value
-            }
-            fields {
-              slug
-            }
-            frontmatter {
-              type
-              speakers
-              track
-              start
-              end
-              short
-            }
-          }
-        }
-      }
-    }
-  `);
+  const conYears = [2021, 2022];
 
-  const conferencePages = conferencesResult.data.allMarkdownRemark.edges;
-  conferencePages.forEach((edge) => {
-    createPage({
-      path: edge.node.fields.slug,
-      component: conferenceTemplate,
-      context: {
-        html: edge.node.html,
-        ...edge.node.frontmatter,
-        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
-      },
-    });
-  });
+  await Promise.all(
+    conYears.map(async (year) => {
+      await handleCon(graphql, actions, year);
+    })
+  );
 
-  // speakers pages
-  const speakerTemplate = path.resolve('src/components/con/2021/templates/SpeakerTemplate.tsx');
-
-  const speakerResult = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "speaker" } } }) {
-        edges {
-          node {
-            html
-            headings(depth: h1) {
-              value
-            }
-            fields {
-              slug
-            }
-            frontmatter {
-              name
-              id
-              job
-              twitter
-              github
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const speakerPages = speakerResult.data.allMarkdownRemark.edges;
-  speakerPages.forEach((edge) => {
-    createPage({
-      path: edge.node.fields.slug,
-      component: speakerTemplate,
-      context: {
-        description: edge.node.html,
-        ...edge.node.frontmatter,
-        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
-      },
-    });
-  });
-
-  // conf legal pages
-  const legalTemplate = path.resolve('src/components/con/2021/templates/LegalTemplate.tsx');
-
-  const legalResult = await graphql(`
-    {
-      allMarkdownRemark(limit: 1000, filter: { frontmatter: { type: { eq: "legal" } } }) {
-        edges {
-          node {
-            html
-            headings(depth: h1) {
-              value
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const legalPages = legalResult.data.allMarkdownRemark.edges;
-  legalPages.forEach((edge) => {
-    createPage({
-      path: edge.node.fields.slug,
-      component: legalTemplate,
-      context: {
-        html: edge.node.html,
-        title: 0 < edge.node.headings.length ? edge.node.headings[0].value : '',
-      },
-    });
-  });
+  createRedirect({ fromPath: '/con/', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
+  createRedirect({ fromPath: '/con', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
 
   // Contributors page
   const contributors = await graphql(`
@@ -605,6 +503,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (`MarkdownRemark` === node.internal.type) {
     const fileNode = getNode(node.parent);
     const nodePath = fileNode.relativePath.replace('.md', '');
+    const collection = fileNode.sourceInstanceName;
     let html = node.internal.content;
     const localUrls = [];
     let matches;
@@ -641,6 +540,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     });
+
+    createNodeField({
+      node,
+      name: `collection`,
+      value: collection,
+    });
   }
 };
 
@@ -651,7 +556,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         '@components': path.resolve(__dirname, 'src/components'),
         '@images': path.resolve(__dirname, 'src/images'),
         '@styles': path.resolve(__dirname, 'src/styles'),
-        '@con': path.resolve(__dirname, 'src/components/con'),
+        '@con': path.resolve(__dirname, 'src/con'),
       },
     },
   });

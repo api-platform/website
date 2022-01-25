@@ -1,0 +1,232 @@
+.conf__venue {
+  position: relative;
+  z-index: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: calc(100% + 100px);
+    left: 0;
+    top: 0;
+    background: var(--lightgrey);
+    transform: translateY(-100px);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .venue__place {
+    position: relative;
+    padding: 0 50px;
+    margin-bottom: 90px;
+    &:before {
+      content: '';
+      background: var(--blue);
+      width: 50%;
+      height: 350px;
+      position: absolute;
+      transform: translateY(-10px);
+      @include mq($max-width: $vw-large) {
+        width: 45%;
+      }
+
+      @include mq($max-width: $vw-medium) {
+        content: none;
+      }
+    }
+    @include mq($max-width: $vw-large) {
+      padding: 0;
+    }
+    @include mq($max-width: $vw-medium) {
+      padding: 0;
+      max-width: 500px;
+      margin: 0 auto;
+      @include z-depth-3;
+    }
+  }
+
+  .venue__description {
+    width: 55%;
+    margin-left: auto;
+    background: #fff;
+    @include z-depth-3;
+    padding: 50px 30px 50px 130px;
+    text-align: center;
+    z-index: 1;
+    transform: translateY(40px);
+    @include mq($max-width: $vw-large) {
+      width: 65%;
+      padding: 50px 30px 50px 120px;
+    }
+
+    @include mq($max-width: $vw-medium) {
+      width: 100%;
+      padding: 30px;
+      transform: none;
+      @include z-depth-0;
+    }
+  }
+  .venue__location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .venue__map {
+    width: 50%;
+    height: 350px;
+    position: absolute!important;
+    z-index: 2;
+    transform: translateX(10px);
+    background: #2e2e2e;
+    color: #fff;
+    @include mq($max-width: $vw-large) {
+      width: 45%;
+    }
+    @include mq($max-width: $vw-medium) {
+      position: relative;
+      width: 100%;
+      transform: none;
+    }
+  }
+
+  .venue__transportation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transform: translateY(30px);
+    @include z-depth-3;
+    @include blue-gradient-linear;
+    @include mq($max-width: $vw-medium) {
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    .transport__line {
+      text-transform: uppercase;
+      color: #fff;
+      .transport__time {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 1;
+      }
+      .transport__from {
+        font-size: 11px;
+        font-weight: 900;
+      }
+      .transport__details {
+        margin-top: 10px;
+        font-size: 12px;
+        text-transform: none;
+        font-weight: bold;
+      }
+      &:not(:last-child) {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+      }
+      @include mq($min-width: $vw-small, $max-width: $vw-medium) {
+        width: calc(100% / 3);
+        padding: 10px;
+        &.full-line {
+          width: 100%;
+        }
+        &:not(:last-child) {
+          margin-bottom: 0;
+          border-right: 2px dotted var(--lightblue);
+        }
+      }
+      @include mq($max-width: $vw-small) {
+        width: 100%;
+      }
+    }
+
+    .venue__transport {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0px 20px 10px;
+      color: #fff;
+      position: relative;
+      border-top: 10px solid var(--blue);
+      @include mq($max-width: $vw-medium) {
+        width: 100%;
+        flex-direction: row;
+        padding-bottom: 20px;
+        padding: 10px;
+        border-width: 5px;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        height: 90%;
+        width: 1px;
+        border-left: 2px dotted #fff;
+        right: 0;
+        top: 5%;
+        z-index: 2;
+        opacity: 0.5;
+        @include mq($max-width: $vw-medium) {
+          content: none;
+        }
+      }
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+      .transport__square {
+        background: var(--blue);
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(-20px);
+        @include mq($max-width: $vw-medium) {
+          transform: none;
+          flex: none;
+          align-self: center;
+          margin-right: 10px;
+        }
+      }
+      .transport__content {
+        padding: 10px;
+        flex: 1;
+        width: 100%;
+        @include mq($max-width: $vw-medium) {
+          @include flex-center(row);
+          flex-wrap: wrap;
+        }
+      }
+      .transport__icon {
+        flex: 1;
+        position: relative;
+        img {
+          @include absolute-center;
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+.conf__schedule.empty + .conf__venue {
+  &:before {
+    height: 100%;
+    transform: none;
+  }
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+.mapboxgl-ctrl-bottom-left {
+  display: none;
+}
+

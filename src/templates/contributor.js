@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import useContributorConferences from '@components/con/2021/hooks/useContributorConferences';
+import useContributorConferences from '@con/hooks/useContributorConferences';
 import Layout from '@components/Layout';
 import { Link } from 'gatsby';
 import { Grid, GridItem } from '@components/common/Grid';
-import ContributorConference from '@components/con/2021/ContributorConference/index';
+import ContributorConference from '@con/components/2021/ContributorConference';
 import { isCoreTeam, getName } from '../helpers/contributorHelper';
 
 const externalLinkAttributes = 'target="_blank" rel="nofollow noopener noreferrer"';

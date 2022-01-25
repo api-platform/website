@@ -9,7 +9,7 @@
       "@components/*": ["./src/components/*"],
       "@images/*": ["./src/images/*"],
       "@styles/*": ["./src/styles/*"],
-      "@con/*": ["./src/components/con/*"],
+      "@con/*": ["./src/con/*"],
     }
   }
 }
