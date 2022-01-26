@@ -9,12 +9,25 @@ import SectionsContext from '@con/contexts/SectionsContext';
 import { useLocation } from '@reach/router';
 import meta from '@con/data/2022/meta';
 import LayoutBase from '@con/components/layout/LayoutBase';
+import BuyButton from '@con/components/common/BuyButton';
 
 interface LayoutProps {
   logoAlwaysVisible?: boolean;
 }
 
 const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const onButtonBuyClick = () => {
+    setIsModalOpen(true);
+    document.body.classList.add('modal-open');
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.classList.remove('modal-open');
+  };
+
   const offersData = prices.map((price) => {
     const sortedOffers = price.offers.sort((a, b) => {
       if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
@@ -84,14 +97,37 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
   }, [activeLink]);
 
   return (
-    <ConfContext.Provider value={{ nav, activeLink, edition: '2022' }}>
+    <ConfContext.Provider value={{ nav, activeLink, edition: '2022', onButtonBuyClick }}>
       <SectionsContext.Provider value={{ sectionsVisibles, setSectionsVisibles }}>
         <Helmet>
           <script type="application/ld+json">{JSON.stringify(eventData)}</script>
           <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" />
         </Helmet>
-        <LayoutBase edition="2022" meta={meta} logoAlwaysVisible={logoAlwaysVisible} footer={footer}>
+        <LayoutBase
+          edition="2022"
+          meta={meta}
+          logoAlwaysVisible={logoAlwaysVisible}
+          footer={footer}
+          navButton={<BuyButton size="small">Buy ticket</BuyButton>}
+        >
           {children}
+          {isModalOpen ? (
+            <div className="conf__modal">
+              <div role="presentation" className="modal__overlay" onClick={closeModal} />
+              <div className="modal__content">
+                <iframe
+                  frameBorder="0"
+                  width="100%"
+                  height="100%"
+                  title="tickettailor"
+                  src="https://www.tickettailor.com/checkout/view-event/id/1203338/chk/20ec/?ref=website_widget&widget=true&ref=website_widget&minimal=false&show_logo=false&bg_fill=false#top"
+                />
+                <button type="button" className="modal__close" onClick={closeModal}>
+                  <div className="close__line" />
+                </button>
+              </div>
+            </div>
+          ) : null}
         </LayoutBase>
       </SectionsContext.Provider>
     </ConfContext.Provider>

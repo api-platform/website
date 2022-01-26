@@ -8,7 +8,7 @@ import LookingSponsorCard from './LookingSponsorCard';
 const SponsorShip: React.ComponentType = () => {
   const filteredPartners = partners.filter((partner) => 5 !== partner.rank);
   return (
-    <Section className="conf__sponsoring" section="sponsoring">
+    <Section className="conf__sponsoring" section="sponsorship">
       <div className="container">
         <SectionTitle dark>
           <strong>Sponsorship</strong>

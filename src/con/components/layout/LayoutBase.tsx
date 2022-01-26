@@ -19,6 +19,7 @@ interface LayoutProps {
   edition: string;
   footer: FooterColumn[];
   withSocialFooter?: boolean;
+  navButton?: JSX.Element;
 }
 
 const LayoutBase: React.ComponentType<LayoutProps> = ({
@@ -28,6 +29,7 @@ const LayoutBase: React.ComponentType<LayoutProps> = ({
   edition,
   footer,
   withSocialFooter = false,
+  navButton,
 }) => {
   dayjs.extend(localizedFormat);
   const { URL, DESCRIPTION, TITLE, OG_IMAGE } = meta;
@@ -66,7 +68,7 @@ const LayoutBase: React.ComponentType<LayoutProps> = ({
       <PreloadFonts />
       <div className="conf conf__layout" id="conf">
         <div className="conf__background" />
-        <Nav logoAlwaysVisible={logoAlwaysVisible} edition={edition} />
+        <Nav logoAlwaysVisible={logoAlwaysVisible} edition={edition} button={navButton} />
         <MobileNav />
         <div className="conf__content">
           {children}

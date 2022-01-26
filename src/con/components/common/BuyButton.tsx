@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button, { ButtonProps } from '@con/components/common/Button';
+import { ConfContext } from '../layout';
 
-interface BuyButtonProps extends ButtonProps {
-  id: string;
-}
-
-const BuyButton: React.ComponentType<BuyButtonProps> = ({ children, id, ...props }) => {
+const BuyButton: React.ComponentType<ButtonProps> = ({ children, ...props }) => {
+  const { onButtonBuyClick } = useContext(ConfContext);
   return (
-    <Button id={id} {...props}>
+    <Button onClick={onButtonBuyClick} {...props}>
       {children}
     </Button>
   );

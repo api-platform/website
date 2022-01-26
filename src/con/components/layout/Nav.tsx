@@ -47,9 +47,10 @@ const NavLink: React.ComponentType<NavLinkProps> = ({ withAnchors, to, children,
 interface NavProps {
   logoAlwaysVisible?: boolean;
   edition?: string;
+  button?: JSX.Element;
 }
 
-const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false, edition }) => {
+const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false, edition, button }) => {
   const hasScroll = 'undefined' !== typeof window && 50 > window.scrollY;
   const { pathname } = useLocation();
   const { nav } = useContext(ConfContext);
@@ -119,6 +120,7 @@ const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false, edition
           {link.text}
         </NavLink>
       ))}
+      {button}
     </nav>
   );
 };
