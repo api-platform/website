@@ -1,5 +1,5 @@
 const nav = {
-  logoLink: '/con/2021',
+  logoLink: '/',
   backLink: {
     to: '/con/',
     text: 'Back to current edition',
