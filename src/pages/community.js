@@ -119,7 +119,7 @@ const CommunityPage = ({ location, data }) => {
                 </p>
                 <br />
                 <p>
-                  <a href="https://les-tilleuls.coop/en/contact" target="_blank" rel="noopener noreferrer">
+                  <a href="https://les-tilleuls.coop/en#contact" target="_blank" rel="noopener noreferrer">
                     Contact us
                   </a>{' '}
                   for more information.
