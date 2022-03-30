@@ -1,4 +1,4 @@
-export type Edition = {
+export type PreviousEdition = {
   year: string;
   image: string;
   startDate: string;

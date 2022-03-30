@@ -8,7 +8,7 @@ interface ConfContextInterface {
   nav?: Navigation;
   activeLink?: string;
   edition?: string;
-  onButtonBuyClick?: () => void;
+  isEventBriteLoaded?: boolean;
 }
 
 export const ConfContext = createContext<ConfContextInterface>({ edition: '2022' });
@@ -16,7 +16,6 @@ export const ConfContext = createContext<ConfContextInterface>({ edition: '2022'
 interface LayoutProps {
   logoAlwaysVisible?: boolean;
   edition?: string;
-  onButtonBuyClick?: () => void;
 }
 
 const landingFooter = [
@@ -35,14 +34,9 @@ const landingFooter = [
   },
 ];
 
-const Layout: React.ComponentType<LayoutProps> = ({
-  children,
-  logoAlwaysVisible = false,
-  edition,
-  onButtonBuyClick,
-}) => {
+const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible = false, edition }) => {
   return (
-    <ConfContext.Provider value={{ nav, edition, onButtonBuyClick }}>
+    <ConfContext.Provider value={{ nav, edition }}>
       <LayoutBase
         logoAlwaysVisible={logoAlwaysVisible}
         edition={edition}

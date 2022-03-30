@@ -3,8 +3,8 @@ import Wave from '@con/components/common/Wave';
 import Web from '@con/components/common/Web';
 import Logo from '@con/images/logo.svg';
 import { StaticImage } from 'gatsby-plugin-image';
-import editions from '@con/data/editions';
-import { Edition } from 'src/con/types';
+import { previousEditions } from '@con/data/editions';
+import { PreviousEdition } from 'src/con/types';
 import ContactCard from '@con/components/common/ContactCard';
 import { useIntersection } from 'react-use';
 import useAnimation from '@con/hooks/useAnimation';
@@ -12,7 +12,7 @@ import EditionCard from '@con/components/editions/EditionCard';
 import PictureGallery from '@con/components/common/PictureGallery';
 
 const Landing: React.ComponentType = () => {
-  const lastEdition: Edition = editions?.[editions.length - 1];
+  const lastEdition: PreviousEdition = previousEditions?.[previousEditions.length - 1];
 
   const coverRef = useRef(null);
   const intersection = useIntersection(coverRef, {

@@ -34,5 +34,8 @@
         margin-right: 10px;
       }
     }
+    @include mq($max-width: $vw-medium) {
+      flex-direction: column;
+    }
   }
 }

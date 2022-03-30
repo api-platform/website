@@ -9,25 +9,13 @@ import SectionsContext from '@con/contexts/SectionsContext';
 import { useLocation } from '@reach/router';
 import meta from '@con/data/2022/meta';
 import LayoutBase from '@con/components/layout/LayoutBase';
-import BuyButton from '@con/components/common/BuyButton';
+import BuyButton from '@con/components/2022/BuyButton';
 
 interface LayoutProps {
   logoAlwaysVisible?: boolean;
 }
 
 const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  const onButtonBuyClick = () => {
-    setIsModalOpen(true);
-    document.body.classList.add('modal-open');
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.classList.remove('modal-open');
-  };
-
   const offersData = prices.map((price) => {
     const sortedOffers = price.offers.sort((a, b) => {
       if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
@@ -42,8 +30,8 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
       price: `${activeOffer.price}.00`,
       name: 1 === price.offers.length ? price.title : `${price.title} - ${activeOffer.title}`,
       priceCurrency: 'EUR',
-      url: 'https://www.eventbrite.fr/e/api-platform-conference-2021-tickets-146559873527',
-      validFrom: '2021-03-19',
+      url: 'https://www.eventbrite.fr/e/api-platform-conference-2022-tickets-304104152707',
+      validFrom: '2022-04-07',
     };
   });
 
@@ -51,12 +39,12 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: 'API Platform Conference 2022',
-    description: 'The first international conference dedicated to API Platform and its ecosystem',
+    description: 'The international conference dedicated to API Platform and its ecosystem',
     url: 'https://api-platform.com/con/2022/',
     eventStatus: 'http://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
-    startDate: '2021-09-10',
-    endDate: '2021-09-10',
+    startDate: '2022-09-15',
+    endDate: '2022-09-15',
     organizer: {
       '@type': 'Organization',
       name: 'Les-Tilleuls.coop',
@@ -76,7 +64,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
       },
       {
         '@type': 'VirtualLocation',
-        url: 'https://api-platform.com/con/2021/',
+        url: 'https://api-platform.com/con/2022/',
       },
     ],
     image: meta.OG_IMAGE,
@@ -96,8 +84,19 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
     window.history.replaceState({}, '', activeLink);
   }, [activeLink]);
 
+  const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
+
+  useEffect(() => {
+    const s = document.createElement('script');
+    s.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+    s.onload = () => {
+      setIsEventBriteLoaded(true);
+    };
+    document.body.appendChild(s);
+  }, [setIsEventBriteLoaded]);
+
   return (
-    <ConfContext.Provider value={{ nav, activeLink, edition: '2022', onButtonBuyClick }}>
+    <ConfContext.Provider value={{ nav, activeLink, edition: '2022', isEventBriteLoaded }}>
       <SectionsContext.Provider value={{ sectionsVisibles, setSectionsVisibles }}>
         <Helmet>
           <script type="application/ld+json">{JSON.stringify(eventData)}</script>
@@ -108,26 +107,13 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
           meta={meta}
           logoAlwaysVisible={logoAlwaysVisible}
           footer={footer}
-          navButton={<BuyButton size="small">Buy ticket</BuyButton>}
+          navButton={
+            <BuyButton size="small" id="nav">
+              Buy ticket
+            </BuyButton>
+          }
         >
           {children}
-          {isModalOpen ? (
-            <div className="conf__modal">
-              <div role="presentation" className="modal__overlay" onClick={closeModal} />
-              <div className="modal__content">
-                <iframe
-                  frameBorder="0"
-                  width="100%"
-                  height="100%"
-                  title="tickettailor"
-                  src="https://www.tickettailor.com/checkout/view-event/id/1203338/chk/20ec/?ref=website_widget&widget=true&ref=website_widget&minimal=false&show_logo=false&bg_fill=false#top"
-                />
-                <button type="button" className="modal__close" onClick={closeModal}>
-                  <div className="close__line" />
-                </button>
-              </div>
-            </div>
-          ) : null}
         </LayoutBase>
       </SectionsContext.Provider>
     </ConfContext.Provider>

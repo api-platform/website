@@ -79,9 +79,17 @@
       margin: 0 10px;
       z-index: 10;
     }
+
+    @include mq($max-width: $vw-large) {
+      .conf__button {
+        transform: translateX(-60px);
+
+      }
+    }
+
     @include mq($max-width: $vw-medium) {
       .conf__button {
-        display: none;
+       display: none;
       }
     }
 
@@ -151,7 +159,7 @@
     font-weight: 800;
     transition: all ease 0.3s;
     position: relative;
-    @include mq($max-width: $vw-medium) {
+    @include mq($max-width: $vw-large) {
       display: none;
     }
     &:hover {
@@ -356,7 +364,7 @@
     z-index: 50;
     cursor: pointer;
     display: none;
-    @include mq($max-width: $vw-medium) {
+    @include mq($max-width: $vw-large) {
       display: block;
     }
 

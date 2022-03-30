@@ -2,7 +2,6 @@ import React from 'react';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
-import BuyButton from '@con/components/common/BuyButton';
 import { Price } from 'src/con/types';
 
 interface PricingCardProps {
@@ -33,9 +32,6 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
             </div>
           ))}
         </div>
-        <BuyButton className="square" size="small">
-          Buy tickets
-        </BuyButton>
       </div>
     </GridItem>
   );

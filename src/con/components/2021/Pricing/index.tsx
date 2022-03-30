@@ -5,7 +5,7 @@ import Warning from '@con/components/common/Warning';
 import SectionTitle from '@con/components/common/SectionTitle';
 import Covid from '@con/images/2021/covid.svg';
 import prices from '@con/data/2021/prices';
-import PricingCard from '@con/components/common/PricingCard';
+import PricingCard from './PricingCard';
 
 const Pricing: React.ComponentType = () => {
   return (

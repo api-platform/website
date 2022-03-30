@@ -1,6 +1,6 @@
-import { Edition } from '@con/types';
+import { PreviousEdition } from '@con/types';
 
-const editions: Edition[] = [
+export const previousEditions: PreviousEdition[] = [
   {
     year: '2021',
     image: '2021',
@@ -9,4 +9,4 @@ const editions: Edition[] = [
   },
 ];
 
-export default editions;
+export default previousEditions;

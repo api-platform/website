@@ -13,6 +13,7 @@ import breaks from '@con/data/2022/breaks';
 import { Conference } from 'src/con/types';
 import tracks from '@con/data/2022/tracks';
 import '@con/styles/home/index.scss';
+import BuyButton from '@con/components/2022/BuyButton';
 
 const Conf2022: React.ComponentType = () => {
   return (
@@ -20,6 +21,11 @@ const Conf2022: React.ComponentType = () => {
       <Cover
         date="September 15 - 16, 2022 | Lille & online"
         baseline="The only event dedicated to Api Platform and its ecosystem"
+        button={
+          <BuyButton id="cover" size="large">
+            Buy tickets
+          </BuyButton>
+        }
       >
         Lalalalila
       </Cover>
