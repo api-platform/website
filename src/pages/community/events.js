@@ -10,20 +10,20 @@ import { Grid, GridItem } from '../../components/common/Grid';
 
 /** API PLATFORM CONFERENCE */
 export const confEvent = {
-  local_date: '2021-09-10',
+  local_date: '2022-09-15',
   local_time: '09:00',
-  name: 'API Platform Conference 2021',
+  name: 'API Platform Conference 2022',
   venue: {
     name: 'Euratechnologies',
     city: 'Lille',
   },
   description:
-    '<p><strong>The first conference dedicated to API Platform framework ans its ecosystem!</strong></p><br/><br/><p>Join us for a 1-day conference (mostly English-speaking) with unheard quality tech talks and large topics from French and international speakers. This year, we celebrate Les-Tilleuls.coop’s (API Platform’s creator and sponsor) 10th anniversary: be part of this exceptional edition!</p>',
+    '<p><strong>The conference dedicated to API Platform framework and its ecosystem!</strong></p><br/><br/><p>Join us for a 2-days conference with unheard quality tech talks and large topics from French and international speakers!</p>',
   featured_photo: {
     photo_link: `${process.env.GATSBY_ROOT_URL}/conf-facebook.png`,
   },
   status: 'Live and online event',
-  link: '/con/2021',
+  link: '/con/2022',
   localUrl: true,
 };
 
