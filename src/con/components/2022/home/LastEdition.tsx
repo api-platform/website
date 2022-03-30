@@ -28,7 +28,7 @@ const LastEdition: React.ComponentType = () => {
   }));
 
   return (
-    <Section className="conf__bg-white pt-20 pb-50" section="lastyear">
+    <Section className="conf__bg-white pt-20 pb-50 overflow-hidden relative" section="lastyear">
       <div className="container">
         <SectionTitle>
           What happened <strong>last year</strong>

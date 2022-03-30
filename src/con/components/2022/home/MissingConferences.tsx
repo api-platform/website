@@ -4,7 +4,7 @@ import SectionTitle from '@con/components/common/SectionTitle';
 
 const MissingConferences: React.ComponentType = () => {
   return (
-    <Section className="py-20" section="missing">
+    <Section className="py-20 relative overflow-hidden" section="missing">
       <div className="container">
         <SectionTitle dark>
           <strong>Missing conferences ?</strong>

@@ -15,7 +15,10 @@ interface ScheduleProps {
 const Schedule: React.ComponentType<ScheduleProps> = ({ breaks, tracks }) => {
   const conferences: Conference[] = useConferences();
   return (
-    <Section className={classNames('conf__schedule', { empty: 0 === conferences.length })} section="schedule">
+    <Section
+      className={classNames('conf__schedule relative overflow-hidden', { empty: 0 === conferences.length })}
+      section="schedule"
+    >
       <div className="container">
         <SectionTitle dark>
           Event <strong>schedule</strong>

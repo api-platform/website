@@ -31,7 +31,11 @@ const Conf2022: React.ComponentType = () => {
       </Cover>
       <LastEdition />
       <MissingConferences />
-      <Speakers />
+      <Speakers>
+        <p className="conf__section-subtitle">
+          Discover our international speakers! We will announce very soon the first names for our line-up.
+        </p>
+      </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
       <Venue />
       <Pricing />

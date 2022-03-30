@@ -22,7 +22,12 @@ const Conf2021: React.ComponentType = () => {
         baseline=" The first international conference dedicated to API Platform and its ecosystem"
         button={<Button to="/con">{`< Back to current edition`}</Button>}
       />
-      <Speakers />
+      <Speakers>
+        <p className="conf__section-subtitle">
+          Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking
+          tracks.
+        </p>
+      </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
       <Venue />
       <Covid />

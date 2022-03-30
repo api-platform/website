@@ -8,12 +8,13 @@ interface LegalTemplateProps extends PageProps {
   pageContext: {
     html: string;
     title: string;
+    edition: string;
   };
 }
 
 const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext }) => {
-  const { html, title } = pageContext;
-  const htmlWithLinks = html.replace(/href="#/g, 'href="/con/2021/#').replace(/href="\/\//g, 'href="/'); // fix home anchors links
+  const { html, title, edition } = pageContext;
+  const htmlWithLinks = html.replace(/href="#/g, `href="/con/${edition}#`).replace(/href="\/\//g, 'href="/'); // fix home anchors links
 
   return (
     <div className="conf__legal">

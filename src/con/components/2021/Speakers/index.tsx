@@ -7,20 +7,17 @@ import SectionTitle from '@con/components/common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
 
-const Speakers: React.ComponentType = () => {
+const Speakers: React.ComponentType = ({ children }) => {
   const speakers: Speaker[] = useSpeakers();
   const visibleSpeakers = speakers.slice(0, 6);
 
   return (
-    <Section className="conf__speakers" section="speakers">
+    <Section className="conf__speakers overflow-hidden relative" section="speakers">
       <div className="container">
         <SectionTitle>
           Our <strong>speakers</strong>
         </SectionTitle>
-        <p className="conf__section-subtitle">
-          Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking
-          tracks.
-        </p>
+        {children}
         <Grid>
           {0 === speakers.length ? (
             <>
