@@ -23,7 +23,7 @@ All tracks are accessible to people with reduced mobility.
 
 
 ## I haven’t received the access to the online conference, how do I get it?
-First, check your spam or trash for an email from cecile@les-tilleuls.coop. If you still do not find it, email us <events@les-tilleuls.coop> with your order email or order ID and we will get it to you as soon as possible.
+First, check your spam or trash for an email from events@les-tilleuls.coop. If you still do not find it, email us <events@les-tilleuls.coop> with your order email or order ID and we will get it to you as soon as possible.
 
 
 ## When does the event start?
