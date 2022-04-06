@@ -1,0 +1,49 @@
+import React from 'react';
+import Cover from '@con/components/2021/Cover';
+import Speakers from '@con/components/2021/Speakers';
+import Schedule from '@con/components/2021/Schedule';
+import Layout from '@con/components/2022/layout';
+import Venue from '@con/components/2021/Venue';
+import Contact from '@con/components/2021/Contact';
+import Pricing from '@con/components/2022/Pricing';
+import SponsorShip from '@con/components/2022/SponsorShip';
+import LastEdition from '@con/components/2022/home/LastEdition';
+import MissingConferences from '@con/components/2022/home/MissingConferences';
+import breaks from '@con/data/2022/breaks';
+import { Conference } from 'src/con/types';
+import tracks from '@con/data/2022/tracks';
+import '@con/styles/home/index.scss';
+import BuyButton from '@con/components/2022/BuyButton';
+
+const Conf2022: React.ComponentType = () => {
+  return (
+    <Layout>
+      <Cover
+        date="September 15 - 16, 2022 | Lille & online"
+        baseline="The only event dedicated to Api Platform and its ecosystem"
+        button={
+          <BuyButton id="cover" size="large">
+            Buy tickets
+          </BuyButton>
+        }
+      >
+        Lalalalila
+      </Cover>
+      <LastEdition />
+      <MissingConferences />
+      <Speakers>
+        <p className="conf__section-subtitle">
+          Discover our international speakers! We will announce very soon the first names for our line-up.
+        </p>
+      </Speakers>
+      <Schedule breaks={breaks as Conference[]} tracks={tracks} />
+      <Venue />
+      <Pricing />
+      <SponsorShip />
+
+      <Contact />
+    </Layout>
+  );
+};
+
+export default Conf2022;

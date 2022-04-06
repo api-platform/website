@@ -1,0 +1,83 @@
+.conf {
+  .conf__landing {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    padding-bottom: 200px;
+    padding-top: 30px;
+
+    & .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: static;
+    }
+
+    .conf__landing-baseline {
+      background-color: var(--darkblue);
+      color: #fff;
+      font-size: 24px;
+      margin-top: 20px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      padding: 2px 20px;
+      transform: rotate(-3deg);
+      display: inline-block;
+
+      @include mq($max-width: $vw-small) {
+        font-size: 20px;
+      }
+    }
+
+    .conf__landing-logo {
+      width: 100%;
+      text-align: center;
+      img {
+        max-height: 30vh;
+        max-width: 800px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .conf__landing-web {
+      position: absolute;
+      z-index: 0;
+      height: 100vh;
+      transform: translate3d(-50%, -50%, 0);
+      left: 80%;
+      top: 50%;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .conf__landing-wave {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      opacity: 0.3;
+      height: 60vh;
+      max-width: none;
+      right: 22%;
+      top: 58%;
+      transform: translateY(-50%) rotate(10deg);
+    }
+  }
+  .web-line {
+    fill: none;
+    stroke: #67cece;
+    stroke-dasharray: 1 5;
+    // animation: dash 2s infinite linear;
+    transform-origin: center center;
+  }
+  .conf__landing-last-edition {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1;
+  }
+}

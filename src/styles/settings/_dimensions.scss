@@ -10,9 +10,9 @@ $max-width: 1200px;
 $page-padding: 40px;
 $page-padding-mobile: 15px;
 
-$headerMessageH: 0px;
-$headerH: 70px;
-$mobileHeaderH: 60px;
+$headerMessageH: 30px;
+$headerH: 58px + $headerMessageH;
+$mobileHeaderH: 48px + $headerMessageH;
 $menuW: 260px;
 $docmenuW: 300px;
 
@@ -75,5 +75,7 @@ $spacingSizes: (
   30: 40px,
   40: 40px,
   50: 50px,
+  100: 100px,
+  200: 200px,
   auto: auto
 );

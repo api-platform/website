@@ -1,15 +1,15 @@
 import React from 'react';
-import Layout from '@components/con/layout';
 import { PageProps } from 'gatsby';
-import Landing from '@con/home/Landing';
-import '@styles/components/con/home/index.scss';
+// import Landing from '@con/components/home/Landing';
+// import '@con/styles/landing/index.scss';
+import Conf2022 from './2022';
 
-const Con: React.ComponentType<PageProps> = () => {
-  return (
-    <Layout>
+const Con: React.ComponentType<PageProps> = () => (
+  /* <Layout>
       <Landing />
     </Layout>
-  );
-};
+  ); */
+  <Conf2022 />
+);
 
 export default Con;

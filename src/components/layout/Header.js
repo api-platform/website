@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import links from '../../data/menu';
 import LogoSpider from '../../images/logo_spider.svg';
 import SwitchTheme from '../common/SwitchTheme';
+import MovingMessage from '../common/MovingMessage';
 import BurgerButton from './BurgerButton';
 import Logo from './Logo';
 import Search from './Search';
@@ -30,6 +31,12 @@ const Header = () => {
 
   return (
     <>
+      <Link to="/con/2022">
+        <MovingMessage>
+          <strong>API Platform Con 2022</strong>: join us in Lille (France) or online on September 15-16 for our
+          international conference.
+        </MovingMessage>
+      </Link>
       <header
         className={classnames('header openable', {
           'expand-search': isSearchFocused,
