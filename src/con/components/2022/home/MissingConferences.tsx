@@ -7,9 +7,9 @@ const MissingConferences: React.ComponentType = () => {
     <Section className="py-20 relative overflow-hidden" section="missing">
       <div className="container">
         <SectionTitle dark>
-          <strong>Missing conferences ?</strong>
+          <strong>Missing conferences?</strong>
         </SectionTitle>
-        <p className="conf__section-subtitle mb-20 dark">All our 2021 conferences are available on Youtube !</p>
+        <p className="conf__section-subtitle mb-20 dark">All our 2021 conferences are available on Youtube!</p>
         <a
           className="my-20 mx-auto conf__button"
           href="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"

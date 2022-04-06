@@ -29,7 +29,10 @@ const Conf2021: React.ComponentType = () => {
         </p>
       </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
-      <Venue />
+      <Venue
+        subtitle=" The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
+        Flemish region. If you can't attend the event physically, you can watch the English-speaking track online."
+      />
       <Covid />
       <Partners data={PartnersData} />
       <Contact />
