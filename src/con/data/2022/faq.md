@@ -9,7 +9,7 @@ API Platform Con offers a one-day digest of the latest trends and best practices
 
 
 ## Where does the event take place and how do we get there?
-API Platform Con will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. The conferences are held in [Euratechnologies](https://www.euratechnologies.com/), the 1st startup incubator and accelerator in Europe. The main track (English-speaking talks) will be streamed online.
+API Platform Con will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. The conferences are held in [Euratechnologies](https://www.euratechnologies.com/), the 1st startup incubator and accelerator in Europe. Both tracks (in English and in French) will be streamed online.
 
 
 ## Can I access to a car park?
@@ -23,7 +23,7 @@ All tracks are accessible to people with reduced mobility.
 
 
 ## I haven’t received the access to the online conference, how do I get it?
-First, check your spam or trash for an email from events@les-tilleuls.coop. If you still do not find it, email us <events@les-tilleuls.coop> with your order email or order ID and we will get it to you as soon as possible.
+Your invitation will be sent a couple of hours before the D-day. If you didn’t receive anything, check your spam or trash for an email from events@les-tilleuls.coop. If you still do not find it, email us <events@les-tilleuls.coop> with your order email or order ID and we will get it to you as soon as possible.
 
 
 ## When does the event start?

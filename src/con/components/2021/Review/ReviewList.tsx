@@ -84,7 +84,7 @@ const ReviewList: React.ComponentType = () => {
             Collective, Wine in Black, Fairness.coop, Orbitale.io and many more.
           </p>
           <p>Thank you again!</p>
-          <Button className="square" size="small" to="mailto:event@les-tilleuls.coop">
+          <Button className="square" size="small" to="mailto:events@les-tilleuls.coop">
             Become a partner
           </Button>
         </ReviewItem>
