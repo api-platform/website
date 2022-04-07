@@ -10,16 +10,13 @@ import CarIcon from '@con/images/2021/car.svg';
 import Transport from './Transport';
 import Place from './Place';
 
-const Venue: React.ComponentType = () => (
+const Venue: React.ComponentType<{ subtitle: string }> = ({ subtitle }) => (
   <Section className="conf__venue" section="venue">
     <div className="container">
       <SectionTitle>
         The <strong>venue</strong>
       </SectionTitle>
-      <p className="conf__section-subtitle">
-        The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
-        Flemish region. If you can&apos;t attend the event physically, you can watch the English-speaking track online.
-      </p>
+      <p className="conf__section-subtitle">{subtitle}</p>
       <Place />
       <Warning title="Tip" img={Tip}>
         <p>Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.</p>

@@ -3,6 +3,7 @@ import Layout from '@con/components/layout';
 import ContactCard from '@con/components/common/ContactCard';
 import Review from '@con/components/2021/Review';
 import { PageProps } from 'gatsby';
+import '@con/styles/home/index.scss';
 
 const Conf2021: React.ComponentType<PageProps> = () => {
   return (

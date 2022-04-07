@@ -20,7 +20,7 @@ const Conf2022: React.ComponentType = () => {
     <Layout>
       <Cover
         date="September 15 - 16, 2022 | Lille & online"
-        baseline="The only event dedicated to Api Platform and its ecosystem"
+        baseline="The only event dedicated to API Platform and its ecosystem"
         button={
           <BuyButton id="cover" size="large">
             Buy tickets
@@ -32,12 +32,13 @@ const Conf2022: React.ComponentType = () => {
       <LastEdition />
       <MissingConferences />
       <Speakers>
-        <p className="conf__section-subtitle">
-          Discover our international speakers! We will announce very soon the first names for our line-up.
-        </p>
+        <p className="conf__section-subtitle">Come back in a couple of days to see our first speakers!</p>
       </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
-      <Venue />
+      <Venue
+        subtitle=" The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
+        Flemish region. If you can't attend the event physically, you can watch both tracks online."
+      />
       <Pricing />
       <SponsorShip />
 
