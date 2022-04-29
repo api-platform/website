@@ -7,6 +7,10 @@ const nav = {
       mobileOnly: true,
     },
     {
+      to: '/con/2022/#speakers',
+      text: 'Speakers',
+    },
+    {
       to: '/con/2022/#venue',
       text: 'Venue',
     },

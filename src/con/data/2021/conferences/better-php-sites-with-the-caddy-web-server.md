@@ -2,6 +2,7 @@
 type: conference
 speakers: -matt
 track: EN
+date: '2021-09-10'
 start: '11:00'
 end: '11:40'
 short: Discover how Caddy Web Server and API Platform are complementary for your developer experience.

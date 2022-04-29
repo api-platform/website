@@ -61,13 +61,13 @@ module.exports = {
         name: 'speakersImages',
       },
     },
-    /* {
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/con/images/2022/speakers`,
         name: 'speakersImages',
       },
-    }, */
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

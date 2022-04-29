@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import SectionTitle from '@con/components/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
-import { convertTime } from '@con/utils';
+import { getConferenceDate } from '@con/utils';
 import Button from '@con/components/common/Button';
 import { Conference, Track } from 'src/con/types';
 import useConferences from '@con/hooks/useConferences';
@@ -14,7 +14,7 @@ export const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference
   conference,
 }) => {
   const track = tracks.find((t) => t.id === conference.track);
-  const { start, end, title, slug, short } = conference;
+  const { start, end, date, title, slug, short } = conference;
   return (
     <div className="speaker__conference-slot dotted-corner">
       <div className="conference__track">
@@ -22,9 +22,7 @@ export const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference
         <span className="overline">{track.type}</span>
       </div>
       <div className="conference__content">
-        <span className="overline">
-          {start && end ? `Sep, 10 2021 · ${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
-        </span>
+        <span className="overline">{getConferenceDate(date, start, end)}</span>
         <h3 className="h6 lined lined-left">{title}</h3>
         <p>{short}</p>
         <Button className="square" size="small" to={slug}>
@@ -88,7 +86,7 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pa
             <div className="speaker__schedule">
               <h2 className="schedule__title h5">{`${firstname}'s schedule`}</h2>
               {conferences.map((conference) => (
-                <SpeakerConferenceSlot conference={conference} tracks={tracks} />
+                <SpeakerConferenceSlot key={conference.title} conference={conference} tracks={tracks} />
               ))}
             </div>
           ) : null}

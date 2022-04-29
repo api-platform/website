@@ -5,7 +5,7 @@ const MovingMessage: React.ComponentType = ({ children }) => (
     <div className="message__content">
       {[1, 2, 3].map((index) => (
         /* put the information message content here */
-        <div className={`message${index}`}>
+        <div key={`message${index}`} className={`message${index}`}>
           <div className="message__arrow" />
           {children}
         </div>

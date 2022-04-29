@@ -12,6 +12,7 @@ interface ConferenceTemplateProps extends PageProps {
     track: 'FR' | 'EN';
     start: string;
     end: string;
+    date: string;
     edition: string;
   };
 }

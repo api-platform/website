@@ -2,6 +2,7 @@
 type: conference
 speakers: -justine
 track: FR
+date: '2021-09-10'
 start: '11:45'
 end: '12:05'
 short: Or why you don't need to be an expert to contribute to the API Platform project.

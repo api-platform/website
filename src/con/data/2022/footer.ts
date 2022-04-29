@@ -16,6 +16,10 @@ const footer = [
     title: 'The event',
     links: [
       {
+        title: 'Speakers',
+        link: '/con/2022/#speakers',
+      },
+      {
         title: 'Venue',
         link: '/con/2022/#venue',
       },

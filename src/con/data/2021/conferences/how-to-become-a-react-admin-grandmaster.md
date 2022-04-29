@@ -2,6 +2,7 @@
 type: conference
 speakers: -francois
 track: EN
+date: '2021-09-10'
 start: '14:45'
 end: '15:25'
 short: With this conference, you will want to start using JS.

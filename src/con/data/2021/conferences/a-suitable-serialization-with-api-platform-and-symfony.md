@@ -2,6 +2,7 @@
 type: conference
 speakers: -mathias
 track: FR
+date: '2021-09-10'
 start: '11:00'
 end: '11:40'
 short: How to choose the adapted technical solution according to your serialization needs.

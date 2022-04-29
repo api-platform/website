@@ -25,6 +25,7 @@ const handleConferences = async (graphql, actions, year) => {
               track
               start
               end
+              date
               short
             }
           }

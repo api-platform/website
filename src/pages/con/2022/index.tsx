@@ -32,7 +32,7 @@ const Conf2022: React.ComponentType = () => {
       <LastEdition />
       <MissingConferences />
       <Speakers>
-        <p className="conf__section-subtitle">Come back in a couple of days to see our first speakers!</p>
+        <p className="conf__section-subtitle">Discover our first amazing speakers!</p>
       </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
       <Venue
