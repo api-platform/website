@@ -2,6 +2,7 @@
 type: conference
 speakers: -kevin
 track: EN
+date: '2021-09-10'
 start: '09:10'
 end: '09:50'
 short: Let's start this day with a futuristic keynote.

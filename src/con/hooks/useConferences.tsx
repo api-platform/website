@@ -14,6 +14,7 @@ const useConferences: (speaker?: string) => Conference[] = (speaker) => {
             speakers
             track
             start
+            date
             end
             short
             github

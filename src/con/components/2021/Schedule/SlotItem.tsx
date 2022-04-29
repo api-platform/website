@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Conference } from 'src/con/types';
 import useSpeakers from '@con/hooks/useSpeakers';
-import { convertTime } from '@con/utils';
+import { getConferenceTimes } from '@con/utils';
 import Avatar from './SlotAvatar';
 
 interface SlotItemProps {
@@ -9,7 +9,7 @@ interface SlotItemProps {
 }
 
 const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
-  const { title, start, end, slug } = conference;
+  const { title, start, end, date, slug } = conference;
   let speakers = useSpeakers(conference.speakers);
 
   if (!conference.speakers) speakers = [];
@@ -17,9 +17,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
     <a href={slug} className="schedule__slot">
       <Avatar speakers={speakers} />
       <div className="schedule__slot-infos">
-        <span className="overline">
-          {start && end ? `${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
-        </span>
+        <span className="overline">{getConferenceTimes(date, start, end)}</span>
         <h3 className="h6 lined lined-left">{title}</h3>
         <span className="body2">
           {'by '}
@@ -40,9 +38,7 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference }) => {
   ) : (
     <div className="schedule__slot no-speaker">
       <div className="schedule__slot-infos">
-        <span className="overline">
-          {start && end ? `${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
-        </span>
+        <span className="overline">{getConferenceTimes(date, start, end)}</span>
         <h3 className="h6 lined">{title}</h3>
       </div>
     </div>

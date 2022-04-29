@@ -4,7 +4,7 @@ import { PageProps } from 'gatsby';
 import classNames from 'classnames';
 import Button from '@con/components/common/Button';
 import useSpeakers from '@con/hooks/useSpeakers';
-import { convertTime } from '@con/utils';
+import { getConferenceDate } from '@con/utils';
 import SpeakerCircle from '@con/components/2021/Speakers/SpeakerCircle';
 import { Track } from '@con/types';
 import '@con/styles/index.scss';
@@ -17,12 +17,13 @@ interface ConferenceTemplateProps extends PageProps {
     track: 'FR' | 'EN';
     start: string;
     end: string;
+    date: string;
   };
   tracks: Track[];
 }
 
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ tracks, pageContext }) => {
-  const { html, title, speakers: speakerIds, track: trackID, start, end } = pageContext;
+  const { html, title, speakers: speakerIds, track: trackID, start, end, date } = pageContext;
   const speakers = useSpeakers(speakerIds);
   const track = tracks.find((t) => t.id === trackID);
 
@@ -39,9 +40,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ trac
                 <strong>{`Track #${track.id} `}</strong>
                 {`- ${track.type}`}
               </p>
-              <p className="header__date">
-                {end && start ? `September, 10 2021 · ${convertTime(start)} - ${convertTime(end)}` : 'Sep, 10 2021'}
-              </p>
+              <p className="header__date">{getConferenceDate(date, start, end)}</p>
             </>
           ) : null}
         </div>

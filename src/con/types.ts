@@ -31,6 +31,7 @@ export type Conference = {
   title: string;
   start: string;
   end: string;
+  date: string;
   track: 'FR' | 'EN';
   description?: string;
   short?: string;

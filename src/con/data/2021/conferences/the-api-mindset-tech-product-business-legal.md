@@ -2,6 +2,7 @@
 type: conference
 speakers: -mehdi
 track: EN
+date: '2021-09-10'
 start: '11:45'
 end: '12:25'
 short: Dive into the history of APIs with this inspiring talk.

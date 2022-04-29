@@ -23,10 +23,12 @@ const Footer: React.ComponentType<{ links: FooterColumn[]; withSocial?: boolean 
           </a>
         </div>
         {links.map((column) => (
-          <div className="footer__column">
+          <div key={column.title} className="footer__column">
             <span className="h6 footer__title">{column.title}</span>
             {column.links.map(({ link, title }) => (
-              <a href={link}>{title}</a>
+              <a key={title} href={link}>
+                {title}
+              </a>
             ))}
           </div>
         ))}

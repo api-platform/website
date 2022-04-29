@@ -14,16 +14,17 @@ interface ScheduleProps {
 
 const Schedule: React.ComponentType<ScheduleProps> = ({ breaks, tracks }) => {
   const conferences: Conference[] = useConferences();
+
   return (
     <Section
-      className={classNames('conf__schedule relative overflow-hidden', { empty: 0 === conferences.length })}
+      className={classNames('conf__schedule relative overflow-hidden', { empty: 5 >= conferences.length })}
       section="schedule"
     >
       <div className="container">
         <SectionTitle dark>
           Event <strong>schedule</strong>
         </SectionTitle>
-        {conferences.length ? (
+        {5 <= conferences.length ? (
           <>
             <TabbedSchedule breaks={breaks} conferences={conferences} tracks={tracks} />
             <FullSchedule breaks={breaks} conferences={conferences} tracks={tracks} />

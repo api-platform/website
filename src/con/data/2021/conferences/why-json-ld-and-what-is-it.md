@@ -2,6 +2,7 @@
 type: conference
 speakers: -samuel
 track: EN
+date: '2021-09-10'
 start: '16:25'
 end: '17:05'
 short: The importance of JSON-LD in the API Platform ecosystem.

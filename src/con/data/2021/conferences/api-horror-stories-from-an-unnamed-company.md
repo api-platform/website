@@ -2,6 +2,7 @@
 type: conference
 speakers: -phil
 track: EN
+date: '2021-09-10'
 start: '15:30'
 end: '16:10'
 short: Get ready for spine-chilling stories about APIs

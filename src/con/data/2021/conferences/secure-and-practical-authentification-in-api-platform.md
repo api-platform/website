@@ -2,6 +2,7 @@
 type: conference
 speakers: -robin
 track: FR
+date: '2021-09-10'
 start: '14:00'
 end: '14:40'
 short: Take a look at Robin's tips to secure your API.
