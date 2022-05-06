@@ -42,12 +42,14 @@ interface SpeakerTemplateProps extends PageProps {
     slug: string;
     job: string;
     description: string;
+    twitter?: string;
+    github?: string;
   };
   tracks: Track[];
 }
 
 const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pageContext }) => {
-  const { id, name, job, description, slug } = pageContext;
+  const { id, name, job, description, slug, twitter, github } = pageContext;
   const conferences = useConferences(id);
   const data = useStaticQuery(graphql`
     query {
@@ -80,7 +82,7 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pa
           </div>
           <div className="speaker__details">
             <div dangerouslySetInnerHTML={{ __html: description }} />
-            <SpeakerSocialList speaker={{ id, description, name, job, slug }} />
+            <SpeakerSocialList speaker={{ id, description, name, job, slug, github, twitter }} />
           </div>
           {0 < conferences.length ? (
             <div className="speaker__schedule">
