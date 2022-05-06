@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@con/components/common/Button';
 
 const LookingSponsorCard: React.ComponentType = () => (
   <div className="conf__sponsorcard">
@@ -27,7 +26,14 @@ const LookingSponsorCard: React.ComponentType = () => (
           Hire multi-skilled developers
         </li>
       </ul>
-      <Button className="square small">Become sponsor</Button>
+      <a
+        className="conf__button square small"
+        href="mailto:events@les-tilleuls.coop"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Become sponsor
+      </a>
     </div>
   </div>
 );
