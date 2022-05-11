@@ -1,5 +1,5 @@
 .contributor {
-  min-height: calc(100vh - #{$headerH});
+  min-height: calc(100vh - var(--headerH));
   padding-bottom: 50px;
 
   .contributor__main {

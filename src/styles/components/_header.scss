@@ -4,10 +4,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
-  height: $headerH;
-  padding-top: $headerMessageH;
+  height: var(--headerH);
   width: 100%;
   background-color: var(--bg);
   z-index: z('header');
@@ -20,7 +19,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 0 10px;
-    height: $headerH - $headerMessageH;
+    height: calc(var(--headerH) - var(--headerMessageH));
   }
 
   .header__logo {
@@ -85,6 +84,13 @@
     flex: 1;
   }
 
+  .btn-burger {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+
   .menu-item {
     position: relative;
     transition: all ease 0.2s;
@@ -92,6 +98,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    height: var(--headerH);
 
     .menu-item__link {
       color: var(--text);
@@ -100,7 +107,7 @@
       i,
       span {
         transition: all ease 0.2s;
-        line-height: $headerH;
+        line-height: var(--headerH);
         font-size: $text-medium;
       }
 
@@ -279,18 +286,18 @@
   }
 
   @include mq($max-width: $vw-small) {
-    height: $mobileHeaderH;
+    height: var(--mobileHeaderH);
     .logo__circle,
     .logo__spider {
-      width: $mobileHeaderH - $headerMessageH - 10px;
-      height: $mobileHeaderH - $headerMessageH - 10px;
+      width: calc(var(--mobileHeaderH) - var(--headerMessageH) - 10px);
+      height: calc(var(--mobileHeaderH) - var(--headerMessageH) - 10px);
     }
 
     .header__logo,
     .header__nav,
     .header__search,
     .header__social {
-      height: $mobileHeaderH - $headerMessageH;
+      height: calc(var(--mobileHeaderH) - var(--headerMessageH));
     }
 
     .logo__text {

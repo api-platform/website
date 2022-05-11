@@ -167,9 +167,9 @@ const CommunityPage = ({ location, data }) => {
               <CommunityCard image={CommunitySecurity} title="Security">
                 <p>
                   API Platform is available as part of{' '}
-                  <Link to="https://tidelift.com/subscription/pkg/packagist-api-platform-core?utm_source=packagist-api-platform-core&utm_medium=referral&utm_campaign=enterprise">
+                  <a href="https://tidelift.com/subscription/pkg/packagist-api-platform-core?utm_source=packagist-api-platform-core&utm_medium=referral&utm_campaign=enterprise">
                     the Tidelift Subscription
-                  </Link>
+                  </a>
                   : verified updates for zero-day vulnerabilities, coordinated security responses, and immediate
                   notifications of which of your applications are impacted, with the fix prepared for you!
                 </p>
@@ -224,7 +224,7 @@ const CommunityPage = ({ location, data }) => {
               <h2 className="community-events__title">Our events</h2>
               <Grid className="community-events__grid">
                 {events.map((event) => (
-                  <GridItem key={event.id} className="small-event__item">
+                  <GridItem key={event.link} className="small-event__item">
                     <EventCard event={event} noDesc />
                   </GridItem>
                 ))}

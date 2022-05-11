@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import NavItem from '../docs/NavItem';
 import { versions } from '../../../constants';
 import { getPrefixedVersion } from '../../lib/versionHelper';
@@ -85,6 +87,19 @@ class DocNav extends Component {
     const { currentItem } = this.state;
     return (
       <div className="docs__menu openable">
+        <Link to="/con/2022">
+          <div className="news__con">
+            <p className="news__title">What&apos; new?</p>
+            <StaticImage
+              src="../../con/images/2022/thumbnail.png"
+              alt="API platform conference 2022"
+              layout="fixed"
+              placeholder="blurred"
+              width={260}
+            />
+            <p>Sep 15,16 2022: new edition of our conference dedicated to API Platform and its ecosystem!</p>
+          </div>
+        </Link>
         {nav.map((item) => (
           <NavItem
             item={item}

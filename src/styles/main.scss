@@ -12,6 +12,7 @@
 @import './tools/effects';
 @import './tools/viewportSizes';
 @import './tools/zindex';
+@import './tools/con';
 
 // GENERIC
 @import '~normalize.css';
@@ -31,6 +32,8 @@
 @import './objects/cards';
 @import './objects/grid';
 @import './objects/avatar';
+@import './objects/modal';
+@import './objects/preheader';
 
 // VENDOR
 @import './vendor/algolia';
@@ -49,6 +52,7 @@
 @import './components/resources/index';
 @import './components/notfound';
 @import './components/switchtheme';
+
 
 // UTILITIES
 @import './utilities/colors';

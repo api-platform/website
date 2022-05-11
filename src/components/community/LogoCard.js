@@ -30,6 +30,7 @@ const LogoCard = ({ logo }) => {
           <div className="logo__types">
             {logo.types.map((type) => (
               <button
+                key={type.type}
                 onClick={() => onTypeClickHandler(type)}
                 className={classNames('logo__type', {
                   active: selectedType && selectedType.type === type.type,
@@ -44,6 +45,7 @@ const LogoCard = ({ logo }) => {
             {1 < selectedType.formats.length &&
               selectedType.formats.map((format) => (
                 <button
+                  key={format.name}
                   onClick={() => onFormatClickHandler(format)}
                   className={classNames('logo__format', {
                     active: selectedFormat && selectedFormat.name === format.name,

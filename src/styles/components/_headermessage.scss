@@ -5,7 +5,7 @@ $message-animation-duration: 30s;
 
 .header__additional-message {
   display: flex;
-  height: $headerMessageH;
+  height: var(--headerMessageH);
   justify-content: center;
   align-items: center;
   font-size: 1.2em;

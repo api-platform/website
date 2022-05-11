@@ -35,13 +35,13 @@
       }
 
       .openable {
-        transform: translateX(-$menuW);
+        transform: translateX(-var(--menuW));
       }
     }
   }
 
-  &.with-second-menu-displayed .footer {
-    margin-left: $docmenuW;
+  &.is-doc .footer {
+    margin-left: var(--docMenuW);
 
     @include mq($max-width: $vw-medium) {
       margin-left: 0;
@@ -51,10 +51,6 @@
 
 .page {
   min-height: 100vh;
-  padding-top: $headerH;
-  @include mq($max-width: $vw-small) {
-    padding-top: $mobileHeaderH;
-  }
 }
 
 .container {

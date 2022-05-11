@@ -63,7 +63,7 @@ const Wallpapers = ({ location, data }) => {
         <section className="container">
           <Grid className="logo__grid">
             {allLogos.map((logo) => (
-              <GridItem padding={10}>
+              <GridItem key={logo.name} padding={10}>
                 <LogoCard logo={logo} />
               </GridItem>
             ))}
