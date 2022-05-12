@@ -11,7 +11,7 @@
     font-size: $text-big;
     border-radius: 5px;
     display: inline-block;
-    transition: all ease .3s;
+    transition: all ease 0.3s;
   }
 
   &.small {
@@ -31,7 +31,8 @@
     vertical-align: middle;
   }
 
-  span[class^='icon-'], span[class*=' icon-'] {
+  span[class^='icon-'],
+  span[class*=' icon-'] {
     padding-right: 10px;
     font-size: 2.4rem;
   }
@@ -41,8 +42,9 @@
   }
 
   &:hover {
-    span[class^='icon-'], span[class*=' icon-'] {
-      animation: toTopFromBottom .4s forwards;
+    span[class^='icon-'],
+    span[class*=' icon-'] {
+      animation: toTopFromBottom 0.4s forwards;
     }
   }
 
@@ -51,7 +53,7 @@
       border: 3px solid $blue;
       color: $blue;
       background: none;
-      transition: all ease .2s;
+      transition: all ease 0.2s;
 
       &:hover {
         border-color: darken($blue, 10%);
@@ -77,16 +79,11 @@
 .btn-burger {
   width: 40px;
   height: 40px;
-  position: fixed;
-  top: $headerH / 2;
-  transform: translateY(-50%);
-  transition: transform ease .3s, right ease .5s, top ease 0.5s;
-  right: 10px;
-  z-index: z("sidemenu") + 1;
+
+  transition: transform ease 0.3s, right ease 0.5s, top ease 0.5s;
   cursor: pointer;
   background: none;
   display: none;
-  top: ($headerH + $headerMessageH) / 2;
 
   .btn-burger__back {
     position: relative;
@@ -96,7 +93,7 @@
     &:after,
     &:before,
     .btn-burger__line {
-      transition: all ease .2s;
+      transition: all ease 0.2s;
       background-color: $lightblue;
       width: 80%;
       height: 4px;
@@ -109,7 +106,7 @@
 
     &:after,
     &:before {
-      content: "";
+      content: '';
     }
 
     &:after {
@@ -122,7 +119,7 @@
   }
 
   &.close {
-    right: calc(#{$menuW} + 10px);
+    right: calc(var(--menuW) + 10px);
 
     .btn-burger__back {
       .btn-burger__line {
@@ -147,10 +144,6 @@
         transform: translate3d(-50%, -50%, 0) rotate(-45deg);
       }
     }
-  }
-
-  @include mq($max-width: $vw-small) {
-    top: ($headerMessageH + $mobileHeaderH) / 2;
   }
 
   @include mq($max-width: $vw-mobile-menu) {

@@ -74,12 +74,14 @@ Search.propTypes = {
   className: PropTypes.string,
   isScriptLoaded: PropTypes.bool.isRequired,
   isScriptLoadSucceed: PropTypes.bool.isRequired,
-  onFocus: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
 };
 
 Search.defaultProps = {
   className: '',
+  onFocus: () => {},
+  onBlur: () => {},
 };
 
 export default scriptLoader('https://cdn.jsdelivr.net/docsearch.js/2.5/docsearch.min.js')(Search);

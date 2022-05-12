@@ -10,7 +10,7 @@ const ButtonContent = ({ icon, text }) => (
   </div>
 );
 
-const Button = ({ className, empty, icon, link, onClick, text, download }) => {
+const Button = ({ className, empty, icon, link, onClick = () => {}, text, download }) => {
   if (download) {
     return (
       <a href={link} download className={classNames('btn', className, { empty })}>

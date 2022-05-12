@@ -115,7 +115,7 @@
     &:before {
       content: "";
       width: 3px;
-      height: calc(55vh - #{$headerH});
+      height: calc(55vh - var(--headerH));
       background-color: $blackblue;
       position: absolute;
       bottom: 200px;

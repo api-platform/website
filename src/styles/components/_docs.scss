@@ -1,8 +1,8 @@
 .page__docs {
-  width: calc(100% - #{$docmenuW});
-  margin-left: $docmenuW;
+  width: calc(100% - var(--docMenuW));
+  margin-left: var(--docMenuW);
   padding: 50px;
-  min-height: calc(100vh - #{$headerH});
+  min-height: calc(100vh - var(--headerH));
   @include mq($max-width: $vw-large) {
     padding: 30px;
   }
@@ -11,7 +11,7 @@
     margin: 0;
   }
   @include mq($max-width: $vw-small) {
-    min-height: calc(100vh - #{$mobileHeaderH});
+    min-height: calc(100vh - var(--mobileHeaderH));
     padding: 30px 15px;
   }
 
@@ -63,12 +63,31 @@
   background-color: var(--secondary-bg);
   position: fixed;
   left: 0;
-  top: $headerH;
-  height: calc(100vh - #{$headerH});
-  width: $docmenuW;
+  top: var(--headerH);
+  height: calc(100vh - var(--headerH));
+  width: var(--docMenuW);
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 20px 0;
+  padding-bottom: 20px;
+
+  .news__con {
+    padding: 10px 20px 20px;
+    background: $blue;
+    transition: all ease 0.3s;
+    &:hover {
+      opacity: 0.8;
+    }
+    .news__title {
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: $white;
+      line-height: 1.2;
+    }
+  }
 
   .menu__item {
     padding: 10px 20px;
@@ -340,7 +359,8 @@
     a {
       display: inline-block;
       border: none;
-      min-width: 350px;
+      width: 350px;
+      max-width: 100%;
 
       &:hover {
         background-color: initial;
@@ -359,7 +379,10 @@
     }
   }
 
-  @include mq($max-width: $vw-medium) { padding: 40px 30px 30px; }
+  @include mq($max-width: $vw-medium) {
+    padding: 40px 30px 30px;
+    overflow-x: hidden;
+  }
 }
 
 .docs__nav {

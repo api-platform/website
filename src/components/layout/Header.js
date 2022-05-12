@@ -4,12 +4,12 @@ import { Link } from 'gatsby';
 import links from '../../data/menu';
 import LogoSpider from '../../images/logo_spider.svg';
 import SwitchTheme from '../common/SwitchTheme';
-import MovingMessage from '../common/MovingMessage';
 import BurgerButton from './BurgerButton';
 import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';
-import NavContext from './NavContext';
+import NavContext from '../../contexts/NavContext';
+import PreheaderCon from '../PreheaderCon';
 
 const nav = links.map((link) => <MenuItem key={link.text} {...link} />);
 
@@ -31,12 +31,7 @@ const Header = () => {
 
   return (
     <>
-      <Link to="/con/2022">
-        <MovingMessage>
-          <strong>API Platform Con 2022</strong>: join us in Lille (France) or online on September 15-16 for our
-          international conference.
-        </MovingMessage>
-      </Link>
+      <PreheaderCon />
       <header
         className={classnames('header openable', {
           'expand-search': isSearchFocused,
@@ -69,8 +64,12 @@ const Header = () => {
           </a>
         </nav>
         <SwitchTheme />
+        <BurgerButton
+          className="on_header"
+          onClick={toggleResponsiveMenu}
+          status={showResponsiveMenu ? 'close' : 'burger'}
+        />
       </header>
-      <BurgerButton onClick={toggleResponsiveMenu} status={showResponsiveMenu ? 'close' : 'burger'} />
     </>
   );
 };

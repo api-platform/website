@@ -3,7 +3,7 @@
   right: 0;
   top: 0;
   height: 100%;
-  width: $menuW;
+  width: var(--menuW);
   z-index: z('sidemenu');
   background-color: var(--bg);
   transition: transform ease 0.5s;
@@ -148,5 +148,16 @@
     .side-menu__top .side-menu__search {
       display: flex;
     }
+  }
+  .btn-burger {
+    left: 0;
+    top: calc(var(--headerH) / 2);
+    position: absolute;
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  &.open .btn-burger {
+    transform: translate(calc(-100% - 10px), -50%);
+    opacity: 1;
   }
 }

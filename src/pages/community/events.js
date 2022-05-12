@@ -69,7 +69,7 @@ const EventsPage = ({ location, data }) => {
               <div className="container">
                 <Grid>
                   {upcomingEvents.map((event, index) => (
-                    <GridItem full={0 === index}>
+                    <GridItem key={event.link} full={0 === index}>
                       <EventCard big={0 === index} event={event} />
                     </GridItem>
                   ))}
@@ -84,7 +84,7 @@ const EventsPage = ({ location, data }) => {
               </h2>
               <Grid>
                 {pastEvents.map((event) => (
-                  <GridItem key={event.id} className="small-event__item">
+                  <GridItem key={event.link} className="small-event__item">
                     <EventCard event={event} noDesc />
                   </GridItem>
                 ))}

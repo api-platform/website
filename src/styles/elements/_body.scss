@@ -13,6 +13,9 @@ body {
       overflow: hidden;
     }
   }
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 #___gatsby {

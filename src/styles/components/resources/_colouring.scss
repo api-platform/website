@@ -9,10 +9,10 @@
     justify-content: center;
   }
   .header__image {
-    flex: 2;
+    width: 33%;
   }
   .header__text {
-    flex: 3;
+    flex: 1;
     padding-left: 10px;
     a {
       color: $white;
@@ -25,6 +25,10 @@
     .header__container {
       flex-direction: column;
     }
+    .header__image {
+      width: 50%;
+    }
+
     .header__text {
       padding-left: 0px;
     }

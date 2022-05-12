@@ -6,7 +6,7 @@
 
   .cover__content {
     position: relative;
-    height: calc(100vh - #{$headerH});
+    height: calc(100vh - var(--headerH));
     overflow: hidden;
     text-align: center;
     padding-top: vheight(55);
@@ -174,7 +174,7 @@
     }
 
     .cover__content {
-      height: calc(100vh - #{$mobileHeaderH} - 30px);
+      height: calc(100vh - var(--mobileHeaderH) - 30px);
     }
   }
 }

@@ -99,6 +99,6 @@
     }
   }
   @include mq($min-width: $vw-small) {
-    min-height: $mobilePageH;
+    min-height: var(--mobilePageH);
   }
 }

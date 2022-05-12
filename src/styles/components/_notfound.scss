@@ -1,5 +1,5 @@
 .notfound {
-  height: $pageH;
+  height: var(--pageH);
   background-color: $clearblue;
 
   .notfound__content {
@@ -39,7 +39,7 @@
   @include mq($max-width: $vw-medium) {
     text-align: center;
     height: auto;
-    min-height: $mobilePageH;
+    min-height: var(--mobilePageH);
 
     .notfound__text,
     img {
