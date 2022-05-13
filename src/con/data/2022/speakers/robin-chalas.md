@@ -3,7 +3,7 @@ type: speaker
 id: robin
 name: Robin Chalas
 job: Symfony Core Team
-company:
+company: Les-Tilleuls.coop
 twitter: https://twitter.com/chalas_r
 github: https://github.com/chalasr
 ---
