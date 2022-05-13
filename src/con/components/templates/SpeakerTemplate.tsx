@@ -41,6 +41,7 @@ interface SpeakerTemplateProps extends PageProps {
     name: string;
     slug: string;
     job: string;
+    company?: string;
     description: string;
     twitter?: string;
     github?: string;
@@ -49,7 +50,7 @@ interface SpeakerTemplateProps extends PageProps {
 }
 
 const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pageContext }) => {
-  const { id, name, job, description, slug, twitter, github } = pageContext;
+  const { id, name, job, company, description, slug, twitter, github } = pageContext;
   const conferences = useConferences(id);
   const data = useStaticQuery(graphql`
     query {
@@ -71,7 +72,14 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pa
         <SectionTitle dark lined h1>
           <strong>{name}</strong>
         </SectionTitle>
-        <div className="overline speaker__job">{job}</div>
+        <p className="overline speaker__job">
+          {job}
+          {company ? (
+            <>
+              <strong> @ {company}</strong>
+            </>
+          ) : null}
+        </p>
       </div>
       <div className="container">
         <div className="speaker__about">

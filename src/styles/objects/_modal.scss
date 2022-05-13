@@ -128,6 +128,15 @@
     .content__button {
       margin-top: 20px;
       margin-bottom: 10px;
+      .button__content {
+        background-color: #d52189 !important;
+        border-color: #d52189 !important;
+        color: #fff !important;
+        &:hover {
+          background-color: #ac106a !important;
+          border-color: #ac106a !important;
+        }
+      }
     }
   }
 }

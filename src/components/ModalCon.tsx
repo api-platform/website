@@ -33,13 +33,14 @@ const ModalCon: React.ComponentType = () => {
       <div className="modal-con__content">
         <p className="content__overtitle">What&apos;s new?</p>
         <p className="content__title h2-like">
-          API Platform conference: our 2-days event dedicated to API Platform and its ecosystem.
+          API Platform Con: the only event dedicated to API Platform and its ecosystem
         </p>
         <p>
-          At the heart of these 2 days, API Platform 3. From its new abstractions to its implementation on production
-          projects, you will learn a lot more on the D-day!
+          The best API and API Platform experts will be in Lille and in live online{' '}
+          <strong>on September, 15 and 16</strong>! Our amazing speakers will talk about API Platform 3, API design, PHP
+          and JavaScript best practices and community topics.
         </p>
-        <Button text="Discover the program" className="content__button small" link="/con/2022" />
+        <Button text="Register now" className="content__button" link="/con/2022" />
       </div>
     </Modal>
   ) : null;

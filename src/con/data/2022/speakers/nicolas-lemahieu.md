@@ -3,6 +3,7 @@ type: speaker
 id: nicolas-lemahieu
 name: Nicolas Lemahieu
 job: Symfony expert
+company: Alice's Garden
 twitter: https://twitter.com/epatwon
 github: https://github.com/nlemahieu
 ---

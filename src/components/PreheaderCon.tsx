@@ -15,7 +15,7 @@ const PreheaderCon: React.ComponentType = () => (
           <strong>Sep 15, 16 2022</strong> | Lille & online
         </div>
       </div>
-      <Button text="Discover the program" className="preheader-con__button small empty white" />
+      <Button text="Register now" className="preheader-con__button small empty white" />
     </div>
   </Link>
 );

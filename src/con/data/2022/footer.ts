@@ -17,7 +17,7 @@ const footer = [
     links: [
       {
         title: 'Speakers',
-        link: '/con/2022/#speakers',
+        link: '/con/2022/speakers',
       },
       {
         title: 'Venue',

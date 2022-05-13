@@ -21,6 +21,7 @@ const useSpeakers: (ids?: string[]) => Speaker[] = (ids) => {
             name
             id
             job
+            company
             twitter
             github
           }

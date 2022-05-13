@@ -23,6 +23,7 @@ export type Speaker = {
   twitter?: string;
   github?: string;
   job: string;
+  company?: string;
   description: string;
   slug: string;
 };

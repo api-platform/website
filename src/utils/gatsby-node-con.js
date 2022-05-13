@@ -72,6 +72,7 @@ const handleSpeakers = async (graphql, actions, year) => {
             frontmatter {
               name
               id
+              company
               job
               twitter
               github

@@ -45,8 +45,13 @@
       .infos {
         margin-top: 30px;
         .overline {
-          margin-bottom: 3px;
+          margin-top: 5px;
+          margin-bottom: 0;
           display: block;
+          line-height: 1.2;
+          strong {
+            font-weight: 900;
+          }
         }
       }
 
