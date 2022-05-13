@@ -63,10 +63,11 @@
       list-style: disc;
       text-align: left;
       padding-left: 30px;
+      font-size: 18px;
 
       li {
         &:not(last-child) {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
         }
       }
     }
@@ -204,6 +205,9 @@
       font-size: 18px;
       text-align: justify;
       line-height: 1.5;
+    }
+    p + ul {
+      margin-top: -10px;
     }
 
     img[src*="youtube"] {

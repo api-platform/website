@@ -21,6 +21,7 @@ const ContributorConference: React.ComponentType<{ conference: Conference }> = (
             name
             id
             job
+            company
             twitter
             github
           }

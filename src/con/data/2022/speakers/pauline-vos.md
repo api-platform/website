@@ -3,6 +3,7 @@ type: speaker
 id: pauline
 name: Pauline Vos
 job: Lead Software Engineer
+company:
 twitter: https://twitter.com/vanamerongen
 github: https://github.com/paulinevos
 ---

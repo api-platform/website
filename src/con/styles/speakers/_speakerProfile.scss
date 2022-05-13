@@ -36,6 +36,9 @@
       @include mq($max-width: $vw-small) {
         padding: 20px;
       }
+      .overline {
+        display: none;
+      }
     }
   }
 
@@ -46,9 +49,11 @@
     .speaker__job {
       color: #fff;
       text-align: center;
-      max-width: 300px;
       margin: 0 auto;
       font-size: 20px;
+      strong {
+        font-weight: 900;
+      }
     }
     .speaker__about {
       background: var(--lightgrey);

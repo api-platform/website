@@ -13,7 +13,7 @@ interface SpeakerCircleProps {
 }
 
 const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, social = true, hoverable = true }) => {
-  const { id, name, job } = speaker;
+  const { id, name, job, company } = speaker;
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { sourceInstanceName: { eq: "speakersImages" } }) {
@@ -33,7 +33,7 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
     '@context': 'http://schema.org',
     '@type': 'Person',
     name: speaker.name,
-    jobTitle: speaker.job,
+    jobTitle: `${speaker.job} ${speaker.company ? `@ ${speaker.company}` : ''}`,
   };
 
   return (
@@ -52,8 +52,16 @@ const SpeakerCircle: React.ComponentType<SpeakerCircleProps> = ({ speaker, socia
           </div>
         </div>
         <div className="infos">
-          <span className="overline">{job}</span>
-          <h3 className="h5 lined">{name}</h3>
+          <h3 className="h5">{name}</h3>
+          <p className="overline lined">
+            {job}
+            <br />
+            {company ? (
+              <>
+                @ <strong>{company}</strong>
+              </>
+            ) : null}
+          </p>
         </div>
       </a>
       {social && <SpeakerSocialList speaker={speaker} />}

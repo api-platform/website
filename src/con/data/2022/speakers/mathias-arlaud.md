@@ -3,6 +3,7 @@ type: speaker
 id: mathias
 name: Mathias Arlaud
 job: Symfony Expert
+company: Les-Tilleuls.coop
 twitter: https://twitter.com/matarld
 github: https://github.com/mtarld
 ---

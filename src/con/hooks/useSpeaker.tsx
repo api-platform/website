@@ -17,6 +17,7 @@ const useSpeaker: (id: string) => Speaker = (id) => {
             name
             id
             job
+            company
             twitter
             github
           }

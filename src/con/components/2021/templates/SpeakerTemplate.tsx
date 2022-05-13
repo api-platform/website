@@ -12,6 +12,7 @@ interface SpeakerTemplateProps extends PageProps {
     name: string;
     slug: string;
     job: string;
+    company: string;
     description: string;
     edition: string;
   };

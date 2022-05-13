@@ -2,7 +2,8 @@
 type: speaker
 id: fran
 name: Fran Méndez
-job: AsyncAPI founder
+job: Founder
+company: AsyncAPI
 twitter: https://twitter.com/fmvilas
 github: https://github.com/fmvilas
 ---

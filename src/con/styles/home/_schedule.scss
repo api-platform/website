@@ -168,6 +168,12 @@
       transition: background-position ease 0.5s;
     }
 
+    .schedule__slot-infos {
+      .overline {
+        display: none;
+      }
+    }
+
     .schedule__slot-avatar,
     .schedule__slot-infos {
       transition: transform ease 0.5s;
