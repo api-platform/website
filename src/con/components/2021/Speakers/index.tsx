@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
 import Section from '@con/components/common/Section';
+import { ConfContext } from '@con/components/layout';
 import useSpeakers from '@con/hooks/useSpeakers';
 import { Speaker } from 'src/con/types';
 import SectionTitle from '@con/components/common/SectionTitle';
@@ -10,6 +11,7 @@ import EmptySpeakerCircle from './EmptySpeakerCircle';
 const Speakers: React.ComponentType = ({ children }) => {
   const speakers: Speaker[] = useSpeakers();
   const visibleSpeakers = speakers.slice(0, 6);
+  const { edition } = useContext(ConfContext);
 
   return (
     <Section className="conf__speakers overflow-hidden relative" section="speakers">
@@ -41,7 +43,7 @@ const Speakers: React.ComponentType = ({ children }) => {
         </Grid>
       </div>
       {6 < speakers.length ? (
-        <a className="conf__button" href="/con/2021/speakers">
+        <a className="conf__button" href={`/con/${edition}/speakers`}>
           See all our speakers
         </a>
       ) : null}
