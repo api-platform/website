@@ -1,6 +1,6 @@
 ---
 type: conference
-speakers: -fran
+speakers: -fran-mendez
 track: EN
 date: '2022-09-15'
 start:

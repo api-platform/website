@@ -1,6 +1,6 @@
 ---
 type: speaker
-id: robin
+id: robin-chalas
 name: Robin Chalas
 job: Symfony Core Team
 company: Les-Tilleuls.coop

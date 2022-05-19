@@ -1,6 +1,6 @@
 ---
 type: conference
-speakers: -marine
+speakers: -marine-gandy
 track: EN
 date: '2022-09-15'
 start:
