@@ -108,7 +108,7 @@ EventsPage.propTypes = {
 
 export const query = graphql`
   query {
-    allEvent {
+    allEvent(filter: { status: { ne: "dummy" } }) {
       totalCount
       nodes {
         name
