@@ -1,6 +1,6 @@
 ---
 type: speaker
-id: mathias
+id: mathias-arlaud
 name: Mathias Arlaud
 job: Symfony Expert
 company: Les-Tilleuls.coop

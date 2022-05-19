@@ -1,6 +1,6 @@
 ---
 type: speaker
-id: marine
+id: marine-gandy
 name: Marine Gandy
 job: PHP developer and drupalista
 company: Ekino

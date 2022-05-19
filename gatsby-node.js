@@ -212,6 +212,21 @@ const getAllMeetupEvents = async () => {
     'https://api.meetup.com/api-platform/events?desc=true&status=past,upcoming&fields=featured_photo'
   );
   const data = await events.json();
+  data.push({
+    name: 'dummy',
+    local_date: '2020-03-05',
+    local_time: '19:00',
+    venue: {
+      name: 'dummy',
+      city: 'dummy',
+    },
+    featured_photo: {
+      photo_link: 'dummy',
+    },
+    description: 'dummy',
+    link: 'dummy',
+    status: 'dummy',
+  });
   const staticEvents = await Promise.all(
     staticEventsData.map(async (event) =>
       fetchFromMeetupApi(`https://api.meetup.com/${event.group}/events/${event.id}?desc=true&fields=featured_photo`)

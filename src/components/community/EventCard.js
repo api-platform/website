@@ -13,9 +13,11 @@ const EventInfos = ({ event, big }) => (
     </p>
     <p className="text-xs">
       <span className="icon-location color-blue" />
-      <span>
-        {event.venue.name} - {event.venue.city}
-      </span>
+      {event.venue && (
+        <span>
+          {event.venue.name} - {event.venue.city}
+        </span>
+      )}
     </p>
   </div>
 );

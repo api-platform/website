@@ -1,7 +1,7 @@
 ---
 type: conference
-speakers: -mathias
-          -robin
+speakers: -mathias-arlaud
+          -robin-chalas
 track: FR
 date: '2022-09-15'
 start:

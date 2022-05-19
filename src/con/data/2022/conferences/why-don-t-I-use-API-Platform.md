@@ -1,6 +1,6 @@
 ---
 type: conference
-speakers: -frederic
+speakers: -frederic-bouchery
 track: FR
 date: '2022-09-15'
 start:

@@ -270,10 +270,6 @@ export const query = graphql`
         name
         local_date(formatString: "YYYY-MM-DD", locale: "en-EN")
         local_time
-        venue {
-          name
-          city
-        }
         featured_photo {
           photo_link
         }
@@ -289,10 +285,6 @@ export const query = graphql`
         name
         local_date(formatString: "YYYY-MM-DD", locale: "en-EN")
         local_time
-        venue {
-          name
-          city
-        }
         featured_photo {
           photo_link
         }
