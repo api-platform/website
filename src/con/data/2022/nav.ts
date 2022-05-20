@@ -19,6 +19,10 @@ const nav = {
       text: 'Pricing',
     },
     {
+      to: '/con/2022/#schedule',
+      text: 'Schedule',
+    },
+    {
       to: '/con/2022/#sponsorship',
       text: 'Sponsorship',
     },

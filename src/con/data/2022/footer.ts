@@ -24,6 +24,10 @@ const footer = [
         link: '/con/2022/#venue',
       },
       {
+        title: 'Schedule',
+        link: '/con/2022/#schedule',
+      },
+      {
         title: 'Pricing',
         link: '/con/2022/#pricing',
       },
