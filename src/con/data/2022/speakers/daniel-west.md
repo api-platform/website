@@ -2,7 +2,7 @@
 type: speaker
 id: daniel-west
 name: Daniel West
-job: Founder
+job: CWA creator
 company: Silverback Is
 twitter: https://twitter.com/developer_west
 github: https://github.com/silverbackdan
