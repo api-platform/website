@@ -2,7 +2,7 @@
 type: conference
 speakers: -mathias-arlaud
           -robin-chalas
-track: FR
+track: EN
 date: '2022-09-15'
 start:
 end:
