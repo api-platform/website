@@ -8,9 +8,19 @@ import SectionTitle from '@con/components/common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
 
-const Speakers: React.ComponentType = ({ children }) => {
+interface SpeakersProps {
+  numberVisibles?: number;
+}
+
+const Speakers: React.ComponentType<SpeakersProps> = ({ children, numberVisibles = 6 }) => {
   const speakers: Speaker[] = useSpeakers();
-  const visibleSpeakers = speakers.slice(0, 6);
+  const sortedSpeakers = speakers.sort((a, b) => {
+    if (a.number > b.number) return 1;
+    if (a.number < b.number) return -1;
+    return 0;
+  });
+
+  const visibleSpeakers = sortedSpeakers.slice(0, numberVisibles);
   const { edition } = useContext(ConfContext);
 
   return (

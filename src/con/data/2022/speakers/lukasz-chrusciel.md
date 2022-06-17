@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: lukasz
+number: 8
 name: Łukasz Chruściel
 job: Core Team Lead
 company: Sylius

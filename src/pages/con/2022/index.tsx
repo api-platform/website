@@ -7,8 +7,6 @@ import Venue from '@con/components/2021/Venue';
 import Contact from '@con/components/2021/Contact';
 import Pricing from '@con/components/2022/Pricing';
 import SponsorShip from '@con/components/2022/SponsorShip';
-import LastEdition from '@con/components/2022/home/LastEdition';
-import MissingConferences from '@con/components/2022/home/MissingConferences';
 import breaks from '@con/data/2022/breaks';
 import { Conference } from 'src/con/types';
 import tracks from '@con/data/2022/tracks';
@@ -26,13 +24,9 @@ const Conf2022: React.ComponentType = () => {
             Buy tickets
           </BuyButton>
         }
-      >
-        Lalalalila
-      </Cover>
-      <LastEdition />
-      <MissingConferences />
-      <Speakers>
-        <p className="conf__section-subtitle">Discover our first amazing speakers!</p>
+      />
+      <Speakers numberVisibles={12}>
+        <p className="conf__section-subtitle">Discover our amazing international speakers!</p>
       </Speakers>
       <Schedule breaks={breaks as Conference[]} tracks={tracks} />
       <Venue

@@ -13,8 +13,7 @@ const SpeakersPage: React.ComponentType = () => (
             Meet our <strong>speakers</strong>
           </SectionTitle>
           <p className="conf__section-subtitle">
-            Join international speakers sharing their knowledge on English-speaking (streamed online) and
-            French-speaking tracks.
+            Join international speakers sharing their knowledge on English and French-speaking tracks.
           </p>
         </div>
         <div className="speakers-list__content">

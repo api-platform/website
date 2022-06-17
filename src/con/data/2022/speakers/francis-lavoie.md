@@ -1,9 +1,10 @@
 ---
 type: speaker
 id: francis-lavoie
+number: 11
 name: Francis Lavoie
-job: Caddy expert
-company: Vectorface
+job: Team member
+company: Caddy server
 twitter: https://twitter.com/_francislavoie
 github: https://github.com/francislavoie
 ---

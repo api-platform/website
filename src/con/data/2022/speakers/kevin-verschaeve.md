@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: kevin-verschaeve
+number: 20
 name: Kévin Verschaeve
 job: Lead developer
 company: PerfectDraft
