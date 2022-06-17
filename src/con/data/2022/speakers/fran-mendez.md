@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: fran-mendez
+number: 5
 name: Fran Méndez
 job: Founder
 company: AsyncAPI

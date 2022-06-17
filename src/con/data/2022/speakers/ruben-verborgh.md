@@ -1,9 +1,10 @@
 ---
 type: speaker
 id: ruben-verborgh
+number: 4
 name: Ruben Verborgh
-job: Professor of decentralized Web
-company: Ghent University
+job: Decentralized web expert
+company: Project SOLID
 twitter: https://twitter.com/RubenVerborgh
 github: https://github.com/RubenVerborgh
 ---

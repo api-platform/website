@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: albin-kester
+number: 20
 name: Albin Kester
 job: Lead developer
 company: Les-Tilleuls.coop

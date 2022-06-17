@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: florent-morselli
+number: 20
 name: Florent Morselli
 job: PHP Developer & Symfony Lover
 company:

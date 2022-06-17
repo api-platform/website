@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: fred-bouchery
+number: 18
 name: Frédéric Bouchery
 job: PHP Expert
 company: Klaxoon

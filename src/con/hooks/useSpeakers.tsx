@@ -20,6 +20,7 @@ const useSpeakers: (ids?: string[]) => Speaker[] = (ids) => {
           frontmatter {
             name
             id
+            number
             job
             company
             twitter

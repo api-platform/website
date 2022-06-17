@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: clement-sanchez
+number: 20
 name: Clément Sanchez
 job: Lead developer
 company: PerfectDraft

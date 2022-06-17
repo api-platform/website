@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: pauline-vos
+number: 1
 name: Pauline Vos
 job: Lead Software Engineer
 company:

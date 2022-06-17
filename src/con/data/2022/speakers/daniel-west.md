@@ -1,9 +1,10 @@
 ---
 type: speaker
 id: daniel-west
+number: 18
 name: Daniel West
-job: CWA creator
-company: Silverback Is
+job: Creator
+company: Components Web App
 twitter: https://twitter.com/developer_west
 github: https://github.com/silverbackdan
 ---

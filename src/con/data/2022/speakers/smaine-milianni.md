@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: smaine-milianni
+number: 7
 name: Smaïne Milianni
 job: Symfony Certified Developer
 company:

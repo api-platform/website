@@ -24,6 +24,7 @@ export type Speaker = {
   github?: string;
   job: string;
   company?: string;
+  number?: number;
   description: string;
   slug: string;
 };

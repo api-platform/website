@@ -1,6 +1,7 @@
 ---
 type: speaker
 id: georges-king
+number: 20
 name: Georges-King Njock-Bôt
 job: PHP expert freelance
 company:
