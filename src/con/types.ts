@@ -40,6 +40,7 @@ export type Conference = {
   slug?: string;
   speakers?: string[];
   edition: string;
+  type?: 'extra' | 'upcoming' | 'break';
 };
 
 export type Track = {

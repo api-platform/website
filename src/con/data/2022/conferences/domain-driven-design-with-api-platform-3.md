@@ -4,8 +4,8 @@ speakers: -mathias-arlaud
           -robin-chalas
 track: EN
 date: '2022-09-15'
-start:
-end:
+start: '10:00'
+end: '10:40'
 short: How to apply DDD principles to our favourite framework without losing its interest
 ---
 

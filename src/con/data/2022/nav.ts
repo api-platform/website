@@ -19,7 +19,7 @@ const nav = {
       text: 'Pricing',
     },
     {
-      to: '/con/2022/#schedule',
+      to: '/con/2022/schedule',
       text: 'Schedule',
     },
     {

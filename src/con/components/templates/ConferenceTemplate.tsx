@@ -14,7 +14,7 @@ interface ConferenceTemplateProps extends PageProps {
     html: string;
     title: string;
     speakers: string[];
-    track: 'FR' | 'EN';
+    track?: 'FR' | 'EN';
     start: string;
     end: string;
     date: string;
@@ -25,7 +25,7 @@ interface ConferenceTemplateProps extends PageProps {
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ tracks, pageContext }) => {
   const { html, title, speakers: speakerIds, track: trackID, start, end, date } = pageContext;
   const speakers = useSpeakers(speakerIds);
-  const track = tracks.find((t) => t.id === trackID);
+  const track = trackID && tracks.find((t) => t.id === trackID);
 
   return (
     <div className="conf__conference">

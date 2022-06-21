@@ -141,6 +141,16 @@
         color: #fff !important;
       }
     }
+    &.pink {
+      border-color: var(--lightpink);
+color: #fff;
+background-image: linear-gradient(30deg, var(--lightpink) 50%, transparent 50%);
+
+&:hover {
+  color: var(--lightpink) !important;
+}
+
+    }
   }
 
   .conf__button + .conf__button {

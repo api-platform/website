@@ -3,8 +3,8 @@ type: conference
 speakers: -lukasz
 track: EN
 date: '2022-09-15'
-start:
-end:
+start: '11:05'
+end: '11:45'
 short: Learn how Sylius uses API Platform for its new API.
 ---
 

@@ -3,8 +3,8 @@ type: conference
 speakers: -marine-gandy
 track: EN
 date: '2022-09-15'
-start:
-end:
+start: '15:40'
+end: '16:20'
 short: Yes, impostorism is real. During this conference, Marine, who suffers of this phenomenon, explains all the tips to deal with it.
 ---
 

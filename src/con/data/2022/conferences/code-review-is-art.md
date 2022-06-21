@@ -3,8 +3,8 @@ type: conference
 speakers: -smaine-milianni
 track: FR
 date: '2022-09-15'
-start:
-end:
+start: '14:50'
+end: '15:30'
 short: Come to see how you can be better at code review and being better reviewed
 ---
 

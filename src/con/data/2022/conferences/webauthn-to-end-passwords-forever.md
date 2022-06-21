@@ -2,9 +2,9 @@
 type: conference
 speakers: -florent-morselli
 track: FR
-date: '2022-09-15'
-start:
-end:
+date: '2022-09-16'
+start: '11:05'
+end: '11:45'
 short: How to protect our API with WebAuthn and get rid of passwords?
 ---
 

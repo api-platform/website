@@ -3,9 +3,9 @@ type: conference
 speakers: -georges-king
           -albin-kester
 track: FR
-date: '2022-09-15'
-start:
-end:
+date: '2022-09-16'
+start: '14:00'
+end: '14:40'
 short: A feedback on the use of API Platform at France Télévisions
 ---
 

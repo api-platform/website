@@ -2,9 +2,9 @@
 type: conference
 speakers: -francis-lavoie
 track: EN
-date: '2022-09-15'
-start:
-end:
+date: '2022-09-16'
+start: '10:00'
+end: '10:40'
 short: Learn about Caddy, its place in the API Platform ecosystem, and how some of its advanced features may spark new ideas
 ---
 

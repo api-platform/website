@@ -2,9 +2,9 @@
 type: conference
 speakers: -fred-bouchery
 track: FR
-date: '2022-09-15'
-start:
-end:
+date: '2022-09-16'
+start: '10:00'
+end: '10:20'
 short: Because API Platform is bullshit?
 ---
 

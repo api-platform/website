@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import SectionTitle from '@con/components/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
-import { getConferenceDate } from '@con/utils';
+import { getConferenceDate, sortByStartDate } from '@con/utils';
 import Button from '@con/components/common/Button';
 import { Conference, Track } from 'src/con/types';
 import useConferences from '@con/hooks/useConferences';
@@ -13,13 +13,18 @@ export const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference
   tracks,
   conference,
 }) => {
-  const track = tracks.find((t) => t.id === conference.track);
+  const track = conference.track && tracks.find((t) => t.id === conference.track);
   const { start, end, date, title, slug, short } = conference;
   return (
     <div className="speaker__conference-slot dotted-corner">
       <div className="conference__track">
-        <span className="h6">{`Track #${track.id}`}</span>
-        <span className="overline">{track.type}</span>
+        {track ? (
+          <>
+            {' '}
+            <span className="h6">{`Track #${track.id}`}</span>
+            <span className="overline">{track.type}</span>
+          </>
+        ) : null}
       </div>
       <div className="conference__content">
         <span className="overline">{getConferenceDate(date, start, end)}</span>
@@ -51,7 +56,7 @@ interface SpeakerTemplateProps extends PageProps {
 
 const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pageContext }) => {
   const { id, name, job, company, description, slug, twitter, github } = pageContext;
-  const conferences = useConferences(id);
+  const conferences = useConferences(id).sort(sortByStartDate);
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { sourceInstanceName: { eq: "speakersImages" } }) {
