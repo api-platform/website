@@ -3,12 +3,11 @@ import { Conference, Track } from 'src/con/types';
 import { sortByStartDate } from '@con/utils';
 import SlotItem from './SlotItem';
 
-const ScheduleByTrack: React.ComponentType<{ track: Track; conferences: Conference[]; breaks: Conference[] }> = ({
+const ScheduleByTrack: React.ComponentType<{ track: Track; conferences: Conference[] }> = ({
   track,
   conferences: allConferences,
-  breaks: allBreaks,
 }) => {
-  const conferences = [...allConferences, ...allBreaks]
+  const conferences = allConferences
     .filter((conference) => conference.track === track.id || !conference.track)
     .sort(sortByStartDate);
 
@@ -21,7 +20,7 @@ const ScheduleByTrack: React.ComponentType<{ track: Track; conferences: Conferen
         </div>
       </div>
       {conferences.map((conference, index) => (
-        <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
+        <SlotItem animated key={`${conference.slug} ${index}`} conference={conference} />
       ))}
       {0 === conferences.length ? <span className="overline">No program yet</span> : null}
     </>
@@ -34,12 +33,15 @@ interface FullScheduleProps {
   tracks: Track[];
 }
 
-const FullSchedule: React.ComponentType<FullScheduleProps> = ({ conferences, breaks, tracks }) => (
-  <div className="conf__schedule-full">
-    {tracks.map((track, index) => (
-      <ScheduleByTrack conferences={conferences} breaks={breaks} track={track} key={`${track.id} ${index}`} />
-    ))}
-  </div>
-);
+const FullSchedule: React.ComponentType<FullScheduleProps> = ({ conferences, breaks, tracks }) => {
+  const allConferences = [...conferences, ...breaks];
+  return (
+    <div className="conf__schedule-full">
+      {tracks.map((track, index) => (
+        <ScheduleByTrack conferences={allConferences} track={track} key={`${track.id} ${index}`} />
+      ))}
+    </div>
+  );
+};
 
 export default FullSchedule;

@@ -11,7 +11,7 @@ github: https://github.com/georgesking
 
 ## About Georges-King
 
-Gorges-King is a backend developer with a Devops tendency. After an initial education in the field of university mathematics, he discovered an attraction for computer science while working on the mapping of an Information System. This first experience led him to explore the different facets of IT, especially **the areas related to Infrastructure and Development**.
+Georges-King is a backend developer with a Devops tendency. After an initial education in the field of university mathematics, he discovered an attraction for computer science while working on the mapping of an Information System. This first experience led him to explore the different facets of IT, especially **the areas related to Infrastructure and Development**.
 
 DevOps at heart, GK uses his personal culture and his experience in collaborative organizations to make the IT projects he is involved in succeed.
 

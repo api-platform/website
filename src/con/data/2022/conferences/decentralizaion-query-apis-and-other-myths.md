@@ -3,8 +3,8 @@ type: conference
 speakers: -ruben-verborgh
 track: EN
 date: '2022-09-15'
-start:
-end:
+start: '14:00'
+end: '14:40'
 short: Web APIs for decentralized knowledge graphs will be fundamentally different.
 ---
 

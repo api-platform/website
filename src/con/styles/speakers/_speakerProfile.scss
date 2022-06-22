@@ -8,6 +8,9 @@
     @include mq($max-width: $vw-medium) {
       flex-direction: column;
     }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
     .conference__track {
       width: 200px;
       text-align: center;
@@ -35,9 +38,6 @@
       }
       @include mq($max-width: $vw-small) {
         padding: 20px;
-      }
-      .overline {
-        display: none;
       }
     }
   }

@@ -3,8 +3,8 @@ type: conference
 speakers: -fran-mendez
 track: EN
 date: '2022-09-15'
-start:
-end:
+start: '11:55'
+end: '12:35'
 short: Discover the benefits of schema-first development
 ---
 

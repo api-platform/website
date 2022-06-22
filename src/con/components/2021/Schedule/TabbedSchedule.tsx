@@ -77,7 +77,7 @@ const TabbedSchedule: React.ComponentType<TabbedScheduleProps> = ({ conferences,
           >
             <div className="schedule__program-morning">
               {morningConferences.map((conference, index) => (
-                <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
+                <SlotItem animated key={`${conference.slug} ${index}`} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(1)}>
                 Afternoon
@@ -86,7 +86,7 @@ const TabbedSchedule: React.ComponentType<TabbedScheduleProps> = ({ conferences,
             </div>
             <div className="schedule__program-afternoon">
               {afternoonConferences.map((conference, index) => (
-                <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
+                <SlotItem animated key={`${conference.slug} ${index}`} conference={conference} />
               ))}
               <Button empty size="small" onClick={() => handleChangeIndex(0)}>
                 <span className="icon-chevron-left" />
@@ -97,7 +97,7 @@ const TabbedSchedule: React.ComponentType<TabbedScheduleProps> = ({ conferences,
         ) : (
           <div className="schedule__program-morning">
             {morningConferences.map((conference, index) => (
-              <SlotItem key={`${conference.slug} ${index}`} conference={conference} />
+              <SlotItem animated key={`${conference.slug} ${index}`} conference={conference} />
             ))}
           </div>
         )}

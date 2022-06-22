@@ -10,13 +10,13 @@ const ModalCon: React.ComponentType = () => {
 
   useEffect(() => {
     let timeout;
-    if (!localStorage.getItem('modal-con')) {
+    if (!localStorage.getItem('modal-con-schedule')) {
       setShowModal(true);
 
       timeout = setTimeout(() => {
         if (!modalRef1?.current) return;
         modalRef1.current.openModal();
-        localStorage.setItem('modal-con', Date.now().toString());
+        localStorage.setItem('modal-con-schedule', Date.now().toString());
       }, 4000);
     }
 
@@ -32,9 +32,7 @@ const ModalCon: React.ComponentType = () => {
       </div>
       <div className="modal-con__content">
         <p className="content__overtitle">What&apos;s new?</p>
-        <p className="content__title h2-like">
-          API Platform Con: the only event dedicated to API Platform and its ecosystem
-        </p>
+        <p className="content__title h2-like">API Platform Con: our lineup is almost ready, take a look!</p>
         <p>
           The best API and API Platform experts will be in Lille and in live online{' '}
           <strong>on September, 15 and 16</strong>! Our amazing speakers will talk about API Platform 3, API design, PHP

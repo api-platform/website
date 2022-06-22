@@ -3,8 +3,8 @@ type: conference
 speakers: -nicolas-lemahieu
 track: FR
 date: '2022-09-15'
-start:
-end:
+start: '11:05'
+end: '11:45'
 short: Maintain quality code with custom business event propagation management.
 ---
 

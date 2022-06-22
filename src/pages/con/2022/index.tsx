@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Cover from '@con/components/2021/Cover';
 import Speakers from '@con/components/2021/Speakers';
 import Schedule from '@con/components/2021/Schedule';
@@ -20,9 +21,14 @@ const Conf2022: React.ComponentType = () => {
         date="September 15 - 16, 2022 | Lille & online"
         baseline="The only event dedicated to API Platform and its ecosystem"
         button={
-          <BuyButton id="cover" size="large">
-            Buy tickets
-          </BuyButton>
+          <div className="conf__cover-buttons">
+            <BuyButton className="pink" id="cover" size="large">
+              Buy tickets
+            </BuyButton>
+            <Link to="/con/2022/schedule">
+              <div className="conf__button">Full schedule</div>
+            </Link>
+          </div>
         }
       />
       <Speakers numberVisibles={12}>

@@ -2,9 +2,9 @@
 type: conference
 speakers: -pauline-vos
 track: EN
-date: '2022-09-15'
-start:
-end:
+date: '2022-09-16'
+start: '11:55'
+end: '12:35'
 short: Real-time communication has never been so easy and fast!
 ---
 
