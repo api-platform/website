@@ -2,28 +2,22 @@ import { Partner } from '@con/types';
 
 const partners: Partner[] = [
   {
-    name: 'Saveur Bière',
-    logo: 'saveur-biere',
-    link: 'https://interdrinks.welcomekit.co/',
-    rank: 1,
-  },
-  {
     name: 'SensioLabs',
     logo: 'sensiolabs',
     link: 'https://sensiolabs.com/fr/',
     rank: 1,
   },
   {
-    name: 'Vestiaire Collective',
-    logo: 'vestiaire-collective',
-    link: 'https://fr.vestiairecollective.com/',
+    name: "Alice's garden",
+    logo: 'alice-garden',
+    link: 'https://www.alicesgarden.fr/',
     rank: 1,
   },
   {
-    name: 'Wine in black',
-    logo: 'wine-in-black',
-    link: 'https://www.wine-in-black.de/',
-    rank: 2,
+    name: 'LinkValue',
+    logo: 'linkvalue',
+    link: 'https://link-value.fr/',
+    rank: 1,
   },
   {
     name: 'Fairness',
@@ -32,39 +26,9 @@ const partners: Partner[] = [
     rank: 3,
   },
   {
-    name: 'Orbitale.io',
-    logo: 'orbitale',
-    link: 'https://www.orbitale.io/en/',
-    rank: 3,
-  },
-  {
-    name: 'Coopcycle',
-    logo: 'coopcycle',
-    link: 'https://coopcycle.org/en/',
-    rank: 4,
-  },
-  {
     name: 'Euratechnologies',
     logo: 'euratechnologies',
     link: 'https://www.euratechnologies.com/',
-    rank: 4,
-  },
-  {
-    name: 'La fourche',
-    logo: 'la-fourche',
-    link: 'https://lafourche.fr/',
-    rank: 4,
-  },
-  {
-    name: 'Motoblouz',
-    logo: 'motoblouz',
-    link: 'https://www.motoblouz.com/',
-    rank: 4,
-  },
-  {
-    name: 'SymfonyCasts',
-    logo: 'symfony-casts',
-    link: 'https://symfonycasts.com/',
     rank: 4,
   },
   {
