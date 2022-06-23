@@ -32,8 +32,8 @@ const footer = [
         link: '/con/2022/#pricing',
       },
       {
-        title: 'Sponsorship',
-        link: '/con/2022/#sponsorship',
+        title: 'Partners',
+        link: '/con/2022/#partners',
       },
     ],
   },

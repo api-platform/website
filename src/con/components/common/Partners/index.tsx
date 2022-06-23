@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
 import Section from '@con/components/common/Section';
 import { Partner } from 'src/con/types';
 import SectionTitle from '@con/components/common/SectionTitle';
+import { ConfContext } from '@con/components/layout';
 
 interface PartnersSectionProps {
   partners: Partner[];
@@ -10,20 +11,23 @@ interface PartnersSectionProps {
   type: string;
 }
 
-const PartnersSection: React.ComponentType<PartnersSectionProps> = ({ partners, title, type }) => (
-  <div className={`partners__section partners__${type}`}>
-    <h3 className="h6 lined partners__section-title">{title}</h3>
-    <Grid>
-      {partners.map(({ name, logo, link }) => (
-        <GridItem key={name} autosize padding={20} className="partners__item">
-          <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
-            <img width="200" height="200" loading="lazy" src={`/con/2021/partners/${logo}.png`} alt={name} />
-          </a>
-        </GridItem>
-      ))}
-    </Grid>
-  </div>
-);
+const PartnersSection: React.ComponentType<PartnersSectionProps> = ({ partners, title, type }) => {
+  const { edition } = useContext(ConfContext);
+  return (
+    <div className={`partners__section partners__${type}`}>
+      <h3 className="h6 lined partners__section-title">{title}</h3>
+      <Grid>
+        {partners.map(({ name, logo, link }) => (
+          <GridItem key={name} autosize padding={20} className="partners__item">
+            <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
+              <img width="200" height="200" loading="lazy" src={`/con/${edition}/partners/${logo}.png`} alt={name} />
+            </a>
+          </GridItem>
+        ))}
+      </Grid>
+    </div>
+  );
+};
 
 interface PartnersProps {
   data: Partner[];
