@@ -1,8 +1,6 @@
 ---
 type: conference
-speakers: -alexandre-segura
-          -paul-andrieux
-          -mehdi-medjaoui
+speakers: -mehdi-medjaoui
           -helene-marchois
 track: EN
 date: '2022-09-16'

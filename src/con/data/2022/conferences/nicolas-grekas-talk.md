@@ -8,6 +8,6 @@ end: '15:30'
 short: Upcoming content
 ---
 
-# Nicolas Grekas's talk (soon)
+# Nicolas Grekas' talk (soon)
 
 Upcoming content

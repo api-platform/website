@@ -13,8 +13,11 @@ interface SlotItemProps {
 const SlotItem: React.ComponentType<SlotItemProps> = ({ conference, animated }) => {
   const { title, start, end, date, slug } = conference;
   let speakers = useSpeakers(conference.speakers);
-
   if (!conference.speakers) speakers = [];
+  const uniqueCompanies = Array.from(
+    new Set(speakers.map((speaker) => speaker.company).filter((company) => !!company))
+  );
+
   return speakers.length ? (
     <a href={slug} className={classNames('schedule__slot', { animated })}>
       <Avatar speakers={speakers} />
@@ -26,16 +29,17 @@ const SlotItem: React.ComponentType<SlotItemProps> = ({ conference, animated }) 
           {speakers.map((speaker, index) => (
             <Fragment key={speaker.name}>
               <strong className="slot-speaker">{speaker.name}</strong>
-              {index < speakers.length - 1 && ' & '}
+              {index < speakers.length - 2 && ', '}
+              {index === speakers.length - 2 && ' & '}
             </Fragment>
           ))}
         </span>
-        {1 === speakers.length ? (
-          <p className="body2">
-            {speakers[0].job}
-            {speakers[0].company ? <strong> @ {speakers[0].company}</strong> : null}
-          </p>
-        ) : null}
+        <p className="body2">
+          {1 === speakers.length ? speakers[0].job : null}
+          {2 >= uniqueCompanies.length && 0 < uniqueCompanies.length ? (
+            <strong> @ {uniqueCompanies.join(' & ')}</strong>
+          ) : null}
+        </p>
       </div>
       {animated ? (
         <svg className="schedule__slot-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.49 281.49">
