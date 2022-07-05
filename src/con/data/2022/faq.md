@@ -5,7 +5,7 @@ type: legal
 # FREQUENTLY ASKED QUESTIONS
 
 ## What is API Platform Con and which audience is it targeting?
-API Platform Con offers a one-day digest of the latest trends and best practices of [API Platform’s](/) ecosystem. This conference brings together innovative companies, project leaders and highly skilled developers. Large topics will be discussed in English but also in French: APIs, PHP, Symfony, JavaScript, React, Vue, Docker... If you are a developer, a CTO or decision-maker specialized in one of these technologies: this event is for you!
+API Platform Con offers a 2-days digest of the latest trends and best practices of [API Platform’s](/) ecosystem. This conference brings together innovative companies, project leaders and highly skilled developers. Large topics will be discussed in English but also in French: APIs, PHP, Symfony, JavaScript, React, Vue, Docker... If you are a developer, a CTO or decision-maker specialized in one of these technologies: this event is for you!
 
 
 ## Where does the event take place and how do we get there?
