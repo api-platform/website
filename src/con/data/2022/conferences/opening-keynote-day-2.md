@@ -5,12 +5,12 @@ track: EN
 date: '2022-09-16'
 start: '09:10'
 end: '09:50'
-short: 'Upcoming content'
+short: 'Let Soyuka introduce you to all the new features of API Platform 3'
 ---
 
 # Opening keynote - Day two
 
-Upcoming content
+Let Soyuka introduce you to all the new features of API Platform 3
 
 
 
