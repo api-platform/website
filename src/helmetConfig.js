@@ -1,11 +1,11 @@
 export default {
   head: {
-    titleTemplate: 'API Platform: %s',
+    titleTemplate: '%s - API Platform',
     defaultTitle: 'API Platform',
     meta: [
       {
         name: 'description',
-        content: 'REST and GraphQL framework on top of Symfony and React',
+        content: 'The API-first framework: REST, GraphQL and real-time',
       },
       { charset: 'utf-8' },
       { name: 'theme-color', content: '#38a9b4' },
@@ -19,7 +19,7 @@ export default {
       { property: 'og:title', content: 'API Platform' },
       {
         property: 'og:description',
-        content: 'REST and GraphQL framework on top of Symfony and React',
+        content: 'The API-first framework: REST, GraphQL and real-time',
       },
       { property: 'og:site', content: '@ApiPlatform' },
       { property: 'og:creator', content: '@dunglas' },

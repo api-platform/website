@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import SectionTitle from '@con/components/common/SectionTitle';
 import { PageProps } from 'gatsby';
 import classNames from 'classnames';
@@ -29,6 +30,11 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ trac
 
   return (
     <div className="conf__conference">
+      <Helmet>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+      </Helmet>
       <div className="container">
         <div className="conference__header">
           <SectionTitle dark lined h1 small={50 < title.length}>

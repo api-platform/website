@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { PageProps } from 'gatsby';
 import ContactCard from '@con/components/common/ContactCard';
 import SectionTitle from '@con/components/common/SectionTitle';
@@ -18,6 +19,12 @@ const LegalTemplate: React.ComponentType<LegalTemplateProps> = ({ pageContext })
 
   return (
     <div className="conf__legal">
+      <Helmet>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+      </Helmet>
+
       <div className="container">
         <div className="legal__header">
           <SectionTitle dark lined h1>

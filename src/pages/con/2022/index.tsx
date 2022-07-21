@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import Cover from '@con/components/2021/Cover';
 import Partners from '@con/components/common/Partners';
@@ -14,10 +15,16 @@ import tracks from '@con/data/2022/tracks';
 import PartnersData from '@con/data/2022/partners';
 import '@con/styles/home/index.scss';
 import BuyButton from '@con/components/2022/BuyButton';
+import { TITLE } from '@con/data/meta';
 
 const Conf2022: React.ComponentType = () => {
   return (
     <Layout>
+      <Helmet titleTemplate="">
+        <title>{`${TITLE}: meet the best API experts!`}</title>
+        <meta property="og:title" content="Speakers" />
+        <meta name="twitter:title" content="Speakers" />
+      </Helmet>
       <Cover
         date="September 15 - 16, 2022 | Lille & online"
         baseline="The only event dedicated to API Platform and its ecosystem"
