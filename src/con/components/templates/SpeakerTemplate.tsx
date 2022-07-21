@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import SectionTitle from '@con/components/common/SectionTitle';
 import { PageProps, useStaticQuery, graphql } from 'gatsby';
@@ -73,6 +74,12 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pa
   const firstname = name.split(' ')[0];
   return (
     <div className="conf__speaker-profile">
+      <Helmet>
+        <title>{name}</title>
+        <meta property="og:title" content={name} />
+        <meta name="twitter:title" content={name} />
+      </Helmet>
+
       <div className="speaker__header">
         <SectionTitle dark lined h1>
           <strong>{name}</strong>

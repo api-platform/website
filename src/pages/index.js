@@ -15,7 +15,7 @@ import '../styles/main.scss';
 const IndexPage = ({ location }) => (
   <Layout location={location}>
     <div className="home">
-      <Helmet title="REST and GraphQL framework on top of Symfony and React" />
+      <Helmet title="API Platform: The API-first framework (REST, GraphQL and real-time)" titleTemplate="" />
       <Cover />
       <Ecosystem />
       <AllInOne />

@@ -38,12 +38,12 @@ const LayoutBase: React.ComponentType<LayoutProps> = ({
     '@context': 'https://schema.org',
     '@type': 'Website',
     name: 'API Platform Conference',
-    url: 'https://api-platform.com/con/2021/',
+    url: 'https://api-platform.com/con/',
   };
 
   return (
     <>
-      <Helmet {...helmetConfig.head}>
+      <Helmet {...helmetConfig.head} titleTemplate="%s - API Platform Conference">
         <title>{TITLE}</title>
         <meta name="description" content={DESCRIPTION} />
         <meta property="og:url" content={URL} />
