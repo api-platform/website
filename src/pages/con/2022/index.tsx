@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import Cover from '@con/components/2021/Cover';
-import Partners from '@con/components/common/Partners';
+import Partners from '@con/components/2022/Partners';
 import Speakers from '@con/components/2021/Speakers';
 import Layout from '@con/components/2022/layout';
 import Venue from '@con/components/2021/Venue';

@@ -2,45 +2,57 @@ import { Partner } from '@con/types';
 
 const partners: Partner[] = [
   {
+    name: 'France tv',
+    logo: 'france-tv',
+    link: 'https://www.francetelevisions.fr/',
+    rank: 1,
+  },
+  {
     name: 'SensioLabs',
     logo: 'sensiolabs',
     link: 'https://sensiolabs.com/fr/',
-    rank: 1,
+    rank: 2,
   },
   {
     name: "Alice's garden",
     logo: 'alice-garden',
     link: 'https://www.alicesgarden.fr/',
-    rank: 1,
+    rank: 2,
   },
   {
     name: 'LinkValue',
     logo: 'linkvalue',
     link: 'https://link-value.fr/',
-    rank: 1,
+    rank: 2,
+  },
+  {
+    name: 'Platform.sh',
+    logo: 'platform-sh',
+    link: 'https://platform.sh/',
+    rank: 2,
+  },
+  {
+    name: 'Apimatic',
+    logo: 'apimatic',
+    link: 'https://www.apimatic.io/',
+    rank: 3,
   },
   {
     name: 'Fairness',
     logo: 'fairness',
     link: 'https://fairness.coop/',
-    rank: 3,
+    rank: 4,
   },
   {
     name: 'Euratechnologies',
     logo: 'euratechnologies',
     link: 'https://www.euratechnologies.com/',
-    rank: 4,
+    rank: 5,
   },
   {
     name: 'Sticker mule',
     logo: 'sticker-mule',
-    link: 'https://mule.to/p1oo',
-    rank: 4,
-  },
-  {
-    name: 'You?',
-    logo: 'you',
-    link: 'mailto:events@les-tilleuls.coop?subject=I want to become a partner',
+    link: 'https://mule.to/p33m',
     rank: 5,
   },
 ];
