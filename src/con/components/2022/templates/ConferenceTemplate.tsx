@@ -3,6 +3,7 @@ import ConferenceTemplateBase from '@con/components/templates/ConferenceTemplate
 import { PageProps } from 'gatsby';
 import Layout from '@con/components/2022/layout';
 import { getDayByDate } from '@con/data/2022/days';
+import BuyButton from '../BuyButton';
 
 interface ConferenceTemplateProps extends PageProps {
   pageContext: {
@@ -30,6 +31,11 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = (props)
             <strong>{day.title}</strong>
             {track ? ` - Track #${track}` : null}
           </p>
+        }
+        extraContent={
+          <BuyButton className="mt-20 pink square" id="cover" size="large">
+            Get your ticket!
+          </BuyButton>
         }
       />
     </Layout>

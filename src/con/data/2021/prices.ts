@@ -1,4 +1,4 @@
-import { Price } from '../types';
+import { Price } from '@con/types';
 
 const prices: Price[] = [
   {

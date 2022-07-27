@@ -39,10 +39,12 @@ const Conf2022: React.ComponentType = () => {
         <p className="conf__section-subtitle">Discover our amazing international speakers!</p>
       </Speakers>
       <Pricing />
-      <Venue
-        subtitle=" The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
+      <div className="pt-50">
+        <Venue
+          subtitle=" The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
         Flemish region. If you can't attend the event physically, you can watch both tracks online."
-      />
+        />
+      </div>
       <Partners data={PartnersData} />
 
       <Contact />

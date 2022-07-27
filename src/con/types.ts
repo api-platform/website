@@ -52,7 +52,8 @@ export type Track = {
 export type Offer = {
   title: string;
   price: number;
-  limitDate: string;
+  limitDate?: string;
+  startDate?: string;
 };
 
 export type Price = {

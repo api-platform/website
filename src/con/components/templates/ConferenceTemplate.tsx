@@ -20,9 +20,14 @@ interface ConferenceTemplateProps extends PageProps {
     date?: string;
   };
   trackSubtitle?: JSX.Element;
+  extraContent?: JSX.Element;
 }
 
-const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ trackSubtitle, pageContext }) => {
+const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({
+  extraContent,
+  trackSubtitle,
+  pageContext,
+}) => {
   const { html, title, speakers: speakerIds, start, end, date } = pageContext;
   const speakers = useSpeakers(speakerIds);
 
@@ -54,10 +59,10 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = ({ trac
               </React.Fragment>
             ))}
           </div>
-          <div
-            className="conference__abstract dotted-corner corner-bottom"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className="conference__abstract dotted-corner corner-bottom">
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+            {extraContent}
+          </div>
         </div>
       </div>
     </div>
