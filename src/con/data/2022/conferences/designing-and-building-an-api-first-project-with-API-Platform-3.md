@@ -11,13 +11,13 @@ short: A 1-day workshop with the creators of API Platform to discover the keys o
 
 # Designing and Building an API-first Project with API Platform 3
 
-The Mastering API Platform makes creating powerful, fast, and standards-compliant web APIs a snap. It also contains all the tools you need to develop state-of-the-art web apps and mobile apps consuming your APIs.
+API Platform makes it easy to create powerful, fast, and standards-compliant web APIs. API Platform also contains all the tools you need to develop state-of-the-art web and mobile applications that use your APIs.
 
 Version 3 of our favorite framework, which has just been released, is even easier to use and at the same time more customizable than previous versions.
 
 During this 1-day workshop **with the creators of API Platform**, you’ll learn how to:
 
-- **install API Platform 3** in a new project or in an existing one
+- **create a new API Platform 3 project** or install API Platform in an existing Symfony app
 - **leverage the main features** of the framework to build a REST (HATEOAS) web API
 - plug your own domain and persistence layer with **state providers** and **state processors**
 - add **validation**, **authentication**, and **authorization** to your API
@@ -26,7 +26,3 @@ During this 1-day workshop **with the creators of API Platform**, you’ll learn
 - use **API Platform Admin**, a powerful hypermedia client leveraging RDF and React Admin to build B2B apps
 - use **API Platform Client Generator** to scaffold Next.js, Nuxt.js, or React Native apps
 - **deploy your app in production** with Kubernetes or Docker Compose
-
-
-
-
