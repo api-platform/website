@@ -2,14 +2,14 @@ import React from 'react';
 import ConferenceTemplateBase from '@con/components/templates/ConferenceTemplate';
 import { PageProps } from 'gatsby';
 import Layout from '@con/components/2022/layout';
-import tracks from '@con/data/2022/tracks';
+import { getDayByDate } from '@con/data/2022/days';
 
 interface ConferenceTemplateProps extends PageProps {
   pageContext: {
     html: string;
     title: string;
     speakers: string[];
-    track: 'FR' | 'EN';
+    track?: string;
     start: string;
     end: string;
     date: string;
@@ -18,9 +18,20 @@ interface ConferenceTemplateProps extends PageProps {
 }
 
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = (props) => {
+  const { pageContext } = props;
+  const { date, track } = pageContext;
+  const day = getDayByDate(date);
   return (
     <Layout logoAlwaysVisible>
-      <ConferenceTemplateBase {...props} tracks={tracks} />
+      <ConferenceTemplateBase
+        {...props}
+        trackSubtitle={
+          <p className="overline header__subtitle">
+            <strong>{day.title}</strong>
+            {track ? ` - Track #${track}` : null}
+          </p>
+        }
+      />
     </Layout>
   );
 };

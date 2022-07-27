@@ -52,10 +52,13 @@ interface SpeakerTemplateProps extends PageProps {
     twitter?: string;
     github?: string;
   };
-  tracks: Track[];
+  SpeakerConferenceSlotComponent: React.ComponentType<{ conference: Conference }>;
 }
 
-const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pageContext }) => {
+const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({
+  SpeakerConferenceSlotComponent,
+  pageContext,
+}) => {
   const { id, name, job, company, description, slug, twitter, github } = pageContext;
   const conferences = useConferences(id).sort(sortByStartDate);
   const data = useStaticQuery(graphql`
@@ -108,7 +111,7 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({ tracks, pa
             <div className="speaker__schedule">
               <h2 className="schedule__title h5">{`${firstname}'s schedule`}</h2>
               {conferences.map((conference) => (
-                <SpeakerConferenceSlot key={conference.title} conference={conference} tracks={tracks} />
+                <SpeakerConferenceSlotComponent key={conference.title} conference={conference} />
               ))}
             </div>
           ) : null}

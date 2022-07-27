@@ -39,7 +39,7 @@ Your badge allows you to enter and exit the venue as you wish.
 
 
 ## Is there a special price?
-The online edition is **free for students or unemployed developers**. Contact us at <events@les-tilleuls.coop> to get your voucher (a proof of school attendance will be asked).
+The online and on-site edition is **free for students or unemployed developers**. Contact us at <events@les-tilleuls.coop> to get your voucher (a proof of school attendance will be asked).
 
 
 ## Can I get lunch at the venue?

@@ -22,7 +22,7 @@ const Pricing: React.ComponentType = () => {
             <div className="discount__content dotted-corner">
               <p className="discount__title h6 lined lined-white">Student or unemployed developer?</p>
               <p>
-                Online edition is <strong>free*</strong>
+                Your ticket is <strong>free*</strong>
               </p>
               <a className="conf__button small square white" href="mailto:events@les-tilleuls.coop">
                 Contact us!

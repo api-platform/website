@@ -37,8 +37,8 @@ const SchedulePage: React.ComponentType = () => {
             </SectionTitle>
           </div>
           <div className="schedule-page__content">
-            {sortedDays.map((key, index) => (
-              <ScheduleDay key={key} day={index + 1} date={key} conferences={days[key]} />
+            {sortedDays.map((key) => (
+              <ScheduleDay key={key} date={key} conferences={days[key]} />
             ))}
           </div>
         </div>
