@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@con/components/2022/layout';
 import { PageProps } from 'gatsby';
 import SpeakerTemplateBase from '@con/components/templates/SpeakerTemplate';
-import tracks from '@con/data/2022/tracks';
+import SpeakerConferenceSlot from '@con/components/2022/Speakers/SpeakerConferenceSlot';
 
 interface SpeakerTemplateProps extends PageProps {
   pageContext: {
@@ -21,7 +21,7 @@ interface SpeakerTemplateProps extends PageProps {
 const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = (props) => {
   return (
     <Layout logoAlwaysVisible>
-      <SpeakerTemplateBase {...props} tracks={tracks} />
+      <SpeakerTemplateBase {...props} SpeakerConferenceSlotComponent={SpeakerConferenceSlot} />
     </Layout>
   );
 };

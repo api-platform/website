@@ -3,8 +3,8 @@ type: speaker
 id: robin-chalas
 number: 13
 name: Robin Chalas
-job: Core Team
-company: Symfony
+job: Symfony Core Team
+company: Les-Tilleuls.coop
 twitter: https://twitter.com/chalas_r
 github: https://github.com/chalasr
 ---

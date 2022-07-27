@@ -9,7 +9,7 @@ interface ConferenceTemplateProps extends PageProps {
     html: string;
     title: string;
     speakers: string[];
-    track: 'FR' | 'EN';
+    track?: string;
     start: string;
     end: string;
     edition: string;
@@ -17,9 +17,19 @@ interface ConferenceTemplateProps extends PageProps {
 }
 
 const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = (props) => {
+  const { pageContext } = props;
+  const track = pageContext.track && tracks.find((t) => t.id === pageContext.track);
   return (
     <Layout logoAlwaysVisible>
-      <ConferenceTemplateBase {...props} tracks={tracks} />
+      <ConferenceTemplateBase
+        {...props}
+        trackSubtitle={
+          <p className="overline header__subtitle">
+            <strong>{`Track #${pageContext.track} `}</strong>
+            {`- ${track.type}`}
+          </p>
+        }
+      />
     </Layout>
   );
 };

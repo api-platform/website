@@ -11,12 +11,12 @@ const nav = {
       text: 'Speakers',
     },
     {
-      to: '/con/2022/#venue',
-      text: 'Venue',
-    },
-    {
       to: '/con/2022/#pricing',
       text: 'Pricing',
+    },
+    {
+      to: '/con/2022/#venue',
+      text: 'Venue',
     },
     {
       to: '/con/2022/schedule',

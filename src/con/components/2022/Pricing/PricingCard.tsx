@@ -1,6 +1,5 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import classNames from 'classnames';
 import { GridItem } from '@components/common/Grid';
 import Button from '@con/components/common/Button';
 import { Price } from 'src/con/types';
@@ -11,14 +10,15 @@ interface PricingCardProps {
 }
 
 const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
-  const sortedOffers = price.offers.sort((a, b) => {
-    if (dayjs(a.limitDate).isAfter(dayjs(b.limitDate))) return 1;
-    if (dayjs(b.limitDate).isAfter(dayjs(a.limitDate))) return -1;
-    return 0;
-  });
-  const activeIndex = sortedOffers.findIndex((offer) => dayjs(offer.limitDate).isAfter(dayjs()));
-
   useEventBriteModal(`price${price.id}`);
+
+  const isActiveOffer = (offer) => {
+    if (offer.limitDate && dayjs(offer.limitDate).isBefore(dayjs(), 'day')) return false;
+    if (offer.startDate && dayjs(offer.startDate).isAfter(dayjs(), 'day')) return false;
+    return true;
+  };
+
+  const offers = price.offers.filter((offer) => isActiveOffer(offer));
 
   return (
     <GridItem padding={5} className="conf__pricing-item">
@@ -28,11 +28,10 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
           <span className="overline">{price.languages}</span>
         </div>
         <div className="pricing__content dotted-corner corner-bottom">
-          {sortedOffers.map((offer, index) => (
-            <div key={offer.title} className={classNames('pricing__offer', { active: index === activeIndex })}>
-              <span className="overline offer__limit">{`until ${dayjs(offer.limitDate).format('LL')}`}</span>
+          {offers.map((offer, index) => (
+            <div key={`${offer.title}-${index}`} className="pricing__offer active">
               <span className="overline offer__title">{offer.title}</span>
-              <span className="h4 pricing__amount">{offer.price}€*</span>
+              <span className="h4 pricing__amount">{offer.price}€</span>
             </div>
           ))}
         </div>

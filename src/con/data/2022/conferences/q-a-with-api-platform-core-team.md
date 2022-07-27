@@ -11,7 +11,7 @@ short: The API Platform core team answers all your questions!
 
 # Q&A Session -  API Platform Core Team
 
-Upcoming content
+The API Platform core team answers all your questions!
 
 
 

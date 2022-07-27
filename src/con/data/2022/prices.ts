@@ -3,35 +3,55 @@ import { Price } from '@con/types';
 const prices: Price[] = [
   {
     id: 1,
-    title: 'On-site edition',
+    title: 'Conference',
     languages: 'French and english-speaking tracks',
     offers: [
       {
-        title: 'Early bird',
-        limitDate: '2022-05-06',
-        price: 89,
-      },
-      {
-        title: 'Regular ticket',
-        limitDate: '2022-08-19',
+        title: '2 days on-site event',
         price: 129,
+        limitDate: '2022-08-20',
       },
       {
-        title: 'Late bird',
-        limitDate: '2022-09-14',
+        title: '1-day on-site event',
+        price: 89,
+        limitDate: '2022-08-20',
+      },
+      {
+        title: '2 days on-site event',
         price: 169,
+        startDate: '2022-08-21',
+      },
+      {
+        title: '1-day on-site event',
+        price: 109,
+        startDate: '2022-08-21',
+      },
+      {
+        title: 'Online ticket',
+        price: 59,
       },
     ],
   },
   {
     id: 2,
-    title: 'Online edition',
-    languages: 'French and english-speaking tracks',
+    title: 'Workshops',
+    languages: 'Learn the best of API Platform 3',
     offers: [
       {
-        title: 'Online ticket',
-        limitDate: '2022-09-13',
-        price: 59,
+        title: 'Workshop API Platform 3',
+        price: 500,
+      },
+      {
+        title: 'Workshop DDD',
+        price: 500,
+      },
+      {
+        title: '2-days workshops',
+        price: 800,
+      },
+      {
+        title: 'Full package: 2 workshops and 2-days conference',
+        price: 900,
       },
     ],
   },

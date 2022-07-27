@@ -4,7 +4,7 @@ import Speakers from '@con/components/2021/Speakers';
 import Schedule from '@con/components/2021/Schedule';
 import Layout from '@con/components/2021/layout';
 import Venue from '@con/components/2021/Venue';
-import Partners from '@con/components/common/Partners';
+import Partners from '@con/components/2021/Partners';
 import Covid from '@con/components/2021/Covid';
 import Button from '@con/components/common/Button';
 import PartnersData from '@con/data/2021/partners';
