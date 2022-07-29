@@ -53,11 +53,13 @@ interface SpeakerTemplateProps extends PageProps {
     github?: string;
   };
   SpeakerConferenceSlotComponent: React.ComponentType<{ conference: Conference }>;
+  extraContent?: JSX.Element;
 }
 
 const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({
   SpeakerConferenceSlotComponent,
   pageContext,
+  extraContent,
 }) => {
   const { id, name, job, company, description, slug, twitter, github } = pageContext;
   const conferences = useConferences(id).sort(sortByStartDate);
@@ -106,6 +108,7 @@ const SpeakerTemplate: React.ComponentType<SpeakerTemplateProps> = ({
           <div className="speaker__details">
             <div dangerouslySetInnerHTML={{ __html: description }} />
             <SpeakerSocialList speaker={{ id, description, name, job, slug, github, twitter }} />
+            {extraContent}
           </div>
           {0 < conferences.length ? (
             <div className="speaker__schedule">
