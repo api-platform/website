@@ -18,8 +18,8 @@ const Conf2022: React.ComponentType = () => {
     <Layout>
       <Helmet titleTemplate="">
         <title>{`${TITLE}: meet the best API experts!`}</title>
-        <meta property="og:title" content="Speakers" />
-        <meta name="twitter:title" content="Speakers" />
+        <meta property="og:title" content={`${TITLE}: meet the best API experts!`} />
+        <meta name="twitter:title" content={`${TITLE}: meet the best API experts!`} />
       </Helmet>
       <Cover
         date="September 15 - 16, 2022 | Lille & online"
