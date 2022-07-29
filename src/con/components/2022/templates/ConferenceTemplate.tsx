@@ -33,7 +33,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = (props)
           </p>
         }
         extraContent={
-          <BuyButton className="mt-20 pink square" id="cover" size="large">
+          <BuyButton className="mt-20 pink square" id={pageContext.title} size="large">
             Get your ticket!
           </BuyButton>
         }
