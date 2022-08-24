@@ -32,6 +32,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: 'Clever Cloud',
+    logo: 'clever-cloud',
+    link: 'https://www.clever-cloud.com/',
+    rank: 2,
+  },
+  {
     name: 'Apimatic',
     logo: 'apimatic',
     link: 'https://www.apimatic.io/',
