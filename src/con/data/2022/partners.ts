@@ -38,9 +38,9 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
-    name: 'Apimatic',
-    logo: 'apimatic',
-    link: 'https://www.apimatic.io/',
+    name: 'Rapid Flyer',
+    logo: 'rapid-flyer',
+    link: 'https://www.rapid-flyer.com/',
     rank: 3,
   },
   {
