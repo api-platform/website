@@ -471,6 +471,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createRedirect({ fromPath: '/con/', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
   createRedirect({ fromPath: '/con', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
+  createRedirect({
+    fromPath: 'con/2022/conferences/opening-keynote-day-1/',
+    toPath: '/con/2022/conferences/opening-keynote-introduction-to-API-platform-3/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: 'con/2022/conferences/opening-keynote-day-2/',
+    toPath: '/con/2022/conferences/opening-keynote-a-deeper-loon-into-API-platform-3/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Contributors page
   const contributors = await graphql(`
