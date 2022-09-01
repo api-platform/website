@@ -3,8 +3,8 @@ type: speaker
 id: marine-gandy
 number: 9
 name: Marine Gandy
-job: PHP developer and drupalista
-company: Ekino
+job: DevRel
+company: Platform.sh
 twitter: https://twitter.com/mupsigraphy
 github: https://github.com/Mupsi
 ---

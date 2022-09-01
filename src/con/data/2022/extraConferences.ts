@@ -23,7 +23,7 @@ const extra = [
   {
     title: 'Community event',
     date: '2022-09-15',
-    start: '18:00',
+    start: '17:30',
     end: '18:45',
     type: 'break',
   },
@@ -53,14 +53,6 @@ const extra = [
     date: '2022-09-15',
     start: '15:40',
     end: '16:20',
-    track: 'FR',
-    type: 'upcoming',
-  },
-  {
-    title: 'Upcoming',
-    date: '2022-09-15',
-    start: '16:40',
-    end: '17:20',
     track: 'FR',
     type: 'upcoming',
   },

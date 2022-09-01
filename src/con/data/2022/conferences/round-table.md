@@ -1,7 +1,6 @@
 ---
 type: conference
-speakers: -mehdi-medjaoui
-          -helene-marchois
+speakers: -helene-marchois
 track: EN
 date: '2022-09-16'
 start: '16:40'

@@ -472,20 +472,38 @@ exports.createPages = async ({ graphql, actions }) => {
   createRedirect({ fromPath: '/con/', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
   createRedirect({ fromPath: '/con', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
   createRedirect({
-    fromPath: 'con/2022/conferences/opening-keynote-day-1/',
+    fromPath: '/con/2022/conferences/opening-keynote-day-1/',
     toPath: '/con/2022/conferences/opening-keynote-introduction-to-API-platform-3/',
     isPermanent: true,
     redirectInBrowser: true,
   });
   createRedirect({
-    fromPath: 'con/2022/conferences/opening-keynote-day-2/',
+    fromPath: '/con/2022/conferences/opening-keynote-day-2/',
     toPath: '/con/2022/conferences/opening-keynote-a-deeper-look-into-API-platform-3/',
     isPermanent: true,
     redirectInBrowser: true,
   });
   createRedirect({
-    fromPath: 'con/2022/conferences/nicolas-grekas-talk/',
-    toPath: '/con/2022/conferences/how-do-you-decide-to-create-a-symfony-component/',
+    fromPath: '/con/2022/conferences/nicolas-grekas-talk/',
+    toPath: '/con/2022/conferences/how-do-we-decide-to-create-a-symfony-component/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: '/con/2022/conferences/how-do-you-decide-to-create-a-symfony-component/',
+    toPath: '/con/2022/conferences/how-do-we-decide-to-create-a-symfony-component/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: '/con/2022/conferences/apis-the-next-10-years-beyond-the-interface/',
+    toPath: '/con/2022/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: 'con/2022/speakers/mehdi-medjaoui/',
+    toPath: '/con/2022/',
     isPermanent: true,
     redirectInBrowser: true,
   });
