@@ -507,6 +507,12 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true,
   });
+  createRedirect({
+    fromPath: '/con/2022/conferences/round-table/',
+    toPath: '/con/2022/conferences/comment-remettre-la-tech-au-service-du-bien-commun/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Contributors page
   const contributors = await graphql(`

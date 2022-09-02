@@ -50,14 +50,6 @@ const extra = [
   },
   {
     title: 'Upcoming',
-    date: '2022-09-15',
-    start: '15:40',
-    end: '16:20',
-    track: 'FR',
-    type: 'upcoming',
-  },
-  {
-    title: 'Upcoming',
     date: '2022-09-16',
     start: '14:50',
     end: '15:30',
@@ -65,12 +57,20 @@ const extra = [
     type: 'upcoming',
   },
   {
-    title: 'Upcoming',
-    date: '2022-09-16',
-    start: '15:40',
+    title: ' ',
+    date: '2022-09-15',
+    start: '16:00',
     end: '16:20',
-    track: 'EN',
-    type: 'upcoming',
+    track: 'FR',
+    type: 'empty',
+  },
+  {
+    title: ' ',
+    date: '2022-09-16',
+    start: '10:20',
+    end: '10:40',
+    track: 'FR',
+    type: 'empty',
   },
 ];
 

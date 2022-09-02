@@ -2,7 +2,7 @@
 type: conference
 speakers: -kevin-dunglas
           -antoine-bluchet
-track: EN
+track:
 date: '2022-09-15'
 start: '16:40'
 end: '17:20'
