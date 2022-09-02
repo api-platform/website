@@ -2,9 +2,9 @@
 type: conference
 speakers: -jerome-tanghe
 track: FR
-date: '2022-09-16'
-start: '10:20'
-end: '10:40'
+date: '2022-09-15'
+start: '15:40'
+end: '16:00'
 short: Pour contribuer, il faut juste se lancer et affronter sa peur !
 ---
 

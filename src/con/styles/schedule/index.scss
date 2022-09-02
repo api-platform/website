@@ -273,6 +273,12 @@
           background-color: var(--lightgrey);
           min-height: 80px;
         }
+        &-empty {
+          min-height: 80px;
+          @include mq($max-width: $vw-medium) {
+            display: none;
+          }
+        }
       }
     }
   }
