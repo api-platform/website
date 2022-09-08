@@ -42,7 +42,7 @@ const extra = [
     type: 'break',
   },
   {
-    title: 'Afternoon break',
+    title: 'Closing speech',
     date: '2022-09-16',
     start: '16:20',
     end: '16:40',
