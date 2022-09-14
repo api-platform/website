@@ -360,6 +360,12 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true,
   });
+    createRedirect({
+    fromPath: '/docs/client-generator/',
+    toPath: '/docs/create-client/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Documentation pages
   const docPageTemplate = path.resolve('src/templates/doc.js');
