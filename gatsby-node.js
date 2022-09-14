@@ -360,7 +360,7 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true,
   });
-    createRedirect({
+  createRedirect({
     fromPath: '/docs/client-generator/',
     toPath: '/docs/create-client/',
     isPermanent: true,
