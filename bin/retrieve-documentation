@@ -14,4 +14,4 @@ bin/generate-nav
 # Retrieve metadata XSD file
 
 # FIXME: add support for API Platform 3
-#bin/retrieve-metadata-xsd
+bin/retrieve-metadata-xsd

@@ -6,30 +6,53 @@ const path = require('path');
 const fetch = require('node-fetch');
 const { currentVersion } = require('../constants');
 
-const xsdMetadataCoreFilepath = 'src/Metadata/schema/metadata.xsd';
 const xsdMetadataPath = 'static/schema/metadata';
-const xsdMetadataFilename = 'metadata-2.0.xsd';
 
 console.info('\x1b[36m', `Retrieve current (${currentVersion}) metadata XSD`, '\x1b[37m');
 
-const checkStatus = response => {
+const checkStatus = (response) => {
   if (response.ok) {
     return response;
-  } else {
-    throw new Error(`HTTP Error Response: ${response.status} ${response.statusText}`);
   }
+
+  throw new Error(`HTTP Error Response: ${response.status} ${response.statusText}`);
 };
 
 (async () => {
   try {
-    const res = await fetch(`${process.env.CORE_REPOSITORY.replace('.git', '')}/raw/${currentVersion}/${xsdMetadataCoreFilepath}`);
+    fs.mkdirSync(path.resolve(__dirname, `../${xsdMetadataPath}`), { recursive: true });
+
+    // v3 schemas
+    const resResources = await fetch(
+      `${process.env.CORE_REPOSITORY.replace(
+        '.git',
+        ''
+      )}/raw/${currentVersion}/src/Metadata/Extractor/schema/resources.xsd`
+    );
+    checkStatus(resResources);
+    const resourcesXsd = await resResources.text();
+    fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/resources-3.0.xsd`), resourcesXsd);
+
+    const resProperties = await fetch(
+      `${process.env.CORE_REPOSITORY.replace(
+        '.git',
+        ''
+      )}/raw/${currentVersion}/src/Metadata/Extractor/schema/properties.xsd`
+    );
+    checkStatus(resProperties);
+    const propertiesXsd = await resResources.text();
+    fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/properties-3.0.xsd`), propertiesXsd);
+
+    // v2 schema
+    const res = await fetch(
+      `${process.env.CORE_REPOSITORY.replace('.git', '')}/raw/2.7/src/Metadata/schema/metadata.xsd`
+    );
     checkStatus(res);
     const xsd = await res.text();
-    fs.mkdirSync(path.resolve(__dirname, `../${xsdMetadataPath}`), { recursive: true });
-    fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/${xsdMetadataFilename}`), xsd);
-    console.info('\x1b[36m', 'XSD metadata file retrieved', '\x1b[37m');
+    fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/metadata-2.0.xsd`), xsd);
+    console.info('\x1b[36m', 'XSD metadata for v2 file retrieved', '\x1b[37m');
   } catch (error) {
-    console.warn('\x1b[31m', `Failed to retrieve metadata XSD file: ${error}`, '\x1b[37m');
+    console.warn('\x1b[31m', `Failed to retrieve metadata XSD files: ${error}`, '\x1b[37m');
     process.exit(1);
   }
 })();
