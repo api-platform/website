@@ -366,6 +366,18 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true,
   });
+  createRedirect({
+    fromPath: '/docs/core/data-providers/',
+    toPath: '/docs/main/core/state-providers/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
+  createRedirect({
+    fromPath: '/docs/core/data-persisters/',
+    toPath: '/docs/main/core/state-processors/',
+    isPermanent: true,
+    redirectInBrowser: true,
+  });
 
   // Documentation pages
   const docPageTemplate = path.resolve('src/templates/doc.js');
