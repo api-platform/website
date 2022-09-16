@@ -8,8 +8,6 @@ const { currentVersion } = require('../constants');
 
 const xsdMetadataPath = 'static/schema/metadata';
 
-console.info('\x1b[36m', `Retrieve current (${currentVersion}) metadata XSD`, '\x1b[37m');
-
 const checkStatus = (response) => {
   if (response.ok) {
     return response;
@@ -23,6 +21,7 @@ const checkStatus = (response) => {
     fs.mkdirSync(path.resolve(__dirname, `../${xsdMetadataPath}`), { recursive: true });
 
     // v3 schemas
+    console.info('\x1b[36m', `Retrieve current (${currentVersion}) metadata XSD`, '\x1b[37m');
     const resResources = await fetch(
       `${process.env.CORE_REPOSITORY.replace(
         '.git',
@@ -44,8 +43,9 @@ const checkStatus = (response) => {
     fs.writeFileSync(path.resolve(__dirname, `../${xsdMetadataPath}/properties-3.0.xsd`), propertiesXsd);
 
     // v2 schema
+    console.info('\x1b[36m', `Retrieve 2.7 metadata XSD`, '\x1b[37m');
     const res = await fetch(
-      `${process.env.CORE_REPOSITORY.replace('.git', '')}/raw/2.7/src/Metadata/schema/metadata.xsd`
+      `${process.env.CORE_REPOSITORY.replace('.git', '')}/raw/2.7/src/Core/Metadata/schema/metadata.xsd`
     );
     checkStatus(res);
     const xsd = await res.text();
