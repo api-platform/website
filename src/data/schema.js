@@ -6,8 +6,7 @@ const schema = [
         icon: 'data',
         link: '/docs/schema-generator',
         title: 'Create a Model',
-        text:
-          'Design your own data model as plain old PHP classes or import an existing structure from RDF vocabularies such as Schema.org.',
+        text: 'Design your own data model as plain old PHP classes or import an existing structure from RDF vocabularies such as Schema.org.',
       },
     ],
   },
@@ -18,15 +17,13 @@ const schema = [
         icon: 'expose',
         link: '/docs/core',
         title: 'Expose your API',
-        text:
-          'Get your API in minutes. Stream changes in real-time using Mercure. Embrace the open web with JSON-LD/Hydra, GraphQL, JSON:API and many more.',
+        text: 'Get your API in minutes. Stream changes in real-time using Mercure. Embrace the open web with JSON-LD/Hydra, GraphQL, JSON:API and many more.',
       },
       {
         icon: 'security',
         link: '/docs/core/security',
         title: 'Add Auth',
-        text:
-          'Add JSON Web Token or OAuth authentication in a breath. CORS support is built-in. OWASP’s best practices are automatically enforced.',
+        text: 'Add JSON Web Token or OAuth authentication in a breath. CORS support is built-in. OWASP’s best practices are automatically enforced.',
       },
       {
         icon: 'doc',
@@ -71,8 +68,7 @@ const schema = [
         icon: 'deploy',
         link: '/docs/deployment',
         title: 'Cloud Native',
-        text:
-          'Install a development environment and deploy your project in production using Docker, Kubernetes and the Helm package manager.',
+        text: 'Install a development environment and deploy your project in production using Docker, Kubernetes and the Helm package manager.',
       },
     ],
   },
