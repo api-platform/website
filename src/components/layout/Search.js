@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import scriptLoader from 'react-async-script-loader';
-import { currentVersion } from '../../../constants';
+// import { currentVersion } from '../../../constants';
 
 class Search extends React.Component {
   // eslint-disable-next-line camelcase
@@ -31,7 +31,7 @@ class Search extends React.Component {
         indexName: process.env.GATSBY_DOCSEARCH_INDEX_NAME,
         inputSelector: this.searchInput,
         debug: false,
-        algoliaOptions: { facetFilters: [`version:v${currentVersion}`] },
+        // algoliaOptions: { facetFilters: [`version:v${currentVersion}`] },
       });
     }
   }
