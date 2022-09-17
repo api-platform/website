@@ -50,43 +50,8 @@ yarn gatsby serve
 ## Publishing Docs For New Versions
 
 1. Create a branch for the new version [in the `api-platform/docs` repository](https://github.com/api-platform/docs).
-2. Update [Algolia DocSearch configuration](https://github.com/algolia/docsearch-configs/blob/master/configs/api-platform.json)
-
-```jsonc
-{
-  "index_name": "api-platform",
-  "start_urls": [
-    {
-      "url": "https://api-platform.com/docs/(?P<version>.*?)/",
-      "variables": {
-        "version": [
-          "main",
-          "2.6",
-          "2.5",
-          "2.4",
-          "2.3",
-          "2.2",
-          "2.1"
-        ]
-      }
-    },
-    // ...
-  },
-  // ...
-}
-```
-
-3. Add the new version in [`constants.js`](https://github.com/api-platform/website/blob/main/constants.js)
-
-```javascript
-module.exports = Object.freeze({
-  // ...
-  versions: ['main', '2.5', '2.4', '2.3', '2.2', '2.1'],
-  currentVersion: '2.6',
-  mainVersion: '2.7',
-  // ...
-});
-```
+2. Update [`constants.js`](https://github.com/api-platform/website/blob/main/constants.js)
+3. Run [the Algolia crawler](https://crawler.algolia.com)
 
 ## 🤝 Contributors features
 
