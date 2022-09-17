@@ -51,7 +51,7 @@ yarn gatsby serve
 
 1. Create a branch for the new version [in the `api-platform/docs` repository](https://github.com/api-platform/docs).
 2. Update [`constants.js`](https://github.com/api-platform/website/blob/main/constants.js)
-3. Run [the Algolia crawler](https://crawler.algolia.com)
+3. Update [Algolia crawler configuration](https://crawler.algolia.com/admin/crawlers/23316da5-88e8-4a30-ab16-d5ec5bd9133f/configuration/edit)
 
 ## 🤝 Contributors features
 
