@@ -2,5 +2,6 @@
 node_modules/
 public/
 src/pages/docs/
+static/schema/metadata/
 .env.local
 static/schema/metadata/metadata-2.0.xsd
