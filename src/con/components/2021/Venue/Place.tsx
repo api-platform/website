@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { SectionContext } from '@con/components/common/Section';
 
-const Place: React.ComponentType = () => {
+function Place(): React.ComponentType {
   const mapContainerRef = useRef(null);
   const isVisible = useContext(SectionContext);
   const [initialized, setInitialized] = useState<boolean>(false);
@@ -72,6 +72,6 @@ const Place: React.ComponentType = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Place;

@@ -1,5 +1,5 @@
 // Source code from https://levelup.gitconnected.com/accessible-modals-in-gatsby-using-portals-1e80e33a8a2
-
+/* eslint-disable react/require-default-props */
 import React, { MutableRefObject, forwardRef, useEffect, useState, useImperativeHandle } from 'react';
 import classNames from 'classnames';
 
