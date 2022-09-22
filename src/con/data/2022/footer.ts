@@ -27,14 +27,6 @@ const footer = [
         title: 'Schedule',
         link: '/con/2022/schedule',
       },
-      {
-        title: 'Pricing',
-        link: '/con/2022/#pricing',
-      },
-      {
-        title: 'Partners',
-        link: '/con/2022/#partners',
-      },
     ],
   },
   {

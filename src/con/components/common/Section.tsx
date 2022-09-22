@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useEffect } from 'react';
+import React, { createContext, PropsWithChildren, useContext, useEffect } from 'react';
 import { useIntersection } from 'react-use';
 import useDynamicRefs from '@con/hooks/useDynamicRefs';
 import SectionsContext from '@con/contexts/SectionsContext';
 
-interface SectionProps {
+interface SectionProps extends PropsWithChildren {
   className?: string;
   section: string;
 }

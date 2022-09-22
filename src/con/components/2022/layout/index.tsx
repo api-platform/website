@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, PropsWithChildren } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import nav from '@con/data/2022/nav';
@@ -11,7 +11,7 @@ import meta from '@con/data/2022/meta';
 import LayoutBase from '@con/components/layout/LayoutBase';
 import BuyButton from '@con/components/2022/BuyButton';
 
-interface LayoutProps {
+interface LayoutProps extends PropsWithChildren {
   logoAlwaysVisible?: boolean;
 }
 
@@ -26,7 +26,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
       sortedOffers.find((offer) => dayjs(offer.limitDate).isAfter(dayjs())) || sortedOffers[sortedOffers.length - 1];
     return {
       '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
+      availability: 'https://schema.org/SoldOut',
       price: `${activeOffer.price}.00`,
       name: 1 === price.offers.length ? price.title : `${price.title} - ${activeOffer.title}`,
       priceCurrency: 'EUR',
@@ -44,7 +44,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
     eventStatus: 'http://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
     startDate: '2022-09-15',
-    endDate: '2022-09-15',
+    endDate: '2022-09-16',
     organizer: {
       '@type': 'Organization',
       name: 'Les-Tilleuls.coop',

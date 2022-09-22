@@ -487,8 +487,6 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   );
 
-  createRedirect({ fromPath: '/con/', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
-  createRedirect({ fromPath: '/con', toPath: '/con/2022/', isPermanent: false, redirectInBrowser: true });
   createRedirect({
     fromPath: '/con/2022/conferences/opening-keynote-day-1/',
     toPath: '/con/2022/conferences/opening-keynote-introduction-to-API-platform-3/',

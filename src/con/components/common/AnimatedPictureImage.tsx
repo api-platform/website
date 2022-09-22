@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import useAnimation, { DirectionType } from '@con/hooks/useAnimation';
 
-interface AnimatedPictureImageProps {
+interface AnimatedPictureImageProps extends PropsWithChildren {
   direction?: DirectionType;
 }
 

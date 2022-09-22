@@ -82,7 +82,8 @@ const Nav: React.ComponentType<NavProps> = ({ logoAlwaysVisible = false, edition
 
   const onLogoClick = useCallback(() => {
     if (isHomePage) goToAnchorLink('home');
-    else navigate(`/con/${edition}/`);
+    if (edition) navigate(`/con/${edition}/`);
+    else navigate(`/con/`);
   }, [isHomePage, goToAnchorLink, edition]);
 
   return (
