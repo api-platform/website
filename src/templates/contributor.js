@@ -144,8 +144,8 @@ const Template = ({ location, pageContext: contributor }) => {
                 <div className="contributor__conferences">
                   {conferences.length && (
                     <p className="text-big">
-                      <span>{`Don't miss ${contributorName}'s talk at the `}</span>
-                      <Link to="/con/2021/">API Platform Conference</Link>
+                      <span>{`Don't miss ${contributorName}'s talk(s) at the `}</span>
+                      <Link to="/con/">API Platform Conference</Link>
                       <span>!</span>
                     </p>
                   )}

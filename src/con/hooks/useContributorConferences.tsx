@@ -29,16 +29,30 @@ const useContributorConferences: (login?: string) => Conference[] = (login) => {
             id
             github
           }
+          fields {
+            collection
+          }
         }
       }
     }
   `);
 
-  const isSpeakerContributor = (id: string) =>
-    data.speakers.nodes.find((speakerData) => speakerData.frontmatter.id === id)?.frontmatter.github === login;
+  const isSpeakerContributor = (id: string, edition: string) => {
+    return (
+      data.speakers.nodes.find(
+        (speakerData) => speakerData.frontmatter.id === id && speakerData.fields.collection === edition
+      )?.frontmatter.github === login
+    );
+  };
 
   const conferences = data.conferences.nodes
-    .filter((conferenceData) => conferenceData.frontmatter.speakers.split('-').some((id) => isSpeakerContributor(id)))
+    .filter((conferenceData) =>
+      conferenceData.frontmatter.speakers
+        .substr(1)
+        .replace(' -', ' ')
+        .split(' ')
+        .some((id) => isSpeakerContributor(id, conferenceData.fields.collection))
+    )
     .map((conference) => ({
       ...conference.frontmatter,
       edition: conference.fields.collection.replace('con', ''),

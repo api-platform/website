@@ -229,6 +229,9 @@
       transform: scale(1.1);
     }
   }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
   .conference__content {
     overflow: hidden;
     color: #fff;
