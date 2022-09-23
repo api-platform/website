@@ -1,0 +1,137 @@
+.DocSearch-Button {
+  background-color: var(--contrast);
+  border-radius: 0;
+  &-Placeholder {
+    color: var(--search-placeholder);
+    font-size: 1.3em;
+    font-weight: $bold;
+  }
+  &:focus, &:hover, &:active {
+    outline: none;
+    background-color: var(--focus);
+    box-shadow: none;
+  }
+  .DocSearch-Search-Icon {
+    color: $lightblue;
+    opacity: .5;
+    margin-right: 15px;
+  }
+}
+
+.DocSearch-Modal {
+  width: 100%;
+  background-color: var(--bg);
+  margin-top: calc(var(--headerH) + var(--headerMessageH));
+  
+  .DocSearch-SearchBar::placeholder {
+    color: var(--search-placeholder);
+  }
+
+  .DocSearch-Form {
+    background: none;
+    box-shadow: none;
+    .DocSearch-Input {
+      background-color: var(--contrast-bg);
+      border: none;
+      color: var(--contrast-text);
+      font-size: 1.3em;
+      font-weight: $bold;
+      padding: 0 10px;
+      line-height: 40px;
+      height: 40px;
+      width: 100%;
+  
+      &:focus {
+        outline: none;
+        background-color: var(--focus);
+      }
+    }
+
+    .DocSearch-MagnifierLabel, .DocSearch-Reset {
+      color: var(--text);
+    }
+
+    .DocSearch-MagnifierLabel {
+      margin-right: 15px;
+      color: $lightblue;
+      opacity: .5;
+    }
+  }
+  
+  .DocSearch-Dropdown {
+    font-size: $text-small;
+    width: 100%;
+    padding: 0 !important;
+  
+    .DocSearch-StartScreen, .DocSearch-Dropdown-Container, .DocSearch-NoResults {
+      margin-top: 0 !important;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      width: 100%;
+    }
+
+    .DocSearch-Hit {
+      a {
+        box-shadow: none !important;
+        background: none;
+      }
+
+      &-title {
+        color: var(--title);
+      }
+
+      &[aria-selected="true"] .DocSearch-Hit-action,
+      &[aria-selected="true"] .DocSearch-Hit-icon,
+      &[aria-selected="true"] .DocSearch-Hit-path,
+      &[aria-selected="true"] .DocSearch-Hit-text,
+      &[aria-selected="true"] .DocSearch-Hit-title,
+      &[aria-selected="true"] .DocSearch-Hit-Tree,
+      &[aria-selected="true"] mark {
+          color: var(--title) !important;
+      }
+    }
+
+    .DocSearch-Hits {
+      mark {
+        color: $blue;
+        background-color: var(--bg);
+      }
+      &:before,
+      .DocSearch-Hit-source {
+          background: $blue !important;
+          margin-top: 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          color: $white !important;
+          padding: 10px !important;
+          text-transform: uppercase;
+          font-weight: $bold;
+        }
+    }
+
+    .DocSearch-Title {
+      font-size: $text-small;
+      color: var(--title);
+    }
+    
+    @include mq($max-width: $vw-medium) {
+      min-width: 450px!important;
+      max-width: 450px!important;
+
+      .DocSearch-Hits {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .DocSearch-Hit-Container {
+        padding: 0;
+      }
+    }
+  }
+
+  .DocSearch-Footer {
+    background: none;
+    margin-bottom: 10px;
+    margin-right: 20px;
+  }
+}
