@@ -6,6 +6,7 @@ date: '2022-09-15'
 start: '14:50'
 end: '15:30'
 short: Learn how the CWA project uses API Platform to create a framework for building any website using reusable components
+archive: true
 ---
 
 # 4 years later: The "Components Web App" (CWA)

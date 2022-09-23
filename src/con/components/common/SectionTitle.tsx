@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import classnames from 'classnames';
 
-interface SectionTitleProps {
+interface SectionTitleProps extends PropsWithChildren {
   dark?: boolean;
   lined?: boolean;
   h1?: boolean;

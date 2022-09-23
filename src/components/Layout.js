@@ -8,7 +8,6 @@ import SideMenu from './layout/SideMenu';
 import '../styles/main.scss';
 import helmetConfig from '../helmetConfig';
 import NavContext from '../contexts/NavContext';
-import ModalCon from '../components/ModalCon';
 
 const Layout = ({ children, location }) => {
   const [showResponsiveMenu, setShowResponsiveMenu] = useState(false);
@@ -62,7 +61,6 @@ const Layout = ({ children, location }) => {
           <div role="presentation" className="overlay" onClick={() => setShowResponsiveMenu(false)} />
           <SideMenu open={showResponsiveMenu} />
         </div>
-        <ModalCon />
       </NavContext.Provider>
     </>
   );

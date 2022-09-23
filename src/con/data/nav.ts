@@ -5,12 +5,8 @@ const nav = {
   },
   links: [
     {
-      to: '/con/2021/review',
-      text: '2021 review',
-    },
-    {
-      to: '/con/2021/',
-      text: '2021 archive',
+      to: '/con/editions',
+      text: 'Previous editions',
     },
   ],
 };

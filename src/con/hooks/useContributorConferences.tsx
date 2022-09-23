@@ -13,7 +13,6 @@ const useContributorConferences: (login?: string) => Conference[] = (login) => {
             start
             end
             short
-            github
           }
           headings(depth: h1) {
             value
@@ -30,22 +29,36 @@ const useContributorConferences: (login?: string) => Conference[] = (login) => {
             id
             github
           }
+          fields {
+            collection
+          }
         }
       }
     }
   `);
 
-  const speaker = data.speakers.nodes.find((speakerData) => speakerData.frontmatter.github === login);
+  const isSpeakerContributor = (id: string, edition: string) => {
+    return (
+      data.speakers.nodes.find(
+        (speakerData) => speakerData.frontmatter.id === id && speakerData.fields.collection === edition
+      )?.frontmatter.github === login
+    );
+  };
 
-  const conferences = speaker
-    ? data.conferences.nodes
-        .filter((conferenceData) => conferenceData.frontmatter.speakers.includes(speaker.frontmatter.id))
-        .map((conference) => ({
-          ...conference.frontmatter,
-          title: conference.headings?.[0].value,
-          slug: `/con/${conference.fields.collection.replace('con', '')}${conference.fields.slug}`,
-        }))
-    : [];
+  const conferences = data.conferences.nodes
+    .filter((conferenceData) =>
+      conferenceData.frontmatter.speakers
+        .substr(1)
+        .replace(' -', ' ')
+        .split(' ')
+        .some((id) => isSpeakerContributor(id, conferenceData.fields.collection))
+    )
+    .map((conference) => ({
+      ...conference.frontmatter,
+      edition: conference.fields.collection.replace('con', ''),
+      title: conference.headings?.[0].value,
+      slug: `/con/${conference.fields.collection.replace('con', '')}${conference.fields.slug}`,
+    }));
 
   return conferences;
 };

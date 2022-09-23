@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import AnimatedPictureImage from '@con/components/common/AnimatedPictureImage';
 import Button from '@con/components/common/Button';
 
-interface PictureGalleryProps {
+interface PictureGalleryProps extends PropsWithChildren {
   link?: string;
   className?: string;
 }

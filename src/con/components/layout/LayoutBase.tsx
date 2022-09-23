@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import dayjs from 'dayjs';
 import Helmet from 'react-helmet';
 import Nav from '@con/components/layout/Nav';
@@ -8,7 +8,7 @@ import PreloadFonts from '@con/components/layout/Fonts';
 import helmetConfig from '../../../helmetConfig';
 import Footer, { FooterColumn } from './Footer';
 
-interface LayoutProps {
+interface LayoutProps extends PropsWithChildren {
   logoAlwaysVisible?: boolean;
   meta: {
     DESCRIPTION: string;
@@ -16,7 +16,7 @@ interface LayoutProps {
     OG_IMAGE: string;
     URL: string;
   };
-  edition: string;
+  edition?: string;
   footer: FooterColumn[];
   withSocialFooter?: boolean;
   navButton?: JSX.Element;

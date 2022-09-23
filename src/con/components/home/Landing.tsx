@@ -3,7 +3,7 @@ import Wave from '@con/components/common/Wave';
 import Web from '@con/components/common/Web';
 import Logo from '@con/images/logo.svg';
 import { StaticImage } from 'gatsby-plugin-image';
-import { previousEditions } from '@con/data/editions';
+import { previousEditions, currentEdition } from '@con/data/editions';
 import { PreviousEdition } from 'src/con/types';
 import ContactCard from '@con/components/common/ContactCard';
 import { useIntersection } from 'react-use';
@@ -30,12 +30,12 @@ const Landing: React.ComponentType = () => {
           <h1 className="conf__landing-logo">
             <img src={Logo} alt="Api Platform Conference" width="300" height="64" />
           </h1>
-          <span className="conf__landing-baseline">Edition 2022 in progress...</span>
+          <span className="conf__landing-baseline">{`Edition ${currentEdition} in progress...`}</span>
         </div>
         <Web className="conf__landing-web" animated isVisible={isWebVisible} />
         <div className="conf__landing-last-edition" ref={animationPrevious}>
           <div className="text-medium uppercase font-bold mb-5">Previous edition</div>
-          <EditionCard edition={lastEdition} size="small" link="/con/2021/review" />
+          <EditionCard edition={lastEdition} size="small" link={`/con/${lastEdition.year}`} />
         </div>
         <Wave className="conf__landing-wave" animated={false} />
       </section>

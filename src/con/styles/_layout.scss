@@ -197,7 +197,7 @@
     width: 3px;
     height: 70%;
     background: #fff;
-    @include mq($max-width: $vw-medium) {
+    @include mq($max-width: $vw-large) {
       display: none;
     }
   }

@@ -3,6 +3,12 @@ import meta from '@con/data/meta';
 import { Navigation } from '@con/types';
 import nav from '@con/data/nav';
 import LayoutBase from '@con/components/layout/LayoutBase';
+import { previousEditions } from '@con/data/editions';
+
+const previousEditionsMenu = previousEditions.map((edition) => ({
+  title: `${edition.year} edition`,
+  link: `/con/${edition.year}`,
+}));
 
 interface ConfContextInterface {
   nav?: Navigation;
@@ -16,21 +22,13 @@ export const ConfContext = createContext<ConfContextInterface>({ edition: '2022'
 interface LayoutProps {
   logoAlwaysVisible?: boolean;
   edition?: string;
+  children: React.ReactNode;
 }
 
 const landingFooter = [
   {
     title: 'Previous editions',
-    links: [
-      {
-        title: '2021 archive',
-        link: '/con/2021',
-      },
-      {
-        title: '2021 review',
-        link: '/con/2021/review',
-      },
-    ],
+    links: previousEditionsMenu,
   },
 ];
 

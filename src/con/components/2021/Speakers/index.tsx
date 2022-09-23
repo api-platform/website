@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { PropsWithChildren, useContext } from 'react';
 import { Grid, GridItem } from '@components/common/Grid';
 import Section from '@con/components/common/Section';
 import { ConfContext } from '@con/components/layout';
@@ -8,7 +8,7 @@ import SectionTitle from '@con/components/common/SectionTitle';
 import SpeakerCircle from './SpeakerCircle';
 import EmptySpeakerCircle from './EmptySpeakerCircle';
 
-interface SpeakersProps {
+interface SpeakersProps extends PropsWithChildren {
   numberVisibles?: number;
 }
 

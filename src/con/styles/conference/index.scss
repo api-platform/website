@@ -229,6 +229,9 @@
       transform: scale(1.1);
     }
   }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
   .conference__content {
     overflow: hidden;
     color: #fff;
@@ -238,9 +241,22 @@
     transition: transform ease 0.3s;
   }
 
+  .conference__edition {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 14px;
+    font-family: 'Poppins';
+    border-top: 1px solid var(--blue);
+    transform: translateY(-50%) rotate(-90deg);
+    color: var(--blue);
+    padding-top: 3px;
+  }
+
   img {
     width: 200px;
     height: 80px;
+    padding-right: 36px;
   }
   .conference__title {
     font-family: 'Poppins', sans-serif;
