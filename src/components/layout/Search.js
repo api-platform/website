@@ -5,8 +5,7 @@ import { DocSearch } from '@docsearch/react';
 import { currentVersion } from '../../../constants';
 import '@docsearch/css';
 
-const Search = (props) => {
-  const { className } = props;
+const Search = ({ className }) => {
   return (
     <div className={classNames('search', className)}>
       <DocSearch
