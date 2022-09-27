@@ -26,11 +26,12 @@
   .DocSearch-SearchBar::placeholder {
     color: var(--search-placeholder);
   }
-
+  
   .DocSearch-Form {
     background: none;
     box-shadow: none;
     .DocSearch-Input {
+      text-transform: uppercase;
       background-color: var(--contrast-bg);
       border: none;
       color: var(--contrast-text);
