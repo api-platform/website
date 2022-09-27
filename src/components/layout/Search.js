@@ -15,7 +15,7 @@ const Search = ({ className }) => {
         searchParameters={{
           facetFilters: [`version:v${currentVersion}`],
         }}
-        placeholder="SEARCH..."
+        placeholder="Search..."
       />
     </div>
   );
