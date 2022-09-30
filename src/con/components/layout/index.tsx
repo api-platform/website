@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import meta from '@con/data/meta';
 import { Navigation } from '@con/types';
-import nav from '@con/data/nav';
+import baseNav from '@con/data/nav';
 import LayoutBase from '@con/components/layout/LayoutBase';
 import { previousEditions } from '@con/data/editions';
 
@@ -23,6 +23,7 @@ interface LayoutProps {
   logoAlwaysVisible?: boolean;
   edition?: string;
   children: React.ReactNode;
+  nav?: typeof baseNav;
 }
 
 const landingFooter = [
@@ -32,7 +33,7 @@ const landingFooter = [
   },
 ];
 
-const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible = false, edition }) => {
+const Layout: React.ComponentType<LayoutProps> = ({ children, logoAlwaysVisible = false, edition, nav = baseNav }) => {
   return (
     <ConfContext.Provider value={{ nav, edition }}>
       <LayoutBase
