@@ -5,8 +5,7 @@ import { DocSearch } from '@docsearch/react';
 import { currentVersion } from '../../../constants';
 import '@docsearch/css';
 
-const Search = ({ className }) => {
-  return (
+const Search = ({ className }) => (
     <div className={classNames('search', className)}>
       <DocSearch
         appId={process.env.GATSBY_DOCSEARCH_APP_ID}
