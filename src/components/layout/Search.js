@@ -6,19 +6,18 @@ import { currentVersion } from '../../../constants';
 import '@docsearch/css';
 
 const Search = ({ className }) => (
-    <div className={classNames('search', className)}>
-      <DocSearch
-        appId={process.env.GATSBY_DOCSEARCH_APP_ID}
-        apiKey={process.env.GATSBY_DOCSEARCH_API_KEY}
-        indexName={process.env.GATSBY_DOCSEARCH_INDEX_NAME}
-        searchParameters={{
-          facetFilters: [`version:v${currentVersion}`],
-        }}
-        placeholder="Search..."
-      />
-    </div>
-  );
-};
+  <div className={classNames('search', className)}>
+    <DocSearch
+      appId={process.env.GATSBY_DOCSEARCH_APP_ID}
+      apiKey={process.env.GATSBY_DOCSEARCH_API_KEY}
+      indexName={process.env.GATSBY_DOCSEARCH_INDEX_NAME}
+      searchParameters={{
+        facetFilters: [`version:v${currentVersion}`],
+      }}
+      placeholder="Search..."
+    />
+  </div>
+);
 
 Search.propTypes = {
   className: PropTypes.string,
