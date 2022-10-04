@@ -121,8 +121,8 @@
     }
     
     @include mq($max-width: $vw-medium) {
-      min-width: 450px!important;
-      max-width: 450px!important;
+      min-width: 450px !important;
+      max-width: 450px !important;
 
       .DocSearch-Hits {
         padding-left: 8px;
