@@ -31,6 +31,13 @@ const Review: React.ComponentType = () => {
           <br />
           We hope you enjoyed it as much as we loved organizing it.
         </p>
+        <p>
+          API Platform Con will be back in 2023. To stay up to date on all of our latest news, follow us on{' '}
+          <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noreferrer noopener">
+            Twitter
+          </a>
+          .
+        </p>
         <div className="review__cover-buttons">
           <Button onClick={scrollToList}>Discover our review</Button>
         </div>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { useStaticQuery, graphql } from 'gatsby';
 import useAnimation from '@con/hooks/useAnimation';
 
-interface ReviewProps {
+interface ReviewProps extends PropsWithChildren {
   title: JSX.Element;
   imageId: string;
 }
