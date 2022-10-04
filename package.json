@@ -2,6 +2,7 @@
   "name": "api-platform-website",
   "license": "MIT",
   "dependencies": {
+    "@docsearch/react": "^3",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "classnames": "^2.2.5",
