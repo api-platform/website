@@ -1,46 +1,48 @@
 .DocSearch-Button {
-  background-color: var(--contrast);
   border-radius: 0;
+  background-color: var(--contrast);
   &-Placeholder {
     color: var(--search-placeholder);
     font-size: 1.3em;
     font-weight: $bold;
   }
-  &:focus, &:hover, &:active {
+  &:focus, 
+  &:hover, 
+  &:active {
     outline: none;
-    background-color: var(--focus);
     box-shadow: none;
+    background-color: var(--focus);
   }
   .DocSearch-Search-Icon {
+    margin-right: 15px;
     color: $lightblue;
     opacity: .5;
-    margin-right: 15px;
   }
 }
 
 .DocSearch-Modal {
   width: 100%;
-  background-color: var(--bg);
   margin-top: calc(var(--headerH) + var(--headerMessageH));
+  background-color: var(--bg);
   
   .DocSearch-SearchBar::placeholder {
     color: var(--search-placeholder);
   }
   
   .DocSearch-Form {
-    background: none;
     box-shadow: none;
+    background: none;
     .DocSearch-Input {
-      text-transform: uppercase;
-      background-color: var(--contrast-bg);
+      width: 100%;
+      height: 40px;
+      padding: 0 10px;
       border: none;
-      color: var(--contrast-text);
       font-size: 1.3em;
       font-weight: $bold;
-      padding: 0 10px;
       line-height: 40px;
-      height: 40px;
-      width: 100%;
+      text-transform: uppercase;
+      background-color: var(--contrast-bg);
+      color: var(--contrast-text);
   
       &:focus {
         outline: none;
@@ -48,7 +50,8 @@
       }
     }
 
-    .DocSearch-MagnifierLabel, .DocSearch-Reset {
+    .DocSearch-MagnifierLabel, 
+    .DocSearch-Reset {
       color: var(--text);
     }
 
@@ -60,15 +63,17 @@
   }
   
   .DocSearch-Dropdown {
-    font-size: $text-small;
     width: 100%;
     padding: 0 !important;
+    font-size: $text-small;
   
-    .DocSearch-StartScreen, .DocSearch-Dropdown-Container, .DocSearch-NoResults {
-      margin-top: 0 !important;
+    .DocSearch-StartScreen, 
+    .DocSearch-Dropdown-Container, 
+    .DocSearch-NoResults {
+      width: 100%;
       padding-bottom: 20px;
       border-bottom: 1px solid #ddd;
-      width: 100%;
+      margin-top: 0 !important;
     }
 
     .DocSearch-Hit {
@@ -99,15 +104,15 @@
       }
       &:before,
       .DocSearch-Hit-source {
-          background: $blue !important;
-          margin-top: 0 !important;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-          color: $white !important;
-          padding: 10px !important;
-          text-transform: uppercase;
-          font-weight: $bold;
-        }
+        padding: 10px !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-transform: uppercase;
+        font-weight: $bold;
+        background: $blue !important;
+        color: $white !important;
+      }
     }
 
     .DocSearch-Title {
@@ -131,8 +136,8 @@
   }
 
   .DocSearch-Footer {
-    background: none;
     margin-bottom: 10px;
     margin-right: 20px;
+    background: none;
   }
 }
