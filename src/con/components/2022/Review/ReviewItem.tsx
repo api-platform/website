@@ -11,7 +11,7 @@ interface ReviewProps extends PropsWithChildren {
 const Review: React.ComponentType<ReviewProps> = ({ title, imageId, children }) => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { sourceInstanceName: { eq: "review2021" } }) {
+      allFile(filter: { sourceInstanceName: { eq: "review2022" } }) {
         nodes {
           name
           childImageSharp {

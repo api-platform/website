@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '@con/components/layout';
 import ContactCard from '@con/components/common/ContactCard';
-import Review from '@con/components/2021/Review';
+import Review from '@con/components/2022/Review';
 import nav from '@con/data/nav';
 import { PageProps } from 'gatsby';
 import '@con/styles/home/index.scss';
 
-const Conf2021: React.ComponentType<PageProps> = () => {
+const Review2022: React.ComponentType<PageProps> = () => {
   const fullNav = {
     ...nav,
     links: [
@@ -18,7 +18,7 @@ const Conf2021: React.ComponentType<PageProps> = () => {
     ],
   };
   return (
-    <Layout logoAlwaysVisible edition="2021" nav={fullNav}>
+    <Layout logoAlwaysVisible edition="2022" nav={fullNav}>
       <Review />
       <div className="conf__contact">
         <ContactCard />
@@ -27,4 +27,4 @@ const Conf2021: React.ComponentType<PageProps> = () => {
   );
 };
 
-export default Conf2021;
+export default Review2022;

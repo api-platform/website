@@ -85,7 +85,7 @@ const ReviewList: React.ComponentType = () => {
           </p>
           <p>Thank you again!</p>
           <Button className="square" size="small" to="mailto:events@les-tilleuls.coop">
-            Become a partner
+            Become a partner in 2023
           </Button>
         </ReviewItem>
         <ReviewItem
