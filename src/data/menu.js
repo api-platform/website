@@ -82,6 +82,10 @@ const menu = [
         text: 'Events',
         path: '/community/events/',
       },
+      {
+        text: 'Shop',
+        path: 'https://api-platform.myspreadshop.net/',
+      },
     ],
   },
 ];
