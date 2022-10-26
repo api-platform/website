@@ -40,7 +40,7 @@ const menu = [
   },
   {
     text: 'Demo',
-    path: 'https://demo-client.api-platform.com/',
+    path: 'https://demo.api-platform.com/',
   },
   {
     text: 'Resources',
