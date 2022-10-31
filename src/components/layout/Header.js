@@ -53,6 +53,14 @@ const Header = () => {
             <span className="icon-twitter" />
           </a>
           <a
+            href="https://fosstodon.org/@ApiPlatform"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="find us on mastodon"
+          >
+            <span className="icon-mastodon" />
+          </a>
+          <a
             href="https://github.com/api-platform/api-platform"
             target="_blank"
             rel="noopener noreferrer"
