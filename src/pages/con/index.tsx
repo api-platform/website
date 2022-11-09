@@ -1,13 +1,3 @@
-import React from 'react';
-import { PageProps } from 'gatsby';
-import Landing from '@con/components/home/Landing';
-import '@con/styles/landing/index.scss';
-import Layout from '@con/components/layout';
+import Con2023 from './2023';
 
-const Con: React.ComponentType<PageProps> = () => (
-  <Layout logoAlwaysVisible>
-    <Landing />
-  </Layout>
-);
-
-export default Con;
+export default Con2023;

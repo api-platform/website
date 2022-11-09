@@ -10,9 +10,9 @@ import { Grid, GridItem } from '../../components/common/Grid';
 
 /** API PLATFORM CONFERENCE */
 export const confEvent = {
-  local_date: '2022-09-15',
+  local_date: '2023-09-21',
   local_time: '09:00',
-  name: 'API Platform Conference 2022',
+  name: 'API Platform Conference 2023',
   venue: {
     name: 'Euratechnologies',
     city: 'Lille',
@@ -23,7 +23,7 @@ export const confEvent = {
     photo_link: `${process.env.GATSBY_ROOT_URL}/conf-facebook.png`,
   },
   status: 'Live and online event',
-  link: '/con/2022',
+  link: '/con/2023',
   localUrl: true,
 };
 

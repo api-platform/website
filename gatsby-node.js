@@ -529,6 +529,12 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true,
   });
+  createRedirect({
+    fromPath: '/con/',
+    toPath: '/con/2023',
+    isPermanent: false,
+    redirectInBrowser: true,
+  });
 
   // Contributors page
   const contributors = await graphql(`

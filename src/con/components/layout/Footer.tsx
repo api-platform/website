@@ -51,7 +51,7 @@ const Footer: React.ComponentType<{ links: FooterColumn[]; withSocial?: boolean 
         ) : null}
       </div>
       <span className="body2 footer__copyright">
-        Copyright © 2021{' '}
+        Copyright © 2023{' '}
         <a href="https://les-tilleuls.coop/en" target="_blank" rel="noreferrer noopener">
           Les-Tilleuls.coop
         </a>
