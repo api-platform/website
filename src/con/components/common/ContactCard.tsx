@@ -22,13 +22,13 @@ const ContactCard: React.ComponentType = () => {
           </a>
           <div className="overline">or follow us on social networks</div>
           <div className="social__list white">
-            <a href="https://mastodon.online/@cooptilleuls" target="_blank" rel="noopener noreferrer">
+            <a href="https://fosstodon.org/@ApiPlatform" target="_blank" rel="me noopener noreferrer">
               <i className="icon-mastodon" />
             </a>
-            <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/ApiPlatform" target="_blank" rel="me noopener noreferrer">
               <i className="icon-twitter" />
             </a>
-            <a href="https://fr.linkedin.com/company/les-tilleuls-coop" target="_blank" rel="noopener noreferrer">
+            <a href="https://fr.linkedin.com/company/les-tilleuls-coop" target="_blank" rel="me noopener noreferrer">
               <i className="icon-linkedin" />
             </a>
           </div>
