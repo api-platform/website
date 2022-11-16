@@ -35,15 +35,15 @@ const Footer: React.ComponentType<{ links: FooterColumn[]; withSocial?: boolean 
         {withSocial ? (
           <div className="footer__column">
             <span className="h6 footer__title">Follow us</span>
-            <a href="https://mastodon.online/@cooptilleuls" target="_blank" rel="noopener noreferrer">
+            <a href="https://fosstodon.org/@ApiPlatform" target="_blank" rel="me noopener noreferrer">
               <i className="icon-mastodon mr-10" />
               <span>Mastodon</span>
             </a>
-            <a href="https://twitter.com/ApiPlatform" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com/ApiPlatform" target="_blank" rel="me noopener noreferrer">
               <i className="icon-twitter mr-10" />
               <span>Twitter</span>
             </a>
-            <a href="https://fr.linkedin.com/company/les-tilleuls-coop" target="_blank" rel="noopener noreferrer">
+            <a href="https://fr.linkedin.com/company/les-tilleuls-coop" target="_blank" rel="me noopener noreferrer">
               <i className="icon-linkedin mr-10" />
               <span>LinkedIn</span>
             </a>

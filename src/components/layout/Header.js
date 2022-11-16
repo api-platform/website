@@ -47,24 +47,24 @@ const Header = () => {
           <a
             href="https://twitter.com/ApiPlatform"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="find us on twitter"
+            rel="me noopener noreferrer"
+            aria-label="Find us on Twitter"
           >
             <span className="icon-twitter" />
           </a>
           <a
             href="https://fosstodon.org/@ApiPlatform"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="find us on mastodon"
+            rel="me noopener noreferrer"
+            aria-label="Find us on Mastodon"
           >
             <span className="icon-mastodon" />
           </a>
           <a
             href="https://github.com/api-platform/api-platform"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="find us on github"
+            rel="me noopener noreferrer"
+            aria-label="Find us on GitHub"
           >
             <span className="icon-github" />
           </a>
