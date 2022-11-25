@@ -11,33 +11,33 @@ $grey: #babdb5;
 $lightgrey: #f4f4f4;
 
 $palette2: (
-  white: $white,
-  black: $black,
-  blackblue: $blackblue,
-  clearblue: $clearblue,
-  blue: $blue,
-  darkblue: $darkblue,
-  darkgrey: $darkgrey,
-  lightgrey: $lightgrey
+  "white": $white,
+  "black": $black,
+  "blackblue": $blackblue,
+  "clearblue": $clearblue,
+  "blue": $blue,
+  "darkblue": $darkblue,
+  "darkgrey": $darkgrey,
+  "lightgrey": $lightgrey
 );
 
 $palette: (
-  grey: (
+  "grey": (
     base: $grey,
     light: $lightgrey,
     dark: $darkgrey
   ),
-  blue: (
+  "blue": (
     base: $blue,
     light: $lightblue,
     dark: $darkblue,
     extralight: $clearblue,
     extradark: $blackblue
   ),
-  white: (
+  "white": (
     base: $white
   ),
-  black: (
+  "black": (
     base: $black
   )
 );
