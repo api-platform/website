@@ -10,6 +10,8 @@ short: Les tests (pas) pour les nuls !
 
 # Tests avancés
 
+[![Olivier Doucet - Tests avancés](https://img.youtube.com/vi/VC7VE5C5drQ/0.jpg)](https://www.youtube.com/watch?v=VC7VE5C5drQ&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=15)
+
 Les tests sont **la clé de la pérennité de votre projet**.  Ne souhaitez-vous pas ne plus avoir à vous soucier de la mise à jour des dépendances de composer ? Ou des nouvelles versions de PHP ?
 
 Alors, parlons des tests avancés dans les projets API Platform/Symfony !
