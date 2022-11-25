@@ -38,7 +38,6 @@
     "jsdom": "^11.11.0",
     "mapbox-gl": "1.13.0",
     "node-fetch": "^2.6.0",
-    "node-sass": "^6.0.0",
     "normalize.css": "^7.0.0",
     "prismjs": "^1.13",
     "react": "^16.7.0",
@@ -50,6 +49,7 @@
     "react-router-dom": "^4.3.1",
     "react-swipeable-views": "^0.13.9",
     "react-use": "^17.1.1",
+    "sass": "^1.56.1",
     "typescript": "^4.2.0",
     "webpack": "^4.28.1"
   },
@@ -98,7 +98,6 @@
     "develop": "gatsby develop",
     "format": "eslint --fix .",
     "lint": "eslint .",
-    "postinstall": "npm rebuild node-sass",
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "lint-staged"
   }
