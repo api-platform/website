@@ -293,11 +293,11 @@
   ol,
   ul {
     padding-left: 10px;
-    font-size: $text-small;
+    font-size: $text-medium;
     line-height: 2.2rem;
 
     & > li {
-      margin: 0 0 15px;
+      margin: 0 0 20px;
       padding: 0 0 0 19px;
       position: relative;
       & > p {
