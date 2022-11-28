@@ -10,6 +10,8 @@ short: Comment protéger vos API avec WebAuthn et en finir avec les mots de pass
 
 # WebAuthn : se débarrasser des mots de passe. Définitivement.
 
+[![Florent Morselli - WebAuthn : se débarrasser des mots de passe. Définitivement.](https://img.youtube.com/vi/Y2_0omg1CFk/0.jpg)](https://www.youtube.com/watch?v=Y2_0omg1CFk&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=14)
+
 Les mots de passe sont un vrai problème pour toutes les applications web. Au fur et à mesure que l'écosystème PHP évolue pour prévenir les échecs d'authentification, les menaces évoluent également.
 
 Comment pouvons-nous **sécuriser les API et les applications pour éviter les problèmes de sécurité** ? Grâce à WebAuthn, nous sommes désormais en mesure de nous débarrasser des mots de passe. Avec une simple interaction de l'utilisateur, comme **regarder un écran** ou **toucher un lecteur d'empreintes digitales**, nous pouvons vaincre la plupart de ces menaces.

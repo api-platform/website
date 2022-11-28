@@ -10,6 +10,8 @@ short: Maintenir un code de qualité via une gestion personnalisée de la propag
 
 # Comment Alice's Garden gère-t-elle son code métier via les événements ?
 
+[![Nicolas Lemahieu - Comment Alice's Garden gère-t-elle son code métier via les événements ?](https://img.youtube.com/vi/TOn_3mSA9TI/0.jpg)](https://www.youtube.com/watch?v=TOn_3mSA9TI&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=13)
+
 Depuis quelques années, on parle beaucoup de DDD et plus particulièrement de l'isolation du code métier par rapport au code portant sur l'infrastructure ou les dépendances.
 
 Alice's Garden a des enjeux commerciaux, et pas seulement technologiques. Les grandes refontes de code ne sont pas possibles (surtout dans une petite équipe), c'est pourquoi, au service développement, nous essayons de **maintenir un code de qualité** et de **garder le code évolutif** pour faciliter l'écriture des tests.

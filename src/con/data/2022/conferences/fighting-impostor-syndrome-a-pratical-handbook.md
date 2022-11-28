@@ -10,6 +10,8 @@ short: Yes, impostorism is real. During this conference, Marine, who suffers of 
 
 # Fighting impostor syndrome: a practical handbook
 
+[![Marine Gandy - Fighting impostor syndrome: a practical handbook](https://img.youtube.com/vi/NDeiLevUteY/0.jpg)](https://www.youtube.com/watch?v=NDeiLevUteY&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=16)
+
 If you’ve never heard about **impostor syndrome**, you might realize during this session that it all sounds very familiar to you. After all, who has never had doubts?
 
 But questioning your competence again and again no matter how successful you are, waiting in angst for the fateful day when everyone will finally see how much of a fraud you are… this is the infamous impostor experience that an estimated **70% of people** go through at some point in their lives.

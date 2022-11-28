@@ -10,6 +10,8 @@ short: Come and learn how to leverage HTTP to let your API developer experiences
 
 # Finding the path to scaling API success
 
+[![Darrel Miller - Finding the path to scaling API success](https://img.youtube.com/vi/9Fvt3QzMI34/0.jpg)](https://www.youtube.com/watch?v=9Fvt3QzMI34&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=10)
+
 How big should your HTTP APIs be?  Should you **add your new resource to an existing API**, or should you **create them in a new API**?
 
 Any company discovering the value of building APIs is going to be faced with these questions at some point.  How should you partition your APIs? Should those partitions be exposed to customers, or should you **federate those APIs** behind a single façade? What does this mean for your **API documentation**? Your **SDKs**?

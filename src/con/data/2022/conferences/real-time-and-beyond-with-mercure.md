@@ -11,6 +11,8 @@ short: Discover how Mercure can enhance your applications by delivering informat
 
 # Realtime and beyond with Mercure
 
+[![Brian Mc Cluskey - Realtime and beyond with Mercure](https://img.youtube.com/vi/UCz0lZ_PJ2g/0.jpg)](https://www.youtube.com/watch?v=UCz0lZ_PJ2g&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=23)
+
 Mercure is a modern protocol for delivering information to your applications in Realtime, natively supported in Browsers and Mobile devices.
 
 We’ll use a real world case study to see how Raven Controls uses Mercure to **deliver information in realtime** at the world’s biggest events including Euro 2020 and COP26.

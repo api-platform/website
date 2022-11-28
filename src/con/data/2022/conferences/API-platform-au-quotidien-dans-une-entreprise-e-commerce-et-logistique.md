@@ -11,6 +11,8 @@ short: Tirez parti d'API Platform dans une grosse application grâce à quelques
 
 # REX : API Platform au quotidien dans une entreprise e-commerce et logistique
 
+[![Kévin Verschaeve and Clément Sanchez - REX : API Platform au quotidien dans une entreprise e-commerce et logistique](https://img.youtube.com/vi/jmpAa7ghELY/0.jpg)](https://www.youtube.com/watch?v=jmpAa7ghELY&list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8&index=8)
+
 API Platform permet de créer des APIs **simplement et efficacement**.
 
 Cependant, tous les sites et applications ne sont pas identiques et certains besoins métiers requièrent des **usages plus avancés**.
