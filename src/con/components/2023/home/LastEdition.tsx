@@ -31,7 +31,7 @@ const LastEdition: React.ComponentType = () => {
     <Section className="conf__bg-white pt-20 pb-50 overflow-hidden relative" section="lastyear">
       <div className="container">
         <SectionTitle>
-          What happened <strong>last year</strong>
+          What happened <strong>last year</strong>?
         </SectionTitle>
         <p className="conf__section-subtitle mb-0">
           Take a look at the 2022 edition and find more information on <Link to="/con/2022/review">our review</Link>

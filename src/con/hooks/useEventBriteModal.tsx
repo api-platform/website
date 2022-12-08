@@ -10,7 +10,7 @@ const useEventBriteModal: (id: string) => void = (id) => {
       // @ts-expect-error eventbrite widget
       window.EBWidgets?.createWidget({
         widgetType: 'checkout',
-        eventId: '304104152707',
+        eventId: '483719928327',
         modal: true,
         modalTriggerElementId: id,
       });
