@@ -479,7 +479,7 @@ exports.createPages = async ({ graphql, actions }) => {
     );
   });
 
-  const conYears = [2021, 2022];
+  const conYears = [2021, 2022, 2023];
 
   await Promise.all(
     conYears.map(async (year) => {

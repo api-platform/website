@@ -7,6 +7,7 @@ import SectionsContext from '@con/contexts/SectionsContext';
 import { useLocation } from '@reach/router';
 import meta from '@con/data/2023/meta';
 import LayoutBase from '@con/components/layout/LayoutBase';
+import BuyButton from '@con/components/2022/BuyButton';
 
 interface LayoutProps extends PropsWithChildren {
   logoAlwaysVisible?: boolean;
@@ -79,7 +80,17 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
           <script type="application/ld+json">{JSON.stringify(eventData)}</script>
           <script defer src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js" />
         </Helmet>
-        <LayoutBase edition="2023" meta={meta} logoAlwaysVisible={logoAlwaysVisible} footer={footer} navButton={null}>
+        <LayoutBase
+          edition="2023"
+          meta={meta}
+          logoAlwaysVisible={logoAlwaysVisible}
+          footer={footer}
+          navButton={
+            <BuyButton className="pink" size="small" id="nav">
+              Buy ticket
+            </BuyButton>
+          }
+        >
           {children}
         </LayoutBase>
       </SectionsContext.Provider>
