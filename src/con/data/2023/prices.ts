@@ -4,10 +4,10 @@ const prices: Price[] = [
   {
     id: 1,
     title: 'Conference',
-    languages: 'French and english-speaking tracks',
+    languages: 'French and english-speaking talks',
     offers: [
       {
-        title: '2 days on-site event',
+        title: '2 days on-site event <br>(Early bird)</br>',
         price: 119,
         limitDate: '2023-05-14',
       },

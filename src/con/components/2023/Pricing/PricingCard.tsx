@@ -30,7 +30,7 @@ const PricingCard: React.ComponentType<PricingCardProps> = ({ price }) => {
         <div className="pricing__content dotted-corner corner-bottom">
           {offers.map((offer, index) => (
             <div key={`${offer.title}-${index}`} className="pricing__offer active">
-              <span className="overline offer__title">{offer.title}</span>
+              <div className="overline offer__title" dangerouslySetInnerHTML={{ __html: offer.title }} />
               <span className="h4 pricing__amount">{offer.price}€</span>
             </div>
           ))}
