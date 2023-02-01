@@ -36,7 +36,7 @@ const menu = [
   },
   {
     text: 'Screencasts',
-    path: 'https://symfonycasts.com/tracks/rest?cid=apip#api-platform',
+    path: 'https://symfonycasts.com/screencast/api-platform?cid=apip',
   },
   {
     text: 'Demo',
