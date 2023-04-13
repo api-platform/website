@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Api\UriVariablesConverter](/docs/reference/Api/UriVariablesConverter)
+
+UriVariables converter that chains uri variables transformers.
+
+
+```php
+class ApiPlatform\Api\UriVariablesConverter implements `<a href="/docs/reference/Api/UriVariablesConverterInterface">ApiPlatform\Api\UriVariablesConverterInterface</a>`
+{
+    public __construct(ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface $propertyMetadataFactory, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, iterable $uriVariableTransformers)
+    public convert(array $uriVariables, string $class, array $context): array
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface $propertyMetadataFactory, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, iterable $uriVariableTransformers)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>propertyMetadataFactory</td><td>ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface</td><td></td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>uriVariableTransformers</td><td>iterable</td><td></td></tr>
+</tbody>
+</table>
+
+### convert
+
+Takes an array of strings representing URI variables (identifiers) and transform their values to the expected type.
+
+```php
+public convert(array $uriVariables, string $class, array $context): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>uriVariables</td><td>array</td><td></td></tr><tr><td>class</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

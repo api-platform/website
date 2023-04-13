@@ -1,0 +1,88 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\GraphQl\Type\TypesContainerInterface](/docs/reference/GraphQl/Type/TypesContainerInterface)
+
+Interface implemented to contain the GraphQL types.
+
+
+```php
+interface ApiPlatform\GraphQl\Type\TypesContainerInterface implements Psr\Container\ContainerInterface
+{
+    public set(string $id, GraphQL\Type\Definition\Type $type): null
+    public get(string $id): GraphQL\Type\Definition\Type
+    public all(): array
+    public has(string $id): bool
+}
+```
+## Methods
+
+### set
+
+Sets a type.
+
+```php
+public set(string $id, GraphQL\Type\Definition\Type $type): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>id</td><td>string</td><td>The type identifier</td></tr><tr><td>type</td><td>GraphQL\Type\Definition\Type</td><td>The type instance</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### get
+
+Gets a type.
+
+```php
+public get(string $id): GraphQL\Type\Definition\Type
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>id</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+GraphQL\Type\Definition\Type
+
+### all
+
+Gets all the types.
+
+```php
+public all(): array
+```
+
+#### Returns
+
+array
+
+### has
+
+Returns true if the given type is present in the container.
+
+```php
+public has(string $id): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>id</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

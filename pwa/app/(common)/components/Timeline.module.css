@@ -1,0 +1,13 @@
+@config "../../../common.tailwind.config.js";
+
+.timeline strong {
+    @apply font-semibold;
+}
+.timeline code {
+    @apply whitespace-pre-wrap;
+}
+
+.timeline :not(pre) > code[class*="language-"],
+.timeline pre[class*="language-"] {
+    @apply bg-transparent p-0;
+}

@@ -1,0 +1,173 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Type\Definition\UploadType](/docs/reference/GraphQl/Type/Definition/UploadType)
+
+Represents an upload type.
+
+
+```php
+class ApiPlatform\GraphQl\Type\Definition\UploadType extends GraphQL\Type\Definition\ScalarType implements JsonSerializable, Stringable, GraphQL\Type\Definition\OutputType, GraphQL\Type\Definition\InputType, GraphQL\Type\Definition\LeafType, GraphQL\Type\Definition\NullableType, GraphQL\Type\Definition\NamedType, `<a href="/docs/reference/GraphQl/Type/Definition/TypeInterface">ApiPlatform\GraphQl\Type\Definition\TypeInterface</a>`
+{
+    public __construct()
+    public getName(): string
+    public serialize($value): null
+    public parseValue($value): Symfony\Component\HttpFoundation\File\UploadedFile
+    public parseLiteral(GraphQL\Language\AST\Node $valueNode, null|array $variables): null
+    public assertValid(): null
+    public astNode(): GraphQL\Language\AST\ScalarTypeDefinitionNode
+    public extensionASTNodes(): array&lt;int, GraphQL\Language\AST\ScalarTypeExtensionNode&gt;
+    public int(): GraphQL\Type\Definition\ScalarType
+    public float(): GraphQL\Type\Definition\ScalarType
+    public string(): GraphQL\Type\Definition\ScalarType
+    public boolean(): GraphQL\Type\Definition\ScalarType
+    public id(): GraphQL\Type\Definition\ScalarType
+    public listOf(GraphQL\Type\Definition\T|callable $type): GraphQL\Type\Definition\ListOfType[]
+    public nonNull(callable $type): GraphQL\Type\Definition\NonNull
+    public builtInTypes(): array&lt;string&gt;
+    public getStandardTypes(): array&lt;string, GraphQL\Type\Definition\ScalarType&gt;
+    public overrideStandardTypes(array $types): null
+    public isInputType($type): bool
+    public getNamedType(null|GraphQL\Type\Definition\Type $type): null
+    public isOutputType($type): bool
+    public isLeafType($type): bool
+    public isCompositeType($type): bool
+    public isAbstractType($type): bool
+    public getNullableType(GraphQL\Type\Definition\Type $type)
+    public toString(): string
+    public __toString(): string
+    public jsonSerialize(): string
+    protected inferName(): string
+    public isBuiltInType(): bool
+    public name(): string
+    public description(): string
+}
+```
+## Properties
+### astNode
+
+```php
+GraphQL\Language\AST\ScalarTypeDefinitionNode $astNode
+```
+
+
+
+### extensionASTNodes
+
+```php
+array $extensionASTNodes
+```
+
+
+
+### config
+
+```php
+array $config
+```
+
+
+
+### standardTypes
+
+```php
+array&lt;string, GraphQL\Type\Definition\ScalarType&gt; $standardTypes
+```
+
+
+
+### name
+
+```php
+string $name
+```
+
+
+
+### description
+
+```php
+string $description
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct()
+```
+
+### getName
+
+
+
+```php
+public getName(): string
+```
+
+#### Returns
+
+string
+
+### serialize
+
+Serializes an internal value to include in a response.Should throw an exception on invalid values.Serializes an internal value to include in a response.Should throw an exception on invalid values.
+
+```php
+public serialize($value): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### parseValue
+
+Parses an externally provided value (query variable) to use as an input.Should throw an exception with a client friendly message on invalid values, @see ClientAware.Parses an externally provided value (query variable) to use as an input.Should throw an exception with a client friendly message on invalid values, @see ClientAware.
+
+```php
+public parseValue($value): Symfony\Component\HttpFoundation\File\UploadedFile
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\File\UploadedFile
+
+### parseLiteral
+
+Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input.Should throw an exception with a client friendly message on invalid value nodes, @see ClientAware.Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input.Should throw an exception with a client friendly message on invalid value nodes, @see ClientAware.
+
+```php
+public parseLiteral(GraphQL\Language\AST\Node $valueNode, null|array $variables): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>valueNode</td><td>GraphQL\Language\AST\Node</td><td></td></tr><tr><td>variables</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

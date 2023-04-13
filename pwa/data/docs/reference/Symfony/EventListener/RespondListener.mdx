@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\EventListener\RespondListener](/docs/reference/Symfony/EventListener/RespondListener)
+
+Builds the response object.
+
+
+```php
+class ApiPlatform\Symfony\EventListener\RespondListener
+{
+    public __construct(null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|ApiPlatform\Api\IriConverterInterface $iriConverter)
+    public onKernelView(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|ApiPlatform\Api\IriConverterInterface $iriConverter)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceMetadataFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>iriConverter</td><td>ApiPlatform\Api\IriConverterInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### onKernelView
+
+Creates a Response to send to the client according to the requested format.
+
+```php
+public onKernelView(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\ViewEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

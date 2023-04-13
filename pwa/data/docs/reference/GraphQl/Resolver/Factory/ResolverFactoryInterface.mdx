@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\GraphQl\Resolver\Factory\ResolverFactoryInterface](/docs/reference/GraphQl/Resolver/Factory/ResolverFactoryInterface)
+
+Builds a GraphQL resolver.
+
+
+```php
+interface ApiPlatform\GraphQl\Resolver\Factory\ResolverFactoryInterface
+{
+    public __invoke(null|string $resourceClass, null|string $rootClass, null|`<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation): callable
+}
+```
+## Methods
+
+### __invoke
+
+
+
+```php
+public __invoke(null|string $resourceClass, null|string $rootClass, null|`<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation): callable
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>rootClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+callable

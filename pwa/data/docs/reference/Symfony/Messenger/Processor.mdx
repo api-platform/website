@@ -1,0 +1,50 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Messenger\Processor](/docs/reference/Symfony/Messenger/Processor)
+
+
+
+```php
+class ApiPlatform\Symfony\Messenger\Processor implements `<a href="/docs/reference/State/ProcessorInterface">ApiPlatform\State\ProcessorInterface</a>`
+{
+    public __construct(Symfony\Component\Messenger\MessageBusInterface $messageBus)
+    public process($data, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $uriVariables, array $context)
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Symfony\Component\Messenger\MessageBusInterface $messageBus)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>messageBus</td><td>Symfony\Component\Messenger\MessageBusInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### process
+
+
+
+```php
+public process($data, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $uriVariables, array $context)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>uriVariables</td><td>array</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+

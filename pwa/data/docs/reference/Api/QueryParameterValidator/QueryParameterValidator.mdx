@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Api\QueryParameterValidator\QueryParameterValidator](/docs/reference/Api/QueryParameterValidator/QueryParameterValidator)
+
+Validates query parameters depending on filter description.
+
+
+```php
+class ApiPlatform\Api\QueryParameterValidator\QueryParameterValidator
+{
+    public __construct(Psr\Container\ContainerInterface $filterLocator)
+    public validateFilters(string $resourceClass, array $resourceFilters, array $queryParameters): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Psr\Container\ContainerInterface $filterLocator)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>filterLocator</td><td>Psr\Container\ContainerInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### validateFilters
+
+
+
+```php
+public validateFilters(string $resourceClass, array $resourceFilters, array $queryParameters): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>resourceFilters</td><td>array</td><td></td></tr><tr><td>queryParameters</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

@@ -1,0 +1,23 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Exception\ExceptionInterface](/docs/reference/Exception/ExceptionInterface)
+
+Base exception interface.
+
+
+```php
+interface ApiPlatform\Exception\ExceptionInterface implements Throwable, Stringable
+{
+    public getMessage(): string
+    public getCode()
+    public getFile(): string
+    public getLine(): int
+    public getTrace(): array
+    public getPrevious(): Throwable
+    public getTraceAsString(): string
+    public __toString(): string
+}
+```
+## Methods

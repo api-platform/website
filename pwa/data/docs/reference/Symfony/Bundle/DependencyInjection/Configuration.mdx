@@ -1,0 +1,328 @@
+---
+type: Class
+---
+
+# Configuration
+
+```yaml
+api_platform:
+
+    # The title of the API.
+    title:                ''
+
+    # The description of the API.
+    description:          ''
+
+    # The version of the API.
+    version:              0.0.0
+
+    # If true, show Webby on the documentation page
+    show_webby:           true
+
+    # Specify a name converter to use.
+    name_converter:       null
+
+    # Specify an asset package name to use.
+    asset_package:        null
+
+    # Specify a path name generator to use.
+    path_segment_name_generator: api_platform.metadata.path_segment_name_generator.underscore
+    validator:
+
+        # Set to null to serialize all payload fields when a validation error is thrown, or set the fields you want to include explicitly.
+        serialize_payload_fields: []
+        query_parameter_validation: true
+    eager_loading:
+        enabled:              true
+
+        # Fetch only partial data according to serialization groups. If enabled, Doctrine ORM entities will not work as expected if any of the other fields are used.
+        fetch_partial:        false
+
+        # Max number of joined relations before EagerLoading throws a RuntimeException
+        max_joins:            30
+
+        # Force join on every relation. If disabled, it will only join relations having the EAGER fetch mode.
+        force_eager:          true
+
+    # Enable the Swagger documentation and export.
+    enable_swagger:       true
+
+    # Enable Swagger UI
+    enable_swagger_ui:    true
+
+    # Enable ReDoc
+    enable_re_doc:        true
+
+    # Enable the entrypoint
+    enable_entrypoint:    true
+
+    # Enable the docs
+    enable_docs:          true
+
+    # Enable the data collector and the WebProfilerBundle integration.
+    enable_profiler:      true
+    collection:
+
+        # The name of the query parameter to filter on nullable field values.
+        exists_parameter_name: exists
+
+        # The default order of results.
+        order:                ASC
+
+        # The name of the query parameter to order results.
+        order_parameter_name: order
+
+        # The nulls comparison strategy.
+        order_nulls_comparison: null # One of "nulls_smallest"; "nulls_largest"; "nulls_always_first"; "nulls_always_last"; null
+        pagination:
+            enabled:              true
+
+            # The default name of the parameter handling the page number.
+            page_parameter_name:  page
+
+            # The name of the query parameter to enable or disable pagination.
+            enabled_parameter_name: pagination
+
+            # The name of the query parameter to set the number of items per page.
+            items_per_page_parameter_name: itemsPerPage
+
+            # The name of the query parameter to enable or disable partial pagination.
+            partial_parameter_name: partial
+    mapping:
+        paths:                []
+    resource_class_directories: []
+    doctrine:
+        enabled:              true
+    doctrine_mongodb_odm:
+        enabled:              true
+    oauth:
+        enabled:              false
+
+        # The oauth client id.
+        clientId:             ''
+
+        # The OAuth client secret. Never use this parameter in your production environment. It exposes crucial security information. This feature is intended for dev/test environments only. Enable "oauth.pkce" instead
+        clientSecret:         ''
+
+        # Enable the oauth PKCE.
+        pkce:                 false
+
+        # The oauth type.
+        type:                 oauth2
+
+        # The oauth flow grant type.
+        flow:                 application
+
+        # The oauth token url.
+        tokenUrl:             ''
+
+        # The oauth authentication url.
+        authorizationUrl:     ''
+
+        # The oauth refresh url.
+        refreshUrl:           ''
+        scopes:               []
+    graphql:
+        enabled:              true
+        default_ide:          graphiql
+        graphiql:
+            enabled:              true
+        graphql_playground:
+            enabled:              true
+
+        # The separator to use to filter nested fields.
+        nesting_separator:    _
+        collection:
+            pagination:
+                enabled:              true
+    swagger:
+
+        # The active versions of OpenAPI to be exported or used in Swagger UI. The first value is the default.
+        versions:
+
+            # Default:
+            - 3
+        api_keys:
+
+            # Prototype
+            key:
+
+                # The name of the header or query parameter containing the api key.
+                name:                 ~
+
+                # Whether the api key should be a query parameter or a header.
+                type:                 ~ # One of "query"; "header"
+
+        # To pass extra configuration to Swagger UI, like docExpansion or filter.
+        swagger_ui_extra_configuration: []
+    http_cache:
+
+        # To make all responses public by default.
+        public:               null
+
+        # Enable the tags-based cache invalidation system.
+        invalidation:
+            enabled:              false
+
+            # URLs of the Varnish servers to purge using cache tags when a resource is updated.
+            varnish_urls:         [] # Deprecated (Since api-platform/core 3.0: The "varnish_urls" configuration is deprecated, use "urls" or "scoped_clients".)
+
+            # URLs of the Varnish servers to purge using cache tags when a resource is updated.
+            urls:                 []
+
+            # Service names of scoped client to use by the cache purger.
+            scoped_clients:       []
+
+            # Max header length supported by the cache server.
+            max_header_length:    7500
+
+            # To pass options to the client charged with the request.
+            request_options:      []
+
+            # Specify a purger to use (available values: "api_platform.http_cache.purger.varnish.ban", "api_platform.http_cache.purger.varnish.xkey", "api_platform.http_cache.purger.souin").
+            purger:               api_platform.http_cache.purger.varnish
+            xkey:                 # Deprecated (Since api-platform/core 3.0: The "xkey" configuration is deprecated, use your own purger to customize surrogate keys or the appropriate paramters.)
+
+                # xkey glue between keys
+                glue:                 ' '
+    mercure:
+        enabled:              true
+
+        # The URL sent in the Link HTTP header. If not set, will default to the URL for MercureBundle's default hub.
+        hub_url:              null
+
+        # Always include @type in updates (including delete ones).
+        include_type:         false
+    messenger:
+        enabled:              true
+    elasticsearch:
+        enabled:              false
+        hosts:                []
+        mapping:              # Deprecated (Since api-platform/core 3.1: The "mapping" option is deprecated. Configure an ApiPlatform\Elasticsearch\State\Options as $stateOptions.)
+
+            # Prototype
+            resource_class:
+                index:                null
+                type:                 _doc
+    openapi:
+        contact:
+
+            # The identifying name of the contact person/organization.
+            name:                 null
+
+            # The URL pointing to the contact information. MUST be in the format of a URL.
+            url:                  null
+
+            # The email address of the contact person/organization. MUST be in the format of an email address.
+            email:                null
+
+        # A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        termsOfService:       null
+        license:
+
+            # The license name used for the API.
+            name:                 null
+
+            # URL to the license used for the API. MUST be in the format of a URL.
+            url:                  null
+
+        # To pass extra configuration to Swagger UI, like docExpansion or filter.
+        swagger_ui_extra_configuration: []
+    maker:
+        enabled:              true
+
+    # The list of exceptions mapped to their HTTP status code.
+    exception_to_status:
+
+        # Prototype
+        exception_class:      ~
+
+    # The list of enabled formats. The first one will be the default.
+    formats:
+
+        # Prototype
+        format:
+            mime_types:           []
+
+    # The list of enabled formats. The first one will be the default.
+    patch_formats:
+
+        # Prototype
+        format:
+            mime_types:           []
+
+    # The list of enabled formats. The first one will be the default.
+    error_formats:
+
+        # Prototype
+        format:
+            mime_types:           []
+    defaults:
+        uri_template:         ~
+        short_name:           ~
+        description:          ~
+        types:                ~
+        operations:           ~
+        formats:              ~
+        input_formats:        ~
+        output_formats:       ~
+        uri_variables:        ~
+        route_prefix:         ~
+        defaults:             ~
+        requirements:         ~
+        options:              ~
+        stateless:            ~
+        sunset:               ~
+        accept_patch:         ~
+        status:               ~
+        host:                 ~
+        schemes:              ~
+        condition:            ~
+        controller:           ~
+        class:                ~
+        url_generation_strategy: ~
+        deprecation_reason:   ~
+        cache_headers:        ~
+        normalization_context: ~
+        denormalization_context: ~
+        collect_denormalization_errors: ~
+        hydra_context:        ~
+        openapi_context:      ~
+        openapi:              ~
+        validation_context:   ~
+        filters:              ~
+        elasticsearch:        ~
+        mercure:              ~
+        messenger:            ~
+        input:                ~
+        output:               ~
+        order:                ~
+        fetch_partial:        ~
+        force_eager:          ~
+        pagination_client_enabled: ~
+        pagination_client_items_per_page: ~
+        pagination_client_partial: ~
+        pagination_via_cursor: ~
+        pagination_enabled:   ~
+        pagination_fetch_join_collection: ~
+        pagination_use_output_walkers: ~
+        pagination_items_per_page: ~
+        pagination_maximum_items_per_page: ~
+        pagination_partial:   ~
+        pagination_type:      ~
+        security:             ~
+        security_message:     ~
+        security_post_denormalize: ~
+        security_post_denormalize_message: ~
+        security_post_validation: ~
+        security_post_validation_message: ~
+        composite_identifier: ~
+        exception_to_status:  ~
+        query_parameter_validation_enabled: ~
+        graph_ql_operations:  ~
+        provider:             ~
+        processor:            ~
+        state_options:        ~
+        extra_properties:     ~
+
+```

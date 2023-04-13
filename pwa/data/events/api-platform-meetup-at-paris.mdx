@@ -1,0 +1,48 @@
+export const meta = {
+    creator: "API Platform meetup",
+    type: "meetup",
+    venue: {
+        address: "145 rue de Courcelles",
+        city: "Paris",
+        country: "France",
+    },
+    startDate: {
+        date: "2019-03-26",
+        time: "19:00",
+    },
+    endDate: {
+        date: "2019-03-26",
+        time: "21:00",
+    },
+    link: 'https://www.meetup.com/fr-FR/api-platform/events/259795576/',
+    picture: "https://secure.meetupstatic.com/photos/event/c/5/6/7/600_479492511.webp?w=750",
+    speakers: [{
+        name: "Nicolas Grekas",
+        github: "nicolas-grekas",
+    },{
+        name: "Antoine Bluchet",
+        github: "soyuka",
+    },{
+        name: "Kévin Dunglas",
+        github: "dunglas",
+    }]
+};
+
+# API Platform Meetup @Paris
+
+Le mardi 26 mars à 19h se déroulera le tout premier meetup dédié à API Platform.
+
+Au cours de ces rendez-vous, qui se dérouleront désormais régulièrement, nous parlerons de notre framework préféré et des technologies relatives (PHP/Symfony, JavaScript/React.js/Vue.js, Docker/Kubernetes...), mais aussi de tout ce qui touche de près ou de loin à la conception et la consommation d'API (et d'IPA !), à REST, à l'hypermédia et à GraphQL.
+
+Ce premier meetup se déroulera au 145 rue de Courcelles, dans les tout nouveaux bureaux parisiens de Les-Tilleuls.coop
+
+Pour cette première édition, nous avons trois invités spéciaux :
+
+📌 Nicolas Grekas (\@nicolasgrekas), membre de la Core Team Symfony et ingénieur chez Symfony SAS, qui nous montrera à quoi ressemble une application Symfony 4.2 typique. Le système de configuration de Symfony s'est beaucoup amélioré ces dernières années. La version 4.2 de Symfony apporte de nombreuses améliorations mineures qui, toutes ensembles, offrent une meilleure expérience de développement. Nous découvrirons des astuces pour configurer les services aussi facilement que possible, gérer différentes configurations d'environnement et le sujet extrêmement important des variables et des secrets d'environnement. Nous discuterons également de stratégies pour migrer vos applications existantes.
+
+📌 Antoine Bluchet (\@soyuka), membre de la Core Team API Platform et consultant chez Les-Tilleuls.coop présentera le talk « Au delà de REST avec API Platform ». Vous souvenez-vous de l'arrivée du web 2.0 aux alentours de l'an 2000 ? Peu après MySpace, del.icio.us faisait son entrée avec un service pour sauvegarder et partager ses favoris. Durant ce talk, nous allons voir comment développer un clone de ce réseau social avec API Platform en le modernisant. Pour ce faire, Antoine va nous emmener dans les méandres de son terminal où nous allons développer un SPA qui se sert sur une API dotée d'une gestion en temps réel géré par Mercure, tout en bénéficiant du format JsonLd (Linked Data) et de l'intégration du composant Messenger pour exécuter des traitements lourds de façon asynchrone ! Et tout cela en écrivant le moins de code possible !
+Nous ouvrirons ensuite sur les nouvelles fonctionnalités d'API Platform 2.4 avec par exemple l'intégration d'ElasticSearch en lecture et de ses nouvelles capacités proches de la doctrine CQRS.
+
+📌 Kévin Dunglas (\@dunglas), créateur de API Platform, membre de la Core Team Symfony et fondateur de Les-Tilleuls.coop, nous parlera quant à lui de REST et GraphQL à travers des exemples illustrés avec Symfony et API Platform. GraphQL est une alternative aux architectures REST pour la réalisation d'API web. Le langage promu par Facebook a des avantages indéniables : récupération des données utiles uniquement, limitation du nombre de requêtes, typage fort, syntaxe puissante et bien pensée… Cependant, il souffre aussi de défauts souvent sous-estimés. De plus, les formats hypermedias modernes s'appuyant sur REST disposent de fonctionnalités très similaires tout en restant compatibles avec les fondements du web. API Platform, basé sur Symfony, permet de créer très facilement des API REST (JSON-LD, JSON API…) et GraphQL. Après avoir énuméré les avantages et inconvénients des différents formats, nous étudierons au travers de différents cas d'usages quand il est préférable d'utiliser GraphQL, REST ou les 2 en complément.
+
+Cet événement est gratuit et limité en nombre de places. Ne tardez pas à vous inscrire ! En plus des conférences, nous vous préparons une petite surprise… Nous avons hâte de rencontrer la communauté API Platform parisienne !

@@ -1,0 +1,57 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Metadata\Resource\ResourceNameCollection](/docs/reference/Metadata/Resource/ResourceNameCollection)
+
+A collection of resource class names.
+
+
+```php
+class ApiPlatform\Metadata\Resource\ResourceNameCollection implements IteratorAggregate, Countable, Traversable
+{
+    public __construct(array&lt;int, string&gt; $classes)
+    public getIterator(): Traversable[]
+    public count(): int
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array&lt;int, string&gt; $classes)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>classes</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+### getIterator
+
+
+
+```php
+public getIterator(): Traversable[]
+```
+
+#### Returns
+
+Traversable[]
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+#### Returns
+
+int

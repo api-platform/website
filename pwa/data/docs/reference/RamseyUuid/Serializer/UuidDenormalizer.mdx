@@ -1,0 +1,54 @@
+---
+type: Class
+---
+
+# [ApiPlatform\RamseyUuid\Serializer\UuidDenormalizer](/docs/reference/RamseyUuid/Serializer/UuidDenormalizer)
+
+
+
+```php
+class ApiPlatform\RamseyUuid\Serializer\UuidDenormalizer implements Symfony\Component\Serializer\Normalizer\DenormalizerInterface
+{
+    public denormalize($data, string $type, null|string $format, array $context): Ramsey\Uuid\UuidInterface
+    public supportsDenormalization($data, string $type, null|string $format, array $context): bool
+}
+```
+## Methods
+
+### denormalize
+
+Denormalizes data back into an object of the given class.
+
+```php
+public denormalize($data, string $type, null|string $format, array $context): Ramsey\Uuid\UuidInterface
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>type</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Ramsey\Uuid\UuidInterface
+
+### supportsDenormalization
+
+
+
+```php
+public supportsDenormalization($data, string $type, null|string $format, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>type</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

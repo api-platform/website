@@ -1,0 +1,10 @@
+@config "../../../../common.tailwind.config.js";
+
+.codeblock code[class*="language-"],
+.codeblock pre[class*="language-"] {
+    @apply !bg-transparent;
+}
+
+.codeblock pre[class*="language-"] {
+    @apply !p-0 !m-0;
+}

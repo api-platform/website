@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Serializer\SerializerContextBuilderInterface](/docs/reference/Serializer/SerializerContextBuilderInterface)
+
+Builds the context used by the Symfony Serializer.
+
+
+```php
+interface ApiPlatform\Serializer\SerializerContextBuilderInterface
+{
+    public createFromRequest(Symfony\Component\HttpFoundation\Request $request, bool $normalization, null|array $extractedAttributes): array
+}
+```
+## Methods
+
+### createFromRequest
+
+Creates a serialization context from a Request.
+
+```php
+public createFromRequest(Symfony\Component\HttpFoundation\Request $request, bool $normalization, null|array $extractedAttributes): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr><tr><td>normalization</td><td>bool</td><td></td></tr><tr><td>extractedAttributes</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

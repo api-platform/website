@@ -1,0 +1,1008 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Bundle\Test\ApiTestCase](/docs/reference/Symfony/Bundle/Test/ApiTestCase)
+
+Base class for functional API tests.
+
+
+```php
+class ApiPlatform\Symfony\Bundle\Test\ApiTestCase extends Symfony\Bundle\FrameworkBundle\Test\KernelTestCase implements PHPUnit\Framework\Reorderable, PHPUnit\Framework\SelfDescribing, PHPUnit\Framework\Test, Countable
+{
+    protected tearDown(): null
+    protected createClient(array $kernelOptions, array $defaultOptions): `<a href="/docs/reference/Symfony/Bundle/Test/Client">ApiPlatform\Symfony\Bundle\Test\Client</a>`
+    protected findIriBy(string $resourceClass, array $criteria): string
+    protected getKernelClass(): string
+    protected bootKernel(array $options): Symfony\Component\HttpKernel\KernelInterface
+    protected getContainer(): Symfony\Component\DependencyInjection\Container
+    protected createKernel(array $options): Symfony\Component\HttpKernel\KernelInterface
+    protected ensureKernelShutdown()
+    public any(): PHPUnit\Framework\MockObject\Rule\AnyInvokedCount
+    public never(): PHPUnit\Framework\MockObject\Rule\InvokedCount
+    public atLeast(int $requiredInvocations): PHPUnit\Framework\MockObject\Rule\InvokedAtLeastCount
+    public atLeastOnce(): PHPUnit\Framework\MockObject\Rule\InvokedAtLeastOnce
+    public once(): PHPUnit\Framework\MockObject\Rule\InvokedCount
+    public exactly(int $count): PHPUnit\Framework\MockObject\Rule\InvokedCount
+    public atMost(int $allowedInvocations): PHPUnit\Framework\MockObject\Rule\InvokedAtMostCount
+    public at(int $index): PHPUnit\Framework\MockObject\Rule\InvokedAtIndex
+    public returnValue($value): PHPUnit\Framework\MockObject\Stub\ReturnStub
+    public returnValueMap(array $valueMap): PHPUnit\Framework\MockObject\Stub\ReturnValueMap
+    public returnArgument(int $argumentIndex): PHPUnit\Framework\MockObject\Stub\ReturnArgument
+    public returnCallback($callback): PHPUnit\Framework\MockObject\Stub\ReturnCallback
+    public returnSelf(): PHPUnit\Framework\MockObject\Stub\ReturnSelf
+    public throwException(Throwable $exception): PHPUnit\Framework\MockObject\Stub\Exception
+    public onConsecutiveCalls($args): PHPUnit\Framework\MockObject\Stub\ConsecutiveCalls
+    public __construct(null|string $name, array $data, int|string $dataName)
+    public setUpBeforeClass(): null
+    public tearDownAfterClass(): null
+    protected setUp(): null
+    protected assertPreConditions(): null
+    protected assertPostConditions(): null
+    public toString(): string
+    public count(): int
+    public getActualOutputForAssertion(): string
+    public expectOutputRegex(string $expectedRegex): null
+    public expectOutputString(string $expectedString): null
+    public expectException(string $exception): null
+    public expectExceptionCode(int|string $code): null
+    public expectExceptionMessage(string $message): null
+    public expectExceptionMessageMatches(string $regularExpression): null
+    public expectExceptionObject(Exception $exception): null
+    public expectNotToPerformAssertions(): null
+    public expectDeprecation(): null
+    public expectDeprecationMessage(string $message): null
+    public expectDeprecationMessageMatches(string $regularExpression): null
+    public expectNotice(): null
+    public expectNoticeMessage(string $message): null
+    public expectNoticeMessageMatches(string $regularExpression): null
+    public expectWarning(): null
+    public expectWarningMessage(string $message): null
+    public expectWarningMessageMatches(string $regularExpression): null
+    public expectError(): null
+    public expectErrorMessage(string $message): null
+    public expectErrorMessageMatches(string $regularExpression): null
+    public getStatus(): int
+    public markAsRisky(): null
+    public getStatusMessage(): string
+    public hasFailed(): bool
+    public run(null|PHPUnit\Framework\TestResult $result): PHPUnit\Framework\TestResult
+    public getMockBuilder(string $className): PHPUnit\Framework\MockObject\MockBuilder
+    public registerComparator(SebastianBergmann\Comparator\Comparator $comparator): null
+    public doubledTypes(): array&lt;int, string&gt;
+    public getGroups(): array
+    public setGroups(array $groups): null
+    public getName(bool $withDataSet): string
+    public getSize(): int
+    public hasSize(): bool
+    public isSmall(): bool
+    public isMedium(): bool
+    public isLarge(): bool
+    public getActualOutput(): string
+    public hasOutput(): bool
+    public doesNotPerformAssertions(): bool
+    public hasExpectationOnOutput(): bool
+    public getExpectedException(): string
+    public getExpectedExceptionCode(): int|string
+    public getExpectedExceptionMessage(): string
+    public getExpectedExceptionMessageRegExp(): string
+    public setRegisterMockObjectsFromTestArgumentsRecursively(bool $flag): null
+    public runBare(): null
+    public setName(string $name): null
+    public setDependencies(array&lt;int, PHPUnit\Framework\ExecutionOrderDependency&gt; $dependencies): null
+    public setDependencyInput(array $dependencyInput): null
+    public setBeStrictAboutChangesToGlobalState(null|bool $beStrictAboutChangesToGlobalState): null
+    public setBackupGlobals(null|bool $backupGlobals): null
+    public setBackupStaticAttributes(null|bool $backupStaticAttributes): null
+    public setRunTestInSeparateProcess(bool $runTestInSeparateProcess): null
+    public setRunClassInSeparateProcess(bool $runClassInSeparateProcess): null
+    public setPreserveGlobalState(bool $preserveGlobalState): null
+    public setInIsolation(bool $inIsolation): null
+    public isInIsolation(): bool
+    public getResult()
+    public setResult($result): null
+    public setOutputCallback(callable $callback): null
+    public getTestResultObject(): PHPUnit\Framework\TestResult
+    public setTestResultObject(PHPUnit\Framework\TestResult $result): null
+    public registerMockObject(PHPUnit\Framework\MockObject\MockObject $mockObject): null
+    public addToAssertionCount(int $count): null
+    public getNumAssertions(): int
+    public usesDataProvider(): bool
+    public dataName(): int|string
+    public getDataSetAsString(bool $includeData): string
+    public getProvidedData(): array
+    public addWarning(string $warning): null
+    public sortId(): string
+    public provides(): array&lt;int, PHPUnit\Framework\ExecutionOrderDependency&gt;
+    public requires(): array&lt;int, PHPUnit\Framework\ExecutionOrderDependency&gt;
+    protected runTest()
+    protected iniSet(string $varName, string $newValue): null
+    protected setLocale($args): null
+    protected createStub(string $originalClassName): PHPUnit\Framework\MockObject\Stub
+    protected createMock(string $originalClassName): PHPUnit\Framework\MockObject\MockObject
+    protected createConfiguredMock(string $originalClassName, array $configuration): PHPUnit\Framework\MockObject\MockObject
+    protected createPartialMock(string $originalClassName, array&lt;int, string&gt; $methods): PHPUnit\Framework\MockObject\MockObject
+    protected createTestProxy(string $originalClassName, array $constructorArguments): PHPUnit\Framework\MockObject\MockObject
+    protected getMockClass(string $originalClassName, array $methods, array $arguments, string $mockClassName, bool $callOriginalConstructor, bool $callOriginalClone, bool $callAutoload, bool $cloneArguments): string
+    protected getMockForAbstractClass(string $originalClassName, array $arguments, string $mockClassName, bool $callOriginalConstructor, bool $callOriginalClone, bool $callAutoload, array $mockedMethods, bool $cloneArguments): PHPUnit\Framework\MockObject\MockObject
+    protected getMockFromWsdl(string $wsdlFile, string $originalClassName, string $mockClassName, array $methods, bool $callOriginalConstructor, array $options): PHPUnit\Framework\MockObject\MockObject
+    protected getMockForTrait(string $traitName, array $arguments, string $mockClassName, bool $callOriginalConstructor, bool $callOriginalClone, bool $callAutoload, array $mockedMethods, bool $cloneArguments): PHPUnit\Framework\MockObject\MockObject
+    protected getObjectForTrait(string $traitName, array $arguments, string $traitClassName, bool $callOriginalConstructor, bool $callOriginalClone, bool $callAutoload): object
+    protected prophesize(null|string $classOrInterface): Prophecy\Prophecy\ObjectProphecy
+    protected createResult(): PHPUnit\Framework\TestResult
+    protected onNotSuccessfulTest(Throwable $t): null
+    protected recordDoubledType(string $originalClassName): null
+    public assertArrayHasKey(int|string $key, array|ArrayAccess $array, string $message): null
+    public assertArrayNotHasKey(int|string $key, array|ArrayAccess $array, string $message): null
+    public assertContains($needle, iterable $haystack, string $message): null
+    public assertContainsEquals($needle, iterable $haystack, string $message): null
+    public assertNotContains($needle, iterable $haystack, string $message): null
+    public assertNotContainsEquals($needle, iterable $haystack, string $message): null
+    public assertContainsOnly(string $type, iterable $haystack, null|bool $isNativeType, string $message): null
+    public assertContainsOnlyInstancesOf(string $className, iterable $haystack, string $message): null
+    public assertNotContainsOnly(string $type, iterable $haystack, null|bool $isNativeType, string $message): null
+    public assertCount(int $expectedCount, Countable|iterable $haystack, string $message): null
+    public assertNotCount(int $expectedCount, Countable|iterable $haystack, string $message): null
+    public assertEquals($expected, $actual, string $message): null
+    public assertEqualsCanonicalizing($expected, $actual, string $message): null
+    public assertEqualsIgnoringCase($expected, $actual, string $message): null
+    public assertEqualsWithDelta($expected, $actual, float $delta, string $message): null
+    public assertNotEquals($expected, $actual, string $message): null
+    public assertNotEqualsCanonicalizing($expected, $actual, string $message): null
+    public assertNotEqualsIgnoringCase($expected, $actual, string $message): null
+    public assertNotEqualsWithDelta($expected, $actual, float $delta, string $message): null
+    public assertObjectEquals(object $expected, object $actual, string $method, string $message): null
+    public assertEmpty($actual, string $message): null
+    public assertNotEmpty($actual, string $message): null
+    public assertGreaterThan($expected, $actual, string $message): null
+    public assertGreaterThanOrEqual($expected, $actual, string $message): null
+    public assertLessThan($expected, $actual, string $message): null
+    public assertLessThanOrEqual($expected, $actual, string $message): null
+    public assertFileEquals(string $expected, string $actual, string $message): null
+    public assertFileEqualsCanonicalizing(string $expected, string $actual, string $message): null
+    public assertFileEqualsIgnoringCase(string $expected, string $actual, string $message): null
+    public assertFileNotEquals(string $expected, string $actual, string $message): null
+    public assertFileNotEqualsCanonicalizing(string $expected, string $actual, string $message): null
+    public assertFileNotEqualsIgnoringCase(string $expected, string $actual, string $message): null
+    public assertStringEqualsFile(string $expectedFile, string $actualString, string $message): null
+    public assertStringEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message): null
+    public assertStringEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message): null
+    public assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message): null
+    public assertStringNotEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message): null
+    public assertStringNotEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message): null
+    public assertIsReadable(string $filename, string $message): null
+    public assertIsNotReadable(string $filename, string $message): null
+    public assertNotIsReadable(string $filename, string $message): null
+    public assertIsWritable(string $filename, string $message): null
+    public assertIsNotWritable(string $filename, string $message): null
+    public assertNotIsWritable(string $filename, string $message): null
+    public assertDirectoryExists(string $directory, string $message): null
+    public assertDirectoryDoesNotExist(string $directory, string $message): null
+    public assertDirectoryNotExists(string $directory, string $message): null
+    public assertDirectoryIsReadable(string $directory, string $message): null
+    public assertDirectoryIsNotReadable(string $directory, string $message): null
+    public assertDirectoryNotIsReadable(string $directory, string $message): null
+    public assertDirectoryIsWritable(string $directory, string $message): null
+    public assertDirectoryIsNotWritable(string $directory, string $message): null
+    public assertDirectoryNotIsWritable(string $directory, string $message): null
+    public assertFileExists(string $filename, string $message): null
+    public assertFileDoesNotExist(string $filename, string $message): null
+    public assertFileNotExists(string $filename, string $message): null
+    public assertFileIsReadable(string $file, string $message): null
+    public assertFileIsNotReadable(string $file, string $message): null
+    public assertFileNotIsReadable(string $file, string $message): null
+    public assertFileIsWritable(string $file, string $message): null
+    public assertFileIsNotWritable(string $file, string $message): null
+    public assertFileNotIsWritable(string $file, string $message): null
+    public assertTrue($condition, string $message): null
+    public assertNotTrue($condition, string $message): null
+    public assertFalse($condition, string $message): null
+    public assertNotFalse($condition, string $message): null
+    public assertNull($actual, string $message): null
+    public assertNotNull($actual, string $message): null
+    public assertFinite($actual, string $message): null
+    public assertInfinite($actual, string $message): null
+    public assertNan($actual, string $message): null
+    public assertClassHasAttribute(string $attributeName, string $className, string $message): null
+    public assertClassNotHasAttribute(string $attributeName, string $className, string $message): null
+    public assertClassHasStaticAttribute(string $attributeName, string $className, string $message): null
+    public assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message): null
+    public assertObjectHasAttribute(string $attributeName, object $object, string $message): null
+    public assertObjectNotHasAttribute(string $attributeName, object $object, string $message): null
+    public assertSame($expected, $actual, string $message): null
+    public assertNotSame($expected, $actual, string $message): null
+    public assertInstanceOf(string $expected, $actual, string $message): null
+    public assertNotInstanceOf(string $expected, $actual, string $message): null
+    public assertIsArray($actual, string $message): null
+    public assertIsBool($actual, string $message): null
+    public assertIsFloat($actual, string $message): null
+    public assertIsInt($actual, string $message): null
+    public assertIsNumeric($actual, string $message): null
+    public assertIsObject($actual, string $message): null
+    public assertIsResource($actual, string $message): null
+    public assertIsClosedResource($actual, string $message): null
+    public assertIsString($actual, string $message): null
+    public assertIsScalar($actual, string $message): null
+    public assertIsCallable($actual, string $message): null
+    public assertIsIterable($actual, string $message): null
+    public assertIsNotArray($actual, string $message): null
+    public assertIsNotBool($actual, string $message): null
+    public assertIsNotFloat($actual, string $message): null
+    public assertIsNotInt($actual, string $message): null
+    public assertIsNotNumeric($actual, string $message): null
+    public assertIsNotObject($actual, string $message): null
+    public assertIsNotResource($actual, string $message): null
+    public assertIsNotClosedResource($actual, string $message): null
+    public assertIsNotString($actual, string $message): null
+    public assertIsNotScalar($actual, string $message): null
+    public assertIsNotCallable($actual, string $message): null
+    public assertIsNotIterable($actual, string $message): null
+    public assertMatchesRegularExpression(string $pattern, string $string, string $message): null
+    public assertRegExp(string $pattern, string $string, string $message): null
+    public assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message): null
+    public assertNotRegExp(string $pattern, string $string, string $message): null
+    public assertSameSize(Countable|iterable $expected, Countable|iterable $actual, string $message): null
+    public assertNotSameSize(Countable|iterable $expected, Countable|iterable $actual, string $message): null
+    public assertStringMatchesFormat(string $format, string $string, string $message): null
+    public assertStringNotMatchesFormat(string $format, string $string, string $message): null
+    public assertStringMatchesFormatFile(string $formatFile, string $string, string $message): null
+    public assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message): null
+    public assertStringStartsWith(string $prefix, string $string, string $message): null
+    public assertStringStartsNotWith(string $prefix, string $string, string $message): null
+    public assertStringContainsString(string $needle, string $haystack, string $message): null
+    public assertStringContainsStringIgnoringCase(string $needle, string $haystack, string $message): null
+    public assertStringNotContainsString(string $needle, string $haystack, string $message): null
+    public assertStringNotContainsStringIgnoringCase(string $needle, string $haystack, string $message): null
+    public assertStringEndsWith(string $suffix, string $string, string $message): null
+    public assertStringEndsNotWith(string $suffix, string $string, string $message): null
+    public assertXmlFileEqualsXmlFile(string $expectedFile, string $actualFile, string $message): null
+    public assertXmlFileNotEqualsXmlFile(string $expectedFile, string $actualFile, string $message): null
+    public assertXmlStringEqualsXmlFile(string $expectedFile, DOMDocument|string $actualXml, string $message): null
+    public assertXmlStringNotEqualsXmlFile(string $expectedFile, DOMDocument|string $actualXml, string $message): null
+    public assertXmlStringEqualsXmlString(DOMDocument|string $expectedXml, DOMDocument|string $actualXml, string $message): null
+    public assertXmlStringNotEqualsXmlString(DOMDocument|string $expectedXml, DOMDocument|string $actualXml, string $message): null
+    public assertEqualXMLStructure(DOMElement $expectedElement, DOMElement $actualElement, bool $checkAttributes, string $message): null
+    public assertThat($value, PHPUnit\Framework\Constraint\Constraint $constraint, string $message): null
+    public assertJson(string $actualJson, string $message): null
+    public assertJsonStringEqualsJsonString(string $expectedJson, string $actualJson, string $message): null
+    public assertJsonStringNotEqualsJsonString(string $expectedJson, string $actualJson, string $message): null
+    public assertJsonStringEqualsJsonFile(string $expectedFile, string $actualJson, string $message): null
+    public assertJsonStringNotEqualsJsonFile(string $expectedFile, string $actualJson, string $message): null
+    public assertJsonFileEqualsJsonFile(string $expectedFile, string $actualFile, string $message): null
+    public assertJsonFileNotEqualsJsonFile(string $expectedFile, string $actualFile, string $message): null
+    public logicalAnd(): PHPUnit\Framework\Constraint\LogicalAnd
+    public logicalOr(): PHPUnit\Framework\Constraint\LogicalOr
+    public logicalNot(PHPUnit\Framework\Constraint\Constraint $constraint): PHPUnit\Framework\Constraint\LogicalNot
+    public logicalXor(): PHPUnit\Framework\Constraint\LogicalXor
+    public anything(): PHPUnit\Framework\Constraint\IsAnything
+    public isTrue(): PHPUnit\Framework\Constraint\IsTrue
+    public callback(callable $callback): PHPUnit\Framework\Constraint\Callback
+    public isFalse(): PHPUnit\Framework\Constraint\IsFalse
+    public isJson(): PHPUnit\Framework\Constraint\IsJson
+    public isNull(): PHPUnit\Framework\Constraint\IsNull
+    public isFinite(): PHPUnit\Framework\Constraint\IsFinite
+    public isInfinite(): PHPUnit\Framework\Constraint\IsInfinite
+    public isNan(): PHPUnit\Framework\Constraint\IsNan
+    public containsEqual($value): PHPUnit\Framework\Constraint\TraversableContainsEqual
+    public containsIdentical($value): PHPUnit\Framework\Constraint\TraversableContainsIdentical
+    public containsOnly(string $type): PHPUnit\Framework\Constraint\TraversableContainsOnly
+    public containsOnlyInstancesOf(string $className): PHPUnit\Framework\Constraint\TraversableContainsOnly
+    public arrayHasKey(int|string $key): PHPUnit\Framework\Constraint\ArrayHasKey
+    public equalTo($value): PHPUnit\Framework\Constraint\IsEqual
+    public equalToCanonicalizing($value): PHPUnit\Framework\Constraint\IsEqualCanonicalizing
+    public equalToIgnoringCase($value): PHPUnit\Framework\Constraint\IsEqualIgnoringCase
+    public equalToWithDelta($value, float $delta): PHPUnit\Framework\Constraint\IsEqualWithDelta
+    public isEmpty(): PHPUnit\Framework\Constraint\IsEmpty
+    public isWritable(): PHPUnit\Framework\Constraint\IsWritable
+    public isReadable(): PHPUnit\Framework\Constraint\IsReadable
+    public directoryExists(): PHPUnit\Framework\Constraint\DirectoryExists
+    public fileExists(): PHPUnit\Framework\Constraint\FileExists
+    public greaterThan($value): PHPUnit\Framework\Constraint\GreaterThan
+    public greaterThanOrEqual($value): PHPUnit\Framework\Constraint\LogicalOr
+    public classHasAttribute(string $attributeName): PHPUnit\Framework\Constraint\ClassHasAttribute
+    public classHasStaticAttribute(string $attributeName): PHPUnit\Framework\Constraint\ClassHasStaticAttribute
+    public objectHasAttribute($attributeName): PHPUnit\Framework\Constraint\ObjectHasAttribute
+    public identicalTo($value): PHPUnit\Framework\Constraint\IsIdentical
+    public isInstanceOf(string $className): PHPUnit\Framework\Constraint\IsInstanceOf
+    public isType(string $type): PHPUnit\Framework\Constraint\IsType
+    public lessThan($value): PHPUnit\Framework\Constraint\LessThan
+    public lessThanOrEqual($value): PHPUnit\Framework\Constraint\LogicalOr
+    public matchesRegularExpression(string $pattern): PHPUnit\Framework\Constraint\RegularExpression
+    public matches(string $string): PHPUnit\Framework\Constraint\StringMatchesFormatDescription
+    public stringStartsWith($prefix): PHPUnit\Framework\Constraint\StringStartsWith
+    public stringContains(string $string, bool $case): PHPUnit\Framework\Constraint\StringContains
+    public stringEndsWith(string $suffix): PHPUnit\Framework\Constraint\StringEndsWith
+    public countOf(int $count): PHPUnit\Framework\Constraint\Count
+    public objectEquals(object $object, string $method): PHPUnit\Framework\Constraint\ObjectEquals
+    public fail(string $message): null
+    public markTestIncomplete(string $message): null
+    public markTestSkipped(string $message): null
+    public getCount(): int
+    public resetCount(): null
+    public assertEmailCount(int $count, null|string $transport, string $message): null
+    public assertQueuedEmailCount(int $count, null|string $transport, string $message): null
+    public assertEmailIsQueued(Symfony\Component\Mailer\Event\MessageEvent $event, string $message): null
+    public assertEmailIsNotQueued(Symfony\Component\Mailer\Event\MessageEvent $event, string $message): null
+    public assertEmailAttachmentCount(Symfony\Component\Mime\RawMessage $email, int $count, string $message): null
+    public assertEmailTextBodyContains(Symfony\Component\Mime\RawMessage $email, string $text, string $message): null
+    public assertEmailTextBodyNotContains(Symfony\Component\Mime\RawMessage $email, string $text, string $message): null
+    public assertEmailHtmlBodyContains(Symfony\Component\Mime\RawMessage $email, string $text, string $message): null
+    public assertEmailHtmlBodyNotContains(Symfony\Component\Mime\RawMessage $email, string $text, string $message): null
+    public assertEmailHasHeader(Symfony\Component\Mime\RawMessage $email, string $headerName, string $message): null
+    public assertEmailNotHasHeader(Symfony\Component\Mime\RawMessage $email, string $headerName, string $message): null
+    public assertEmailHeaderSame(Symfony\Component\Mime\RawMessage $email, string $headerName, string $expectedValue, string $message): null
+    public assertEmailHeaderNotSame(Symfony\Component\Mime\RawMessage $email, string $headerName, string $expectedValue, string $message): null
+    public assertEmailAddressContains(Symfony\Component\Mime\RawMessage $email, string $headerName, string $expectedValue, string $message): null
+    public getMailerEvents(null|string $transport): array&lt;int, Symfony\Component\Notifier\Event\MessageEvent&gt;
+    public getMailerEvent(int $index, null|string $transport): Symfony\Component\Mailer\Event\MessageEvent
+    public getMailerMessages(null|string $transport): array&lt;int, Symfony\Component\Mime\RawMessage&gt;
+    public getMailerMessage(int $index, null|string $transport): Symfony\Component\Mime\RawMessage
+    public assertNotificationCount(int $count, null|string $transportName, string $message): null
+    public assertQueuedNotificationCount(int $count, null|string $transportName, string $message): null
+    public assertNotificationIsQueued(Symfony\Component\Notifier\Event\MessageEvent $event, string $message): null
+    public assertNotificationIsNotQueued(Symfony\Component\Notifier\Event\MessageEvent $event, string $message): null
+    public assertNotificationSubjectContains(Symfony\Component\Notifier\Message\MessageInterface $notification, string $text, string $message): null
+    public assertNotificationSubjectNotContains(Symfony\Component\Notifier\Message\MessageInterface $notification, string $text, string $message): null
+    public assertNotificationTransportIsEqual(Symfony\Component\Notifier\Message\MessageInterface $notification, string $transportName, string $message): null
+    public assertNotificationTransportIsNotEqual(Symfony\Component\Notifier\Message\MessageInterface $notification, string $transportName, string $message): null
+    public getNotifierEvents(null|string $transportName): array&lt;int, Symfony\Component\Notifier\Event\MessageEvent&gt;
+    public getNotifierEvent(int $index, null|string $transportName): Symfony\Component\Notifier\Event\MessageEvent
+    public getNotifierMessages(null|string $transportName): array&lt;int, Symfony\Component\Notifier\Message\MessageInterface&gt;
+    public getNotifierMessage(int $index, null|string $transportName): Symfony\Component\Notifier\Message\MessageInterface
+    public getNotificationEvents(): Symfony\Component\Notifier\Event\NotificationEvents
+    public assertJsonContains(array|string $subset, bool $checkForObjectIdentity, string $message): null
+    public assertJsonEquals(array|string $json, string $message): null
+    public assertArraySubset(iterable $subset, iterable $array, bool $checkForObjectIdentity, string $message): null
+    public assertMatchesJsonSchema(object|array|string $jsonSchema, null|int $checkMode, string $message): null
+    public assertMatchesResourceCollectionJsonSchema(string $resourceClass, null|string $operationName, string $format, null|array $serializationContext): null
+    public assertMatchesResourceItemJsonSchema(string $resourceClass, null|string $operationName, string $format, null|array $serializationContext): null
+    public assertResponseIsSuccessful(string $message): null
+    public assertResponseStatusCodeSame(int $expectedCode, string $message): null
+    public assertResponseFormatSame(null|string $expectedFormat, string $message): null
+    public assertResponseRedirects(null|string $expectedLocation, null|int $expectedCode, string $message): null
+    public assertResponseHasHeader(string $headerName, string $message): null
+    public assertResponseNotHasHeader(string $headerName, string $message): null
+    public assertResponseHeaderSame(string $headerName, string $expectedValue, string $message): null
+    public assertResponseHeaderNotSame(string $headerName, string $expectedValue, string $message): null
+    public assertResponseHasCookie(string $name, string $path, null|string $domain, string $message): null
+    public assertResponseNotHasCookie(string $name, string $path, null|string $domain, string $message): null
+    public assertResponseCookieValueSame(string $name, string $expectedValue, string $path, null|string $domain, string $message): null
+    public assertResponseIsUnprocessable(string $message): null
+    public assertBrowserHasCookie(string $name, string $path, null|string $domain, string $message): null
+    public assertBrowserNotHasCookie(string $name, string $path, null|string $domain, string $message): null
+    public assertBrowserCookieValueSame(string $name, string $expectedValue, bool $raw, string $path, null|string $domain, string $message): null
+    public assertRequestAttributeValueSame(string $name, string $expectedValue, string $message): null
+    public assertRouteSame(string $expectedRoute, array $parameters, string $message): null
+    public assertThatForResponse(PHPUnit\Framework\Constraint\Constraint $constraint, string $message): null
+    public assertThatForClient(PHPUnit\Framework\Constraint\Constraint $constraint, string $message): null
+}
+```
+## Properties
+### class
+
+```php
+$class
+```
+
+
+
+### kernel
+
+```php
+Symfony\Component\HttpKernel\KernelInterface $kernel
+```
+
+
+
+### booted
+
+```php
+$booted
+```
+
+
+
+### backupGlobals
+
+```php
+bool $backupGlobals
+```
+
+
+
+### backupGlobalsExcludeList
+
+```php
+array&lt;int, string&gt; $backupGlobalsExcludeList
+```
+
+
+
+### backupGlobalsBlacklist
+
+```php
+array&lt;int, string&gt; $backupGlobalsBlacklist
+```
+
+
+
+
+### backupStaticAttributes
+
+```php
+bool $backupStaticAttributes
+```
+
+
+
+### backupStaticAttributesExcludeList
+
+```php
+array&lt;string, array&lt;int, string&gt;&gt; $backupStaticAttributesExcludeList
+```
+
+
+
+### backupStaticAttributesBlacklist
+
+```php
+array&lt;string, array&lt;int, string&gt;&gt; $backupStaticAttributesBlacklist
+```
+
+
+
+
+### runTestInSeparateProcess
+
+```php
+bool $runTestInSeparateProcess
+```
+
+
+
+### preserveGlobalState
+
+```php
+bool $preserveGlobalState
+```
+
+
+
+### providedTests
+
+```php
+array&lt;int, PHPUnit\Framework\ExecutionOrderDependency&gt; $providedTests
+```
+
+
+
+## Methods
+
+### tearDown
+
+
+
+```php
+protected tearDown(): null
+```
+
+#### Returns
+
+null
+
+### createClient
+
+Creates a Client.
+
+```php
+protected createClient(array $kernelOptions, array $defaultOptions): `<a href="/docs/reference/Symfony/Bundle/Test/Client">ApiPlatform\Symfony\Bundle\Test\Client</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>kernelOptions</td><td>array</td><td>Options to pass to the createKernel method</td></tr><tr><td>defaultOptions</td><td>array</td><td>Default options for the requests</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/Symfony/Bundle/Test/Client">ApiPlatform\Symfony\Bundle\Test\Client</a>`
+
+### findIriBy
+
+Finds the IRI of a resource item matching the resource class and the specified criteria.
+
+```php
+protected findIriBy(string $resourceClass, array $criteria): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>criteria</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### assertJsonContains
+
+Asserts that the retrieved JSON contains the specified subset.This method delegates to static::assertArraySubset().
+
+```php
+public assertJsonContains(array|string $subset, bool $checkForObjectIdentity, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>subset</td><td>array<br />string</td><td></td></tr><tr><td>checkForObjectIdentity</td><td>bool</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertJsonEquals
+
+Asserts that the retrieved JSON is equal to $json.Both values are canonicalized before the comparison.
+
+```php
+public assertJsonEquals(array|string $json, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>json</td><td>array<br />string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertArraySubset
+
+Asserts that an array has a specified subset.Imported from dms/phpunit-arraysubset, because the original constraint has been deprecated.
+
+```php
+public assertArraySubset(iterable $subset, iterable $array, bool $checkForObjectIdentity, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>subset</td><td>iterable</td><td></td></tr><tr><td>array</td><td>iterable</td><td></td></tr><tr><td>checkForObjectIdentity</td><td>bool</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+#### See also
+- [https://github.com/sebastianbergmann/phpunit/issues/3494](https://github.com/sebastianbergmann/phpunit/issues/3494)
+
+
+### assertMatchesJsonSchema
+
+
+
+```php
+public assertMatchesJsonSchema(object|array|string $jsonSchema, null|int $checkMode, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>jsonSchema</td><td>object<br />array<br />string</td><td></td></tr><tr><td>checkMode</td><td>int</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertMatchesResourceCollectionJsonSchema
+
+
+
+```php
+public assertMatchesResourceCollectionJsonSchema(string $resourceClass, null|string $operationName, string $format, null|array $serializationContext): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operationName</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>serializationContext</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertMatchesResourceItemJsonSchema
+
+
+
+```php
+public assertMatchesResourceItemJsonSchema(string $resourceClass, null|string $operationName, string $format, null|array $serializationContext): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operationName</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>serializationContext</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseIsSuccessful
+
+
+
+```php
+public assertResponseIsSuccessful(string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseStatusCodeSame
+
+
+
+```php
+public assertResponseStatusCodeSame(int $expectedCode, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>expectedCode</td><td>int</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseFormatSame
+
+
+
+```php
+public assertResponseFormatSame(null|string $expectedFormat, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>expectedFormat</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseRedirects
+
+
+
+```php
+public assertResponseRedirects(null|string $expectedLocation, null|int $expectedCode, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>expectedLocation</td><td>string</td><td></td></tr><tr><td>expectedCode</td><td>int</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseHasHeader
+
+
+
+```php
+public assertResponseHasHeader(string $headerName, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>headerName</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseNotHasHeader
+
+
+
+```php
+public assertResponseNotHasHeader(string $headerName, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>headerName</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseHeaderSame
+
+
+
+```php
+public assertResponseHeaderSame(string $headerName, string $expectedValue, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>headerName</td><td>string</td><td></td></tr><tr><td>expectedValue</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseHeaderNotSame
+
+
+
+```php
+public assertResponseHeaderNotSame(string $headerName, string $expectedValue, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>headerName</td><td>string</td><td></td></tr><tr><td>expectedValue</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseHasCookie
+
+
+
+```php
+public assertResponseHasCookie(string $name, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseNotHasCookie
+
+
+
+```php
+public assertResponseNotHasCookie(string $name, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseCookieValueSame
+
+
+
+```php
+public assertResponseCookieValueSame(string $name, string $expectedValue, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>expectedValue</td><td>string</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertResponseIsUnprocessable
+
+
+
+```php
+public assertResponseIsUnprocessable(string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertBrowserHasCookie
+
+
+
+```php
+public assertBrowserHasCookie(string $name, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertBrowserNotHasCookie
+
+
+
+```php
+public assertBrowserNotHasCookie(string $name, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertBrowserCookieValueSame
+
+
+
+```php
+public assertBrowserCookieValueSame(string $name, string $expectedValue, bool $raw, string $path, null|string $domain, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>expectedValue</td><td>string</td><td></td></tr><tr><td>raw</td><td>bool</td><td></td></tr><tr><td>path</td><td>string</td><td></td></tr><tr><td>domain</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertRequestAttributeValueSame
+
+
+
+```php
+public assertRequestAttributeValueSame(string $name, string $expectedValue, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>expectedValue</td><td>string</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertRouteSame
+
+
+
+```php
+public assertRouteSame(string $expectedRoute, array $parameters, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>expectedRoute</td><td>string</td><td></td></tr><tr><td>parameters</td><td>array</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertThatForResponse
+
+
+
+```php
+public assertThatForResponse(PHPUnit\Framework\Constraint\Constraint $constraint, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>constraint</td><td>PHPUnit\Framework\Constraint\Constraint</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### assertThatForClient
+
+
+
+```php
+public assertThatForClient(PHPUnit\Framework\Constraint\Constraint $constraint, string $message): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>constraint</td><td>PHPUnit\Framework\Constraint\Constraint</td><td></td></tr><tr><td>message</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

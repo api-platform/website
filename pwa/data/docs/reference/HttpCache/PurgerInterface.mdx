@@ -1,0 +1,55 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\HttpCache\PurgerInterface](/docs/reference/HttpCache/PurgerInterface)
+
+Purges resources from the cache.
+
+
+```php
+interface ApiPlatform\HttpCache\PurgerInterface
+{
+    public purge(array&lt;int, string&gt; $iris): null
+    public getResponseHeaders(array&lt;int, string&gt; $iris): array
+}
+```
+## Methods
+
+### purge
+
+Purges all responses containing the given resources from the cache.
+
+```php
+public purge(array&lt;int, string&gt; $iris): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>iris</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### getResponseHeaders
+
+Get the response header containing purged tags.
+
+```php
+public getResponseHeaders(array&lt;int, string&gt; $iris): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>iris</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

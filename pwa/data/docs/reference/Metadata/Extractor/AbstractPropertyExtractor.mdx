@@ -1,0 +1,105 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Metadata\Extractor\AbstractPropertyExtractor](/docs/reference/Metadata/Extractor/AbstractPropertyExtractor)
+
+Base file extractor.
+
+
+```php
+class ApiPlatform\Metadata\Extractor\AbstractPropertyExtractor implements `<a href="/docs/reference/Metadata/Extractor/PropertyExtractorInterface">ApiPlatform\Metadata\Extractor\PropertyExtractorInterface</a>`
+{
+    public __construct(array&lt;int, string&gt; $paths, null|Psr\Container\ContainerInterface $container)
+    public getProperties(): array
+    protected extractPath(string $path): null
+    protected resolve($value)
+}
+```
+## Properties
+### properties
+
+```php
+array $properties
+```
+
+
+
+### paths
+
+```php
+array $paths
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array&lt;int, string&gt; $paths, null|Psr\Container\ContainerInterface $container)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>paths</td><td>array&lt;int, string&gt;</td><td></td></tr><tr><td>container</td><td>Psr\Container\ContainerInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### getProperties
+
+Parses all metadata files and convert them in an array.
+
+```php
+public getProperties(): array
+```
+
+#### Returns
+
+array
+
+### extractPath
+
+Extracts metadata from a given path.
+
+```php
+protected extractPath(string $path): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>path</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### resolve
+
+Recursively replaces placeholders with the service container parameters.
+
+```php
+protected resolve($value)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td>The source which might contain "%placeholders%"</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+
+
+#### See also
+- [https://github.com/symfony/symfony/blob/6fec32c/src/Symfony/Bundle/FrameworkBundle/Routing/Router.php](https://github.com/symfony/symfony/blob/6fec32c/src/Symfony/Bundle/FrameworkBundle/Routing/Router.php)
+

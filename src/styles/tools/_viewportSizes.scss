@@ -1,3 +1,0 @@
-@function vheight($ratio) {
-   @return calc((100vh - var(--headerH)) * #{$ratio} / 100);
-}

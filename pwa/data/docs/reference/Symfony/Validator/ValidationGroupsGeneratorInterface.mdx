@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Symfony\Validator\ValidationGroupsGeneratorInterface](/docs/reference/Symfony/Validator/ValidationGroupsGeneratorInterface)
+
+Generates validation groups for an object.
+
+
+```php
+interface ApiPlatform\Symfony\Validator\ValidationGroupsGeneratorInterface
+{
+    public __invoke(object $object): Symfony\Component\Validator\Constraints\GroupSequence|array&lt;int, string&gt;
+}
+```
+## Methods
+
+### __invoke
+
+
+
+```php
+public __invoke(object $object): Symfony\Component\Validator\Constraints\GroupSequence|array&lt;int, string&gt;
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td>object</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\Validator\Constraints\GroupSequence<br />array&lt;int, string&gt;

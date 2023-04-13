@@ -1,0 +1,55 @@
+---
+type: Class
+---
+
+# [ApiPlatform\RamseyUuid\UriVariableTransformer\UuidUriVariableTransformer](/docs/reference/RamseyUuid/UriVariableTransformer/UuidUriVariableTransformer)
+
+Transforms a UUID string to an instance of Ramsey\Uuid.
+
+
+```php
+class ApiPlatform\RamseyUuid\UriVariableTransformer\UuidUriVariableTransformer implements `<a href="/docs/reference/Api/UriVariableTransformerInterface">ApiPlatform\Api\UriVariableTransformerInterface</a>`
+{
+    public transform($value, array $types, array $context): Ramsey\Uuid\UuidInterface
+    public supportsTransformation($value, array $types, array $context): bool
+}
+```
+## Methods
+
+### transform
+
+Transforms the value of a URI variable (identifier) to its type.
+
+```php
+public transform($value, array $types, array $context): Ramsey\Uuid\UuidInterface
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td></td></tr><tr><td>types</td><td>array</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Ramsey\Uuid\UuidInterface
+
+### supportsTransformation
+
+Checks whether the value of a URI variable can be transformed to its type by this transformer.
+
+```php
+public supportsTransformation($value, array $types, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td></td></tr><tr><td>types</td><td>array</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

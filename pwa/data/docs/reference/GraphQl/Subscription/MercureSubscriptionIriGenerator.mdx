@@ -1,0 +1,71 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGenerator](/docs/reference/GraphQl/Subscription/MercureSubscriptionIriGenerator)
+
+Generates Mercure-related IRIs from a subscription ID.
+
+
+```php
+class ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGenerator implements `<a href="/docs/reference/GraphQl/Subscription/MercureSubscriptionIriGeneratorInterface">ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGeneratorInterface</a>`
+{
+    public __construct(Symfony\Component\Routing\RequestContext $requestContext, Symfony\Component\Mercure\HubRegistry $registry)
+    public generateTopicIri(string $subscriptionId): string
+    public generateMercureUrl(string $subscriptionId, null|string $hub): string
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Symfony\Component\Routing\RequestContext $requestContext, Symfony\Component\Mercure\HubRegistry $registry)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>requestContext</td><td>Symfony\Component\Routing\RequestContext</td><td></td></tr><tr><td>registry</td><td>Symfony\Component\Mercure\HubRegistry</td><td></td></tr>
+</tbody>
+</table>
+
+### generateTopicIri
+
+
+
+```php
+public generateTopicIri(string $subscriptionId): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>subscriptionId</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### generateMercureUrl
+
+
+
+```php
+public generateMercureUrl(string $subscriptionId, null|string $hub): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>subscriptionId</td><td>string</td><td></td></tr><tr><td>hub</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string

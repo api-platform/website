@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Bundle\SwaggerUi\SwaggerUiAction](/docs/reference/Symfony/Bundle/SwaggerUi/SwaggerUiAction)
+
+Displays the swaggerui interface.
+
+
+```php
+class ApiPlatform\Symfony\Bundle\SwaggerUi\SwaggerUiAction
+{
+    public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|Twig\Environment $twig, Symfony\Component\Routing\Generator\UrlGeneratorInterface $urlGenerator, Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer, ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface $openApiFactory, `<a href="/docs/reference/OpenApi/Options">ApiPlatform\OpenApi\Options</a>` $openApiOptions, `<a href="/docs/reference/Symfony/Bundle/SwaggerUi/SwaggerUiContext">ApiPlatform\Symfony\Bundle\SwaggerUi\SwaggerUiContext</a>` $swaggerUiContext, array $formats, null|string $oauthClientId, null|string $oauthClientSecret, bool $oauthPkce)
+    public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|Twig\Environment $twig, Symfony\Component\Routing\Generator\UrlGeneratorInterface $urlGenerator, Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer, ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface $openApiFactory, `<a href="/docs/reference/OpenApi/Options">ApiPlatform\OpenApi\Options</a>` $openApiOptions, `<a href="/docs/reference/Symfony/Bundle/SwaggerUi/SwaggerUiContext">ApiPlatform\Symfony\Bundle\SwaggerUi\SwaggerUiContext</a>` $swaggerUiContext, array $formats, null|string $oauthClientId, null|string $oauthClientSecret, bool $oauthPkce)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceMetadataFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>twig</td><td>Twig\Environment</td><td></td></tr><tr><td>urlGenerator</td><td>Symfony\Component\Routing\Generator\UrlGeneratorInterface</td><td></td></tr><tr><td>normalizer</td><td>Symfony\Component\Serializer\Normalizer\NormalizerInterface</td><td></td></tr><tr><td>openApiFactory</td><td>ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface</td><td></td></tr><tr><td>openApiOptions</td><td>`<a href="/docs/reference/OpenApi/Options">ApiPlatform\OpenApi\Options</a>`</td><td></td></tr><tr><td>swaggerUiContext</td><td>`<a href="/docs/reference/Symfony/Bundle/SwaggerUi/SwaggerUiContext">ApiPlatform\Symfony\Bundle\SwaggerUi\SwaggerUiContext</a>`</td><td></td></tr><tr><td>formats</td><td>array</td><td></td></tr><tr><td>oauthClientId</td><td>string</td><td></td></tr><tr><td>oauthClientSecret</td><td>string</td><td></td></tr><tr><td>oauthPkce</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+
+
+```php
+public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\Response

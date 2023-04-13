@@ -1,0 +1,44 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\State\Pagination\PartialPaginatorInterface](/docs/reference/State/Pagination/PartialPaginatorInterface)
+
+Partial Paginator Interface.
+
+
+
+
+```php
+interface ApiPlatform\State\Pagination\PartialPaginatorInterface implements Traversable, Countable
+{
+    public getCurrentPage(): float
+    public getItemsPerPage(): float
+    public count()
+}
+```
+## Methods
+
+### getCurrentPage
+
+Gets the current page number.
+
+```php
+public getCurrentPage(): float
+```
+
+#### Returns
+
+float
+
+### getItemsPerPage
+
+Gets the number of items by page.
+
+```php
+public getItemsPerPage(): float
+```
+
+#### Returns
+
+float

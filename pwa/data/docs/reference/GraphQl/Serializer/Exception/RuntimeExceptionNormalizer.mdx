@@ -1,0 +1,55 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Serializer\Exception\RuntimeExceptionNormalizer](/docs/reference/GraphQl/Serializer/Exception/RuntimeExceptionNormalizer)
+
+Normalize runtime exceptions to have the right message in production mode.
+
+
+```php
+class ApiPlatform\GraphQl\Serializer\Exception\RuntimeExceptionNormalizer implements Symfony\Component\Serializer\Normalizer\NormalizerInterface
+{
+    public normalize($object, null|string $format, array $context): array
+    public supportsNormalization($data, null|string $format, array $context): bool
+}
+```
+## Methods
+
+### normalize
+
+Normalizes an object into a set of arrays/scalars.
+
+```php
+public normalize($object, null|string $format, array $context): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### supportsNormalization
+
+Checks whether the given class is supported for normalization by this normalizer.
+
+```php
+public supportsNormalization($data, null|string $format, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

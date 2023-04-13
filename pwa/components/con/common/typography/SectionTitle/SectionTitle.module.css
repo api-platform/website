@@ -1,0 +1,9 @@
+@config "../../../../../con.tailwind.config.js";
+
+.title {
+    @apply font-extralight;
+}
+
+.title strong {
+    @apply font-bold;
+}

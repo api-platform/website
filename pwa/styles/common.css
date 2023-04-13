@@ -1,0 +1,49 @@
+@config "../common.tailwind.config.js";
+@import "icons.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    strong {
+        @apply font-semibold;
+    }
+    pre > code {
+        @apply grid;
+    }
+    code a {
+        @apply !text-[#1976D2] dark:!text-[#E5C07B];
+    }
+}
+
+@layer components {
+    .link {
+        @apply font-semibold text-blue transition-all hover:brightness-125 dark:text-blue-light;
+    }
+    .dark *[data-theme="light"] {
+        @apply hidden;
+    }
+    .light *[data-theme="dark"] {
+        @apply hidden;
+    }
+    .light .dark *[data-theme="dark"] {
+        @apply block;
+    }
+}
+
+@layer utilities {
+    .clip-path-corner-left {
+        clip-path: polygon(0 0, 0 100%, 100% 100%);
+    }
+    .clip-path-corner-right {
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    }
+    .clip-path-triangle-bottom {
+        clip-path: polygon(100% 100%, 100% 0%, 50% 100%, 0% 0%, 0% 100%);
+    }
+}
+
+img {
+    @apply max-w-none;
+}

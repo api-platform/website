@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\JsonLd\Action\ContextAction](/docs/reference/JsonLd/Action/ContextAction)
+
+Generates JSON-LD contexts.
+
+
+```php
+class ApiPlatform\JsonLd\Action\ContextAction
+{
+    public __construct(ApiPlatform\JsonLd\ContextBuilderInterface $contextBuilder, ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+    public __invoke(string $shortName): array
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\JsonLd\ContextBuilderInterface $contextBuilder, ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>contextBuilder</td><td>ApiPlatform\JsonLd\ContextBuilderInterface</td><td></td></tr><tr><td>resourceNameCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface</td><td></td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+Generates a context according to the type requested.
+
+```php
+public __invoke(string $shortName): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>shortName</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

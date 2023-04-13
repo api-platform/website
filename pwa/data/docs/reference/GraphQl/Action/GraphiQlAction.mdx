@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Action\GraphiQlAction](/docs/reference/GraphQl/Action/GraphiQlAction)
+
+GraphiQL entrypoint.
+
+
+```php
+class ApiPlatform\GraphQl\Action\GraphiQlAction
+{
+    public __construct(Twig\Environment $twig, Symfony\Component\Routing\RouterInterface $router, bool $graphiqlEnabled, string $title, $assetPackage)
+    public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Twig\Environment $twig, Symfony\Component\Routing\RouterInterface $router, bool $graphiqlEnabled, string $title, $assetPackage)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>twig</td><td>Twig\Environment</td><td></td></tr><tr><td>router</td><td>Symfony\Component\Routing\RouterInterface</td><td></td></tr><tr><td>graphiqlEnabled</td><td>bool</td><td></td></tr><tr><td>title</td><td>string</td><td></td></tr><tr><td>assetPackage</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+
+
+```php
+public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\Response

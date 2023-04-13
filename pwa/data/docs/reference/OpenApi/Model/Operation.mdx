@@ -1,0 +1,519 @@
+---
+type: Class
+---
+
+# [ApiPlatform\OpenApi\Model\Operation](/docs/reference/OpenApi/Model/Operation)
+
+
+
+```php
+class ApiPlatform\OpenApi\Model\Operation
+{
+    public __construct(null|string $operationId, null|array $tags, null|array $responses, null|string $summary, null|string $description, null|`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>` $externalDocs, null|array $parameters, null|`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>` $requestBody, null|ArrayObject $callbacks, null|bool $deprecated, null|array $security, null|array $servers, array $extensionProperties)
+    public addResponse(`<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>` $response, $status): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public getOperationId(): string
+    public getTags(): array
+    public getResponses(): array
+    public getSummary(): string
+    public getDescription(): string
+    public getExternalDocs(): `<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>`
+    public getParameters(): array
+    public getRequestBody(): `<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>`
+    public getCallbacks(): ArrayObject
+    public getDeprecated(): bool
+    public getSecurity(): array
+    public getServers(): array
+    public withOperationId(string $operationId): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withTags(array $tags): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withResponses(array $responses): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withResponse(string|int $status, `<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>` $response): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withSummary(string $summary): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withDescription(string $description): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withExternalDocs(`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>` $externalDocs): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withParameters(array $parameters): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withParameter(`<a href="/docs/reference/OpenApi/Model/Parameter">ApiPlatform\OpenApi\Model\Parameter</a>` $parameter): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withRequestBody(null|`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>` $requestBody): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withCallbacks(ArrayObject $callbacks): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withDeprecated(bool $deprecated): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withSecurity(null|array $security): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withServers(null|array $servers): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+    public withExtensionProperty(string $key, $value)
+    public getExtensionProperties(): array
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(null|string $operationId, null|array $tags, null|array $responses, null|string $summary, null|string $description, null|`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>` $externalDocs, null|array $parameters, null|`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>` $requestBody, null|ArrayObject $callbacks, null|bool $deprecated, null|array $security, null|array $servers, array $extensionProperties)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operationId</td><td>string</td><td></td></tr><tr><td>tags</td><td>array</td><td></td></tr><tr><td>responses</td><td>array</td><td></td></tr><tr><td>summary</td><td>string</td><td></td></tr><tr><td>description</td><td>string</td><td></td></tr><tr><td>externalDocs</td><td>`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>`</td><td></td></tr><tr><td>parameters</td><td>array</td><td></td></tr><tr><td>requestBody</td><td>`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>`</td><td></td></tr><tr><td>callbacks</td><td>ArrayObject</td><td></td></tr><tr><td>deprecated</td><td>bool</td><td></td></tr><tr><td>security</td><td>array</td><td></td></tr><tr><td>servers</td><td>array</td><td></td></tr><tr><td>extensionProperties</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+### addResponse
+
+
+
+```php
+public addResponse(`<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>` $response, $status): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>response</td><td>`<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>`</td><td></td></tr><tr><td>status</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### getOperationId
+
+
+
+```php
+public getOperationId(): string
+```
+
+#### Returns
+
+string
+
+### getTags
+
+
+
+```php
+public getTags(): array
+```
+
+#### Returns
+
+array
+
+### getResponses
+
+
+
+```php
+public getResponses(): array
+```
+
+#### Returns
+
+array
+
+### getSummary
+
+
+
+```php
+public getSummary(): string
+```
+
+#### Returns
+
+string
+
+### getDescription
+
+
+
+```php
+public getDescription(): string
+```
+
+#### Returns
+
+string
+
+### getExternalDocs
+
+
+
+```php
+public getExternalDocs(): `<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>`
+```
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>`
+
+### getParameters
+
+
+
+```php
+public getParameters(): array
+```
+
+#### Returns
+
+array
+
+### getRequestBody
+
+
+
+```php
+public getRequestBody(): `<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>`
+```
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>`
+
+### getCallbacks
+
+
+
+```php
+public getCallbacks(): ArrayObject
+```
+
+#### Returns
+
+ArrayObject
+
+### getDeprecated
+
+
+
+```php
+public getDeprecated(): bool
+```
+
+#### Returns
+
+bool
+
+### getSecurity
+
+
+
+```php
+public getSecurity(): array
+```
+
+#### Returns
+
+array
+
+### getServers
+
+
+
+```php
+public getServers(): array
+```
+
+#### Returns
+
+array
+
+### withOperationId
+
+
+
+```php
+public withOperationId(string $operationId): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operationId</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withTags
+
+
+
+```php
+public withTags(array $tags): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>tags</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withResponses
+
+
+
+```php
+public withResponses(array $responses): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>responses</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withResponse
+
+
+
+```php
+public withResponse(string|int $status, `<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>` $response): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>status</td><td>string<br />int</td><td></td></tr><tr><td>response</td><td>`<a href="/docs/reference/OpenApi/Model/Response">ApiPlatform\OpenApi\Model\Response</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withSummary
+
+
+
+```php
+public withSummary(string $summary): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>summary</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withDescription
+
+
+
+```php
+public withDescription(string $description): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>description</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withExternalDocs
+
+
+
+```php
+public withExternalDocs(`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>` $externalDocs): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>externalDocs</td><td>`<a href="/docs/reference/OpenApi/Model/ExternalDocumentation">ApiPlatform\OpenApi\Model\ExternalDocumentation</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withParameters
+
+
+
+```php
+public withParameters(array $parameters): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>parameters</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withParameter
+
+
+
+```php
+public withParameter(`<a href="/docs/reference/OpenApi/Model/Parameter">ApiPlatform\OpenApi\Model\Parameter</a>` $parameter): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>parameter</td><td>`<a href="/docs/reference/OpenApi/Model/Parameter">ApiPlatform\OpenApi\Model\Parameter</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withRequestBody
+
+
+
+```php
+public withRequestBody(null|`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>` $requestBody): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>requestBody</td><td>`<a href="/docs/reference/OpenApi/Model/RequestBody">ApiPlatform\OpenApi\Model\RequestBody</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withCallbacks
+
+
+
+```php
+public withCallbacks(ArrayObject $callbacks): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>callbacks</td><td>ArrayObject</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withDeprecated
+
+
+
+```php
+public withDeprecated(bool $deprecated): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>deprecated</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withSecurity
+
+
+
+```php
+public withSecurity(null|array $security): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>security</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withServers
+
+
+
+```php
+public withServers(null|array $servers): `<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>servers</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`
+
+### withExtensionProperty
+
+
+
+```php
+public withExtensionProperty(string $key, $value)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>key</td><td>string</td><td></td></tr><tr><td>value</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+
+
+### getExtensionProperties
+
+
+
+```php
+public getExtensionProperties(): array
+```
+
+#### Returns
+
+array

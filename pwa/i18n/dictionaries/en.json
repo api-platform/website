@@ -1,0 +1,202 @@
+{
+  "2021": {
+    "baseline": "The first international conference dedicated to API Platform and its ecosystem",
+    "covid": {
+      "description_1": "A proof of COVID-19 vaccination {{pass_link}} will be required and if you don’t have one, you must provide a negative COVID-19 viral test taken within two calendar days",
+      "description_2": "COVID viral (PCR) testing is available at {{testing_link}}, usually by appointment. Many pharmacies can do serologic (antigen/rapid) tests.",
+      "measures": {
+        "capacities": "The rooms capacities will be <strong>reduced</strong>",
+        "disinfectant": "<strong>Disinfectants</strong> will be provided throughout the conference spaces.",
+        "mask": "Wearing a <strong>mask</strong> will be mandatory.",
+        "mask2": "Face masks will be given out.",
+        "seats": "Only <strong>one in two seats</strong> will be available",
+        "ventilation": "The rooms will be naturally <strong>ventilated</strong>"
+      },
+      "other_informations": "Other sanitary informations:",
+      "pass_link": "(Pass sanitaire)",
+      "subtitle": "In order to let our attendees enjoy the on-site conference in the safest conditions, we follow the sanitary protocols recommended by official health organizations.",
+      "testing_link": "many laboratories and testing centers",
+      "title": "<strong>Covid-19</strong> sanitary measures",
+      "update_measures": "We will update these recommendations as necessary."
+    },
+    "date": "September 10, 2021 - Lille & online",
+    "our_speakers": {
+      "subtitle": "Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking tracks."
+    },
+    "venue": {
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch the English-speaking track online."
+    }
+  },
+  "2022": {
+    "baseline": "The only event dedicated to API Platform and its ecosystem",
+    "date": "September 15-16, 2022 - Lille & online",
+    "our_speakers": {
+      "subtitle": "Discover our amazing international speakers!"
+    },
+    "venue": {
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch both tracks online."
+    }
+  },
+  "2023": {
+    "baseline": "Meet the best API experts at the only event dedicated to the API Platform framework and its ecosystem.",
+    "date": "September 21-22, 2023 - Lille & online",
+    "our_speakers": {
+      "speaker": { "coming_soon": "coming soon" },
+      "subtitle": "Our selected speakers will be revealed in {{edition}}. Want to be part of them? {{link}}",
+      "subtitle_link": "Contact us !",
+      "title": "Our <strong>speakers</strong>"
+    },
+    "venue": {
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch both tracks online."
+    }
+  },
+  "an_event_by": "an event by",
+  "back_to_current_edition": "< Back to current edition",
+  "become_speaker": "Become speaker",
+  "become_sponsor": "Become sponsor",
+  "buy_ticket": "Buy ticket",
+  "buy_tickets": "Buy tickets",
+  "coming_soon": "Coming soon",
+  "conferences": {
+    "by_speaker": "by {{speaker}}",
+    "see_speaker_details": "See speaker's details",
+    "track": "Track {{track}}"
+  },
+  "contact_us": "Contact us!",
+  "days_count": "{{count}} day",
+  "days_count_plural": "{{count}} days",
+  "editions": {
+    "subtitle": "Re-discover our {{count}} previous editions",
+    "title": "What happened <strong>last few years</strong>?"
+  },
+  "footer": {
+    "follow_us": "Follow us",
+    "legal": {
+      "links": {
+        "code_of_conduct": "Code of conduct",
+        "faq": "FAQ",
+        "transparency": "Transparency"
+      },
+      "title": "Legal"
+    },
+    "previous_edition": {
+      "links": {
+        "archive": "{{previous_edition}} archive",
+        "review": "{{previous_edition}} review"
+      },
+      "title": "Previous edition"
+    },
+    "the_event": {
+      "links": {
+        "current_edition": "Current edition",
+        "pricing": "Pricing",
+        "schedule": "Schedule",
+        "speakers": "Speakers",
+        "sponsorship": "Sponsorship",
+        "venue": "Venue"
+      },
+      "title": "The event"
+    }
+  },
+  "have_questions": "Questions ?",
+  "hour_count": "{{count}} hour",
+  "hour_count_plural": "{{count}} hours",
+  "last_edition": {
+    "see_more_pics": "See more pics on Flickr",
+    "subtitle": "Take a look at the {{edition}} edition and find more information on {{link}}",
+    "subtitle_link": "our review",
+    "title": "What happened <strong>last year</strong>"
+  },
+  "minuts_count": "{{count}} min",
+  "missing_conferences": {
+    "subtitle": "Watch the conference recordings on Youtube!",
+    "title": "<strong>Not registered in {{edition}}?</strong>",
+    "watch_the_conferences": "Watch the conferences"
+  },
+  "nav": {
+    "backlink": "Back to current edition",
+    "buy_tickets": "Buy tickets",
+    "links": {
+      "home": "Home",
+      "previous_editions": "Previous editions",
+      "pricing": "Pricing",
+      "review": "Review",
+      "schedule": "Schedule",
+      "speakers": "Speakers",
+      "sponsorship": "Sponsorship",
+      "venue": "Venue"
+    }
+  },
+  "or_follow_us": "or follow us on social networks",
+  "partners": { "title": "Our <strong>partners</strong>" },
+  "pricing": {
+    "certificate_needed": "certificate will be needed",
+    "conference": {
+      "offers": {
+        "on_site": "2 days on-site event",
+        "on_site_early": "2 days on-site event <br>(Early bird)</br>",
+        "online_tickets": "Online ticket"
+      },
+      "subtitle": "French and english-speaking talks"
+    },
+    "free_ticket": "Your ticket is <strong>free*</strong>",
+    "student": "Student or unemployed developer?",
+    "title": "<strong>Pricing</strong>",
+    "workshop": {
+      "offers": {
+        "full_package": "Full package: 2 workshops and 2-days conference",
+        "one_day": "1-day workshop",
+        "two_days": "2-days workshops"
+      },
+      "subtitle": "Learn the best of API Platform"
+    }
+  },
+  "review": { "button": "Discover our review" },
+  "schedule": { "title": "Discover the <strong>schedule</strong" },
+  "see_details": "See details",
+  "speakers": {
+    "see_all": "See all our speakers",
+    "speaker_schedule": "{{speaker}}'s schedule",
+    "subtitle": "Join international speakers sharing their knowledge",
+    "title": "Meet our <strong>speakers</strong>"
+  },
+  "sponsorship": {
+    "looking_sponsor": {
+      "looking_for": "We're looking for",
+      "partners": "partners!",
+      "point_1": "Market your developer products and platforms",
+      "point_2": "Reach many more developers with online coverage",
+      "point_3": "Improve your brand by supporting the API Platform",
+      "point_4": "Hire multi-skilled developers",
+      "why_you_should_partner": "Why you should partner?"
+    },
+    "they_trust_us": "They trusted us in {{year}}",
+    "title": "<strong>Sponsorship</strong>"
+  },
+  "venue": {
+    "by_transport": "by {{transport}}",
+    "from_origin": "from {{origin}}",
+    "origins": {
+      "amsterdam": "Amsterdam",
+      "barcelona": "Barcelona",
+      "beijing": "Beijing",
+      "berlin": "Berlin",
+      "brussels": "Brussels",
+      "koln": "Köln",
+      "liege": "Liège",
+      "london": "London",
+      "new-york": "New York",
+      "paris": "Paris",
+      "roma": "Roma"
+    },
+    "place": "Be part of this exceptional edition located at less than 1 hour from Paris and Brussels, 1h30 from London.<br/>Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France.",
+    "tip": "Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.",
+    "title": "The <strong>venue</strong>",
+    "transports": {
+      "bike": "bike",
+      "car": "car",
+      "plane": "plane",
+      "train": "train"
+    }
+  }
+}

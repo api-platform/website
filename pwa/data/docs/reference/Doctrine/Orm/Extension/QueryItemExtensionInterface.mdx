@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Doctrine\Orm\Extension\QueryItemExtensionInterface](/docs/reference/Doctrine/Orm/Extension/QueryItemExtensionInterface)
+
+Interface of Doctrine ORM query extensions for item queries.
+
+
+```php
+interface ApiPlatform\Doctrine\Orm\Extension\QueryItemExtensionInterface
+{
+    public applyToItem(Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+}
+```
+## Methods
+
+### applyToItem
+
+
+
+```php
+public applyToItem(Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, array $identifiers, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>queryBuilder</td><td>Doctrine\ORM\QueryBuilder</td><td></td></tr><tr><td>queryNameGenerator</td><td>ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>identifiers</td><td>array</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

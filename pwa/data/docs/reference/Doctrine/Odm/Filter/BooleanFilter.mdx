@@ -1,0 +1,411 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Doctrine\Odm\Filter\BooleanFilter](/docs/reference/Doctrine/Odm/Filter/BooleanFilter)
+
+The boolean filter allows you to search on boolean fields and values.
+
+Syntax: `?property=<true|false|1|0>`.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Doctrine\Odm\Filter\BooleanFilter;
+
+#[ApiResource]
+#[ApiFilter(BooleanFilter::class, properties: ['published'])]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# config/services.yaml
+services:
+    book.boolean_filter:
+        parent: 'api_platform.doctrine.odm.boolean_filter'
+        arguments: [ { published: ~ } ]
+        tags:  [ 'api_platform.filter' ]
+        # The following are mandatory only if a _defaults section is defined with inverted values.
+        # You may want to isolate filters in a dedicated file to avoid adding the following lines (by adding them in the defaults section)
+        autowire: false
+        autoconfigure: false
+        public: false
+
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - operations:
+              ApiPlatform\Metadata\GetCollection:
+                  filters: ['book.boolean_filter']
+```
+
+```xml
+<!-- api/config/services.xml -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<container
+        xmlns="http://symfony.com/schema/dic/services"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="book.boolean_filter" parent="api_platform.doctrine.odm.boolean_filter">
+            <argument type="collection">
+                <argument key="published"></argument>
+            </argument>
+            <tag name="api_platform.filter"/>
+        </service>
+    </services>
+</container>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book">
+        <operations>
+            <operation class="ApiPlatform\Metadata\GetCollection">
+                <filters>
+                    <filter>book.boolean_filter</filter>
+                </filters>
+            </operation>
+        </operations>
+    </resource>
+</resources>
+```
+</CodeSelector>
+
+Given that the collection endpoint is `/books`, you can filter books with the following query: `/books?published=true`.
+
+
+```php
+class ApiPlatform\Doctrine\Odm\Filter\BooleanFilter extends ApiPlatform\Doctrine\Odm\Filter\AbstractFilter implements `<a href="/docs/reference/Metadata/FilterInterface">ApiPlatform\Metadata\FilterInterface</a>`, `<a href="/docs/reference/Doctrine/Odm/Filter/FilterInterface">ApiPlatform\Doctrine\Odm\Filter\FilterInterface</a>`
+{
+    protected filterProperty(string $property, $value, Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+    public __construct(Doctrine\Persistence\ManagerRegistry $managerRegistry, null|Psr\Log\LoggerInterface $logger, null|array $properties, null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+    public apply(Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+    protected getManagerRegistry(): Doctrine\Persistence\ManagerRegistry
+    protected getProperties(): array
+    protected getLogger(): Psr\Log\LoggerInterface
+    protected isPropertyEnabled(string $property, string $resourceClass): bool
+    protected denormalizePropertyName(string|int $property): string
+    protected normalizePropertyName(string $property): string
+    protected splitPropertyParts(string $property, string $resourceClass): array
+    protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+    protected addLookupsForNestedProperty(string $property, Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass): array
+    protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+    protected isPropertyNested(string $property, string $resourceClass): bool
+    protected isPropertyEmbedded(string $property, string $resourceClass): bool
+    protected getDoctrineFieldType(string $property, string $resourceClass): string
+    protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+    public getDescription(string $resourceClass): array
+    protected isBooleanField(string $property, string $resourceClass): bool
+}
+```
+## Properties
+### logger
+
+```php
+Psr\Log\LoggerInterface $logger
+```
+
+
+
+### managerRegistry
+
+```php
+Doctrine\Persistence\ManagerRegistry $managerRegistry
+```
+
+
+
+### properties
+
+```php
+array $properties
+```
+
+
+
+### nameConverter
+
+```php
+Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter
+```
+
+
+
+## Methods
+
+### filterProperty
+
+Passes a property through the filter.
+
+```php
+protected filterProperty(string $property, $value, Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>value</td><td></td><td></td></tr><tr><td>aggregationBuilder</td><td>Doctrine\ODM\MongoDB\Aggregation\Builder</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### splitPropertyParts
+
+Splits the given property into parts.Returns an array with the following keys:
+  - associations: array of associations according to nesting order
+  - field: string holding the actual field (leaf node)
+
+```php
+protected splitPropertyParts(string $property, string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getClassMetadata
+
+Gets class metadata for the given resource.
+
+```php
+protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata
+
+### isPropertyMapped
+
+Determines whether the given property is mapped.
+
+```php
+protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>allowAssociation</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyNested
+
+Determines whether the given property is nested.
+
+```php
+protected isPropertyNested(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyEmbedded
+
+Determines whether the given property is embedded.
+
+```php
+protected isPropertyEmbedded(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### getDoctrineFieldType
+
+Gets the Doctrine Type of a given property/resourceClass.
+
+```php
+protected getDoctrineFieldType(string $property, string $resourceClass): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getNestedMetadata
+
+Gets nested class metadata for the given resource.
+
+```php
+protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>associations</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata
+
+### getDescription
+
+Gets the description of this filter for the given resource.Returns an array with the filter parameter names as keys and array with the following data as values:
+  - property: the property where the filter is applied
+  - type: the type of the filter
+  - required: if this filter is required
+  - strategy (optional): the used strategy
+  - is_collection (optional): if this filter is for collection
+  - swagger (optional): additional parameters for the path operation,
+    e.g. 'swagger' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'type' => 'integer',
+    ]
+  - openapi (optional): additional parameters for the path operation in the version 3 spec,
+    e.g. 'openapi' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'schema' => [
+         'type' => 'integer',
+      ]
+    ]
+  - schema (optional): schema definition,
+    e.g. 'schema' => [
+      'type' => 'string',
+      'enum' => ['value_1', 'value_2'],
+    ]
+The description can contain additional data specific to a filter.Gets the description of this filter for the given resource.Returns an array with the filter parameter names as keys and array with the following data as values:
+  - property: the property where the filter is applied
+  - type: the type of the filter
+  - required: if this filter is required
+  - strategy (optional): the used strategy
+  - is_collection (optional): if this filter is for collection
+  - swagger (optional): additional parameters for the path operation,
+    e.g. 'swagger' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'type' => 'integer',
+    ]
+  - openapi (optional): additional parameters for the path operation in the version 3 spec,
+    e.g. 'openapi' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'schema' => [
+         'type' => 'integer',
+      ]
+    ]
+  - schema (optional): schema definition,
+    e.g. 'schema' => [
+      'type' => 'string',
+      'enum' => ['value_1', 'value_2'],
+    ]
+The description can contain additional data specific to a filter.Gets the description of this filter for the given resource.Returns an array with the filter parameter names as keys and array with the following data as values:
+  - property: the property where the filter is applied
+  - type: the type of the filter
+  - required: if this filter is required
+  - strategy (optional): the used strategy
+  - is_collection (optional): if this filter is for collection
+  - swagger (optional): additional parameters for the path operation,
+    e.g. 'swagger' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'type' => 'integer',
+    ]
+  - openapi (optional): additional parameters for the path operation in the version 3 spec,
+    e.g. 'openapi' => [
+      'description' => 'My Description',
+      'name' => 'My Name',
+      'schema' => [
+         'type' => 'integer',
+      ]
+    ]
+  - schema (optional): schema definition,
+    e.g. 'schema' => [
+      'type' => 'string',
+      'enum' => ['value_1', 'value_2'],
+    ]
+The description can contain additional data specific to a filter.
+
+```php
+public getDescription(string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### isBooleanField
+
+Determines whether the given property refers to a boolean field.
+
+```php
+protected isBooleanField(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

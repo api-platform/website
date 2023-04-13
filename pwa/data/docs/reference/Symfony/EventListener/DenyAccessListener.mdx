@@ -1,0 +1,91 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\EventListener\DenyAccessListener](/docs/reference/Symfony/EventListener/DenyAccessListener)
+
+Denies access to the current resource if the logged user doesn't have sufficient permissions.
+
+
+```php
+class ApiPlatform\Symfony\EventListener\DenyAccessListener
+{
+    public __construct(null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, null|ApiPlatform\Symfony\Security\ResourceAccessCheckerInterface $resourceAccessChecker)
+    public onSecurity(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+    public onSecurityPostDenormalize(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+    public onSecurityPostValidation(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, null|ApiPlatform\Symfony\Security\ResourceAccessCheckerInterface $resourceAccessChecker)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>resourceAccessChecker</td><td>ApiPlatform\Symfony\Security\ResourceAccessCheckerInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### onSecurity
+
+
+
+```php
+public onSecurity(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\RequestEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### onSecurityPostDenormalize
+
+
+
+```php
+public onSecurityPostDenormalize(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\RequestEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### onSecurityPostValidation
+
+
+
+```php
+public onSecurityPostValidation(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\ViewEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

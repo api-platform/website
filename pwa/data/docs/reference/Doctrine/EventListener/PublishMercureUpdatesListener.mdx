@@ -1,0 +1,67 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Doctrine\EventListener\PublishMercureUpdatesListener](/docs/reference/Doctrine/EventListener/PublishMercureUpdatesListener)
+
+Publishes resources updates to the Mercure hub.
+
+
+```php
+class ApiPlatform\Doctrine\EventListener\PublishMercureUpdatesListener
+{
+    public __construct(ApiPlatform\Api\ResourceClassResolverInterface $resourceClassResolver, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, Symfony\Component\Serializer\SerializerInterface $serializer, array&lt;string, array&lt;int, string&gt;
+string&gt; $formats, null|Symfony\Component\Messenger\MessageBusInterface $messageBus, null|Symfony\Component\Mercure\HubRegistry $hubRegistry, null|ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface $graphQlSubscriptionManager, null|ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGeneratorInterface $graphQlMercureSubscriptionIriGenerator, null|Symfony\Component\ExpressionLanguage\ExpressionLanguage $expressionLanguage, bool $includeType)
+    public onFlush(Doctrine\Common\EventArgs $eventArgs): null
+    public postFlush(): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Api\ResourceClassResolverInterface $resourceClassResolver, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, Symfony\Component\Serializer\SerializerInterface $serializer, array&lt;string, array&lt;int, string&gt;
+string&gt; $formats, null|Symfony\Component\Messenger\MessageBusInterface $messageBus, null|Symfony\Component\Mercure\HubRegistry $hubRegistry, null|ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface $graphQlSubscriptionManager, null|ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGeneratorInterface $graphQlMercureSubscriptionIriGenerator, null|Symfony\Component\ExpressionLanguage\ExpressionLanguage $expressionLanguage, bool $includeType)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClassResolver</td><td>ApiPlatform\Api\ResourceClassResolverInterface</td><td></td></tr><tr><td>iriConverter</td><td>ApiPlatform\Api\IriConverterInterface</td><td></td></tr><tr><td>resourceMetadataFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>serializer</td><td>Symfony\Component\Serializer\SerializerInterface</td><td></td></tr><tr><td>formats</td><td>array&lt;string, array&lt;int, string&gt;
+string&gt;</td><td></td></tr><tr><td>messageBus</td><td>Symfony\Component\Messenger\MessageBusInterface</td><td></td></tr><tr><td>hubRegistry</td><td>Symfony\Component\Mercure\HubRegistry</td><td></td></tr><tr><td>graphQlSubscriptionManager</td><td>ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface</td><td></td></tr><tr><td>graphQlMercureSubscriptionIriGenerator</td><td>ApiPlatform\GraphQl\Subscription\MercureSubscriptionIriGeneratorInterface</td><td></td></tr><tr><td>expressionLanguage</td><td>Symfony\Component\ExpressionLanguage\ExpressionLanguage</td><td></td></tr><tr><td>includeType</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+### onFlush
+
+Collects created, updated and deleted objects.
+
+```php
+public onFlush(Doctrine\Common\EventArgs $eventArgs): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>eventArgs</td><td>Doctrine\Common\EventArgs</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### postFlush
+
+Publishes updates for changes collected on flush, and resets the store.
+
+```php
+public postFlush(): null
+```
+
+#### Returns
+
+null

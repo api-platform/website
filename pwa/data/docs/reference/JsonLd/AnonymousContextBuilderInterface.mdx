@@ -1,0 +1,40 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\JsonLd\AnonymousContextBuilderInterface](/docs/reference/JsonLd/AnonymousContextBuilderInterface)
+
+JSON-LD context builder with Input Output DTO support interface.
+
+
+```php
+interface ApiPlatform\JsonLd\AnonymousContextBuilderInterface implements `<a href="/docs/reference/JsonLd/ContextBuilderInterface">ApiPlatform\JsonLd\ContextBuilderInterface</a>`
+{
+    public getAnonymousResourceContext(object $object, array $context, int $referenceType): array
+    public getBaseContext(int $referenceType): array
+    public getEntrypointContext(int $referenceType): array
+    public getResourceContext(string $resourceClass, int $referenceType): array
+    public getResourceContextUri(string $resourceClass, int $referenceType): string
+}
+```
+## Methods
+
+### getAnonymousResourceContext
+
+Creates a JSON-LD context based on the given object.
+Usually this is used with an Input or Output DTO object.
+
+```php
+public getAnonymousResourceContext(object $object, array $context, int $referenceType): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td>object</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr><tr><td>referenceType</td><td>int</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

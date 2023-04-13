@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\GraphQl\Serializer\SerializerContextBuilderInterface](/docs/reference/GraphQl/Serializer/SerializerContextBuilderInterface)
+
+Builds the context used by the Symfony Serializer.
+
+
+```php
+interface ApiPlatform\GraphQl\Serializer\SerializerContextBuilderInterface
+{
+    public create(string $resourceClass, `<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation, array $resolverContext, bool $normalization): array
+}
+```
+## Methods
+
+### create
+
+
+
+```php
+public create(string $resourceClass, `<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation, array $resolverContext, bool $normalization): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>`</td><td></td></tr><tr><td>resolverContext</td><td>array</td><td></td></tr><tr><td>normalization</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

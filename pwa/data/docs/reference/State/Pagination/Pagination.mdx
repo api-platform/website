@@ -1,0 +1,207 @@
+---
+type: Class
+---
+
+# [ApiPlatform\State\Pagination\Pagination](/docs/reference/State/Pagination/Pagination)
+
+Pagination configuration.
+
+
+```php
+class ApiPlatform\State\Pagination\Pagination
+{
+    public __construct(array $options, array $graphQlOptions)
+    public getPage(array $context): int
+    public getOffset(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): int
+    public getLimit(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): int
+    public getPagination(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): array
+    public isEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+    public isGraphQlEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+    public isPartialEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+    public getOptions(): array
+    public getGraphQlPaginationType(`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation): string
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array $options, array $graphQlOptions)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>options</td><td>array</td><td></td></tr><tr><td>graphQlOptions</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+### getPage
+
+Gets the current page.
+
+```php
+public getPage(array $context): int
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+int
+
+### getOffset
+
+Gets the current offset.
+
+```php
+public getOffset(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): int
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+int
+
+### getLimit
+
+Gets the current limit.
+
+```php
+public getLimit(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): int
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+int
+
+### getPagination
+
+Gets info about the pagination.Returns an array with the following info as values:
+  - the page <a href="/docs/reference/State/Pagination/Pagination#getPage">getPage</a>
+  - the offset <a href="/docs/reference/State/Pagination/Pagination#getOffset">getOffset</a>
+  - the limit <a href="/docs/reference/State/Pagination/Pagination#getLimit">getLimit</a>
+
+```php
+public getPagination(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### isEnabled
+
+Is the pagination enabled?
+
+```php
+public isEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isGraphQlEnabled
+
+Is the pagination enabled for GraphQL?
+
+```php
+public isGraphQlEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPartialEnabled
+
+Is the partial pagination enabled?
+
+```php
+public isPartialEnabled(null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### getOptions
+
+
+
+```php
+public getOptions(): array
+```
+
+#### Returns
+
+array
+
+### getGraphQlPaginationType
+
+
+
+```php
+public getGraphQlPaginationType(`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string

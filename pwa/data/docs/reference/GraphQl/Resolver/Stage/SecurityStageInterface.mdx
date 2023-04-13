@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\GraphQl\Resolver\Stage\SecurityStageInterface](/docs/reference/GraphQl/Resolver/Stage/SecurityStageInterface)
+
+Security stage of GraphQL resolvers.
+
+
+```php
+interface ApiPlatform\GraphQl\Resolver\Stage\SecurityStageInterface
+{
+    public __invoke(string $resourceClass, `<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation, array $context): null
+}
+```
+## Methods
+
+### __invoke
+
+
+
+```php
+public __invoke(string $resourceClass, `<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/GraphQl/Operation">ApiPlatform\Metadata\GraphQl\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

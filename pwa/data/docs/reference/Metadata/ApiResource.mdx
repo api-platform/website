@@ -1,0 +1,1385 @@
+---
+type: Attribute
+---
+
+# [ApiPlatform\Metadata\ApiResource](/docs/reference/Metadata/ApiResource)
+
+
+<table>
+    <thead><tr><td>Option</td><td>Types</td><td>Description</td></tr></thead>
+    <tbody>
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#uriTemplate">uriTemplate</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#shortName">shortName</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#description">description</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#types">types</a>`</td><td>array<br />string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#operations">operations</a>`</td><td>array&lt;int, `<a href="/docs/reference/Metadata/HttpOperation">ApiPlatform\Metadata\HttpOperation</a>`&gt;<br />array&lt;string, `<a href="/docs/reference/Metadata/HttpOperation">ApiPlatform\Metadata\HttpOperation</a>`&gt;<br />`<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`</td><td>Operations is a list of HttpOperation</td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#formats">formats</a>`</td><td>array<br />string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#inputFormats">inputFormats</a>`</td><td>array<br />string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#outputFormats">outputFormats</a>`</td><td>array<br />string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#uriVariables">uriVariables</a>`</td><td>array&lt;string, `<a href="/docs/reference/Metadata/Link">ApiPlatform\Metadata\Link</a>`&gt;<br />array&lt;string, array&lt;int&gt;&gt;<br />array&lt;int, string&gt;<br />string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#routePrefix">routePrefix</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#defaults">defaults</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#requirements">requirements</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#options">options</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#stateless">stateless</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#sunset">sunset</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#acceptPatch">acceptPatch</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#status">status</a>`</td><td>int</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#host">host</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#schemes">schemes</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#condition">condition</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#controller">controller</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#class">class</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#urlGenerationStrategy">urlGenerationStrategy</a>`</td><td>int</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#deprecationReason">deprecationReason</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#cacheHeaders">cacheHeaders</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#normalizationContext">normalizationContext</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#denormalizationContext">denormalizationContext</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#collectDenormalizationErrors">collectDenormalizationErrors</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#hydraContext">hydraContext</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#openapiContext">openapiContext</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#openapi">openapi</a>`</td><td>`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`<br />bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#validationContext">validationContext</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#filters">filters</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#elasticsearch">elasticsearch</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#mercure">mercure</a>`</td><td></td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#messenger">messenger</a>`</td><td></td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#input">input</a>`</td><td></td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#output">output</a>`</td><td></td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#order">order</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#fetchPartial">fetchPartial</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#forceEager">forceEager</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationClientEnabled">paginationClientEnabled</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationClientItemsPerPage">paginationClientItemsPerPage</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationClientPartial">paginationClientPartial</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationViaCursor">paginationViaCursor</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationEnabled">paginationEnabled</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationFetchJoinCollection">paginationFetchJoinCollection</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationUseOutputWalkers">paginationUseOutputWalkers</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationItemsPerPage">paginationItemsPerPage</a>`</td><td>int</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationMaximumItemsPerPage">paginationMaximumItemsPerPage</a>`</td><td>int</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationPartial">paginationPartial</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#paginationType">paginationType</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#security">security</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#securityMessage">securityMessage</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#securityPostDenormalize">securityPostDenormalize</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#securityPostDenormalizeMessage">securityPostDenormalizeMessage</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#securityPostValidation">securityPostValidation</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#securityPostValidationMessage">securityPostValidationMessage</a>`</td><td>string</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#compositeIdentifier">compositeIdentifier</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#exceptionToStatus">exceptionToStatus</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#queryParameterValidationEnabled">queryParameterValidationEnabled</a>`</td><td>bool</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#graphQlOperations">graphQlOperations</a>`</td><td>array</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#provider">provider</a>`</td><td>string<br />callable</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#processor">processor</a>`</td><td>string<br />callable</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#stateOptions">stateOptions</a>`</td><td>ApiPlatform\State\OptionsInterface</td><td></td></tr>
+
+<tr><td>`<a href="/docs/reference/Metadata/ApiResource#extraProperties">extraProperties</a>`</td><td>array</td><td></td></tr>
+
+</tbody></table>
+
+
+## Description
+
+
+Resource metadata attribute.
+
+The API Resource attribute declares the behaviors attached to a Resource inside API Platform.
+This class is immutable, and if you set a value yourself, API Platform will not override the value.
+The API Resource helps sharing options with operations.
+
+Read more about how metadata works [here](/docs/in-depth/metadata).
+
+
+
+## Options
+
+
+### operations
+
+```php
+`<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>` $operations
+```
+
+
+
+### provider
+
+```php
+string|callable $provider
+```
+
+
+
+### processor
+
+```php
+string|callable $processor
+```
+
+
+
+### uriTemplate
+
+```php
+string $uriTemplate
+```
+
+The URI template represents your resource IRI with optional variables. It follows [RFC 6570](https://www.rfc-editor.org/rfc/rfc6570.html).
+API Platform generates this URL for you if you leave this empty.
+
+
+### shortName
+
+```php
+string $shortName
+```
+
+The short name of your resource is a unique name that identifies your resource.
+It is used within the documentation and for url generation if the `uriTemplate` is not filled. By default, this will be the name of your PHP class.
+
+
+### description
+
+```php
+string $description
+```
+
+A description for this resource that will show on documentations.
+
+
+### types
+
+```php
+array|string $types
+```
+
+The RDF types of this resource.
+An RDF type is usually a URI referencing how your resource is structured for the outside world. Values can be a string `https://schema.org/Book`
+or an array of string `['https://schema.org/Flight', 'https://schema.org/BusTrip']`
+
+
+### formats
+
+```php
+array|string $formats
+```
+
+The `formats` option allows you to customize content negotiation. By default API Platform supports JsonLd, Hal, JsonAPI.
+For other formats we use the Symfony Serializer.
+
+```php
+#[ApiResource(
+  formats: [
+      'jsonld' => ['application/ld+json'],
+      'jsonhal' => ['application/hal+json'],
+      'jsonapi' => ['application/vnd.api+json'],
+      'json' =>    ['application/json'],
+      'xml' =>     ['application/xml', 'text/xml'],
+      'yaml' =>    ['application/x-yaml'],
+      'csv' =>     ['text/csv'],
+      'html' =>    ['text/html'],
+      'myformat' =>['application/vnd.myformat'],
+  ]
+)]
+```
+
+Learn more about custom formats in the [dedicated guide](/guides/custom-formats).
+
+
+### inputFormats
+
+```php
+array|string $inputFormats
+```
+
+The `inputFormats` option allows you to customize content negotiation for HTTP bodies:
+
+```php
+ #[ApiResource(formats: ['jsonld', 'csv' => ['text/csv']], operations: [
+     new Patch(inputFormats: ['json' => ['application/merge-patch+json']]),
+     new GetCollection(),
+     new Post(),
+ ])]
+```
+
+
+### outputFormats
+
+```php
+array|string $outputFormats
+```
+
+The `outputFormats` option allows you to customize content negotiation for HTTP responses.
+
+
+### uriVariables
+
+```php
+$uriVariables
+```
+
+The `uriVariables` configuration allows to configure to what each URI Variable.
+With [simple string expansion](https://www.rfc-editor.org/rfc/rfc6570.html#section-3.2.2), we read the input
+value and match this to the given `Link`. Note that this setting is usually used on an operation directly:
+
+```php
+  #[ApiResource(
+      uriTemplate: '/companies/{companyId}/employees/{id}',
+      uriVariables: [
+          'companyId' => new Link(fromClass: Company::class, toProperty: 'company']),
+          'id' => new Link(fromClass: Employee::class)
+      ],
+      operations: [new Get()]
+  )]
+```
+
+For more examples, read our guide on [subresources](/guides/subresources).
+
+
+### routePrefix
+
+```php
+string $routePrefix
+```
+
+The `routePrefix` allows you to configure a prefix that will apply to this resource.
+
+```php
+  #[ApiResource(
+      routePrefix: '/books',
+      operations: [new Get(uriTemplate: '/{id}')]
+  )]
+```
+
+This resource will be accessible through `/books/{id}`.
+
+
+### defaults
+
+```php
+array $defaults
+```
+
+The `defaults` option adds up to [Symfony's route defaults](https://github.com/symfony/routing/blob/8f068b792e515b25e26855ac8dc7fe800399f3e5/Route.php#L41). You can override [API Platform's defaults](https://github.com/api-platform/core/blob/6abd0fe0a69d4842eb6d5c31ef2bd6dce0e1d372/src/Symfony/Routing/ApiLoader.php#L87) if needed.
+
+
+### requirements
+
+```php
+array $requirements
+```
+
+The `requirements` option configures the Symfony's Route requirements.
+
+
+### options
+
+```php
+array $options
+```
+
+The `options` option configures the Symfony's Route options.
+
+
+### stateless
+
+```php
+bool $stateless
+```
+
+The `stateless` option configures the Symfony's Route stateless option.
+
+
+### sunset
+
+```php
+string $sunset
+```
+
+The `sunset` option indicates when a deprecated operation will be removed.
+
+<CodeSelector>
+
+```php
+<?php
+// api/src/Entity/Parchment.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(deprecationReason: 'Create a Book instead', sunset: '01/01/2020')]
+class Parchment
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Parchment:
+        - deprecationReason: 'Create a Book instead'
+          sunset: '01/01/2020'
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Parchment" deprecationReason="Create a Book instead" sunset="01/01/2020" />
+</resources>
+```
+
+</CodeSelector>
+
+
+### acceptPatch
+
+```php
+string $acceptPatch
+```
+
+
+
+### status
+
+```php
+int $status
+```
+
+
+
+### host
+
+```php
+string $host
+```
+
+
+
+### schemes
+
+```php
+array $schemes
+```
+
+
+
+### condition
+
+```php
+string $condition
+```
+
+
+
+### controller
+
+```php
+string $controller
+```
+
+
+
+### class
+
+```php
+string $class
+```
+
+
+
+### urlGenerationStrategy
+
+```php
+int $urlGenerationStrategy
+```
+
+The `urlGenerationStrategy` option configures the url generation strategy.
+
+See: [UrlGeneratorInterface::class](/reference/Api/UrlGeneratorInterface)
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Api\UrlGeneratorInterface;
+
+#[ApiResource(urlGenerationStrategy: UrlGeneratorInterface::ABS_URL)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+App\Entity\Book:
+    urlGenerationStrategy: !php/const ApiPlatform\Api\UrlGeneratorInterface::ABS_URL
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" urlGenerationStrategy="0" />
+</resources>
+```
+</CodeSelector>
+
+
+### deprecationReason
+
+```php
+string $deprecationReason
+```
+
+The `deprecationReason` option deprecates the current resource with a deprecation message.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Parchment.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(deprecationReason: 'Create a Book instead')]
+class Parchment
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Parchment:
+        - deprecationReason: 'Create a Book instead'
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Parchment" deprecationReason="Create a Book instead" />
+</resources>
+```
+</CodeSelector>
+
+- With JSON-lD / Hydra, [an `owl:deprecated` annotation property](https://www.w3.org/TR/owl2-syntax/#Annotation_Properties) will be added to the appropriate data structure
+- With Swagger / OpenAPI, [a `deprecated` property](https://swagger.io/docs/specification/2-0/paths-and-operations/) will be added
+- With GraphQL, the [`isDeprecated` and `deprecationReason` properties](https://facebook.github.io/graphql/June2018/#sec-Deprecation) will be added to the schema
+
+
+### cacheHeaders
+
+```php
+array $cacheHeaders
+```
+
+
+
+### normalizationContext
+
+```php
+array $normalizationContext
+```
+
+
+
+### denormalizationContext
+
+```php
+array $denormalizationContext
+```
+
+
+
+### collectDenormalizationErrors
+
+```php
+bool $collectDenormalizationErrors
+```
+
+
+
+### hydraContext
+
+```php
+array $hydraContext
+```
+
+
+
+### openapiContext
+
+```php
+array $openapiContext
+```
+
+
+
+### openapi
+
+```php
+`<a href="/docs/reference/OpenApi/Model/Operation">ApiPlatform\OpenApi\Model\Operation</a>`|bool $openapi
+```
+
+
+
+### validationContext
+
+```php
+array $validationContext
+```
+
+The `validationContext` option configures the context of validation for the current ApiResource.
+You can, for instance, describe the validation groups that will be used:
+
+```php
+#[ApiResource(validationContext: ['groups' => ['a', 'b']])]
+```
+
+For more examples, read our guide on [validation](/guides/validation).
+
+
+### filters
+
+```php
+array $filters
+```
+
+The `filters` option configures the filters (declared as services) available on the collection routes for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(filters: ['app.filters.book.search'])]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - filters: ['app.filters.book.search']
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book">
+        <filters>
+            <filter>app.filters.book.search</filter>
+        </filters>
+    </resource>
+</resources>
+```
+</CodeSelector>
+
+
+### elasticsearch
+
+```php
+bool $elasticsearch
+```
+
+
+
+### mercure
+
+```php
+$mercure
+```
+
+
+
+### messenger
+
+```php
+string|bool $messenger
+```
+
+The `messenger` option dispatches the current resource through the Message Bus.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(messenger: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - messenger: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" messenger=true />
+</resources>
+```
+</CodeSelector>
+
+Note: when using `messenger=true` on a Doctrine entity, the Doctrine Processor is not called. If you want it
+to be called, you should [decorate a built-in state processor](/docs/guide/hook-a-persistence-layer-with-a-processor)
+and implement your own logic.
+
+Read [how to use Messenger with an Input object](/docs/guide/using-messenger-with-an-input-object).
+
+
+
+### input
+
+```php
+$input
+```
+
+
+
+### output
+
+```php
+$output
+```
+
+
+
+### order
+
+```php
+array $order
+```
+
+
+
+### fetchPartial
+
+```php
+bool $fetchPartial
+```
+
+
+
+### forceEager
+
+```php
+bool $forceEager
+```
+
+
+
+### paginationClientEnabled
+
+```php
+bool $paginationClientEnabled
+```
+
+The `paginationClientEnabled` option allows (or disallows) the client to enable (or disable) the pagination for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationClientEnabled: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationClientEnabled: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationClientEnabled=true />
+</resources>
+```
+</CodeSelector>
+
+The pagination can now be enabled (or disabled) by adding a query parameter named `pagination`:
+- `GET /books?pagination=false`: disabled
+- `GET /books?pagination=true`: enabled
+
+
+### paginationClientItemsPerPage
+
+```php
+bool $paginationClientItemsPerPage
+```
+
+The `paginationClientItemsPerPage` option allows (or disallows) the client to set the number of items per page for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationClientItemsPerPage: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationClientItemsPerPage: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationClientItemsPerPage=true />
+</resources>
+```
+</CodeSelector>
+
+The number of items can now be set by adding a query parameter named `itemsPerPage`:
+- `GET /books?itemsPerPage=50`
+
+
+### paginationClientPartial
+
+```php
+bool $paginationClientPartial
+```
+
+The `paginationClientPartial` option allows (or disallows) the client to enable (or disable) the partial pagination for the current resource.
+
+<CodeSelector>
+
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationClientPartial: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationClientPartial: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationClientPartial=true />
+</resources>
+```
+</CodeSelector>
+
+The partial pagination can now be enabled (or disabled) by adding a query parameter named `partial`:
+- `GET /books?partial=false`: disabled
+- `GET /books?partial=true`: enabled
+
+
+### paginationViaCursor
+
+```php
+array $paginationViaCursor
+```
+
+The `paginationViaCursor` option configures the cursor-based pagination for the current resource.
+Select your unique sorted field as well as the direction you'll like the pagination to go via filters.
+Note that for now you have to declare a `RangeFilter` and an `OrderFilter` on the property used for the cursor-based pagination:
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Doctrine\Odm\Filter\OrderFilter;
+use ApiPlatform\Doctrine\Odm\Filter\RangeFilter;
+
+#[ApiResource(paginationPartial: true, paginationViaCursor: [['field' => 'id', 'direction' => 'DESC']])]
+#[ApiFilter(RangeFilter::class, properties: ["id"])]
+#[ApiFilter(OrderFilter::class, properties: ["id" => "DESC"])]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationPartial: true
+          paginationViaCursor:
+              - { field: 'id', direction: 'DESC' }
+          filters: [ 'app.filters.book.range', 'app.filters.book.order' ]
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationPartial=true>
+        <filters>
+            <filter>app.filters.book.range</filter>
+            <filter>app.filters.book.order</filter>
+        </filters>
+        <paginationViaCursor>
+            <paginationField field="id" direction="DESC" />
+        </paginationViaCursor>
+    </resource>
+</resources>
+```
+</CodeSelector>
+
+To know more about cursor-based pagination take a look at [this blog post on medium (draft)](https://medium.com/@sroze/74fd1d324723).
+
+
+### paginationEnabled
+
+```php
+bool $paginationEnabled
+```
+
+The `paginationEnabled` option enables (or disables) the pagination for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationEnabled: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationEnabled: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationEnabled=true />
+</resources>
+```
+</CodeSelector>
+
+
+### paginationFetchJoinCollection
+
+```php
+bool $paginationFetchJoinCollection
+```
+
+The PaginationExtension of API Platform performs some checks on the `QueryBuilder` to guess, in most common
+cases, the correct values to use when configuring the Doctrine ORM Paginator: `$fetchJoinCollection`
+argument, whether there is a join to a collection-valued association.
+
+When set to `true`, the Doctrine ORM Paginator will perform an additional query, in order to get the
+correct number of results. You can configure this using the `paginationFetchJoinCollection` option:
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationFetchJoinCollection: false)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationFetchJoinCollection: false
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationFetchJoinCollection=false />
+</resources>
+```
+</CodeSelector>
+
+For more information, please see the [Pagination](https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/pagination.html) entry in the Doctrine ORM documentation.
+
+
+### paginationUseOutputWalkers
+
+```php
+bool $paginationUseOutputWalkers
+```
+
+The PaginationExtension of API Platform performs some checks on the `QueryBuilder` to guess, in most common
+cases, the correct values to use when configuring the Doctrine ORM Paginator: `$setUseOutputWalkers` setter,
+whether to use output walkers.
+
+When set to `true`, the Doctrine ORM Paginator will use output walkers, which are compulsory for some types
+of queries. You can configure this using the `paginationUseOutputWalkers` option:
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationUseOutputWalkers: false)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationUseOutputWalkers: false
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationUseOutputWalkers=false />
+</resources>
+```
+</CodeSelector>
+
+For more information, please see the [Pagination](https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/pagination.html) entry in the Doctrine ORM documentation.
+
+
+### paginationItemsPerPage
+
+```php
+int $paginationItemsPerPage
+```
+
+The `paginationItemsPerPage` option defines the number of items per page for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationItemsPerPage: 30)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationItemsPerPage: 30
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationItemsPerPage=30 />
+</resources>
+```
+</CodeSelector>
+
+
+### paginationMaximumItemsPerPage
+
+```php
+int $paginationMaximumItemsPerPage
+```
+
+The `paginationMaximumItemsPerPage` option defines the maximum number of items per page for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationMaximumItemsPerPage: 50)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationMaximumItemsPerPage: 50
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationMaximumItemsPerPage=50 />
+</resources>
+```
+
+</CodeSelector>
+
+
+### paginationPartial
+
+```php
+bool $paginationPartial
+```
+
+The `paginationPartial` option enables (or disables) the partial pagination for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationPartial: true)]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationPartial: true
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationPartial=true />
+</resources>
+```
+</CodeSelector>
+
+
+### paginationType
+
+```php
+string $paginationType
+```
+
+The `paginationType` option defines the type of pagination (`page` or `cursor`) to use for the current resource.
+
+<CodeSelector>
+```php
+<?php
+// api/src/Entity/Book.php
+use ApiPlatform\Metadata\ApiResource;
+
+#[ApiResource(paginationType: 'page')]
+class Book
+{
+    // ...
+}
+```
+
+```yaml
+# api/config/api_platform/resources.yaml
+resources:
+    App\Entity\Book:
+        - paginationType: page
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- api/config/api_platform/resources.xml -->
+<resources
+        xmlns="https://api-platform.com/schema/metadata/resources-3.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://api-platform.com/schema/metadata/resources-3.0
+        https://api-platform.com/schema/metadata/resources-3.0.xsd">
+    <resource class="App\Entity\Book" paginationType="page" />
+</resources>
+```
+</CodeSelector>
+
+
+### security
+
+```php
+string $security
+```
+
+
+
+### securityMessage
+
+```php
+string $securityMessage
+```
+
+
+
+### securityPostDenormalize
+
+```php
+string $securityPostDenormalize
+```
+
+
+
+### securityPostDenormalizeMessage
+
+```php
+string $securityPostDenormalizeMessage
+```
+
+
+
+### securityPostValidation
+
+```php
+string $securityPostValidation
+```
+
+
+
+### securityPostValidationMessage
+
+```php
+string $securityPostValidationMessage
+```
+
+
+
+### compositeIdentifier
+
+```php
+bool $compositeIdentifier
+```
+
+
+
+### exceptionToStatus
+
+```php
+array $exceptionToStatus
+```
+
+
+
+### queryParameterValidationEnabled
+
+```php
+bool $queryParameterValidationEnabled
+```
+
+
+
+### graphQlOperations
+
+```php
+array $graphQlOperations
+```
+
+
+
+### stateOptions
+
+```php
+ApiPlatform\State\OptionsInterface $stateOptions
+```
+
+
+
+### extraProperties
+
+```php
+array $extraProperties
+```
+
+

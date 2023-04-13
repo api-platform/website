@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\EventListener\AddFormatListener](/docs/reference/Symfony/EventListener/AddFormatListener)
+
+Chooses the format to use according to the Accept header and supported formats.
+
+
+```php
+class ApiPlatform\Symfony\EventListener\AddFormatListener
+{
+    public __construct(Negotiation\Negotiator $negotiator, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, array $formats)
+    public onKernelRequest(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Negotiation\Negotiator $negotiator, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, array $formats)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>negotiator</td><td>Negotiation\Negotiator</td><td></td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>formats</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+### onKernelRequest
+
+Sets the applicable format to the HttpFoundation Request.
+
+```php
+public onKernelRequest(Symfony\Component\HttpKernel\Event\RequestEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\RequestEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

@@ -1,0 +1,365 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Doctrine\Orm\Filter\AbstractFilter](/docs/reference/Doctrine/Orm/Filter/AbstractFilter)
+
+
+
+```php
+class ApiPlatform\Doctrine\Orm\Filter\AbstractFilter implements `<a href="/docs/reference/Doctrine/Orm/Filter/FilterInterface">ApiPlatform\Doctrine\Orm\Filter\FilterInterface</a>`, `<a href="/docs/reference/Metadata/FilterInterface">ApiPlatform\Metadata\FilterInterface</a>`
+{
+    public __construct(Doctrine\Persistence\ManagerRegistry $managerRegistry, null|Psr\Log\LoggerInterface $logger, null|array $properties, null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+    public apply(Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+    protected filterProperty(string $property, $value, Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+    protected getManagerRegistry(): Doctrine\Persistence\ManagerRegistry
+    protected getProperties(): array
+    protected getLogger(): Psr\Log\LoggerInterface
+    protected isPropertyEnabled(string $property, string $resourceClass): bool
+    protected denormalizePropertyName(string|int $property): string
+    protected normalizePropertyName(string $property): string
+    protected splitPropertyParts(string $property, string $resourceClass): array
+    protected addJoinsForNestedProperty(string $property, string $rootAlias, Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $joinType): array
+    protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+    protected isPropertyNested(string $property, string $resourceClass): bool
+    protected isPropertyEmbedded(string $property, string $resourceClass): bool
+    protected getDoctrineFieldType(string $property, string $resourceClass): string
+    protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+    protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+    public getDescription(string $resourceClass): array
+}
+```
+## Properties
+### logger
+
+```php
+Psr\Log\LoggerInterface $logger
+```
+
+
+
+### managerRegistry
+
+```php
+Doctrine\Persistence\ManagerRegistry $managerRegistry
+```
+
+
+
+### properties
+
+```php
+array $properties
+```
+
+
+
+### nameConverter
+
+```php
+Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Doctrine\Persistence\ManagerRegistry $managerRegistry, null|Psr\Log\LoggerInterface $logger, null|array $properties, null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>managerRegistry</td><td>Doctrine\Persistence\ManagerRegistry</td><td></td></tr><tr><td>logger</td><td>Psr\Log\LoggerInterface</td><td></td></tr><tr><td>properties</td><td>array</td><td></td></tr><tr><td>nameConverter</td><td>Symfony\Component\Serializer\NameConverter\NameConverterInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### apply
+
+Applies the filter.
+
+```php
+public apply(Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>queryBuilder</td><td>Doctrine\ORM\QueryBuilder</td><td></td></tr><tr><td>queryNameGenerator</td><td>ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### filterProperty
+
+Passes a property through the filter.
+
+```php
+protected filterProperty(string $property, $value, Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>value</td><td></td><td></td></tr><tr><td>queryBuilder</td><td>Doctrine\ORM\QueryBuilder</td><td></td></tr><tr><td>queryNameGenerator</td><td>ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### getManagerRegistry
+
+
+
+```php
+protected getManagerRegistry(): Doctrine\Persistence\ManagerRegistry
+```
+
+#### Returns
+
+Doctrine\Persistence\ManagerRegistry
+
+### getProperties
+
+
+
+```php
+protected getProperties(): array
+```
+
+#### Returns
+
+array
+
+### getLogger
+
+
+
+```php
+protected getLogger(): Psr\Log\LoggerInterface
+```
+
+#### Returns
+
+Psr\Log\LoggerInterface
+
+### isPropertyEnabled
+
+Determines whether the given property is enabled.
+
+```php
+protected isPropertyEnabled(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### denormalizePropertyName
+
+
+
+```php
+protected denormalizePropertyName(string|int $property): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string<br />int</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### normalizePropertyName
+
+
+
+```php
+protected normalizePropertyName(string $property): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### splitPropertyParts
+
+Splits the given property into parts.Returns an array with the following keys:
+  - associations: array of associations according to nesting order
+  - field: string holding the actual field (leaf node)
+
+```php
+protected splitPropertyParts(string $property, string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### addJoinsForNestedProperty
+
+Adds the necessary joins for a nested property.
+
+```php
+protected addJoinsForNestedProperty(string $property, string $rootAlias, Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $joinType): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>rootAlias</td><td>string</td><td></td></tr><tr><td>queryBuilder</td><td>Doctrine\ORM\QueryBuilder</td><td></td></tr><tr><td>queryNameGenerator</td><td>ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>joinType</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### isPropertyMapped
+
+Determines whether the given property is mapped.
+
+```php
+protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>allowAssociation</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyNested
+
+Determines whether the given property is nested.
+
+```php
+protected isPropertyNested(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyEmbedded
+
+Determines whether the given property is embedded.
+
+```php
+protected isPropertyEmbedded(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### getDoctrineFieldType
+
+Gets the Doctrine Type of a given property/resourceClass.
+
+```php
+protected getDoctrineFieldType(string $property, string $resourceClass): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getNestedMetadata
+
+Gets nested class metadata for the given resource.
+
+```php
+protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>associations</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata
+
+### getClassMetadata
+
+Gets class metadata for the given resource.
+
+```php
+protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata

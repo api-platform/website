@@ -1,0 +1,18 @@
+@config "../../../con.tailwind.config.js";
+
+.content h2 {
+    @apply text-3xl font-black font-title uppercase text-center relative pb-5 mb-5 mt-8 after:absolute after:w-16 after:bg-blue after:rounded-md after:h-1 after:left-1/2 after:-translate-x-1/2 after:bottom-1 lg:mt-0 lg:text-left lg:after:left-0 lg:after:translate-x-0;
+}
+
+.content p {
+    @apply text-lg leading-relaxed mb-4 font-light text-justify md:text-left;
+}
+
+.content a {
+    @apply text-blue-dark font-semibold transition-colors hover:text-blue;
+}
+
+.content strong {
+    @apply font-semibold;
+}
+

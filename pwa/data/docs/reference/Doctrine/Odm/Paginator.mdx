@@ -1,0 +1,109 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Doctrine\Odm\Paginator](/docs/reference/Doctrine/Odm/Paginator)
+
+Decorates the Doctrine MongoDB ODM paginator.
+
+
+```php
+class ApiPlatform\Doctrine\Odm\Paginator implements IteratorAggregate, `<a href="/docs/reference/State/Pagination/PaginatorInterface">ApiPlatform\State\Pagination\PaginatorInterface</a>`, Traversable, Countable, `<a href="/docs/reference/State/Pagination/PartialPaginatorInterface">ApiPlatform\State\Pagination\PartialPaginatorInterface</a>`
+{
+    public __construct(Doctrine\ODM\MongoDB\Iterator\Iterator $mongoDbOdmIterator, Doctrine\ODM\MongoDB\UnitOfWork $unitOfWork, string $resourceClass, array $pipeline)
+    public getCurrentPage(): float
+    public getLastPage(): float
+    public getItemsPerPage(): float
+    public getTotalItems(): float
+    public getIterator(): Traversable
+    public count(): int
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Doctrine\ODM\MongoDB\Iterator\Iterator $mongoDbOdmIterator, Doctrine\ODM\MongoDB\UnitOfWork $unitOfWork, string $resourceClass, array $pipeline)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>mongoDbOdmIterator</td><td>Doctrine\ODM\MongoDB\Iterator\Iterator</td><td></td></tr><tr><td>unitOfWork</td><td>Doctrine\ODM\MongoDB\UnitOfWork</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>pipeline</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+### getCurrentPage
+
+Gets the current page number.Gets the current page number.
+
+```php
+public getCurrentPage(): float
+```
+
+#### Returns
+
+float
+
+### getLastPage
+
+Gets last page.
+
+```php
+public getLastPage(): float
+```
+
+#### Returns
+
+float
+
+### getItemsPerPage
+
+Gets the number of items by page.Gets the number of items by page.
+
+```php
+public getItemsPerPage(): float
+```
+
+#### Returns
+
+float
+
+### getTotalItems
+
+Gets the number of items in the whole collection.
+
+```php
+public getTotalItems(): float
+```
+
+#### Returns
+
+float
+
+### getIterator
+
+
+
+```php
+public getIterator(): Traversable
+```
+
+#### Returns
+
+Traversable
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+#### Returns
+
+int

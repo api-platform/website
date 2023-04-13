@@ -1,0 +1,64 @@
+@config "../con.tailwind.config.js";
+@import "icons.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply rounded-md py-2.5 px-7 inline-flex items-center justify-center text-white text-center text-lg leading-tight font-bold uppercase border-3 border-blue bg-btn-blue bg-[length:300%] bg-[position:0] bg-no-repeat transition-all hover:text-blue hover:bg-[position:100%];
+    }
+    .btn.small {
+        @apply text-base px-4 py-1;
+    }
+    .btn.white {
+        @apply bg-btn-white text-blue-dark border-white hover:text-white;
+    }
+    .btn.square {
+        @apply rounded-none;
+    }
+    .btn.empty {
+        @apply border-2 border-blue text-blue bg-btn-blue-empty hover:text-white hover:bg-[position:100%];
+    }
+    .link {
+        @apply text-blue-dark font-semibold transition-all hover:text-blue;
+    }
+    .btn.pink {
+        @apply bg-btn-pink border-pink hover:text-pink;
+    }
+}
+
+@layer utilities {
+    .wave-line {
+        @apply fill-none stroke-dasharray-[1_6] stroke-blue-light;
+    }
+    .clip-path-flag {
+        clip-path: polygon(100% 0, 85% 50%, 100% 100%, 0 100%, 0 50%, 0 0);
+    }
+    .dotted-corner {
+        @apply relative overflow-hidden before:absolute before:w-[120px] before:h-[120px] before:-translate-x-1/2 before:-translate-y-1/2 before:rotate-45 before:top-0 before:left-full before:bg-dotted before:pointer-events-none;
+    }
+    .dotted-corner.corner-bottom {
+        @apply before:top-full before:left-0;
+    }
+    .dotted-corner.corner-over {
+        @apply before:z-20;
+    }
+    .circle-effect {
+        @apply relative before:absolute before:w-[110%] before:h-[110%] before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:pointer-events-none before:transition-all before:bg-circle before:bg-no-repeat;
+    }
+    .hoverable .circle-effect {
+        @apply before:duration-700 before:ease-out hover:before:rotate-45;
+    }
+    .circle-effect .circle {
+        @apply relative after:bg-blue-black after:opacity-0 after:w-full after:h-full after:left-1/2 after:top-1/2 after:duration-500 after:transition-all after:rounded-full;
+    }
+    .hoverable .circle-effect .circle {
+        @apply hover:after:opacity-50;
+    }
+}
+
+* {
+    max-width: 100%;
+}

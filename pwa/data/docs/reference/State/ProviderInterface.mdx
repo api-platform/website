@@ -1,0 +1,36 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\State\ProviderInterface](/docs/reference/State/ProviderInterface)
+
+Retrieves data from a persistence layer.
+
+
+
+```php
+interface ApiPlatform\State\ProviderInterface
+{
+    public provide(`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $uriVariables, array $context): ApiPlatform\State\T|ApiPlatform\State\Pagination\PartialPaginatorInterface[]|iterable
+}
+```
+## Methods
+
+### provide
+
+Provides data.
+
+```php
+public provide(`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $uriVariables, array $context): ApiPlatform\State\T|ApiPlatform\State\Pagination\PartialPaginatorInterface[]|iterable
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>uriVariables</td><td>array</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+ApiPlatform\State\T<br />ApiPlatform\State\Pagination\PartialPaginatorInterface[]<br />iterable

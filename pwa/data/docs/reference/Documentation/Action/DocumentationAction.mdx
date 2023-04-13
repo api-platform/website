@@ -1,0 +1,47 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Documentation\Action\DocumentationAction](/docs/reference/Documentation/Action/DocumentationAction)
+
+Generates the API documentation.
+
+
+```php
+class ApiPlatform\Documentation\Action\DocumentationAction
+{
+    public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, string $title, string $description, string $version, null|ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface $openApiFactory)
+    public __invoke(null|Symfony\Component\HttpFoundation\Request $request): ApiPlatform\Documentation\DocumentationInterface|`<a href="/docs/reference/OpenApi/OpenApi">ApiPlatform\OpenApi\OpenApi</a>`
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory, string $title, string $description, string $version, null|ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface $openApiFactory)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceNameCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface</td><td></td></tr><tr><td>title</td><td>string</td><td></td></tr><tr><td>description</td><td>string</td><td></td></tr><tr><td>version</td><td>string</td><td></td></tr><tr><td>openApiFactory</td><td>ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+
+
+```php
+public __invoke(null|Symfony\Component\HttpFoundation\Request $request): ApiPlatform\Documentation\DocumentationInterface|`<a href="/docs/reference/OpenApi/OpenApi">ApiPlatform\OpenApi\OpenApi</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>

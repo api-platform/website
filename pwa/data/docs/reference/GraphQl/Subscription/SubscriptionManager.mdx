@@ -1,0 +1,72 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Subscription\SubscriptionManager](/docs/reference/GraphQl/Subscription/SubscriptionManager)
+
+Manages all the queried subscriptions by creating their ID
+and saving to a cache the information needed to publish updated data.
+
+
+```php
+class ApiPlatform\GraphQl\Subscription\SubscriptionManager implements `<a href="/docs/reference/GraphQl/Subscription/SubscriptionManagerInterface">ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface</a>`
+{
+    public __construct(Psr\Cache\CacheItemPoolInterface $subscriptionsCache, ApiPlatform\GraphQl\Subscription\SubscriptionIdentifierGeneratorInterface $subscriptionIdentifierGenerator, ApiPlatform\GraphQl\Resolver\Stage\SerializeStageInterface $serializeStage, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+    public retrieveSubscriptionId(array $context, null|array $result): string
+    public getPushPayloads(object $object): array
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Psr\Cache\CacheItemPoolInterface $subscriptionsCache, ApiPlatform\GraphQl\Subscription\SubscriptionIdentifierGeneratorInterface $subscriptionIdentifierGenerator, ApiPlatform\GraphQl\Resolver\Stage\SerializeStageInterface $serializeStage, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>subscriptionsCache</td><td>Psr\Cache\CacheItemPoolInterface</td><td></td></tr><tr><td>subscriptionIdentifierGenerator</td><td>ApiPlatform\GraphQl\Subscription\SubscriptionIdentifierGeneratorInterface</td><td></td></tr><tr><td>serializeStage</td><td>ApiPlatform\GraphQl\Resolver\Stage\SerializeStageInterface</td><td></td></tr><tr><td>iriConverter</td><td>ApiPlatform\Api\IriConverterInterface</td><td></td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### retrieveSubscriptionId
+
+
+
+```php
+public retrieveSubscriptionId(array $context, null|array $result): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>context</td><td>array</td><td></td></tr><tr><td>result</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getPushPayloads
+
+
+
+```php
+public getPushPayloads(object $object): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td>object</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\EventListener\WriteListener](/docs/reference/Symfony/EventListener/WriteListener)
+
+Bridges persistence and the API system.
+
+
+```php
+class ApiPlatform\Symfony\EventListener\WriteListener
+{
+    public __construct(ApiPlatform\State\ProcessorInterface $processor, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Api\ResourceClassResolverInterface $resourceClassResolver, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, null|ApiPlatform\Api\UriVariablesConverterInterface $uriVariablesConverter)
+    public onKernelView(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\State\ProcessorInterface $processor, ApiPlatform\Api\IriConverterInterface $iriConverter, ApiPlatform\Api\ResourceClassResolverInterface $resourceClassResolver, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, null|ApiPlatform\Api\UriVariablesConverterInterface $uriVariablesConverter)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>processor</td><td>ApiPlatform\State\ProcessorInterface</td><td></td></tr><tr><td>iriConverter</td><td>ApiPlatform\Api\IriConverterInterface</td><td></td></tr><tr><td>resourceClassResolver</td><td>ApiPlatform\Api\ResourceClassResolverInterface</td><td></td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>uriVariablesConverter</td><td>ApiPlatform\Api\UriVariablesConverterInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### onKernelView
+
+Persists, updates or delete data return by the controller if applicable.
+
+```php
+public onKernelView(Symfony\Component\HttpKernel\Event\ViewEvent $event): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>event</td><td>Symfony\Component\HttpKernel\Event\ViewEvent</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

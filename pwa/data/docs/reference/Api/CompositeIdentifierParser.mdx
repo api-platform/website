@@ -1,0 +1,55 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Api\CompositeIdentifierParser](/docs/reference/Api/CompositeIdentifierParser)
+
+Normalizes a composite identifier.
+
+
+```php
+class ApiPlatform\Api\CompositeIdentifierParser
+{
+    public parse(string $identifier): array
+    public stringify(array $identifiers): string
+}
+```
+## Methods
+
+### parse
+
+
+
+```php
+public parse(string $identifier): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>identifier</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### stringify
+
+Renders composite identifiers to string using: key=value;key2=value2.
+
+```php
+public stringify(array $identifiers): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>identifiers</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string

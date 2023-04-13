@@ -1,8 +1,0 @@
-$z-layers: ( "sidemenu": 10000, "header": 9000, "docsmenu": 8000, "footer": 7000, "default": 2, "schema": 1, "giants": 3, "below": -1, );
-@function z($layer) {
-   @if not map-has-key($z-layers, $layer){
-    @warn "No value found for `#{$layer}` in $z-layers map.";
-    @return 1;
-  }
-  @return map-get($z-layers, $layer);
-}

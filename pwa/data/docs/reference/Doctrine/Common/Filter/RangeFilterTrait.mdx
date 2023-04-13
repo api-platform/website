@@ -1,0 +1,256 @@
+---
+type: Trait
+---
+
+# [ApiPlatform\Doctrine\Common\Filter\RangeFilterTrait](/docs/reference/Doctrine/Common/Filter/RangeFilterTrait)
+
+Trait for filtering the collection by range.
+
+
+```php
+trait ApiPlatform\Doctrine\Common\Filter\RangeFilterTrait
+{
+    public getDescription(string $resourceClass): array
+    protected getProperties(): array
+    protected getLogger(): Psr\Log\LoggerInterface
+    protected normalizePropertyName(string $property): string
+    protected getFilterDescription(string $fieldName, string $operator): array
+    protected getManagerRegistry(): Doctrine\Persistence\ManagerRegistry
+    protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+    protected isPropertyNested(string $property, string $resourceClass): bool
+    protected isPropertyEmbedded(string $property, string $resourceClass): bool
+    protected splitPropertyParts(string $property, string $resourceClass): array
+    protected getDoctrineFieldType(string $property, string $resourceClass): string
+    protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+    protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+}
+```
+## Methods
+
+### getDescription
+
+
+
+```php
+public getDescription(string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getProperties
+
+
+
+```php
+protected getProperties(): array
+```
+
+#### Returns
+
+array
+
+### getLogger
+
+
+
+```php
+protected getLogger(): Psr\Log\LoggerInterface
+```
+
+#### Returns
+
+Psr\Log\LoggerInterface
+
+### normalizePropertyName
+
+
+
+```php
+protected normalizePropertyName(string $property): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getFilterDescription
+
+Gets filter description.
+
+```php
+protected getFilterDescription(string $fieldName, string $operator): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>fieldName</td><td>string</td><td></td></tr><tr><td>operator</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getManagerRegistry
+
+
+
+```php
+protected getManagerRegistry(): Doctrine\Persistence\ManagerRegistry
+```
+
+#### Returns
+
+Doctrine\Persistence\ManagerRegistry
+
+### isPropertyMapped
+
+Determines whether the given property is mapped.
+
+```php
+protected isPropertyMapped(string $property, string $resourceClass, bool $allowAssociation): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>allowAssociation</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyNested
+
+Determines whether the given property is nested.
+
+```php
+protected isPropertyNested(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### isPropertyEmbedded
+
+Determines whether the given property is embedded.
+
+```php
+protected isPropertyEmbedded(string $property, string $resourceClass): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### splitPropertyParts
+
+Splits the given property into parts.Returns an array with the following keys:
+  - associations: array of associations according to nesting order
+  - field: string holding the actual field (leaf node)
+
+```php
+protected splitPropertyParts(string $property, string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getDoctrineFieldType
+
+Gets the Doctrine Type of a given property/resourceClass.
+
+```php
+protected getDoctrineFieldType(string $property, string $resourceClass): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getNestedMetadata
+
+Gets nested class metadata for the given resource.
+
+```php
+protected getNestedMetadata(string $resourceClass, array&lt;int, string&gt; $associations): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>associations</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata
+
+### getClassMetadata
+
+Gets class metadata for the given resource.
+
+```php
+protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata

@@ -1,0 +1,33 @@
+@config "../../../../../../con.tailwind.config.js";
+
+.content h1 {
+    @apply hidden;
+}
+
+.content h2 {
+    @apply font-title lined-left text-2xl uppercase font-black text-blue-dark mb-2.5;
+}
+
+.content h2:not(:first-of-type) {
+    @apply mt-10;
+}
+
+.content p:not(last-child) {
+    @apply mb-8;
+}
+
+.content a {
+    @apply font-bold text-blue-dark transition-all hover:text-blue;
+}
+
+.content strong {
+    @apply font-semibold;
+}
+
+.content ul {
+    @apply list-circle pl-12;
+}
+
+.content ul li {
+    @apply mb-4;
+}

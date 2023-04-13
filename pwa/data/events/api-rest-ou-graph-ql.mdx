@@ -1,0 +1,47 @@
+export const meta = {
+    creator: "Bordeaux PHP meetup",
+    type: "meetup",
+    venue: {
+        address: "12 rue des Fossets",
+        city: "Bordeaux",
+        country: "France",
+    },
+    startDate: {
+        date: "2018-06-29",
+        time: "19:30",
+    },
+    endDate: {
+        date: "2018-06-29",
+        time: "22:30",
+    },
+    link: 'https://www.meetup.com/fr-FR/bordeaux-php-meetup/events/251523532/',
+    speakers: [{
+        name: "Kévin Dunglas",
+        github: "dunglas",
+    }]
+};
+
+# API, REST ou GraphQL ? Par Kevin Dunglas.
+
+Nous commencerons ce meetup par un bilan rapide de l'année écoulée, et l'élection des représentants de l'antenne bordelaise de l'AFUP.
+Une seule liste se présente; elle est constituée de
+
+Julien Vitte : Coordinateur
+Nicolas Perussel: Modérateur
+Mikaël Létang : Vice-coordinateur
+Benjamin Rambaud : Vice-modérateur
+Toutes les personnes présentes peuvent voter, adhérentes ou non à l'AFUP (~15 minutes).
+
+On aura ensuite le plaisir d'écouter [Kevin Dunglas](https://twitter.com/dunglas), créateur d'APIPlatform et core team member Symfony. Rien que ça !
+
+GraphQL est une alternative de plus en plus populaire aux architectures REST pour la réalisation d'API web.
+Le langage de requêtage promu par Facebook a des avantages indéniables : récupération des données utiles au client uniquement, limitation du nombre de requêtes effectuées, typage fort, syntaxe puissante et extrêmement bien pensée…
+Cependant, il souffre aussi de défauts souvent sous-estimés parmi lesquels l'incompatibilité avec les mécanismes de cache, de log, de sécurité ou d'authentification qui forment la base du stack web d'aujourd'hui, ou la nécessité d'utiliser un format non-standard nécessitant un parser spécifique.
+De plus, les formats hypermedias modernes s'appuyant sur REST tel que JSON-LD ou JSON API disposent de fonctionnalités très similaires à celles de GraphQL (et d'autres plus avancées) tout en restant compatibles avec les fondements du web.
+
+Le framework API Platform, basé sur Symfony, permet de créer très facilement des API REST (JSON-LD, JSON API, HAL…) tout comme GraphQL.
+Après avoir énuméré les avantages et inconvénients des différents formats, nous étudierons au travers de différents cas d'usages fréquents quand il est préférable d'utiliser GraphQL, REST ou les deux en complément.
+
+La conf parlera surtout des formats, pas besoin d’être développeur #PHP ou #JavaScript pour y assister.
+
+Le meetup sera clôturé par un apéro, offert par notre sponsor [Ekino](http://www.ekino.com/).

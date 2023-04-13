@@ -1,0 +1,71 @@
+---
+type: Class
+---
+
+# [ApiPlatform\JsonApi\Serializer\ReservedAttributeNameConverter](/docs/reference/JsonApi/Serializer/ReservedAttributeNameConverter)
+
+Reserved attribute name converter.
+
+
+```php
+class ApiPlatform\JsonApi\Serializer\ReservedAttributeNameConverter implements Symfony\Component\Serializer\NameConverter\AdvancedNameConverterInterface, Symfony\Component\Serializer\NameConverter\NameConverterInterface
+{
+    public __construct(null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+    public normalize(string $propertyName, null|string $class, null|string $format, array $context): string
+    public denormalize(string $propertyName, null|string $class, null|string $format, array $context): string
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>nameConverter</td><td>Symfony\Component\Serializer\NameConverter\NameConverterInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### normalize
+
+Converts a property name to its normalized value.
+
+```php
+public normalize(string $propertyName, null|string $class, null|string $format, array $context): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>propertyName</td><td>string</td><td></td></tr><tr><td>class</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### denormalize
+
+Converts a property name to its denormalized value.
+
+```php
+public denormalize(string $propertyName, null|string $class, null|string $format, array $context): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>propertyName</td><td>string</td><td></td></tr><tr><td>class</td><td>string</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string

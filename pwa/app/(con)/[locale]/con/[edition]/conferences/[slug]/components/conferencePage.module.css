@@ -1,0 +1,25 @@
+@config "../../../../../../../../con.tailwind.config.js";
+
+.description h1 {
+    @apply hidden;
+}
+
+.description p:not(last-child) {
+    @apply mb-10;
+}
+
+.description a {
+    @apply font-bold text-blue-dark;
+}
+
+.description strong {
+    @apply font-semibold;
+}
+
+.description ul {
+    @apply list-disc text-left pl-7;
+}
+
+.description ul li:not(last-child) {
+    @apply mb-4;
+}

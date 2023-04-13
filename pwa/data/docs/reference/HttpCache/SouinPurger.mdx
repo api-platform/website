@@ -1,0 +1,66 @@
+---
+type: Class
+---
+
+# [ApiPlatform\HttpCache\SouinPurger](/docs/reference/HttpCache/SouinPurger)
+
+Purges Souin.
+
+
+```php
+class ApiPlatform\HttpCache\SouinPurger extends ApiPlatform\HttpCache\SurrogateKeysPurger implements `<a href="/docs/reference/HttpCache/PurgerInterface">ApiPlatform\HttpCache\PurgerInterface</a>`
+{
+    public __construct(array&lt;int, Symfony\Contracts\HttpClient\HttpClientInterface&gt; $clients)
+    public purge(array $iris): null
+    public getResponseHeaders(array $iris): array
+}
+```
+## Properties
+### clients
+
+```php
+iterable $clients
+```
+
+
+
+### maxHeaderLength
+
+```php
+int $maxHeaderLength
+```
+
+
+
+### header
+
+```php
+string $header
+```
+
+
+
+### separator
+
+```php
+string $separator
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array&lt;int, Symfony\Contracts\HttpClient\HttpClientInterface&gt; $clients)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>clients</td><td>array&lt;int, Symfony\Contracts\HttpClient\HttpClientInterface&gt;</td><td></td></tr>
+</tbody>
+</table>

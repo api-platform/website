@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Action\ExceptionAction](/docs/reference/Action/ExceptionAction)
+
+Renders a normalized exception for a given see [FlattenException](https://github.com/symfony/symfony/blob/6.3/src/Symfony/Component/ErrorHandler/Exception/FlattenException.php).
+
+
+```php
+class ApiPlatform\Action\ExceptionAction
+{
+    public __construct(Symfony\Component\Serializer\SerializerInterface $serializer, array $errorFormats, array $exceptionToStatus, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+    public __invoke(Symfony\Component\ErrorHandler\Exception\FlattenException $exception, Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Symfony\Component\Serializer\SerializerInterface $serializer, array $errorFormats, array $exceptionToStatus, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>serializer</td><td>Symfony\Component\Serializer\SerializerInterface</td><td></td></tr><tr><td>errorFormats</td><td>array</td><td>A list of enabled error formats</td></tr><tr><td>exceptionToStatus</td><td>array</td><td>A list of exceptions mapped to their HTTP status code</td></tr><tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+Converts an exception to a JSON response.
+
+```php
+public __invoke(Symfony\Component\ErrorHandler\Exception\FlattenException $exception, Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>exception</td><td>Symfony\Component\ErrorHandler\Exception\FlattenException</td><td></td></tr><tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\Response

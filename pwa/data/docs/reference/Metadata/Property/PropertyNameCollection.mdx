@@ -1,0 +1,57 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Metadata\Property\PropertyNameCollection](/docs/reference/Metadata/Property/PropertyNameCollection)
+
+A collection of property names for a given resource.
+
+
+```php
+class ApiPlatform\Metadata\Property\PropertyNameCollection implements IteratorAggregate, Countable, Traversable
+{
+    public __construct(array&lt;int, string&gt; $properties)
+    public getIterator(): Traversable
+    public count(): int
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array&lt;int, string&gt; $properties)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>properties</td><td>array&lt;int, string&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+### getIterator
+
+
+
+```php
+public getIterator(): Traversable
+```
+
+#### Returns
+
+Traversable
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+#### Returns
+
+int

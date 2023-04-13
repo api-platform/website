@@ -1,0 +1,36 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Util\RequestAttributesExtractor](/docs/reference/Util/RequestAttributesExtractor)
+
+Extracts data used by the library form a Request instance.
+
+
+```php
+class ApiPlatform\Util\RequestAttributesExtractor
+{
+    public extractAttributes(Symfony\Component\HttpFoundation\Request $request): array
+}
+```
+## Methods
+
+### extractAttributes
+
+Extracts resource class, operation name and format request attributes. Returns an empty array if the request does
+not contain required attributes.
+
+```php
+public extractAttributes(Symfony\Component\HttpFoundation\Request $request): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

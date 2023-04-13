@@ -1,0 +1,55 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Validator\Metadata\Property\Restriction\PropertySchemaRegexRestriction](/docs/reference/Symfony/Validator/Metadata/Property/Restriction/PropertySchemaRegexRestriction)
+
+Class PropertySchemaRegexRestriction.
+
+
+```php
+class ApiPlatform\Symfony\Validator\Metadata\Property\Restriction\PropertySchemaRegexRestriction implements `<a href="/docs/reference/Symfony/Validator/Metadata/Property/Restriction/PropertySchemaRestrictionMetadataInterface">ApiPlatform\Symfony\Validator\Metadata\Property\Restriction\PropertySchemaRestrictionMetadataInterface</a>`
+{
+    public create(Symfony\Component\Validator\Constraints\Regex $constraint, `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>` $propertyMetadata): array
+    public supports(Symfony\Component\Validator\Constraint $constraint, `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>` $propertyMetadata): bool
+}
+```
+## Methods
+
+### create
+
+Creates json schema restrictions based on the validation constraints.
+
+```php
+public create(Symfony\Component\Validator\Constraints\Regex $constraint, `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>` $propertyMetadata): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>constraint</td><td>Symfony\Component\Validator\Constraints\Regex</td><td></td></tr><tr><td>propertyMetadata</td><td>`<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### supports
+
+Is the constraint supported by the schema restriction?
+
+```php
+public supports(Symfony\Component\Validator\Constraint $constraint, `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>` $propertyMetadata): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>constraint</td><td>Symfony\Component\Validator\Constraint</td><td></td></tr><tr><td>propertyMetadata</td><td>`<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

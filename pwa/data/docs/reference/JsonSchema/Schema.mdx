@@ -1,0 +1,126 @@
+---
+type: Class
+---
+
+# [ApiPlatform\JsonSchema\Schema](/docs/reference/JsonSchema/Schema)
+
+## See also
+- [https://json-schema.org/latest/json-schema-core.html](https://json-schema.org/latest/json-schema-core.html)
+
+- [https://github.com/OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification)
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(string $version)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>version</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+### getVersion
+
+The flavor used for this document: JSON Schema, OpenAPI v2 or OpenAPI v3.
+
+```php
+public getVersion(): string
+```
+
+#### Returns
+
+string
+
+### getArrayCopy
+
+
+
+```php
+public getArrayCopy(bool $includeDefinitions): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>includeDefinitions</td><td>bool</td><td>if set to false, definitions will not be included in the resulting array</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getDefinitions
+
+Retrieves the definitions used by this schema.
+
+```php
+public getDefinitions(): ArrayObject
+```
+
+#### Returns
+
+ArrayObject
+
+### setDefinitions
+
+Associates existing definitions to this schema.
+
+```php
+public setDefinitions(ArrayObject $definitions): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>definitions</td><td>ArrayObject</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### getRootDefinitionKey
+
+Returns the name of the root definition, if defined.
+
+```php
+public getRootDefinitionKey(): string
+```
+
+#### Returns
+
+string
+
+### getItemsDefinitionKey
+
+Returns the name of the items definition, if defined.
+
+```php
+public getItemsDefinitionKey(): string
+```
+
+#### Returns
+
+string
+
+### isDefined
+
+Checks if this schema is initialized.
+
+```php
+public isDefined(): bool
+```
+
+#### Returns
+
+bool

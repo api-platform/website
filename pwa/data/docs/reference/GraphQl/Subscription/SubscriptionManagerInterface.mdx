@@ -1,0 +1,55 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface](/docs/reference/GraphQl/Subscription/SubscriptionManagerInterface)
+
+Manages all the queried subscriptions and creates their ID.
+
+
+```php
+interface ApiPlatform\GraphQl\Subscription\SubscriptionManagerInterface
+{
+    public retrieveSubscriptionId(array $context, null|array $result): string
+    public getPushPayloads(object $object): array
+}
+```
+## Methods
+
+### retrieveSubscriptionId
+
+
+
+```php
+public retrieveSubscriptionId(array $context, null|array $result): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>context</td><td>array</td><td></td></tr><tr><td>result</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### getPushPayloads
+
+
+
+```php
+public getPushPayloads(object $object): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td>object</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

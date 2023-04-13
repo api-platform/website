@@ -1,0 +1,132 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Metadata\Operations](/docs/reference/Metadata/Operations)
+
+An Operation dictionnary.
+
+```php
+class ApiPlatform\Metadata\Operations implements IteratorAggregate, Countable, Traversable
+{
+    public __construct(array&lt;string
+int, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`&gt; $operations)
+    public getIterator(): Traversable
+    public add(string $key, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $value): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+    public remove(string $key): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+    public has(string $key): bool
+    public count(): int
+    public sort(): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(array&lt;string
+int, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`&gt; $operations)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>operations</td><td>array&lt;string
+int, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`&gt;</td><td></td></tr>
+</tbody>
+</table>
+
+### getIterator
+
+
+
+```php
+public getIterator(): Traversable
+```
+
+#### Returns
+
+Traversable
+
+### add
+
+
+
+```php
+public add(string $key, `<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $value): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>key</td><td>string</td><td></td></tr><tr><td>value</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+
+### remove
+
+
+
+```php
+public remove(string $key): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>key</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+
+### has
+
+
+
+```php
+public has(string $key): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>key</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### count
+
+
+
+```php
+public count(): int
+```
+
+#### Returns
+
+int
+
+### sort
+
+
+
+```php
+public sort(): `<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`
+```
+
+#### Returns
+
+`<a href="/docs/reference/Metadata/Operations">ApiPlatform\Metadata\Operations</a>`

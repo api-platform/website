@@ -1,0 +1,54 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Hydra\Serializer\ConstraintViolationListNormalizer](/docs/reference/Hydra/Serializer/ConstraintViolationListNormalizer)
+
+Converts \Symfony\Component\Validator\ConstraintViolationListInterface to a Hydra error representation.
+
+
+```php
+class ApiPlatform\Hydra\Serializer\ConstraintViolationListNormalizer extends ApiPlatform\Serializer\AbstractConstraintViolationListNormalizer implements Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface, Symfony\Component\Serializer\Normalizer\NormalizerInterface
+{
+    public __construct(ApiPlatform\Api\UrlGeneratorInterface $urlGenerator, null|array $serializePayloadFields, null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+    public normalize($object, null|string $format, array $context): ArrayObject|array|string|int|float|bool
+    public supportsNormalization($data, null|string $format, array $context): bool
+    public hasCacheableSupportsMethod(): bool
+    protected getMessagesAndViolations(Symfony\Component\Validator\ConstraintViolationListInterface $constraintViolationList): array
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Api\UrlGeneratorInterface $urlGenerator, null|array $serializePayloadFields, null|Symfony\Component\Serializer\NameConverter\NameConverterInterface $nameConverter)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>urlGenerator</td><td>ApiPlatform\Api\UrlGeneratorInterface</td><td></td></tr><tr><td>serializePayloadFields</td><td>array</td><td></td></tr><tr><td>nameConverter</td><td>Symfony\Component\Serializer\NameConverter\NameConverterInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### normalize
+
+Normalizes an object into a set of arrays/scalars.Normalizes an object into a set of arrays/scalars.
+
+```php
+public normalize($object, null|string $format, array $context): ArrayObject|array|string|int|float|bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+ArrayObject<br />array<br />string<br />int<br />float<br />bool

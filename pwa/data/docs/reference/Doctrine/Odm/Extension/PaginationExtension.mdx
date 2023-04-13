@@ -1,0 +1,91 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Doctrine\Odm\Extension\PaginationExtension](/docs/reference/Doctrine/Odm/Extension/PaginationExtension)
+
+Applies pagination on the Doctrine aggregation for resource collection when enabled.
+
+
+```php
+class ApiPlatform\Doctrine\Odm\Extension\PaginationExtension implements `<a href="/docs/reference/Doctrine/Odm/Extension/AggregationResultCollectionExtensionInterface">ApiPlatform\Doctrine\Odm\Extension\AggregationResultCollectionExtensionInterface</a>`, `<a href="/docs/reference/Doctrine/Odm/Extension/AggregationCollectionExtensionInterface">ApiPlatform\Doctrine\Odm\Extension\AggregationCollectionExtensionInterface</a>`
+{
+    public __construct(Doctrine\Persistence\ManagerRegistry $managerRegistry, `<a href="/docs/reference/State/Pagination/Pagination">ApiPlatform\State\Pagination\Pagination</a>` $pagination)
+    public applyToCollection(Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+    public supportsResult(string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+    public getResult(Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): iterable
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Doctrine\Persistence\ManagerRegistry $managerRegistry, `<a href="/docs/reference/State/Pagination/Pagination">ApiPlatform\State\Pagination\Pagination</a>` $pagination)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>managerRegistry</td><td>Doctrine\Persistence\ManagerRegistry</td><td></td></tr><tr><td>pagination</td><td>`<a href="/docs/reference/State/Pagination/Pagination">ApiPlatform\State\Pagination\Pagination</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+### applyToCollection
+
+
+
+```php
+public applyToCollection(Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>aggregationBuilder</td><td>Doctrine\ODM\MongoDB\Aggregation\Builder</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### supportsResult
+
+
+
+```php
+public supportsResult(string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### getResult
+
+
+
+```php
+public getResult(Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): iterable
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>aggregationBuilder</td><td>Doctrine\ODM\MongoDB\Aggregation\Builder</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+iterable

@@ -1,0 +1,16 @@
+@config "../../../con.tailwind.config.js";
+
+.title {
+    @apply mb-2;
+}
+.title span {
+    @apply font-bold text-white text-3xl font-title px-2;
+}
+
+.title strong {
+    @apply font-bold text-blue text-8xl font-title;
+}
+
+.content p {
+    @apply mb-5 last:mb-0;
+}

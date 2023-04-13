@@ -1,0 +1,104 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Hydra\Serializer\PartialCollectionViewNormalizer](/docs/reference/Hydra/Serializer/PartialCollectionViewNormalizer)
+
+Adds a view key to the result of a paginated Hydra collection.
+
+
+```php
+class ApiPlatform\Hydra\Serializer\PartialCollectionViewNormalizer implements Symfony\Component\Serializer\Normalizer\NormalizerInterface, Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface, Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface
+{
+    public __construct(Symfony\Component\Serializer\Normalizer\NormalizerInterface $collectionNormalizer, string $pageParameterName, string $enabledParameterName, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|Symfony\Component\PropertyAccess\PropertyAccessorInterface $propertyAccessor)
+    public normalize($object, null|string $format, array $context): ArrayObject|array|string|int|float|bool
+    public supportsNormalization($data, null|string $format, array $context): bool
+    public hasCacheableSupportsMethod(): bool
+    public setNormalizer(Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer): null
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(Symfony\Component\Serializer\Normalizer\NormalizerInterface $collectionNormalizer, string $pageParameterName, string $enabledParameterName, null|ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataFactory, null|Symfony\Component\PropertyAccess\PropertyAccessorInterface $propertyAccessor)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>collectionNormalizer</td><td>Symfony\Component\Serializer\Normalizer\NormalizerInterface</td><td></td></tr><tr><td>pageParameterName</td><td>string</td><td></td></tr><tr><td>enabledParameterName</td><td>string</td><td></td></tr><tr><td>resourceMetadataFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>propertyAccessor</td><td>Symfony\Component\PropertyAccess\PropertyAccessorInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### normalize
+
+Normalizes an object into a set of arrays/scalars.
+
+```php
+public normalize($object, null|string $format, array $context): ArrayObject|array|string|int|float|bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+ArrayObject<br />array<br />string<br />int<br />float<br />bool
+
+### supportsNormalization
+
+Checks whether the given class is supported for normalization by this normalizer.
+
+```php
+public supportsNormalization($data, null|string $format, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### hasCacheableSupportsMethod
+
+
+
+```php
+public hasCacheableSupportsMethod(): bool
+```
+
+#### Returns
+
+bool
+
+### setNormalizer
+
+Sets the owning Normalizer object.
+
+```php
+public setNormalizer(Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>normalizer</td><td>Symfony\Component\Serializer\Normalizer\NormalizerInterface</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null

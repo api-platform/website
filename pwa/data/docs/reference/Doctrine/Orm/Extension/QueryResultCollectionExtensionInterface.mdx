@@ -1,0 +1,58 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Doctrine\Orm\Extension\QueryResultCollectionExtensionInterface](/docs/reference/Doctrine/Orm/Extension/QueryResultCollectionExtensionInterface)
+
+Interface of Doctrine ORM query extensions that supports result production
+for specific cases such as pagination.
+
+
+
+```php
+interface ApiPlatform\Doctrine\Orm\Extension\QueryResultCollectionExtensionInterface implements `<a href="/docs/reference/Doctrine/Orm/Extension/QueryCollectionExtensionInterface">ApiPlatform\Doctrine\Orm\Extension\QueryCollectionExtensionInterface</a>`
+{
+    public supportsResult(string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+    public getResult(Doctrine\ORM\QueryBuilder $queryBuilder, null|string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): iterable
+    public applyToCollection(Doctrine\ORM\QueryBuilder $queryBuilder, ApiPlatform\Doctrine\Orm\Util\QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): null
+}
+```
+## Methods
+
+### supportsResult
+
+
+
+```php
+public supportsResult(string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### getResult
+
+
+
+```php
+public getResult(Doctrine\ORM\QueryBuilder $queryBuilder, null|string $resourceClass, null|`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>` $operation, array $context): iterable
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>queryBuilder</td><td>Doctrine\ORM\QueryBuilder</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>operation</td><td>`<a href="/docs/reference/Metadata/Operation">ApiPlatform\Metadata\Operation</a>`</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+iterable

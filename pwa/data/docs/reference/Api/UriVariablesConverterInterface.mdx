@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Api\UriVariablesConverterInterface](/docs/reference/Api/UriVariablesConverterInterface)
+
+Identifier converter.
+
+
+```php
+interface ApiPlatform\Api\UriVariablesConverterInterface
+{
+    public convert(array $data, string $class, array $context): array
+}
+```
+## Methods
+
+### convert
+
+Takes an array of strings representing URI variables (identifiers) and transform their values to the expected type.
+
+```php
+public convert(array $data, string $class, array $context): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td>array</td><td>URI variables to convert to PHP values</td></tr><tr><td>class</td><td>string</td><td>The class to which the URI variables belong to</td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

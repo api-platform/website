@@ -1,0 +1,45 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Operation\UnderscorePathSegmentNameGenerator](/docs/reference/Operation/UnderscorePathSegmentNameGenerator)
+
+Generate a path name with an underscore separator according to a string and whether it's a collection or not.
+
+
+
+```php
+class ApiPlatform\Operation\UnderscorePathSegmentNameGenerator implements `<a href="/docs/reference/Metadata/Operation/PathSegmentNameGeneratorInterface">ApiPlatform\Metadata\Operation\PathSegmentNameGeneratorInterface</a>`
+{
+    public __construct()
+    public getSegmentName(string $name, bool $collection): string
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct()
+```
+
+### getSegmentName
+
+Transforms a given string to a valid path name which can be pluralized (eg. for collections).
+
+```php
+public getSegmentName(string $name, bool $collection): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>name</td><td>string</td><td></td></tr><tr><td>collection</td><td>bool</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string

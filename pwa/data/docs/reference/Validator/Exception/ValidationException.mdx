@@ -1,0 +1,94 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Validator\Exception\ValidationException](/docs/reference/Validator/Exception/ValidationException)
+
+Thrown when a validation error occurs.
+
+
+```php
+class ApiPlatform\Validator\Exception\ValidationException extends ApiPlatform\Exception\RuntimeException implements `<a href="/docs/reference/Exception/ExceptionInterface">ApiPlatform\Exception\ExceptionInterface</a>`, Stringable, Throwable
+{
+    public __construct(string $message, int $code, null|Throwable $previous, null|string $errorTitle)
+    public getErrorTitle(): string
+    public __wakeup()
+    public getMessage(): string
+    public getCode()
+    public getFile(): string
+    public getLine(): int
+    public getTrace(): array
+    public getPrevious(): Throwable
+    public getTraceAsString(): string
+    public __toString(): string
+}
+```
+## Properties
+### errorTitle
+
+```php
+string $errorTitle
+```
+
+
+
+### message
+
+```php
+$message
+```
+
+
+
+### code
+
+```php
+$code
+```
+
+
+
+### file
+
+```php
+string $file
+```
+
+
+
+### line
+
+```php
+int $line
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(string $message, int $code, null|Throwable $previous, null|string $errorTitle)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>message</td><td>string</td><td></td></tr><tr><td>code</td><td>int</td><td></td></tr><tr><td>previous</td><td>Throwable</td><td></td></tr><tr><td>errorTitle</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+### getErrorTitle
+
+
+
+```php
+public getErrorTitle(): string
+```
+
+#### Returns
+
+string

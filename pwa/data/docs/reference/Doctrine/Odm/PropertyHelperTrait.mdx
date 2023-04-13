@@ -1,0 +1,75 @@
+---
+type: Trait
+---
+
+# [ApiPlatform\Doctrine\Odm\PropertyHelperTrait](/docs/reference/Doctrine/Odm/PropertyHelperTrait)
+
+Helper trait regarding a property in a MongoDB document using the resource metadata.
+
+
+```php
+trait ApiPlatform\Doctrine\Odm\PropertyHelperTrait
+{
+    protected splitPropertyParts(string $property, string $resourceClass): array
+    protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+    protected addLookupsForNestedProperty(string $property, Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass): array
+}
+```
+## Methods
+
+### splitPropertyParts
+
+Splits the given property into parts.
+
+```php
+protected splitPropertyParts(string $property, string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### getClassMetadata
+
+Gets class metadata for the given resource.
+
+```php
+protected getClassMetadata(string $resourceClass): Doctrine\Persistence\Mapping\ClassMetadata
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Doctrine\Persistence\Mapping\ClassMetadata
+
+### addLookupsForNestedProperty
+
+Adds the necessary lookups for a nested property.
+
+```php
+protected addLookupsForNestedProperty(string $property, Doctrine\ODM\MongoDB\Aggregation\Builder $aggregationBuilder, string $resourceClass): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>property</td><td>string</td><td></td></tr><tr><td>aggregationBuilder</td><td>Doctrine\ODM\MongoDB\Aggregation\Builder</td><td></td></tr><tr><td>resourceClass</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

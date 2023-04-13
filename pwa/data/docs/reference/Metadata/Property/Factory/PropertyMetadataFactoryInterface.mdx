@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface](/docs/reference/Metadata/Property/Factory/PropertyMetadataFactoryInterface)
+
+Creates a property metadata value object.
+
+
+```php
+interface ApiPlatform\Metadata\Property\Factory\PropertyMetadataFactoryInterface
+{
+    public create(string $resourceClass, string $property, array $options): `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>`
+}
+```
+## Methods
+
+### create
+
+Creates a property metadata.
+
+```php
+public create(string $resourceClass, string $property, array $options): `<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>`
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceClass</td><td>string</td><td></td></tr><tr><td>property</td><td>string</td><td></td></tr><tr><td>options</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+`<a href="/docs/reference/Metadata/ApiProperty">ApiPlatform\Metadata\ApiProperty</a>`

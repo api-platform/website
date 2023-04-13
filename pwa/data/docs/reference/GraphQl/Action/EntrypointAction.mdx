@@ -1,0 +1,51 @@
+---
+type: Class
+---
+
+# [ApiPlatform\GraphQl\Action\EntrypointAction](/docs/reference/GraphQl/Action/EntrypointAction)
+
+GraphQL API entrypoint.
+
+
+```php
+class ApiPlatform\GraphQl\Action\EntrypointAction
+{
+    public __construct(ApiPlatform\GraphQl\Type\SchemaBuilderInterface $schemaBuilder, ApiPlatform\GraphQl\ExecutorInterface $executor, null|`<a href="/docs/reference/GraphQl/Action/GraphiQlAction">ApiPlatform\GraphQl\Action\GraphiQlAction</a>` $graphiQlAction, null|`<a href="/docs/reference/GraphQl/Action/GraphQlPlaygroundAction">ApiPlatform\GraphQl\Action\GraphQlPlaygroundAction</a>` $graphQlPlaygroundAction, Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer, ApiPlatform\GraphQl\Error\ErrorHandlerInterface $errorHandler, bool $debug, bool $graphiqlEnabled, bool $graphQlPlaygroundEnabled, null|string $defaultIde)
+    public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\GraphQl\Type\SchemaBuilderInterface $schemaBuilder, ApiPlatform\GraphQl\ExecutorInterface $executor, null|`<a href="/docs/reference/GraphQl/Action/GraphiQlAction">ApiPlatform\GraphQl\Action\GraphiQlAction</a>` $graphiQlAction, null|`<a href="/docs/reference/GraphQl/Action/GraphQlPlaygroundAction">ApiPlatform\GraphQl\Action\GraphQlPlaygroundAction</a>` $graphQlPlaygroundAction, Symfony\Component\Serializer\Normalizer\NormalizerInterface $normalizer, ApiPlatform\GraphQl\Error\ErrorHandlerInterface $errorHandler, bool $debug, bool $graphiqlEnabled, bool $graphQlPlaygroundEnabled, null|string $defaultIde)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>schemaBuilder</td><td>ApiPlatform\GraphQl\Type\SchemaBuilderInterface</td><td></td></tr><tr><td>executor</td><td>ApiPlatform\GraphQl\ExecutorInterface</td><td></td></tr><tr><td>graphiQlAction</td><td>`<a href="/docs/reference/GraphQl/Action/GraphiQlAction">ApiPlatform\GraphQl\Action\GraphiQlAction</a>`</td><td></td></tr><tr><td>graphQlPlaygroundAction</td><td>`<a href="/docs/reference/GraphQl/Action/GraphQlPlaygroundAction">ApiPlatform\GraphQl\Action\GraphQlPlaygroundAction</a>`</td><td></td></tr><tr><td>normalizer</td><td>Symfony\Component\Serializer\Normalizer\NormalizerInterface</td><td></td></tr><tr><td>errorHandler</td><td>ApiPlatform\GraphQl\Error\ErrorHandlerInterface</td><td></td></tr><tr><td>debug</td><td>bool</td><td></td></tr><tr><td>graphiqlEnabled</td><td>bool</td><td></td></tr><tr><td>graphQlPlaygroundEnabled</td><td>bool</td><td></td></tr><tr><td>defaultIde</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+### __invoke
+
+
+
+```php
+public __invoke(Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Response
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\Response

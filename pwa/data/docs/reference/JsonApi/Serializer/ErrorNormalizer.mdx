@@ -1,0 +1,84 @@
+---
+type: Class
+---
+
+# [ApiPlatform\JsonApi\Serializer\ErrorNormalizer](/docs/reference/JsonApi/Serializer/ErrorNormalizer)
+
+Converts Exception or FlattenException or to a JSON API error representation.
+
+
+```php
+class ApiPlatform\JsonApi\Serializer\ErrorNormalizer implements Symfony\Component\Serializer\Normalizer\NormalizerInterface, Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface
+{
+    public __construct(bool $debug, array $defaultContext)
+    public normalize($object, null|string $format, array $context): array
+    public supportsNormalization($data, null|string $format, array $context): bool
+    public hasCacheableSupportsMethod(): bool
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(bool $debug, array $defaultContext)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>debug</td><td>bool</td><td></td></tr><tr><td>defaultContext</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+### normalize
+
+Normalizes an object into a set of arrays/scalars.
+
+```php
+public normalize($object, null|string $format, array $context): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>object</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
+
+### supportsNormalization
+
+Checks whether the given class is supported for normalization by this normalizer.
+
+```php
+public supportsNormalization($data, null|string $format, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>data</td><td></td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>context</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### hasCacheableSupportsMethod
+
+
+
+```php
+public hasCacheableSupportsMethod(): bool
+```
+
+#### Returns
+
+bool

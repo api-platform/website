@@ -1,0 +1,55 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Metadata\ResourceClassResolverInterface](/docs/reference/Metadata/ResourceClassResolverInterface)
+
+Guesses which resource is associated with a given object.
+
+
+```php
+interface ApiPlatform\Metadata\ResourceClassResolverInterface
+{
+    public getResourceClass($value, null|string $resourceClass, bool $strict): string
+    public isResourceClass(string $type): bool
+}
+```
+## Methods
+
+### getResourceClass
+
+Guesses the associated resource.
+
+```php
+public getResourceClass($value, null|string $resourceClass, bool $strict): string
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td></td></tr><tr><td>resourceClass</td><td>string</td><td>The expected resource class</td></tr><tr><td>strict</td><td>bool</td><td>If true, value must match the expected resource class</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+string
+
+### isResourceClass
+
+Is the given class a resource class?
+
+```php
+public isResourceClass(string $type): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>type</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

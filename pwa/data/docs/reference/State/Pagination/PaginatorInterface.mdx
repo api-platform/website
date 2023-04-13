@@ -1,0 +1,47 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\State\Pagination\PaginatorInterface](/docs/reference/State/Pagination/PaginatorInterface)
+
+The \Countable implementation should return the number of items on the
+current page, as an integer.
+
+
+
+
+```php
+interface ApiPlatform\State\Pagination\PaginatorInterface implements `<a href="/docs/reference/State/Pagination/PartialPaginatorInterface">ApiPlatform\State\Pagination\PartialPaginatorInterface</a>`, Countable, Traversable
+{
+    public getLastPage(): float
+    public getTotalItems(): float
+    public getCurrentPage(): float
+    public getItemsPerPage(): float
+    public count()
+}
+```
+## Methods
+
+### getLastPage
+
+Gets last page.
+
+```php
+public getLastPage(): float
+```
+
+#### Returns
+
+float
+
+### getTotalItems
+
+Gets the number of items in the whole collection.
+
+```php
+public getTotalItems(): float
+```
+
+#### Returns
+
+float

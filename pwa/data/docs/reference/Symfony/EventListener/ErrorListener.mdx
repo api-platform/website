@@ -1,0 +1,76 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\EventListener\ErrorListener](/docs/reference/Symfony/EventListener/ErrorListener)
+
+This error listener extends the Symfony one in order to add
+the `_api_operation` attribute when the request is duplicated.
+It will later be used to retrieve the exceptionToStatus from the operation (ExceptionAction).
+
+```php
+class ApiPlatform\Symfony\EventListener\ErrorListener extends Symfony\Component\HttpKernel\EventListener\ErrorListener implements Symfony\Component\EventDispatcher\EventSubscriberInterface
+{
+    protected duplicateRequest(Throwable $exception, Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Request
+    public __construct(null|object|array|string $controller, null|Psr\Log\LoggerInterface $logger, bool $debug, array&lt;string, array&gt; $exceptionsMapping)
+    public logKernelException(Symfony\Component\HttpKernel\Event\ExceptionEvent $event)
+    public onKernelException(Symfony\Component\HttpKernel\Event\ExceptionEvent $event)
+    public removeCspHeader(Symfony\Component\HttpKernel\Event\ResponseEvent $event): null
+    public onControllerArguments(Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent $event)
+    public getSubscribedEvents(): array
+    protected logException(Throwable $exception, string $message, null|string $logLevel): null
+}
+```
+## Properties
+### controller
+
+```php
+$controller
+```
+
+
+
+### logger
+
+```php
+$logger
+```
+
+
+
+### debug
+
+```php
+$debug
+```
+
+
+
+### exceptionsMapping
+
+```php
+array&lt;string, array&gt; $exceptionsMapping
+```
+
+
+
+## Methods
+
+### duplicateRequest
+
+
+
+```php
+protected duplicateRequest(Throwable $exception, Symfony\Component\HttpFoundation\Request $request): Symfony\Component\HttpFoundation\Request
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>exception</td><td>Throwable</td><td></td></tr><tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+Symfony\Component\HttpFoundation\Request

@@ -1,0 +1,70 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Bundle\ArgumentResolver\PayloadArgumentResolver](/docs/reference/Symfony/Bundle/ArgumentResolver/PayloadArgumentResolver)
+
+
+
+```php
+class ApiPlatform\Symfony\Bundle\ArgumentResolver\PayloadArgumentResolver implements `<a href="/docs/reference/Symfony/Bundle/ArgumentResolver/CompatibleValueResolverInterface">ApiPlatform\Symfony\Bundle\ArgumentResolver\CompatibleValueResolverInterface</a>`, Symfony\Component\HttpKernel\Controller\ValueResolverInterface
+{
+    public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, ApiPlatform\Serializer\SerializerContextBuilderInterface $serializationContextBuilder)
+    public supports(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata $argument): bool
+    public resolve(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata $argument): iterable
+}
+```
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $resourceMetadataCollectionFactory, ApiPlatform\Serializer\SerializerContextBuilderInterface $serializationContextBuilder)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>resourceMetadataCollectionFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>serializationContextBuilder</td><td>ApiPlatform\Serializer\SerializerContextBuilderInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### supports
+
+
+
+```php
+public supports(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata $argument): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr><tr><td>argument</td><td>Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+### resolve
+
+
+
+```php
+public resolve(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata $argument): iterable
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr><tr><td>argument</td><td>Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+iterable

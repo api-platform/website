@@ -1,0 +1,50 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\Api\UriVariableTransformerInterface](/docs/reference/Api/UriVariableTransformerInterface)
+
+
+
+```php
+interface ApiPlatform\Api\UriVariableTransformerInterface
+{
+    public transform($value, array $types, array $context)
+    public supportsTransformation($value, array $types, array $context): bool
+}
+```
+## Methods
+
+### transform
+
+Transforms the value of a URI variable (identifier) to its type.
+
+```php
+public transform($value, array $types, array $context)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td>The URI variable value to transform</td></tr><tr><td>types</td><td>array</td><td>The guessed type behind the URI variable</td></tr><tr><td>context</td><td>array</td><td>Options available to the transformer</td></tr>
+</tbody>
+</table>
+
+### supportsTransformation
+
+Checks whether the value of a URI variable can be transformed to its type by this transformer.
+
+```php
+public supportsTransformation($value, array $types, array $context): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>value</td><td></td><td>The URI variable value to transform</td></tr><tr><td>types</td><td>array</td><td>The types to which the URI variable value should be transformed</td></tr><tr><td>context</td><td>array</td><td>Options available to the transformer</td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool

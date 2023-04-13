@@ -1,0 +1,202 @@
+{
+  "2021": {
+    "baseline": "La première conférence dédiée à API Platform et son écosystème",
+    "covid": {
+      "description_1": "Une preuve de vaccination COVID 19 {{pass_link}} sera demandée. Si vous n'en possédez pas, vous devrez nous présentez un test négatif au COVID 19 réalisé au maximum deux jours avant l'événement.",
+      "description_2": "Vous pouvez réaliser un test PCR {{testing_link}}, en général sur rendez-vous. De nombreuses pharmacies réalisent des tests rapides antigéniques.",
+      "measures": {
+        "capacities": "La capacité maximale des pièces sera <strong>réduite</strong>",
+        "disinfectant": "<strong>Du désinfectant</strong> sera fourni à divers emplacements de la conféfence.",
+        "mask": "Il sera obligatoire de porter un <strong>masque</strong>",
+        "mask2": "Des masques seront distribués",
+        "seats": "Seul <strong>un siège sur deux</strong> sera disponible",
+        "ventilation": "Les pièces seront naturellement <strong>ventilées</strong>"
+      },
+      "other_informations": "Autres informations sanitaires :",
+      "pass_link": "(Pass sanitaire)",
+      "subtitle": "Afin de laisser nos participants apprécier la conférence dans les meilleures conditions possibles, nous suivrons les protocoles sanitaires recommandés par les organismes de santé.",
+      "testing_link": "dans de nombreux laboratoires et centres de tests",
+      "title": "Mesures anti <strong>Covid-19</strong>",
+      "update_measures": "Nous mettrons à jour ces recommandations si nécessaire."
+    },
+    "date": "10 septembre 2021 - Lille & online",
+    "our_speakers": {
+      "subtitle": "Rejoignez des speakers internationaux qui partageront leurs connaissances sur nos deux tracks anglophone (diffusée en ligne) et francophone."
+    },
+    "venue": {
+      "subtitle": "L'édition physique aura lieu à Lille, point central de l'Europe et capitale touristique de la région flamande. Si vous ne pouvez pas assister physiquement à l'événement, vous pourrez suivre les conférences anglophones en ligne."
+    }
+  },
+  "2022": {
+    "baseline": "Le seul événement dédié à API Platform et son écosystème",
+    "date": "15 et 16 septembre 2022 - Lille & online",
+    "our_speakers": {
+      "subtitle": "Découvez nos incroyables speakers internationaux !"
+    },
+    "venue": {
+      "subtitle": "L'édition physique aura lieu à Lille, point central de l'Europe et capitale touristique de la région flamande. Si vous ne pouvez pas assister physiquement à l'événement, vous pourrez suivre les conférences en ligne."
+    }
+  },
+  "2023": {
+    "baseline": "Rencontrez les meilleurs experts des API dans le seul événement dédié au framework API Platform et son écosystème.",
+    "date": "21 et 22 septembre 2023 - Lille & online",
+    "our_speakers": {
+      "speaker": { "coming_soon": "coming soon" },
+      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement. Vous souhaitez proposer un sujet ? {{link}}",
+      "subtitle_link": "Contactez nous !",
+      "title": "Our <strong>speakers</strong>"
+    },
+    "venue": {
+      "subtitle": "L'édition physique aura lieu à Lille, point central de l'Europe et capitale touristique de la région flamande. Si vous ne pouvez pas assister physiquement à l'événement, vous pourrez suivre les conférences en ligne."
+    }
+  },
+  "an_event_by": "Un événement créé par",
+  "back_to_current_edition": "< Retour à l'édition actuelle",
+  "become_speaker": "Devenir speaker",
+  "become_sponsor": "Devenir sponsor",
+  "buy_ticket": "Acheter un ticket",
+  "buy_tickets": "Acheter vos tickets",
+  "coming_soon": "Prochainement",
+  "conferences": {
+    "by_speaker": "par {{speaker}}",
+    "see_speaker_details": "Voir les détails du speaker",
+    "track": "Track {{track}}"
+  },
+  "contact_us": "Contactez-nous !",
+  "days_count": "{{count}} jour",
+  "days_count_plural": "{{count}} jours",
+  "editions": {
+    "subtitle": "Re-découvrez nos {{count}} précédentes éditions",
+    "title": "Que s'est-il passé les <strong>années précédentes ?</strong>?"
+  },
+  "footer": {
+    "follow_us": "Nous suivre",
+    "legal": {
+      "links": {
+        "code_of_conduct": "Code de conduite",
+        "faq": "FAQ",
+        "transparency": "Transparence"
+      },
+      "title": "Mentions légales"
+    },
+    "previous_edition": {
+      "links": {
+        "archive": "{{previous_edition}} archive",
+        "review": "{{previous_edition}} review"
+      },
+      "title": "Édition précédente"
+    },
+    "the_event": {
+      "links": {
+        "current_edition": "Édition actuelle",
+        "pricing": "Tarifs",
+        "schedule": "Agenda",
+        "speakers": "Speakers",
+        "sponsorship": "Partenariat",
+        "venue": "Le lieu"
+      },
+      "title": "L'événement"
+    }
+  },
+  "have_questions": "Des questions ?",
+  "hour_count": "{{count}} heure",
+  "hour_count_plural": "{{count}} heures",
+  "last_edition": {
+    "see_more_pics": "Voir plus de photos sur Flickr",
+    "subtitle": "Jetez un oeil à l'édition {{edition}} edition et retrouvez toutes les informations sur {{link}}",
+    "subtitle_link": "notre récap",
+    "title": "Que s'est-il passé <strong>l'année dernière</strong> ?"
+  },
+  "minuts_count": "{{count}} min",
+  "missing_conferences": {
+    "subtitle": "Regardez les vidéos des conférences sur Youtube !",
+    "title": "<strong>Vous n'étiez pas à l'édition {{edition}} ?</strong>",
+    "watch_the_conferences": "Regardez les conférences"
+  },
+  "nav": {
+    "backlink": "Retour à l'édition actuelle",
+    "buy_tickets": "Acheter des tickets",
+    "links": {
+      "home": "Accueil",
+      "previous_editions": "Éditions précédentes",
+      "pricing": "Tarifs",
+      "review": "Review",
+      "schedule": "Agenda",
+      "speakers": "Speakers",
+      "sponsorship": "Partenariat",
+      "venue": "Le lieu"
+    }
+  },
+  "or_follow_us": "ou suivez-nous sur nos réseaux",
+  "partners": { "title": "Nos <strong>partenaires</strong>" },
+  "pricing": {
+    "certificate_needed": "Certificat de scolarité requis",
+    "conference": {
+      "offers": {
+        "on_site": "Ticket physique 2 jours",
+        "on_site_early": "Ticket physique 2 jours <br>(Early bird)</br>",
+        "online_tickets": "Ticket online"
+      },
+      "subtitle": "Tracks anglophone et francophone"
+    },
+    "free_ticket": "Votre billet est <strong>gratuit*</strong>",
+    "student": "Etudiant ou sans emploi ?",
+    "title": "<strong>Tarifs</strong>",
+    "workshop": {
+      "offers": {
+        "full_package": "Package complet: 2 workshops et 2 jours de conférences",
+        "one_day": "Workshop 1 jour",
+        "two_days": "Workshops 2 jours"
+      },
+      "subtitle": "Apprenez le meilleur d'API Platform 3"
+    }
+  },
+  "review": { "button": "Découvrez notre récap" },
+  "schedule": { "title": "Découvrez notre <strong>agenda</strong" },
+  "see_details": "Plus de détails",
+  "speakers": {
+    "see_all": "Voir tous les speakers",
+    "speaker_schedule": "Agenda de {{speaker}}",
+    "subtitle": "Rejoignez des speakers internationaux qui partageront leurs connaissances",
+    "title": "Découvrez nos <strong>speakers</strong>"
+  },
+  "sponsorship": {
+    "looking_sponsor": {
+      "looking_for": "Nous recherchons des",
+      "partners": "partenaires !",
+      "point_1": "Commercialisez vos produits et applications",
+      "point_2": "Atteignez de nombreux développeurs avec une présence en ligne",
+      "point_3": "Améliorez votre marque en sponsorisant API Platform",
+      "point_4": "Recrutez des développeurs compétents",
+      "why_you_should_partner": "Pourquoi devenir partenanre ?"
+    },
+    "they_trust_us": "Ils nous ont fait confiance en {{year}}",
+    "title": "<strong>Partenariat</strong>"
+  },
+  "venue": {
+    "by_transport": "en {{transport}}",
+    "from_origin": "depuis {{origin}}",
+    "origins": {
+      "amsterdam": "Amsterdam",
+      "barcelona": "Barcelone",
+      "beijing": "Pékin",
+      "berlin": "Berlin",
+      "brussels": "Bruxelles",
+      "koln": "Köln",
+      "liege": "Liège",
+      "london": "Londres",
+      "new-york": "New York",
+      "paris": "Paris",
+      "roma": "Rome"
+    },
+    "place": "Participez à cette édition exceptionnelle située à moins d'une heure de Paris et Bruxelles, 1h30 de Londres.<br/>Les conférences se tiendront à EuraTechnologies, le 1er incubateur & accélérateur de startups en France.",
+    "tip": "Une fois arrivé à Lille, nous vous conseillons d'utiliser les transports en commun ou la location de vélos.",
+    "title": "Le <strong>lieu</strong>",
+    "transports": {
+      "bike": "vélo",
+      "car": "voiture",
+      "plane": "avion",
+      "train": "train"
+    }
+  }
+}

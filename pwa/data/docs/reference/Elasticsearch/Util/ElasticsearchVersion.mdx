@@ -1,0 +1,38 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Elasticsearch\Util\ElasticsearchVersion](/docs/reference/Elasticsearch/Util/ElasticsearchVersion)
+
+
+
+```php
+class ApiPlatform\Elasticsearch\Util\ElasticsearchVersion
+{
+    public supportsMappingType(string $version): bool
+}
+```
+## Methods
+
+### supportsMappingType
+
+Detect whether the current ES version supports passing mapping type as a search parameter.
+
+```php
+public supportsMappingType(string $version): bool
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>version</td><td>string</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+bool
+
+#### See also
+- [https://www.elastic.co/guide/en/elasticsearch/reference/7.17/removal-of-types.html#_schedule_for_removal_of_mapping_types](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/removal-of-types.html#_schedule_for_removal_of_mapping_types)
+

@@ -1,0 +1,35 @@
+---
+type: Interface
+---
+
+# [ApiPlatform\JsonSchema\TypeFactoryInterface](/docs/reference/JsonSchema/TypeFactoryInterface)
+
+Factory for creating the JSON Schema document which specifies the data type corresponding to a PHP type.
+
+
+```php
+interface ApiPlatform\JsonSchema\TypeFactoryInterface
+{
+    public getType(Symfony\Component\PropertyInfo\Type $type, string $format, null|bool $readableLink, null|array $serializerContext, null|`<a href="/docs/reference/JsonSchema/Schema">ApiPlatform\JsonSchema\Schema</a>` $schema): array
+}
+```
+## Methods
+
+### getType
+
+Gets the JSON Schema document which specifies the data type corresponding to the given PHP type, and recursively adds needed new schema to the current schema if provided.
+
+```php
+public getType(Symfony\Component\PropertyInfo\Type $type, string $format, null|bool $readableLink, null|array $serializerContext, null|`<a href="/docs/reference/JsonSchema/Schema">ApiPlatform\JsonSchema\Schema</a>` $schema): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>type</td><td>Symfony\Component\PropertyInfo\Type</td><td></td></tr><tr><td>format</td><td>string</td><td></td></tr><tr><td>readableLink</td><td>bool</td><td></td></tr><tr><td>serializerContext</td><td>array</td><td></td></tr><tr><td>schema</td><td>`<a href="/docs/reference/JsonSchema/Schema">ApiPlatform\JsonSchema\Schema</a>`</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array

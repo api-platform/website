@@ -1,0 +1,55 @@
+## Collection Relation
+
+This is a special case where, in an entity, you have a `toMany` relation. By default, Doctrine will use an `ArrayCollection` to store your values. This is fine when you have a _read_ operation, but when you try to _write_ you can observe an issue where the response is not reflecting the changes correctly. It can lead to client errors even though the update was correct.
+Indeed, after an update on this relation, the collection looks wrong because `ArrayCollection`'s indexes are not sequential. To change this, we recommend to use a getter that returns `$collectionRelation->getValues()`. Thanks to this, the relation is now a real array which is sequentially indexed.
+
+```php
+<?php
+// api/src/Entity/Brand.php
+namespace App\Entity;
+
+use ApiPlatform\Metadata\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity]
+#[ApiResource]
+final class Brand
+{
+    #[ORM\Id, ORM\Column, ORM\GeneratedValue]
+    private ?int $id = null;
+
+    #[ORM\ManyToMany(targetEntity: Car::class, inversedBy: 'brands')]
+    #[ORM\JoinTable(name: 'CarToBrand')]
+    #[ORM\JoinColumn(name: 'brand_id', referencedColumnName: 'id', nullable: false)]
+    #[ORM\InverseJoinColumn(name: 'car_id', referencedColumnName: 'id', nullable: false)]
+    private $cars;
+
+    public function __construct()
+    {
+        $this->cars = new ArrayCollection();
+    }
+
+    public function addCar(DummyCar $car)
+    {
+        $this->cars[] = $car;
+    }
+
+    public function removeCar(DummyCar $car)
+    {
+        $this->cars->removeElement($car);
+    }
+
+    public function getCars()
+    {
+        return $this->cars->getValues();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+```
+
+For reference please check [#1534](https://github.com/api-platform/core/pull/1534).

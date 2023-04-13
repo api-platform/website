@@ -1,0 +1,156 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Symfony\Bundle\DataCollector\RequestDataCollector](/docs/reference/Symfony/Bundle/DataCollector/RequestDataCollector)
+
+
+
+```php
+class ApiPlatform\Symfony\Bundle\DataCollector\RequestDataCollector extends Symfony\Component\HttpKernel\DataCollector\DataCollector implements Symfony\Contracts\Service\ResetInterface, Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface
+{
+    public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $metadataFactory, Psr\Container\ContainerInterface $filterLocator)
+    public collect(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpFoundation\Response $response, null|Throwable $exception): null
+    public getVersion(): string
+    public getName(): string
+    public getData(): Symfony\Component\VarDumper\Cloner\Data|array
+    public getAcceptableContentTypes(): array
+    public getRequestAttributes(): array
+    public getResources(): array
+    public reset(): null
+    protected cloneVar($var): Symfony\Component\VarDumper\Cloner\Data
+    protected getCasters(): array&lt;int, callable&gt;
+    public __sleep(): array
+    public __wakeup()
+    protected serialize()
+    protected unserialize(string $data)
+}
+```
+## Properties
+### data
+
+```php
+array|Symfony\Component\VarDumper\Cloner\Data $data
+```
+
+
+
+## Methods
+
+### __construct
+
+
+
+```php
+public __construct(ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface $metadataFactory, Psr\Container\ContainerInterface $filterLocator)
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>metadataFactory</td><td>ApiPlatform\Metadata\Resource\Factory\ResourceMetadataCollectionFactoryInterface</td><td></td></tr><tr><td>filterLocator</td><td>Psr\Container\ContainerInterface</td><td></td></tr>
+</tbody>
+</table>
+
+### collect
+
+Collects data for the given Request and Response.Collects data for the given Request and Response.
+
+```php
+public collect(Symfony\Component\HttpFoundation\Request $request, Symfony\Component\HttpFoundation\Response $response, null|Throwable $exception): null
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr><tr><td>response</td><td>Symfony\Component\HttpFoundation\Response</td><td></td></tr><tr><td>exception</td><td>Throwable</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+null
+
+### getVersion
+
+
+
+```php
+public getVersion(): string
+```
+
+#### Returns
+
+string
+
+### getName
+
+Returns the name of the collector.Returns the name of the collector.
+
+```php
+public getName(): string
+```
+
+#### Returns
+
+string
+
+### getData
+
+
+
+```php
+public getData(): Symfony\Component\VarDumper\Cloner\Data|array
+```
+
+#### Returns
+
+Symfony\Component\VarDumper\Cloner\Data<br />array
+
+### getAcceptableContentTypes
+
+
+
+```php
+public getAcceptableContentTypes(): array
+```
+
+#### Returns
+
+array
+
+### getRequestAttributes
+
+
+
+```php
+public getRequestAttributes(): array
+```
+
+#### Returns
+
+array
+
+### getResources
+
+
+
+```php
+public getResources(): array
+```
+
+#### Returns
+
+array
+
+### reset
+
+
+
+```php
+public reset(): null
+```
+
+#### Returns
+
+null

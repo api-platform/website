@@ -1,0 +1,35 @@
+---
+type: Class
+---
+
+# [ApiPlatform\Util\ErrorFormatGuesser](/docs/reference/Util/ErrorFormatGuesser)
+
+Guesses the error format to use.
+
+
+```php
+class ApiPlatform\Util\ErrorFormatGuesser
+{
+    public guessErrorFormat(Symfony\Component\HttpFoundation\Request $request, array $errorFormats): array
+}
+```
+## Methods
+
+### guessErrorFormat
+
+Get the error format and its associated MIME type.
+
+```php
+public guessErrorFormat(Symfony\Component\HttpFoundation\Request $request, array $errorFormats): array
+```
+
+#### Parameters
+
+<table><tbody>
+<tr><td>request</td><td>Symfony\Component\HttpFoundation\Request</td><td></td></tr><tr><td>errorFormats</td><td>array</td><td></td></tr>
+</tbody>
+</table>
+
+#### Returns
+
+array
