@@ -22,11 +22,11 @@ export async function generateStaticParams({
 }
 
 type Props = {
-  params: { locale: string; edition: string; slug: string };
+  params: { locale: Locale; edition: string; slug: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const locale = params.locale;
+  const { edition, locale } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
   const speaker = await getSpeaker(params.edition, params.slug, params.locale);
   const DESCRIPTION = dictionary.speaker.description
@@ -36,25 +36,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: speaker.name,
     description: DESCRIPTION,
     openGraph: {
-      title: `API Platform Conference | ${speaker.name}`,
+      title: `${speaker.name} | API Platform Conference ${edition}`,
       description: DESCRIPTION,
     },
     twitter: {
-      title: `API Platform Conference | ${speaker.name}`,
+      title: `${speaker.name} | API Platform Conference ${edition}`,
       description: DESCRIPTION,
     },
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    edition: string;
-    slug: string;
-    locale: string;
-  };
-}) {
+export default async function Page({ params }: Props) {
   const speaker = await getSpeaker(params.edition, params.slug, params.locale);
   const conferences = await getConferencesBySpeaker(
     params.edition,

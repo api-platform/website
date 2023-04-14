@@ -9,35 +9,27 @@ const getSpeakers = async (edition: string, locale: Locale) => {
 };
 
 type Props = {
-  params: { locale: string };
+  params: { locale: Locale; edition: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // read route params
-  const locale = params.locale;
+  const { locale, edition } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
   return {
     title: dictionary.speakers.title,
     description: dictionary.speakers.description,
     openGraph: {
-      title: dictionary.title,
-      description: dictionary.description,
+      title: `API Platform Conference ${edition} | ${dictionary.speakers.title}`,
+      description: dictionary.speakers.description,
     },
     twitter: {
-      title: dictionary.title,
-      description: dictionary.description,
+      title: `API Platform Conference ${edition} | ${dictionary.speakers.title}`,
+      description: dictionary.speakers.description,
     },
   };
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    edition: string;
-    locale: Locale;
-  };
-}) {
+export default async function Page({ params }: Props) {
   const speakers = await getSpeakers(params.edition, params.locale);
   // Fetch data directly in a Server Component
   // Forward fetched data to your Client Component

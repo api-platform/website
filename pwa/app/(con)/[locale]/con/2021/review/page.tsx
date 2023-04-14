@@ -1,31 +1,48 @@
 import { getAllEditionPictures } from "api/con/editions";
-import ReviewCover from "components/con/review/ReviewCover";
-import ReviewList from "./components/Review/ReviewList";
+import Cover from "./components/Review/ReviewCover";
+import ReviewListFr from "./components/Review/fr";
+import ReviewListEn from "./components/Review/en";
 import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
-import Button from "components/con/common/Button";
+import { Locale } from "i18n/i18n-config";
+import { Metadata } from "next";
 
-export default async function Page() {
+type Props = {
+  params: { locale: Locale };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+  const dictionary = await import(`i18n/meta/${locale}.json`);
+
+  return {
+    title: dictionary.review.title,
+    description: dictionary.review.description.replace("%edition%", "2021"),
+    openGraph: {
+      title: `API Platform Conference 2021 | ${dictionary.review.title}`,
+      description: dictionary.review.description.replace("%edition%", "2021"),
+    },
+    twitter: {
+      title: `API Platform Conference 2021 | ${dictionary.review.title}`,
+      description: dictionary.review.description.replace("%edition%", "2021"),
+    },
+  };
+}
+
+export default async function Page({ params }: { params: { locale: Locale } }) {
   const images = await getAllEditionPictures("2021");
   return (
     <>
-      <ReviewCover
-        edition="2021"
-        title="It was a blast!"
-        baseline={
-          <p>
-            Thank you again for joining and trusting us on this first edition!
-            <br />
-            We are looking forward to seeing you all again next year.
-          </p>
-        }
-        button={
-          <Button to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4">
-            Watch the Conferences
-          </Button>
-        }
-      />
-      <ReviewList />
+      <Cover />
+      {
+        params.locale === "fr" ? (
+          <ReviewListFr />
+        ) : null /*FIXME: find an other way to translate this page*/
+      }
+      {
+        params.locale === "en" ? (
+          <ReviewListEn />
+        ) : null /*FIXME: find an other way to translate this page*/
+      }
       <PictureGallery
         className="pb-60 pt-12"
         link="https://www.flickr.com/photos/194052559@N02/albums/72157719936921021"

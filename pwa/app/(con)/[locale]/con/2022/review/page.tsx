@@ -1,40 +1,48 @@
 import { getAllEditionPictures } from "api/con/editions";
-import ReviewCover from "components/con/review/ReviewCover";
-import ReviewList from "./components/Review/ReviewList";
+import Cover from "./components/Review/ReviewCover";
+import ReviewListFr from "./components/Review/fr";
+import ReviewListEn from "./components/Review/en";
 import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
+import { Locale } from "i18n/i18n-config";
+import { Metadata } from "next";
 
-export default async function Page() {
+type Props = {
+  params: { locale: Locale };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+  const dictionary = await import(`i18n/meta/${locale}.json`);
+
+  return {
+    title: dictionary.review.title,
+    description: dictionary.review.description.replace("%edition%", "2022"),
+    openGraph: {
+      title: `API Platform Conference 2022 | ${dictionary.review.title}`,
+      description: dictionary.review.description.replace("%edition%", "2022"),
+    },
+    twitter: {
+      title: `API Platform Conference 2022 | ${dictionary.review.title}`,
+      description: dictionary.review.description.replace("%edition%", "2022"),
+    },
+  };
+}
+
+export default async function Page({ params }: { params: { locale: Locale } }) {
   const images = await getAllEditionPictures("2022");
   return (
     <>
-      <ReviewCover
-        edition="2022"
-        title="An edition beyond our expectations"
-        baseline={
-          <>
-            <p>
-              Thank you to all our attendees for joining us for this second
-              edition.
-              <br />
-              We hope you enjoyed it as much as we loved organizing it.
-            </p>
-            <p className="text-sm mt-4">
-              API Platform Con will be back in 2023. To stay up to date on all
-              of our latest news, follow us on{" "}
-              <a
-                href="https://twitter.com/ApiPlatform"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Twitter
-              </a>
-              .
-            </p>
-          </>
-        }
-      />
-      <ReviewList />
+      <Cover />
+      {
+        params.locale === "fr" ? (
+          <ReviewListFr />
+        ) : null /*FIXME: find an other way to translate this page*/
+      }
+      {
+        params.locale === "en" ? (
+          <ReviewListEn />
+        ) : null /*FIXME: find an other way to translate this page*/
+      }
       <PictureGallery
         className="pb-60 pt-12"
         link="https://www.flickr.com/photos/194052559@N02/albums/72177720302238684"

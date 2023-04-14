@@ -14,7 +14,6 @@
     "description": "The international conference dedicated to API Platform and its ecosystem"
   },
   "speaker": {
-    "title": "Speakers",
     "description": "%name% is a speaker of the API Platform Conference %edition%!"
   },
   "speakers": {
@@ -28,22 +27,12 @@
   "conference": {
     "description": "Discover %name%'s talk to the API Platform Conference %edition%!"
   },
+  "editions": {
+    "title": "Previous editions",
+    "description": "Discover all our previous editions"
+  },
   "review": {
     "title": "Review",
     "description": "What happened in %edition%?"
-  },
-  "legal": {
-    "code-of-conduct": {
-      "title": "Code of conduct",
-      "description": "Discover the code of conduct of this edition"
-    },
-    "faq": {
-      "title": "FAQ",
-      "description": "All the questions you want to ask about this event"
-    },
-    "transparency": {
-      "title": "Transparency",
-      "description": "Find out what the profits from this event will be used for"
-    }
   }
 }

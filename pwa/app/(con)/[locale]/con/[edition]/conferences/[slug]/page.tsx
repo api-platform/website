@@ -2,9 +2,10 @@ import { Day } from "types/con";
 import { getAllConferenceSlugs, getConferenceData } from "api/con/conferences";
 import ConferencePage from "./components/ConferencePage";
 import { Locale } from "i18n/i18n-config";
+import { Metadata } from "next";
 
 type Props = {
-  params: { locale: "en" | "fr"; edition: string; slug: string };
+  params: { locale: Locale; edition: string; slug: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
@@ -53,15 +54,7 @@ export async function generateStaticParams({
   }));
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    edition: string;
-    slug: string;
-    locale: Locale;
-  };
-}) {
+export default async function Page({ params }: Props) {
   const conference = await getConferenceData(
     params.edition,
     params.slug,

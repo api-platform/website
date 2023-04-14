@@ -23,6 +23,12 @@
     "our_speakers": {
       "subtitle": "Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking tracks."
     },
+    "review": {
+      "title": "It was a blast",
+      "subtitle_1": "Thank you again for joining and trusting us on this first edition!",
+      "subtitle_2": "We are looking forward to seeing you all again next year.",
+      "watch_conferences": "Watch video conferences"
+    },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch the English-speaking track online."
     }
@@ -32,6 +38,12 @@
     "date": "September 15-16, 2022 - Lille & online",
     "our_speakers": {
       "subtitle": "Discover our amazing international speakers!"
+    },
+    "review": {
+      "title": "An edition beyond our expectations",
+      "subtitle_1": "Thank you to all our attendees for joining us for this second edition.",
+      "subtitle_2": "We hope you enjoyed it as much as we loved organizing it.",
+      "subtitle_3": "API Platform Con will be back in 2023. To stay up to date on all of our latest news, follow us on {{twitter}}"
     },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch both tracks online."
