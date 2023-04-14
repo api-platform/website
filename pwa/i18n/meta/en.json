@@ -1,0 +1,49 @@
+{
+  "title": "API Platform Conference: meet the best API experts!",
+  "description": "The international conference dedicated to API Platform and its ecosystem",
+  "2021": {
+    "title": "API Platform Conference 2021: meet the best API experts!",
+    "description": "The first conference dedicated to API Platform and its ecosystem"
+  },
+  "2022": {
+    "title": "API Platform Conference 2022: meet the best API experts!",
+    "description": "The international conference dedicated to API Platform and its ecosystem"
+  },
+  "2023": {
+    "title": "API Platform Conference 2023: meet the best API experts!",
+    "description": "The international conference dedicated to API Platform and its ecosystem"
+  },
+  "speaker": {
+    "title": "Speakers",
+    "description": "%name% is a speaker of the API Platform Conference %edition%!"
+  },
+  "speakers": {
+    "title": "Speakers",
+    "description": "Discover our amazing speakers for this edition!"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "description": "Discover the schedule of this amazing edition!"
+  },
+  "conference": {
+    "description": "Discover %name%'s talk to the API Platform Conference %edition%!"
+  },
+  "review": {
+    "title": "Review",
+    "description": "What happened in %edition%?"
+  },
+  "legal": {
+    "code-of-conduct": {
+      "title": "Code of conduct",
+      "description": "Discover the code of conduct of this edition"
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "All the questions you want to ask about this event"
+    },
+    "transparency": {
+      "title": "Transparency",
+      "description": "Find out what the profits from this event will be used for"
+    }
+  }
+}

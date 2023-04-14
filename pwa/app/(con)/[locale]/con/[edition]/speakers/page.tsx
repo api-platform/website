@@ -1,11 +1,34 @@
 import { getAllSpeakers } from "api/con/speakers";
 import { Locale } from "i18n/i18n-config";
 import SpeakersPage from "./SpeakersPage";
+import { Metadata } from "next";
 
 const getSpeakers = async (edition: string, locale: Locale) => {
   const speakers = await getAllSpeakers(edition, locale);
   return speakers;
 };
+
+type Props = {
+  params: { locale: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const locale = params.locale;
+  const dictionary = await import(`i18n/meta/${locale}.json`);
+
+  return {
+    title: dictionary.speakers.title,
+    description: dictionary.speakers.description,
+    openGraph: {
+      title: dictionary.title,
+      description: dictionary.description,
+    },
+    twitter: {
+      title: dictionary.title,
+      description: dictionary.description,
+    },
+  };
+}
 
 export default async function Page({
   params,

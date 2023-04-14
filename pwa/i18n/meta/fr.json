@@ -1,0 +1,46 @@
+{
+  "title": "API Platform Conference",
+  "description": "La conférence internationale dédiée à API Platform et son écosystème",
+  "2021": {
+    "description": "La première conférence dédiée à API Platform et son écosystème"
+  },
+  "2022": {
+    "description": "La conférence internationale dédiée à API Platform et son écosystème"
+  },
+  "2023": {
+    "description": "La conférence internationale dédiée à API Platform et son écosystème"
+  },
+  "speaker": {
+    "title": "Speakers",
+    "description": "%name% est speaker à l'API Platform Conference %edition%!"
+  },
+  "speakers": {
+    "title": "Speakers",
+    "description": "Découvrez nos incroyables speakers pour cette édition"
+  },
+  "schedule": {
+    "title": "Agenda",
+    "description": "Découvrez la programmation de cet événement extraordinaire"
+  },
+  "conference": {
+    "description": "Découvrez le talk de %name% à l'API Platform Conference %edition%!"
+  },
+  "review": {
+    "title": "Review",
+    "description": "Que s'est-il passé en %edition%?"
+  },
+  "legal": {
+    "code-of-conduct": {
+      "title": "Code de conduite",
+      "description": "Découvrez le code de conduite de cette édition"
+    },
+    "faq": {
+      "title": "FAQ",
+      "description": "Toutes les questions que vous vous posez à propos de cet événement"
+    },
+    "transparency": {
+      "title": "Transparence",
+      "description": "Découvrez comment les bénéfices de cette édition vont contribuer au développement d'API Platform"
+    }
+  }
+}
