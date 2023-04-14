@@ -2,6 +2,45 @@ import { Day } from "types/con";
 import { getAllConferenceSlugs, getConferenceData } from "api/con/conferences";
 import ConferencePage from "./components/ConferencePage";
 import { Locale } from "i18n/i18n-config";
+import { Metadata } from "next";
+
+type Props = {
+  params: { locale: Locale; edition: string; slug: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const locale = params.locale;
+  const dictionary = await import(`i18n/meta/${locale}.json`);
+  const conference = await getConferenceData(
+    params.edition,
+    params.slug,
+    true,
+    true,
+    params.locale
+  );
+  let SPEAKERS = "";
+  conference.speakers.map((speaker, index) => {
+    SPEAKERS += speaker.name;
+    if (index < conference.speakers.length - 2) SPEAKERS += ", ";
+    if (index === conference.speakers.length - 2) SPEAKERS += " & ";
+  });
+  const DESCRIPTION = dictionary.conference.description
+    .replace("%name%", SPEAKERS)
+    .replace("%edition%", params.edition);
+
+  return {
+    title: conference.title,
+    description: DESCRIPTION,
+    openGraph: {
+      title: `API Platform Conference | ${conference.title}`,
+      description: DESCRIPTION,
+    },
+    twitter: {
+      title: `API Platform Conference | ${conference.title}`,
+      description: DESCRIPTION,
+    },
+  };
+}
 
 export async function generateStaticParams({
   params: { edition, locale },
@@ -15,15 +54,7 @@ export async function generateStaticParams({
   }));
 }
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    edition: string;
-    slug: string;
-    locale: Locale;
-  };
-}) {
+export default async function Page({ params }: Props) {
   const conference = await getConferenceData(
     params.edition,
     params.slug,

@@ -13,7 +13,7 @@ import { localeDuration } from "utils/con";
 export default function Venue({ subtitle }: { subtitle: string }) {
   const { t, Translate, locale: language } = useContext(LanguageContext);
   return (
-    <Section section="venue" className="relative z-20 bg-gray-500 text-center">
+    <Section section="venue" className="relative z-20 bg-grey text-center">
       <div className="container">
         <SectionTitle>
           <Translate translationKey="venue.title" />

@@ -23,6 +23,12 @@
     "our_speakers": {
       "subtitle": "Rejoignez des speakers internationaux qui partageront leurs connaissances sur nos deux tracks anglophone (diffusée en ligne) et francophone."
     },
+    "review": {
+      "title": "C'était un succès !",
+      "subtitle_1": "Merci encore de nous avoir fait confiance pour cette première édition",
+      "subtitle_2": "Nous espérons vous revoir l'année prochaine !",
+      "watch_conferences": "Regarder les conférences vidéo"
+    },
     "venue": {
       "subtitle": "L'édition physique aura lieu à Lille, point central de l'Europe et capitale touristique de la région flamande. Si vous ne pouvez pas assister physiquement à l'événement, vous pourrez suivre les conférences anglophones en ligne."
     }
@@ -32,6 +38,12 @@
     "date": "15 et 16 septembre 2022 - Lille & online",
     "our_speakers": {
       "subtitle": "Découvez nos incroyables speakers internationaux !"
+    },
+    "review": {
+      "title": "Une édition au delà de nos espérances",
+      "subtitle_1": "Merci encore de nous avoir fait confiance pour cette seconde édition.",
+      "subtitle_2": "Nous espérons que vous l'avez apprécié autant que nous avons aimé l'organiser.",
+      "subtitle_3": "La conférence API Platform sera de retour en 2023. Pour rester au courant des dernières news, suivez nous sur {{twitter}}."
     },
     "venue": {
       "subtitle": "L'édition physique aura lieu à Lille, point central de l'Europe et capitale touristique de la région flamande. Si vous ne pouvez pas assister physiquement à l'événement, vous pourrez suivre les conférences en ligne."

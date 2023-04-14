@@ -2,15 +2,30 @@ import { getAllConferences } from "api/con/conferences";
 import { Conference } from "types/con";
 import { Locale } from "i18n/i18n-config";
 import Schedule from "./components/Schedule";
+import { Metadata } from "next";
 
-export default async function Page({
-  params,
-}: {
-  params: {
-    edition: string;
-    locale: Locale;
+type Props = {
+  params: { locale: Locale; edition: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, edition } = params;
+  const dictionary = await import(`i18n/meta/${locale}.json`);
+
+  return {
+    title: dictionary.schedule.title,
+    description: dictionary.schedule.description,
+    openGraph: {
+      title: `API Platform Conference ${edition} | ${dictionary.schedule.title}`,
+      description: dictionary.schedule.description,
+    },
+    twitter: {
+      title: `API Platform Conference ${edition} | ${dictionary.schedule.title}`,
+      description: dictionary.schedule.description,
+    },
   };
-}) {
+}
+
+export default async function Page({ params }: Props) {
   const extra = (await import(`data/con/${params.edition}/extraConferences`))
     .default;
   const days = (await import(`data/con/${params.edition}/days`)).default;
