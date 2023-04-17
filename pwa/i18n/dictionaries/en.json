@@ -24,9 +24,9 @@
       "subtitle": "Join international speakers sharing their knowledge on English-speaking (streamed online) and French-speaking tracks."
     },
     "review": {
-      "title": "It was a blast",
       "subtitle_1": "Thank you again for joining and trusting us on this first edition!",
       "subtitle_2": "We are looking forward to seeing you all again next year.",
+      "title": "It was a blast",
       "watch_conferences": "Watch video conferences"
     },
     "venue": {
@@ -40,10 +40,10 @@
       "subtitle": "Discover our amazing international speakers!"
     },
     "review": {
-      "title": "An edition beyond our expectations",
       "subtitle_1": "Thank you to all our attendees for joining us for this second edition.",
       "subtitle_2": "We hope you enjoyed it as much as we loved organizing it.",
-      "subtitle_3": "API Platform Con will be back in 2023. To stay up to date on all of our latest news, follow us on {{twitter}}"
+      "subtitle_3": "API Platform Con will be back in 2023. To stay up to date on all of our latest news, follow us on {{twitter}}",
+      "title": "An edition beyond our expectations"
     },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch both tracks online."
@@ -54,19 +54,18 @@
     "date": "September 21-22, 2023 - Lille & online",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Our selected speakers will be revealed in {{edition}}. Want to be part of them? {{link}}",
-      "subtitle_link": "Contact us !",
+      "subtitle": "Our first speakers will be announced very soon. There are only a few weeks left to discover who has been selected!",
+      "subtitle_link": "Contact us!",
       "title": "Our <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't attend the event physically, you can watch both tracks online."
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online."
     }
   },
   "an_event_by": "an event by",
   "back_to_current_edition": "< Back to current edition",
   "become_speaker": "Become speaker",
   "become_sponsor": "Become sponsor",
-  "buy_ticket": "Buy ticket",
   "buy_tickets": "Buy tickets",
   "coming_soon": "Coming soon",
   "conferences": {
@@ -79,7 +78,7 @@
   "days_count_plural": "{{count}} days",
   "editions": {
     "subtitle": "Re-discover our {{count}} previous editions",
-    "title": "What happened <strong>last few years</strong>?"
+    "title": "What happened <strong>in the past years</strong>?"
   },
   "footer": {
     "follow_us": "Follow us",
@@ -139,10 +138,10 @@
       "venue": "Venue"
     }
   },
-  "or_follow_us": "or follow us on social networks",
+  "or_follow_us": "or follow us on social media",
   "partners": { "title": "Our <strong>partners</strong>" },
   "pricing": {
-    "certificate_needed": "certificate will be needed",
+    "certificate_needed": "A certificate will be needed",
     "conference": {
       "offers": {
         "on_site": "2 days on-site event",
@@ -169,7 +168,7 @@
   "speakers": {
     "see_all": "See all our speakers",
     "speaker_schedule": "{{speaker}}'s schedule",
-    "subtitle": "Join international speakers sharing their knowledge",
+    "subtitle": "Join international speakers sharing their lastest insights",
     "title": "Meet our <strong>speakers</strong>"
   },
   "sponsorship": {
@@ -201,7 +200,7 @@
       "paris": "Paris",
       "roma": "Roma"
     },
-    "place": "Be part of this exceptional edition located at less than 1 hour from Paris and Brussels, 1h30 from London.<br/>Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France.",
+    "place": "Be part of this exceptional event located at less than 1 hour from Paris and Brussels, 1h30 from London.<br/>Conferences will be held in EuraTechnologies, the 1st incubator & startups accelerator in France.",
     "tip": "Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.",
     "title": "The <strong>venue</strong>",
     "transports": {

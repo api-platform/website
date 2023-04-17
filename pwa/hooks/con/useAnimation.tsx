@@ -76,7 +76,7 @@ const useAnimation: (
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      setIsMobile(/Mobi/i.test(window.navigator.userAgent));
+      setIsMobile("ontouchstart" in document.documentElement);
     }
   }, [setIsMobile]);
   if (isMobile) return ref; // no animation on mobile device
