@@ -1,12 +1,13 @@
 import { getAllLegalSlugs, getLegalData } from "api/con/legal";
 import LegalPage from "./LegalPage";
 import { Metadata } from "next";
+import { Locale } from "i18n/i18n-config";
 
 type Props = {
-  params: { legal: string; edition: string };
+  params: { locale: Locale; legal: string; edition: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { legal, edition } = params;
+  const { legal, edition, locale } = params;
   const legalData = await getLegalData(edition, legal);
 
   return {
@@ -16,6 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       title: `API Platform Conference ${edition} | ${legalData.title}`,
+    },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : `/con/${edition}/${legal}`,
+        fr: locale === "fr" ? undefined : `/fr/con/${edition}/${legal}`,
+      },
     },
   };
 }

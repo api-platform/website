@@ -17,6 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: dictionary[2023].title,
       template: `%s - API Platform Conference 2023`,
     },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : "/con/2023",
+        fr: locale === "fr" ? undefined : "/fr/con/2023",
+      },
+    },
   };
 }
 

@@ -9,7 +9,7 @@ type Props = {
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const locale = params.locale;
+  const { locale, edition, slug } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
   const conference = await getConferenceData(
     params.edition,
@@ -38,6 +38,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       title: `API Platform Conference | ${conference.title}`,
       description: DESCRIPTION,
+    },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : `/con/${edition}/conferences/${slug}`,
+        fr:
+          locale === "fr"
+            ? undefined
+            : `/fr/con/${edition}/conferences/${slug}`,
+      },
     },
   };
 }

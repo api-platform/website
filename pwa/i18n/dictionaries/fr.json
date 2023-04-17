@@ -53,18 +53,18 @@
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
       "subtitle": "Notre programmation sera très prochainement annoncée. Encore un peu de patience pour découvrir nos speakers !",
-      "subtitle_link": "Contactez nous !",
-      "title": "Our <strong>speakers</strong>"
+      "subtitle_link": "Contactez-nous !",
+      "title": "Nos <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "L'API Platform Conference se déroule à Lille (France), capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas assister aux conférences sur place, vous pouvez prendre un billet pour suivre les conférences en ligne et en direct."
+      "subtitle": "L'API Platform Conference se déroule à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez prendre un billet pour suivre les conférences en ligne."
     }
   },
-  "an_event_by": "Un événement organisé et sponsorisé par",
+  "an_event_by": "Un événement organisé par",
   "back_to_current_edition": "< Retour à l'édition actuelle",
   "become_speaker": "Devenir speaker",
   "become_sponsor": "Devenir sponsor",
-  "buy_tickets": "Prenez vos billets",
+  "buy_tickets": "S'inscrire",
   "coming_soon": "Prochainement",
   "conferences": {
     "by_speaker": "par {{speaker}}",
@@ -84,7 +84,7 @@
       "links": {
         "code_of_conduct": "Code de conduite",
         "faq": "FAQ",
-        "transparency": "Transparence"
+        "transparency": "Transparence sur les dépenses"
       },
       "title": "Mentions légales"
     },
@@ -101,7 +101,7 @@
         "pricing": "Tarifs",
         "schedule": "Agenda",
         "speakers": "Speakers",
-        "sponsorship": "Partenariat",
+        "sponsorship": "Sponsors",
         "venue": "Le lieu"
       },
       "title": "L'événement"
@@ -111,20 +111,20 @@
   "hour_count": "{{count}} heure",
   "hour_count_plural": "{{count}} heures",
   "last_edition": {
-    "see_more_pics": "Voir plus de photos sur notre album Flickr",
+    "see_more_pics": "Voir toutes les photos",
     "subtitle": "Jetez un œil à l'édition {{edition}} et retrouvez toutes les informations sur {{link}}",
     "subtitle_link": "notre récap",
     "title": "Que s'est-il passé <strong>l'année dernière</strong> ?"
   },
   "minuts_count": "{{count}} min",
   "missing_conferences": {
-    "subtitle": "Regardez le replay des conférences sur Youtube !",
+    "subtitle": "Regardez l'enregistrement des conférences sur Youtube !",
     "title": "<strong>Vous n'étiez pas à l'édition {{edition}} ?</strong>",
-    "watch_the_conferences": "Regardez les conférences"
+    "watch_the_conferences": "Voir le replay"
   },
   "nav": {
     "backlink": "Retour à l'édition actuelle",
-    "buy_tickets": "Prendre un billet",
+    "buy_tickets": "S'inscrire",
     "links": {
       "home": "Accueil",
       "previous_editions": "Éditions précédentes",
@@ -146,7 +146,7 @@
         "on_site_early": "Billet 2 jours <br>(Early bird)</br>",
         "online_tickets": "Billet online"
       },
-      "subtitle": "Conférences anglophones et francophones"
+      "subtitle": "Deux jours de conférences anglophones et francophones"
     },
     "free_ticket": "Votre billet est <strong>gratuit*</strong>",
     "student": "Etudiant·e ou en recherche d'emploi ?",
@@ -161,7 +161,7 @@
     }
   },
   "review": { "button": "Découvrez notre récap" },
-  "schedule": { "title": "Découvrez notre <strong>agenda</strong" },
+  "schedule": { "title": "Découvrez notre <strong>agenda</strong>" },
   "see_details": "Plus de détails",
   "speakers": {
     "see_all": "Voir tous les speakers",
@@ -174,13 +174,13 @@
       "looking_for": "Nous recherchons des",
       "partners": "sponsors !",
       "point_1": "Mettez en avant votre expertise et vos produits",
-      "point_2": "Touchez une large communauté avec une communication online",
-      "point_3": "Contribuez au développement web d'API Platform",
-      "point_4": "Retrutez un large vivier de devs expérimentés",
+      "point_2": "Atteignez une large communauté de décideurs européens",
+      "point_3": "Votre marque est associée à l'écosystème d'API Platform",
+      "point_4": "Recrutez un large vivier de devs expérimentés",
       "why_you_should_partner": "Pourquoi devenir partenaire ?"
     },
     "they_trust_us": "Ils nous ont fait confiance en {{year}}",
-    "title": "<strong>Partenariat</strong>"
+    "title": "<strong>Sponsoring</strong>"
   },
   "venue": {
     "by_transport": "en {{transport}}",
@@ -199,7 +199,7 @@
       "roma": "Rome"
     },
     "place": "Rejoignez cet événement situé à moins d'une heure de Paris ou Bruxelles et 1h30 de Londres.<br/>Les conférences ont lieu à EuraTechnologies, le 1er incubateur & accélérateur de startups en France.",
-    "tip": "Une fois que vous êtes arrivé·e à Lille, nous vous conseillons d'utiliser les transports en commun ou de louer un v'Lille pour venir à notre rencontre.",
+    "tip": "Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.",
     "title": "Le <strong>lieu</strong>",
     "transports": {
       "bike": "vélo",

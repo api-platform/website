@@ -26,6 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `API Platform Conference 2021 | ${dictionary.review.title}`,
       description: dictionary.review.description.replace("%edition%", "2021"),
     },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : "/con/2021/review",
+        fr: locale === "fr" ? undefined : "/fr/con/2021/review",
+      },
+    },
   };
 }
 

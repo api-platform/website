@@ -12,6 +12,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: dictionary.editions.title,
     description: dictionary.editions.description,
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : "/con/editions",
+        fr: locale === "fr" ? undefined : "/fr/con/editions",
+      },
+    },
   };
 }
 

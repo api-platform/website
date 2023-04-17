@@ -26,6 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `API Platform Conference ${edition} | ${dictionary.speakers.title}`,
       description: dictionary.speakers.description,
     },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : `/con/${edition}/speakers`,
+        fr: locale === "fr" ? undefined : `/fr/con/${edition}/speakers`,
+      },
+    },
   };
 }
 

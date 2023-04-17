@@ -22,6 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `API Platform Conference ${edition} | ${dictionary.schedule.title}`,
       description: dictionary.schedule.description,
     },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : `/con/${edition}/schedule`,
+        fr: locale === "fr" ? undefined : `/fr/con/${edition}/schedule`,
+      },
+    },
   };
 }
 

@@ -10,16 +10,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
   // fetch data
-  const { URL, OG_IMAGE } = await import(`data/con/meta`);
+  const { URL: BASE_URL, OG_IMAGE } = await import(`data/con/meta`);
 
   return {
+    metadataBase: new URL(BASE_URL),
     title: {
       default: dictionary.title,
       template: "%s - API Platform Conference",
     },
     description: dictionary.description,
     openGraph: {
-      url: URL,
+      url: BASE_URL,
       title: dictionary.title,
       description: dictionary.description,
       type: "website",

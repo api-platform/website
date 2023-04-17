@@ -15,6 +15,7 @@ function ContactIcon({ url, icon }: ContactIconProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`Follow us on ${icon}`}
       className="text-white border-2 border-white bg-[position:0] bg-[length:300%] bg-icon-white transition-all ease-in-out p-2 rounded-full w-9 h-9 inline-flex items-center justify-center m-1 hover:text-blue-dark hover:bg-[position:100%]"
     >
       <i className={`icon-${icon}`} />

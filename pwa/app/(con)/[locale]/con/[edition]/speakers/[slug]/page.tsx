@@ -26,7 +26,7 @@ type Props = {
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const { edition, locale } = params;
+  const { edition, locale, slug } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
   const speaker = await getSpeaker(params.edition, params.slug, params.locale);
   const DESCRIPTION = dictionary.speaker.description
@@ -42,6 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       title: `${speaker.name} | API Platform Conference ${edition}`,
       description: DESCRIPTION,
+    },
+    alternates: {
+      languages: {
+        en: locale === "en" ? undefined : `/con/${edition}/speakers/${slug}`,
+        fr: locale === "fr" ? undefined : `/fr/con/${edition}/speakers/${slug}`,
+      },
     },
   };
 }
