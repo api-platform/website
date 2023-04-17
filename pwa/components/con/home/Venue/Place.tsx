@@ -32,9 +32,7 @@ export default function Place() {
       .setLngLat([3.020125223382465, 50.63318866197429])
       .addTo(newMap);
 
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)
-    ) {
+    if ("ontouchstart" in document.documentElement) {
       newMap.dragPan.disable();
       newMap.scrollZoom.disable();
       newMap.touchPitch.disable();

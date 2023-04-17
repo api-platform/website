@@ -104,7 +104,7 @@ export default function Nav({ edition, nav }: NavProps) {
       ) : null}
       <div className="hidden | lg:block">
         {links?.map((link) => (
-          <NavLink key={link.text} to={link.to}>
+          <NavLink key={link.text} to={link.to.replace("{{locale}}", locale)}>
             {t(link.text)}
           </NavLink>
         ))}
