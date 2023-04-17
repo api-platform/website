@@ -12,7 +12,7 @@ export default function SectionSubTitle({
   className,
 }: SectionSubtitleProps) {
   return (
-    <p
+    <div
       className={classnames(
         "text-2xl font-light text-center mb-8",
         dark ? "text-white/60" : "text-blue-black/60",
@@ -20,6 +20,6 @@ export default function SectionSubTitle({
       )}
     >
       {children}
-    </p>
+    </div>
   );
 }

@@ -148,9 +148,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 <span className="font-bold text-white leading-tight font-title uppercase lined-center lined-white relative">
                   {t("pricing.student")}
                 </span>
-                <p className="mt-2 text-blue-black/80 font-semibold">
+                <div className="mt-2 text-blue-black/80 font-semibold">
                   <Translate translationKey="pricing.free_ticket" />
-                </p>
+                </div>
                 <Button
                   size="small"
                   square

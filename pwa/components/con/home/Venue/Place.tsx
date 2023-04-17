@@ -84,9 +84,9 @@ export default function Place() {
           <span className="block">59000 Lille</span>
           <span className="block">FRANCE</span>
         </Overline>
-        <p className="font-normal">
+        <div className="font-normal">
           <Translate translationKey="venue.place" />
-        </p>
+        </div>
       </div>
     </div>
   );

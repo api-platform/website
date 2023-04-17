@@ -19,10 +19,6 @@ export default function Venue({ subtitle }: { subtitle: string }) {
           <Translate translationKey="venue.title" />
         </SectionTitle>
         <SectionSubTitle className="mb-4">{subtitle}</SectionSubTitle>
-        <Place />
-        <Warning title="Tip" img={"/images/con/tip.svg"}>
-          <p>{t("venue.tip")}</p>
-        </Warning>
         <div className="flex flex-col mt-5 translate-y-7 shadow-md bg-blue-dark | md:flex-row">
           <Transport
             title={t("venue.by_transport", {

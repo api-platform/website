@@ -23,9 +23,9 @@ export default function Warning({
       <img src={img} alt="tip" width="60" height="60" />
       <div className="pl-4">
         {title ? (
-          <p className="h5 font-bold uppercase text-xl lined-left mb-2">
+          <div className="h5 font-bold uppercase text-xl lined-left mb-2">
             {title}
-          </p>
+          </div>
         ) : null}
         <div className="text-blue-black text-base font-semibold">
           {children}
