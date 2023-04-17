@@ -38,9 +38,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 {t("buy_tickets")}
               </BuyButton>
             )}
-            <Button to="mailto:events@les-tilleuls.coop?subject=I want to be a speaker!">
-              {t("become_speaker")}
-            </Button>
           </div>
         }
       />
