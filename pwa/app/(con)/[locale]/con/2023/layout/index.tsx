@@ -5,6 +5,7 @@ import nav from "data/con/2023/nav";
 import footer from "data/con/2023/footer";
 import { OG_IMAGE, URL } from "data/con/2023/meta";
 import { Metadata } from "next";
+import { getEditionEventData } from "utils/con";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -37,8 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function EditionLayout({ children }: { children: React.ReactNode }) {
+  const eventData = getEditionEventData("2023");
   return (
     <LayoutBase edition="2023" nav={nav} footer={footer}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventData) }}
+      />
       {children}
       <ContactCard />
     </LayoutBase>

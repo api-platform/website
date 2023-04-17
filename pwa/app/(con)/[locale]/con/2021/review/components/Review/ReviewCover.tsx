@@ -6,6 +6,7 @@ import { LanguageContext } from "contexts/con/LanguageContext";
 
 export default function ReviewCover() {
   const { t } = useContext(LanguageContext);
+
   return (
     <ReviewCoverBase
       edition="2021"

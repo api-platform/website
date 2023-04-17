@@ -23,7 +23,7 @@ export default function Cover({ date, baseline, button }: CoverProps) {
         <h1>
           <img
             src="/images/con/logo.svg"
-            alt="Api Platform Conference"
+            alt="API Platform Conference"
             width="800"
             height="172"
           />

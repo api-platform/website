@@ -7,6 +7,7 @@ import { Metadata } from "next";
 type Props = {
   params: { locale: Locale };
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
@@ -21,5 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: { params: { locale: Locale } }) {
   const speakers = await getAllSpeakers("2021", params.locale);
+
   return <HomePage speakers={speakers} partners={partners} />;
 }
