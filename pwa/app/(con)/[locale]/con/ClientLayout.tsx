@@ -21,13 +21,6 @@ export default function ConLayout({
 
   const [isEventBriteLoaded, setIsEventBriteLoaded] = useState(false);
 
-  const websiteData = {
-    "@context": "https://schema.org",
-    "@type": "Website",
-    name: "API Platform Conference",
-    url: "https://api-platform.com/con/",
-  };
-
   dayjs.extend(localizedFormat);
   dayjs.extend(duration);
   dayjs.extend(relativeTime);
@@ -41,7 +34,6 @@ export default function ConLayout({
           setIsEventBriteLoaded(true);
         }}
       />
-      <Script type="application/ld+json">{JSON.stringify(websiteData)}</Script>
       <div className="fixed z-0 h-screen w-full bg-conf-gradient bg-blue-black pointer-events-none" />
       <EventBriteContext.Provider value={{ isEventBriteLoaded }}>
         <SectionsContext.Provider

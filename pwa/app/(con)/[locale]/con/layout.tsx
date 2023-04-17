@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: URL,
       title: dictionary.title,
       description: dictionary.description,
+      type: "website",
       siteName: "API Platform Conference",
       images: OG_IMAGE,
     },
@@ -35,10 +36,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "Website",
+  name: "API Platform Conference",
+  url: "https://api-platform.com/con/",
+};
+
 export default function ConLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
-  return <ClientLayout>{children}</ClientLayout>;
+  return (
+    <ClientLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+      />
+      {children}
+    </ClientLayout>
+  );
 }

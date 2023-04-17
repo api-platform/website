@@ -10,6 +10,7 @@ import { Metadata } from "next";
 type Props = {
   params: { locale: Locale };
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const dictionary = await import(`i18n/meta/${locale}.json`);
