@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { Edition } from "types/con";
+import Link from "next/link";
+import { LanguageContext } from "contexts/con/LanguageContext";
 
 interface EditionCardProps {
   edition: Edition;
@@ -15,9 +18,10 @@ export default function EditionCard({
   size = "big",
   link,
 }: EditionCardProps) {
+  const { locale } = useContext(LanguageContext);
   return (
-    <a
-      href={link || `/con/${edition.year}`}
+    <Link
+      href={link || `/${locale}/con/${edition.year}`}
       className="relative bg-white p-2 group hover:-translate-y-1 transition-transform"
     >
       <Image
@@ -31,6 +35,6 @@ export default function EditionCard({
           {edition.year}
         </span>
       )}
-    </a>
+    </Link>
   );
 }

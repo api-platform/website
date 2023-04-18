@@ -1,6 +1,7 @@
 import React from "react";
 import LayoutBase from "components/con/layout/LayoutBase";
 import editions, { currentEdition } from "data/con/editions";
+import { Locale } from "i18n/i18n-config";
 
 export default async function EditionLayout({
   children,
@@ -9,9 +10,10 @@ export default async function EditionLayout({
   children: React.ReactNode;
   params: {
     edition: string;
+    locale: Locale;
   };
 }) {
-  const { edition } = params;
+  const { edition, locale } = params;
   const nav = await import(`data/con/nav`);
 
   const footer = [
@@ -21,7 +23,7 @@ export default async function EditionLayout({
         .filter((edition) => edition.year !== currentEdition)
         .map((edition) => ({
           title: `${edition.year} edition`,
-          link: `/con/${edition.year}`,
+          link: `/${locale}/con/${edition.year}`,
         })),
     },
   ];
