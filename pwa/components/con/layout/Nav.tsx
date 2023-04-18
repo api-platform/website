@@ -10,7 +10,6 @@ import ConLink from "components/con/common/ConLink";
 import Link from "next/link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import NavLink from "./NavLink";
-import { i18n } from "i18n/i18n-config";
 
 interface NavProps {
   edition?: string;
@@ -55,13 +54,7 @@ export default function Nav({ edition, nav }: NavProps) {
           "h-9 inline-flex justify-center items-center transition-all duration-300 pl-20 pr-12 mr-auto",
           !minified ? "opacity-1" : "opacity-0 -translate-y-full"
         )}
-        href={
-          edition
-            ? i18n.defaultLocale === locale
-              ? `/con/${edition}`
-              : `/${locale}/con/${edition}`
-            : `/${locale}/con`
-        }
+        href={edition ? `/${locale}/con/${edition}` : `/${locale}/con`}
       >
         <img
           src="/images/con/logo.svg"

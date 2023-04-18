@@ -4,6 +4,9 @@ dependencies:
   '@api-platform/admin':
     specifier: ^3.4.3
     version: 3.4.3(@types/react@18.0.28)(react-dom@0.0.0-experimental-555ece0cd-20230112)(react@0.0.0-experimental-555ece0cd-20230112)
+  '@formatjs/intl-localematcher':
+    specifier: ^0.2.32
+    version: 0.2.32
   '@mdx-js/loader':
     specifier: ^2.3.0
     version: 2.3.0(webpack@5.79.0)
@@ -64,6 +67,9 @@ dependencies:
   marked:
     specifier: ^4.2.12
     version: 4.2.12
+  negotiator:
+    specifier: ^0.6.3
+    version: 0.6.3
   next:
     specifier: ^13.3.0
     version: 13.3.0(@babel/core@7.21.0)(react-dom@0.0.0-experimental-555ece0cd-20230112)(react@0.0.0-experimental-555ece0cd-20230112)
@@ -117,6 +123,9 @@ devDependencies:
   '@popperjs/core':
     specifier: ^2.11.6
     version: 2.11.6
+  '@types/negotiator':
+    specifier: ^0.6.1
+    version: 0.6.1
   '@types/node':
     specifier: ^18.14.6
     version: 18.14.6
@@ -540,6 +549,12 @@ packages:
     resolution: {integrity: sha512-JXdzbRiWclLVoD8sNUjR443VVlYqiYmDVT6rGUEIEHU5YJW0gaVZwV2xgM7D4arkvASqD0IlLUVjHiFuxaftRw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@formatjs/intl-localematcher@0.2.32:
+    resolution: {integrity: sha512-k/MEBstff4sttohyEpXxCmC3MqbUn9VvHGlZ8fauLzkbwXmVrEeyzS+4uhrvAk9DWU9/7otYWxyDox4nT/KVLQ==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
 
   /@humanwhocodes/config-array@0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -1403,6 +1418,10 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
+
+  /@types/negotiator@0.6.1:
+    resolution: {integrity: sha512-c4mvXFByghezQ/eVGN5HvH/jI63vm3B7FiE81BUzDAWmuiohRecCO6ddU60dfq29oKUMiQujsoB2h0JQC7JHKA==}
+    dev: true
 
   /@types/node@18.14.6:
     resolution: {integrity: sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==}
@@ -4301,6 +4320,11 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /negotiator@0.6.3:
+    resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
