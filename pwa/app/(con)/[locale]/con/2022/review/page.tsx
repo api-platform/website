@@ -4,14 +4,14 @@ import ReviewListFr from "./components/Review/fr";
 import ReviewListEn from "./components/Review/en";
 import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
 
 type Props = {
   params: { locale: Locale };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
+  const locale = params.locale || i18n.defaultLocale;
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
   return {

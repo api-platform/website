@@ -36,15 +36,13 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const dictionary = await getDictionary(params.locale);
+  const locale = params.locale || i18n.defaultLocale;
+  const dictionary = await getDictionary(locale);
 
   return (
-    <html
-      lang={params.locale}
-      className={`${poppins.variable} ${raleway.variable}`}
-    >
+    <html lang={locale} className={`${poppins.variable} ${raleway.variable}`}>
       <body>
-        <LanguageProvider locale={params.locale} dictionary={dictionary}>
+        <LanguageProvider locale={locale} dictionary={dictionary}>
           {children}
         </LanguageProvider>
       </body>

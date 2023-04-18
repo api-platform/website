@@ -3,6 +3,7 @@ import LayoutBase from "components/con/layout/LayoutBase";
 import ContactCard from "components/con/layout/ContactCard";
 import type { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
+import { i18n } from "i18n/i18n-config";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -17,7 +18,8 @@ export const dynamic = "force-static";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const { locale, edition } = params;
+  const { edition } = params;
+  const locale = params.locale || i18n.defaultLocale;
 
   // fetch data
   const { URL, OG_IMAGE } = await import(`data/con/${edition}/meta`);

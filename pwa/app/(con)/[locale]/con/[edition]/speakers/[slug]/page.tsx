@@ -1,7 +1,7 @@
 import { getSpeakerData, getAllSpeakerSlugs } from "api/con/speakers";
 import { getConferencesBySpeaker } from "api/con/conferences";
 import SpeakerPage from "./SpeakerPage";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
 
 async function getSpeaker(slug: string, edition: string, locale: string) {
@@ -26,7 +26,8 @@ type Props = {
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const { edition, locale, slug } = params;
+  const { edition, slug } = params;
+  const locale = params.locale || i18n.defaultLocale;
   const dictionary = await import(`i18n/meta/${locale}.json`);
   const speaker = await getSpeaker(params.edition, params.slug, params.locale);
   const DESCRIPTION = dictionary.speaker.description

@@ -10,6 +10,7 @@ import ConLink from "components/con/common/ConLink";
 import Link from "next/link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import NavLink from "./NavLink";
+import { i18n } from "i18n/i18n-config";
 
 interface NavProps {
   edition?: string;
@@ -56,7 +57,7 @@ export default function Nav({ edition, nav }: NavProps) {
         )}
         href={
           edition
-            ? "en" === locale
+            ? i18n.defaultLocale === locale
               ? `/con/${edition}`
               : `/${locale}/con/${edition}`
             : `/${locale}/con`

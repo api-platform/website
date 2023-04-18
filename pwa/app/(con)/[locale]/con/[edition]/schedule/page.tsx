@@ -1,6 +1,6 @@
 import { getAllConferences } from "api/con/conferences";
 import { Conference } from "types/con";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 import Schedule from "./components/Schedule";
 import { Metadata } from "next";
 
@@ -8,7 +8,8 @@ type Props = {
   params: { locale: Locale; edition: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, edition } = params;
+  const { edition } = params;
+  const locale = params.locale || i18n.defaultLocale;
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
   return {

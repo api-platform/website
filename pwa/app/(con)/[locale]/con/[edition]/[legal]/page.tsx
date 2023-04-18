@@ -1,13 +1,14 @@
 import { getAllLegalSlugs, getLegalData } from "api/con/legal";
 import LegalPage from "./LegalPage";
 import { Metadata } from "next";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 
 type Props = {
   params: { locale: Locale; legal: string; edition: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { legal, edition, locale } = params;
+  const { legal, edition } = params;
+  const locale = params.locale || i18n.defaultLocale;
   const legalData = await getLegalData(edition, legal);
 
   return {

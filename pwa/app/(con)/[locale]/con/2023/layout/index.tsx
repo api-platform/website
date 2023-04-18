@@ -6,6 +6,7 @@ import footer from "data/con/2023/footer";
 import { OG_IMAGE, URL } from "data/con/2023/meta";
 import { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
+import { i18n } from "i18n/i18n-config";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -13,7 +14,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const { locale } = params;
+  const locale = params.locale || i18n.defaultLocale;
 
   const dictionary = await import(`i18n/meta/${locale}.json`);
 

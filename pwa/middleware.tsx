@@ -9,8 +9,9 @@ export async function middleware(request: NextRequest) {
     !pathname.startsWith("/fr/con") &&
     !pathname.startsWith("/en/con") &&
     !pathname.startsWith("/con")
-  )
+  ) {
     return NextResponse.next();
+  }
   // Check if the default locale is in the pathname
   if (
     pathname.startsWith(`/${defaultLocale}/`) ||

@@ -6,7 +6,7 @@ import { sortByStartDate } from "utils/con";
 import { extractHeadingsFromMarkdown } from "utils";
 import { getSpeakerById } from "./speakers";
 import { Conference, Day, Speaker } from "types/con";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 
 export const getAllConferences = async (
   edition: string,
@@ -48,7 +48,7 @@ export const getConferencesBySpeaker = async (
 
 export const getAllConferenceSlugs = async (
   edition = "2022",
-  locale: Locale = "en"
+  locale: Locale = i18n.defaultLocale
 ) => {
   const slugs = await fs
     .readdirSync(
@@ -64,7 +64,7 @@ export const getConferenceData = async (
   slug: string,
   withDescription = true,
   withSpeakers = false,
-  locale: Locale = "en"
+  locale: Locale = i18n.defaultLocale
 ) => {
   const fileContents = await fs.readFileSync(
     path.join(
