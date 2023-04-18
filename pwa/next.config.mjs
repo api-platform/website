@@ -106,6 +106,31 @@ const nextConfig = {
     eslint: {
         dirs: ["app"],
     },
+    async headers() {
+        return [
+            {
+                source: "/(.*)",
+                headers: [
+                    {
+                        key: "X-Frame-Options",
+                        value: "DENY",
+                    },
+                    {
+                        key: "X-Content-Type-Options",
+                        value: "nosniff",
+                    },
+                    {
+                        key: "Strict-Transport-Security",
+                        value: "max-age=15724800; includeSubDomains; preload",
+                    },
+                    {
+                        key: "Content-Security-Policy",
+                        value: "default-src 'self'; script-src 'self'; font-src 'self'",
+                    },
+                ],
+            },
+        ];
+    },
     async redirects() {
         return [
             {

@@ -33,9 +33,19 @@ export default function Button({
   const externalProps = { target: "_blank", rel: "noopener noreferrer" };
 
   return to ? (
-    <Link className={classNames} href={to} {...(external ? externalProps : {})}>
-      {children}
-    </Link>
+    external ? (
+      <a className={classNames} href={to} {...(external ? externalProps : {})}>
+        {children}
+      </a>
+    ) : (
+      <Link
+        className={classNames}
+        href={to}
+        {...(external ? externalProps : {})}
+      >
+        {children}
+      </Link>
+    )
   ) : (
     <div className={classNames} {...props}>
       {children}

@@ -33,6 +33,7 @@ export default function LookingSponsorCard() {
           square
           className="small mt-8"
           to="mailto:events@les-tilleuls.coop"
+          external
         >
           {t("become_sponsor")}
         </Button>
