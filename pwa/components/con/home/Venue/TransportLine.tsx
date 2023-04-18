@@ -8,7 +8,7 @@ interface TransportLineProps {
 
 function TransportContent({ time, from }: TransportLineProps) {
   return (
-    <div className="border-r-2 border-dotted border-r-blue-light p-3 uppercase flex flex-col | md:border-none">
+    <div className="sm:border-r-2 sm:last-of-type:border-r-0 border-dotted border-r-blue-light py-3 px-4 uppercase flex flex-col | md:border-none">
       <span className="text-white text-md font-thin">{time}</span>
       <span className="text-xs font-semibold">{from}</span>
     </div>

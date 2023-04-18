@@ -22,7 +22,7 @@ export default async function Page() {
           ))}
         </div>
       </div>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 dark:bg-blue-darkest">
         <div className="container xl:max-w-5xlpt-6">
           <Heading level="h2" size="lg" className="text-center py-6 text-blue">
             Top 100

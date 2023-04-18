@@ -27,9 +27,9 @@ export default function SectionTitle({
       {h1 ? (
         <h1
           className={classnames(
-            "absolute select-none z-0 w-full left-1/2 bottom-16 -translate-x-1/2 scale-[2] text-6xl leading-tight",
+            "absolute select-none z-0 w-full left-1/2 bottom-16 -translate-x-1/2 scale-[2] leading-tight",
             dark ? "text-pink/20" : "text-blue/10",
-            small ? "text-5xl" : "text-6xl"
+            small ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
           )}
         >
           {children}
@@ -39,7 +39,7 @@ export default function SectionTitle({
           className={classnames(
             "absolute select-none z-0 w-full left-1/2 bottom-16 -translate-x-1/2 scale-[2] text-6xl leading-tight",
             dark ? "text-pink/20" : "text-blue/10",
-            small ? "text-5xl" : "text-6xl"
+            small ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
           )}
         >
           {children}
@@ -49,7 +49,7 @@ export default function SectionTitle({
         className={classnames(
           "relative leading-tight",
           lined && "lined-center",
-          small ? "text-5xl" : "text-6xl"
+          small ? "text-4xl md:text-5xl" : "text-5xl md:text-6xl"
         )}
       >
         {children}

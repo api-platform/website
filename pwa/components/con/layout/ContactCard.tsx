@@ -30,7 +30,7 @@ export default function ContactCard() {
     <div ref={animationContact} className="z-20 relative w-full">
       <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-gradient bg-blue shadow-xl mx-auto w-11/12 max-w-xl text-white top-0">
         <div className="dotted-corner w-full h-full p-4 flex flex-row items-center after:absolute after:w-[calc(100%-36px)] after:h-[calc(100%-36px)] after:border-2 after:border-blue-light after:border-dotted after:left-1/2 after:top-1/2 after:-translate-y-1/2 after:-translate-x-1/2 after:pointer-events-none">
-          <div className="w-1/3 relative z-10 -translate-y-1">
+          <div className="w-1/3 relative z-10 -translate-y-1 hidden sm:block">
             <Image
               src="/images/con/spider_contact.svg"
               alt="spider"
@@ -39,7 +39,7 @@ export default function ContactCard() {
               className="h-52 mx-auto"
             />
           </div>
-          <div className="flex-1 flex flex-col items-center px-3">
+          <div className="flex-1 flex flex-col items-center px-3 py-2">
             <span className="uppercase text-3xl font-bold font-title">
               {t("have_questions")}
             </span>

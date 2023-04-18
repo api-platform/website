@@ -22,7 +22,7 @@ export default function Transport({ icon, title, children }: TransportProps) {
           />
         </div>
       </div>
-      <div className="flex flex-row p-3 flex-1 items-center justify-center | md:flex-col md:pt-0">
+      <div className="flex flex-col p-3 flex-1 items-center justify-center | sm:flex-row | md:flex-col md:pt-0">
         {children}
       </div>
     </div>

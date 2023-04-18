@@ -125,7 +125,7 @@ const nextConfig = {
                     },
                     {
                         key: "Content-Security-Policy",
-                        value: "default-src 'self'; script-src 'self'; font-src 'self'",
+                        value: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.eventbrite.com/ ; font-src 'self'; img-src 'self' data:;",
                     },
                 ],
             },
