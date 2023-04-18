@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@api-platform/admin": "^3.4.3",
+    "@formatjs/intl-localematcher": "^0.2.32",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.2.3",
     "@octokit/plugin-throttling": "^5.0.1",
@@ -32,6 +33,7 @@
     "lodash.throttle": "^4.1.1",
     "mapbox-gl": "^2.13.0",
     "marked": "^4.2.12",
+    "negotiator": "^0.6.3",
     "next": "^13.3.0",
     "next-themes": "npm:@wits/next-themes@^0.2.16",
     "octokit": "^2.0.14",
@@ -52,6 +54,7 @@
     "@babel/core": "^7.21.0",
     "@popperjs/core": "^2.11.6",
     "@types/lodash.throttle": "^4.1.7",
+    "@types/negotiator": "^0.6.1",
     "@types/node": "^18.14.6",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
