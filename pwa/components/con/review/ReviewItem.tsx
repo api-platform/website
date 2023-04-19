@@ -27,7 +27,7 @@ export default function ReviewItem({
   );
 
   return (
-    <div className="flex flex-col items-center mt-0 mx-auto py-20 group max-w-5xl | md:items-start md:translate-x-6 md:even:-translate-x-6 ">
+    <div className="flex flex-col items-center mt-0 mx-auto py-10 md:py-20 group max-w-5xl | md:items-start md:translate-x-6 md:even:-translate-x-6 ">
       <div
         className={classNames(
           "flex justify-center items-center flex-wrap w-full | md:justify-start md:w-2/5 md:group-even:ml-auto",

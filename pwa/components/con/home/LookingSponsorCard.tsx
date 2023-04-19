@@ -17,11 +17,11 @@ export default function LookingSponsorCard() {
           {t("sponsorship.looking_sponsor.partners")}
         </span>
       </h3>
-      <div className="dotted-corner text-left conf__bg-white flex-1 px-10 py-5">
+      <div className="dotted-corner text-center sm:text-left conf__bg-white flex-1 px-10 py-5">
         <h3 className="mb-2 text-blue uppercase font-title font-bold text-2xl">
           {t("sponsorship.looking_sponsor.why_you_should_partner")}
         </h3>
-        <ul className="sponsorcard__list mb-30">
+        <ul className="sponsorcard__list mb-30 text-left">
           {[1, 2, 3, 4].map((index) => (
             <li key={index} className="flex items-baseline">
               <span className="text-blue icon-circle-chevron-right mr-2" />

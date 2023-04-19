@@ -39,8 +39,8 @@ export default function ContactCard() {
               className="h-52 mx-auto"
             />
           </div>
-          <div className="flex-1 flex flex-col items-center px-3 py-2">
-            <span className="uppercase text-3xl font-bold font-title">
+          <div className="flex-1 flex flex-col items-center px-3 py-4">
+            <span className="uppercase text-2xl  font-bold font-title | sm:text-3xl">
               {t("have_questions")}
             </span>
             <a

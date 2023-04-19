@@ -61,7 +61,7 @@ export default function MobileNav({ nav }: MobileNavType) {
           <div
             key={link.text}
             className={classNames(
-              "text-[5vh] font-bold p-[2vh] uppercase transition-all z-50 relative",
+              "text-[3vh] sm:text-[5vh] text-center font-bold p-[2vh] uppercase transition-all z-50 relative",
               opened ? "opacity-1" : "opacity-0 translate-x-10",
               link.to === pathname ? "text-blue" : "text-white"
             )}
