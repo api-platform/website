@@ -125,7 +125,7 @@ const nextConfig = {
                     },
                     {
                         key: "Content-Security-Policy",
-                        value: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.eventbrite.com/ ; font-src 'self'; img-src 'self' https://img.youtube.com data:;",
+                        value: "default-src https://www.eventbrite.com/ 'self' 'unsafe-inline' https://vercel.live/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.eventbrite.com/ https://vercel.live/ ; font-src 'self'; img-src 'self' https://assets.vercel.com/ https://img.youtube.com data:;",
                     },
                 ],
             },

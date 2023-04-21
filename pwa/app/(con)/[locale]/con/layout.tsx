@@ -19,6 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       template: "%s - API Platform Conference",
     },
     description: dictionary.description,
+    manifest: "/manifest.json",
+    themeColor: "#0099a0",
+    icons: {
+      icon: "/favicon.svg",
+      apple: "/apple-touch-icon.png",
+    },
     openGraph: {
       url: BASE_URL,
       title: dictionary.title,
