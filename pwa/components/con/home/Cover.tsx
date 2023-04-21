@@ -17,7 +17,7 @@ export default function Cover({ date, baseline, button }: CoverProps) {
       section="home"
     >
       <div className="container relative z-10 flex flex-col items-center">
-        <span className="inline-block uppercase border-2 border-white py-3 px-4 font-semibold text-sm mb-10 | md:text-base">
+        <span className="inline-block uppercase border-2 border-white py-3 px-4 font-semibold text-xs mb-10 | sm:text-sm | md:text-base">
           {date}
         </span>
         <h1>

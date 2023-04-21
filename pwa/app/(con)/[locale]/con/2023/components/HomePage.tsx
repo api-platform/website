@@ -41,7 +41,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </div>
         }
       />
-      <Section section="lastYear" className="bg-white z-10 relative pb-10">
+      <Section
+        section="lastYear"
+        className="bg-white z-10 relative pb-10 overflow-y-clip"
+      >
         <div className="container text-center">
           <SectionTitle>
             <Translate translationKey="last_edition.title" />
@@ -76,7 +79,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </PictureGallery>
         </div>
       </Section>
-      <Section section="missing" className="relative z-10 text-center">
+      <Section
+        section="missing"
+        className="relative z-10 text-center overflow-y-clip"
+      >
         <div className="container text-center">
           <SectionTitle dark>
             <Translate
@@ -98,7 +104,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
       </Section>
       <Section
         section="speakers"
-        className="bg-white z-10 relative py-4 overflow-x-hidden"
+        className="bg-white z-10 relative py-4 overflow-hidden"
       >
         <div className="container text-center">
           <SectionTitle>
@@ -168,7 +174,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         </div>
       </Section>
       <Venue subtitle={t("2023.venue.subtitle")} />
-      <Section section="sponsorship">
+      <Section section="sponsorship" className="py-8">
         <div className="container text-center">
           <SectionTitle dark>
             <Translate translationKey="sponsorship.title" />
