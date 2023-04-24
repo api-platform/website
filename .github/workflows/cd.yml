@@ -1,0 +1,67 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - deploy-v3
+  # Deploy if "deploy" label exists
+  pull_request:
+    types: [ reopened, synchronize, labeled ]
+
+# Do not use concurrency to prevent simultaneous helm deployments
+jobs:
+  build:
+    name: Build
+    if: ${{ github.repository == 'api-platform/website' && (github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'deploy')) }}
+    uses: ./.github/workflows/build.yml
+    with:
+      tags: |
+        type=ref,event=pr,prefix=pr-,priority=1000
+        type=edge,branch=$repo.default_branch,priority=900
+        type=raw,value=latest,enable={{is_default_branch}},priority=900
+      push: true
+      gke-cluster: api-platform-demo
+      gke-zone: europe-west1-c
+    secrets:
+      gke-credentials: ${{ secrets.GKE_SA_KEY }}
+      gke-project: ${{ secrets.GKE_PROJECT }}
+
+  deploy:
+    name: Deploy
+    needs: [ build ]
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: prod
+      url: test.api-platform.com
+      docker-images-version: ${{ github.sha }}
+      cors: '["https://test.api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]'
+      release: website
+      namespace: website
+      gke-cluster: api-platform-demo
+      gke-zone: europe-west1-c
+    secrets:
+      gke-credentials: ${{ secrets.GKE_SA_KEY }}
+      gke-project: ${{ secrets.GKE_PROJECT }}
+      # cloudflare-api-token: ${{ secrets.CF_API_TOKEN }}
+      # cloudflare-zone-id: ${{ secrets.CF_ZONE_ID }}
+
+  feature-deploy:
+    name: Feature Deploy
+    needs: [ build ]
+    if: github.event_name == 'pull_request'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: ${{ needs.build.outputs.version }}
+      url: ${{ needs.build.outputs.version }}-test.api-platform.com
+      docker-images-version: ${{ needs.build.outputs.version }}
+      cors: '["https://${{ needs.build.outputs.version }}-test.api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]'
+      release: ${{ needs.build.outputs.version }}
+      namespace: ${{ needs.build.outputs.version }}
+      gke-cluster: api-platform-demo
+      gke-zone: europe-west1-c
+    secrets:
+      gke-credentials: ${{ secrets.GKE_SA_KEY }}
+      gke-project: ${{ secrets.GKE_PROJECT }}
+      # cloudflare-api-token: ${{ secrets.CF_API_TOKEN }}
+      # cloudflare-zone-id: ${{ secrets.CF_ZONE_ID }}
