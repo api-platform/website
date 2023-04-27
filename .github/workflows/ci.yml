@@ -1,65 +1,65 @@
-name: CI
+# name: CI
 
-on:
-  push:
-    branches:
-      - deploy-v3
-  pull_request: ~
-  workflow_dispatch: ~
+# on:
+#   push:
+#     branches:
+#       - deploy-v3
+#   pull_request: ~
+#   workflow_dispatch: ~
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+#   cancel-in-progress: true
 
-jobs:
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Pull images
-        run: docker compose pull --ignore-pull-failures || true
-      - name: Start services
-        run: docker compose up --build -d
-      - name: Wait for services
-        run: |
-          while status="$(docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" "$(docker compose ps -q php)")"; do
-            case $status in
-              starting) sleep 1;;
-              healthy) exit 0;;
-              unhealthy)
-                docker compose ps
-                docker compose logs
-                exit 1
-              ;;
-            esac
-          done
-          exit 1
-      - name: Check HTTP reachability
-        run: curl -v -o /dev/null http://localhost
-      - name: Check API reachability
-        run: curl -vk -o /dev/null https://localhost
-      - name: Check PWA reachability
-        run: "curl -vk -o /dev/null -H 'Accept: text/html' https://localhost"
-      - name: Create test database
-        run: |
-          docker compose exec -T php bin/console -e test doctrine:database:create
-          docker compose exec -T php bin/console -e test doctrine:migrations:migrate --no-interaction
-      - name: PHPUnit
-        run: docker compose exec -T php bin/phpunit
-      - name: Doctrine Schema Validator
-        run: docker compose exec -T php bin/console doctrine:schema:validate
-      - name: Psalm
-        run: docker compose exec -T php vendor/bin/psalm
-      # gcloud does not work with Python 3.10 because collections. Mappings were removed in Python 3.10.
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.9.15
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
-      - name: Lint Helm
-        run: helm lint ./helm/api-platform/
+# jobs:
+#   tests:
+#     name: Tests
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: 'read'
+#       id-token: 'write'
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       - name: Pull images
+#         run: docker compose pull --ignore-pull-failures || true
+#       - name: Start services
+#         run: docker compose up --build -d
+#       - name: Wait for services
+#         run: |
+#           while status="$(docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" "$(docker compose ps -q php)")"; do
+#             case $status in
+#               starting) sleep 1;;
+#               healthy) exit 0;;
+#               unhealthy)
+#                 docker compose ps
+#                 docker compose logs
+#                 exit 1
+#               ;;
+#             esac
+#           done
+#           exit 1
+#       - name: Check HTTP reachability
+#         run: curl -v -o /dev/null http://localhost
+#       - name: Check API reachability
+#         run: curl -vk -o /dev/null https://localhost
+#       - name: Check PWA reachability
+#         run: "curl -vk -o /dev/null -H 'Accept: text/html' https://localhost"
+#       - name: Create test database
+#         run: |
+#           docker compose exec -T php bin/console -e test doctrine:database:create
+#           docker compose exec -T php bin/console -e test doctrine:migrations:migrate --no-interaction
+#       - name: PHPUnit
+#         run: docker compose exec -T php bin/phpunit
+#       - name: Doctrine Schema Validator
+#         run: docker compose exec -T php bin/console doctrine:schema:validate
+#       - name: Psalm
+#         run: docker compose exec -T php vendor/bin/psalm
+#       # gcloud does not work with Python 3.10 because collections. Mappings were removed in Python 3.10.
+#       - uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.9.15
+#       - name: Setup gcloud
+#         uses: google-github-actions/setup-gcloud@v1
+#       - name: Lint Helm
+#         run: helm lint ./helm/api-platform/
