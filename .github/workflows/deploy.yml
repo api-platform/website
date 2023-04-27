@@ -130,6 +130,7 @@ jobs:
             # --set=mercure.publicUrl=https://${{ inputs.url }}/.well-known/mercure \
             # --set=mercure.jwtSecret="!ChangeThisMercureHubJWTSecretKey!" \
             --set=postgresql.postgresqlPassword=$(openssl rand -base64 32 | tr -d "=+/") \
+            --set=postgresql.postgresqlUsername=website \
             # --set=mercure.extraDirectives="demo \
             cors_origins ${{ join(fromJSON(inputs.cors), ' ') }}" \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
