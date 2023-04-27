@@ -69,6 +69,9 @@ RUN set -eux; \
 COPY --link . .
 RUN rm -Rf docker/
 
+#Don't use .env files in prod
+RUN echo '<?php return [];' > .env.local.php
+
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
