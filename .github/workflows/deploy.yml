@@ -92,40 +92,6 @@ jobs:
         run: echo "namespace=$(kubectl get namespace ${{ inputs.namespace }} | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
       # Release name MUST start with a letter
       # GitHub doesn't support multilines environment variables (JWT_*_KEY)
-      - name: Helm Template 
-        if: steps.k8s-namespace.outputs.namespace == ''
-        run: |
-          set -o pipefail
-          JWT_PASSPHRASE=$(openssl rand -base64 32)
-          JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
-          helm template ${{ inputs.release }} ./helm/api-platform \
-            --namespace=${{ inputs.namespace }} \
-            --set=app.version=${{ github.sha }} \
-            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
-            --set=php.image.tag=${{ inputs.docker-images-version }} \
-            --set=php.image.pullPolicy=Always \
-            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
-            --set=caddy.image.tag=${{ inputs.docker-images-version }} \
-            --set=caddy.image.pullPolicy=Always \
-            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
-            --set=pwa.image.tag=${{ inputs.docker-images-version }} \
-            --set=pwa.image.pullPolicy=Always \
-            --set=ingress.hosts[0].host=${{ inputs.url }} \
-            --set=ingress.hosts[0].paths[0].path=/* \
-            --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            # --set=external-dns.cloudflare.apiToken=${{ secrets.cloudflare-api-token }} \
-            # --set=external-dns.domainFilters={"${{ inputs.url }}"} \
-            # --set=external-dns.zoneIdFilters={${{ secrets.cloudflare-zone-id }}} \
-            --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
-            --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
-            --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
-            --set=php.host=${{ inputs.url }} \
-            --set=postgresql.postgresqlPassword=$(openssl rand -base64 32 | tr -d "=+/") \
-            --set=postgresql.postgresqlUsername=website \
-            # --set=mercure.extraDirectives="demo \
-            cors_origins ${{ join(fromJSON(inputs.cors), ' ') }}" \
-            | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Deploy in new namespace
         if: steps.k8s-namespace.outputs.namespace == ''
         run: |
