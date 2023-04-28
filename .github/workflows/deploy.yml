@@ -119,9 +119,6 @@ jobs:
             --set=ingress.hosts[0].host=${{ inputs.url }} \
             --set=ingress.hosts[0].paths[0].path=/* \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            # --set=external-dns.cloudflare.apiToken=${{ secrets.cloudflare-api-token }} \
-            # --set=external-dns.domainFilters={"${{ inputs.url }}"} \
-            # --set=external-dns.zoneIdFilters={${{ secrets.cloudflare-zone-id }}} \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
@@ -129,8 +126,6 @@ jobs:
             --set=php.host=${{ inputs.url }} \
             --set=postgresql.postgresqlPassword=$(openssl rand -base64 32 | tr -d "=+/") \
             --set=postgresql.postgresqlUsername=website \
-            # --set=mercure.extraDirectives="demo \
-            cors_origins ${{ join(fromJSON(inputs.cors), ' ') }}" \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Upgrade namespace
         if: steps.k8s-namespace.outputs.namespace != ''
@@ -155,9 +150,6 @@ jobs:
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
-            # --set=mercure.jwtSecret="!ChangeThisMercureHubJWTSecretKey!" \
-            # --set=mercure.extraDirectives="demo \
-            cors_origins ${{ join(fromJSON(inputs.cors), ' ') }}" \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
         if: failure()
