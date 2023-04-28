@@ -124,8 +124,8 @@ jobs:
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ inputs.url }} \
-            --set=postgresql.postgresqlPassword=$(openssl rand -base64 32 | tr -d "=+/") \
-            --set=postgresql.postgresqlUsername=website \
+            --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
+            --set=postgresql.global.postgresql.auth.username=website \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Upgrade namespace
         if: steps.k8s-namespace.outputs.namespace != ''
