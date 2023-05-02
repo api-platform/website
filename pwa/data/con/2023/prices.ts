@@ -9,12 +9,12 @@ const prices: Price[] = [
       {
         title: "pricing.conference.offers.on_site_early",
         price: 119,
-        limitDate: "2023-05-14",
+        limitDate: "2023-04-29",
       },
       {
         title: "pricing.conference.offers.on_site",
         price: 159,
-        startDate: "2023-05-15",
+        startDate: "2023-04-30",
         limitDate: "2023-07-31",
       },
       {
