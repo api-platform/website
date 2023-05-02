@@ -119,7 +119,7 @@ jobs:
             --set=service.type=NodePort \
             --set=ingress.enabled=true \
             --set=ingress.hosts[0].host=${{ inputs.url }} \
-            --set=ingress.hosts[0].paths[0].path=/* \
+            --set=ingress.hosts[0].paths[0].path=/ \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
             --set=ingress.tls[0].hosts[0]=${{ inputs.url }} \
             --set=ingress.annotations."kubernetes\.io/ingress\.class"=nginx \
