@@ -116,6 +116,7 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
+            --set=bucket.s3Url=https://storage.googleapis.com/api-platform-website-v1 \
             --set=service.type=NodePort \
             --set=ingress.enabled=true \
             --set=ingress.hosts[0].host=${{ inputs.url }} \
