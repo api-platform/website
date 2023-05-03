@@ -26,6 +26,9 @@ pwa:
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
+bucket:
+  s3Url: ChangeMe
+  
 caddy:
   image:
     repository: "chart-example.local/api-platform/caddy"
