@@ -21,6 +21,7 @@ export default function EventInfosCard({
       width={width}
       height={height}
       className={className}
+      loading="eager"
     />
   );
 }

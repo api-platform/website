@@ -65,6 +65,7 @@ export default function LogoItem({
         backgroundClassName,
         lineClassName
       )}
+      title={reference.name}
     >
       <Image
         alt=""

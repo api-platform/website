@@ -3,6 +3,16 @@ import ShapeSection from "components/common/ShapeSection";
 import Button from "components/common/Button";
 import Image from "next/image";
 import NavLink from "components/layout/NavLink";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`i18n/meta/en.json`);
+
+  return {
+    title: dictionary["help"].title,
+    description: dictionary["help"].description,
+  };
+}
 
 export default async function Page() {
   return (
@@ -94,7 +104,7 @@ export default async function Page() {
               help - the API Platform community is here for you!
             </p>
             <Button href="/community" size="medium" className="mt-6">
-              Learn more
+              Our community
             </Button>
           </div>
         </div>

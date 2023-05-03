@@ -2,6 +2,16 @@ import Heading from "components/common/typography/Heading";
 import fs from "fs";
 import path from "path";
 import WallpaperCard from "./components/WallpaperCard";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`i18n/meta/en.json`);
+
+  return {
+    title: dictionary["wallpapers"].title,
+    description: dictionary["wallpapers"].description,
+  };
+}
 
 export default async function Page() {
   const images = await fs

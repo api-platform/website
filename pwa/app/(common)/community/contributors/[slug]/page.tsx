@@ -10,6 +10,24 @@ import ContributorProfileCard from "./components/ContributorProfileCard";
 import { Fragment } from "react";
 import ContributorVideos from "./components/ContributorVideos";
 import ShapeSection from "components/common/ShapeSection";
+import { Metadata } from "next";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const dictionary = await import(`i18n/meta/en.json`);
+  const contributor = await getContributorBySlug(slug);
+
+  const contributorName = contributor.name || contributor.login || "";
+
+  return {
+    title: dictionary["contributor"].title.replace("%name%", contributorName),
+    description: dictionary["contributor"].description,
+  };
+}
 
 const externalLinkAttributes =
   'target="_blank" rel="nofollow noopener noreferrer"';

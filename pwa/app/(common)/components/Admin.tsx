@@ -52,7 +52,7 @@ export default function Admin() {
           color="white"
           href="/docs"
         >
-          Learn more
+          See admin interface
         </Button>
       </div>
     </section>

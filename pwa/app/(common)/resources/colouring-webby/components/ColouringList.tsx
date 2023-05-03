@@ -21,9 +21,10 @@ export default function ColouringList({ images }: ColouringListProps) {
               <Image
                 className="object-cover w-full h-full transition-all duration-300 group-hover/card:scale-110 group-hover/card:opacity-70"
                 src={`/images/colouring/mini/${image}.jpg`}
-                alt=""
+                alt="Colouring webby"
                 width="330"
                 height="200"
+                loading="eager"
               />
             </div>
           </Card>

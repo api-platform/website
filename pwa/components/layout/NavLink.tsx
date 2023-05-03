@@ -11,7 +11,7 @@ export default function NavLink({
     : {};
 
   return href ? (
-    <Link className={className} href={href} {...externalProps}>
+    <Link className={className} href={href} {...externalProps} {...props}>
       {children}
     </Link>
   ) : (

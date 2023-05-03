@@ -27,6 +27,7 @@ export default function ContributorProfileCard({
             width={400}
             height={400}
             className="object-cover w-full h-full group-hover:scale-110 transition-all duration-500"
+            loading="eager"
           />
         ) : null}
       </div>

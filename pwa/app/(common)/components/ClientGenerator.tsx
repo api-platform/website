@@ -44,7 +44,7 @@ export default function ClientGenerator() {
             <VuetifyIcon className="m-2 h-10 w-auto" />
           </div>
           <Button empty href="/docs">
-            Learn more
+            See our managed clients
           </Button>
         </div>
         <div className="relative z-20 w-96 max-w-full -mb-10 | sm:absolute sm:w-1/2 sm:bottom-0 sm:right-0 | lg:right-auto lg:bottom-auto lg:relative lg:h-auto lg:w-1/2 lg:translate-y-28">

@@ -10,6 +10,7 @@ import ShapeSection from "components/common/ShapeSection";
 import Image from "next/image";
 import Card from "components/common/Card";
 import classNames from "classnames";
+import { Metadata } from "next";
 
 const socials = [
   {
@@ -44,6 +45,15 @@ const socials = [
     invert: true,
   },
 ];
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`i18n/meta/en.json`);
+
+  return {
+    title: dictionary["community"].title,
+    description: dictionary["community"].description,
+  };
+}
 
 function SocialItem({
   image,
