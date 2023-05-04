@@ -1,0 +1,42 @@
+{
+  "layout": {
+    "title": "API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "community": {
+    "title": "Community - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "contributors": {
+    "title": "Contributors - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "contributor": {
+    "title": "%name%, API Platform contributor - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "events": {
+    "title": "Events - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "event": {
+    "title": "%title%, API Platform Event - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "help": {
+    "title": "Help - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "colouring": {
+    "title": "Colouring Webby - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "logos": {
+    "title": "Logos - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  },
+  "wallpapers": {
+    "title": "Wallpapers - API Platform",
+    "description": "The API-first framework: REST, GraphQL and real-time"
+  }
+}

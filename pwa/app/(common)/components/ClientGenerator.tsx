@@ -43,7 +43,7 @@ export default function ClientGenerator() {
             <QuasarIcon className="m-2 h-10 w-auto" />
             <VuetifyIcon className="m-2 h-10 w-auto" />
           </div>
-          <Button empty href="/docs">
+          <Button empty href="/docs" ariaLabel="See our managed clients">
             Learn more
           </Button>
         </div>

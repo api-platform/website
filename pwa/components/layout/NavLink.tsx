@@ -4,6 +4,7 @@ export default function NavLink({
   href,
   className,
   children,
+  title,
   ...props
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   const externalProps = href?.startsWith("http")
@@ -11,11 +12,11 @@ export default function NavLink({
     : {};
 
   return href ? (
-    <Link className={className} href={href} {...externalProps}>
+    <Link className={className} href={href} title={title} {...externalProps}>
       {children}
     </Link>
   ) : (
-    <a className={className} {...props}>
+    <a className={className} title={title} {...props}>
       {children}
     </a>
   );

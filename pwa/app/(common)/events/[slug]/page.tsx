@@ -8,6 +8,33 @@ import EventInfosCard from "./components/EventInfosCard";
 import EventResumeInfos from "../components/EventResumeInfos";
 import Chip from "components/common/Chip";
 import ShapeSection from "components/common/ShapeSection";
+import { Metadata } from "next";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const { title } = await getEventContent(slug);
+  const dictionary = await import(`data/meta.json`);
+
+  const t = dictionary["event"].title.replace("%title%", title);
+  const description = dictionary["event"].description;
+
+  return {
+    title: t,
+    description,
+    openGraph: {
+      title: t,
+      description,
+    },
+    twitter: {
+      title: t,
+      description,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return [];

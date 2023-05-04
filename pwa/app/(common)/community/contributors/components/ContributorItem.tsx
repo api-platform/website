@@ -7,6 +7,7 @@ import Heading from "components/common/typography/Heading";
 interface ContributorItemProps {
   contributor: Contributor;
 }
+
 export default function ContributorItem({ contributor }: ContributorItemProps) {
   return (
     <div

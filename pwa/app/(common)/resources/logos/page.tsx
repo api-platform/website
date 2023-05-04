@@ -2,6 +2,24 @@ import Heading from "components/common/typography/Heading";
 import fs from "fs";
 import path from "path";
 import LogoCard from "./components/LogoCard";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`data/meta.json`);
+
+  return {
+    title: dictionary["logos"].title,
+    description: dictionary["logos"].description,
+    openGraph: {
+      title: dictionary["logos"].title,
+      description: dictionary["logos"].description,
+    },
+    twitter: {
+      title: dictionary["logos"].title,
+      description: dictionary["logos"].description,
+    },
+  };
+}
 
 export default async function Page() {
   const images = await fs

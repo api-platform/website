@@ -2,6 +2,24 @@ import Heading from "components/common/typography/Heading";
 import ContributorItem from "./components/ContributorItem";
 import ContributorSmallItem from "./components/ContributorSmallItem";
 import { getAllContributors } from "api/contributors";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`data/meta.json`);
+
+  return {
+    title: dictionary["contributors"].title,
+    description: dictionary["contributors"].description,
+    openGraph: {
+      title: dictionary["contributors"].title,
+      description: dictionary["contributors"].description,
+    },
+    twitter: {
+      title: dictionary["contributors"].title,
+      description: dictionary["contributors"].description,
+    },
+  };
+}
 
 export default async function Page() {
   const contributors = await getAllContributors();

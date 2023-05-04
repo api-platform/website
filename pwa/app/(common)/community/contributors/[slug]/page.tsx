@@ -10,6 +10,37 @@ import ContributorProfileCard from "./components/ContributorProfileCard";
 import { Fragment } from "react";
 import ContributorVideos from "./components/ContributorVideos";
 import ShapeSection from "components/common/ShapeSection";
+import { Metadata } from "next";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+  const dictionary = await import(`data/meta.json`);
+  const contributor = await getContributorBySlug(slug);
+
+  const contributorName = contributor.name || contributor.login || "";
+  const title = dictionary["contributor"].title.replace(
+    "%name%",
+    contributorName
+  );
+  const description = dictionary["contributor"].description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 const externalLinkAttributes =
   'target="_blank" rel="nofollow noopener noreferrer"';

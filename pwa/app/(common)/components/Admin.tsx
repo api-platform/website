@@ -51,6 +51,7 @@ export default function Admin() {
           className="relative dark:border-blue-extralight dark:text-blue-extralight"
           color="white"
           href="/docs"
+          ariaLabel="See admin interface"
         >
           Learn more
         </Button>
