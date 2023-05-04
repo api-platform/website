@@ -3,7 +3,7 @@ import EventsPage from "./components/EventsPage";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["events"].title,

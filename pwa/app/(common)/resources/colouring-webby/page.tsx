@@ -5,7 +5,7 @@ import path from "path";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["colouring"].title,

@@ -18,7 +18,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
   const contributor = await getContributorBySlug(slug);
 
   const contributorName = contributor.name || contributor.login || "";

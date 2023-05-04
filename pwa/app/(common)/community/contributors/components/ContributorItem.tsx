@@ -36,7 +36,6 @@ export default function ContributorItem({ contributor }: ContributorItemProps) {
               width={contributor.rank === 1 ? 400 : 200}
               height={contributor.rank === 1 ? 400 : 200}
               className="w-full h-full object-cover group-hover:-rotate-6 group-hover:scale-110 duration-700 transition-all"
-              loading="eager"
             />
           </div>
           {contributor.isCoreTeam ? (

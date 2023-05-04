@@ -6,7 +6,7 @@ import NavLink from "components/layout/NavLink";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["help"].title,
@@ -103,8 +103,13 @@ export default async function Page() {
               for assistance. So don&apos;t hesitate to reach out if you need
               help - the API Platform community is here for you!
             </p>
-            <Button href="/community" size="medium" className="mt-6">
-              Our community
+            <Button
+              href="/community"
+              size="medium"
+              className="mt-6"
+              ariaLabel="Our community"
+            >
+              Learn more
             </Button>
           </div>
         </div>

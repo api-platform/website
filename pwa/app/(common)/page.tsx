@@ -7,16 +7,6 @@ import Timeline from "./components/Timeline";
 import References from "./components/References";
 import { openSourceData, otherData } from "data/logos";
 import Heading from "components/common/typography/Heading";
-import { Metadata } from "next";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
-
-  return {
-    title: dictionary["homepage"].title,
-    description: dictionary["homepage"].description,
-  };
-}
 
 export default async function Page() {
   const ossRefs = openSourceData.filter((ref) => ref.highlight);

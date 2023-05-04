@@ -1,6 +1,7 @@
 import "styles/common.css";
 import { Poppins } from "next/font/google";
 import Layout from "components/layout/Layout";
+import { Metadata } from "next";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -8,6 +9,42 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin", "latin-ext"],
 });
+
+export async function generateMetadata(): Promise<Metadata> {
+  const dictionary = await import(`data/meta.json`);
+
+  const BASE_URL = process.env.NEXT_ROOT_URL || "https://api-platform.com";
+  const URL_LOGO = `${BASE_URL}/images/logo.png`;
+
+  const title = dictionary["layout"].title;
+  const description = dictionary["layout"].description;
+
+  return {
+    metadataBase: new URL(BASE_URL),
+    title: title,
+    description: description,
+    themeColor: "#0099a1",
+    icons: {
+      icon: "/favicon.svg",
+      apple: "/apple-touch-icon.png",
+    },
+    openGraph: {
+      url: "https://api-platform.com",
+      title: title,
+      description: description,
+      type: "website",
+      siteName: "API Platform",
+      images: URL_LOGO,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: URL_LOGO,
+      creator: "@dunglas",
+    },
+  };
+}
 
 function RootLayout({
   // Layouts must accept a children prop.

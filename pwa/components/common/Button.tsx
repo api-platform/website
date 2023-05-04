@@ -13,6 +13,7 @@ export interface ButtonProps
   external?: boolean;
   color?: "default" | "white";
   darkMode?: boolean;
+  ariaLabel?: string;
 }
 
 export default function Button({
@@ -25,6 +26,7 @@ export default function Button({
   size = "large",
   external = false,
   darkMode = true,
+  ariaLabel = "",
   ...props
 }: ButtonProps) {
   let sizeClassName;
@@ -74,6 +76,7 @@ export default function Button({
       className={allClassNames}
       href={href}
       {...(external ? externalProps : {})}
+      aria-label={ariaLabel}
     >
       {children}
     </Link>

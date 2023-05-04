@@ -5,7 +5,7 @@ import { getAllContributors } from "api/contributors";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["contributors"].title,

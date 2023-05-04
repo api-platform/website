@@ -47,7 +47,7 @@ const socials = [
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["community"].title,

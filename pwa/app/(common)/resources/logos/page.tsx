@@ -5,7 +5,7 @@ import LogoCard from "./components/LogoCard";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const dictionary = await import(`i18n/meta/en.json`);
+  const dictionary = await import(`data/meta.json`);
 
   return {
     title: dictionary["logos"].title,
