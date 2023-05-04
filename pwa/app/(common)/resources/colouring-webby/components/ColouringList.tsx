@@ -24,7 +24,6 @@ export default function ColouringList({ images }: ColouringListProps) {
                 alt="Colouring webby"
                 width="330"
                 height="200"
-                loading="eager"
               />
             </div>
           </Card>

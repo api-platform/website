@@ -10,6 +10,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: dictionary["colouring"].title,
     description: dictionary["colouring"].description,
+    openGraph: {
+      title: dictionary["colouring"].title,
+      description: dictionary["colouring"].description,
+    },
+    twitter: {
+      title: dictionary["colouring"].title,
+      description: dictionary["colouring"].description,
+    },
   };
 }
 

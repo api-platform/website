@@ -22,10 +22,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const contributor = await getContributorBySlug(slug);
 
   const contributorName = contributor.name || contributor.login || "";
+  const title = dictionary["contributor"].title.replace(
+    "%name%",
+    contributorName
+  );
+  const description = dictionary["contributor"].description;
 
   return {
-    title: dictionary["contributor"].title.replace("%name%", contributorName),
-    description: dictionary["contributor"].description,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+    twitter: {
+      title,
+      description,
+    },
   };
 }
 

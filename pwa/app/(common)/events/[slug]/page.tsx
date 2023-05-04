@@ -19,9 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { title } = await getEventContent(slug);
   const dictionary = await import(`data/meta.json`);
 
+  const t = dictionary["event"].title.replace("%title%", title);
+  const description = dictionary["event"].description;
+
   return {
-    title: dictionary["event"].title.replace("%title%", title),
-    description: dictionary["event"].description,
+    title: t,
+    description,
+    openGraph: {
+      title: t,
+      description,
+    },
+    twitter: {
+      title: t,
+      description,
+    },
   };
 }
 

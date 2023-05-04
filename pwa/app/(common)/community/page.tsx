@@ -52,6 +52,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: dictionary["community"].title,
     description: dictionary["community"].description,
+    openGraph: {
+      title: dictionary["community"].title,
+      description: dictionary["community"].description,
+    },
+    twitter: {
+      title: dictionary["community"].title,
+      description: dictionary["community"].description,
+    },
   };
 }
 

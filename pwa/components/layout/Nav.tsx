@@ -34,7 +34,7 @@ export default function Nav() {
             "flex-1 flex flex-row",
             withBg ? "text-blue" : "text-inherit"
           )}
-          title="Api Platform"
+          title="API Platform"
         >
           <Logo className="h-5" inline />
         </NavLink>
