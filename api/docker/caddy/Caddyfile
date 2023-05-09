@@ -52,11 +52,11 @@ route {
     # uri replace / /{$BUCKET_S3_NAME}/
 
     handle @bucket_s3 {
-        uri replace / {$BUCKET_S3_NAME}
         reverse_proxy {$BUCKET_S3_UPSTREAM} {
             header_up Host {http.reverse_proxy.upstream.hostport}
             rewrite {path}/index.html
         }
+        uri replace / {$BUCKET_S3_NAME}
         # rewrite * {path}/index.html
     }
 

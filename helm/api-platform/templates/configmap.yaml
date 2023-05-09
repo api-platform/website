@@ -12,4 +12,5 @@ data:
   php-trusted-proxies: "{{ join "," .Values.php.trustedProxies }}"
   mercure-url: "http://{{ include "api-platform.fullname" . }}/.well-known/mercure"
   mercure-public-url: {{ .Values.mercure.publicUrl | default "http://127.0.0.1/.well-known/mercure" | quote }}
-  bucket-s3-url: {{ .Values.bucket.s3Url | quote }}
+  bucket-s3-upstream: {{ .Values.bucket.s3Upstream | quote }}
+  bucket-s3-name: {{ .Values.bucket.s3Name | quote }}
