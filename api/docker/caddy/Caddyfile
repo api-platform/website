@@ -5,21 +5,24 @@
 
 {$SERVER_NAME}
 
-log
-
+# log
+log {
+	output file /var/log/caddy/access.log
+}
 # Matches requests for HTML documents, for static files and for Next.js files,
 # except for known API paths and paths with extensions handled by API Platform
 @pwa expression `(
         header({'Accept': '*text/html*'})
         && !path ('/')
     )
-    || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*')`
+    || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
     # || path('/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/sitemap*')`
 
 @bucket_s3 expression `path('/')`
 
 route {
     root * /srv/app/public
+    # root * /{$BUCKET_S3_NAME}/
     mercure {
         # Transport to use (default to Bolt)
         transport_url {$MERCURE_TRANSPORT_URL:bolt:///data/mercure.db}
@@ -43,8 +46,23 @@ route {
     # Comment the following line if you don't want Next.js to catch requests for HTML documents.
     # In this case, they will be handled by the PHP app.
     
-    reverse_proxy @pwa http://{$PWA_UPSTREAM}
-    reverse_proxy @bucket_s3 http://{$BUCKET_S3_UPSTREAM}
+    handle @pwa {
+        reverse_proxy @pwa http://{$PWA_UPSTREAM} 
+        # uri strip_prefix /_next
+            
+    }
+
+    # rewrite @bucket_s3 /{$BUCKET_S3_NAME}/{uri}
+    # uri replace / /{$BUCKET_S3_NAME}/
+
+    handle @bucket_s3 {
+        reverse_proxy {$BUCKET_S3_UPSTREAM} {
+            header_up Host {http.reverse_proxy.upstream.hostport}
+        }
+        # rewrite * {path}/index.html
+        uri replace / {$BUCKET_S3_NAME}/
+        # try_files {path} /index.html 
+    }
 
     php_fastcgi unix//var/run/php/php-fpm.sock
     encode zstd gzip
