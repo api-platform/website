@@ -13,12 +13,12 @@ log {
 # except for known API paths and paths with extensions handled by API Platform
 @pwa expression `(
         header({'Accept': '*text/html*'})
-        && !path ('/')
+        && !path ('/', '/static/*, /docs*, /api*')
     )
     || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
     # || path('/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/sitemap*')`
 
-@bucket_s3 expression `path('/')`
+@bucket_s3 expression `path('/', 'docs/*')`
 
 route {
     root * /srv/app/public
@@ -46,22 +46,18 @@ route {
     # Comment the following line if you don't want Next.js to catch requests for HTML documents.
     # In this case, they will be handled by the PHP app.
     
-    handle @pwa {
-        reverse_proxy @pwa http://{$PWA_UPSTREAM} 
-        # uri strip_prefix /_next
-            
-    }
+    reverse_proxy @pwa http://{$PWA_UPSTREAM} 
 
     # rewrite @bucket_s3 /{$BUCKET_S3_NAME}/{uri}
     # uri replace / /{$BUCKET_S3_NAME}/
 
     handle @bucket_s3 {
+        uri replace / {$BUCKET_S3_NAME}
         reverse_proxy {$BUCKET_S3_UPSTREAM} {
             header_up Host {http.reverse_proxy.upstream.hostport}
+            rewrite {path}/index.html
         }
         # rewrite * {path}/index.html
-        uri replace / {$BUCKET_S3_NAME}/
-        # try_files {path} /index.html 
     }
 
     php_fastcgi unix//var/run/php/php-fpm.sock
