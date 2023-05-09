@@ -13,12 +13,12 @@ log {
 # except for known API paths and paths with extensions handled by API Platform
 @pwa expression `(
         header({'Accept': '*text/html*'})
-        && !path ('/', '/static/*, /docs*, /api*')
+        && !path ('/', '/static*', '/docs*', '/api*')
     )
     || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
     # || path('/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/sitemap*')`
 
-@bucket_s3 expression `path('/', 'docs/*')`
+@bucket_s3 expression `path('/', '/docs*')`
 
 route {
     root * /srv/app/public
