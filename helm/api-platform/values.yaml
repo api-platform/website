@@ -27,7 +27,8 @@ pwa:
     tag: ""
 
 bucket:
-  s3Url: ChangeMe
+  s3Upstream: ChangeMe
+  s3Name: ChangeMe
 
 caddy:
   image:
