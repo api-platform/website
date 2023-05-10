@@ -39,7 +39,7 @@ services:
       - pwa
     environment:
       PWA_UPSTREAM: pwa:3000
-      BUCKET_S3_UPSTREAM: storage.googleapis.com
+      BUCKET_S3_UPSTREAM: http://storage.googleapis.com
       BUCKET_S3_NAME: api-platform-website-v1
       SERVER_NAME: ${SERVER_NAME:-localhost}, caddy:80
       MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
