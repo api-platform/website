@@ -307,6 +307,7 @@ background-image: linear-gradient(30deg, var(--lightpink) 50%, transparent 50%);
 
   .social__list {
     @include flex-center(row);
+    min-height: 36px;
     a {
       border-radius: 50%;
       border: 2px solid var(--blue);

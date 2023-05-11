@@ -12,7 +12,7 @@ const prices: Price[] = [
         limitDate: '2023-04-24',
       },
       {
-        title: '2 days on-site event',
+        title: '2 days on-site event <br>(Regular)</br>',
         price: 159,
         startDate: '2023-04-25',
         limitDate: '2023-07-31',

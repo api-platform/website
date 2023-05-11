@@ -28,12 +28,12 @@ const LastEdition: React.ComponentType = () => {
   }));
 
   return (
-    <Section className="conf__bg-white pt-20 pb-50 overflow-hidden relative" section="lastyear">
+    <Section className="pt-20 pb-200 overflow-hidden relative" section="lastyear">
       <div className="container">
-        <SectionTitle>
+        <SectionTitle dark>
           What happened <strong>last year</strong>?
         </SectionTitle>
-        <p className="conf__section-subtitle mb-0">
+        <p className="conf__section-subtitle dark mb-0">
           Take a look at the 2022 edition and find more information on <Link to="/con/2022/review">our review</Link>
         </p>
       </div>

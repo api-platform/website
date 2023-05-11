@@ -16,7 +16,12 @@ const Venue: React.ComponentType<{ subtitle: string }> = ({ subtitle }) => (
       <SectionTitle>
         The <strong>venue</strong>
       </SectionTitle>
-      <p className="conf__section-subtitle">{subtitle}</p>
+      <p
+        className="conf__section-subtitle"
+        dangerouslySetInnerHTML={{
+          __html: subtitle,
+        }}
+      />
       <Place />
       <Warning title="Tip" img={Tip}>
         <p>Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.</p>

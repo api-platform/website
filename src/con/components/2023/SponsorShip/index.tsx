@@ -14,7 +14,7 @@ const SponsorShip: React.ComponentType = () => {
         </SectionTitle>
         <LookingSponsorCard />
       </div>
-      <div className="conf__bg-white py-200 text-center">
+      <div className="conf__bg-white pt-200 pb-50 text-center">
         <div className="container">
           <h3 className="h4 lined text-blue mb-20">They trusted us in 2022</h3>
           <Grid>

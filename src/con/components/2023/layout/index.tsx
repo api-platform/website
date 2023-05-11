@@ -87,7 +87,7 @@ const Layout: React.ComponentType<LayoutProps> = ({ logoAlwaysVisible, children 
           footer={footer}
           navButton={
             <BuyButton className="pink" size="small" id="nav">
-              Buy ticket
+              Buy tickets
             </BuyButton>
           }
         >

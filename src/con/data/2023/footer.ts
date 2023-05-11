@@ -10,11 +10,19 @@ const footer = [
         title: '2022 archive',
         link: '/con/2022/',
       },
+      {
+        title: 'All previous editions',
+        link: '/con/editions/',
+      },
     ],
   },
   {
     title: 'The event',
     links: [
+      {
+        title: 'Speakers',
+        link: '/con/2023/speakers',
+      },
       {
         title: 'Venue',
         link: '/con/2023/#venue',

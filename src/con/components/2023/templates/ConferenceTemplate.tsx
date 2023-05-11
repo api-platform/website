@@ -3,7 +3,7 @@ import ConferenceTemplateBase from '@con/components/templates/ConferenceTemplate
 import { PageProps } from 'gatsby';
 import Layout from '@con/components/2023/layout';
 import { getDayByDate } from '@con/data/2023/days';
-import BuyButton from '../BuyButton';
+import BuyButton from '@con/components/2022/BuyButton';
 
 interface ConferenceTemplateProps extends PageProps {
   pageContext: {
@@ -28,7 +28,7 @@ const ConferenceTemplate: React.ComponentType<ConferenceTemplateProps> = (props)
         {...props}
         trackSubtitle={
           <p className="overline header__subtitle">
-            <strong>{day.title}</strong>
+            {day ? <strong>{day.title}</strong> : null}
             {track ? ` - Track #${track}` : null}
           </p>
         }
