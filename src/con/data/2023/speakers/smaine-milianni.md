@@ -1,6 +1,6 @@
 ---
 type: speaker
-id: smaine-milianni
+id: smaine-milianni-2023
 number: 3
 name: Smaïne Milianni
 job: Symfony certified developer

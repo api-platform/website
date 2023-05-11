@@ -17,7 +17,7 @@ Rooms have been pre-booked and negotiated in Lille to a special price. [Take a l
 
 
 ## Is there a Code of Conduct?
-The API Platform Conference is dedicated to providing **an inclusive experience for everyone**. Take a look at our [Code of Conduct page](https://api-platform.com/con/2023/code-of-conduct/).
+The API Platform Conference is dedicated to providing **an inclusive experience for everyone**. Take a look at our [Code of Conduct page](/con/2023/code-of-conduct/).
 
 
 ## Is there a Nursing room at the event?

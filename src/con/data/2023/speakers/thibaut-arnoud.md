@@ -9,7 +9,7 @@ twitter: https://twitter.com/arnoudthibaut
 github: https://github.com/ArnoudThibaut
 ---
 
-# About Thibaut
+## About Thibaut
 
 Thibaut is a lead developer working at Les-Tilleuls.coop. **Specialized in API Platform and Symfony**, he occasionally contributes to these two Open Source projects.
 
