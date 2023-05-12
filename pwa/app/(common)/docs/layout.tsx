@@ -39,7 +39,7 @@ async function DocLayout({ children }: { children: React.ReactNode }) {
         <MobileSideBar docMenuParts={docMenuparts} />
         <div className="flex flex-row flex-wrap items-start justify-start">
           <Sidebar docMenuParts={docMenuparts} />
-          <div className="flex-1 overflow-clip">{children}</div>
+          <div className="main flex-1 overflow-clip">{children}</div>
         </div>
       </DocProvider>
     </div>

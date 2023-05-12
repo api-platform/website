@@ -5,6 +5,7 @@ import ThemeToggle from "components/common/ThemeToggle";
 import { Github } from "components/icons/social";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
+import SearchInput from "./SearchInput";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -38,6 +39,7 @@ export default function Nav() {
         >
           <Logo className="h-5" inline />
         </NavLink>
+        <SearchInput />
         <div className="hidden flex-row gap-6 md:flex justify-center items-center">
           <NavLink href="/docs">Docs</NavLink>
           <NavLink href="https://api-platform.myspreadshop.net/">Shop</NavLink>

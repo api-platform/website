@@ -1,0 +1,83 @@
+{
+  "index_uid": "docs",
+  "allowed_domains": [
+    "localhost"
+  ],
+  "start_urls": [
+    {
+      "url": "http://localhost:3000/docs/guide/",
+      "selectors_key": "guides",
+      "page_rank": 100
+    },
+    {
+      "url": "http://localhost:3000/docs/reference/",
+      "selectors_key": "references",
+      "page_rank": 1
+    },
+    {
+      "url": "http://localhost:3000/docs/tutorial/",
+      "selectors_key": "tutorials",
+      "page_rank": 100
+    },
+    {
+      "url": "http://localhost:3000/docs/in-depth/",
+      "selectors_key": "in-depth",
+      "page_rank": 100
+    }
+  ],
+  "sitemap_urls": [
+    "http://localhost:3000/sitemap.xml"
+  ],
+  "scrape_start_urls": false,
+  "stop_urls": [],
+  "selectors": {
+    "guides": {
+      "lvl0": {
+        "selector": "empty",
+        "global": true,
+        "default_value": "GUIDES"
+      },
+      "lvl1": {
+        "selector": "h1",
+        "global": true
+      },
+      "text": ".main p, .main code"
+    },
+    "references": {
+      "lvl0": {
+        "selector": "empty",
+        "global": true,
+        "default_value": "REFERENCES"
+      },
+      "lvl1": {
+        "selector": "h1",
+        "global": true
+      },
+      "text": ".main h3, .main p, .main table td, .main code"
+    },
+    "tutorials": {
+      "lvl0": {
+        "selector": "empty",
+        "global": true,
+        "default_value": "TUTORIALS"
+      },
+      "lvl1": {
+        "selector": "h1",
+        "global": true
+      },
+      "text": ".main h2, .main h3, .main p, .main code"
+    },
+    "in-depth": {
+      "lvl0": {
+        "selector": "empty",
+        "global": true,
+        "default_value": "IN DEPTH"
+      },
+      "lvl1": {
+        "selector": "h1",
+        "global": true
+      },
+      "text": ".main h2, .main h3, .main p, .main table td, .main code"
+    }
+  }
+}

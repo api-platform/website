@@ -9,6 +9,8 @@
 /public/images/logos/*.png
 /public/images/colouring/mini/*.jpg
 
+/public/sitemap*.xml
+
 # testing
 /coverage
 
