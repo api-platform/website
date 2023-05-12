@@ -14,6 +14,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: 'Akawaka',
+    logo: 'akawaka',
+    link: 'https://www.akawaka.fr/',
+    rank: 4,
+  },
+  {
     name: 'Orbitale.io',
     logo: 'orbitale',
     link: 'https://www.orbitale.io/en/',
