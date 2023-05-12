@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@con/components/2023/layout';
 import { PageProps } from 'gatsby';
 import SpeakerTemplateBase from '@con/components/templates/SpeakerTemplate';
-import SpeakerConferenceSlot from '@con/components/2022/Speakers/SpeakerConferenceSlot';
+import SpeakerConferenceSlot from '@con/components/2023/Speakers/SpeakerConferenceSlot';
 import BuyButton from '@con/components/2022/BuyButton';
 
 interface SpeakerTemplateProps extends PageProps {

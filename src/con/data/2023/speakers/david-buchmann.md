@@ -2,10 +2,10 @@
 type: speaker
 id: david-buchmann
 number: 4
-name: David Buchmann 
+name: David Buchmann
 job: Lead Developer
 company: Liip
-twitter: https://twitter.com/loic_425
+twitter: https://twitter.com/dbu
 github: https://github.com/dbu
 ---
 
