@@ -91,13 +91,13 @@ class DocNav extends Component {
           <div className="news__con">
             <p className="news__title">What&apos; new?</p>
             <StaticImage
-              src="../../con/images/2022/thumbnail.png"
-              alt="API platform conference 2022"
+              src="../../con/images/2023/thumbnail.png"
+              alt="API platform conference 2023"
               layout="fixed"
               placeholder="blurred"
               width={260}
             />
-            <p>Sep 15,16 2022: new edition of our conference dedicated to API Platform and its ecosystem!</p>
+            <p>Sep 21,22 2023: new edition of our conference dedicated to API Platform and its ecosystem!</p>
           </div>
         </Link>
         {nav.map((item) => (
