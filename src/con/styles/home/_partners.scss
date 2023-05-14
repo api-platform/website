@@ -1,6 +1,6 @@
 .conf__partners {
   padding-top: 50px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   position: relative;
   background-color: #fff;
 
@@ -46,7 +46,8 @@
   }
   .partners__section {
     text-align: center;
-    margin: 20px auto;
+    margin: 0px auto;
+    padding: 20px 0;
     position: relative;
     width: 100%;
     &:not(:last-child) {
@@ -83,7 +84,7 @@
 
     &.partners__partners {
       .partners__item a {
-        max-width: 120px;
+        max-width: 140px;
       }
     }
   }

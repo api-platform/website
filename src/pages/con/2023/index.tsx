@@ -6,12 +6,12 @@ import Layout from '@con/components/2023/layout';
 import Contact from '@con/components/2021/Contact';
 import '@con/styles/home/index.scss';
 import { TITLE } from '@con/data/meta';
-import LastEdition from '@con/components/2023/home/LastEdition';
 import MissingConferences from '@con/components/2023/home/MissingConferences';
-import SponsorShip from '@con/components/2023/SponsorShip';
+import PartnersData from '@con/data/2023/partners';
 import BuyButton from '@con/components/2022/BuyButton';
 import Pricing from '@con/components/2023/Pricing';
 import Venue from '@con/components/2021/Venue';
+import Partners from '@con/components/2022/Partners';
 
 const Conf2023: React.ComponentType = () => {
   return (
@@ -29,31 +29,22 @@ const Conf2023: React.ComponentType = () => {
             <BuyButton className="pink" id="cover" size="large">
               Buy tickets
             </BuyButton>
-            <div>
-              <a className="conf__button" href="mailto:events@les-tilleuls.coop?subject=I want to be a speaker!">
-                Become a speaker!
-              </a>
-            </div>
           </div>
         }
       />
-      <LastEdition />
-      <MissingConferences />
       <Speakers>
         <p className="conf__section-subtitle">
-          Our selected speakers will be revealed in 2023. Want to be part of them?{' '}
-          <a href="mailto:events@les-tilleuls.coop?subject=I want to be a speaker!">Contact us!</a>
+          Take a look at our first amazing speaker reveal! From security and testing to best practices, our lineup of
+          speakers will cover a wide range of topics that you won&apos;t want to miss this September!
         </p>
       </Speakers>
       <Pricing />
       <div className="pt-50">
-        <Venue
-          subtitle=" The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the
-        Flemish region. If you can't attend the event physically, you can watch both tracks online."
-        />
+        <Venue subtitle="The API Platform Conference will take place in Lille, meeting point of big European cities. Rooms have been pre-booked and negotiated for you. Take a look at our <a href='/con/2023/faq/'>FAQ section</a> for more information." />
       </div>
-      <div className="pt-50">
-        <SponsorShip />
+      <MissingConferences />
+      <div className="pt-50 pb-50">
+        <Partners data={PartnersData} />
       </div>
       <Contact />
     </Layout>

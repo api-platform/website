@@ -9,6 +9,7 @@ import Logo from './Logo';
 import Search from './Search';
 import MenuItem from './MenuItem';
 import NavContext from '../../contexts/NavContext';
+import PreheaderCon from '../PreheaderCon';
 
 const nav = links.map((link) => <MenuItem key={link.text} {...link} />);
 
@@ -30,6 +31,7 @@ const Header = () => {
 
   return (
     <>
+      <PreheaderCon />
       <header
         className={classnames('header openable', {
           'expand-search': isSearchFocused,

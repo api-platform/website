@@ -26,7 +26,7 @@ const SpeakerConferenceSlot: React.ComponentType<{ conference: Conference; track
         ) : null}
       </div>
       <div className="conference__content">
-        <span className="overline">{getConferenceTimes(date, start, end)}</span>
+        {date && <span className="overline">{getConferenceTimes(date, start, end)}</span>}
         <h3 className="h6 lined lined-left">{title}</h3>
         <p>{short}</p>
         <Button className="square" size="small" to={slug}>

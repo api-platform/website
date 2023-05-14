@@ -26,12 +26,13 @@ Harassment includes, but is not limited to:
 - Advocating for, or encouraging, any of the above behavior
 
 ## REPORTING
-If someone makes you or anyone else feel unsafe or unwelcome, please **report it as soon as possible**, we will do our best to assist with any concerns you might have. Conference staff can be identified by their conference-specific staff t-shirts.
+We value your attendance. If someone makes you or anyone else feel unsafe or unwelcome, please **report it as soon as possible**, we will do our best to assist with any concerns you might have. Conference staff can be identified by their conference-specific staff t-shirts.
 
 You can make a personal report by:
-- Contacting a **staff member**, identified by staff badges or shirts
+- Contacting a **staff member**, identified by staff badges or shirts. Our staff will **ensure you are safe and cannot be overheard**. They may involve other event staff to ensure your report is managed properly. Once safe, we'll ask you to tell us about what happened. This can be upsetting, but we'll handle it as respectfully as possible, and you can bring someone to support you. You won't be asked to confront anyone and we won't tell anyone who you are. Our team will be happy to help you contact hotel/venue security, local support services, or otherwise assist you to feel safe for the duration of the event.
 - Emailing us: <events@les-tilleuls.coop>
-- **Calling us**: We’ll publish a phone number that is staffed during main conference hours
+- **Calling us**: we’ll publish a phone number that is staffed during main conference hours.
+
 
 &nbsp;
 &nbsp;

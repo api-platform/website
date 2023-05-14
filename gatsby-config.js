@@ -50,6 +50,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/src/con/data/2023`,
+        name: 'con2023',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/data/colouring`,
         name: 'colouring',
       },
@@ -72,6 +79,13 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/con/images/2022/speakers`,
+        name: 'speakersImages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/con/images/2023/speakers`,
         name: 'speakersImages',
       },
     },

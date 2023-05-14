@@ -11,6 +11,8 @@ interface PartnersProps {
 
 const Partners: React.ComponentType<PartnersProps> = ({ data }) => {
   const { edition } = useContext(ConfContext);
+  const sponsors = data.filter((s) => 6 > s.rank);
+  const partners = data.filter((s) => 6 <= s.rank);
   return (
     <Section className="conf__partners" section="partners">
       <div className="container">
@@ -19,7 +21,24 @@ const Partners: React.ComponentType<PartnersProps> = ({ data }) => {
         </SectionTitle>
         <div className="partners__section partners__bronze">
           <Grid>
-            {data.map(({ name, logo, link }) => (
+            {sponsors.map(({ name, logo, link }) => (
+              <GridItem key={name} autosize padding={20} className="partners__item">
+                <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
+                  <img
+                    width="200"
+                    height="200"
+                    loading="lazy"
+                    src={`/con/${edition}/partners/${logo}.png`}
+                    alt={name}
+                  />
+                </a>
+              </GridItem>
+            ))}
+          </Grid>
+        </div>
+        <div className="partners__section partners__partners">
+          <Grid>
+            {partners.map(({ name, logo, link }) => (
               <GridItem key={name} autosize padding={20} className="partners__item">
                 <a href={link} title={`${name}`} key={name} target="_blank" rel="nofollow noreferrer noopener">
                   <img
