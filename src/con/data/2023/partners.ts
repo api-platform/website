@@ -14,6 +14,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: 'Commerce Weavers',
+    logo: 'commerce-weavers',
+    link: 'https://www.commerceweavers.com/',
+    rank: 2,
+  },
+  {
     name: 'Akawaka',
     logo: 'akawaka',
     link: 'https://www.akawaka.fr/',
