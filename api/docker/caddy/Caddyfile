@@ -16,7 +16,7 @@ log {
 #         && !path ('/*', '/static*', '/docs*', '/api*', '/page-data*')
 #     )
 #     || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
-@pwa expression `path('/con/*','/con', '/fr/con/*', '/fr/con', '/en/con/*', '/en/con', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
+@pwa expression `path('/con/*','/con', '/fr/con/*', '/fr/con', '/en/con/*', '/en/con', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con*')`
     # || path('/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/sitemap*')`
 
 @bucket_s3 expression `(
