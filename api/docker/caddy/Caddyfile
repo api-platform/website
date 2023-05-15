@@ -24,6 +24,8 @@ log {
 && !path ('/con/*', '/con', '/fr/con/*', '/fr/con', '/en/con/*', '/en/con', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')
 )`
 
+@isDirectory path_regexp .*/$
+
 route {
     root * /srv/app/public
     # root * /{$BUCKET_S3_NAME}/
@@ -49,8 +51,8 @@ route {
     header ?Permissions-Policy "browsing-topics=()"
     # Comment the following line if you don't want Next.js to catch requests for HTML documents.
     # In this case, they will be handled by the PHP app.
-    
-    reverse_proxy @pwa http://{$PWA_UPSTREAM} 
+
+    reverse_proxy @pwa http://{$PWA_UPSTREAM}
 
     # rewrite @bucket_s3 /{$BUCKET_S3_NAME}/{uri}
     # uri replace / /{$BUCKET_S3_NAME}/
@@ -66,7 +68,9 @@ route {
         # uri path_regexp ^/(.*?)/?$ /{$BUCKET_S3_NAME}/$1/index.html
         # uri path_regexp ^/(.*?)/?$ $1/index.html
         try_files {path}index.html {path}/index.html {path}
-        uri replace / /{$BUCKET_S3_NAME}/ 1
+        rewrite @isDirectory /{$BUCKET_S3_NAME}{path}index.html
+        rewrite * /{$BUCKET_S3_NAME}{path}
+
         # uri replace / {$BUCKET_S3_NAME}/
         # rewrite * {path}/index.html
     }
