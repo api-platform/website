@@ -57,8 +57,12 @@ postgresql:
         database: "api"
   # Persistent Volume Storage configuration.
   # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
-  persistence:
-    enabled: false
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "standard"
+      size: 1Gi
+
   pullPolicy: IfNotPresent
   image:
     repository: bitnami/postgresql
