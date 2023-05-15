@@ -124,7 +124,6 @@ jobs:
             --set=ingress.hosts[0].paths[0].path=/ \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
             --set=ingress.tls[0].hosts[0]=${{ inputs.url }} \
-            --set=ingress.className=nginx \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
             --set=ingress.tls[0].secretName=website-ssl \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
