@@ -18,8 +18,8 @@ const nav = {
       text: 'Venue',
     },
     {
-      to: '/con/2023/#sponsorship',
-      text: 'Sponsorship',
+      to: '/con/2023/#partners',
+      text: 'Partners',
     },
   ],
 };
