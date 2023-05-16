@@ -34,7 +34,7 @@
     "mapbox-gl": "^2.13.0",
     "marked": "^4.2.12",
     "negotiator": "^0.6.3",
-    "next": "^13.3.0",
+    "next": "^13.4.2",
     "next-themes": "npm:@wits/next-themes@^0.2.16",
     "octokit": "^2.0.14",
     "prettier": "^2.8.4",
