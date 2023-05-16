@@ -24,7 +24,8 @@ log {
 && !path ('/con/*', '/con', '/fr/con/*', '/fr/con', '/en/con/*', '/en/con', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')
 )`
 
-@withoutExtension not path_regexp .*\.(\w{2,})$
+@withoutExtension not path_regexp \.\w+$
+@withTld path_regexp \.(org|io|fr|com|pl|me|de|gg|dev)$
 @withTrailingSlash path_regexp ^(.*)/+$
 
 route {
@@ -62,6 +63,7 @@ route {
         }
 
         # Handles DocumentIndices
+        rewrite @withTld /{$BUCKET_S3_NAME}{path}/index.html
         rewrite @withTrailingSlash /{$BUCKET_S3_NAME}{path}index.html
         rewrite @withoutExtension /{$BUCKET_S3_NAME}{path}/index.html
 
