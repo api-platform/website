@@ -126,11 +126,10 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 150m
     memory: 750Mi
   requests:
-    cpu: 50m
-    memory: 128Mi
+    cpu: 150m
+    memory: 256Mi
 
 # If you use Mercure, you need the managed or the On Premise version to deploy more than one pod: https://mercure.rocks/docs/hub/cluster
 replicaCount: 1
