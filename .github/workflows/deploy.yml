@@ -101,7 +101,6 @@ jobs:
           helm upgrade ${{ inputs.release }} ./helm/api-platform \
             --reuse-values \
             --install \
-            --create-namespace \
             --debug \
             --wait \
             --atomic \
@@ -113,10 +112,10 @@ jobs:
             --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
             --set=caddy.image.tag=${{ inputs.docker-images-version }} \
             --set=caddy.image.pullPolicy=Always \
-            --set=next.rootUrl=https://${{ inputs.url }} \
-            --set=next.publicEventBriteId= ${{ secrets.NEXT_PUBLIC_EVENT_BRITE_ID }} \
-            --set=next.publicMapboxKey= ${{ secrets.NEXT_PUBLIC_MAPBOX_KEY }} \ 
-            --set=github.key= ${{ secrets.GH_KEY }} \
+            --set=next.rootUrl=${{ inputs.url }} \
+            --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
+            --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \ 
+            --set=github.key=${{ secrets.gh-key }} \
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
