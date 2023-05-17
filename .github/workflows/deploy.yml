@@ -93,7 +93,6 @@ jobs:
       # Release name MUST start with a letter
       # GitHub doesn't support multilines environment variables (JWT_*_KEY)
       - name: Deploy in new namespace
-        # if: steps.k8s-namespace.outputs.namespace == ''
         run: |
           set -o pipefail
           JWT_PASSPHRASE=$(openssl rand -base64 32)
@@ -101,6 +100,7 @@ jobs:
           helm upgrade ${{ inputs.release }} ./helm/api-platform \
             --reuse-values \
             --install \
+            --create-namespace \
             --debug \
             --wait \
             --atomic \
@@ -115,7 +115,6 @@ jobs:
             --set=next.rootUrl=${{ inputs.url }} \
             --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
             --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \ 
-            --set=github.key=${{ secrets.gh-key }} \
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
