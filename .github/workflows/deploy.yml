@@ -44,6 +44,15 @@ on:
       gke-project:
         description: Google Kubernetes Engine Project
         required: true
+      next-public-event-brite-id:
+        description: Next Public EventBrite Id
+        required: true
+      next-public-mapbox-key:
+        description: Next Public Mapbox Key
+        required: true
+      gh-key:
+        description: GitHub Key
+        required: true
       # cloudflare-api-token:
       #   description: Cloudflare API Token
       #   required: true
