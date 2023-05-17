@@ -20,10 +20,10 @@ RUN corepack enable && \
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
 
-COPY --link pnpm-lock.yaml ./
+COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
-COPY --link . .
+COPY . .
 RUN pnpm install -r --offline
 
 
@@ -37,8 +37,10 @@ CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
 
 
 FROM builder_base AS builder
-COPY --link . .
-COPY --from=deps --link /srv/app/node_modules ./node_modules
+COPY . .
+COPY --from=deps /srv/app/node_modules ./node_modules
+
+ARG NEXT_PUBLIC_EVENT_BRITE_ID=483719928327
 
 RUN pnpm run prebuild
 RUN pnpm run build
@@ -55,12 +57,12 @@ ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder --link /srv/app/public ./public
+COPY --from=builder /srv/app/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
-COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /srv/app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
 
 USER nextjs
 
