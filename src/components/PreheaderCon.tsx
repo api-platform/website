@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Logo from '@con/images/logo.svg';
 import Web from '@con/components/common/Web';
 import Button from './common/Button';
 
 const PreheaderCon: React.ComponentType = () => (
-  <Link to="/con">
+  <a href="/con">
     <div className="preheader preheader-con" role="button">
       <Web className="preheader-con__web con__web" isVisible />
       <img src={Logo} alt="Api Platform Conference" height="40" />
@@ -17,7 +16,7 @@ const PreheaderCon: React.ComponentType = () => (
       </div>
       <Button text="Register now" className="preheader-con__button small empty white" />
     </div>
-  </Link>
+  </a>
 );
 
 export default PreheaderCon;
