@@ -13,13 +13,18 @@ export const getAllSpeakers = async (edition: string, locale: Locale) => {
       )
       .filter((el) => path.extname(el) === ".md")
       .map((slug: string) => slug.replace(/\.md$/, ""));
+    console.log(
+      "full path:",
+      path.resolve(process.cwd(), `data/con/${edition}/speakers/${locale}`)
+    );
     return Promise.all(
       slugs.map(async (slug: string) => {
         const speakerData = await getSpeakerData(edition, slug, locale, false);
         return speakerData;
       })
     );
-  } catch {
+  } catch (e) {
+    console.error(e);
     return [];
   }
 };
@@ -33,7 +38,8 @@ export const getAllSpeakerSlugs = async (edition: string, locale: string) => {
       .filter((el) => path.extname(el) === ".md")
       .map((slug: string) => slug.replace(/\.md$/, ""));
     return slugs;
-  } catch {
+  } catch (e) {
+    console.error(e);
     return [];
   }
 };
