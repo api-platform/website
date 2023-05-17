@@ -26,6 +26,14 @@ pwa:
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
+next: 
+  rootUrl: ChangeMe
+  publicEventBriteId: ChangeMe
+  publicMapboxKey: ChangeMe
+
+github:
+  key: changeMe
+  
 bucket:
   s3Upstream: ChangeMe
   s3Name: ChangeMe

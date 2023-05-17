@@ -36,6 +36,26 @@ spec:
           env:
             - name: NEXT_PUBLIC_ENTRYPOINT
               value: http://{{ include "api-platform.fullname" . }}
+            - name: NEXT_ROOT_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: next-root-url
+            - name: NEXT_PUBLIC_MAPBOX_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: next-public-mapbox-key
+            - name: NEXT_PUBLIC_EVENT_BRITE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: next-public-event-brite-id
+            - name: GITHUB_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: github-key
           ports:
             - name: http
               containerPort: 3000

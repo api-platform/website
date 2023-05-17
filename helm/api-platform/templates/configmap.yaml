@@ -14,3 +14,4 @@ data:
   mercure-public-url: {{ .Values.mercure.publicUrl | default "http://127.0.0.1/.well-known/mercure" | quote }}
   bucket-s3-upstream: {{ .Values.bucket.s3Upstream | quote }}
   bucket-s3-name: {{ .Values.bucket.s3Name | quote }}
+  next-root-url: {{ .Values.next.rootUrl | quote }}
