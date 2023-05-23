@@ -1,15 +1,11 @@
 import React from 'react';
 import Logo from '@con/images/logo.svg';
 import Web from '@con/components/common/Web';
-import { useLocation } from '@reach/router';
 import Button from './common/Button';
 
 const PreheaderCon: React.ComponentType = () => {
-  const { href } = useLocation();
-  const url = new URL(href);
-
   return (
-    <a href={`${url.origin || process.env.GATSBY_ROOT_URL}/con/2023`} rel="noreferrer">
+    <a href="/con/2023?y=2023" rel="noreferrer">
       <div className="preheader preheader-con" role="button">
         <Web className="preheader-con__web con__web" isVisible />
         <img src={Logo} alt="Api Platform Conference" height="40" />
