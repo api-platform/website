@@ -9,7 +9,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { legal, edition } = params;
   const locale = params.locale || i18n.defaultLocale;
-  const legalData = await getLegalData(edition, legal);
+  const legalData = await getLegalData(edition, legal, locale);
 
   return {
     title: legalData.title,
@@ -42,9 +42,14 @@ export default async function Page({
   params: {
     edition: string;
     legal: string;
+    locale: Locale;
   };
 }) {
-  const legalData = await getLegalData(params.edition, params.legal);
+  const legalData = await getLegalData(
+    params.edition,
+    params.legal,
+    params.locale
+  );
 
   return <LegalPage title={legalData.title} content={legalData.content} />;
 }

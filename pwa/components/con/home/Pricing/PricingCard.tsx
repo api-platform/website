@@ -10,7 +10,7 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ price }: PricingCardProps) {
-  const { t, Translate } = useContext(LanguageContext);
+  const { t, locale } = useContext(LanguageContext);
 
   useEventBriteModal(`price${price.id}`);
 
@@ -32,10 +32,10 @@ export default function PricingCard({ price }: PricingCardProps) {
       >
         <div className="w-full bg-blue p-5 text-center">
           <h3 className="uppercase font-title font-bold text-2xl text-white lined-center lined-white">
-            {price.title}
+            {price.title[locale]}
           </h3>
           <p className="uppercase font-medium leading-tight text-sm font-title text-blue-darkest">
-            {t(price.languages)}
+            {price.languages[locale]}
           </p>
         </div>
         <div className="flex flex-col flex-1 p-5 w-full bg-white items-center justify-center border-b-8 border-b-blue dotted-corner corner-bottom">
@@ -44,9 +44,10 @@ export default function PricingCard({ price }: PricingCardProps) {
               key={`${offer.title}-${index}`}
               className="border-b-2 w-full text-center border-dotted border-b-blue last:border-b-0 flex items-center justify-center flex-col py-3"
             >
-              <div className="uppercase font-extralight leading-tight text-sm">
-                <Translate translationKey={offer.title} />
-              </div>
+              <div
+                className="uppercase font-extralight leading-tight text-sm"
+                dangerouslySetInnerHTML={{ __html: offer.title[locale] }}
+              />
               <span className="font-bold text-blue font-title text-4xl">
                 {offer.price}€
               </span>

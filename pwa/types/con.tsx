@@ -41,6 +41,7 @@ export type Speaker = {
   name: string;
   twitter?: string;
   github?: string;
+  mastodon?: string;
   job: string;
   company?: string;
   number: number;
@@ -76,7 +77,7 @@ export type Track = {
 };
 
 export type Offer = {
-  title: string;
+  title: Record<string, string>;
   price: number;
   limitDate?: string;
   startDate?: string;
@@ -84,8 +85,8 @@ export type Offer = {
 
 export type Price = {
   id: number;
-  title: string;
-  languages: string;
+  title: Record<string, string>;
+  languages: Record<string, string>;
   offers: Offer[];
 };
 

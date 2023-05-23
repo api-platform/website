@@ -1,0 +1,24 @@
+---
+type: speaker
+id: nicolas-grekas
+number: 8
+name: Nicolas Grekas
+job: Core Team
+company: Symfony
+twitter: https://twitter.com/nicolasgrekas
+github: https://github.com/nicolas-grekas
+---
+
+## À propos de Nicolas
+
+Nicolas works nowadays on Symfony, with two sides to his contributions.
+
+As a member of the core team, he helps by helping others to contribute, by reviewing pull requests, by fixing bugs or by modernizing the code base. He **puts a lot of efforts on making Symfony fast, smooth and extensible**, without compromising.
+
+On the business side, he leads the ambition to create a sustainable company supporting and supported directly by the Symfony ecosystem.
+
+Nicolas contribue à Symfony, avec deux casquettes.
+
+Côté open-source, en tant que membre de la Core Team, il apporte son expertise en proposant de nouvelles fonctionnalités destinées à moderniser le framework, en corrigeant les bugs, et en faisant de la revue de code. Il **s'efforce de rendre Symfony toujours plus performant, souple et extensible**. 
+
+Côté pro, il participe à l'ambition de créer une entreprise durable en contact immédiat avec l'écosystème Symfony. 

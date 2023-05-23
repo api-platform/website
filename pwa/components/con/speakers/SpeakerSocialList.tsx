@@ -24,11 +24,12 @@ function SocialIcon({ url, iconName }: SocialIconProps) {
 }
 
 export default function SpeakerSocialList({ speaker }: SpeakerSocialListProps) {
-  const { github, twitter } = speaker;
+  const { github, twitter, mastodon } = speaker;
   return (
     <div className="flex flex-row justify-center gap-1.5">
       {github && <SocialIcon url={github} iconName="github" />}
       {twitter && <SocialIcon url={twitter} iconName="twitter" />}
+      {mastodon && <SocialIcon url={mastodon} iconName="mastodon" />}
     </div>
   );
 }

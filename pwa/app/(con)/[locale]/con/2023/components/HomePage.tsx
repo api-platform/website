@@ -7,9 +7,6 @@ import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
 import Section from "components/con/home/Section";
 import Venue from "components/con/home/Venue";
 import Partners from "components/con/home/Partners";
-import Image from "next/image";
-import PictureGallery from "components/con/common/PictureGallery";
-import LookingSponsorCard from "components/con/home/LookingSponsorCard";
 import { currentEdition } from "data/con/editions";
 import BuyButton from "components/con/common/BuyButton";
 import PricingCard from "components/con/home/Pricing/PricingCard";
@@ -24,8 +21,8 @@ type HomePageProps = {
   images: string[];
 };
 
-const HomePage = ({ speakers, partners, images }: HomePageProps) => {
-  const { t, Translate, locale } = useContext(LanguageContext);
+const HomePage = ({ speakers, partners }: HomePageProps) => {
+  const { t, Translate } = useContext(LanguageContext);
   return (
     <>
       <Cover
@@ -42,96 +39,17 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         }
       />
       <Section
-        section="lastYear"
-        className="bg-white z-10 relative pb-10 overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle>
-            <Translate translationKey="last_edition.title" />
-          </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="last_edition.subtitle"
-              translationParams={{
-                edition: "2022",
-                link: (
-                  <a href={`/${locale}/con/2022/review`} className="link">
-                    {t("last_edition.subtitle_link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <PictureGallery
-            className="py-4"
-            link="https://www.flickr.com/photos/194052559@N02/albums/72177720302238684"
-          >
-            {images.map((image: string) => (
-              <Image
-                className="object-cover"
-                key={image}
-                fill
-                src={image}
-                alt=""
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
-              />
-            ))}
-          </PictureGallery>
-        </div>
-      </Section>
-      <Section
-        section="missing"
-        className="relative z-10 text-center overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle dark>
-            <Translate
-              translationKey="missing_conferences.title"
-              translationParams={{ edition: "2022" }}
-            />
-          </SectionTitle>
-          <SectionSubTitle dark>
-            {t("missing_conferences.subtitle")}
-          </SectionSubTitle>
-          <Button
-            className="mx-auto mb-10"
-            external
-            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"
-          >
-            {t("missing_conferences.watch_the_conferences")}
-          </Button>
-        </div>
-      </Section>
-      <Section
         section="speakers"
-        className="bg-white z-10 relative py-4 overflow-hidden"
+        className="bg-white z-10 relative py-4 overflow-x-hidden"
       >
         <div className="container text-center">
-          <SectionTitle>
+          <SectionTitle h1>
             <Translate translationKey="speakers.title" />
           </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="2023.our_speakers.subtitle"
-              translationParams={{
-                edition: "2023",
-                link: (
-                  <a
-                    href="mailto:events@les-tilleuls.coop?subject=I%20want%20to%20be%20a%20speaker!"
-                    className="link"
-                  >
-                    {t("2023.our_speakers.subtitle_link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <SpeakerList speakers={speakers} max={12} />
-          {speakers.length > 12 ? (
-            <Button
-              className="mx-auto my-7"
-              to={`/${locale}/con/2023/speakers`}
-            >
+          <SectionSubTitle>{t("2023.our_speakers.subtitle")}</SectionSubTitle>
+          <SpeakerList speakers={speakers} max={6} />
+          {speakers.length > 6 ? (
+            <Button className="mx-auto my-7" to="/con/2023/speakers">
               {t("speakers.see_all")}
             </Button>
           ) : null}
@@ -174,20 +92,41 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         </div>
       </Section>
       <Venue subtitle={t("2023.venue.subtitle")} />
-      <Section section="sponsorship" className="py-8">
+      <Section
+        section="missing"
+        className="relative z-10 text-center overflow-y-clip"
+      >
         <div className="container text-center">
           <SectionTitle dark>
-            <Translate translationKey="sponsorship.title" />
+            <Translate
+              translationKey="missing_conferences.title"
+              translationParams={{ edition: "2022" }}
+            />
           </SectionTitle>
-          <LookingSponsorCard />
+          <SectionSubTitle dark>
+            {t("missing_conferences.subtitle")}
+          </SectionSubTitle>
+          <Button
+            className="mx-auto mb-10"
+            external
+            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"
+          >
+            {t("missing_conferences.watch_the_conferences")}
+          </Button>
         </div>
-        <div className="bg-white text-center relative z-10 pt-40 pb-40">
-          <div className="container text-center">
-            <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              {t("sponsorship.they_trust_us", { year: "2022" })}
-            </div>
-            <Partners data={partners} edition="2022" />
-          </div>
+      </Section>
+      <Section
+        className="relative z-10 bg-white pb-64 pt-10 overflow-x-hidden w-full"
+        section="partners"
+      >
+        <div className="container text-center">
+          <SectionTitle>
+            <Translate translationKey="partners.title" />
+          </SectionTitle>
+          <Partners data={partners} edition="2023" />
+          <Button square empty to="mailto:events@les-tilleuls.coop" external>
+            {t("become_sponsor")}
+          </Button>
         </div>
       </Section>
     </>

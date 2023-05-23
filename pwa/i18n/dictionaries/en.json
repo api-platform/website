@@ -54,7 +54,7 @@
     "date": "September 21-22, 2023 - Lille & online",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Our first speakers will be announced very soon. There are only a few weeks left to discover who has been selected!",
+      "subtitle": "Take a look at our first amazing speaker reveal! From security and testing to best practices, our lineup of speakers will cover a wide range of topics that you won't want to miss this September!",
       "subtitle_link": "Contact us!",
       "title": "Our <strong>speakers</strong>"
     },
@@ -93,7 +93,8 @@
     "previous_edition": {
       "links": {
         "archive": "{{previous_edition}} archive",
-        "review": "{{previous_edition}} review"
+        "review": "{{previous_edition}} review",
+        "all": "All previous editions"
       },
       "title": "Previous edition"
     },
@@ -129,6 +130,7 @@
     "buy_tickets": "Buy tickets",
     "links": {
       "home": "Home",
+      "partners": "Partners",
       "previous_editions": "Previous editions",
       "pricing": "Pricing",
       "review": "Review",

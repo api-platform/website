@@ -44,7 +44,7 @@ export default async function Page({ params }: Props) {
 }
 
 export const generateStaticParams = async () => {
-  return [{ edition: "2021" }, { edition: "2022" }];
+  return [{ edition: "2021" }, { edition: "2022" }, { edition: "2023" }];
 };
 
 export const dynamicParams = false;

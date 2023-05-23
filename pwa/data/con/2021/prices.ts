@@ -1,6 +1,4 @@
-import { Price } from "types/con";
-
-const prices: Price[] = [
+const prices: any[] = [
   {
     id: 1,
     title: "On-site edition",

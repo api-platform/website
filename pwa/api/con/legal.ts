@@ -3,10 +3,15 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import fs from "fs";
 import { extractHeadingsFromMarkdown } from "utils";
+import { Locale } from "i18n/i18n-config";
 
-export const getLegalData = async (edition: string, slug: string) => {
+export const getLegalData = async (
+  edition: string,
+  slug: string,
+  locale: Locale
+) => {
   const fileContents = await fs.readFileSync(
-    path.join(process.cwd(), `data/con/${edition}/legal/${slug}.md`),
+    path.join(process.cwd(), `data/con/${edition}/legal/${locale}/${slug}.md`),
     "utf8"
   );
 

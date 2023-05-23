@@ -6,6 +6,10 @@ const nav = {
       text: "nav.links.previous_editions",
     },
     {
+      to: "/{{locale}}/con/2023/speakers",
+      text: "nav.links.speakers",
+    },
+    {
       to: "/{{locale}}/con/2023/#pricing",
       text: "nav.links.pricing",
     },
@@ -14,8 +18,8 @@ const nav = {
       text: "nav.links.venue",
     },
     {
-      to: "/{{locale}}/con/2023/#sponsorship",
-      text: "nav.links.sponsorship",
+      to: "/{{locale}}/con/2023/#partners",
+      text: "nav.links.partners",
     },
   ],
 };

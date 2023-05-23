@@ -52,7 +52,7 @@
     "date": "21 et 22 septembre 2023 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Notre programmation sera très prochainement annoncée. Encore un peu de patience pour découvrir nos speakers !",
+      "subtitle": "Jetez un coup d'œil à nos premiers speakers ! De la sécurité aux tests en passant par les meilleures pratiques, notre liste de conférenciers couvrira un large éventail de sujets que vous ne voudrez pas manquer en septembre !",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
     },
@@ -90,8 +90,9 @@
     },
     "previous_edition": {
       "links": {
-        "archive": "{{previous_edition}} archive",
-        "review": "{{previous_edition}} review"
+        "archive": "Archive {{previous_edition}}",
+        "review": "Review {{previous_edition}}",
+        "all": "Toutes les éditions"
       },
       "title": "Édition précédente"
     },
@@ -127,6 +128,7 @@
     "buy_tickets": "S'inscrire",
     "links": {
       "home": "Accueil",
+      "partners": "Partenaires",
       "previous_editions": "Éditions précédentes",
       "pricing": "Tarifs",
       "review": "Review",

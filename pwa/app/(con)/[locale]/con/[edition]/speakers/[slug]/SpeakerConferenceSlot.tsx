@@ -27,14 +27,16 @@ export default function SpeakerConferenceSlot({
                 </>
               ) : null}
             </span>
-            <Overline>{getConferenceDate(date)}</Overline>
+            {<Overline>{getConferenceDate(date)}</Overline>}
           </>
         ) : null}
       </div>
       <div className="flex flex-col flex-1 items-start py-5 px-12">
-        <Overline className="text-blue-black/50">
-          {getConferenceTimes(date, start, end)}
-        </Overline>
+        {date ? (
+          <Overline className="text-blue-black/50">
+            {getConferenceTimes(date, start, end)}
+          </Overline>
+        ) : null}
         <h3 className="h6 lined-left font-bold uppercase font-title">
           {title}
         </h3>

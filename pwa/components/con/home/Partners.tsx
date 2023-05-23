@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, { PropsWithChildren } from "react";
 import { Partner } from "types/con";
 
@@ -6,13 +7,19 @@ interface PartnersProps extends PropsWithChildren {
   data: Partner[];
 }
 
-export default function Partners({ edition, data }: PartnersProps) {
+interface PartnersGridProps extends PropsWithChildren {
+  edition: string;
+  partners: Partner[];
+  small?: boolean;
+}
+
+function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
   return (
-    <div className="flex justify-center items-center flex-wrap mb-12">
-      {data.map(({ name, logo, link }) => (
+    <div className="flex flex-col md:flex-row justify-center items-center flex-wrap py-6 border-dotted border-grey border-b-2">
+      {partners.map(({ name, logo, link }) => (
         <div
           key={name}
-          className="grayscale opacity-50 transition-all p-5 hover:grayscale-0 hover:opacity-100"
+          className="grayscale opacity-50 transition-all px-8 py-4 hover:grayscale-0 hover:opacity-100"
         >
           <a
             href={link}
@@ -20,12 +27,14 @@ export default function Partners({ edition, data }: PartnersProps) {
             key={name}
             target="_blank"
             rel="nofollow noreferrer noopener"
-            className="max-w-[240px] flex items-center justify-center flex-col"
+            className={classNames(
+              "flex items-center justify-center flex-col",
+              small ? "max-w-[180px]" : " max-w-[240px]"
+            )}
           >
             <img
-              width="200"
-              height="200"
-              loading="lazy"
+              width={small ? 140 : 200}
+              height={small ? 140 : 200}
               src={`/images/con/${edition}/partners/${logo}.png`}
               alt={name}
               className="w-7/8 h-auto"
@@ -33,6 +42,19 @@ export default function Partners({ edition, data }: PartnersProps) {
           </a>
         </div>
       ))}
+    </div>
+  );
+}
+
+export default function Partners({ edition, data }: PartnersProps) {
+  const sponsors = data.filter((p) => p.rank < 6);
+  const partners = data.filter((p) => p.rank >= 6);
+  return (
+    <div className="mb-12">
+      <PartnersGrid edition={edition} partners={sponsors} />
+      {partners.length > 0 ? (
+        <PartnersGrid edition={edition} partners={partners} small />
+      ) : null}
     </div>
   );
 }

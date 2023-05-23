@@ -24,10 +24,12 @@ const ConferencePageTemplate = ({ conference, day }: ConferencePageProps) => {
           <strong>{title}</strong>
         </SectionTitle>
         <>
-          <p className="uppercase font-light text-xl relative">
-            <strong className="font-bold">{day.title}</strong>
-            {track ? ` - ${t("conferences.track", { track })}` : null}
-          </p>
+          {day ? (
+            <p className="uppercase font-light text-xl relative">
+              <strong className="font-bold">{day.title}</strong>
+              {track ? ` - ${t("conferences.track", { track })}` : null}
+            </p>
+          ) : null}
           {date ? (
             <p className="text-sm font-semibold mt-3">
               {getConferenceDate(date, start, end)}
