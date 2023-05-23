@@ -140,12 +140,15 @@ jobs:
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ inputs.url }} \
+            --set=next.rootUrl=${{ inputs.url }} \
+            --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
+            --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \
+            --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
             --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
             --set=postgresql.global.postgresql.auth.username=website \
-            --set=next.rootUrl=${{ inputs.url }} \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Upgrade namespace
         if: steps.k8s-namespace.outputs.namespace != ''
@@ -176,6 +179,7 @@ jobs:
             --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
+            --set=ressources.limits.memory=700Mi \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
