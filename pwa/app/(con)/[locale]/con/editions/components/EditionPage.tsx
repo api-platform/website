@@ -24,7 +24,7 @@ export default function Editions() {
             {t("editions.subtitle", { count: previousEditions.length })}
           </SectionSubTitle>
         </div>
-        <div className="flex flex-row items-center justify-center mx-auto pb-200 gap-x-6">
+        <div className="flex flex-row flex-wrap items-center justify-center mx-auto pb-200 gap-6">
           {previousEditions.map((edition) => (
             <EditionCard
               key={edition.year}

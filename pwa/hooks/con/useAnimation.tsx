@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import { useIntersection } from "react-use";
 import gsap from "gsap";
+import useIntersection from "hooks/useIntersection";
 
 export type DirectionType = "bottom" | "left" | "right" | "top" | "scale";
 

@@ -46,7 +46,7 @@ export default function ReviewItem({
             src={`/images/con/${edition}/review/${imageId}.jpg`}
             alt=""
             fill
-            sizes="500px"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 360px, 500px"
             className="object-cover"
           />
         </div>

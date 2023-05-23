@@ -34,6 +34,6 @@
   },
   "review": {
     "title": "Récapitulatif",
-    "description": "Que s'est-il passé en %edition%?"
+    "description": "Que s'est-il passé en %edition% ?"
   }
 }

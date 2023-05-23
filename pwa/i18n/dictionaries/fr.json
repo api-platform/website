@@ -76,7 +76,7 @@
   "days_count_plural": "{{count}} jours",
   "editions": {
     "subtitle": "Découvrez nos {{count}} précédentes éditions",
-    "title": "Que s'est-il passé les <strong>années précédentes ?</strong>?"
+    "title": "Que s'est-il passé les <strong>années précédentes </strong>?"
   },
   "footer": {
     "follow_us": "Suivez-nous sur les réseaux !",

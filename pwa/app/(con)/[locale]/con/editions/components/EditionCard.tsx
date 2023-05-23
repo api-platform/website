@@ -27,6 +27,7 @@ export default function EditionCard({
       <Image
         width={size === "big" ? 400 : 240}
         height={size === "big" ? 267 : 160}
+        sizes={size === "big" ? "(max-width: 768px) 90vw, 400px" : "240px"}
         src={`/images/con/editions/${edition.image}.jpg`}
         alt={`${edition.year} edition`}
       />

@@ -19,7 +19,6 @@ export const getAllConferences = async (
     )
     .filter((el) => path.extname(el) === ".md")
     .map((slug: string) => slug.replace(/\.md$/, ""));
-  console.log("getAllConferences", "conferences slugs : ", slugs);
 
   return Promise.all(
     slugs.map(async (slug: string) => {
@@ -67,7 +66,6 @@ export const getConferenceData = async (
   withSpeakers = false,
   locale: Locale = i18n.defaultLocale
 ) => {
-  console.log("getConferenceData");
   const fileContents = await fs.readFileSync(
     path.join(
       process.cwd(),
@@ -75,7 +73,6 @@ export const getConferenceData = async (
     ),
     "utf8"
   );
-  console.log("fileContents ? ", fileContents);
 
   const days = (await import(`data/con/${edition}/days`)).default;
   // Use gray-matter to parse the post metadata section
@@ -95,7 +92,6 @@ export const getConferenceData = async (
       return speakerData;
     })
   );
-  console.log("all conference speakers : ", fullSpeakers);
 
   // Combine the data with the id and contentHtml
   return {

@@ -38,7 +38,7 @@ export default function SpeakerPageTemplate({
       </div>
       <div className="flex flex-col flex-wrap items-center bg-grey px-10 py-10 | lg:flex-row lg:items-start | sm:py-20">
         <div className="w-72 h-72 | md:w-80 md:h-80 | lg:w-[400px] lg:h-[400px]">
-          <SpeakerImage image={image} placeholder={placeholder} />
+          <SpeakerImage big image={image} placeholder={placeholder} />
         </div>
         <div className="flex-1 | sm:px-6">
           <SpeakerDescription speaker={speakerData} />

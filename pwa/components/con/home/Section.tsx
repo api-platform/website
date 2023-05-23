@@ -4,8 +4,8 @@ import React, {
   useContext,
   useEffect,
 } from "react";
-import { useIntersection } from "react-use";
 import useDynamicRefs from "hooks/con/useDynamicRefs";
+import useIntersection from "hooks/useIntersection";
 
 interface SectionProps extends PropsWithChildren {
   className?: string;

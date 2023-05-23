@@ -6,11 +6,13 @@ interface SpeakerImageProps {
   image: string;
   placeholder?: string;
   hoverable?: boolean;
+  big?: boolean;
 }
 
 export default function SpeakerImage({
   image,
   placeholder,
+  big = false,
   hoverable = true,
 }: SpeakerImageProps) {
   return (
@@ -33,7 +35,7 @@ export default function SpeakerImage({
             className="rounded-full object-cover"
             alt=""
             fill
-            sizes="400px"
+            sizes={big ? "(max-width: 768px) 240px, 440px" : "240px"}
             loading="lazy"
             placeholder={placeholder ? "blur" : undefined}
             blurDataURL={placeholder}

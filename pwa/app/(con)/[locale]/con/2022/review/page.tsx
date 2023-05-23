@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { locale: Locale } }) {
             fill
             src={image}
             alt=""
-            sizes="400px"
+            sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
           />
         ))}
       </PictureGallery>

@@ -39,6 +39,7 @@ export default function LastEdition({
         {[...Array(6)].map((x, i) => (
           <Image
             fill
+            sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
             alt=""
             key={`pic${i}`}
             src={`/images/con/${edition}/pic-0${i + 1}.jpg`}

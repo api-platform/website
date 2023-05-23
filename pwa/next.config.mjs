@@ -85,10 +85,6 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     output: "standalone",
-    experimental: {
-        appDir: true,
-        mdxRs: false,
-    },
     images: {
         domains: [
             "avatars.githubusercontent.com",
@@ -102,6 +98,7 @@ const nextConfig = {
                 port: "",
             },
         ],
+        deviceSizes: [640, 768, 828, 1024, 1280, 1536, 1920, 2048],
     },
     eslint: {
         dirs: ["app"],
