@@ -5,7 +5,7 @@ import Button from './common/Button';
 
 const PreheaderCon: React.ComponentType = () => {
   return (
-    <a href="/con/2023?y=2023" rel="noreferrer">
+    <a href="/con/2023" rel="noreferrer">
       <div className="preheader preheader-con" role="button">
         <Web className="preheader-con__web con__web" isVisible />
         <img src={Logo} alt="Api Platform Conference" height="40" />
