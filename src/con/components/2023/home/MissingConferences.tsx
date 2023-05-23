@@ -19,7 +19,7 @@ const MissingConferences: React.ComponentType = () => {
         </p>
         <a
           className="mt-30 mx-auto conf__button"
-          href="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"
+          href="https://www.youtube.com/playlist?list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8"
           target="_blank"
           rel="noopener noreferrer"
         >
