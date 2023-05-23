@@ -5,7 +5,7 @@ number: 100
 name: Jérôme Tanghe
 job: Senior Developer
 company: Les-Tilleuls.coop
-twitter: https://mastodon.online/@Deuchnord@mamot.fr
+twitter:
 github: https://github.com/Deuchnord
 ---
 
