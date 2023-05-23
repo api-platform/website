@@ -147,7 +147,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-image',
-    'gatsby-plugin-catch-links',
+    {
+      resolve: `gatsby-plugin-catch-links`,
+      options: {
+        excludePattern: /^\/con/,
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-twitter',
     {
