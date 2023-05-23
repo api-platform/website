@@ -4,7 +4,7 @@ import Web from '@con/components/common/Web';
 import Button from './common/Button';
 
 const PreheaderCon: React.ComponentType = () => (
-  <a href="/con">
+  <a href={`${process.env.GATSBY_ROOT_URL}/con/2023?y=2023`}>
     <div className="preheader preheader-con" role="button">
       <Web className="preheader-con__web con__web" isVisible />
       <img src={Logo} alt="Api Platform Conference" height="40" />
