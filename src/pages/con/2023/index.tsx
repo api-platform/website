@@ -20,6 +20,9 @@ const Conf2023: React.ComponentType = () => {
         <title>{`${TITLE}: meet the best API experts!`}</title>
         <meta property="og:title" content={`${TITLE}: meet the best API experts!`} />
         <meta name="twitter:title" content={`${TITLE}: meet the best API experts!`} />
+        <meta httpEquiv="Cache-Control" content="no-store, must-revalidate" />,
+        <meta httpEquiv="Pragma" content="no-cache" />,
+        <meta httpEquiv="Expires" content="0" />
       </Helmet>
       <Cover
         date="September 21 - 22, 2023 | Lille & online"
