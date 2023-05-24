@@ -25,6 +25,8 @@ jobs:
     secrets:
       gke-credentials: ${{ secrets.GKE_SA_KEY }}
       gke-project: ${{ secrets.GKE_PROJECT }}
+      gh-key: ${{ secrets.GH_KEY }}
+
 
   deploy:
     name: Deploy
