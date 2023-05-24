@@ -128,7 +128,8 @@ export const getAllContributors = cache(async () => {
         })
     );
     return sortedContributors;
-  } catch {
+  } catch (e) {
+    console.error(e);
     return [];
   }
 });
