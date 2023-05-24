@@ -177,6 +177,8 @@ jobs:
           push: ${{ inputs.push }}
           tags: ${{ steps.docker-metadata.outputs.tags }}
           labels: ${{ steps.docker-metadata.outputs.labels }}
+          secrets: |
+            gh_token=${{ secrets.GH_TOKEN }}
           cache-from: |
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}

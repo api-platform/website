@@ -39,10 +39,8 @@ CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-
-RUN pnpm run prebuild
-RUN pnpm run build
-
+RUN --mount=type=secret,id=gh_token \ 
+	export $GITHUB_KEY=$(cat /run/secrets/gh_token) && pnpm run prebuild && pnpm run build
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
