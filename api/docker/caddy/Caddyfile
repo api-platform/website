@@ -30,7 +30,6 @@ log {
 
 route {
     root * /srv/app/public
-    # root * /{$BUCKET_S3_NAME}/
     mercure {
         # Transport to use (default to Bolt)
         transport_url {$MERCURE_TRANSPORT_URL:bolt:///data/mercure.db}
