@@ -84,7 +84,7 @@ const nextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx"],
     reactStrictMode: true,
     swcMinify: true,
-    output: "standalone",
+    output: "export",
     images: {
         domains: [
             "avatars.githubusercontent.com",
@@ -103,45 +103,45 @@ const nextConfig = {
     eslint: {
         dirs: ["app"],
     },
-    async headers() {
-        return [
-            {
-                source: "/(.*)",
-                headers: [
-                    {
-                        key: "X-Frame-Options",
-                        value: "DENY",
-                    },
-                    {
-                        key: "X-Content-Type-Options",
-                        value: "nosniff",
-                    },
-                    {
-                        key: "Strict-Transport-Security",
-                        value: "max-age=15724800; includeSubDomains; preload",
-                    },
-                    {
-                        key: "Content-Security-Policy",
-                        value: "default-src https://www.eventbrite.com/ 'self' 'unsafe-inline' https://vercel.live/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.eventbrite.com/ https://vercel.live/ ; font-src 'self'; img-src 'self' https://assets.vercel.com/ https://img.youtube.com data:;",
-                    },
-                ],
-            },
-        ];
-    },
-    async redirects() {
-        return [
-            {
-                source: "/con",
-                destination: "/con/2023",
-                permanent: true,
-            },
-            {
-                source: "/fr/con",
-                destination: "/fr/con/2023",
-                permanent: true,
-            },
-        ];
-    },
+    // async headers() {
+    //     return [
+    //         {
+    //             source: "/(.*)",
+    //             headers: [
+    //                 {
+    //                     key: "X-Frame-Options",
+    //                     value: "DENY",
+    //                 },
+    //                 {
+    //                     key: "X-Content-Type-Options",
+    //                     value: "nosniff",
+    //                 },
+    //                 {
+    //                     key: "Strict-Transport-Security",
+    //                     value: "max-age=15724800; includeSubDomains; preload",
+    //                 },
+    //                 {
+    //                     key: "Content-Security-Policy",
+    //                     value: "default-src https://www.eventbrite.com/ 'self' 'unsafe-inline' https://vercel.live/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.eventbrite.com/ https://vercel.live/ ; font-src 'self'; img-src 'self' https://assets.vercel.com/ https://img.youtube.com data:;",
+    //                 },
+    //             ],
+    //         },
+    //     ];
+    // },
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: "/con",
+    //             destination: "/con/2023",
+    //             permanent: true,
+    //         },
+    //         {
+    //             source: "/fr/con",
+    //             destination: "/fr/con/2023",
+    //             permanent: true,
+    //         },
+    //     ];
+    // },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
