@@ -40,8 +40,6 @@ FROM builder_base AS builder
 COPY . .
 COPY --from=deps /srv/app/node_modules ./node_modules
 
-ARG NEXT_PUBLIC_EVENT_BRITE_ID=483719928327
-
 RUN pnpm run prebuild
 RUN pnpm run build
 
