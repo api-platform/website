@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { URL: BASE_URL, OG_IMAGE } = await import(`data/con/meta`);
 
   return {
-    metadataBase: new URL(BASE_URL),
+    metadataBase: new URL(process.env.NEXT_ROOT_URL || ""),
     title: {
       default: dictionary.title,
       template: "%s - API Platform Conference",
