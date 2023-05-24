@@ -5,19 +5,13 @@
 
 {$SERVER_NAME}
 
-# log
 log {
 	output file /var/log/caddy/access.log
 }
 # Matches requests for HTML documents, for static files and for Next.js files,
 # except for known API paths and paths with extensions handled by API Platform
-# @pwa expression `(
-#         header({'Accept': '*text/html*'})
-#         && !path ('/*', '/static*', '/docs*', '/api*', '/page-data*')
-#     )
-#     || path('/con/*', '/fr/con/*', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images/con/*')`
+
 @pwa expression `path('/con/*','/con', '/fr/con/*', '/fr/con', '/en/con/*', '/en/con', '/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/images*')`
-    # || path('/favicon.ico', '/manifest.json', '/robots.txt', '/_next*', '/sitemap*')`
 
 @bucket_s3 expression `(
     path('/*')
