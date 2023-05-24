@@ -13,12 +13,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: legalData.title,
-    openGraph: {
-      title: `API Platform Conference ${edition} | ${legalData.title}`,
-    },
-    twitter: {
-      title: `API Platform Conference ${edition} | ${legalData.title}`,
-    },
     alternates: {
       languages: {
         en: locale === "en" ? undefined : `/con/${edition}/${legal}`,

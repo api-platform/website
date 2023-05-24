@@ -17,14 +17,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: dictionary.review.title,
     description: dictionary.review.description.replace("%edition%", "2022"),
-    openGraph: {
-      title: `API Platform Conference 2022 | ${dictionary.review.title}`,
-      description: dictionary.review.description.replace("%edition%", "2022"),
-    },
-    twitter: {
-      title: `API Platform Conference 2022 | ${dictionary.review.title}`,
-      description: dictionary.review.description.replace("%edition%", "2022"),
-    },
     alternates: {
       languages: {
         en: locale === "en" ? undefined : "/con/2022/review",
