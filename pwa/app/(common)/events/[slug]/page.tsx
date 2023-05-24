@@ -1,4 +1,4 @@
-import { getEventContent } from "api/events";
+import { getAllEvents, getEventContent } from "api/events";
 import Heading from "components/common/typography/Heading";
 import { Calendar, Video } from "components/icons";
 import Image from "next/image";
@@ -37,7 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return [];
+  const events = await getAllEvents(false);
+  return events.map((event) => ({ slug: event.slug }));
 }
 
 function convertEventDateToString({

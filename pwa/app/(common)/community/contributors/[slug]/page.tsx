@@ -1,6 +1,7 @@
 import {
   getContributorBySlug,
   getContributorConferencesBySlug,
+  getContributors,
 } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
@@ -65,8 +66,10 @@ const parseGithubText = (text: string) => {
 };
 
 export async function generateStaticParams() {
-  return [];
+  const contributors = await getContributors(0, 100); // TODO: fix to create all contributors pages
+  return contributors.map((c) => ({ slug: c.login }));
 }
+export const dynamicParams = false;
 
 export default async function Page({
   params: { slug },
