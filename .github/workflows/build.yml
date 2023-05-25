@@ -175,6 +175,14 @@ jobs:
           tags: |
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
+      - name: test content
+        run: | 
+          if [[ -z "$GITHUB_KEY" ]]; then
+            echo "GITHUB_KEY is not set"
+            exit 1
+          else
+            echo "GITHUB_KEY is set"
+          fi
       - name: Build and push
         uses: docker/build-push-action@v4    
         env:
