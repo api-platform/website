@@ -37,8 +37,6 @@ on:
       version:
         description: The Docker Image Version
         value: ${{ jobs.php.outputs.version }}
-env:
-  GITHUB_KEY: ${{ secrets.gh-key }}
 jobs:
   php:
     name: PHP
@@ -175,18 +173,11 @@ jobs:
           tags: |
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
-      - name: test content
-        run: | 
-          if [[ -z "$GITHUB_KEY" ]]; then
-            echo "GITHUB_KEY is not set"
-            exit 1
-          else
-            echo "GITHUB_KEY is set"
-          fi
       - name: Build and push
         uses: docker/build-push-action@v4    
         with:
           context: ./pwa
+          file: ./pwa/cd-dockerfile/Dockerfile
           target: prod
           pull: true
           push: ${{ inputs.push }}
@@ -196,5 +187,7 @@ jobs:
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
           cache-to: type=inline
+          secrets: |
+            "GITHUB_KEY=${{ secrets.gh-key }}"
     outputs:
       version: ${{ github.sha }}
