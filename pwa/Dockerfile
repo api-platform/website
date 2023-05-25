@@ -40,7 +40,7 @@ FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 RUN --mount=type=secret,id=token \ 
-	export $GITHUB_KEY=$(cat /run/secrets/token) && pnpm run prebuild && pnpm run build
+	export $TEST=$(cat /run/secrets/token) && pnpm run prebuild && pnpm run build
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
