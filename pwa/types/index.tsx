@@ -3,7 +3,7 @@ import { Octokit } from "octokit";
 import { ReactNode } from "react";
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_API_TOKEN,
+  auth: process.env.GITHUB_KEY,
 });
 
 export interface Reference {
