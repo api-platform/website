@@ -30,6 +30,9 @@ on:
       gh-key:
         description: GitHub Key
         required: true
+      contributors-token:
+        description: Contributor Token
+        required: true
     outputs:
       version:
         description: The Docker Image Version
@@ -174,7 +177,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4    
         env:
-          GITHUB_KEY: ${{ secrets.gh-key }}
+          GITHUB_KEY: ${{ secrets.contributors-token }}
         with:
           context: ./pwa
           target: prod
@@ -182,8 +185,6 @@ jobs:
           push: ${{ inputs.push }}
           tags: ${{ steps.docker-metadata.outputs.tags }}
           labels: ${{ steps.docker-metadata.outputs.labels }}
-          secrets: |
-            "token=${{ secrets.gh-key }}"
           cache-from: |
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
