@@ -27,6 +27,9 @@ on:
       gke-project:
         description: Google Kubernetes Engine Project
         required: true
+      gh-key:
+        description: GitHub Key
+        required: true
     outputs:
       version:
         description: The Docker Image Version

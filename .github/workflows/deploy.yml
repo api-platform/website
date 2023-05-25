@@ -50,9 +50,6 @@ on:
       next-public-mapbox-key:
         description: Next Public Mapbox Key
         required: true
-      gh-key:
-        description: GitHub Key
-        required: true
       # cloudflare-api-token:
       #   description: Cloudflare API Token
       #   required: true
@@ -143,7 +140,6 @@ jobs:
             --set=next.rootUrl=${{ inputs.url }} \
             --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
             --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \
-            --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \

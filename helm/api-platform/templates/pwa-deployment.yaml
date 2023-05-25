@@ -51,11 +51,6 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}
                   key: next-public-event-brite-id
-            - name: GITHUB_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
-                  key: github-key
           ports:
             - name: http
               containerPort: 3000
