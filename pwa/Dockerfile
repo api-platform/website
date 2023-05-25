@@ -39,8 +39,9 @@ CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-RUN --mount=type=secret,id=token \ 
-	export $TEST=$(cat /run/secrets/token) && pnpm run prebuild && pnpm run build
+
+RUN pnpm run prebuild 
+RUN pnpm run build
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
