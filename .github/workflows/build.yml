@@ -37,7 +37,8 @@ on:
       version:
         description: The Docker Image Version
         value: ${{ jobs.php.outputs.version }}
-
+env:
+  GITHUB_KEY: ${{ secrets.gh-key }}
 jobs:
   php:
     name: PHP
