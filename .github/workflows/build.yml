@@ -30,9 +30,6 @@ on:
       gh-key:
         description: GitHub Key
         required: true
-      contributors-token:
-        description: Contributor Token
-        required: true
     outputs:
       version:
         description: The Docker Image Version
