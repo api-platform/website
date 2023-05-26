@@ -68,7 +68,6 @@ RUN set -eux; \
 # copy sources
 COPY --link . .
 RUN rm -Rf docker/
-
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
@@ -94,9 +93,9 @@ RUN set -eux; \
 RUN rm -f .env.local.php
 
 # Build Caddy with the Mercure and Vulcain modules
-FROM caddy:2-builder-alpine AS app_caddy_builder
+FROM caddy:2.7-builder-alpine AS app_caddy_builder
 
-RUN xcaddy build \
+RUN xcaddy build v2.6.4 \
 	--with github.com/dunglas/mercure/caddy \
 	--with github.com/dunglas/vulcain/caddy
 

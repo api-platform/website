@@ -1,5 +1,7 @@
 **/*.log
 **/*.md
+#Do not ignore speakers and conferences
+!data/**/*.md
 **/._*
 **/.dockerignore
 **/.DS_Store

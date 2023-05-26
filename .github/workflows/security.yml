@@ -1,0 +1,66 @@
+name: Docker Scan
+
+on:
+  schedule:
+    # Every sunday at 02:00
+    - cron: 0 2 * * 0
+  workflow_dispatch: ~
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  GKE_CLUSTER: api-platform-demo
+  GCE_ZONE: europe-west1-c
+
+jobs:
+  scan:
+    name: Docker Vulnerability Scan
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image:
+          - php
+          - caddy
+          - pwa
+      fail-fast: false
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # gcloud does not work with Python 3.10 because collections.Mappings was removed in Python 3.10.
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9.15
+      - name: Auth gcloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GKE_SA_KEY }}
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.gke-project }}
+      - name: Configure gcloud
+        run: |
+          gcloud --quiet auth configure-docker
+          gcloud container clusters get-credentials api-platform-demo --zone europe-west1-c
+      - name: Pull Docker Image
+        run: docker pull eu.gcr.io/${{ secrets.GKE_PROJECT }}/${{ matrix.image }}:latest
+      - name: Cache Trivy
+        uses: actions/cache@v3
+        with:
+          path: .trivy
+          key: ${{ runner.os }}-trivy-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-trivy-
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'eu.gcr.io/${{ secrets.GKE_PROJECT }}/${{ matrix.image }}:latest'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os'
+          cache-dir: .trivy
