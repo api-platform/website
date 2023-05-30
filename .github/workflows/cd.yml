@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - deploy-v3
+      - v3
   # Deploy if "deploy" label exists
   pull_request:
     types: [ reopened, synchronize, labeled ]
