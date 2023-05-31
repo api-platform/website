@@ -174,7 +174,6 @@ jobs:
         uses: docker/build-push-action@v4    
         with:
           context: ./pwa
-          file: ./pwa/cd-dockerfile/Dockerfile
           target: prod
           pull: true
           push: ${{ inputs.push }}
