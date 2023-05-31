@@ -138,8 +138,6 @@ jobs:
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ inputs.url }} \
             --set=next.rootUrl=${{ inputs.url }} \
-            --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
-            --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
@@ -170,9 +168,6 @@ jobs:
             --set=pwa.image.pullPolicy=Always \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=next.rootUrl=${{ inputs.url }} \
-            --set=next.publicEventBriteId=${{ secrets.next-public-event-brite-id }} \
-            --set=next.publicMapboxKey=${{ secrets.next-public-mapbox-key }} \
-            --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
