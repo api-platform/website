@@ -8,6 +8,11 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 import { editions } from "data/con/editions";
 
+interface Options {
+  method: string;
+  url: string;
+}
+
 function sortByContributions(a: Contributor, b: Contributor) {
   if (a.contributions < b.contributions) return 1;
   if (a.contributions > b.contributions) return -1;
@@ -20,10 +25,16 @@ function sortByContributions(a: Contributor, b: Contributor) {
 }
 
 const MyOctokit = Octokit.plugin(throttling);
+
 const octokit = new MyOctokit({
   auth: process.env.GITHUB_KEY,
   throttle: {
-    onRateLimit: (retryAfter: number, options: any, retryCount: number) => {
+    onRateLimit: (
+      retryAfter: number,
+      options: Options,
+      _octokit: Octokit,
+      retryCount: number
+    ) => {
       console.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`
       );
@@ -35,7 +46,7 @@ const octokit = new MyOctokit({
       } else
         throw `Request quota exhausted for request ${options.method} ${options.url}`;
     },
-    onSecondaryRateLimit: (retryAfter: number, options: any) => {
+    onSecondaryRateLimit: (_retryAfter: number, options: Options) => {
       // does not retry, only logs a warning
       console.warn(
         `SecondaryRateLimit detected for request ${options.method} ${options.url}`
