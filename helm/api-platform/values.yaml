@@ -63,6 +63,10 @@ postgresql:
         username: "example"
         password: "!ChangeMe!"
         database: "api"
+    resources:
+      requests:
+        memory: 50Mi
+        cpu: 1m
   # Persistent Volume Storage configuration.
   # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
   primary:
