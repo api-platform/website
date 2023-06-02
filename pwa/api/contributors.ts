@@ -53,6 +53,11 @@ const octokit = new MyOctokit({
       );
     },
   },
+  request: {
+    fetch: (url, opts) => {
+      fetch(url, {...opts, next: { tags: ['contributors'] }})
+    }
+  }
 });
 
 export const getAllContributors = cache(async () => {
