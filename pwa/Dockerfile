@@ -46,8 +46,8 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
 	&& pnpm run prebuild \
-	&& pnpm run build 
-	
+	&& pnpm run build
+
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
 WORKDIR /srv/app
