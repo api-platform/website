@@ -1,5 +1,5 @@
 import { readFile, stat, readdir } from "node:fs/promises";
-import path from "path";
+import path from "node:path";
 import matter from "gray-matter";
 import { DocReferenceLink } from "types";
 import { sortByTitle } from "utils";

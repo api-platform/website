@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { readFile, readdir } from "node:fs/promises";
 import dayjs from "dayjs";
 import { extractHeadingsFromMarkdown } from "utils";

@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { readFile, readdir } from "node:fs/promises";
 
 import matter from "gray-matter";
@@ -18,7 +18,7 @@ export const getLegalData = async (
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await marked(matterResult.content);
+  const processedContent = await marked(matterResult.content, { async: true });
 
   const contentHtml = processedContent?.toString();
   // Combine the data with the id and contentHtml

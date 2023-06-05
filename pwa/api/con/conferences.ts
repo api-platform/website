@@ -1,7 +1,6 @@
-import path from "path";
+import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import fs from "fs";
 import { readFile, readdir } from "node:fs/promises";
 import { sortByStartDate } from "utils/con";
 import { extractHeadingsFromMarkdown } from "utils";
@@ -44,13 +43,13 @@ export const getAllConferenceSlugs = async (
   edition = "2022",
   locale: Locale = i18n.defaultLocale
 ) => {
-  const slugs = await fs
-    .readdirSync(
+  return (
+    await readdir(
       path.join(process.cwd(), `data/con/${edition}/conferences/${locale}`)
     )
+  )
     .filter((el) => path.extname(el) === ".md")
     .map((slug: string) => slug.replace(/\.md$/, ""));
-  return slugs;
 };
 
 export const getConferenceData = async (

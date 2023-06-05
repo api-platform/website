@@ -1,6 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 
-import path from "path";
+import path from "node:path";
 import matter from "gray-matter";
 import { GuideFrontMatter } from "types";
 import { extractHeadingsFromMarkdown, sortByPosition } from "utils";

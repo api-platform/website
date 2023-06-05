@@ -1,5 +1,5 @@
 import { readdir } from "node:fs/promises";
-import path from "path";
+import path from "node:path";
 import { Metadata } from "next";
 import Heading from "components/common/typography/Heading";
 import LogoCard from "./components/LogoCard";
