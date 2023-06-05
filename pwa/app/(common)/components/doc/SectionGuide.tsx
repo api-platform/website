@@ -1,21 +1,25 @@
-import { Children, PropsWithChildren, ReactNode } from "react";
+import { Children, PropsWithChildren, ReactNode, isValidElement } from "react";
 
 export default function SectionGuide({ children }: PropsWithChildren) {
   const left: ReactNode[] = [];
   const right: ReactNode[] = [];
   let id;
   Children.map(children, (child) => {
-    if (!child) return null;
-    const { type, props } = child as any;
+    if (!isValidElement(child)) return null;
+
+    const { type, props } = child;
     if (type === "a" && props?.id?.includes("section")) {
       id = props?.id;
       return null;
     }
     if (type === "div" && !props?.children?.length) return null;
-    if (props["data-rehype-pretty-code-fragment"] !== undefined)
+    if (props["data-rehype-pretty-code-fragment"] !== undefined) {
       right.push(child);
-    else if (type.toString().includes("CodeSelector")) right.push(child);
-    else left.push(child);
+    } else if (type.toString().includes("CodeSelector")) {
+      right.push(child);
+    } else {
+      left.push(child);
+    }
   });
 
   return (
