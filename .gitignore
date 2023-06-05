@@ -1,2 +1,4 @@
 helm/api-platform/Chart.lock
 helm/api-platform/charts/
+secret_github_key
+

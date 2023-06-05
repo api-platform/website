@@ -40,8 +40,13 @@ FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 
-RUN pnpm run prebuild 
-RUN pnpm run build
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
+	&& pnpm run prebuild \
+	&& pnpm run build
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod

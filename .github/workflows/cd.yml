@@ -41,6 +41,7 @@ jobs:
       cors: '["https://test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]'
       release: website
       namespace: website
+
       gke-cluster: api-platform-demo
       gke-zone: europe-west1-c
     secrets:

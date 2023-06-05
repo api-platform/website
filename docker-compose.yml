@@ -27,6 +27,8 @@ services:
     build:
       context: ./pwa
       target: prod
+      secrets:
+        - GITHUB_KEY
     environment:
       NEXT_PUBLIC_ENTRYPOINT: http://caddy
 
@@ -90,3 +92,7 @@ volumes:
 ###< doctrine/doctrine-bundle ###
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
+
+secrets:
+  GITHUB_KEY:
+    file: ./secret_github_key
