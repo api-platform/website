@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - deploy-v3
+      - v3
   # Deploy if "deploy" label exists
   pull_request:
     types: [ reopened, synchronize, labeled ]
@@ -35,11 +36,12 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: prod
-      url: test-v3-test.preprod-tilleuls.ovh
+      url: test-v3.preprod-tilleuls.ovh
       docker-images-version: ${{ github.sha }}
       cors: '["https://test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]'
-      release: website-test
-      namespace: website-test
+      release: website
+      namespace: website
+
       gke-cluster: api-platform-demo
       gke-zone: europe-west1-c
     secrets:
