@@ -111,7 +111,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
           )}
         >
           {links?.map((subLink) => (
-            <li className="mb-4" key={subLink.title}>
+            <li className="mb-4" key={subLink.link}>
               <Link
                 href={subLink.link}
                 className={classNames(
