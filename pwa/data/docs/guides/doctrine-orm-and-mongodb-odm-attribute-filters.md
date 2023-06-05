@@ -1,5 +1,5 @@
 ---
-slug: doctrine-orm-and-odm-attribute-filters
+slug: doctrine-orm-and-mongodb-odm-attribute-filters
 name: Doctrine ORM and ODM Attribute Filters
 executable: true
 ---
@@ -9,7 +9,6 @@ executable: true
 API Platform provides a generic system to apply filters and sort criteria on collections. Useful filters for Doctrine ORM, MongoDB ODM and ElasticSearch are provided with the library.
 By default, all filters are disabled. They must be enabled explicitly.
 Filters can be declared as attributes (see [custom filters](/docs/guide/custom-filters)), and they can be linked to a Resource or a property as following:
-
 
 ```php
 // src/App/Entity.php
