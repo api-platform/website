@@ -101,7 +101,6 @@ module.exports = {
   },
   plugins: [
     require("./plugins/clip-path-plugin.js"),
-    require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
   ],
 };

@@ -9,8 +9,8 @@ import { cache } from "react";
 import { editions } from "data/con/editions";
 
 interface Options {
-  method: string;
-  url: string;
+  method?: string;
+  url?: string;
 }
 
 function sortByContributions(a: Contributor, b: Contributor) {
@@ -32,7 +32,7 @@ const octokit = new MyOctokit({
     onRateLimit: (
       retryAfter: number,
       options: Options,
-      _octokit: Octokit,
+      _octokit,
       retryCount: number
     ) => {
       console.warn(
