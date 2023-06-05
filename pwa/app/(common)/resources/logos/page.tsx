@@ -1,8 +1,8 @@
-import Heading from "components/common/typography/Heading";
-import fs from "fs";
+import { readdir } from "node:fs/promises";
 import path from "path";
-import LogoCard from "./components/LogoCard";
 import { Metadata } from "next";
+import Heading from "components/common/typography/Heading";
+import LogoCard from "./components/LogoCard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -22,8 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const images = await fs
-    .readdirSync(`public/images/logos`)
+  const images = (await readdir(`public/images/logos`))
     .filter((filename: string) => path.parse(filename).ext === ".svg")
     .map((filename: string) => path.parse(filename).name);
 

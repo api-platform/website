@@ -1,8 +1,9 @@
-import Heading from "components/common/typography/Heading";
-import fs from "fs";
+import { readdir } from "node:fs/promises";
 import path from "path";
-import WallpaperCard from "./components/WallpaperCard";
 import { Metadata } from "next";
+
+import Heading from "components/common/typography/Heading";
+import WallpaperCard from "./components/WallpaperCard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -22,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const images = await fs
-    .readdirSync(path.join(process.cwd(), `data/wallpapers`))
-    .map((slug: string) => path.parse(slug).name);
+  const images = (
+    await readdir(path.join(process.cwd(), `data/wallpapers`))
+  ).map((slug: string) => path.parse(slug).name);
   return (
     <div className="pt-16">
       <div className="bg-blue py-12 text-white dark:text-blue-black">

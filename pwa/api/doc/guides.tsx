@@ -1,4 +1,5 @@
-import fs from "fs";
+import { readFile, readdir } from "node:fs/promises";
+
 import path from "path";
 import matter from "gray-matter";
 import { GuideFrontMatter } from "types";
@@ -10,14 +11,14 @@ export async function getAllDocLinks(
   extname = ".mdx"
 ) {
   const directory = `data/docs/${folder}`;
-  const files = (
-    await fs.readdirSync(path.join(process.cwd(), directory))
-  ).filter((file) => path.extname(file) === extname);
+  const files = (await readdir(path.join(process.cwd(), directory))).filter(
+    (file) => path.extname(file) === extname
+  );
 
   const links = await Promise.all(
     files.map(async (file) => {
       const fullPath = path.join(process.cwd(), directory, file);
-      const fileContents = await fs.readFileSync(fullPath, "utf8");
+      const fileContents = await readFile(fullPath, "utf8");
       const matterResult = matter(fileContents);
       return {
         ...matterResult.data,
@@ -30,13 +31,11 @@ export async function getAllDocLinks(
     })
   );
 
-  const sortedLinks = links.sort(sortByPosition).map((link) => ({
+  return links.sort(sortByPosition).map((link) => ({
     title: link.name,
     link: `/docs/${outputFolder || folder}/${link.slug}`,
     slug: link.slug,
   }));
-
-  return sortedLinks;
 }
 
 export async function getGuideContent(slug: string) {

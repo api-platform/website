@@ -1,11 +1,11 @@
-import { extractHeadingsFromMarkdown } from "utils";
-import fs from "fs";
+import { readFile } from "node:fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { extractHeadingsFromMarkdown } from "utils";
 
 export async function loadMarkdownBySlugArray(slug: string[]) {
   const mdx = await import(`data/docs/${slug.join("/")}.mdx`);
-  const fileContents = await fs.readFileSync(
+  const fileContents = await readFile(
     path.join(process.cwd(), `/data/docs/${slug.join("/")}.mdx`),
     "utf-8"
   );

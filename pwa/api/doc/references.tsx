@@ -1,4 +1,4 @@
-import fs from "fs";
+import { readFile, stat, readdir } from "node:fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import { DocReferenceLink } from "types";
@@ -8,29 +8,32 @@ export async function getLinksFromFolder(
   directory: string,
   summary: Record<string, DocReferenceLink[]>
 ) {
-  const files = (await fs.readdirSync(directory)).filter(
+  const files = (await readdir(directory)).filter(
     (file) => path.extname(file) !== ".md"
   );
-  await Promise.all(
-    files.map(async (file) => {
-      let fullPath = `${directory}/${file}`;
-      const s = fs.statSync(fullPath);
-      if (s.isDirectory()) await getLinksFromFolder(fullPath, summary);
-      else {
-        const fileContents = await fs.readFileSync(fullPath, "utf8");
-        const matterResult = matter(fileContents);
-        fullPath = fullPath.replace(".mdx", "");
-        const item = {
-          title: path.basename(fullPath),
-          link: fullPath.replace("data/docs", "/docs"),
-          type: matterResult.data.type,
-        };
-        const basePath = directory.replace("data/docs/reference/", "");
-        if (summary[basePath]) summary[basePath].push(item);
-        else summary[basePath] = [item];
+
+  for (const file of files) {
+    let fullPath = `${directory}/${file}`;
+    const s = await stat(fullPath);
+    if (s.isDirectory()) {
+      await getLinksFromFolder(fullPath, summary);
+    } else {
+      const fileContents = await readFile(fullPath, "utf8");
+      const matterResult = matter(fileContents);
+      fullPath = fullPath.replace(".mdx", "");
+      const item = {
+        title: path.basename(fullPath),
+        link: fullPath.replace("data/docs", "/docs"),
+        type: matterResult.data.type,
+      };
+      const basePath = directory.replace("data/docs/reference/", "");
+      if (summary[basePath]) {
+        summary[basePath].push(item);
+      } else {
+        summary[basePath] = [item];
       }
-    })
-  );
+    }
+  }
 }
 
 export async function getReferencesSummary() {
@@ -47,9 +50,8 @@ export async function getReferencesSummary() {
 
 export async function getAllReferenceSlugs() {
   const summary = await getReferencesSummary();
-  const allSlugs = summary
+  return summary
     .map((summaryPart) => summaryPart.links)
     .flat()
     .map((link) => link.link.replace("/docs/reference/", ""));
-  return allSlugs;
 }
