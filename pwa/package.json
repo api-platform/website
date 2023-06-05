@@ -23,6 +23,7 @@
     "lodash.throttle": "^4.1.1",
     "mapbox-gl": "^2.15.0",
     "marked": "^5.0.4",
+    "marked-highlight": "^2.0.1",
     "negotiator": "^0.6.3",
     "next": "13.4.5-canary.6",
     "next-themes": "npm:@wits/next-themes@^0.2.16",
@@ -36,7 +37,8 @@
     "sharp": "^0.32.1",
     "shiki": "^0.14.2",
     "ts-node": "^10.9.1",
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^4.1.2",
+    "yaml": "^2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",

@@ -26,7 +26,7 @@ function sortByContributions(a: Contributor, b: Contributor) {
 
 const MyOctokit = Octokit.plugin(throttling);
 
-const octokit = new MyOctokit({
+export const octokit = new MyOctokit({
   auth: process.env.GITHUB_KEY,
   throttle: {
     onRateLimit: (
@@ -54,10 +54,10 @@ const octokit = new MyOctokit({
     },
   },
   request: {
-    fetch: (url, opts) => {
-      fetch(url, {...opts, next: { tags: ['contributors'] }})
-    }
-  }
+    fetch: (url: string, opts: any) => {
+      return fetch(url, { ...opts, next: { tags: ["contributors"] } });
+    },
+  },
 });
 
 export const getAllContributors = cache(async () => {

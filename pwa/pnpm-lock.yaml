@@ -41,6 +41,9 @@ dependencies:
   marked:
     specifier: ^5.0.4
     version: 5.0.4
+  marked-highlight:
+    specifier: ^2.0.1
+    version: 2.0.1(marked@5.0.4)
   negotiator:
     specifier: ^0.6.3
     version: 0.6.3
@@ -83,6 +86,9 @@ dependencies:
   unist-util-visit:
     specifier: ^4.1.2
     version: 4.1.2
+  yaml:
+    specifier: ^2.3.1
+    version: 2.3.1
 
 devDependencies:
   '@babel/core':
@@ -3484,6 +3490,14 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
+  /marked-highlight@2.0.1(marked@5.0.4):
+    resolution: {integrity: sha512-LDUfR/zDvD+dJ+lQOWHkxvBLNxiXcaN8pBtwJ/i4pI0bkDC/Ef6Mz1qUrAuHXfnpdr2rabdMpVFhqFuU+5Mskg==}
+    peerDependencies:
+      marked: ^4 || ^5
+    dependencies:
+      marked: 5.0.4
+    dev: false
+
   /marked@5.0.4:
     resolution: {integrity: sha512-r0W8/DK56fAkV0qfUCO9cEt/VlFWUzoJOqEigvijmsVkTuPOHckh7ZutNJepRO1AxHhK96/9txonHg4bWd/aLA==}
     engines: {node: '>= 18'}
@@ -4338,7 +4352,7 @@ packages:
       lilconfig: 2.1.0
       postcss: 8.4.24
       ts-node: 10.9.1(@types/node@18.16.16)(typescript@5.1.3)
-      yaml: 2.2.1
+      yaml: 2.3.1
 
   /postcss-nested@6.0.1(postcss@8.4.24):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
@@ -4566,7 +4580,7 @@ packages:
       estree-util-value-to-estree: 3.0.1
       toml: 3.0.0
       unified: 10.1.2
-      yaml: 2.2.1
+      yaml: 2.3.1
     dev: false
 
   /remark-mdx@2.3.0:
@@ -5515,8 +5529,8 @@ packages:
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  /yaml@2.2.1:
-    resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
+  /yaml@2.3.1:
+    resolution: {integrity: sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==}
     engines: {node: '>= 14'}
 
   /yn@3.1.1:

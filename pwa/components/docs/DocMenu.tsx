@@ -2,8 +2,9 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { DocLink } from "types";
+import { versions, current } from "consts";
 
 export interface NavPartProps {
   title: string;
@@ -16,26 +17,6 @@ export interface NavPartProps {
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
   const [isOpen, setOpen] = useState(false);
-  const listContainer = useRef<HTMLUListElement>(null);
-  const [listHeight, setListHeight] = useState(500);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (listContainer.current)
-        setListHeight(listContainer.current.getBoundingClientRect().height);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (listContainer.current)
-      setListHeight(listContainer.current.getBoundingClientRect().height);
-  }, []);
 
   useEffect(() => {
     if (!autoOpen) return;
@@ -53,7 +34,8 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
       <div
         className={classNames(
           "flex flex-row items-center text-left",
-          pathname === link || pathname.startsWith(basePath)
+          pathname === link ||
+            (pathname.startsWith(basePath) && basePath !== "")
             ? "text-blue"
             : "text-gray-700 dark:text-white"
         )}
@@ -98,15 +80,14 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
         </button>
       </div>
       <div
-        style={{ maxHeight: isOpen ? `${listHeight}px` : 0 }}
         className={classNames(
-          "overflow-hidden mt-4 text-gray-500 dark:text-gray-300 duration-500 transition-all"
+          "mt-4 text-gray-500 dark:text-gray-300 duration-500 transition-all grid",
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
         )}
       >
         <ul
-          ref={listContainer}
           className={classNames(
-            "pr-8 border-l-gray-300 dark:border-l-blue-dark border-l-px transition-all duration-500",
+            "pr-8 border-l-gray-300 dark:border-l-blue-dark border-l-px transition-all duration-500 overflow-hidden",
             isOpen ? "opacity-100" : "opacity-0"
           )}
         >
@@ -138,11 +119,16 @@ export default function DocMenu({
   parts: NavPartProps[];
   autoOpen?: boolean;
 }) {
+  const versionLinks = versions.map((v) => ({
+    link: v === current ? "/docs" : `/docs/${v}`,
+    title: v,
+  }));
   return (
     <>
       {parts.map((part, index) => (
         <NavPart key={`${part.title} ${index}`} autoOpen={autoOpen} {...part} />
       ))}
+      <NavPart basePath="" links={versionLinks} title="Doc versions" />
     </>
   );
 }

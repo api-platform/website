@@ -4,21 +4,9 @@ import baseComponents from "app/common/components/doc/getBaseComponents";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { BreadCrumbLink, MdxComponent } from "types";
 
-<<<<<<<< HEAD:pwa/app/(common)/docs/tutorial/[slug]/DocPage.tsx
-export default function DocPage({
-  Mdx,
-  title,
-}: {
-  Mdx: MdxComponent;
-  title: string;
-}) {
-  const breadCrumbs: BreadCrumbLink[] = [{ title }];
-  breadCrumbs.unshift({ title: "Tutorials", link: "/docs/tutorial" });
-========
 function DocPage({ Mdx, title }: { Mdx: MdxComponent; title: string }) {
   const breadCrumbs: BreadCrumbLink[] = [{ title }];
-  breadCrumbs.unshift({ title: "In depth", link: "/docs/in-depth" });
->>>>>>>> 1fd17b3 (feat: add old documentation with versions):pwa/app/(common)/docs/(new)/in-depth/[slug]/DocPage.tsx
+  breadCrumbs.unshift({ title: "Tutorials", link: "/docs/tutorials" });
 
   return (
     <div
@@ -34,10 +22,11 @@ function DocPage({ Mdx, title }: { Mdx: MdxComponent; title: string }) {
             pre: baseComponents.pre,
             code: baseComponents.code,
             a: baseComponents.a,
-            // img: baseComponents.img,
           }}
         />
       </div>
     </div>
   );
 }
+
+export default DocPage;
