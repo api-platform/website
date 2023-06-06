@@ -15,21 +15,23 @@ export async function getAllDocLinks(
     (file) => path.extname(file) === extname
   );
 
-  const links = await Promise.all(
-    files.map(async (file) => {
-      const fullPath = path.join(process.cwd(), directory, file);
-      const fileContents = await readFile(fullPath, "utf8");
-      const matterResult = matter(fileContents);
-      return {
+  const links = await files.reduce(async (acc, file) => {
+    const awaitedAcc = await acc;
+    const fullPath = path.join(process.cwd(), directory, file);
+    const fileContents = await readFile(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    return [
+      ...awaitedAcc,
+      {
         ...matterResult.data,
         position: matterResult.data.position || 9999,
         name:
           matterResult.data.name ||
           extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
         slug: matterResult.data.slug || path.parse(file).name,
-      } as GuideFrontMatter;
-    })
-  );
+      } as GuideFrontMatter,
+    ];
+  }, Promise.resolve([]) as Promise<GuideFrontMatter[]>);
 
   return links.sort(sortByPosition).map((link) => ({
     title: link.name,
@@ -39,6 +41,5 @@ export async function getAllDocLinks(
 }
 
 export async function getGuideContent(slug: string) {
-  const resultMdx = await import(`data/docs/guides/${slug}.mdx`);
-  return resultMdx;
+  return import(`data/docs/guides/${slug}.mdx`);
 }
