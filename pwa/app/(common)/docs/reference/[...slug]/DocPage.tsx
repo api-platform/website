@@ -5,7 +5,7 @@ import baseComponents from "app/common/components/doc/getBaseComponents";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { MdxComponent } from "types";
 
-function DocPage({
+export default function DocPage({
   Mdx,
   type,
   slug,
@@ -38,5 +38,3 @@ function DocPage({
     </div>
   );
 }
-
-export default DocPage;
