@@ -45,7 +45,7 @@ export default function Sidebar({
           minimized && "-translate-x-full"
         )}
       >
-        {<DocMenu parts={docMenuParts} />}
+        {<DocMenu parts={docMenuParts} autoOpen />}
       </nav>
     </div>
   );
