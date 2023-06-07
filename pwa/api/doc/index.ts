@@ -5,7 +5,7 @@ import { extractHeadingsFromMarkdown } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
 import { markedHighlight } from "marked-highlight";
-import { getHighlighter } from "shiki";
+import { Lang, getHighlighter } from "shiki";
 import YAML from "yaml";
 import { marked } from "marked";
 import { cache } from "react";
@@ -142,11 +142,17 @@ async function getHtmlFromGithubRaw(data: any) {
 
   marked.setOptions({ mangle: false, headerIds: false });
 
+  const languages = highlighter.getLoadedLanguages()
+
   marked.use(
     markedHighlight({
       langPrefix: "not-prose language-",
-      highlight(code, lang) {
+      highlight(code, language) {
         if (code.includes('class="shiki')) return code; // ugly but fix https://github.com/markedjs/marked-highlight/issues/26
+
+        language = language.toLowerCase();
+        const langExists = languages.includes(language as Lang);
+        const lang = langExists ? language : "shell";
 
         return (
           highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
@@ -159,7 +165,6 @@ async function getHtmlFromGithubRaw(data: any) {
   const html = marked.parse(
     result.replaceAll("index.md", "")
     .replaceAll(".md", "")
-    .replaceAll('"../', '"../../') // because links in markdown refer parent but the browser has a trailing "/" so we need one more level
   );
   return { html, title };
 }
