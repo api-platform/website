@@ -104,6 +104,9 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
   return [];
 });
 
+const prefix = 'https://api.github.com/repos/api-platform/docs/contents/'
+const indexes = ['admin', 'core', 'create-client', 'deployment', 'distribution', 'extra', 'schema-generator']
+
 export const getDocContentFromSlug = cache(
   async (version: string, slug: string[]) => {
     const headers = new Headers();
@@ -111,30 +114,20 @@ export const getDocContentFromSlug = cache(
     headers.append("authorization", "Bearer " + process.env.GITHUB_KEY);
     headers.append("X-GitHub-Api-Version", "2022-11-28");
 
+    const lastPart = slug.slice(-1)[0];
+    let url = `${prefix}${slug.join("/")}`;
+    url += indexes.includes(lastPart) ? 'index.md' : '.md';
+    url += '?ref=${version}';
+
     try {
-      const res = await fetch(
-        `https://api.github.com/repos/api-platform/docs/contents/${slug.join(
-          "/"
-        )}.md?ref=${version}`,
-        { next: { tags: ["v2"] }, headers }
-      );
+      const res = await fetch(url, { next: { tags: ["v2"] }, headers });
       return await getHtmlFromGithubRaw(res);
-    } catch {
-      try {
-        const res = await fetch(
-          `https://api.github.com/repos/api-platform/docs/contents/${slug.join(
-            "/"
-          )}/index.md?ref=${version}`,
-          { next: { tags: ["v2"] } }
-        );
-        return await getHtmlFromGithubRaw(res);
-      } catch (error) {
-        console.error(error);
-        return {
-          html: "",
-          title: "",
-        };
-      }
+    } catch (error) {
+      console.error(error);
+      return {
+        html: "",
+        title: "",
+      };
     }
   }
 );
