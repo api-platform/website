@@ -2,6 +2,10 @@ import { getDocContentFromSlug } from "api/doc";
 import classNames from "classnames";
 import { versions, current } from "consts";
 
+export async function generateStaticParams() {
+  return [];
+}
+
 export default async function Page({
   params: { slug },
 }: {
