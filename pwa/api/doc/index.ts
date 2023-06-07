@@ -85,9 +85,9 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
         basePath: `${basePath}/${part.path}`,
         links: await Promise.all(
           part.items.map(async (item: string) => ({
-            /*title: (
-              await getDocContentFromSlug(branch, [part.path, item])
-            ).title,*/
+            // title: (
+            //   await getDocContentFromSlug(branch, [part.path, item === 'index' ? '' : item])
+            // ).title,
             title: item,
             link:
               item === "index"
@@ -108,6 +108,7 @@ const indexes = ['admin', 'core', 'create-client', 'deployment', 'distribution',
 
 export const getDocContentFromSlug = cache(
   async (version: string, slug: string[]) => {
+    slug = slug.filter(v => v)
     const lastPart = slug.slice(-1)[0];
     const path = slug.join("/") + (indexes.includes(lastPart) ? '/index.md' : '.md');
 
@@ -156,7 +157,9 @@ async function getHtmlFromGithubRaw(data: any) {
   );
 
   const html = marked.parse(
-    result.replaceAll("index.md", "").replaceAll(".md", "")
+    result.replaceAll("index.md", "")
+    .replaceAll(".md", "")
+    .replaceAll('"../', '"../../') // because links in markdown refer parent but the browser has a trailing "/" so we need one more level
   );
   return { html, title };
 }
