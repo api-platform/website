@@ -10,13 +10,28 @@ import YAML from "yaml";
 import { marked } from "marked";
 import { cache } from "react";
 import { current } from "consts";
+import { load as parseHtml } from 'cheerio';
 
 export const MyOctokit = Octokit.plugin(throttling);
+const sidebarMemoryCache = new Map()
 
 type Options = {
   method?: string;
   url?: string;
 };
+
+function toAbsoluteUrl(url: string, githubPath: string): string {
+  try {
+    new URL(url);
+    return url;
+  } catch (err) {
+    if (path.isAbsolute(url)) {
+      return url.replace('index.md', '').replace('.md', '');
+    }
+
+    return path.normalize(`/docs/${path.dirname(githubPath)}/${url}`).replace('index.md', '').replace('.md', '')
+  }
+}
 
 const octokit = new MyOctokit({
   auth: process.env.GITHUB_KEY,
@@ -67,6 +82,19 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
   };
 }
 
+export const getDocTitle = async (version: string, slug: string[]) => {
+  const key = slug.join('')
+  if (sidebarMemoryCache.has(key)) {
+    return sidebarMemoryCache.get(key)
+  }
+  const { data, path } = await getDocContentFromSlug(version, slug)
+  const md = Buffer.from(data.content, "base64").toString();
+  const title = extractHeadingsFromMarkdown(md, 1)?.[0]
+
+  sidebarMemoryCache.set(key, title || slug.shift())
+  return sidebarMemoryCache.get(key)
+};
+
 export const loadV2DocumentationNav = cache(async (branch: string) => {
   try {
     const { data } = await octokit.rest.repos.getContent({
@@ -85,10 +113,9 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
         basePath: `${basePath}/${part.path}`,
         links: await Promise.all(
           part.items.map(async (item: string) => ({
-            // title: (
-            //   await getDocContentFromSlug(branch, [part.path, item === 'index' ? '' : item])
-            // ).title,
-            title: item,
+            title: (
+              await getDocTitle(branch, [part.path, item === 'index' ? '' : item])
+            ),
             link:
               item === "index"
                 ? `${basePath}/${part.path}/`
@@ -106,42 +133,35 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
 
 const indexes = ['admin', 'core', 'create-client', 'deployment', 'distribution', 'extra', 'schema-generator']
 
-export const getDocContentFromSlug = cache(
-  async (version: string, slug: string[]) => {
-    slug = slug.filter(v => v)
-    const lastPart = slug.slice(-1)[0];
-    const path = slug.join("/") + (indexes.includes(lastPart) ? '/index.md' : '.md');
+export const getDocContentFromSlug = async (version: string, slug: string[]) => {
+  slug = slug.filter(v => v)
+  const lastPart = slug.slice(-1)[0];
+  const p = slug.join("/") + (indexes.includes(lastPart) ? '/index.md' : '.md');
 
-    try {
-      const { data } = await octokit.rest.repos.getContent({
-        owner: "api-platform",
-        repo: "docs",
-        path: path,
-        ref: version,
-      });
+  try {
+    const { data } = await octokit.rest.repos.getContent({
+      owner: "api-platform",
+      repo: "docs",
+      path: p,
+      ref: version,
+    });
 
-      return await getHtmlFromGithubRaw(data);
-    } catch (error) {
-      console.error('An error occured while fetching %s', path)
-      console.error(error);
-      return {
-        html: "",
-        title: "",
-      };
-    }
+    return { data, path: p }
+  } catch (error) {
+    console.error('An error occured while fetching %s', p)
+    console.error(error);
+    return { data: 'Error', path: p }
   }
-);
+};
 
-async function getHtmlFromGithubRaw(data: any) {
+export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { data: any, path: string }) => {
   const result = Buffer.from(data.content, "base64").toString();
-  const title = extractHeadingsFromMarkdown(result, 1)?.[0];
+
+  marked.setOptions({ mangle: false, headerIds: false });
 
   const highlighter = await getHighlighter({
     themes: ["github-light", "one-dark-pro"],
   });
-
-  marked.setOptions({ mangle: false, headerIds: false });
-
   const languages = highlighter.getLoadedLanguages()
 
   marked.use(
@@ -162,9 +182,44 @@ async function getHtmlFromGithubRaw(data: any) {
     })
   );
 
-  const html = marked.parse(
-    result.replaceAll("index.md", "")
-    .replaceAll(".md", "")
-  );
-  return { html, title };
+  marked.use({
+    walkTokens: (token) => {
+      if (!['link', 'image', 'html'].includes(token.type)) {
+        return;
+      }
+
+      if (token.type === 'html') {
+        const $ = parseHtml(token.raw)
+        $('a').map(function(i, elem) {
+          const el = $(this)
+          const href = el.attr('href')
+
+          if (href) {
+            el.attr('href', toAbsoluteUrl(href, githubPath))
+          }
+
+          return el
+        })
+
+
+        $('img').map(function(i, elem) {
+          const el = $(this)
+          const src = el.attr('src')
+
+          if (src) {
+            el.attr('src', toAbsoluteUrl(src, githubPath))
+          }
+
+          return el
+        })
+
+        token.text = $.html()
+        return;
+      }
+
+      token.href = toAbsoluteUrl(token.href, githubPath)
+    }
+  })
+
+  return marked.parse(result);
 }

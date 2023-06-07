@@ -1,4 +1,4 @@
-import { getDocContentFromSlug } from "api/doc";
+import { getDocContentFromSlug, getHtmlFromGithubContent } from "api/doc";
 import classNames from "classnames";
 import { versions, current } from "consts";
 
@@ -17,10 +17,12 @@ export default async function Page({
   const contentSlug = versions.includes(slug[0])
     ? slug.slice(1, slug.length)
     : slug;
-  const { html } = await getDocContentFromSlug(
+  const { data, path } = await getDocContentFromSlug(
     version,
     contentSlug.length ? contentSlug : ["distribution"]
   );
+
+  const html = await getHtmlFromGithubContent({ data, path });
 
   return (
     <div
