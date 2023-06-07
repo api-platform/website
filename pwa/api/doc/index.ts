@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { extractHeadingsFromMarkdown } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
+import { markedHighlight } from "marked-highlight";
 import { getHighlighter } from "shiki";
 import YAML from "yaml";
 import { marked } from "marked";
@@ -137,15 +138,21 @@ async function getHtmlFromGithubRaw(res: Response) {
     themes: ["github-light", "one-dark-pro"],
   });
 
-  marked.setOptions({
-    langPrefix: "not-prose language-",
-    highlight: function (code, lang) {
-      return (
-        highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
-        highlighter.codeToHtml(code, { lang, theme: "github-light" })
-      );
-    },
-  });
+  marked.setOptions({ mangle: false, headerIds: false });
+
+  marked.use(
+    markedHighlight({
+      langPrefix: "not-prose language-",
+      highlight(code, lang) {
+        if (code.includes('class="shiki')) return code; // ugly but fix https://github.com/markedjs/marked-highlight/issues/26
+
+        return (
+          highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
+          highlighter.codeToHtml(code, { lang, theme: "github-light" })
+        );
+      },
+    })
+  );
 
   const html = marked.parse(
     result.replaceAll("index.md", "").replaceAll(".md", "")
