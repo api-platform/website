@@ -10,7 +10,7 @@ for this task, but you can replace it with your preferred validation library suc
 
 In relation to Symfony, API Platform hooks a [validation listener](./symfony-event-listeners) executed during the `kernel.view` event. It checks if the validation is disabled on your Operation via [Operation::validate](/reference/Metadata/Operation#validate), then it calls the [Symfony validator](https://symfony.com/doc/current/components/validator.html) with the [Operation::validationContext](/reference/Metadata/Operation#validationContext).
 
-If one wants to [use validation on a Delete operation](/guide/validate-data-on-a-delete-operation) you'd need to implement this yourself.
+If one wants to [use validation on a Delete operation](/docs/guide/validate-data-on-a-delete-operation) you'd need to implement this yourself.
 
 ## Error Levels
 

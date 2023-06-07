@@ -4,24 +4,15 @@ import baseComponents from "app/common/components/doc/getBaseComponents";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { BreadCrumbLink, MdxComponent } from "types";
 
-function DocPage({
+export default function DocPage({
   Mdx,
-  slug,
   title,
 }: {
   Mdx: MdxComponent;
-  slug: string[];
   title: string;
 }) {
   const breadCrumbs: BreadCrumbLink[] = [{ title }];
-  switch (slug[0]) {
-    case "in-depth":
-      breadCrumbs.unshift({ title: "In depth", link: "/docs/in-depth" });
-      break;
-    case "tutorial":
-      breadCrumbs.unshift({ title: "Tutorials", link: "/docs/tutorials" });
-      break;
-  }
+  breadCrumbs.unshift({ title: "Tutorials", link: "/docs/tutorial" });
 
   return (
     <div
@@ -37,11 +28,10 @@ function DocPage({
             pre: baseComponents.pre,
             code: baseComponents.code,
             a: baseComponents.a,
+            // img: baseComponents.img,
           }}
         />
       </div>
     </div>
   );
 }
-
-export default DocPage;

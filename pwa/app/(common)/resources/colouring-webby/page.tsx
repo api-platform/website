@@ -1,8 +1,8 @@
+import { readdir } from "node:fs/promises";
+import path from "node:path";
+import { Metadata } from "next";
 import ColouringList from "./components/ColouringList";
 import Cover from "./components/Cover";
-import fs from "fs";
-import path from "path";
-import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -22,8 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const images = await fs
-    .readdirSync(`public/images/colouring/mini`)
+  const images = (await readdir(`public/images/colouring/mini`))
     .filter((filename: string) => path.parse(filename).ext === ".jpg")
     .map((filename: string) => path.parse(filename).name);
   return (

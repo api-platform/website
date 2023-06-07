@@ -5,7 +5,7 @@ import SectionGuide from "app/common/components/doc/SectionGuide";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { MdxComponent } from "types";
 
-function DocPage({
+export default function DocPage({
   Mdx,
   title,
   tags = [],
@@ -63,5 +63,3 @@ function DocPage({
     </div>
   );
 }
-
-export default DocPage;

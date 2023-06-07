@@ -8,7 +8,7 @@ const getCodeOfConductContent = async () => {
   );
   const content = await file.text();
   const matterResult = matter(content);
-  const processedContent = await marked(matterResult.content);
+  const processedContent = await marked(matterResult.content, { async: true });
   return processedContent?.toString();
 };
 

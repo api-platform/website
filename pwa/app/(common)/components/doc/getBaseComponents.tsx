@@ -2,7 +2,7 @@ import CodeSelector from "app/common/components/doc/CodeSelector";
 import classNames from "classnames";
 import Link, { LinkProps } from "next/link";
 
-export default {
+const GetBaseComponents = {
   CodeSelector: (props: React.HTMLAttributes<HTMLDivElement>) => {
     return <CodeSelector>{props.children}</CodeSelector>;
   },
@@ -25,3 +25,5 @@ export default {
     />
   ),
 };
+
+export default GetBaseComponents;

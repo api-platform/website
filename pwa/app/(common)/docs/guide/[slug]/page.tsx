@@ -24,7 +24,7 @@ export default async function Page({
         tags={mdxContent.tags?.split(",")}
       />
     );
-  } catch {
+  } catch (error) {
     return <div>Error during loading page content</div>;
   }
 }

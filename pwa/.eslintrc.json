@@ -1,25 +1,11 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "react"],
-  "env": {
-    "browser": true,
-    "node": true
-  },
+  "plugins": [],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
   ],
-  "rules": {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "@typescript-eslint/no-unused-vars": "error"
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+  "rules": {}
 }

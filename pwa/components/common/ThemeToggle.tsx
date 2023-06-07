@@ -24,9 +24,11 @@ export default function ToggleTheme({ withBgNav }: { withBgNav: boolean }) {
       <div className="flex flex-row pl-4">
         <div
           className="relative block w-7 h-4 rounded-2xl cursor-pointer bg-blue-extralight"
-          title={`Switch to ${
-            resolvedTheme === "light" ? "dark" : "light"
-          } mode`}
+          title={
+            mounted
+              ? `Switch to ${resolvedTheme === "light" ? "dark" : "light"} mode`
+              : ""
+          }
           onClick={toggleTheme}
         >
           {mounted ? (

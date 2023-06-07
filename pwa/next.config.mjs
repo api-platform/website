@@ -1,3 +1,5 @@
+// @ts-check
+
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -80,6 +82,7 @@ const prettyOptions = {
     },
 };
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
     pageExtensions: ["ts", "tsx", "js", "jsx"],
     reactStrictMode: true,
@@ -153,7 +156,7 @@ const withMDX = nextMDX({
             [rehypePrettyCode, prettyOptions],
             transformCustomLinks,
         ],
-        esm: true,
     },
 });
+
 export default withMDX(nextConfig);

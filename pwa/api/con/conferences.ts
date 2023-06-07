@@ -1,7 +1,7 @@
-import path from "path";
+import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import fs from "fs";
+import { readFile, readdir } from "node:fs/promises";
 import { sortByStartDate } from "utils/con";
 import { extractHeadingsFromMarkdown } from "utils";
 import { getSpeakerById } from "./speakers";
@@ -13,23 +13,16 @@ export const getAllConferences = async (
   withSpeakers: boolean,
   locale: Locale
 ) => {
-  const slugs = await fs
-    .readdirSync(
+  const slugs = (
+    await readdir(
       path.join(process.cwd(), `data/con/${edition}/conferences/${locale}`)
     )
+  )
     .filter((el) => path.extname(el) === ".md")
-    .map((slug: string) => slug.replace(/\.md$/, ""));
+    .map((slug) => slug.replace(/\.md$/, ""));
 
   return Promise.all(
-    slugs.map(async (slug: string) => {
-      const conferenceData = await getConferenceData(
-        edition,
-        slug,
-        false,
-        withSpeakers
-      );
-      return conferenceData;
-    })
+    slugs.map((slug) => getConferenceData(edition, slug, false, withSpeakers))
   );
 };
 
@@ -50,13 +43,13 @@ export const getAllConferenceSlugs = async (
   edition = "2022",
   locale: Locale = i18n.defaultLocale
 ) => {
-  const slugs = await fs
-    .readdirSync(
+  return (
+    await readdir(
       path.join(process.cwd(), `data/con/${edition}/conferences/${locale}`)
     )
+  )
     .filter((el) => path.extname(el) === ".md")
     .map((slug: string) => slug.replace(/\.md$/, ""));
-  return slugs;
 };
 
 export const getConferenceData = async (
@@ -66,7 +59,7 @@ export const getConferenceData = async (
   withSpeakers = false,
   locale: Locale = i18n.defaultLocale
 ) => {
-  const fileContents = await fs.readFileSync(
+  const fileContents = await readFile(
     path.join(
       process.cwd(),
       `data/con/${edition}/conferences/${locale}/${slug}.md`
@@ -78,7 +71,8 @@ export const getConferenceData = async (
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  const processedContent = withDescription && marked(matterResult.content);
+  const processedContent =
+    withDescription && (await marked(matterResult.content, { async: true }));
 
   const contentHtml = processedContent?.toString();
 
@@ -87,10 +81,7 @@ export const getConferenceData = async (
     .map((slug: string) => slug.substring(1));
 
   const fullSpeakers = await Promise.all(
-    speakers.map(async (id: string) => {
-      const speakerData = await getSpeakerById(edition, id, locale);
-      return speakerData;
-    })
+    speakers.map((id: string) => getSpeakerById(edition, id, locale))
   );
 
   // Combine the data with the id and contentHtml
