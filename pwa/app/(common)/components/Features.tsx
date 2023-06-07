@@ -17,19 +17,19 @@ export default function Features() {
         </Heading>
         <div className="w-full max-w-6xl mx-auto pt-12 flex flex-row flex-wrap justify-center">
           <FeatureItem Icon={icons.AuthenticationIcon} index={0}>
-            Authentication and access control rules
+            <a href="/docs/core/security/">Authentication and access control rules</a>
           </FeatureItem>
           <FeatureItem Icon={icons.ValidationIcon} index={1}>
-            Advanced data validation
+            <a href="/docs/core/validation/">Advanced data validation</a>
           </FeatureItem>
           <FeatureItem Icon={icons.CacheIcon} index={2}>
-            Invalidation-based HTTP cache
+            <a href="/docs/core/performance/">Invalidation-based HTTP cache</a>
           </FeatureItem>
           <FeatureItem Icon={icons.AsynchronousIcon} index={3}>
             Asynchronous state processing
           </FeatureItem>
           <FeatureItem Icon={icons.VulcainIcon} index={4}>
-            Relation preloading avec Vulcain.rocks
+            <a href="https://vulcain.rocks">Relation preloading avec Vulcain.rocks</a>
           </FeatureItem>
           <FeatureItem Icon={icons.CaddyIcon} index={5}>
             Caddy server integration HTTPS & HTTP/3
@@ -38,7 +38,7 @@ export default function Features() {
             Automatic pagination and filtering
           </FeatureItem>
           <FeatureItem Icon={icons.DockerIcon} index={7}>
-            Docker & Kubernetes setups included
+            <a href="/docs/deployment/">Docker & Kubernetes setups included</a>
           </FeatureItem>
         </div>
       </div>

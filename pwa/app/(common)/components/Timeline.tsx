@@ -45,21 +45,21 @@ export default function Timeline() {
           You get:
           <ul className="mt-8 mb-16">
             <ListPoint>
-              A stable <strong>state-of-the-art</strong> REST & GraphQL API
+              A stable <strong>state-of-the-art</strong> <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">REST</a> & <a href="https://graphql.org/">GraphQL</a> API
             </ListPoint>
             <ListPoint>
-              <strong>Automatic documentation</strong> OpenAPI, SwaggerUI,
+              <strong>Automatic documentation</strong> <a href="https://www.openapis.org/">OpenAPI</a>, SwaggerUI,
               GraphiQL...
             </ListPoint>
             <ListPoint>
-              Support for <strong>standards</strong> and formats JSON-LD, Hydra,
+              Support for <strong>standards</strong> and formats <a href="https://json-ld.org/">JSON-LD</a>, <a href="https://hydra-cg.com/">Hydra</a>,
               JSON:API
             </ListPoint>
           </ul>
           <p>
-            Alternatively, generate the classes{" "}
+            Alternatively, <a href="/docs/schema-generator">generate the classes</a>{" "}
             <strong className="text-blue">
-              from an existing RDF vocabulary
+              from an existing <a href="https://schema.org/">RDF vocabulary</a>
             </strong>
             .
             <br />
@@ -76,7 +76,7 @@ export default function Timeline() {
           </CodeBlock>
           <p className="mt-6 sm:mt-0">
             The framework has been designed from the ground up to be usable from
-            Rapid Application Development contexts to Domain-Driven Design or
+            Rapid Application Development contexts to <a href="https://github.com/mtarld/apip-ddd">Domain-Driven Design</a> or
             Clean Architecture-like approaches.
           </p>
           <p className="mb-4 sm:mb-24">You can even mix both approaches!</p>
