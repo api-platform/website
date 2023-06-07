@@ -44,8 +44,9 @@ export async function middleware(request: NextRequest) {
       const result = Buffer.from((data as any).content, "base64");
       return new NextResponse(result)
     } catch (error) {
+      console.error('An error occured while fetching %s', url)
       console.error(error);
-      return NextResponse.redirect(new URL('/404', request.url));
+      return new NextResponse('', {status: 404});
     }
   }
 

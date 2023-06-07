@@ -91,7 +91,7 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
             title: item,
             link:
               item === "index"
-                ? `${basePath}/${part.path}`
+                ? `${basePath}/${part.path}/`
                 : `${basePath}/${part.path}/${item}`,
           }))
         ),
@@ -104,25 +104,24 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
   return [];
 });
 
-const prefix = 'https://api.github.com/repos/api-platform/docs/contents/'
 const indexes = ['admin', 'core', 'create-client', 'deployment', 'distribution', 'extra', 'schema-generator']
 
 export const getDocContentFromSlug = cache(
   async (version: string, slug: string[]) => {
-    const headers = new Headers();
-    headers.append("accept", "application/vnd.github+json");
-    headers.append("authorization", "Bearer " + process.env.GITHUB_KEY);
-    headers.append("X-GitHub-Api-Version", "2022-11-28");
-
     const lastPart = slug.slice(-1)[0];
-    let url = `${prefix}${slug.join("/")}`;
-    url += indexes.includes(lastPart) ? 'index.md' : '.md';
-    url += '?ref=${version}';
+    const path = slug.join("/") + (indexes.includes(lastPart) ? '/index.md' : '.md');
 
     try {
-      const res = await fetch(url, { next: { tags: ["v2"] }, headers });
-      return await getHtmlFromGithubRaw(res);
+      const { data } = await octokit.rest.repos.getContent({
+        owner: "api-platform",
+        repo: "docs",
+        path: path,
+        ref: version,
+      });
+
+      return await getHtmlFromGithubRaw(data);
     } catch (error) {
+      console.error('An error occured while fetching %s', path)
       console.error(error);
       return {
         html: "",
@@ -132,9 +131,8 @@ export const getDocContentFromSlug = cache(
   }
 );
 
-async function getHtmlFromGithubRaw(res: Response) {
-  const data = await res.json();
-  const result = Buffer.from((data as any).content, "base64").toString();
+async function getHtmlFromGithubRaw(data: any) {
+  const result = Buffer.from(data.content, "base64").toString();
   const title = extractHeadingsFromMarkdown(result, 1)?.[0];
 
   const highlighter = await getHighlighter({

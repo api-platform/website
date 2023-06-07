@@ -146,6 +146,7 @@ const nextConfig = {
             },
         ];
     },
+    trailingSlash: true
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
