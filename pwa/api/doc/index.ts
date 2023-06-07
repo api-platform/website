@@ -99,7 +99,6 @@ export const getDocContentFromSlug = cache(
     headers.append("accept", "application/vnd.github+json");
     headers.append("authorization", "Bearer " + process.env.GITHUB_KEY);
     headers.append("X-GitHub-Api-Version", "2022-11-28");
-    console.log(slug);
 
     try {
       const res = await fetch(

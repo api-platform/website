@@ -13,7 +13,10 @@ export default async function Page({
   const contentSlug = versions.includes(slug[0])
     ? slug.slice(1, slug.length)
     : slug;
-  const { html } = await getDocContentFromSlug(version, contentSlug);
+  const { html } = await getDocContentFromSlug(
+    version,
+    contentSlug.length ? contentSlug : ["distribution"]
+  );
 
   return (
     <div

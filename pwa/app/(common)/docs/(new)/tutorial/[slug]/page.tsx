@@ -6,7 +6,7 @@ export async function generateStaticParams() {
   const tutorialLinks = (await getAllDocLinks("tutorial")).map((link) =>
     link.link.replace("/docs/tutorial/", "")
   );
-  console.log(tutorialLinks);
+
   return tutorialLinks.map((slug) => ({
     slug,
   }));
