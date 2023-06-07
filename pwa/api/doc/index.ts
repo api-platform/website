@@ -13,10 +13,20 @@ import { current } from "consts";
 
 export const MyOctokit = Octokit.plugin(throttling);
 
+type Options = {
+  method?: string;
+  url?: string;
+};
+
 const octokit = new MyOctokit({
   auth: process.env.GITHUB_KEY,
   throttle: {
-    onRateLimit: (retryAfter: number, options: any, retryCount: number) => {
+    onRateLimit: (
+      retryAfter: number,
+      options: Options,
+      _octokit,
+      retryCount: number
+    ) => {
       console.warn(
         `Request quota exhausted for request ${options.method} ${options.url}`
       );
