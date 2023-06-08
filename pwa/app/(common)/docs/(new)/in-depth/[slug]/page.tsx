@@ -1,13 +1,13 @@
 import DocPage from "./DocPage";
 import { loadMarkdownBySlugArray } from "api/doc";
-import { readdir } from "node:fs/promises";
-import path from "node:path";
+import { getAllDocLinks } from "api/doc/guides";
 
 export async function generateStaticParams() {
-  const directory = `data/docs/in-depth`;
-
-  return (await readdir(path.join(process.cwd(), directory))).map((link) => ({
-    slug: link.replace(".mdx", ""),
+  const inDepthLinks = (await getAllDocLinks("in-depth")).map((link) =>
+    link.link.replace("/docs/in-depth/", "")
+  );
+  return inDepthLinks.map((slug) => ({
+    slug,
   }));
 }
 

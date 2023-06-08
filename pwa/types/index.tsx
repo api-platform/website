@@ -1,10 +1,6 @@
 import { GetResponseDataTypeFromEndpointMethod } from "@octokit/types";
-import { Octokit } from "octokit";
+import { octokit } from "api/contributors";
 import { ReactNode } from "react";
-
-const octokit = new Octokit({
-  auth: process.env.GITHUB_KEY,
-});
 
 export interface Reference {
   name: string;

@@ -26,7 +26,7 @@ function sortByContributions(a: Contributor, b: Contributor) {
 
 const MyOctokit = Octokit.plugin(throttling);
 
-const octokit = new MyOctokit({
+export const octokit = new MyOctokit({
   auth: process.env.GITHUB_KEY,
   throttle: {
     onRateLimit: (
@@ -51,6 +51,11 @@ const octokit = new MyOctokit({
       console.warn(
         `SecondaryRateLimit detected for request ${options.method} ${options.url}`
       );
+    },
+  },
+  request: {
+    fetch: (url: string, opts: any) => {
+      return fetch(url, { ...opts, next: { tags: ["contributors"] } });
     },
   },
 });

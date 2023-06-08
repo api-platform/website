@@ -1,13 +1,14 @@
 import DocPage from "./DocPage";
 import { loadMarkdownBySlugArray } from "api/doc";
-import { readdir } from "node:fs/promises";
-import path from "node:path";
+import { getAllDocLinks } from "api/doc/guides";
 
 export async function generateStaticParams() {
-  const directory = `data/docs/tutorial`;
+  const tutorialLinks = (await getAllDocLinks("tutorial")).map((link) =>
+    link.link.replace("/docs/tutorial/", "")
+  );
 
-  return (await readdir(path.join(process.cwd(), directory))).map((link) => ({
-    slug: link.replace(".mdx", ""),
+  return tutorialLinks.map((slug) => ({
+    slug,
   }));
 }
 

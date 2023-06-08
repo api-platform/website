@@ -28,7 +28,6 @@ export default function DocPage({
             pre: baseComponents.pre,
             code: baseComponents.code,
             a: baseComponents.a,
-            // img: baseComponents.img,
           }}
         />
       </div>

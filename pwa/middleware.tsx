@@ -19,6 +19,39 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (
+    pathname.startsWith("/docs")
+  ) {
+    // We're not using octokit here as we cannot instantiate it in the middleware
+    const headers = new Headers();
+    headers.append("accept", "application/vnd.github+json");
+    headers.append("authorization", "Bearer " + process.env.GITHUB_KEY);
+    headers.append("X-GitHub-Api-Version", "2022-11-28");
+
+    const lastPart = pathname.split('/').slice(-1)[0];
+    var i = lastPart.lastIndexOf('.');
+    const ext = (i < 0) ? '' : lastPart.substr(i);
+
+    if (!ext) {
+      return NextResponse.next();
+    }
+
+    // It's probably an image let's fetch that from github
+    let url = `https://api.github.com/repos/api-platform/docs/contents/${pathname.replace('/docs/', '')}`;
+    // url += '?ref=${version}';
+
+    try {
+      const res = await fetch(url, { next: { tags: ["v2"] }, headers });
+      const data = await res.json();
+      const result = Buffer.from((data as any).content, "base64");
+      return new NextResponse(result)
+    } catch (error) {
+      console.error('An error occured while fetching %s', url)
+      console.error(error);
+      return new NextResponse('', {status: 404});
+    }
+  }
+
+  if (
     !pathname.startsWith("/fr/con") &&
     !pathname.startsWith("/en/con") &&
     !pathname.startsWith("/con")
