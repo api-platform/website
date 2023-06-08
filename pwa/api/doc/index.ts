@@ -154,6 +154,20 @@ export const getDocContentFromSlug = async (version: string, slug: string[]) => 
   }
 };
 
+const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm
+const codeBlock = /```[a-z]([\s\S]+?)(?=```)/gm
+const codeLanguage = /```([a-z]+)/
+
+function getLang(block: string): string {
+  const language = block.match(codeLanguage)
+
+  if (!language?.length) {
+    return 'text';
+  }
+
+  return language[1]
+}
+
 export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { data: any, path: string }) => {
   const result = Buffer.from(data.content, "base64").toString();
 
@@ -182,6 +196,8 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
     })
   );
 
+  // Links transformation, we use trailingSlash: true, and links skip the ".md" part
+  // this allows the doc to work on github and on our nextjs website
   marked.use({
     walkTokens: (token) => {
       if (!['link', 'image', 'html'].includes(token.type)) {
@@ -218,6 +234,49 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
       }
 
       token.href = toAbsoluteUrl(token.href, githubPath)
+    }
+  })
+
+  marked.use({
+    hooks: {
+      preprocess: (markdown: any) => {
+        const matches = markdown.match(codeInside)
+
+        if (!matches?.length) {
+          return markdown
+        }
+
+        matches.forEach((m: string) => {
+          const blocks = m.match(codeBlock)
+
+          if (!blocks) {
+            return;
+          }
+
+          let html = `
+<div class="mb-4 overflow-hidden rounded-2xl bg-gray-100 dark:bg-blue-darkest not-prose">
+  <div class="flex flex-wrap -mb-px bg-gray-300/10 dark:bg-blue/20 border-b border-gray-300 dark:border-blue-dark">
+`
+
+          blocks.forEach((block: string, i: number) => {
+            const l = getLang(block)
+            html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${i === 0 ? 'text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30' : 'text-gray-400 dark:text-blue/60 border-transparent'}">${l}</a></div>`
+          })
+
+          html += '</div>'
+
+          blocks.forEach((block: string, i: number) => {
+            const l = getLang(block)
+            const h = marked.parse(block + `\n\`\`\``)
+            html += `<div key="${l}" class="p-4 ${i > 0 ? 'hidden' : ''}">${h}</div>`
+          })
+
+          html += '</div>'
+          markdown = markdown.replace(m, html)
+        })
+
+        return markdown.replaceAll('[/codeSelector]', '')
+      }
     }
   })
 

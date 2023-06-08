@@ -21,6 +21,7 @@ export async function middleware(request: NextRequest) {
   if (
     pathname.startsWith("/docs")
   ) {
+    // We're not using octokit here as we cannot instantiate it in the middleware
     const headers = new Headers();
     headers.append("accept", "application/vnd.github+json");
     headers.append("authorization", "Bearer " + process.env.GITHUB_KEY);
