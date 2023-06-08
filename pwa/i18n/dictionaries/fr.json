@@ -6,7 +6,7 @@
       "description_2": "Vous pouvez réaliser un test PCR {{testing_link}}, en général sur rendez-vous. De nombreuses pharmacies réalisent des tests rapides antigéniques.",
       "measures": {
         "capacities": "La capacité maximale des pièces sera <strong>réduite</strong>",
-        "disinfectant": "<strong>Du désinfectant</strong> sera fourni à divers emplacements de la conféfence.",
+        "disinfectant": "<strong>Du désinfectant</strong> sera fourni à divers emplacements de la conférence.",
         "mask": "Il sera obligatoire de porter un <strong>masque</strong>",
         "mask2": "Des masques seront distribués",
         "seats": "Seul <strong>un siège sur deux</strong> sera disponible",
@@ -52,12 +52,12 @@
     "date": "21 et 22 septembre 2023 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Jetez un coup d'œil à nos premiers speakers ! De la sécurité aux tests en passant par les meilleures pratiques, notre liste de conférenciers couvrira un large éventail de sujets que vous ne voudrez pas manquer en septembre !",
+      "subtitle": "Jetez un coup d'œil à nos premiers speakers ! De la sécurité aux tests en passant par les meilleures pratiques, notre liste de conférencières et conférenciers couvre un large éventail de sujets que vous ne voudrez pas louper en septembre !",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "L'API Platform Conference se déroule à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez prendre un billet pour suivre les conférences en ligne."
+      "subtitle": "L'API Platform Conference se déroule à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez acheter un billet pour suivre les conférences en ligne."
     }
   },
   "an_event_by": "Un événement organisé par",
@@ -176,8 +176,8 @@
       "looking_for": "Nous recherchons des",
       "partners": "sponsors !",
       "point_1": "Mettez en avant votre expertise et vos produits",
-      "point_2": "Atteignez une large communauté de décideurs européens",
-      "point_3": "Votre marque est associée à l'écosystème d'API Platform",
+      "point_2": "Rejoignez une large communauté de décideurs européens",
+      "point_3": "Associez votre marque ou vos services à l'écosystème d'API Platform",
       "point_4": "Recrutez un large vivier de devs expérimentés",
       "why_you_should_partner": "Pourquoi devenir partenaire ?"
     },
@@ -201,7 +201,7 @@
       "roma": "Rome"
     },
     "place": "Rejoignez cet événement situé à moins d'une heure de Paris ou Bruxelles et 1h30 de Londres.<br/>Les conférences ont lieu à EuraTechnologies, le 1er incubateur & accélérateur de startups en France.",
-    "tip": "Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.",
+    "tip": "Once you’re arrived in Lille, we advice you to use publi c transports or local bike-sharing systems.",
     "title": "Le <strong>lieu</strong>",
     "transports": {
       "bike": "vélo",

@@ -11,8 +11,6 @@ github: https://github.com/soyuka
 ​
 ## À propos d'Antoine
 
-Antoine est un développeur Full-Stack **qui contribue aux logiciels Open Source depuis plus de 10 ans**.
+Développeur Full-Stack, **Antoine contribue aux logiciels libres depuis plus de 10 ans**. Auteur et mainteneur de modules JavaScript, il contribue également à Symfony et API Platform. 
 
-En tant qu'auteur et responsable de modules JavaScript, il contribue également à Symfony et à API Platform.
-
-Lorsqu'il ne répare pas ou ne chevauche pas sa moto, ou qu'il ne jongle pas sur son monocycle, il est probablement en train de coder, d'écrire ou de préparer une nouvelle présentation surprenante !
+Quand il n'est pas en train de réparer ou de conduire sa moto, ou de jongler sur un monocycle, il est probablement en train de coder, d'écrire ou de préparer une nouvelle conférence impliquant de la programmation innovative ! 

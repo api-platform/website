@@ -11,29 +11,29 @@
   },
   "2023": {
     "title": "API Platform Conference 2023: meet the best API experts!",
-    "description": "La conférence internationale dédiée à API Platform et son écosystème"
+    "description": "Rejoignez la seule conférence internationale consacrée au framework API Platform et son écosystème."
   },
   "speaker": {
     "title": "Speakers",
-    "description": "%name% est speaker à l'API Platform Conference %edition%!"
+    "description": "%name% fait partie des speakers de l'API Platform Conference %edition%!"
   },
   "speakers": {
     "title": "Speakers",
-    "description": "Découvrez nos incroyables speakers pour cette édition"
+    "description": "Découvrez l'intégralité des speakers sélectionnés à l'API Platform Conference %edition%!"
   },
   "schedule": {
     "title": "Agenda",
-    "description": "Découvrez la programmation de cet événement extraordinaire"
+    "description": "Jetez un œil à l'agenda de l'API Platform Conference et choisissez les conférences auxquelles vous souhaitez assister !"
   },
   "conference": {
-    "description": "Découvrez le talk de %name% à l'API Platform Conference %edition%!"
+    "description": "Découvrez le talk de %name% prévu à l'API Platform Conference %edition%!"
   },
   "editions": {
     "title": "Éditions précédentes",
-    "description": "Découvrez toutes nos éditions"
+    "description": "Découvrez toutes les précédentes éditions de l'API Platform Conference."
   },
   "review": {
     "title": "Récapitulatif",
-    "description": "Que s'est-il passé en %edition% ?"
+    "description": "Que s'est-il passé à l'API Platform Conference %edition% ?"
   }
 }

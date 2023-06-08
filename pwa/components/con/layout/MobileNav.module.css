@@ -1,3 +1,5 @@
+@config "../../../con.tailwind.config.js";
+
 .fadeIn {
     transition: opacity 0.3s ease 0.5s, left 0s linear 1s;
 }

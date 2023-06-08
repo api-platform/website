@@ -11,28 +11,28 @@
   },
   "2023": {
     "title": "API Platform Conference 2023: meet the best API experts!",
-    "description": "The international conference dedicated to API Platform and its ecosystem"
+    "description": "The international conference dedicated to the API Platform framework and its ecosystem"
   },
   "speaker": {
     "description": "%name% is a speaker of the API Platform Conference %edition%!"
   },
   "speakers": {
     "title": "Speakers",
-    "description": "Discover our amazing speakers for this edition!"
+    "description": "Discover the amazing speakers of the API Platform Conference!"
   },
   "schedule": {
     "title": "Schedule",
-    "description": "Discover the schedule of this amazing edition!"
+    "description": "Take a look at the API Platform Conference schedule and choose your talks."
   },
   "conference": {
-    "description": "Discover %name%'s talk to the API Platform Conference %edition%!"
+    "description": "Discover %name%'s talk at the API Platform Conference %edition%!"
   },
   "editions": {
     "title": "Previous editions",
-    "description": "Discover all our previous editions"
+    "description": "Take a look at all the previous editions of the API Platform Conference"
   },
   "review": {
     "title": "Review",
-    "description": "What happened in %edition%?"
+    "description": "What happened at the API Platform Conference %edition%?"
   }
 }

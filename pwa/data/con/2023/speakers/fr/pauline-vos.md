@@ -11,8 +11,8 @@ github: https://github.com/paulinevos
 
 ## À propos de Pauline
 
-Pauline est une ingénieure logicielle freelance et consultante basée à Amsterdam.
+Pauline est une consultante et ingénieure logicielle freelance basée à Amsterdam.
 
-Elle est passionnée par **l'architecture de logiciels propres et de qualité**, et par le fait d'être aussi efficace (paresseuse) que possible.
+Elle est passionnée par **l'élaboration d'architectures logicielles propres et de qualité**, et aspire à être aussi efficace que possible en évitant les efforts superflus.
 
-Vous pourriez la croiser en train de partager ses connaissances sur Git ou en train de choyer sa fille.
+Il y a de fortes chances que vous la croisiez en train de partager ses connaissances sur Git lors d'un meetup, ou en train de choyer sa petite fille.

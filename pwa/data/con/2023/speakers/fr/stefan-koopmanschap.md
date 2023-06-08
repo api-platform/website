@@ -11,7 +11,7 @@ github: https://github.com/skoop
 
 ## À propos de Stefan
 
-Stefan est co-fondateur et co-propriétaire d'Ingewikkeld, une entreprise néerlandaise fournissant des services liés à PHP tels que le développement, la formation, le coaching et le conseil.
+Stefan est co-fondateur d'Ingewikkeld, une entreprise néerlandaise fournissant des services liés à PHP tels que le développement, la formation, le coaching et le conseil.
 
 Il a une préférence pour **l'écosystème Symfony**, incluant API Platform pour les API, Bolt CMS comme système de gestion de contenu et Sylius comme solution de commerce électronique.
 

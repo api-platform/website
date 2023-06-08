@@ -17,4 +17,4 @@ En tant que membre de de la core team Symfony, il contribue à Symfony en corrig
 
 Il aime également **apporter son aide et partager ses connaissances avec la communauté** en étant actif sur des plateformes comme StackOverflow, en passant en revue les contributions ou en intervenant lors de conférences techniques.
 
-S'il n'est pas devant son clavier, vous le trouverez en train de déguster de la street food à Lyon, caresser ses chats ou cultiver des plantes.
+S'il n'est pas devant son clavier, vous le trouverez en train de déguster de la street food à Lyon, caresser ses chats ou cultiver ses plantes.

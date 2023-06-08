@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: marion-age
-number: 5
+number: 6
 name: Marion Agé
 job:  CEO & CTO
 company: Les-Tilleuls.coop
