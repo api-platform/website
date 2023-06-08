@@ -88,7 +88,7 @@ export const getDocTitle = async (version: string, slug: string[]) => {
     return sidebarMemoryCache.get(key)
   }
   const { data, path } = await getDocContentFromSlug(version, slug)
-  const md = Buffer.from(data.content, "base64").toString();
+  const md = Buffer.from((data as any).content, "base64").toString();
   const title = extractHeadingsFromMarkdown(md, 1)?.[0]
 
   sidebarMemoryCache.set(key, title || slug.shift())
@@ -150,7 +150,7 @@ export const getDocContentFromSlug = async (version: string, slug: string[]) => 
   } catch (error) {
     console.error('An error occured while fetching %s', p)
     console.error(error);
-    return { data: 'Error', path: p }
+    return { data: {content: 'error'}, path: p }
   }
 };
 
@@ -199,7 +199,7 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
   // Links transformation, we use trailingSlash: true, and links skip the ".md" part
   // this allows the doc to work on github and on our nextjs website
   marked.use({
-    walkTokens: (token) => {
+    walkTokens: (token: any) => {
       if (!['link', 'image', 'html'].includes(token.type)) {
         return;
       }
