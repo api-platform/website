@@ -2,6 +2,7 @@
 import Heading from "components/common/typography/Heading";
 import * as icons from "components/icons/features";
 import FeatureItem from "./FeatureItem";
+import Link from "next/link";
 
 export default function Features() {
   return (
@@ -17,19 +18,27 @@ export default function Features() {
         </Heading>
         <div className="w-full max-w-6xl mx-auto pt-12 flex flex-row flex-wrap justify-center">
           <FeatureItem Icon={icons.AuthenticationIcon} index={0}>
-            Authentication and access control rules
+            <Link className="link" href="/docs/core/security/">
+              Authentication and access control rules
+            </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.ValidationIcon} index={1}>
-            Advanced data validation
+            <Link className="link" href="/docs/core/validation/">
+              Advanced data validation
+            </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.CacheIcon} index={2}>
-            Invalidation-based HTTP cache
+            <Link className="link" href="/docs/core/performance/">
+              Invalidation-based HTTP cache
+            </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.AsynchronousIcon} index={3}>
             Asynchronous state processing
           </FeatureItem>
           <FeatureItem Icon={icons.VulcainIcon} index={4}>
-            Relation preloading avec Vulcain.rocks
+            <a className="link" href="https://vulcain.rocks">
+              Relation preloading avec Vulcain.rocks
+            </a>
           </FeatureItem>
           <FeatureItem Icon={icons.CaddyIcon} index={5}>
             Caddy server integration HTTPS & HTTP/3
@@ -38,7 +47,9 @@ export default function Features() {
             Automatic pagination and filtering
           </FeatureItem>
           <FeatureItem Icon={icons.DockerIcon} index={7}>
-            Docker & Kubernetes setups included
+            <Link className="link" href="/docs/deployment/">
+              Docker & Kubernetes setups included
+            </Link>
           </FeatureItem>
         </div>
       </div>
