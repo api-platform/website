@@ -43,7 +43,6 @@ export default function Nav() {
           <NavLink href="https://api-platform.myspreadshop.net/">Shop</NavLink>
           <NavLink href="/events">Events</NavLink>
           <NavLink href="/help">Need help?</NavLink>
-          <NavLink href="/playground">Try API Platform</NavLink>
           <div className="border-l-2 pl-6 border-current">
             <Github className="h-5 w-5" />
           </div>

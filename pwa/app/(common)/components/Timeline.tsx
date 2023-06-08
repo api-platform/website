@@ -8,6 +8,7 @@ import CodeBlock from "./timeline/CodeBlock";
 import StepContent from "./timeline/StepContent";
 import TimelineStepTitle from "./timeline/TimelineStepTitle";
 import ListPoint from "./timeline/ListPoint";
+import Link from "next/link";
 
 export default function Timeline() {
   return (
@@ -45,26 +46,46 @@ export default function Timeline() {
           You get:
           <ul className="mt-8 mb-16">
             <ListPoint>
-              A stable <strong>state-of-the-art</strong> <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">REST</a> & <a href="https://graphql.org/">GraphQL</a> API
+              A stable <strong>state-of-the-art</strong>{" "}
+              <a
+                className="link"
+                href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"
+              >
+                REST
+              </a>{" "}
+              &{" "}
+              <a className="link" href="https://graphql.org/">
+                GraphQL
+              </a>{" "}
+              API
             </ListPoint>
             <ListPoint>
-              <strong>Automatic documentation</strong> <a href="https://www.openapis.org/">OpenAPI</a>, SwaggerUI,
-              GraphiQL...
+              <strong>Automatic documentation</strong>{" "}
+              <a className="link" href="https://www.openapis.org/">
+                OpenAPI
+              </a>
+              , SwaggerUI, GraphiQL...
             </ListPoint>
             <ListPoint>
-              Support for <strong>standards</strong> and formats <a href="https://json-ld.org/">JSON-LD</a>, <a href="https://hydra-cg.com/">Hydra</a>,
-              JSON:API
+              Support for <strong>standards</strong> and formats{" "}
+              <a className="link" href="https://json-ld.org/">
+                JSON-LD
+              </a>
+              ,{" "}
+              <a className="link" href="https://hydra-cg.com/">
+                Hydra
+              </a>
+              , JSON:API
             </ListPoint>
           </ul>
           <p>
-            Alternatively, <a href="/docs/schema-generator">generate the classes</a>{" "}
-            <strong className="text-blue">
-              from an existing <a href="https://schema.org/">RDF vocabulary</a>
-            </strong>
+            Alternatively,{" "}
+            <Link href="/docs/schema-generator">generate the classes</Link> from
+            an existing <a href="https://schema.org/">RDF vocabulary</a>
             .
             <br />
             <br /> API Platform automatically exposes production-grade{" "}
-            <strong className="text-blue">HATEOAS</strong> API for you!
+            <strong>HATEOAS</strong> API for you!
           </p>
         </StepContent>
         <TimelineStepTitle step={3}>
@@ -76,8 +97,11 @@ export default function Timeline() {
           </CodeBlock>
           <p className="mt-6 sm:mt-0">
             The framework has been designed from the ground up to be usable from
-            Rapid Application Development contexts to <a href="https://github.com/mtarld/apip-ddd">Domain-Driven Design</a> or
-            Clean Architecture-like approaches.
+            Rapid Application Development contexts to{" "}
+            <a className="link" href="https://github.com/mtarld/apip-ddd">
+              Domain-Driven Design
+            </a>{" "}
+            or Clean Architecture-like approaches.
           </p>
           <p className="mb-4 sm:mb-24">You can even mix both approaches!</p>
         </StepContent>

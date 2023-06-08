@@ -27,6 +27,7 @@ export default function RealTime() {
           <Button
             className="mt-8"
             empty
+            external
             href="https://mercure.rocks"
             ariaLabel="Real time with Mercure"
           >
