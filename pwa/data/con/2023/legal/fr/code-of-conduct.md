@@ -2,40 +2,38 @@
 type: legal
 ---
 
-# Code of conduct
+# Code de conduite
 
 ## TL;DR
 
-API Platform Con is dedicated to providing an **inclusive experience for everyone**. All participants (attendees, speakers, sponsors and staff) are required to agree with the following code of conduct to help ensure a **safe environment for everybody**.
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Toutes les personnes présentes (auditeurs, auditrices, speakers, partenaires et staff) s'engagent à respecter et à suivre le code de conduite suivant afin de garantir **un environment sûr pour tout le monde**.
 
-## PURPOSE
+## ENGAGEMENT 
 
-API Platform Con is an **inclusive experience for every participants and speakers**, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, religion, or sexual identity and orientation.
+L'API Platform Conference est un événement qui vise à être **inclusif pour toutes les personnes qui y participent**, indépendamment de facteurs tels que l'âge, la taille, le handicap, l'ethnicité, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'éducation, le statut socio-économique, la nationalité, l'apparence personnelle, la religion, ou l'identité et l'orientation sexuelles.
 
-Sexual language and imagery, including in talks, can make people feel uncomfortable. Unwelcome sexual attention from conference participants, which can include inappropriate questions of a sexual nature, asking for sexual favours or repeatedly asking for dates or contact information may be sanctioned or expelled from the conference without a refund at the discretion of the conference organizers.
+L'utilisation d'un langage ou d'imagerie à caractère sexuel, y compris pendant les conférences, peut provoquer un malaise chez certaines personnes. Les comportements sexuellement déplacés de la part des participants à la conférence, tels que des questions inappropriées à caractère sexuel, des demandes (répétées ou non) de faveurs sexuelles, de rendez-vous ou de coordonnées peuvent entraîner l'expulsion de la conférence sans remboursement.
 
-## ANTI-HARASSMENT
+## HARCÈLEMENT
 
-Harassment includes, but is not limited to:
+Nous condamnons toute forme de harcèlement. Cela comprend (mais n'est pas limité à) :
 
-- Verbal comments that reinforce social structures of domination related to **gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, ethnicity, age, religion**
-- **Unwelcome sexual attention**
-- Deliberate **intimidation, stalking** or **following**
-- Insistent **photo-taking**
-- **Sustained disruption** of talks or other events
-- **Inappropriate physical contact**
-- Invasion of **personal space**
-- Advocating for, or encouraging, any of the above behavior
+- Les commentaires verbaux qui renforcent les structures sociales de domination liées au **genre, à l'identité et à l'expression de genre, à l'orientation sexuelle, au handicap, à l'apparence physique, à la taille, à l'appartenance ethnique, à l'âge, à la religion**.
+- **L'attention sexuelle importune**
+- **L'intimidation, le stalking** ou **le suivi délibéré** d'une personne
+- La prise insistante de **photos**
+- **La perturbation** de discussions ou de l'événement
+- **Le contact physique inapproprié**
+- L'invasion de **l'espace personnel**
+- La défense ou l'encouragement de l'un des comportements susmentionnés.
 
 ## REPORTING
 
-We value your attendance. If someone makes you or anyone else feel unsafe or unwelcome, please **report it as soon as possible**, we will do our best to assist with any concerns you might have. Conference staff can be identified by their conference-specific staff t-shirts.
+Si vous vous sentez ou si vous remarquez que quelqu'un se sent en insécurité, **veuillez nous le signaler dès que possible** :
 
-You can make a personal report by:
-
-- Contacting a **staff member**, identified by staff badges or shirts. Our staff will **ensure you are safe and cannot be overheard**. They may involve other event staff to ensure your report is managed properly. Once safe, we'll ask you to tell us about what happened. This can be upsetting, but we'll handle it as respectfully as possible, and you can bring someone to support you. You won't be asked to confront anyone and we won't tell anyone who you are. Our team will be happy to help you contact hotel/venue security, local support services, or otherwise assist you to feel safe for the duration of the event.
-- Emailing us: <events@les-tilleuls.coop>
-- **Calling us**: we’ll publish a phone number that is staffed during main conference hours.
+- Rapprochez-vous **d'un membre du staff**, identifiable par son t-shirt spécifique. Il ou elle **s'assurera que vous êtes en un endroit sécurisé où vous ne serez pas entendu·e**, nous ne divulguerons pas votre identité à quiconque. Une fois en sécurité, nous vous demanderons de nous raconter ce qui s'est passé. Nous comprenons que cela peut être intimidant, mais nous ferons de notre mieux pour vous mettre à l'aise. 
+- Envoyez-nous **un e-mail** : <events@les-tilleuls.coop>
+- **Téléphonez-nous** : un numéro de téléphone sera mis à disposition pendant tout l'événement.
 
 &nbsp;
 &nbsp;
@@ -43,4 +41,4 @@ You can make a personal report by:
 
 ---
 
-_Original source and credit: [The Ada Initiative](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy)_
+_Certaines parties de ce Code de Conduite sont basées sur le wiki [Geek Feminism](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy), sous licence Creative Commons Zero._

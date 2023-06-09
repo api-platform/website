@@ -2,86 +2,88 @@
 type: legal
 ---
 
-# Frequently Asked Questions
+# Foire Aux Questions
 
-## What is API Platform Con and which audience is it targeting?
+## Qu'est-ce que l'API Platform Conference et à quel public cet événement s'adresse t-il ?
 
-The API Platform Conference offers a 2-days digest of the latest trends and best practices of [API Platform’s](https://api-platform.com/) ecosystem. This conference brings together innovative companies, project leaders and highly skilled developers. Large topics will be discussed in English but also in French: APIs, PHP, Symfony, JavaScript, Svelte, Docker... If you are a developer, a CTO or decision-maker specialized in one of these technologies: this event is made for you!
+L'API Platform Conference propose un programme de deux jours axé sur le framework [API Platform](https://api-platform.com/) et son écosystème. Cette conférence réunit des entreprises innovantes et une communauté de développeuses et développeurs de tous niveaux. Les sujets abordés couvrent un large éventail de domaines tels que les API, PHP, Symfony, JavaScript, Svelte, Docker, et bien d'autres encore. Les conférences se déroulent en anglais et en français. Que vous soyez développeur, développeuse, CTO, RH travaillant dans une entreprise spécialisée dans ces technologies, cet événement est spécialement conçu pour vous !
 
-## Where does the event take place and how do we get there?
+## Où se déroule l'événement et comment puis-je m'y rendre ?
 
-The API Platform Conference takes place in [Lille](https://en.lilletourism.com/), meeting point of big European cities and touristic capital of the Flemish region. The conferences are held in [Euratechnologies](https://www.euratechnologies.com/), the 1st startup incubator and accelerator in Europe. All conferences will be streamed online.
+L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), carrefour de grandes villes européennes et capitale des Flandres. Les conférences ont lieu à [Euratechnologies](https://www.euratechnologies.com/), le plus grand incubateur de start-ups en Europe. En plus d'être organisées à Lille, les conférences sont retransmises en direct sur internet.
 
-## Can you help me find a place to stay?
+## Pouvez-vous m'aider à trouver un logement sur place ?
 
-Rooms have been pre-booked and negotiated in Lille to a special price. [Take a look](https://all.accor.com/lien_externe.svlt?goto=rech_resa&destination=0802,0918,3165,5240&sourceid=TICOOP&dayIn=21&monthIn=09&yearIn=2023&nightNb=1&preferredCode=TICOOP&merchantid=par-accorFR) and book them asap (we recommend to use Google Chrome on a private browsing to do so). The **Offre spéciale** mention should appear on each hotel, contact us if it’s not the case.
+Des chambres d'hôtel ont été bloquées pour vous à un tarif réduit. [Jetez-y un coup d'œil](https://all.accor.com/lien_externe.svlt?goto=rech_resa&destination=0802,0918,3165,5240&sourceid=TICOOP&dayIn=21&monthIn=09&yearIn=2023&nightNb=1&preferredCode=TICOOP&merchantid=par-accorFR) et réservez-les dès que possible (nous vous recommandons d'utiliser Google Chrome en navigation privée pour le faire). La mention **Offre spéciale** doit apparaître sur chaque hôtel, contactez-nous si ce n'est pas le cas.
 
-## Is there a Code of Conduct?
+## Il y a t-il un code de conduite ?
 
-The API Platform Conference is dedicated to providing **an inclusive experience for everyone**. Take a look at our [Code of Conduct page](/con/2023/code-of-conduct/).
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite page](/con/2023/code-de-conduite/) pour plus d'informations.
 
-## Is there a Nursing room at the event?
+## Il y a t-il une salle d'allaitement pendant l'événement ?
 
-If you need to pump milk, there will be a room reserved for you with a refrigerator. If you want to bring your baby and you are breastfeeding, please contact [Cécile](mailto:cecile@les-tilleuls.coop), and she will ensure that you are welcomed with the best conditions.
+Si vous avez besoin de tirer votre lait, une salle avec un réfrigérateur sera mise à votre disposition. Si vous souhaitez amener votre bébé et que vous allaitez, veuillez prévenir [Cécile](mailto:cecile@les-tilleuls.coop), qui veillera à ce que vous soyez accueillie dans les meilleures conditions.
 
-## Can I access to a car park?
+## Puis-je avoir accès à un parking ?
 
-Once you’re arrived in Lille, we invite you to use public transport. You will find all travel information on how to get to the event [on this link](#venue).
+Une fois arrivé à Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).
 
-The nearest metro station is Canteleu, located at 10min walking distance from the event. Lille is also a bike-friendly city and has a bike-sharing station in front of the main track. There are, however, paid car parks nearby but in limited numbers.
+La station de métro la plus proche est Canteleu, à seulement 10 minutes à pieds de l'événement. Lille est aussi une ville _bike-friendly_, vous trouverez un système de location de vélo situé juste en face de l'événement. Des places de parking sont également disponibles à proximité, mais payantes et en nombre limité. 
 
-## Is the on-site event accessible to people with reduced mobility?
+## Est-ce que l'API Platform Con est accessible aux personnes à mobilité réduite ?
 
-Yes: the main entrance, all conference rooms, the exhibitors village and toilets are accessible to people with reduced mobility. You need a special arrangement? Email [Cécile](mailto:cecile@les-tilleuls.coop) and she will come back to you asap.
+Oui : l'accueil, les salles de conférences, le hall exposants et les toilettes sont accessibles aux personnes à mobilité réduite. Vous avez besoin d'un aménagemet spécial ou souhaitez une information ne se trouvant pas dans cette FAQ ? Envoyez un e-mail à [Cécile](mailto:cecile@les-tilleuls.coop) qui reviendra vers vous dès que possible.
 
-## I haven’t received the access to the online conference, how do I get it?
+## Je n'ai pas reçu mes accès à la conférence en ligne, comment les obtenir ?
 
-Your invitation with your personal access will be sent a couple of hours before the D-day. If you didn’t receive anything, check your spam or trash for an email from cecile@les-tilleuls.coop. If you still do not find it, email us <events@les-tilleuls.coop> with your order email or order ID and we will get it to you as soon as possible.
+Votre convocation avec vos accès personnels vous sera envoyée quelques heures avant le jour J. Si vous n'avez rien reçu, vérifiez dans vos spams ou votre corbeille si vous avez trouvé un e-mail de cecile@les-tilleuls.coop. Si ce n'est pas le cas, écrivez-nous à <events@les-tilleuls.coop> avec votre confirmation ou numéro de commande, nous reviendrons vers vous dès que possible.
 
-## When does the event start?
+Si vous participez à l'édition sur place, votre convocation vous sera également envoyée quelques jours avant le jour J.
 
-The doors will open on **September 21 at 08:15 AM** and the opening keynote will start at 09:10 AM. After presenting a piece of ID at the reception desk, you will receive your access badge.
+## Quand démarre l'événement ?
 
-## How do I buy my ticket? Can I buy it at the registration desk?
+L'ouverture des portes est prévue le **21 septembre à partir de 08h15**, la keynote d'ouverture démarrera à 9h10. Le jour J, présentez-vous à l'accueil de l'événement avec une pièce d'identité : vous recevrez en échange votre badge vous donnant accès à l'événement.
 
-You can buy your ticket on [our website](#pricing). You can also buy tickets at our registration desk.
+## Comment puis-je acheter un billet ? Est-ce que je peux en acheter un sur place ?
 
-## Can I join and leave the event at any time?
+Vous pouvez acheter votre place [sur notre site web](#pricing). Vous pouvez également acheter votre place le jour de l'événement à l'accueil badge. 
 
-Your badge allows you to enter and exit the venue as you wish.
+## Puis-je rejoindre et quitter l'événement à tout moment ?
 
-## Is there a special price?
+Votre badge vous permet de rejoindre et quitter l'événement quand bon vous semble. 
 
-The API Platform Conference, whether it is the in-person or online edition, is **free for students or unemployed developers**. Contact us at <events@les-tilleuls.coop> to get your voucher (a proof of school attendance will be asked).
+## Puis-je bénéficier d'un tarif réduit ?
 
-## Can I get lunch at the venue?
+L'API Platform Conference est un événement **gratuit pour les étudiantes, les étudiants et les personnes en recherche d'emploi**. Écrivez-nous à <events@les-tilleuls.coop> pour récupérer votre place (un certificat de scolarité vous sera demandé).
 
-The on-site edition of the API Platform Conference gives you access to **coffee and vegetarian lunch breaks** provided by our caterer. Otherwise, several restaurants and food trucks are surrounding the area.
+## Est-ce que je peux manger sur place ?
 
-## Is there wifi?
+Votre repas est pris en charge sur place : **plusieurs pauses café/thé et un buffet 100% végétarien sont prévus pendant les deux jours**. Si vous souhaitez déjeuner à l'extérieur de l'événement, plusieurs restaurants et food trucks entourent Euratechnologies.
 
-A wifi connection will be provided by Euratechnologies. Logins will be indicated on your badge.
+## Il y a t-il du wifi?
 
-## Can I leave my belongings in a cloakroom?
+Une connexion wifi est fournie par le lieu de l'événement. Vos accès seront indiqués sur votre badge.
 
-There will be **a cloakroom** available at the venue. Les-Tilleuls.coop declines all responsibility for loss or theft.
+## Il y a t-il un vestiaire ?
 
-## Do I have a guaranteed seat?
+**Un vestiaire gratuit** sera à votre disposition dans la limite des places disponibles. Les-Tilleuls.coop décline cependant toute responsabilité en cas de perte ou vol de vos affaires.
 
-**Seats are not allocated**: we advise you to be present a few minutes before the launch of each conference.
+## Est-ce que j'ai une place assise garantie ?
 
-## Can I ask questions at speakers?
+**Les places ne sont pas réservées** et il est possible que **les salles de conférences ferment anticipativement** en cas d'affluence. Nous vous recommandons d'arriver avec quelques minutes d'avance avant le lancement d'une session. 
 
-During the last minutes of each conference, it would be possible to **question the speakers**. Raise your hand and a staff member will bring you a microphone.
+## Est-ce que je peux poser des questions aux speakers?
 
-## Am I allowed to take pictures of the conference?
+Il est possible, à la fin de chaque conférence, que vous puissiez **poser des questions aux speakers** dans la limite du temps restant. Levez votre main et un membre du staff viendra à votre rencontre avec un micro.
 
-You can take pictures of the venue and of the conferences, just **be careful to not disturb the speakers during their talk** and do not insist on taking pictures of the participants. Note that you are likely to be photographed and to appear on our communication media.
+## Est-ce que je peux prendre des photos pendant la conférence ?
 
-## How can I share the event through social media?
+Vous pouvez prendre des photos, mais **veillez à ne pas perturber les speakers pendant leurs interventions**. Assurez-vous aussi d'obtenir le consentement des autres participant·es avant de les photographier. Veuillez noter que vous pourriez également être photographié(e) et apparaître sur les supports de communication de Les-Tilleuls.coop. Si vous ne souhaitez pas être pris en photo, nous vous donnerons un stickers spécifique à coller sur votre badge pour que notre photographe fasse attention.
 
-Use the hashtag **#ApiPlatformCon** and don’t forget to mention [@apiPlatform](https://twitter.com/ApiPlatform)!
+## Comment je peux communiquer sur l'événement ?
 
-## Can I distribute flyers?
+Utilisez le hashtag **#ApiPlatformCon** et n'oubliez pas de mentionner [@apiPlatform](https://twitter.com/ApiPlatform) !
 
-Unless you are a partner of the event, **it is forbidden to distribute anything to the participants** without the prior authorisation of the organisers.
+## Est-ce que je peux distribuer des flyers ou de la publicité sur le lieu de l'événement ?
+
+À moins de figurer parmi les sponsors de l'API Platform Con, **il est strictement interdit de distribuer du matériel promotionnel** sur place.

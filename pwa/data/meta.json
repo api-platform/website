@@ -5,38 +5,38 @@
   },
   "community": {
     "title": "Community - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Technical support, upcoming conferences, meetups... Join the API Platform community all over the world!"
   },
   "contributors": {
     "title": "Contributors - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Take a look at the API Platform top contributors of all time, it's now your turn to join them!"
   },
   "contributor": {
     "title": "%name%, API Platform contributor - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "%name% is part of the API Platform contributors. Take a look a all the repositories they work on."
   },
   "events": {
     "title": "Events - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "There is probably an API Platform event near your place: discover on this page the conferences and meetups that might interest you!"
   },
   "event": {
     "title": "%title%, API Platform Event - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Discover and join this conference or meetup dedicated to the API Platform framework."
   },
   "help": {
     "title": "Help - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Need help? This page offers a wide range of resources, including community support and paid assistance, to facilitate your development."
   },
   "colouring": {
     "title": "Colouring Webby - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Feeling bored? It’s time to pull out your colored pencils! Download our coloring pages and share your work on social media!"
   },
   "logos": {
     "title": "Logos - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "You can use the API Platform logo, be sure that you have read our trademark and logo policy before."
   },
   "wallpapers": {
     "title": "Wallpapers - API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Take a look and download our API Platform wallpapers!"
   }
 }

@@ -11,8 +11,8 @@ github: https://github.com/lchrusciel
 
 ## À propos de Łukasz
 
-Impliqué dans le développement de Sylius depuis ses débuts, Łukasz est à présent co-fondateur de Commerce Weavers. Spécialisé dans les API, **il est la personne à blâmer pour la nouvelle intégration d'API Platform**. Développeur pragmatique, il attache une grande importance à un code propre et de qualité, ainsi qu'à des tests automatisés.
+Impliqué dans le développement de Sylius depuis de nombreuses années, Łukasz est également le co-fondateur de Commerce Weavers. Spécialisé dans les API, **il est la personne à blâmer pour la nouvelle intégration d'API Platform**. Développeur pragmatique, il attache une grande importance à un code propre et de qualité, ainsi qu'à des tests automatisés.
 
-Dans sa vie privée, il est à la fois voyageur, navigateur et amateur de jeux de société.
+Grand voyageur, il est également navigateur et amateur de jeux de société.
 
 

@@ -11,5 +11,7 @@ github: https://github.com/dbu
 
 ## À propos de David
 
-David est un développeur web basé en Suisse travaillant pour Liip AG. Spécialisé dans APIs basées sur Symfony, il est **impliqué dans plusieurs projets Open Source** et intervient occasionnellement en tant que conférencier. Il est responsable de la maintenance de la bibliothèque FOSHttpCache, un outil PHP pour travailler avec les caches HTTP, et est membre fondateur de HTTPlug.
+David est lead développeur et travaille pour la société Suisse Liip. Spécialisé dans APIs basées sur Symfony, il est **impliqué dans plusieurs projets Open Source** et intervient occasionnellement en tant que conférencier. Il maintient la bibliothèque FOSHttpCache (un outil PHP pour travailler avec les caches HTTP) et est membre fondateur de HTTPlug.
+
+Sur son temps libre, il aime jouer à des jeux de société et voyager.
 

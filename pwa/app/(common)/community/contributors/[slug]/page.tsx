@@ -26,7 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "%name%",
     contributorName
   );
-  const description = dictionary["contributor"].description;
+  const description = dictionary["contributor"].description.replace(
+    "%name%",
+    contributorName
+  );
 
   return {
     title,

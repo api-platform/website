@@ -11,6 +11,6 @@ github: https://github.com/paullla
 
 ## À propos de Paula
 
-Paula est lead développeuse à l'agence digitale Locastic, et a travaillé pendant plus de 8 ans dans la création d'applications complexes basées sur PHP.
+Paula est lead développeuse chez Locastic, une agence web croate où elle travaille depuis plus de 8 ans. 
 
-Ces dernières années, elle a travaillé avec Symfony, Sylius et API Platform, mais si vous lui posez la question elle vous dira que **les projets d'API Platform sont de loin ses préférés**.
+Elle est spécialisée dans la création d'applications complexes basées sur PHP et utilise au quotidien les frameworks Symfony, Sylius et API Platform. Si vous lui posez la question elle vous dira que **les projets basés sur notre araignée préférée sont de loin ses préférés**.
