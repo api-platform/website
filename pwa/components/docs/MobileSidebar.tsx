@@ -14,7 +14,7 @@ export default function MobileSideBar({
   docMenuParts: NavPartProps[];
 }) {
   const [isOpen, setOpen] = useState(false);
-  const { breadCrumbs, setBreadCrumbs } = useContext(DocContext);
+  const { breadCrumbs } = useContext(DocContext);
   const pathname = usePathname();
 
   const menu = useRef<HTMLDivElement>(null);
@@ -22,7 +22,6 @@ export default function MobileSideBar({
   useOnClickOutside(menu, () => setOpen(false));
 
   useEffect(() => {
-    setBreadCrumbs([]);
     setOpen(false);
   }, [pathname]);
 

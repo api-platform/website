@@ -8,6 +8,7 @@ import classNames from "classnames";
 import { current, versions } from "consts";
 import Script from "next/script";
 import { Metadata, ResolvingMetadata } from "next";
+import BreadCrumbs from "components/docs/BreadCrumbs";
 
 export async function generateStaticParams() {
   const slugs: { slug: string[] }[] = [];
@@ -51,6 +52,19 @@ export default async function Page({
   );
 
   const html = await getHtmlFromGithubContent({ data, path });
+  const title = await getDocTitle(version, slug);
+
+  const breadCrumbs = [
+    {
+      title: version,
+      link: version === current ? `/docs/${version}` : "/docs",
+    },
+    { title },
+  ];
+
+  if (slug.length > 2 || (slug.length === 2 && !versions.includes(slug[0]))) {
+    breadCrumbs.splice(1, 0, { title: "..." });
+  }
 
   return (
     <div
@@ -59,7 +73,8 @@ export default async function Page({
         "dark:text-white/80"
       )}
     >
-      <div className="prose max-w-none dark:prose-invert prose-headings:font-title prose-h1:font-bold prose-code:after:hidden prose-code:before:hidden prose-code:py-1 prose-code:px-1.5 prose-code:bg-gray-100 prose-code:dark:bg-blue-darkest prose-h1:border-b-px prose-h1:border-b-gray-300 prose-h1:pb-2 max-md:prose-tr:flex max-md:prose-tr:flex-col max-md:prose-td:px-0 max-md:prose-td:py-1">
+      <BreadCrumbs breadCrumbs={breadCrumbs} />
+      <div className="prose max-w-none dark:prose-invert prose-img:max-w-full prose-headings:font-title prose-h1:font-bold prose-code:after:hidden prose-code:before:hidden prose-code:py-1 prose-code:px-1.5 prose-code:bg-gray-100 prose-code:dark:bg-blue-darkest prose-h1:border-b-px prose-h1:border-b-gray-300 prose-h1:pb-2 max-md:prose-tr:flex max-md:prose-tr:flex-col max-md:prose-td:px-0 max-md:prose-td:py-1">
         <div className="doc" dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>
       <Script id="codeselector-switch">

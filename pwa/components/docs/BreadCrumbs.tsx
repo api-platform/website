@@ -13,6 +13,7 @@ export default function BreadCrumbs({
 
   useEffect(() => {
     setBreadCrumbs(breadCrumbs);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;

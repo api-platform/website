@@ -83,7 +83,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
                 src={`/images/references/${ref.logo}.png`}
                 height={50}
                 width={200}
-                className="max-w-[120px] "
+                className="max-w-[120px] mx-auto"
               />
             </Link>
           ))}

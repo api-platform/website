@@ -16,13 +16,15 @@ export interface NavPartProps {
 
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(
+    pathname === link || pathname.startsWith(basePath)
+  );
 
   useEffect(() => {
     if (!autoOpen) return;
     if (pathname === link || pathname.startsWith(basePath)) setOpen(true);
     else setOpen(false);
-  }, [pathname, autoOpen]);
+  }, [pathname, autoOpen, basePath, link]);
 
   return (
     <div

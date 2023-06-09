@@ -51,6 +51,15 @@ module.exports = {
       white: "#ffffff",
     },
     extend: {
+      screens: {
+        "-lg": { max: "1023px" },
+      },
+      height: {
+        0.75: "3px",
+      },
+      width: {
+        0.75: "3px",
+      },
       fontFamily: {
         title: ["var(--font-poppins)"],
       },
