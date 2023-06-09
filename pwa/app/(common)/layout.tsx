@@ -23,6 +23,13 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(BASE_URL),
     title: title,
     description: description,
+    keywords: ["API Platform", "REST", "PHP", "Javascript"],
+    authors: [
+      { name: "Kévin Dunglas", url: "https://dunglas.fr" },
+      { name: "Antoine Bluchet", url: "https://soyuka.me" },
+    ],
+    colorScheme: "dark",
+    creator: "Kévin Dunglas",
     themeColor: "#0099a1",
     icons: {
       icon: "/favicon.svg",

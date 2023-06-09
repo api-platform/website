@@ -1,7 +1,12 @@
-import { getDocContentFromSlug, getHtmlFromGithubContent } from "api/doc";
+import {
+  getDocContentFromSlug,
+  getDocTitle,
+  getHtmlFromGithubContent,
+} from "api/doc";
 import classNames from "classnames";
 import { versions, current } from "consts";
 import Script from "next/script";
+import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
   return [];
@@ -54,4 +59,22 @@ export default async function Page({
       </Script>
     </div>
   );
+}
+
+export async function generateMetadata(
+  {
+    params: { slug },
+  }: {
+    params: {
+      slug: string[];
+    };
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const version = versions.includes(slug[0]) ? slug[0] : current;
+  const title = await getDocTitle(version, slug);
+
+  return {
+    title: `${title} - API Platform`,
+  };
 }
