@@ -2,14 +2,23 @@ import {
   getDocContentFromSlug,
   getDocTitle,
   getHtmlFromGithubContent,
+  loadV2DocumentationNav,
 } from "api/doc";
 import classNames from "classnames";
-import { versions, current } from "consts";
+import { current, versions } from "consts";
 import Script from "next/script";
 import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
-  return [];
+  const slugs: { slug: string[] }[] = [];
+  const navs = await loadV2DocumentationNav(current);
+  for (const nav of navs) {
+    for (const link of nav.links) {
+      slugs.push({ slug: link.link.replace("/docs/", "").split("/") });
+    }
+  }
+
+  return slugs;
 }
 
 export default async function Page({
@@ -19,6 +28,19 @@ export default async function Page({
     slug: string[];
   };
 }) {
+  const slugs: { slug: string[] }[] = [];
+  const navs = await loadV2DocumentationNav(current);
+  for (const nav of navs) {
+    for (const link of nav.links) {
+      slugs.push({
+        slug: link.link
+          .replace("/docs/", "")
+          .split("/")
+          .filter((s) => s !== ""),
+      });
+    }
+  }
+
   const version = versions.includes(slug[0]) ? slug[0] : current;
   const contentSlug = versions.includes(slug[0])
     ? slug.slice(1, slug.length)
@@ -61,16 +83,13 @@ export default async function Page({
   );
 }
 
-export async function generateMetadata(
-  {
-    params: { slug },
-  }: {
-    params: {
-      slug: string[];
-    };
-  },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: {
+    slug: string[];
+  };
+}): Promise<Metadata> {
   const version = versions.includes(slug[0]) ? slug[0] : current;
   const title = await getDocTitle(version, slug);
 

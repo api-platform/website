@@ -10,10 +10,11 @@ import YAML from "yaml";
 import { marked } from "marked";
 import { cache } from "react";
 import { current } from "consts";
-import { load as parseHtml } from 'cheerio';
+import { load as parseHtml } from "cheerio";
+import { Chapters } from "types";
 
 export const MyOctokit = Octokit.plugin(throttling);
-const sidebarMemoryCache = new Map()
+const sidebarMemoryCache = new Map();
 
 type Options = {
   method?: string;
@@ -26,10 +27,13 @@ function toAbsoluteUrl(url: string, githubPath: string): string {
     return url;
   } catch (err) {
     if (path.isAbsolute(url)) {
-      return url.replace('index.md', '').replace('.md', '');
+      return url.replace("index.md", "").replace(".md", "");
     }
 
-    return path.normalize(`/docs/${path.dirname(githubPath)}/${url}`).replace('index.md', '').replace('.md', '')
+    return path
+      .normalize(`/docs/${path.dirname(githubPath)}/${url}`)
+      .replace("index.md", "")
+      .replace(".md", "");
   }
 }
 
@@ -83,16 +87,16 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
 }
 
 export const getDocTitle = async (version: string, slug: string[]) => {
-  const key = slug.join('')
+  const key = slug.join("");
   if (sidebarMemoryCache.has(key)) {
-    return sidebarMemoryCache.get(key)
+    return sidebarMemoryCache.get(key);
   }
-  const { data, path } = await getDocContentFromSlug(version, slug)
+  const { data, path } = await getDocContentFromSlug(version, slug);
   const md = Buffer.from((data as any).content, "base64").toString();
-  const title = extractHeadingsFromMarkdown(md, 1)?.[0]
+  const title = extractHeadingsFromMarkdown(md, 1)?.[0];
 
-  sidebarMemoryCache.set(key, title || slug.shift())
-  return sidebarMemoryCache.get(key)
+  sidebarMemoryCache.set(key, title || slug.shift());
+  return sidebarMemoryCache.get(key);
 };
 
 export const loadV2DocumentationNav = cache(async (branch: string) => {
@@ -103,19 +107,24 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
       path: "outline.yaml",
       ref: branch,
     });
-    const result = Buffer.from((data as any).content, "base64");
 
-    const navData = YAML.parse(result.toString());
+    if (!("content" in data)) return [];
+
+    const result = Buffer.from(data.content, "base64");
+
+    const navData: Chapters = YAML.parse(result.toString());
+
     const basePath = branch === current ? `/docs` : `/docs/${branch}`;
-    const nav = await Promise.all(
-      navData.chapters.map(async (part: any) => ({
+    return Promise.all(
+      navData.chapters.map(async (part) => ({
         title: part.title,
         basePath: `${basePath}/${part.path}`,
         links: await Promise.all(
           part.items.map(async (item: string) => ({
-            title: (
-              await getDocTitle(branch, [part.path, item === 'index' ? '' : item])
-            ),
+            title: await getDocTitle(branch, [
+              part.path,
+              item === "index" ? "" : item,
+            ]),
             link:
               item === "index"
                 ? `${basePath}/${part.path}/`
@@ -124,19 +133,30 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
         ),
       }))
     );
-    return nav;
   } catch (error) {
     console.error(error);
   }
   return [];
 });
 
-const indexes = ['admin', 'core', 'create-client', 'deployment', 'distribution', 'extra', 'schema-generator']
+const indexes = [
+  "admin",
+  "core",
+  "create-client",
+  "deployment",
+  "distribution",
+  "extra",
+  "schema-generator",
+  "client-generator",
+];
 
-export const getDocContentFromSlug = async (version: string, slug: string[]) => {
-  slug = slug.filter(v => v)
+export const getDocContentFromSlug = async (
+  version: string,
+  slug: string[]
+) => {
+  slug = slug.filter((v) => v);
   const lastPart = slug.slice(-1)[0];
-  const p = slug.join("/") + (indexes.includes(lastPart) ? '/index.md' : '.md');
+  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
   try {
     const { data } = await octokit.rest.repos.getContent({
@@ -146,29 +166,35 @@ export const getDocContentFromSlug = async (version: string, slug: string[]) => 
       ref: version,
     });
 
-    return { data, path: p }
+    return { data, path: p };
   } catch (error) {
-    console.error('An error occured while fetching %s', p)
+    console.error("An error occured while fetching %s", p);
     console.error(error);
-    return { data: {content: 'error'}, path: p }
+    return { data: { content: "error" }, path: p };
   }
 };
 
-const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm
-const codeBlock = /```[a-z]([\s\S]+?)(?=```)/gm
-const codeLanguage = /```([a-z]+)/
+const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
+const codeBlock = /```[a-z]([\s\S]+?)(?=```)/gm;
+const codeLanguage = /```([a-z]+)/;
 
 function getLang(block: string): string {
-  const language = block.match(codeLanguage)
+  const language = block.match(codeLanguage);
 
   if (!language?.length) {
-    return 'text';
+    return "text";
   }
 
-  return language[1]
+  return language[1];
 }
 
-export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { data: any, path: string }) => {
+export const getHtmlFromGithubContent = async ({
+  data,
+  path: githubPath,
+}: {
+  data: any;
+  path: string;
+}) => {
   const result = Buffer.from(data.content, "base64").toString();
 
   marked.setOptions({ mangle: false, headerIds: false });
@@ -176,7 +202,7 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
   const highlighter = await getHighlighter({
     themes: ["github-light", "one-dark-pro"],
   });
-  const languages = highlighter.getLoadedLanguages()
+  const languages = highlighter.getLoadedLanguages();
 
   marked.use(
     markedHighlight({
@@ -200,54 +226,53 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
   // this allows the doc to work on github and on our nextjs website
   marked.use({
     walkTokens: (token: any) => {
-      if (!['link', 'image', 'html'].includes(token.type)) {
+      if (!["link", "image", "html"].includes(token.type)) {
         return;
       }
 
-      if (token.type === 'html') {
-        const $ = parseHtml(token.raw)
-        $('a').map(function(i, elem) {
-          const el = $(this)
-          const href = el.attr('href')
+      if (token.type === "html") {
+        const $ = parseHtml(token.raw);
+        $("a").map(function (i, elem) {
+          const el = $(this);
+          const href = el.attr("href");
 
           if (href) {
-            el.attr('href', toAbsoluteUrl(href, githubPath))
+            el.attr("href", toAbsoluteUrl(href, githubPath));
           }
 
-          return el
-        })
+          return el;
+        });
 
-
-        $('img').map(function(i, elem) {
-          const el = $(this)
-          const src = el.attr('src')
+        $("img").map(function (i, elem) {
+          const el = $(this);
+          const src = el.attr("src");
 
           if (src) {
-            el.attr('src', toAbsoluteUrl(src, githubPath))
+            el.attr("src", toAbsoluteUrl(src, githubPath));
           }
 
-          return el
-        })
+          return el;
+        });
 
-        token.text = $.html()
+        token.text = $.html();
         return;
       }
 
-      token.href = toAbsoluteUrl(token.href, githubPath)
-    }
-  })
+      token.href = toAbsoluteUrl(token.href, githubPath);
+    },
+  });
 
   marked.use({
     hooks: {
       preprocess: (markdown: any) => {
-        const matches = markdown.match(codeInside)
+        const matches = markdown.match(codeInside);
 
         if (!matches?.length) {
-          return markdown
+          return markdown;
         }
 
         matches.forEach((m: string) => {
-          const blocks = m.match(codeBlock)
+          const blocks = m.match(codeBlock);
 
           if (!blocks) {
             return;
@@ -256,29 +281,35 @@ export const getHtmlFromGithubContent = async ({ data, path: githubPath }: { dat
           let html = `
 <div class="mb-4 overflow-hidden rounded-2xl bg-gray-100 dark:bg-blue-darkest not-prose">
   <div class="flex flex-wrap -mb-px bg-gray-300/10 dark:bg-blue/20 border-b border-gray-300 dark:border-blue-dark">
-`
+`;
 
           blocks.forEach((block: string, i: number) => {
-            const l = getLang(block)
-            html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${i === 0 ? 'text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30' : 'text-gray-400 dark:text-blue/60 border-transparent'}">${l}</a></div>`
-          })
+            const l = getLang(block);
+            html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
+              i === 0
+                ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
+                : "text-gray-400 dark:text-blue/60 border-transparent"
+            }">${l}</a></div>`;
+          });
 
-          html += '</div>'
+          html += "</div>";
 
           blocks.forEach((block: string, i: number) => {
-            const l = getLang(block)
-            const h = marked.parse(block + `\n\`\`\``)
-            html += `<div key="${l}" class="p-4 ${i > 0 ? 'hidden' : ''}">${h}</div>`
-          })
+            const l = getLang(block);
+            const h = marked.parse(block + `\n\`\`\``);
+            html += `<div key="${l}" class="p-4 ${
+              i > 0 ? "hidden" : ""
+            }">${h}</div>`;
+          });
 
-          html += '</div>'
-          markdown = markdown.replace(m, html)
-        })
+          html += "</div>";
+          markdown = markdown.replace(m, html);
+        });
 
-        return markdown.replaceAll('[/codeSelector]', '')
-      }
-    }
-  })
+        return markdown.replaceAll("[/codeSelector]", "");
+      },
+    },
+  });
 
   return marked.parse(result);
-}
+};

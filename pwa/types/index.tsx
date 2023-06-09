@@ -46,6 +46,14 @@ export type DocLink = {
   link: string;
 };
 
+export type Chapters = {
+  chapters: {
+    title: string;
+    path: string;
+    items: string[];
+  }[];
+};
+
 export interface DocReferenceLink extends DocLink {
   type?: string;
 }
