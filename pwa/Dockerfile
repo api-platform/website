@@ -24,8 +24,7 @@ COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
 COPY --link . .
-RUN pnpm install -r --offline
-
+RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
@@ -33,7 +32,7 @@ FROM deps as dev
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
+CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
 FROM builder_base AS builder
