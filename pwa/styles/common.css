@@ -33,10 +33,10 @@
     .light .dark *[data-theme="dark"] {
         @apply block;
     }
-    .light .shiki.one-dark-pro {
+    .light .shiki.dark {
         @apply hidden;
     }
-    .dark .shiki.github-light {
+    .dark .shiki.light {
         @apply hidden;
     }
     .doc pre {
