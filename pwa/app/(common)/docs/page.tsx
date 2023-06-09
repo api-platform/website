@@ -35,3 +35,7 @@ export default async function Page() {
     </div>
   );
 }
+
+export const metadata = {
+  title: "API Platform Documentation - API Platform",
+};
