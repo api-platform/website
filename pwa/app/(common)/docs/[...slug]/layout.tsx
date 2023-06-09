@@ -3,10 +3,6 @@ import Sidebar from "components/docs/Sidebar";
 import { loadV2DocumentationNav } from "api/doc";
 import { versions, current } from "consts";
 
-export async function generateStaticParams() {
-  return [];
-}
-
 async function DocLayout({
   params: { slug },
   children,

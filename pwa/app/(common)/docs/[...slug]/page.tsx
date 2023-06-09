@@ -2,6 +2,7 @@ import {
   getDocContentFromSlug,
   getDocTitle,
   getHtmlFromGithubContent,
+  loadV2DocumentationNav,
 } from "api/doc";
 import classNames from "classnames";
 import { versions, current } from "consts";
@@ -9,7 +10,19 @@ import Script from "next/script";
 import { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
-  return [];
+  const slugs: { slug: string[] }[] = [];
+  await Promise.all(
+    versions.map(async (version) => {
+      const navs = await loadV2DocumentationNav(version);
+      for (const nav of navs) {
+        for (const link of nav.links) {
+          slugs.push({ slug: link.link.replace("/docs/", "").split("/") });
+        }
+      }
+    })
+  );
+
+  return slugs;
 }
 
 export default async function Page({
