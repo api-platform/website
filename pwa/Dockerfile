@@ -24,8 +24,7 @@ COPY pnpm-lock.yaml ./
 RUN pnpm fetch
 
 COPY --link . .
-RUN pnpm install -r --offline
-
+RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
@@ -33,7 +32,7 @@ FROM deps as dev
 EXPOSE 3000
 ENV PORT 3000
 
-CMD ["sh", "-c", "pnpm install -r --offline; pnpm dev"]
+CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
 FROM builder_base AS builder
@@ -46,7 +45,8 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
 	&& pnpm run prebuild \
-	&& pnpm run build
+	&& pnpm run build \
+	&& pnpm run postbuild
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
@@ -64,6 +64,7 @@ COPY --from=builder --link /srv/app/public ./public
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
+COPY --from=builder --link --chown=nextjs:nodejs /srv/app/public/* ./public/
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
 
 USER nextjs
