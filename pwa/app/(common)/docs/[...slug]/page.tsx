@@ -7,7 +7,7 @@ import {
 import classNames from "classnames";
 import { current, versions } from "consts";
 import Script from "next/script";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 
 export async function generateStaticParams() {
@@ -15,10 +15,17 @@ export async function generateStaticParams() {
   const navs = await loadV2DocumentationNav(current);
   for (const nav of navs) {
     for (const link of nav.links) {
-      slugs.push({ slug: link.link.replace("/docs/", "").split("/") });
+      slugs.push({
+        slug: link.link
+          .replace("/docs/", "")
+          .split("/")
+          .filter((p) => p !== ""),
+      });
     }
   }
-
+  for (const version of versions) {
+    slugs.push({ slug: [version] });
+  }
   return slugs;
 }
 
@@ -106,7 +113,10 @@ export async function generateMetadata({
   };
 }): Promise<Metadata> {
   const version = versions.includes(slug[0]) ? slug[0] : current;
-  const title = await getDocTitle(version, slug);
+  const contentSlug = versions.includes(slug[0])
+    ? slug.slice(1, slug.length)
+    : slug;
+  const title = await getDocTitle(version, contentSlug);
 
   return {
     title: `${title} - API Platform`,

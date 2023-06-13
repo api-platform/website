@@ -12,6 +12,7 @@ import { cache } from "react";
 import { current } from "consts";
 import { load as parseHtml } from "cheerio";
 import { Chapters } from "types";
+import { notFound } from "next/navigation";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
@@ -149,7 +150,6 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-
 export const getDocContentFromSlug = async (
   version: string,
   slug: string[]
@@ -170,7 +170,7 @@ export const getDocContentFromSlug = async (
   } catch (error) {
     console.error("An error occured while fetching %s", p);
     console.error(error);
-    return { data: { content: "error" }, path: p };
+    notFound();
   }
 };
 

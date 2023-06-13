@@ -169,7 +169,7 @@ export async function getContributorBySlug(slug: string): Promise<Contributor> {
       name: data.name ? data.name : undefined,
     };
   }
-  return notFound();
+  notFound();
 }
 
 // TODO: replace the method when events pages will be done
