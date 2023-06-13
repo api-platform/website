@@ -17,7 +17,7 @@ export const getLegalData = async (
   );
 
   const matterResult = matter(fileContents);
-
+  marked.setOptions({ mangle: false, headerIds: false });
   const processedContent = await marked(matterResult.content, { async: true });
 
   const contentHtml = processedContent?.toString();
