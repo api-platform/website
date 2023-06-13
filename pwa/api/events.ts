@@ -3,7 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import dayjs from "dayjs";
 import { extractHeadingsFromMarkdown } from "utils";
 import { Event, EventWithContent } from "types";
-import { getAllContributors } from "./contributors";
+//import { getAllContributors } from "./contributors";
 
 function sortByEventStartDate(eventA: Event, eventB: Event) {
   const date1 = dayjs(eventA.startDate.date);
@@ -40,11 +40,11 @@ export async function getAllEvents(withContent?: boolean) {
 }
 
 async function getSpeakerLink(login: string) {
-  const contributors = await getAllContributors();
+  /*const contributors = await getAllContributors();
   const contributor = contributors.find(
     (contributor) => contributor.login === login
   );
-  if (contributor) return `/community/contributors/${login}`;
+  if (contributor) return `/community/contributors/${login}`;*/
   return `https://github.com/${login}`;
 }
 
