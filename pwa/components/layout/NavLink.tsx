@@ -12,7 +12,13 @@ export default function NavLink({
     : {};
 
   return href ? (
-    <Link className={className} href={href} title={title} {...externalProps}>
+    <Link
+      prefetch={false}
+      className={className}
+      href={href}
+      title={title}
+      {...externalProps}
+    >
       {children}
     </Link>
   ) : (

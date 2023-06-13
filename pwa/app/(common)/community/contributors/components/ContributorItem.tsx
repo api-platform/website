@@ -22,6 +22,7 @@ export default function ContributorItem({ contributor }: ContributorItemProps) {
           contributor.rank === 1 && "sm:flex-row sm:w-fit sm:max-w-none"
         )}
         href={`/community/contributors/${contributor.login}`}
+        prefetch={false}
       >
         <div className="relative">
           <div

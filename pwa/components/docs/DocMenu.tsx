@@ -97,6 +97,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
             <li className="mb-4" key={subLink.link}>
               <Link
                 href={subLink.link}
+                prefetch={false}
                 className={classNames(
                   "relative block pl-4 -translate-x-px border-l-px transition-all hover:border-l-gray-500",
                   pathname === subLink.link

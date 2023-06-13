@@ -13,6 +13,7 @@ export default function ContributorSmallItem({
   return (
     <Link
       href={`/community/contributors/${contributor.login}`}
+      prefetch={false}
       className="relative flex justify-start items-center sm:transition-all group | sm:p-2 sm:duration-500 sm:border-px sm:border-gray-500/10 sm:hover:bg-gray-500/10 sm:dark:border-gray-500/30 sm:dark:hover:bg-gray-500/30"
     >
       {contributor.rank <= 100 ? (
