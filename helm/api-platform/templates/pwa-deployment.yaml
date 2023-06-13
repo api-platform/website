@@ -41,6 +41,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "api-platform.fullname" . }}
                   key: next-root-url
+            - name: GITHUB_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: github-key
           ports:
             - name: http
               containerPort: 3000
