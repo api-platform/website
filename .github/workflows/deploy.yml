@@ -44,11 +44,8 @@ on:
       gke-project:
         description: Google Kubernetes Engine Project
         required: true
-      next-public-event-brite-id:
-        description: Next Public EventBrite Id
-        required: true
-      next-public-mapbox-key:
-        description: Next Public Mapbox Key
+      gh-key:
+        description: Github authentication key
         required: true
       # cloudflare-api-token:
       #   description: Cloudflare API Token
@@ -138,6 +135,7 @@ jobs:
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ inputs.url }} \
             --set=next.rootUrl=${{ inputs.url }} \
+            --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
@@ -167,6 +165,7 @@ jobs:
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
+            --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ inputs.url }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
