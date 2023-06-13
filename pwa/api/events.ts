@@ -58,13 +58,15 @@ export async function getEventContent(slug: string): Promise<EventWithContent> {
 
   const title = extractHeadingsFromMarkdown(fileContents, 1)?.[0];
 
-  const speakers = await Promise.all(
-    resultMdx.meta.speakers?.map(async (speaker: { github?: string }) =>
-      speaker.github
-        ? { ...speaker, link: await getSpeakerLink(speaker.github) }
-        : speaker
-    )
-  );
+  const speakers = resultMdx.meta.speakers
+    ? await Promise.all(
+        resultMdx.meta.speakers?.map(async (speaker: { github?: string }) =>
+          speaker.github
+            ? { ...speaker, link: await getSpeakerLink(speaker.github) }
+            : speaker
+        )
+      )
+    : [];
 
   return {
     ...resultMdx.meta,

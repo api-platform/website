@@ -1,4 +1,4 @@
-import { getEventContent } from "api/events";
+import { getAllEvents, getEventContent } from "api/events";
 import Heading from "components/common/typography/Heading";
 import { Calendar, Video } from "components/icons";
 import Image from "next/image";
@@ -13,6 +13,13 @@ import { Metadata } from "next";
 type Props = {
   params: { slug: string };
 };
+
+export async function generateStaticParams() {
+  const events = await getAllEvents();
+  return events.map((event) => ({ slug: event.slug }));
+}
+
+export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
@@ -34,10 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
     },
   };
-}
-
-export async function generateStaticParams() {
-  return [];
 }
 
 function convertEventDateToString({
@@ -75,7 +78,7 @@ export default async function Page({
     ) => <p className="mb-8">{props.children}</p>,
   };
   return (
-    <>
+    <div className="bg-gray-100 dark:bg-blue-black">
       <ShapeSection
         className="bg-blue pb-4 text-white dark:text-blue-black"
         effect="right-triangle"
@@ -143,6 +146,6 @@ export default async function Page({
           <Mdx components={components} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

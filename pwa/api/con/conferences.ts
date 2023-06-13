@@ -72,6 +72,8 @@ export const getConferenceData = async (
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
+  marked.setOptions({ mangle: false, headerIds: false });
+
   const processedContent =
     withDescription && (await marked(matterResult.content, { async: true }));
 
