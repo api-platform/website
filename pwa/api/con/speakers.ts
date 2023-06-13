@@ -57,6 +57,8 @@ export const getSpeakerData = async (
 
   const { id } = matterResult.data;
 
+  marked.setOptions({ mangle: false, headerIds: false });
+
   const processedContent =
     withDescription && (await marked(matterResult.content, { async: true }));
 

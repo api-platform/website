@@ -8,6 +8,7 @@ const getCodeOfConductContent = async () => {
   );
   const content = await file.text();
   const matterResult = matter(content);
+  marked.setOptions({ mangle: false, headerIds: false });
   const processedContent = await marked(matterResult.content, { async: true });
   return processedContent?.toString();
 };
