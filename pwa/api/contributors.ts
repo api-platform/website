@@ -151,7 +151,7 @@ export const getAllContributors = cache(async () => {
   }
 });
 
-export async function getContributorBySlug(slug: string): Promise<Contributor> {
+export const getContributorBySlug = cache(async (slug: string) => {
   const allContributors = await getAllContributors();
   const contributor = allContributors.find(
     (contributor) => contributor.login === slug
@@ -170,7 +170,7 @@ export async function getContributorBySlug(slug: string): Promise<Contributor> {
     };
   }
   return notFound();
-}
+});
 
 // TODO: replace the method when events pages will be done
 export async function getContributorConferencesBySlug(slug: string) {
