@@ -30,14 +30,14 @@ export default function Section({
   children,
 }: SectionProps) {
   const [, setRef] = useDynamicRefs();
-  const containerRef = setRef(`section-${section}`);
+  const containerRef = setRef(
+    `section-${section}`
+  ) as React.RefObject<HTMLElement>;
   const { sectionsVisibles, setSectionsVisibles } = useContext(SectionsContext);
 
-  const intersection =
-    containerRef &&
-    useIntersection(containerRef, {
-      threshold: 0.2,
-    });
+  const intersection = useIntersection(containerRef, {
+    threshold: 0.2,
+  });
 
   const isVisible = intersection?.isIntersecting;
 

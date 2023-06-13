@@ -1,5 +1,3 @@
-// @ts-check
-
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -85,9 +83,6 @@ const prettyOptions = {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     trailingSlash: true,
-    pageExtensions: ["ts", "tsx", "js", "jsx"],
-    reactStrictMode: true,
-    swcMinify: true,
     output: "standalone",
     images: {
         domains: [
@@ -103,9 +98,6 @@ const nextConfig = {
             },
         ],
         deviceSizes: [640, 768, 828, 1024, 1280, 1536, 1920, 2048],
-    },
-    eslint: {
-        dirs: ["app"],
     },
     async headers() {
         return [
@@ -145,10 +137,9 @@ const nextConfig = {
                 permanent: true,
             },
         ];
-    }
+    },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const withMDX = nextMDX({
     extension: /\.(md|mdx)$/,
     options: {

@@ -1,3 +1,4 @@
+import "server-only";
 import { sortByStartDate } from "utils/con";
 import { getConferencesBySpeaker, getConferenceData } from "./con/conferences";
 import { getAllSpeakers } from "./con/speakers";
