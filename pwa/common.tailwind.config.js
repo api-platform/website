@@ -47,6 +47,10 @@ module.exports = {
         dark: "#00555a",
         darkest: "#013137",
       },
+      pink: {
+        DEFAULT: "#c32186",
+        light: "#d52189",
+      },
       gray: colors.gray,
       white: "#ffffff",
     },
@@ -90,6 +94,8 @@ module.exports = {
         circle: "circle",
       },
       backgroundImage: {
+        "conf-gradient":
+          "radial-gradient(ellipse farthest-corner at 52% 160%, rgba(213, 33, 137, 0.8), transparent 50%), radial-gradient(at right 60%, rgba(17, 229, 240, 0.3), transparent 50%), radial-gradient(circle at 75% 50%, rgba(17, 230, 240, 0.2), transparent 50%)",
         checkboard:
           "conic-gradient(#daddd6 90deg, transparent 90deg 180deg, #daddd6 180deg 270deg, transparent 270deg)",
         "checkboard-dark":
@@ -111,6 +117,7 @@ module.exports = {
   },
   plugins: [
     require("./plugins/clip-path-plugin.js"),
+    require("./plugins/stroke-dasharray-plugin.js"),
     require("@tailwindcss/typography"),
   ],
 };

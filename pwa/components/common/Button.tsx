@@ -11,7 +11,7 @@ export interface ButtonProps
   disabled?: boolean;
   href?: string;
   external?: boolean;
-  color?: "default" | "white";
+  color?: "default" | "white" | "pink";
   darkMode?: boolean;
   ariaLabel?: string;
 }
@@ -47,6 +47,10 @@ export default function Button({
     case "default":
       if (empty) colorClassName = "text-blue bg-transparent border-blue";
       else colorClassName = "bg-blue border-blue text-white";
+      break;
+    case "pink":
+      if (empty) colorClassName = "text-pink bg-transparent border-pink";
+      else colorClassName = "bg-pink border-pink text-white";
       break;
     case "white":
       if (empty)

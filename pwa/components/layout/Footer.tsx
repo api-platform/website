@@ -8,6 +8,7 @@ import { PropsWithChildren } from "react";
 function FooterLink(props: LinkProps & PropsWithChildren) {
   return (
     <Link
+      prefetch={false}
       {...props}
       className="text-white font-light transition-all hover:opacity-75"
     >
