@@ -88,16 +88,20 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
 }
 
 export const getDocTitle = async (version: string, slug: string[]) => {
-  const key = slug.join("");
-  if (sidebarMemoryCache.has(key)) {
-    return sidebarMemoryCache.get(key);
-  }
-  const { data, path } = await getDocContentFromSlug(version, slug);
-  const md = Buffer.from((data as any).content, "base64").toString();
-  const title = extractHeadingsFromMarkdown(md, 1)?.[0];
+  try {
+    const key = slug.join("");
+    if (sidebarMemoryCache.has(key)) {
+      return sidebarMemoryCache.get(key);
+    }
+    const { data, path } = await getDocContentFromSlug(version, slug);
+    const md = Buffer.from((data as any).content, "base64").toString();
+    const title = extractHeadingsFromMarkdown(md, 1)?.[0];
 
-  sidebarMemoryCache.set(key, title || slug.shift());
-  return sidebarMemoryCache.get(key);
+    sidebarMemoryCache.set(key, title || slug.shift());
+    return sidebarMemoryCache.get(key);
+  } catch (err) {
+    return "";
+  }
 };
 
 export const loadV2DocumentationNav = cache(async (branch: string) => {
@@ -168,9 +172,9 @@ export const getDocContentFromSlug = async (
 
     return { data, path: p };
   } catch (error) {
-    console.error("An error occured while fetching %s", p);
+    console.error(`An error occured while fetching ${p}`);
     console.error(error);
-    notFound();
+    throw error;
   }
 };
 

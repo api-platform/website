@@ -1,10 +1,8 @@
 import React from "react";
-import Sidebar from "components/docs/Sidebar";
 import { getAllDocLinks } from "api/doc/guides";
-import MobileSideBar from "components/docs/MobileSidebar";
-import { DocProvider } from "contexts/DocContext";
+import DocLayout from "../components/DocLayout";
 
-async function DocLayout({ children }: { children: React.ReactNode }) {
+async function Layout({ children }: { children: React.ReactNode }) {
   const guideLinks = await getAllDocLinks("guides", "guide");
   const tutorialLinks = await getAllDocLinks("tutorial");
   const inDepthLinks = await getAllDocLinks("in-depth");
@@ -33,17 +31,7 @@ async function DocLayout({ children }: { children: React.ReactNode }) {
     },
   ];
 
-  return (
-    <div className="max-w-8xl mx-auto overflow-x-clip">
-      <DocProvider>
-        <MobileSideBar docMenuParts={docMenuparts} />
-        <div className="flex flex-row flex-wrap items-start justify-start">
-          <Sidebar docMenuParts={docMenuparts} />
-          <div className="flex-1 overflow-clip">{children}</div>
-        </div>
-      </DocProvider>
-    </div>
-  );
+  return <DocLayout nav={docMenuparts}>{children}</DocLayout>;
 }
 
-export default DocLayout;
+export default Layout;

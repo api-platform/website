@@ -1,11 +1,9 @@
 import React from "react";
-import Sidebar from "components/docs/Sidebar";
 import { loadV2DocumentationNav } from "api/doc";
 import { versions, current } from "consts";
-import { DocProvider } from "contexts/DocContext";
-import MobileSideBar from "components/docs/MobileSidebar";
+import DocLayout from "../components/DocLayout";
 
-async function DocLayout({
+async function Layout({
   params: { slug },
   children,
 }: {
@@ -20,4 +18,4 @@ async function DocLayout({
   return <DocLayout nav={nav}>{children}</DocLayout>;
 }
 
-export default DocLayout;
+export default Layout;

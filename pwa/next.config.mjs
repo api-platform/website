@@ -145,7 +145,7 @@ const nextConfig = {
                 permanent: true,
             },
         ];
-    }
+    },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

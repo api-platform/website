@@ -17,7 +17,7 @@ export interface NavPartProps {
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
   const [isOpen, setOpen] = useState(
-    pathname === link || pathname.startsWith(basePath)
+    autoOpen && (pathname === link || pathname.startsWith(basePath))
   );
 
   useEffect(() => {
@@ -131,7 +131,12 @@ export default function DocMenu({
       {parts.map((part, index) => (
         <NavPart key={`${part.title} ${index}`} autoOpen={autoOpen} {...part} />
       ))}
-      <NavPart basePath="" links={versionLinks} title="Doc versions" />
+      <NavPart
+        basePath=""
+        links={versionLinks}
+        title="Doc versions"
+        autoOpen={false}
+      />
     </>
   );
 }
