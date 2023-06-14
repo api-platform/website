@@ -12,6 +12,7 @@ import { cache } from "react";
 import { current } from "consts";
 import { load as parseHtml } from "cheerio";
 import { Chapters } from "types";
+import { notFound } from "next/navigation";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
@@ -87,16 +88,21 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
 }
 
 export const getDocTitle = async (version: string, slug: string[]) => {
-  const key = slug.join("");
-  if (sidebarMemoryCache.has(key)) {
-    return sidebarMemoryCache.get(key);
-  }
-  const { data, path } = await getDocContentFromSlug(version, slug);
-  const md = Buffer.from((data as any).content, "base64").toString();
-  const title = extractHeadingsFromMarkdown(md, 1)?.[0];
+  try {
+    const key = slug.join("");
+    if (sidebarMemoryCache.has(key)) {
+      return sidebarMemoryCache.get(key);
+    }
+    const { data } = await getDocContentFromSlug(version, slug);
+    const md = Buffer.from((data as any).content, "base64").toString();
+    const title = extractHeadingsFromMarkdown(md, 1)?.[0];
 
-  sidebarMemoryCache.set(key, title || slug.shift());
-  return sidebarMemoryCache.get(key);
+    sidebarMemoryCache.set(key, title || slug.shift());
+    return sidebarMemoryCache.get(key);
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
 };
 
 export const loadV2DocumentationNav = cache(async (branch: string) => {
@@ -149,7 +155,6 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-
 export const getDocContentFromSlug = async (
   version: string,
   slug: string[]
@@ -168,9 +173,9 @@ export const getDocContentFromSlug = async (
 
     return { data, path: p };
   } catch (error) {
-    console.error("An error occured while fetching %s", p);
+    console.error(`An error occured while fetching ${p}`);
     console.error(error);
-    return { data: { content: "error" }, path: p };
+    throw error;
   }
 };
 
