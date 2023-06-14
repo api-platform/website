@@ -93,14 +93,15 @@ export const getDocTitle = async (version: string, slug: string[]) => {
     if (sidebarMemoryCache.has(key)) {
       return sidebarMemoryCache.get(key);
     }
-    const { data, path } = await getDocContentFromSlug(version, slug);
+    const { data } = await getDocContentFromSlug(version, slug);
     const md = Buffer.from((data as any).content, "base64").toString();
     const title = extractHeadingsFromMarkdown(md, 1)?.[0];
 
     sidebarMemoryCache.set(key, title || slug.shift());
     return sidebarMemoryCache.get(key);
   } catch (err) {
-    return "";
+    console.error(err);
+    return null;
   }
 };
 

@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { versions, current } from "consts";
 
 export function sortByPosition(
   a: { position: number },
@@ -48,3 +49,11 @@ export const toLocaleDate: (
 
 export const convertTime: (time: string) => string = (time) =>
   dayjs(time, "HH:mm").format("HH:mm");
+
+export const getVersionAndSlugFromSlugs = (allSlugs: string[]) => {
+  const version = versions.includes(allSlugs[0]) ? allSlugs[0] : current;
+  const slugs = versions.includes(allSlugs[0])
+    ? allSlugs.slice(1, allSlugs.length)
+    : allSlugs;
+  return { version, slugs: slugs.length ? slugs : ["distribution"] };
+};

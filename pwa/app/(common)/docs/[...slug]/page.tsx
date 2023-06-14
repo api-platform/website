@@ -10,6 +10,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { notFound } from "next/navigation";
+import { getVersionAndSlugFromSlugs } from "utils";
 
 export async function generateStaticParams() {
   const slugs: { slug: string[] }[] = [];
@@ -50,17 +51,11 @@ export default async function Page({
     }
   }
   try {
-    const version = versions.includes(slug[0]) ? slug[0] : current;
-    const contentSlug = versions.includes(slug[0])
-      ? slug.slice(1, slug.length)
-      : slug;
-    const { data, path } = await getDocContentFromSlug(
-      version,
-      contentSlug.length ? contentSlug : ["distribution"]
-    );
+    const { version, slugs } = getVersionAndSlugFromSlugs(slug);
+    const { data, path } = await getDocContentFromSlug(version, slugs);
 
     const html = await getHtmlFromGithubContent({ data, path });
-    const title = await getDocTitle(version, slug);
+    const title = await getDocTitle(version, slugs);
 
     const breadCrumbs = [
       {
@@ -118,11 +113,8 @@ export async function generateMetadata({
   };
 }): Promise<Metadata> {
   try {
-    const version = versions.includes(slug[0]) ? slug[0] : current;
-    const contentSlug = versions.includes(slug[0])
-      ? slug.slice(1, slug.length)
-      : slug;
-    const title = await getDocTitle(version, contentSlug);
+    const { version, slugs } = getVersionAndSlugFromSlugs(slug);
+    const title = await getDocTitle(version, slugs);
 
     return {
       title: `${title} - API Platform`,
