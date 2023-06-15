@@ -170,7 +170,7 @@ export default async function Page() {
           </Heading>
           <div className="grid grid-cols-1 my-4 place-content-center lg:grid-cols-2 gap-4 sm:gap-6">
             {events.map((event: Event) => (
-              <EventCard key={event.title} event={event} />
+              <EventCard key={event.link} event={event} />
             ))}
           </div>
           <ArrowLink

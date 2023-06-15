@@ -107,8 +107,8 @@ export default function EventsPage({ events }: EventsPageProps) {
                 {year}
               </Heading>
               <div className="grid grid-cols-1 place-content-center lg:grid-cols-2 gap-4 sm:gap-6">
-                {eventsByYear[year].map((event: EventType) => (
-                  <EventCard key={event.title} event={event} />
+                {eventsByYear[year].map((event: EventType, index: number) => (
+                  <EventCard key={`${event.link}${index}`} event={event} />
                 ))}
               </div>
             </div>

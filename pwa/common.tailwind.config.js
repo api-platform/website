@@ -79,6 +79,9 @@ module.exports = {
       borderRadius: {
         full: "100%",
       },
+      boxShadow: {
+        "inner-light": "inset 0 1px 0 0 #00555a",
+      },
       rotate: {
         15: "15deg",
         30: "30deg",
