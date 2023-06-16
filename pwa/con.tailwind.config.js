@@ -29,9 +29,6 @@ module.exports = {
       grey: "#eff4f7",
       white: "#fff",
     },
-    dashArray: {
-      test: "1",
-    },
     extend: {
       fontFamily: {
         sans: ["var(--font-raleway)"],

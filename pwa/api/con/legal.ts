@@ -4,7 +4,7 @@ import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
 import { marked } from "marked";
 import { extractHeadingsFromMarkdown } from "utils";
-import { Locale } from "i18n/i18n-config";
+import { Locale, i18n } from "i18n/i18n-config";
 
 export const getLegalData = async (
   edition: string,
@@ -31,10 +31,18 @@ export const getLegalData = async (
 };
 
 export const getAllLegalSlugs = async (edition = "2022") => {
-  const slugs = (
-    await readdir(path.join(process.cwd(), `data/con/${edition}/legal`))
-  )
-    .filter((el) => path.extname(el) === ".md")
-    .map((slug: string) => slug.replace(/\.md$/, ""));
-  return slugs;
+  return (
+    await Promise.all(
+      i18n.locales.map(async (locale) => {
+        const s = (
+          await readdir(
+            path.join(process.cwd(), `data/con/${edition}/legal/${locale}`)
+          )
+        )
+          .filter((el) => path.extname(el) === ".md")
+          .map((slug: string) => slug.replace(/\.md$/, ""));
+        return s;
+      })
+    )
+  ).flat();
 };
