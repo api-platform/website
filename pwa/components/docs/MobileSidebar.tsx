@@ -59,6 +59,7 @@ export default function MobileSideBar({
               <Link
                 className="transition-all hover:text-blue text-ellipsis whitespace-nowrap overflow-hidden"
                 href={docLink.link}
+                prefetch={false}
               >
                 {docLink.title}
               </Link>

@@ -32,6 +32,7 @@ export default function SpeakerItem({
     >
       <Link
         href={url}
+        prefetch={false}
         className={classNames(
           hoverable ? "group cursor-pointer" : "cursor-default",
           minified ? "flex flex-row items-center" : "text-center"

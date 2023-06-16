@@ -17,7 +17,7 @@ export interface NavPartProps {
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
   const [isOpen, setOpen] = useState(
-    pathname === link || pathname.startsWith(basePath)
+    autoOpen && (pathname === link || pathname.startsWith(basePath))
   );
 
   useEffect(() => {
@@ -97,9 +97,10 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
             <li className="mb-4" key={subLink.link}>
               <Link
                 href={subLink.link}
+                prefetch={false}
                 className={classNames(
                   "relative block pl-4 -translate-x-px border-l-px transition-all hover:border-l-gray-500",
-                  pathname === subLink.link
+                  pathname === subLink.link || `${pathname}/` === subLink.link
                     ? "text-blue border-l-blue font-semibold"
                     : "text-gray-500 border-l-transparent"
                 )}
@@ -122,7 +123,7 @@ export default function DocMenu({
   autoOpen?: boolean;
 }) {
   const versionLinks = versions.map((v) => ({
-    link: v === current ? "/docs" : `/docs/${v}`,
+    link: v === current ? "/docs" : `/docs/${v}/`,
     title: v,
   }));
   return (
@@ -130,7 +131,12 @@ export default function DocMenu({
       {parts.map((part, index) => (
         <NavPart key={`${part.title} ${index}`} autoOpen={autoOpen} {...part} />
       ))}
-      <NavPart basePath="" links={versionLinks} title="Doc versions" />
+      <NavPart
+        basePath=""
+        links={versionLinks}
+        title="Doc versions"
+        autoOpen={false}
+      />
     </>
   );
 }

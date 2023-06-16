@@ -13,7 +13,8 @@ const poppins = Poppins({
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
 
-  const BASE_URL = process.env.NEXT_ROOT_URL || "https://api-platform.com";
+  const BASE_URL =
+    "https://" + process.env.NEXT_ROOT_URL || "https://api-platform.com";
   const URL_LOGO = `${BASE_URL}/images/logo.png`;
 
   const title = dictionary["layout"].title;
