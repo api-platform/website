@@ -7,7 +7,7 @@ export default function Preheader() {
     <Link
       href="/con/2023"
       rel="noreferrer"
-      className="block relative overflow-hidden bg-blue-black border-b-blue border-b-2 bg-conf-gradient text-white py-2 w-full"
+      className="block relative overflow-hidden bg-blue-black border-b-blue border-b-2 bg-conf-gradient text-white py-2 w-full z-50"
     >
       <svg
         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-96"
