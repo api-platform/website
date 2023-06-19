@@ -20,9 +20,21 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Alice's garden",
+    logo: "alice-garden",
+    link: "https://www.alicesgarden.fr/",
+    rank: 3,
+  },
+  {
     name: "Akawaka",
     logo: "akawaka",
     link: "https://www.akawaka.fr/",
+    rank: 4,
+  },
+  {
+    name: "Fairness",
+    logo: "fairness",
+    link: "https://fairness.coop/",
     rank: 4,
   },
   {
