@@ -38,10 +38,6 @@ const footer: FooterPart[] = [
         title: "Code of conduct",
         url: "/help/code-of-conduct",
       },
-      {
-        title: "Report issues",
-        url: "/help/report-issues",
-      },
     ],
   },
   {
