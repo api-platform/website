@@ -84,7 +84,7 @@ async function getAllStandardRoutes() {
   }
 
   for (const version of versions) {
-    routes.push(`${basePath}/docs/${version}`);
+    routes.push(`${basePath}/docs/v${version}`);
     const navs = await loadV2DocumentationNav(version);
     for (const nav of navs) {
       for (const link of nav.links) {
