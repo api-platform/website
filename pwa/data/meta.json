@@ -1,7 +1,7 @@
 {
   "layout": {
     "title": "API Platform",
-    "description": "The API-first framework: REST, GraphQL and real-time"
+    "description": "Create REST and GraphQL APIs, scaffold Jamstack webapps, stream changes in real-time."
   },
   "community": {
     "title": "Community - API Platform",
