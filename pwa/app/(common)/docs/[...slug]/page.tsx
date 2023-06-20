@@ -25,9 +25,6 @@ export async function generateStaticParams() {
       });
     }
   }
-  for (const version of versions) {
-    slugs.push({ slug: [version] });
-  }
   return slugs;
 }
 
@@ -60,7 +57,7 @@ export default async function Page({
     const breadCrumbs = [
       {
         title: version,
-        link: version === current ? `/docs/${version}` : "/docs",
+        link: version === current ? `/docs/v${version}` : "/docs",
       },
       { title },
     ];

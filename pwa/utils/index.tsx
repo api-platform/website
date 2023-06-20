@@ -51,8 +51,10 @@ export const convertTime: (time: string) => string = (time) =>
   dayjs(time, "HH:mm").format("HH:mm");
 
 export const getVersionAndSlugFromSlugs = (allSlugs: string[]) => {
-  const version = versions.includes(allSlugs[0]) ? allSlugs[0] : current;
-  const slugs = versions.includes(allSlugs[0])
+  const version = versions.includes(allSlugs[0].substring(1))
+    ? allSlugs[0].substring(1)
+    : current;
+  const slugs = versions.includes(allSlugs[0].substring(1))
     ? allSlugs.slice(1, allSlugs.length)
     : allSlugs;
   return { version, slugs: slugs.length ? slugs : ["distribution"] };
