@@ -84,7 +84,7 @@ jobs:
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-                  echo "RELEASE_NAME=pr-$(jq --raw-output .pull_request.number \"$GITHUB_EVENT_PATH\")" >> "$GITHUB_ENV"
+                  echo "RELEASE_NAME=pr-$(jq --raw-output .pull_request.number '$GITHUB_EVENT_PATH')" >> "$GITHUB_ENV"
               else
                   echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
               fi
@@ -130,7 +130,7 @@ jobs:
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
             --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
-            --set=ingress.tls[0].secretName=website-ssl \
+            --set=ingress.tls[0].secretName=${{ env.RELEASE_NAME }}-website-ssl \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
