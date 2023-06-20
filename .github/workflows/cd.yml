@@ -11,6 +11,17 @@ on:
 
 # Do not use concurrency to prevent simultaneous helm deployments
 jobs:
+  remove-deploy-label:
+    name: Remove deploy label
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mondeja/remove-labels-gh-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            deploy
+
   build:
     name: Build
     if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy'))
