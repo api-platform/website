@@ -120,7 +120,7 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
 
     const navData: Chapters = YAML.parse(result.toString());
 
-    const basePath = branch === current ? `/docs` : `/docs/${branch}`;
+    const basePath = branch === current ? `/docs` : `/docs/v${branch}`;
     return Promise.all(
       navData.chapters.map(async (part) => ({
         title: part.title,

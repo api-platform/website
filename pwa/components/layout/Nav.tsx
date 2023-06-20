@@ -7,12 +7,16 @@ import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useState, useEffect } from "react";
 import Preheader from "./Preheader";
+import { DocSearch } from "@docsearch/react";
+import { current } from "consts";
 
 export default function Nav({ withPreheader = false }) {
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
   const withBg = pathname !== "/";
-  const fixed = pathname?.startsWith("/docs");
+  const isDocPage = pathname?.startsWith("/docs");
+
+  const version = current;
 
   const forceClose = () => {
     setOpen(false);
@@ -33,13 +37,13 @@ export default function Nav({ withPreheader = false }) {
 
   return (
     <>
-      {!fixed && withPreheader ? <Preheader /> : null}
+      {!isDocPage && withPreheader ? <Preheader /> : null}
       <div
         className={classNames(
           "left-0 w-full absolute z-50",
           withBg && "bg-white dark:bg-blue-darkest shadow-md",
-          fixed ? "sticky" : "absolute",
-          withPreheader && !fixed ? "top-16" : "top-0"
+          isDocPage ? "sticky" : "absolute",
+          withPreheader && !isDocPage ? "top-16" : "top-0"
         )}
       >
         <div
@@ -57,7 +61,7 @@ export default function Nav({ withPreheader = false }) {
             withBg
               ? "text-blue-black dark:text-white"
               : "text-white dark:text-blue-black",
-            fixed ? "max-w-8xl" : "container"
+            isDocPage ? "max-w-8xl" : "container"
           )}
         >
           <NavLink
@@ -70,6 +74,25 @@ export default function Nav({ withPreheader = false }) {
           >
             <Logo className="h-5" inline />
           </NavLink>
+          {process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
+          process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME &&
+          process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY ? (
+            <DocSearch
+              appId={process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID}
+              indexName={process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME}
+              apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY}
+              searchParameters={{
+                facetFilters: [`version:v${version}`],
+              }}
+              transformItems={(items: any[]) => {
+                return items.map((item) => ({
+                  ...item,
+                  url: item.url ? new URL(item.url).pathname : "/docs",
+                }));
+              }}
+              placeholder="Search..."
+            />
+          ) : null}
           <div
             className={classNames(
               "-lg:uppercase -lg:font-bold -lg:text-xl fixed h-screen w-5/6 max-w-md top-0 bg-white dark:bg-blue-black z-40 transition-all duration-500 flex flex-col gap-6 justify-start items-center",

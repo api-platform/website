@@ -12,6 +12,7 @@
     "postbuild": "ts-node ./postbuild.ts"
   },
   "dependencies": {
+    "@docsearch/react": "3",
     "@formatjs/intl-localematcher": "^0.2.32",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.4.4",
@@ -27,7 +28,7 @@
     "marked": "^5.0.4",
     "marked-highlight": "^2.0.1",
     "negotiator": "^0.6.3",
-    "next": "13.4.6-canary.7",
+    "next": "13.4.7-canary.1",
     "next-themes": "npm:@wits/next-themes@^0.2.16",
     "octokit": "^2.0.19",
     "prettier": "^2.8.8",

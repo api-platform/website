@@ -12,7 +12,9 @@ async function Layout({
   };
   children: React.ReactNode;
 }) {
-  const version = versions.includes(slug[0]) ? slug[0] : current;
+  const version = versions.includes(slug[0].substring(1))
+    ? slug[0].substring(1)
+    : current;
   const nav = await loadV2DocumentationNav(version);
 
   return <DocLayout nav={nav}>{children}</DocLayout>;
