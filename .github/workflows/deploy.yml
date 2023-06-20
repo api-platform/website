@@ -49,9 +49,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Debug github action
-        run : export TOTO=test
+        run : echo "TOTO=test" >> "$GITHUB_ENV"
       - name: Display test
-        run : echo $TOTO
+        run : echo ${{ env.TOTO }}
       # gcloud does not work with Python 3.10 because collections.Mappings was removed in Python 3.10.
       - uses: actions/setup-python@v4
         with:
