@@ -92,7 +92,7 @@ jobs:
               fi
               echo "URL=$RELEASE_NAME-test-v3.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
-              echo "CORS='[\"https://${{ env.RELEASE_NAME}}.test-v3.preprod-tilleuls.ovh\", \"http://localhost\", \"https://localhost\", \"http://localhost:3000\"]'" >> "$GITHUB_ENV"
+              echo 'CORS=["https://${{ env.RELEASE_NAME}}.test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
           fi
       - name: Check for existing namespace
         id: k8s-namespace
@@ -136,6 +136,7 @@ jobs:
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
+            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ env.URL }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
