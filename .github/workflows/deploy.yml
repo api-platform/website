@@ -48,10 +48,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Debug github action
-        run : echo "TOTO=test" >> "$GITHUB_ENV"
-      - name: Display test
-        run : echo ${{ env.TOTO }}
       # gcloud does not work with Python 3.10 because collections.Mappings was removed in Python 3.10.
       - uses: actions/setup-python@v4
         with:
@@ -80,25 +76,25 @@ jobs:
           set -o pipefail
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
-              CONTEXT=prod
-              RELEASE_NAME=website-prod
-              URL=api-platform.com
-              CORS='["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]'
-              NAMESPACE=prod-website
+              echo "CONTEXT=prod" >> "$GITHUB_ENV"
+              echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
+              echo "URL=api-platform.com" >> "$GITHUB_ENV"
+              echo "CORS='[\"https://api-platform.com\", \"http://localhost\", \"https://localhost\", \"http://localhost:3000\"]'" >> "$GITHUB_ENV"
+              echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-                  RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+                  echo 'RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")' >> "$GITHUB_ENV"
               else
-                  RELEASE_NAME=${{ github.ref_name }}
+                  echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
               fi
-              URL=${RELEASE_NAME}.test-v3.preprod-tilleuls.ovh
-              NAMESPACE=nonprod-website
-              CORS='["https://${RELEASE_NAME}.test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]'
+              echo "URL=${{ env.RELEASE_NAME}}.test-v3.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
+              echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
+              echo "CORS='[\"https://${{ env.RELEASE_NAME}}.test-v3.preprod-tilleuls.ovh\", \"http://localhost\", \"https://localhost\", \"http://localhost:3000\"]'"" >> "$GITHUB_ENV"
           fi
       - name: Check for existing namespace
         id: k8s-namespace
-        run: echo "namespace=$(kubectl get namespace $NAMESPACE | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
+        run: echo "namespace=$(kubectl get namespace ${{ env.NAMESPACE }} | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
       # Release name MUST start with a letter
       # GitHub doesn't support multilines environment variables (JWT_*_KEY)
       - name: Deploy in new namespace
@@ -107,14 +103,14 @@ jobs:
           set -o pipefail
           JWT_PASSPHRASE=$(openssl rand -base64 32)
           JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
-          helm upgrade $RELEASE_NAME ./helm/api-platform \
+          helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
             --reuse-values \
             --install \
             --create-namespace \
             --debug \
             --wait \
             --atomic \
-            --namespace=$NAMESPACE \
+            --namespace=${{ env.NAMESPACE }} \
             --set=app.version=${{ github.sha }} \
             --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
             --set=php.image.tag=${{ inputs.docker-images-version }} \
@@ -129,18 +125,18 @@ jobs:
             --set=bucket.s3Name=api-platform-website-v3 \
             --set=service.type=NodePort \
             --set=ingress.enabled=true \
-            --set=ingress.hosts[0].host=$URL \
+            --set=ingress.hosts[0].host=${{ env.URL }} \
             --set=ingress.hosts[0].paths[0].path=/ \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            --set=ingress.tls[0].hosts[0]=$URL \
+            --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
             --set=ingress.tls[0].secretName=website-ssl \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo $CORS | sed 's/\./\\./g')$" \
-            --set=php.host=$URL \
-            --set=next.rootUrl=$URL \
+            --set=php.corsAllowOrigin="^$(echo ${{ env.CORS }} | sed 's/\./\\./g')$" \
+            --set=php.host=${{ env.URL }} \
+            --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
@@ -152,14 +148,14 @@ jobs:
         if: steps.k8s-namespace.outputs.namespace != ''
         run: |
           set -o pipefail
-          helm upgrade $RELEASE_NAME ./helm/api-platform \
+          helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
             --reuse-values \
             --install \
             --create-namespace \
             --debug \
             --wait \
             --atomic \
-            --namespace=$NAMESPACE \
+            --namespace=${{ env.NAMESPACE }} \
             --set=app.version=${{ github.sha }} \
             --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
             --set=php.image.tag=${{ inputs.docker-images-version }} \
@@ -170,9 +166,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=php.corsAllowOrigin="^$(echo $CORS | sed 's/\./\\./g')$" \
+            --set=php.corsAllowOrigin="^$(echo ${{ env.CORS }} | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
-            --set=next.rootUrl=$URL \
+            --set=next.rootUrl=${{ env.URL }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
@@ -181,4 +177,4 @@ jobs:
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
         if: failure()
-        run: kubectl get events --namespace=$NAMESPACE --sort-by .metadata.creationTimestamp
+        run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp
