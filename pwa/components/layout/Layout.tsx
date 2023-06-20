@@ -1,4 +1,3 @@
-import "styles/common.css";
 import Nav from "components/layout/Nav";
 import Footer from "components/layout/Footer";
 import localizedFormat from "dayjs/plugin/localizedFormat";

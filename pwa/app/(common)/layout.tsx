@@ -1,4 +1,5 @@
 import "styles/common.css";
+import "@docsearch/css";
 import { Poppins } from "next/font/google";
 import Layout from "components/layout/Layout";
 import { Metadata } from "next";

@@ -54,7 +54,6 @@
     .doc a {
         @apply text-blue;
     }
-
 }
 
 @layer utilities {
@@ -67,4 +66,72 @@
     .clip-path-triangle-bottom {
         clip-path: polygon(100% 100%, 100% 0%, 50% 100%, 0% 0%, 0% 100%);
     }
+}
+.light .DocSearch {
+	--docsearch-modal-background: theme(colors.white);
+	--docsearch-hit-background: theme(colors.gray.100);
+}
+
+.dark .DocSearch {
+	--docsearch-modal-background: theme(colors.blue.black);
+	--docsearch-text-color: theme(colors.blue.extralight);
+	--docsearch-hit-color: theme(colors.gray.300);
+	--docsearch-hit-background: theme(colors.blue.darkest);
+}
+
+body .DocSearch {
+	--docsearch-highlight-color: theme(colors.blue.DEFAULT);
+	--docsearch-primary-color: theme(colors.blue.DEFAULT);
+	--docsearch-logo-color: theme(colors.blue.DEFAULT);
+	--docsearch-key-gradient: "none";
+	--docsearch-searchbox-shadow: "none";
+}
+
+body .DocSearch-Logo svg>* {
+	@apply fill-blue;
+}
+
+body .DocSearch-SearchBar {
+	@apply px-6 py-1 border-b-px border-b-gray-100 dark:border-b-blue-dark;
+}
+
+body .DocSearch-Form {
+	@apply bg-transparent shadow-none px-0;
+}
+
+body .DocSearch-Hit-source {
+	@apply text-lg text-blue-black py-2 dark:text-gray-50;
+}
+
+body .DocSearch-Dropdown {
+	@apply px-0;
+}
+
+body .DocSearch-Button {
+	@apply bg-white border-gray-200 border-solid border dark:border-none dark:bg-blue-black;
+}
+
+body .DocSearch-Modal {
+	@apply w-full max-w-3xl shadow-2xl dark:shadow-inner-light;
+}
+
+body .DocSearch-Hits {
+	@apply px-6 py-2 border-b-px border-b-gray-100 dark:border-b-blue-dark;
+}
+
+body .DocSearch-Hit a {
+	@apply shadow-none;
+}
+
+body .DocSearch-Hit {
+	@apply pb-2;
+}
+
+body .DocSearch-Footer {
+	@apply bg-transparent dark:shadow-inner-light;
+}
+
+body kbd.DocSearch-Button-Key,
+kbd.DocSearch-Commands-Key {
+	@apply shadow-none w-5 h-5 p-0 border border-solid aspect-square rounded-md border-gray-400 bg-gray-100 text-gray-400 dark:bg-blue-dark;
 }
