@@ -112,13 +112,13 @@ jobs:
             --atomic \
             --namespace=$NAMESPACE \
             --set=app.version=${{ github.sha }} \
-            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/php \
+            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
             --set=php.image.tag=${{ inputs.docker-images-version }} \
             --set=php.image.pullPolicy=Always \
-            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/caddy \
+            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
             --set=caddy.image.tag=${{ inputs.docker-images-version }} \
             --set=caddy.image.pullPolicy=Always \
-            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/pwa \
+            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
             --set=bucket.s3Upstream=storage.googleapis.com \
