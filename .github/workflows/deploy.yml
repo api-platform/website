@@ -8,27 +8,11 @@ on:
         description: GitHub Environment Name
         default: prod
         required: false
-      url:
-        type: string
-        description: GitHub Environment Url (without scheme)
-        required: true
       docker-images-version:
         type: string
         description: Docker Images Version
         default: latest
         required: false
-      cors:
-        type: string
-        description: CORS
-        required: true
-      release:
-        type: string
-        description: Release Name
-        required: true
-      namespace:
-        type: string
-        description: Namespace Name
-        required: true
       gke-cluster:
         type: string
         description: Google Kubernetes Engine Cluster
@@ -58,9 +42,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ inputs.environment }}
-      url: https://${{ inputs.url }}
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -90,9 +71,30 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami/
           helm repo add stable https://charts.helm.sh/stable/
           helm dependency build ./helm/api-platform
+      - name: Define namespace
+        run: |       
+          set -o pipefail
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
+              # Tags are deployed in prod
+              CONTEXT=prod
+              RELEASE_NAME=website-prod
+              URL=api-platform.com
+              CORS='["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]'
+              NAMESPACE=prod-website
+          else
+              CONTEXT=nonprod
+              if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+                  RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+              else
+                  RELEASE_NAME=${{ github.ref_name }}
+              fi
+              URL=${RELEASE_NAME}.test-v3.preprod-tilleuls.ovh
+              NAMESPACE=nonprod-website
+              CORS='["https://${RELEASE_NAME}.test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]'
+          fi
       - name: Check for existing namespace
         id: k8s-namespace
-        run: echo "namespace=$(kubectl get namespace ${{ inputs.namespace }} | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
+        run: echo "namespace=$(kubectl get namespace $NAMESPACE | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
       # Release name MUST start with a letter
       # GitHub doesn't support multilines environment variables (JWT_*_KEY)
       - name: Deploy in new namespace
@@ -101,40 +103,40 @@ jobs:
           set -o pipefail
           JWT_PASSPHRASE=$(openssl rand -base64 32)
           JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
-          helm upgrade ${{ inputs.release }} ./helm/api-platform \
+          helm upgrade $RELEASE_NAME ./helm/api-platform \
             --reuse-values \
             --install \
             --create-namespace \
             --debug \
             --wait \
             --atomic \
-            --namespace=${{ inputs.namespace }} \
+            --namespace=$NAMESPACE \
             --set=app.version=${{ github.sha }} \
-            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
+            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/php \
             --set=php.image.tag=${{ inputs.docker-images-version }} \
             --set=php.image.pullPolicy=Always \
-            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
+            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/caddy \
             --set=caddy.image.tag=${{ inputs.docker-images-version }} \
             --set=caddy.image.pullPolicy=Always \
-            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
+            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/$CONTEXT/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             --set=service.type=NodePort \
             --set=ingress.enabled=true \
-            --set=ingress.hosts[0].host=${{ inputs.url }} \
+            --set=ingress.hosts[0].host=$URL \
             --set=ingress.hosts[0].paths[0].path=/ \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            --set=ingress.tls[0].hosts[0]=${{ inputs.url }} \
+            --set=ingress.tls[0].hosts[0]=$URL \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
             --set=ingress.tls[0].secretName=website-ssl \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
-            --set=php.host=${{ inputs.url }} \
-            --set=next.rootUrl=${{ inputs.url }} \
+            --set=php.corsAllowOrigin="^$(echo $CORS | sed 's/\./\\./g')$" \
+            --set=php.host=$URL \
+            --set=next.rootUrl=$URL \
             --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
@@ -146,14 +148,14 @@ jobs:
         if: steps.k8s-namespace.outputs.namespace != ''
         run: |
           set -o pipefail
-          helm upgrade ${{ inputs.release }} ./helm/api-platform \
+          helm upgrade $RELEASE_NAME ./helm/api-platform \
             --reuse-values \
             --install \
             --create-namespace \
             --debug \
             --wait \
             --atomic \
-            --namespace=${{ inputs.namespace }} \
+            --namespace=$NAMESPACE \
             --set=app.version=${{ github.sha }} \
             --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
             --set=php.image.tag=${{ inputs.docker-images-version }} \
@@ -164,9 +166,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(inputs.cors), '|') }}" | sed 's/\./\\./g')$" \
+            --set=php.corsAllowOrigin="^$(echo $CORS | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
-            --set=next.rootUrl=${{ inputs.url }} \
+            --set=next.rootUrl=$URL \
             --set=ressources.requests.cpu=250m \
             --set=ressources.requests.memory=256Mi \
             --set=ressources.limits.memory=700Mi \
@@ -175,4 +177,4 @@ jobs:
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
         if: failure()
-        run: kubectl get events --namespace=${{ inputs.namespace }} --sort-by .metadata.creationTimestamp
+        run: kubectl get events --namespace=$NAMESPACE --sort-by .metadata.creationTimestamp
