@@ -33,9 +33,16 @@ jobs:
           gcloud components install gke-gcloud-auth-plugin
           gcloud --quiet auth configure-docker
           gcloud container clusters get-credentials api-platform-demo --zone europe-west1-c
-      - name: Check for existing namespace
-        id: k8s-namespace
-        run: echo "namespace=$(kubectl get namespace pr-${{ github.event.number }} | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
-      - name: Uninstall release
-        if: steps.k8s-namespace.outputs.namespace != ''
-        run: kubectl delete namespace pr-${{ github.event.number }}
+      - name: Uninstall helm release
+        id: uninstall_helm_release
+        run: |
+          export RELEASE_NAME=pr-$(jq --raw-output .pull_request.number $GITHUB_EVENT_PATH)
+          echo "Uninstalling release ${RELEASE_NAME}"
+          if ! helm uninstall ${RELEASE_NAME} --kube-context nonprod --wait ; then
+            echo "HELM Uninstall has failed !"
+            echo "Please ask the SRE team to manually clean remaining objects"
+            exit 1
+          fi
+          echo "HELM uninstall successfull"
+          echo "Cleaning remaining PVC..."
+          kubectl delete pvc -l app.kubernetes.io/instance=$RELEASE_NAME
