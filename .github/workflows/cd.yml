@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - v3
+      - staging
   # Deploy if "deploy" label exists
   pull_request:
     types: [ reopened, synchronize, labeled ]
