@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     branches:
-      - main
+      - prod
       - staging
   # Deploy if "deploy" label exists
   pull_request:
