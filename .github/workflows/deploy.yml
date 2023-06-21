@@ -168,7 +168,7 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=php.corsAllowOrigin="^$(echo ${{ env.CORS }} | sed 's/\./\\./g')$" \
+            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=ressources.requests.cpu=250m \
