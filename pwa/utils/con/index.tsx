@@ -2,6 +2,7 @@ import { Conference } from "types/con";
 import dayjs from "dayjs";
 import humanizeDuration from "./humanize-duration";
 import { editions } from "data/con/editions";
+import { getRootUrl } from "utils";
 
 export const sortByStartDate: (
   conference1: Conference,
@@ -108,7 +109,7 @@ export function getEditionEventData(edition: string) {
         url: `https://api-platform.com/con/${edition}/`,
       },
     ],
-    image: `${process.env.NEXT_ROOT_URL}/images/con/og-${edition}`,
+    image: `${getRootUrl()}/images/con/og-${edition}`,
   };
 
   return eventData;

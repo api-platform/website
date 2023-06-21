@@ -3,10 +3,10 @@ import LayoutBase from "components/con/layout/LayoutBase";
 import ContactCard from "components/con/layout/ContactCard";
 import nav from "data/con/2021/nav";
 import footer from "data/con/2021/footer";
-import { OG_IMAGE, URL } from "data/con/2021/meta";
 import { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
 import { i18n } from "i18n/i18n-config";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -18,6 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
+  const URL = `${getRootUrl()}/con/2021`;
+
   return {
     title: {
       default: dictionary[2021].title,
@@ -28,12 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: URL,
       title: dictionary[2021].title,
       description: dictionary[2021].description,
-      images: OG_IMAGE,
     },
     twitter: {
       title: dictionary[2021].title,
       description: dictionary[2021].description,
-      images: OG_IMAGE,
     },
   };
 }

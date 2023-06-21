@@ -66,17 +66,17 @@ const prices: Price[] = [
       },
       {
         title: {
-          en: "Combo 3 workshops",
-          fr: "Combo 3 workshops",
+          en: "COMBO 2 workshops",
+          fr: "COMBO 2 workshops",
         },
-        price: 1199,
+        price: 799,
       },
       {
         title: {
-          en: "Combo 3 workshops and 2 days conference",
-          fr: "Combo 3 workshops et 2 jours de conférence",
+          en: "Combo 2 workshops and 2 days conference",
+          fr: "Combo 2 workshops et 2 jours de conférence",
         },
-        price: 1299,
+        price: 899,
       },
     ],
   },

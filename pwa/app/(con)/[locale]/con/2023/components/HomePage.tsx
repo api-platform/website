@@ -91,7 +91,20 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
           </div>
         </div>
       </Section>
-      <Venue subtitle={t("2023.venue.subtitle")} />
+      <Venue
+        subtitle={t("2023.venue.subtitle")}
+        tip_title={t("2023.venue.tip_title")}
+        tip={t("2023.venue.tip", {
+          tip_link: (
+            <a
+              className="link"
+              href="https://all.accor.com/lien_externe.svlt?goto=rech_resa&destination=0802,0918,3165,5240&sourceid=TICOOP&dayIn=21&monthIn=09&yearIn=2023&nightNb=1&preferredCode=TICOOP&merchantid=par-accorFR"
+            >
+              {t("2023.venue.tip_link")}
+            </a>
+          ),
+        })}
+      />
       <Section
         section="missing"
         className="relative z-10 text-center overflow-y-clip"

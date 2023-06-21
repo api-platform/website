@@ -4,6 +4,7 @@ import ContactCard from "components/con/layout/ContactCard";
 import type { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
 import { i18n } from "i18n/i18n-config";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = params.locale || i18n.defaultLocale;
 
   // fetch data
-  const { URL, OG_IMAGE } = await import(`data/con/${edition}/meta`);
+  const URL = `${getRootUrl()}/con/${edition}`;
 
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
@@ -34,14 +35,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: dictionary[edition].description,
     openGraph: {
       url: URL,
-      title: dictionary[edition].title,
+      title: `${dictionary[edition].title} - API Platform Conference`,
       description: dictionary[edition].description,
-      images: OG_IMAGE,
     },
     twitter: {
-      title: dictionary[edition].title,
+      title: `${dictionary[edition].title} - API Platform Conference`,
       description: dictionary[edition].description,
-      images: OG_IMAGE,
     },
   };
 }
