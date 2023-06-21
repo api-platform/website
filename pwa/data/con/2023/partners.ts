@@ -14,6 +14,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Bump.sh",
+    logo: "bump-sh",
+    link: "https://bump.sh/",
+    rank: 2,
+  },
+  {
     name: "Commerce Weavers",
     logo: "commerce-weavers",
     link: "https://www.commerceweavers.com/",
