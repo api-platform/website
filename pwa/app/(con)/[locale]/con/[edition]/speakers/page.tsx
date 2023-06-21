@@ -19,6 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: dictionary.speakers.title,
     description: dictionary.speakers.description,
+    openGraph: {
+      title: `${dictionary.speakers.title} - API Platform Conference`,
+      description: dictionary.speakers.description,
+    },
+    twitter: {
+      title: `${dictionary.speakers.title} - API Platform Conference`,
+      description: dictionary.speakers.description,
+    },
     alternates: {
       languages: {
         en: locale === "en" ? undefined : `/con/${edition}/speakers`,

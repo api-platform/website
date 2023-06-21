@@ -3,6 +3,7 @@ import { getConferencesBySpeaker } from "api/con/conferences";
 import SpeakerPage from "./SpeakerPage";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
+import { describe } from "node:test";
 
 async function getSpeaker(slug: string, edition: string, locale: string) {
   const speaker = await getSpeakerData(slug, edition, locale);
@@ -36,6 +37,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: speaker.name,
     description: DESCRIPTION,
+    openGraph: {
+      title: `${speaker.name} - API Platform Conference`,
+      description: DESCRIPTION,
+    },
+    twitter: {
+      title: `${speaker.name} - API Platform Conference`,
+      description: DESCRIPTION,
+    },
     alternates: {
       languages: {
         en: locale === "en" ? undefined : `/con/${edition}/speakers/${slug}`,

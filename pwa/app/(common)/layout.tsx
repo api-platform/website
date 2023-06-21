@@ -32,10 +32,6 @@ export async function generateMetadata(): Promise<Metadata> {
     colorScheme: "dark",
     creator: "Kévin Dunglas",
     themeColor: "#0099a1",
-    icons: {
-      icon: "/favicon.svg",
-      apple: "/apple-touch-icon.png",
-    },
     openGraph: {
       url: "https://api-platform.com",
       title: title,
