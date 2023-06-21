@@ -59,3 +59,10 @@ export const getVersionAndSlugFromSlugs = (allSlugs: string[]) => {
     : allSlugs;
   return { version, slugs: slugs.length ? slugs : ["distribution"] };
 };
+
+export const getRootUrl = () => {
+  if (!process.env.NEXT_ROOT_URL) return "https://api-platform.com";
+  return process.env.NEXT_ROOT_URL?.startsWith("http")
+    ? process.env.NEXT_ROOT_URL
+    : `https://${process.env.NEXT_ROOT_URL}`;
+};

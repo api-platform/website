@@ -6,6 +6,7 @@ import { Event as EventType } from "types";
 import EventFilterDropDown from "./EventFilterDropDown";
 import EventCard from "./EventCard";
 import ShapeSection from "components/common/ShapeSection";
+import Image from "next/image";
 
 interface EventsPageProps {
   events: EventType[];
@@ -52,7 +53,14 @@ export default function EventsPage({ events }: EventsPageProps) {
         maskColor="gray-100"
         darkModeColor="blue-black"
       >
-        <div className="absolute left-0 top-0 w-full h-full bg-[url('/images/events_cover.jpg')] bg-[70%] bg-cover opacity-70 z-0" />
+        <div className="absolute left-0 top-0 w-full h-full opacity-70 z-0">
+          <Image
+            src="/images/events_cover.jpg"
+            fill
+            className="w-full h-full object-cover"
+            alt=""
+          />
+        </div>
         <div className="container relative z-10 py-24 text-white flex flex-col justify-center min-h-full">
           <Heading size="xl" level="h1" className="pt-8">
             Our <strong>events</strong>

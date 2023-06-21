@@ -8,10 +8,9 @@ import { getAllEvents } from "api/events";
 import { getAllContributors } from "api/contributors";
 import { versions } from "consts";
 import { loadV2DocumentationNav } from "api/doc";
+import { getRootUrl } from "utils";
 
-const basePath = process.env.NEXT_ROOT_URL?.startsWith("http")
-  ? process.env.NEXT_ROOT_URL
-  : `https://${process.env.NEXT_ROOT_URL}`;
+const basePath = getRootUrl();
 
 function createLocalePath(locale: Locale, path: string, edition?: string) {
   const baseLocalePath =

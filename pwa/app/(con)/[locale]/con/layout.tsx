@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ClientLayout from "./ClientLayout";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { locale: string };
@@ -13,9 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { URL: BASE_URL, OG_IMAGE } = await import(`data/con/meta`);
 
   return {
-    metadataBase: new URL(
-      "https://" + process.env.NEXT_ROOT_URL || "https://api-platform.com"
-    ),
+    metadataBase: new URL(getRootUrl()),
     title: {
       default: dictionary.title,
       template: "%s - API Platform Conference",
