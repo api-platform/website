@@ -90,9 +90,9 @@ jobs:
                   echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
                   export RELEASE_NAME=${{ github.ref_name }}
               fi
-              echo "URL=$RELEASE_NAME-test-v3.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
+              echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
-              echo 'CORS=["https://${{ env.RELEASE_NAME}}.test-v3.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
           fi
       - name: Check for existing namespace
         id: k8s-namespace
