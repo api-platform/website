@@ -8,15 +8,21 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Bump.sh",
+    logo: "bump-sh",
+    link: "https://bump.sh/",
+    rank: 2,
+  },
+  {
     name: "Platform.sh",
     logo: "platform-sh",
     link: "https://platform.sh/",
     rank: 2,
   },
   {
-    name: "Bump.sh",
-    logo: "bump-sh",
-    link: "https://bump.sh/",
+    name: "France tv",
+    logo: "france-tv",
+    link: "https://www.francetelevisions.fr/",
     rank: 2,
   },
   {
@@ -32,15 +38,15 @@ const partners: Partner[] = [
     rank: 3,
   },
   {
-    name: "Akawaka",
-    logo: "akawaka",
-    link: "https://www.akawaka.fr/",
-    rank: 4,
-  },
-  {
     name: "Fairness",
     logo: "fairness",
     link: "https://fairness.coop/",
+    rank: 4,
+  },
+  {
+    name: "Akawaka",
+    logo: "akawaka",
+    link: "https://www.akawaka.fr/",
     rank: 4,
   },
   {
@@ -65,6 +71,12 @@ const partners: Partner[] = [
     name: "WeLoveDevs",
     logo: "we-love-dev",
     link: "https://welovedevs.com/",
+    rank: 5,
+  },
+  {
+    name: "Motiv'Her",
+    logo: "motivher",
+    link: "https://www.motivher.fr/",
     rank: 5,
   },
   {
