@@ -79,7 +79,7 @@ jobs:
               echo "CONTEXT=prod" >> "$GITHUB_ENV"
               echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
               echo "URL=api-platform.com" >> "$GITHUB_ENV"
-              echo "CORS='[\"https://api-platform.com\", \"http://localhost\", \"https://localhost\", \"http://localhost:3000\"]'" >> "$GITHUB_ENV"
+              echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
