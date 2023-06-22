@@ -31,7 +31,15 @@ export default async function Page() {
         maskColor="white"
         darkModeColor="blue-black"
       >
-        <div className="absolute left-0 top-0 w-full h-full bg-[url('/images/help_cover.jpg')] bg-top bg-cover opacity-70 z-0" />
+        <div className="absolute left-0 top-0 w-full h-full opacity-70 z-0">
+          <Image
+            src="/images/help_cover.jpg"
+            fill
+            className="w-full h-full object-cover object-top"
+            alt=""
+          />
+        </div>
+
         <div className="container relative z-10 py-24 text-white flex flex-col justify-center min-h-full">
           <Heading size="xl" level="h1" className="pt-8">
             Need <strong>help?</strong>

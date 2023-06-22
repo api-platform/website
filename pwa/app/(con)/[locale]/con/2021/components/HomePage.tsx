@@ -51,7 +51,7 @@ export default function HomePage({ speakers, partners }: HomePageProps) {
         </div>
       </Section>
 
-      <Venue subtitle={t("2021.venue.subtitle")} />
+      <Venue subtitle={t("2021.venue.subtitle")} tip={t("2021.venue.tip")} />
 
       <Covid />
 

@@ -39,6 +39,10 @@ FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 
+ARG NEXT_ROOT_URL
+ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
+# RUN echo $NEXT_ROOT_URL 
+
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
 	if [ -z "$GITHUB_KEY" ]; then \

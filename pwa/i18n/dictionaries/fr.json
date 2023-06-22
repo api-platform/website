@@ -30,7 +30,8 @@
       "watch_conferences": "Regarder le replay"
     },
     "venue": {
-      "subtitle": "L'événement aura lieu à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas assister aux conférences à Lille, vous pouvez suivre les conférences (en anglais) en ligne."
+      "subtitle": "L'événement aura lieu à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas assister aux conférences à Lille, vous pouvez suivre les conférences (en anglais) en ligne.",
+      "tip": "À votre arrivée à Lille, nous vous recommandons d'utiliser les transports publics ou la location de vélo."
     }
   },
   "2022": {
@@ -44,7 +45,8 @@
       "title": "Une édition au delà de toutes nos attentes"
     },
     "venue": {
-      "subtitle": "L'API Platform Conference se tient à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez prendre un billet pour suivre les conférences en ligne."
+      "subtitle": "L'API Platform Conference se tient à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez prendre un billet pour suivre les conférences en ligne.",
+      "tip": "À votre arrivée à Lille, nous vous recommandons d'utiliser les transports publics ou la location de vélo."
     }
   },
   "2023": {
@@ -57,7 +59,10 @@
       "title": "Nos <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "L'API Platform Conference se déroule à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez acheter un billet pour suivre les conférences en ligne."
+      "subtitle": "L'API Platform Conference se déroule à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pouvez acheter un billet pour suivre les conférences en ligne.",
+      "tip_title": "Important",
+      "tip": "Des chambres d’hôtels ont été spécialement négociées et bloquées pour faciliter votre déplacement à Lille. La demande hôtelière est très élevée à Lille à cette époque de l’année : jetez un œil aux chambres disponibles et réservez-les dès que possible {{tip_link}}",
+      "tip_link": "en suivant ce lien"
     }
   },
   "an_event_by": "Un événement organisé par",
@@ -201,7 +206,6 @@
       "roma": "Rome"
     },
     "place": "Rejoignez cet événement situé à moins d'une heure de Paris ou Bruxelles et 1h30 de Londres.<br/>Les conférences ont lieu à EuraTechnologies, le 1er incubateur & accélérateur de startups en France.",
-    "tip": "Once you’re arrived in Lille, we advice you to use public transports or local bike-sharing systems.",
     "title": "Le <strong>lieu</strong>",
     "transports": {
       "bike": "vélo",

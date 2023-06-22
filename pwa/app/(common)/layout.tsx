@@ -3,6 +3,7 @@ import "@docsearch/css";
 import { Poppins } from "next/font/google";
 import Layout from "components/layout/Layout";
 import { Metadata } from "next";
+import { getRootUrl } from "utils";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -14,9 +15,7 @@ const poppins = Poppins({
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
 
-  const BASE_URL =
-    "https://" + process.env.NEXT_ROOT_URL || "https://api-platform.com";
-  const URL_LOGO = `${BASE_URL}/images/logo.png`;
+  const BASE_URL = getRootUrl();
 
   const title = dictionary["layout"].title;
   const description = dictionary["layout"].description;
@@ -33,23 +32,17 @@ export async function generateMetadata(): Promise<Metadata> {
     colorScheme: "dark",
     creator: "Kévin Dunglas",
     themeColor: "#0099a1",
-    icons: {
-      icon: "/favicon.svg",
-      apple: "/apple-touch-icon.png",
-    },
     openGraph: {
       url: "https://api-platform.com",
       title: title,
       description: description,
       type: "website",
       siteName: "API Platform",
-      images: URL_LOGO,
     },
     twitter: {
       card: "summary_large_image",
       title: title,
       description: description,
-      images: URL_LOGO,
       creator: "@dunglas",
     },
   };

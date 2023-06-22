@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ClientLayout from "./ClientLayout";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { locale: string };
@@ -10,12 +11,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
   // fetch data
-  const { URL: BASE_URL, OG_IMAGE } = await import(`data/con/meta`);
+  const BASE_URL = `${getRootUrl()}/con`;
 
   return {
-    metadataBase: new URL(
-      "https://" + process.env.NEXT_ROOT_URL || "https://api-platform.com"
-    ),
+    metadataBase: new URL(getRootUrl()),
     title: {
       default: dictionary.title,
       template: "%s - API Platform Conference",
@@ -23,23 +22,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: dictionary.description,
     manifest: "/manifest.json",
     themeColor: "#0099a0",
-    icons: {
-      icon: "/favicon.svg",
-      apple: "/apple-touch-icon.png",
-    },
     openGraph: {
       url: BASE_URL,
       title: dictionary.title,
       description: dictionary.description,
       type: "website",
       siteName: "API Platform Conference",
-      images: OG_IMAGE,
     },
     twitter: {
       card: "summary_large_image",
       title: dictionary.title,
       description: dictionary.description,
-      images: OG_IMAGE,
       creator: "@coopTilleuls",
     },
   };

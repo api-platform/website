@@ -10,7 +10,15 @@ import TransportLine from "./TransportLine";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import { localeDuration } from "utils/con";
 
-export default function Venue({ subtitle }: { subtitle: string }) {
+export default function Venue({
+  subtitle,
+  tip,
+  tip_title = "Tip"
+}: {
+  subtitle: string;
+  tip?: string;
+  tip_title?: string;
+}) {
   const { t, Translate, locale: language } = useContext(LanguageContext);
   return (
     <Section section="venue" className="relative z-20 bg-grey text-center">
@@ -19,6 +27,16 @@ export default function Venue({ subtitle }: { subtitle: string }) {
           <Translate translationKey="venue.title" />
         </SectionTitle>
         <SectionSubTitle className="mb-4">{subtitle}</SectionSubTitle>
+        <Place />
+        {tip ? (
+          <Warning title={tip_title} img={"/images/con/tip.svg"}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: tip,
+              }}
+            />
+          </Warning>
+        ) : null}
         <div className="flex flex-col mt-5 translate-y-7 shadow-md bg-blue-dark | md:flex-row">
           <Transport
             title={t("venue.by_transport", {

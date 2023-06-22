@@ -5,13 +5,6 @@ export type Edition = {
   endDate: string;
 };
 
-export type Meta = {
-  TITLE?: string;
-  DESCRIPTION?: string;
-  OG_IMAGE?: string;
-  URL?: string;
-};
-
 export type LinkAttributes = {
   text: string;
   to: string;
