@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import classnames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLDivElement> {

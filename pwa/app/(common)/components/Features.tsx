@@ -2,7 +2,7 @@
 import Heading from "components/common/typography/Heading";
 import * as icons from "components/icons/features";
 import FeatureItem from "./FeatureItem";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export default function Features() {
   return (

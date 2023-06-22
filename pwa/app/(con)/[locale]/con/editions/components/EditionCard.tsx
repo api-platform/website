@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import { Edition } from "types/con";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
 interface EditionCardProps {

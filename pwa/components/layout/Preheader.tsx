@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from "components/common/Button";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export default function Preheader() {
   return (

@@ -8,7 +8,7 @@ import CodeBlock from "./timeline/CodeBlock";
 import StepContent from "./timeline/StepContent";
 import TimelineStepTitle from "./timeline/TimelineStepTitle";
 import ListPoint from "./timeline/ListPoint";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export default function Timeline() {
   return (

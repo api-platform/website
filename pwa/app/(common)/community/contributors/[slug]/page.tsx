@@ -5,7 +5,7 @@ import {
 } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
-import Link from "next/link";
+import Link from "components/common/Link";
 import ContributorRepositories from "./components/ContributorRepositories";
 import ContributorProfileCard from "./components/ContributorProfileCard";
 import { Fragment } from "react";

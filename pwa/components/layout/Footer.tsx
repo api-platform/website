@@ -1,7 +1,7 @@
 import Logo from "components/common/Logo";
 import { Github, Mastodon, Twitter } from "components/icons/social";
 import footerData from "data/footer";
-import Link, { LinkProps } from "next/link";
+import Link, { LinkProps } from "components/common/Link";
 import Image from "next/image";
 import { PropsWithChildren } from "react";
 

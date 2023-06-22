@@ -1,7 +1,7 @@
 import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { Reference } from "types";
 import LogoItem from "./ReferenceLogoItem";
 

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Heading from "components/common/typography/Heading";
 import { openSourceData, otherData } from "data/logos";
-import Link from "next/link";
+import Link from "components/common/Link";
 import Image from "next/image";
 import classNames from "classnames";
 import ShapeSection from "components/common/ShapeSection";

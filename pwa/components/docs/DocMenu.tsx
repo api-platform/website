@@ -1,6 +1,6 @@
 "use client";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { DocLink } from "types";

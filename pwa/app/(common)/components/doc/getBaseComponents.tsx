@@ -1,6 +1,6 @@
 import CodeSelector from "app/common/components/doc/CodeSelector";
 import classNames from "classnames";
-import Link, { LinkProps } from "next/link";
+import Link, { LinkProps } from "components/common/Link";
 
 const GetBaseComponents = {
   CodeSelector: (props: React.HTMLAttributes<HTMLDivElement>) => {

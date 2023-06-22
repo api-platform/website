@@ -4,7 +4,7 @@ import { Speaker } from "types/con";
 import SpeakerSocialList from "./SpeakerSocialList";
 import SpeakerImage from "./SpeakerImage";
 import Overline from "components/con/common/typography/Overline";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 interface SpeakerProps {
   speaker: Speaker;

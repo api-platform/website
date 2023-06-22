@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import Link from "next/link";
+import Link from "components/common/Link";
 import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
 import Section from "components/con/home/Section";
