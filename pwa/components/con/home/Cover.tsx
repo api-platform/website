@@ -30,13 +30,13 @@ export default function Cover({ date, baseline, button }: CoverProps) {
         </h1>
         <span className="text-3xl font-light py-12">{baseline}</span>
         <Web
-          className="absolute z-0 h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-[80%] opacity-60 pointer-events-none"
+          className="absolute max-w-none z-0 h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-[80%] opacity-60 pointer-events-none"
           animated={true}
           isVisible={isVisible("home")}
         />
         {button || null}
       </div>
-      <Wave className="absolute opacity-50 z-0 bottom-0 h-[60vh] right-[22%] top-[58%] -translate-y-1/2 rotate-[10deg]" />
+      <Wave className="absolute opacity-50 z-0 bottom-0 max-w-none h-[60vh] right-[24%] top-[58%] -translate-y-1/2 rotate-[10deg]" />
     </Section>
   );
 }

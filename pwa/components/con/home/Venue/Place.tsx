@@ -19,6 +19,8 @@ export default function Place() {
   const [initialized, setInitialized] = useState<boolean>(false);
 
   const createMap = useCallback(() => {
+    if (!process.env.NEXT_PUBLIC_MAPBOX_KEY) return;
+
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY || "";
     const newMap = new mapboxgl.Map({
       container: mapContainerRef.current || "",

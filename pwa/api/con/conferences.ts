@@ -14,15 +14,15 @@ export const getAllConferences = async (
   locale: Locale
 ) => {
   const slugs = (
-    await readdir(
-      path.join(process.cwd(), `data/con/${edition}/conferences/${locale}`)
-    )
+    await readdir(path.join(process.cwd(), `data/con/${edition}/conferences`))
   )
     .filter((el) => path.extname(el) === ".md")
     .map((slug) => slug.replace(/\.md$/, ""));
 
   return Promise.all(
-    slugs.map((slug) => getConferenceData(edition, slug, false, withSpeakers))
+    slugs.map((slug) =>
+      getConferenceData(edition, slug, false, withSpeakers, locale)
+    )
   );
 };
 
@@ -45,9 +45,7 @@ export const getAllConferenceSlugs = async (
   locale: Locale = i18n.defaultLocale
 ) => {
   return (
-    await readdir(
-      path.join(process.cwd(), `data/con/${edition}/conferences/${locale}`)
-    )
+    await readdir(path.join(process.cwd(), `data/con/${edition}/conferences`))
   )
     .filter((el) => path.extname(el) === ".md")
     .map((slug: string) => slug.replace(/\.md$/, ""));
@@ -61,10 +59,7 @@ export const getConferenceData = async (
   locale: Locale = i18n.defaultLocale
 ) => {
   const fileContents = await readFile(
-    path.join(
-      process.cwd(),
-      `data/con/${edition}/conferences/${locale}/${slug}.md`
-    ),
+    path.join(process.cwd(), `data/con/${edition}/conferences/${slug}.md`),
     "utf8"
   );
 

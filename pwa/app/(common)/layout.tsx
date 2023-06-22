@@ -15,13 +15,13 @@ const poppins = Poppins({
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
 
-  const BASE_URL = getRootUrl();
+  const ROOT_URL = new URL(getRootUrl());
 
   const title = dictionary["layout"].title;
   const description = dictionary["layout"].description;
 
   return {
-    metadataBase: new URL(BASE_URL),
+    metadataBase: ROOT_URL,
     title: title,
     description: description,
     keywords: ["API Platform", "REST", "PHP", "Javascript"],
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: "Kévin Dunglas",
     themeColor: "#0099a1",
     openGraph: {
-      url: "https://api-platform.com",
+      url: ROOT_URL,
       title: title,
       description: description,
       type: "website",
