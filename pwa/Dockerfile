@@ -35,8 +35,22 @@ ENV PORT 3000
 CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
-FROM builder_base AS builder
+FROM builder_base AS builder_staging
 COPY --link . .
+COPY --from=deps --link /srv/app/node_modules ./node_modules
+
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
+	&& pnpm run prebuild \
+	&& pnpm run build \
+	&& pnpm run postbuild
+
+FROM builder_base AS builder_prod
+COPY --link . .
+COPY --link ../.env.prod ./.env
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 
 RUN --mount=type=secret,id=GITHUB_KEY \
@@ -59,7 +73,33 @@ ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder --link /srv/app/public ./public
+COPY --from=builder_prod --link /srv/app/public ./public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
+COPY --from=builder --link --chown=nextjs:nodejs /srv/app/public/* ./public/
+COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
+
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+CMD ["node", "server.js"]
+
+FROM node:18-alpine AS staging
+WORKDIR /srv/app
+
+ENV NODE_ENV production
+# Uncomment the following line in case you want to disable telemetry during runtime.
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder_staging --link /srv/app/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
