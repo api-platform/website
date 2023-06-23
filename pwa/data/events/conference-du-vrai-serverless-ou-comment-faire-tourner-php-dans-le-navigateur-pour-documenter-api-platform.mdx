@@ -1,0 +1,24 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2022-05-12",
+    },
+    link: 'https://event.afup.org/afup-day-2023/afup-day-2023-lille/programme/#4210',
+    speakers: [{
+        name: "Antoine Bluchet",
+        github: "soyuka",
+    }],
+};
+
+# Du vrai serverless ou comment faire tourner PHP dans le navigateur pour documenter API Platform
+
+Si vous utilisez API Platform, vous pensez sûrement comme beaucoup que la documentation peut être améliorée. Ça tombe bien, c'est ce sur quoi je suis en train de travailler. Et quoi de mieux qu'une documentation intéractive où l'on peut tester directement le code ?
+
+Le problème, c'est que faire tourner PHP côté serveur juste pour tester, ça peut vite revenir cher en hébergement... Et si on exécutait PHP directement dans le navigateur ?
+
+Dans cette conférence, je vous présenterai WebAssembly, une technologie qui permet de compiler des programmes pour qu'ils s'exécutent dans les navigateurs. Ensuite, nous découvrirons comment compiler PHP en WebAssembly. Et enfin, nous verrons comment exécuter Symfony, API Platform ou encore tout autre projet PHP directement dans le navigateur, sans aucun serveur (PHP).
