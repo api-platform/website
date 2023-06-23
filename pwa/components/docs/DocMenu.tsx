@@ -14,6 +14,8 @@ export interface NavPartProps {
   autoOpen?: boolean;
 }
 
+const trimLink = (str: string) => str.replace(/\/$/, "");
+
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
   const [isOpen, setOpen] = useState(
@@ -100,7 +102,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
                 prefetch={false}
                 className={classNames(
                   "relative block pl-4 -translate-x-px border-l-px transition-all hover:border-l-gray-500",
-                  pathname === subLink.link || `${pathname}/` === subLink.link
+                  trimLink(pathname) === trimLink(subLink.link)
                     ? "text-blue border-l-blue font-semibold"
                     : "text-gray-500 border-l-transparent"
                 )}
