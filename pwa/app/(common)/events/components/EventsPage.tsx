@@ -41,6 +41,7 @@ export default function EventsPage({ events }: EventsPageProps) {
     endDate: {
       date: "2023-09-22",
     },
+    picture: `/images/con/og-2021.png`,
     title: "API Platform Conference 2023",
     slug: "api-con",
   };
