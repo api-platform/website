@@ -2,7 +2,7 @@
 import { useCallback, PropsWithChildren, useContext } from "react";
 import { usePathname } from "next/navigation";
 import useDynamicRefs from "hooks/con/useDynamicRefs";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
 interface ConLinkProps extends PropsWithChildren {

@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import { DocContext } from "contexts/DocContext";
 import useOnClickOutside from "hooks/useOnClickOutside";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { usePathname } from "next/navigation";
 import { Fragment, useContext, useEffect, useRef, useState } from "react";
 import DocMenu, { NavPartProps } from "./DocMenu";

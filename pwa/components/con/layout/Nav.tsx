@@ -7,7 +7,7 @@ import { Navigation } from "types/con";
 import { currentEdition } from "data/con/editions";
 import BuyButton from "components/con/common/BuyButton";
 import ConLink from "components/con/common/ConLink";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import NavLink from "./NavLink";
 

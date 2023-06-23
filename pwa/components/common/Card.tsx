@@ -1,7 +1,7 @@
 "use client";
 import React, { PropsWithChildren } from "react";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export interface CardProps extends PropsWithChildren {
   padding?: boolean;
