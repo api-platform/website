@@ -27,16 +27,12 @@ const footer: FooterPart[] = [
         url: "https://symfonycasts.com/screencast/api-platform?cid=apip",
       },
       {
-        title: "Stack overflow",
+        title: "Stack Overflow",
         url: "https://stackoverflow.com/questions/tagged/api-platform.com",
       },
       {
         title: "Slack",
         url: "https://symfony-devs.slack.com/",
-      },
-      {
-        title: "Code of conduct",
-        url: "/help/code-of-conduct",
       },
     ],
   },
@@ -58,15 +54,19 @@ const footer: FooterPart[] = [
       },
       {
         title: "Twitter",
-        url: "/resources/colouring-webby",
+        url: "https://twitter.com/ApiPlatform",
       },
       {
         title: "Github",
-        url: "/resources/colouring-webby",
+        url: "https://github.com/api-platform/api-platform",
+      },
+      {
+        title: "Mastodon",
+        url: "https://fosstodon.org/@ApiPlatform",
       },
       {
         title: "Contribute",
-        url: "/resources/colouring-webby",
+        url: "/docs/extra/contribution-guides/",
       },
     ],
   },

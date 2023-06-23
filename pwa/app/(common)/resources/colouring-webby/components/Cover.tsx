@@ -19,13 +19,12 @@ export default function Cover() {
           </Heading>
           <p className="text-lg">
             It’s time to pull out your colored pencils! Coloring is a great way
-            to kill time and relax during social distancing. Coloring is not
-            just for kids. It improves focus and goes beyond being a great
-            activity for destress.
+            to kill time and relax. Coloring is not just for kids. It improves
+            focus and goes beyond being a great activity for destress.
           </p>
           <p className="text-lg pt-5">
-            You (and your kids) are in quarantine and get bored? Download our
-            coloring pages and share your work by mentioning{" "}
+            You (or your kids) get bored? Download our coloring pages and share
+            your work by mentioning API Platform on Twitter!
             <Link
               className="font-semibold"
               href="https://twitter.com/ApiPlatform"

@@ -50,29 +50,51 @@ export default function Timeline() {
               <a
                 className="link"
                 href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"
+                target="_blank"
+                rel="noreferer noopener"
               >
                 REST
               </a>{" "}
               &{" "}
-              <a className="link" href="https://graphql.org/">
+              <a
+                className="link"
+                href="https://graphql.org/"
+                target="_blank"
+                rel="noreferer noopener"
+              >
                 GraphQL
               </a>{" "}
               API
             </ListPoint>
             <ListPoint>
               <strong>Automatic documentation</strong>{" "}
-              <a className="link" href="https://www.openapis.org/">
+              <a
+                className="link"
+                href="https://www.openapis.org/"
+                target="_blank"
+                rel="noreferer noopener"
+              >
                 OpenAPI
               </a>
               , SwaggerUI, GraphiQL...
             </ListPoint>
             <ListPoint>
               Support for <strong>standards</strong> and formats{" "}
-              <a className="link" href="https://json-ld.org/">
+              <a
+                className="link"
+                href="https://json-ld.org/"
+                target="_blank"
+                rel="noreferer noopener"
+              >
                 JSON-LD
               </a>
               ,{" "}
-              <a className="link" href="https://hydra-cg.com/">
+              <a
+                className="link"
+                href="https://hydra-cg.com/"
+                target="_blank"
+                rel="noreferer noopener"
+              >
                 Hydra
               </a>
               , JSON:API
@@ -81,7 +103,14 @@ export default function Timeline() {
           <p>
             Alternatively,{" "}
             <Link href="/docs/schema-generator">generate the classes</Link> from
-            an existing <a href="https://schema.org/">RDF vocabulary</a>
+            an existing{" "}
+            <a
+              href="https://schema.org/"
+              target="_blank"
+              rel="noreferer noopener"
+            >
+              RDF vocabulary
+            </a>
             .
             <br />
             <br /> API Platform automatically exposes production-grade{" "}
@@ -98,7 +127,12 @@ export default function Timeline() {
           <p className="mt-6 sm:mt-0">
             The framework has been designed from the ground up to be usable from
             Rapid Application Development contexts to{" "}
-            <a className="link" href="https://github.com/mtarld/apip-ddd">
+            <a
+              className="link"
+              href="https://github.com/mtarld/apip-ddd"
+              target="_blank"
+              rel="noreferer noopener"
+            >
               Domain-Driven Design
             </a>{" "}
             or Clean Architecture-like approaches.

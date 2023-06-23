@@ -36,7 +36,12 @@ export default function Features() {
             Asynchronous state processing
           </FeatureItem>
           <FeatureItem Icon={icons.VulcainIcon} index={4}>
-            <a className="link" href="https://vulcain.rocks">
+            <a
+              className="link"
+              href="https://vulcain.rocks"
+              target="_blank"
+              rel="noreferer noopener"
+            >
               Relation preloading avec Vulcain.rocks
             </a>
           </FeatureItem>

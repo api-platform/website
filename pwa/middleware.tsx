@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { i18n } from "i18n/i18n-config";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-import { versions } from "consts";
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
@@ -19,7 +18,7 @@ export async function middleware(request: NextRequest) {
   const { locales, defaultLocale } = i18n;
   const pathname = request.nextUrl.pathname;
 
-  if (pathname.startsWith("/docs")) {
+  /*if (pathname.startsWith("/docs")) {
     // We're not using octokit here as we cannot instantiate it in the middleware
     const headers = new Headers();
     headers.append("accept", "application/vnd.github+json");
@@ -27,9 +26,12 @@ export async function middleware(request: NextRequest) {
     headers.append("X-GitHub-Api-Version", "2022-11-28");
 
     const lastPart = pathname.split("/").slice(-1)[0];
-    const i = lastPart.lastIndexOf(".");
-    const ext = i < 0 ? "" : lastPart.substr(i);
-    if (!ext || versions.includes(lastPart)) {
+    const imagesExtensions = [".jpg", ".jpeg", ".png", ".gif", ".svg"];
+    const extension = lastPart
+      .substring(lastPart.lastIndexOf("."))
+      .toLowerCase();
+
+    if (!imagesExtensions.includes(extension)) {
       return NextResponse.next();
     }
 
@@ -48,7 +50,7 @@ export async function middleware(request: NextRequest) {
     } catch (error) {
       return NextResponse.rewrite(new URL("/404", request.url));
     }
-  }
+  }*/
 
   if (
     !pathname.startsWith("/fr/con") &&
