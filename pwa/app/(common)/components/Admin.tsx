@@ -13,8 +13,8 @@ export default function Admin() {
         <p className="text-text-secondary dark:text-white text-xl font-light mt-8">
           API Platform Admin exposes your data trough a beautiful UI.
         </p>
-        <div className="flex flex-col w-full justify-between items-start py-8 gap-y-8 | sm:flex-row sm:max-w-xl sm:gap-x-24 sm:gap-y-0 sm:mt-8 | md:max-w-none | xl:min-h-[450px]">
-          <div className="flex flex-col items-center text-center w-full | lg:text-left lg:w-1/4">
+        <div className="flex flex-col w-full justify-between items-center py-8 gap-y-8 | sm:flex-row sm:max-w-xl sm:gap-x-24 sm:gap-y-0 sm:mt-8 | md:max-w-none | xl:min-h-[450px]">
+          <div className="flex flex-col items-center text-center w-full | sm:items-start sm:text-left | lg:w-1/4">
             <ListPoint direction="left">
               Entirely <strong>customizable</strong>
             </ListPoint>
@@ -26,7 +26,7 @@ export default function Admin() {
               <strong>React Admin</strong>
             </ListPoint>
           </div>
-          <div className="flex flex-col items-center text-center w-full | lg:text-left lg:w-1/4">
+          <div className="flex flex-col items-center text-center w-full | sm:items-start sm:text-left | lg:w-1/4">
             <ListPoint direction="right">
               100% <strong>no code</strong>
             </ListPoint>

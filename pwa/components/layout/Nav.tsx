@@ -110,7 +110,13 @@ export default function Nav({ withPreheader = false }) {
               <NavLink href="/events">Events</NavLink>
               <NavLink href="/help">Need help?</NavLink>
               <div className="lg:border-l-2 lg:pl-6 lg:border-current">
-                <Github className="h-8 w-8 lg:h-5 lg:w-5" />
+                <a
+                  href="https://github.com/api-platform/api-platform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Github className="h-8 w-8 lg:h-5 lg:w-5" />
+                </a>
               </div>
             </div>
             <NavLink

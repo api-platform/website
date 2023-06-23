@@ -6,11 +6,15 @@ import Image from "next/image";
 import { PropsWithChildren } from "react";
 
 function FooterLink(props: LinkProps & PropsWithChildren) {
+  const externalProps = props.href.toString()?.startsWith("http")
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
   return (
     <Link
       prefetch={false}
       {...props}
       className="text-white font-light transition-all hover:opacity-75"
+      {...externalProps}
     >
       {props.children}
     </Link>
@@ -48,9 +52,27 @@ export default function Footer() {
             </p>
           </div>
           <div className="hidden text-blue-light flex-row gap-4 | sm:flex">
-            <Github className="h-5 w-5" />
-            <Mastodon className="h-5 w-5" />
-            <Twitter className="h-5 w-5" />
+            <a
+              href="https://github.com/api-platform/api-platform"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a
+              href="https://fosstodon.org/@ApiPlatform"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Mastodon className="h-5 w-5" />
+            </a>
+            <a
+              href="https://twitter.com/ApiPlatform"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
           </div>
         </div>
         <div className="flex flex-col mt-12 items-center | sm:items-start sm:flex-row">
@@ -111,10 +133,12 @@ export default function Footer() {
             </a>
           </p>
           <div className="flex flex-col gap-2 text-center text-sm | sm:flex-row sm:gap-8">
-            <FooterLink href="/enterprise subscription">
+            <FooterLink href="/docs/extra/enterprise">
               Enterprise subscription
             </FooterLink>
-            <FooterLink href="/security-policy">Security Policy</FooterLink>
+            <FooterLink href="/docs/extra/security-policy">
+              Security Policy
+            </FooterLink>
             <FooterLink href="/trademark-policy">Trademark Policy</FooterLink>
           </div>
         </div>

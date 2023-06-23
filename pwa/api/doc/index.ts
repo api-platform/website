@@ -12,7 +12,6 @@ import { cache } from "react";
 import { current } from "consts";
 import { load as parseHtml } from "cheerio";
 import { Chapters } from "types";
-import { notFound } from "next/navigation";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
@@ -182,6 +181,9 @@ export const getDocContentFromSlug = async (
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
 const codeBlock = /```[a-z]([\s\S]+?)(?=```)/gm;
 const codeLanguage = /```([a-z]+)/;
+const absoluteImgRegex = /src="\/docs\/(.*?\.(jpg|jpeg|png|gif|svg))"/gm;
+const blankLinkRegex =
+  /<a\s+([^>]*\s+)?href="http[^"]*"(?![^>]*\starget=[^>]*>)/gm;
 
 function getLang(block: string): string {
   const language = block.match(codeLanguage);
@@ -193,13 +195,11 @@ function getLang(block: string): string {
   return language[1];
 }
 
-export const getHtmlFromGithubContent = async ({
-  data,
-  path: githubPath,
-}: {
-  data: any;
-  path: string;
-}) => {
+export const getHtmlFromGithubContent = async (
+  data: any,
+  githubPath: string,
+  version: string
+) => {
   const result = Buffer.from(data.content, "base64").toString();
 
   marked.setOptions({ mangle: false, headerIds: false });
@@ -251,7 +251,6 @@ export const getHtmlFromGithubContent = async ({
         $("img").map(function (i, elem) {
           const el = $(this);
           const src = el.attr("src");
-
           if (src) {
             el.attr("src", toAbsoluteUrl(src, githubPath));
           }
@@ -316,5 +315,11 @@ export const getHtmlFromGithubContent = async ({
     },
   });
 
-  return marked.parse(result);
+  return marked
+    .parse(result)
+    .replace(
+      absoluteImgRegex,
+      `src="https://raw.githubusercontent.com/api-platform/docs/${version}/$1"`
+    )
+    .replace(blankLinkRegex, '$& target="_blank"');
 };

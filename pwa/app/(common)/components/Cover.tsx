@@ -40,10 +40,15 @@ export default function Cover() {
             The API first framework
           </p>
           <div className="flex flex-row flex-wrap items-center justify-center">
-            <Button className="m-2" color="white" href="">
+            <Button
+              className="m-2"
+              color="white"
+              href="https://github.com/api-platform/api-platform/releases"
+              external
+            >
               Download
             </Button>
-            <Button color="white" className="m-2" href="">
+            <Button color="white" className="m-2" href="/docs/distribution/">
               Getting started
             </Button>
           </div>
