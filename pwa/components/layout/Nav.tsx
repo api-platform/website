@@ -12,6 +12,7 @@ import { current } from "consts";
 
 export default function Nav({ withPreheader = false }) {
   const [isOpen, setOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // avoid error hydration due to docsearch
   const pathname = usePathname();
   const withBg = pathname !== "/";
   const isDocPage = pathname?.startsWith("/docs");
@@ -34,6 +35,10 @@ export default function Nav({ withPreheader = false }) {
       window.removeEventListener("resize", forceClose);
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <>
@@ -74,7 +79,8 @@ export default function Nav({ withPreheader = false }) {
           >
             <Logo className="h-5" inline />
           </NavLink>
-          {process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
+          {isMounted &&
+          process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
           process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME &&
           process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY ? (
             <DocSearch
