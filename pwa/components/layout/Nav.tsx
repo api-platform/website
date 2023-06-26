@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import Logo from "components/common/Logo";
 import ThemeToggle from "components/common/ThemeToggle";
-import { Github } from "components/icons/social";
+import { Github, Mastodon, Twitter } from "components/icons/social";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useState, useEffect } from "react";
@@ -62,7 +62,7 @@ export default function Nav({ withPreheader = false }) {
         />
         <nav
           className={classNames(
-            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-8",
+            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-6",
             withBg
               ? "text-blue-black dark:text-white"
               : "text-white dark:text-blue-black",
@@ -102,26 +102,43 @@ export default function Nav({ withPreheader = false }) {
           <div
             className={classNames(
               "-lg:uppercase -lg:font-bold -lg:text-xl fixed h-screen w-5/6 max-w-md top-0 bg-white dark:bg-blue-black z-40 transition-all duration-500 flex flex-col gap-6 justify-start items-center",
-              "lg:bg-transparent lg:dark:bg-transparent lg:h-auto lg:w-auto lg:flex-row lg:static lg:justify-end",
+              "lg:bg-transparent lg:dark:bg-transparent lg:h-auto lg:w-auto lg:flex-row lg:static lg:justify-end lg:max-w-none",
               isOpen
                 ? "right-0 text-blue dark:text-blue-extralight"
                 : "-right-full"
             )}
           >
-            <div className="flex flex-col flex-1 items-center justify-center gap-8 lg:flex-row">
+            <div className="flex flex-col flex-1 items-center justify-center gap-5 lg:flex-row">
               <NavLink href="/docs">Docs</NavLink>
+              <NavLink href="https://symfonycasts.com/screencast/api-platform?cid=apip">
+                Screencasts
+              </NavLink>
               <NavLink href="https://api-platform.myspreadshop.net/">
                 Shop
               </NavLink>
               <NavLink href="/events">Events</NavLink>
-              <NavLink href="/help">Need help?</NavLink>
-              <div className="lg:border-l-2 lg:pl-6 lg:border-current">
+              <NavLink href="/help">Need&nbsp;help?</NavLink>
+              <div className="lg:border-l-2 lg:pl-6 lg:border-current flex flex-row gap-2">
                 <a
                   href="https://github.com/api-platform/api-platform"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   <Github className="h-8 w-8 lg:h-5 lg:w-5" />
+                </a>
+                <a
+                  href="https://fosstodon.org/@ApiPlatform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Mastodon className="h-8 w-8 lg:h-5 lg:w-5" />
+                </a>
+                <a
+                  href="https://twitter.com/ApiPlatform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Twitter className="h-8 w-8 lg:h-5 lg:w-5" />
                 </a>
               </div>
             </div>

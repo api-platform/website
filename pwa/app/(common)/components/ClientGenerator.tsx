@@ -12,6 +12,38 @@ import {
 import ShapeSection from "components/common/ShapeSection";
 
 export default function ClientGenerator() {
+  const logos = [
+    {
+      Icon: NextIcon,
+      title: "Next.js",
+      link: "https://nextjs.org/",
+    },
+    {
+      Icon: NuxtIcon,
+      title: "Nuxt",
+      link: "https://nuxt.com/",
+    },
+    {
+      Icon: ReactIcon,
+      title: "React",
+      link: "https://react.dev/",
+    },
+    {
+      Icon: VueIcon,
+      title: "Vue.js",
+      link: "https://vuejs.org/",
+    },
+    {
+      Icon: QuasarIcon,
+      title: "Quasar",
+      link: "https://quasar.dev/",
+    },
+    {
+      Icon: VuetifyIcon,
+      title: "Vuetify",
+      link: "https://vuetifyjs.com/en/",
+    },
+  ];
   return (
     <ShapeSection
       maskColor="white"
@@ -36,12 +68,18 @@ export default function ClientGenerator() {
             React, or Quasar.
           </p>
           <div className="flex flex-row py-8 text-blue | sm:w-1/2 | md:w-full">
-            <NextIcon className="m-2 h-10 w-auto" />
-            <NuxtIcon className="m-2 h-10 w-auto" />
-            <ReactIcon className="m-2 h-10 w-auto" />
-            <VueIcon className="m-2 h-10 w-auto" />
-            <QuasarIcon className="m-2 h-10 w-auto" />
-            <VuetifyIcon className="m-2 h-10 w-auto" />
+            {logos.map((logo) => (
+              <a
+                key={logo.title}
+                href={logo.link}
+                title={logo.title}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:brightness-125 transition-all"
+              >
+                <logo.Icon className="m-2 h-10 w-auto" />
+              </a>
+            ))}
           </div>
           <Button
             empty

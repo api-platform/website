@@ -31,11 +31,27 @@ export default function Timeline() {
             Your development environment is ready!{" "}
           </p>
           Continuous integration (GitHub Action) as well as recipes to deploy in
-          production with Docker Compose or Kubernetes are also pre-installed.
+          production with{" "}
+          <Link
+            href="/docs/deployment/docker-compose/#deploying-with-docker-compose"
+            prefetch={false}
+            className="link"
+          >
+            Docker Compose
+          </Link>{" "}
+          or{" "}
+          <Link
+            href="/docs/deployment/kubernetes/"
+            className="link"
+            prefetch={false}
+          >
+            Kubernetes
+          </Link>{" "}
+          are also pre-installed.
         </StepContent>
         <TimelineStepTitle step={2}>
           Define the resources
-          <span className="block text-xl lowercase">
+          <span className="block text-xl normal-case">
             as PHP classes, or using OpenAPI
           </span>
         </TimelineStepTitle>
@@ -103,16 +119,8 @@ export default function Timeline() {
           <p>
             Alternatively,{" "}
             <Link href="/docs/schema-generator" prefetch={false}>
-              generate the classes
-            </Link>{" "}
-            from an existing{" "}
-            <a
-              href="https://schema.org/"
-              target="_blank"
-              rel="noreferer noopener"
-            >
-              RDF vocabulary
-            </a>
+              generate the classes from an existing RDF vocabulary
+            </Link>
             .
             <br />
             <br /> API Platform automatically exposes production-grade{" "}
@@ -120,7 +128,7 @@ export default function Timeline() {
           </p>
         </StepContent>
         <TimelineStepTitle step={3}>
-          Plug your business & persistance logic
+          Plug your business & persistence logic
         </TimelineStepTitle>
         <StepContent withPoint={false}>
           <CodeBlock title="Plug your logic">
@@ -152,6 +160,22 @@ export default function Timeline() {
           <p>
             API Platform can automatically retrieve, persist, paginate and
             validate data using the most popular database systems.
+          </p>
+          <p>
+            PostgreSQL ,{" "}
+            <Link href="/docs/core/mongodb/" prefetch="false" className="link">
+              MongoDB
+            </Link>
+            ,{" "}
+            <Link
+              href="/docs/core/elasticsearch/#elasticsearch-support"
+              prefetch="false"
+              className="link"
+            >
+              ElasticSearch
+            </Link>
+            , SQLite, MySQL, MariaDB, SQL Server and Oracle are supported out of
+            the box.
           </p>
         </StepContent>
         <StepContent className="sm:mt-24">
