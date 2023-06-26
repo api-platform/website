@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import Preheader from "./Preheader";
 import { DocSearch } from "@docsearch/react";
 import { current } from "consts";
+import LogoTilleuls from "components/common/LogoTilleuls";
 
 export default function Nav({ withPreheader = false }) {
   const [isOpen, setOpen] = useState(false);
@@ -77,7 +78,26 @@ export default function Nav({ withPreheader = false }) {
             )}
             title="API Platform"
           >
-            <Logo className="h-5" inline />
+            <div
+              className={classNames(
+                "w-[50px] h-[50px] bg-blue-extralight rounded-full flex items-center justify-center p-1 sm:hidden",
+                withBg && "dark:bg-blue-light"
+              )}
+            >
+              <img src="/images/logo_spider.svg" className="w-full" alt="" />
+            </div>
+            <div className="hidden sm:block">
+              <Logo className="h-5" inline />
+              <p
+                className={classNames(
+                  "mt-1.5 text-xs font-title dark:opacity-90",
+                  withBg && "text-blue-black dark:text-white"
+                )}
+              >
+                <span>by</span>{" "}
+                <LogoTilleuls red={withBg} className="inline w-28" />
+              </p>
+            </div>
           </NavLink>
           {isMounted &&
           process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
