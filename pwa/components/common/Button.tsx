@@ -78,6 +78,7 @@ export default function Button({
   return href ? (
     <Link
       className={allClassNames}
+      prefetch={false}
       href={href}
       {...(external ? externalProps : {})}
       aria-label={ariaLabel}
