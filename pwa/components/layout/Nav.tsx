@@ -63,11 +63,10 @@ export default function Nav({ withPreheader = false }) {
         />
         <nav
           className={classNames(
-            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-6",
+            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-6 w-full max-w-8xl",
             withBg
               ? "text-blue-black dark:text-white"
-              : "text-white dark:text-blue-black",
-            isDocPage ? "max-w-8xl" : "container"
+              : "text-white dark:text-blue-black"
           )}
         >
           <NavLink
