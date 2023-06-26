@@ -88,7 +88,7 @@ export default function Nav({ edition, nav }: NavProps) {
       {nav?.backLink && nav.backLink.to !== pathname ? (
         <div className="h-full hidden items-center | lg:flex lg:flex-row">
           <a
-            className="uppercase text-white text-xs font-semibold transition-all | hover:text-blue hover:scale-95"
+            className="uppercase text-white text-sm font-semibold transition-all | hover:text-blue hover:scale-95"
             href={nav.backLink.to.replace("{{locale}}", locale)}
           >
             {`< ${t(nav.backLink.text)}`}
