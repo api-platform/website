@@ -44,20 +44,34 @@ export default function Features() {
             Asynchronous state processing
           </FeatureItem>
           <FeatureItem Icon={icons.VulcainIcon} index={4}>
-            <a
+            <Link
               className="link"
-              href="https://vulcain.rocks"
-              target="_blank"
-              rel="noreferer noopener"
+              href="/docs/core/push-relations/#pushing-related-resources-using-http2"
+              prefetch={false}
             >
-              Relation preloading avec Vulcain.rocks
-            </a>
+              Relation preloading with Vulcain.rocks
+            </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.CaddyIcon} index={5}>
-            Caddy server integration HTTPS & HTTP/3
+            <Link
+              className="link"
+              href="/docs/distribution/caddy/#configuring-the-caddy-web-server"
+              prefetch={false}
+            >
+            Caddy server</Link> integration HTTPS & HTTP/3
           </FeatureItem>
           <FeatureItem Icon={icons.PaginationIcon} index={6}>
-            Automatic pagination and filtering
+            Automatic <Link
+              className="link"
+              href="/docs/core/pagination/"
+              prefetch={false}
+            >
+            pagination</Link> and <Link
+              className="link"
+              href="/docs/core/filters/"
+              prefetch={false}
+            >filtering</Link>
+
           </FeatureItem>
           <FeatureItem Icon={icons.DockerIcon} index={7}>
             <Link className="link" href="/docs/deployment/" prefetch={false}>

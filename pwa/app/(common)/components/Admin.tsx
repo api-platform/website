@@ -2,6 +2,7 @@ import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
 import ListPoint from "./AdminListPoint";
+import Link from "components/common/Link";
 
 export default function Admin() {
   return (
@@ -19,7 +20,7 @@ export default function Admin() {
               Entirely <strong>customizable</strong>
             </ListPoint>
             <ListPoint direction="left">
-              <strong>Hydra</strong> and <strong>OpenAPI</strong> compatible
+              <strong>Hydra</strong> and <Link href="/docs/admin/openapi/" prefetch={false} className="link"><strong>OpenAPI</strong></Link> compatible
             </ListPoint>
             <ListPoint direction="left">
               Built on top of <strong>Material UI</strong> and{" "}
@@ -50,7 +51,7 @@ export default function Admin() {
           empty
           className="relative dark:border-blue-extralight dark:text-blue-extralight"
           color="white"
-          href="/docs/admin"
+          href="/docs/admin/"
           ariaLabel="See admin interface"
         >
           Learn more

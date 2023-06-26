@@ -1,6 +1,8 @@
 import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
+import Link from "components/common/Link";
+
 import {
   VueIcon,
   NextIcon,
@@ -62,10 +64,13 @@ export default function ClientGenerator() {
             Scaffold <strong>client apps</strong>
           </Heading>
           <p className="text-white/60 text-xl font-light mt-8">
-            We don&apos;t want to decide for you which front-end framework you
-            want to work with. That&apos;s why we allow you to generate a web or
-            mobile application for most popular front-end frameworks, like Vue,
-            React, or Quasar.
+           We provide a scaffolding with first-class support for <a
+              className="link"
+              href="https://nextjs.org/"
+              target="_blank"
+              rel="noreferer noopener"
+            >Next.js</a>, but don't want to decide for you which front-end framework
+           you want to work with so skeletons for many other frontend frameworks are supported such as: <Link href="/docs/create-client/nuxt/" prefetch={false} className="link">Nuxt (Vue)</Link>, <Link href="/docs/create-client/react-native/" prefetch={false} className="link">Expo (React Native)</Link>, <Link href="/docs/create-client/Quasar/" prefetch={false} className="link">Quasar</Link>, and <Link href="/docs/create-client/#generated-react-and-react-native-apps-updated-in-real-time" prefetch={false} className="link">many more...</Link>
           </p>
           <div className="flex flex-row py-8 text-blue | sm:w-1/2 | md:w-full">
             {logos.map((logo) => (
