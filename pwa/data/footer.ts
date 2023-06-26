@@ -23,6 +23,10 @@ const footer: FooterPart[] = [
     link: "/help",
     links: [
       {
+        title: "Need help?",
+        url: "/help",
+      },
+      {
         title: "Screencasts",
         url: "https://symfonycasts.com/screencast/api-platform?cid=apip",
       },
@@ -41,6 +45,10 @@ const footer: FooterPart[] = [
     link: "/community",
     links: [
       {
+        title: "Overview",
+        url: "/community",
+      },
+      {
         title: "Events",
         url: "/events",
       },
@@ -53,19 +61,7 @@ const footer: FooterPart[] = [
         url: "/community/contributors",
       },
       {
-        title: "Twitter",
-        url: "https://twitter.com/ApiPlatform",
-      },
-      {
-        title: "Github",
-        url: "https://github.com/api-platform/api-platform",
-      },
-      {
-        title: "Mastodon",
-        url: "https://fosstodon.org/@ApiPlatform",
-      },
-      {
-        title: "Contribute",
+        title: "How to contribute",
         url: "/docs/extra/contribution-guides/",
       },
     ],
