@@ -18,17 +18,25 @@ export default function Features() {
         </Heading>
         <div className="w-full max-w-6xl mx-auto pt-12 flex flex-row flex-wrap justify-center">
           <FeatureItem Icon={icons.AuthenticationIcon} index={0}>
-            <Link className="link" href="/docs/core/security/">
+            <Link className="link" href="/docs/core/security/" prefetch={false}>
               Authentication and access control rules
             </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.ValidationIcon} index={1}>
-            <Link className="link" href="/docs/core/validation/">
+            <Link
+              className="link"
+              href="/docs/core/validation/"
+              prefetch={false}
+            >
               Advanced data validation
             </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.CacheIcon} index={2}>
-            <Link className="link" href="/docs/core/performance/">
+            <Link
+              className="link"
+              href="/docs/core/performance/"
+              prefetch={false}
+            >
               Invalidation-based HTTP cache
             </Link>
           </FeatureItem>
@@ -52,7 +60,7 @@ export default function Features() {
             Automatic pagination and filtering
           </FeatureItem>
           <FeatureItem Icon={icons.DockerIcon} index={7}>
-            <Link className="link" href="/docs/deployment/">
+            <Link className="link" href="/docs/deployment/" prefetch={false}>
               Docker & Kubernetes setups included
             </Link>
           </FeatureItem>

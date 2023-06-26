@@ -50,7 +50,7 @@ export default function Admin() {
           empty
           className="relative dark:border-blue-extralight dark:text-blue-extralight"
           color="white"
-          href="/docs"
+          href="/docs/admin"
           ariaLabel="See admin interface"
         >
           Learn more

@@ -29,7 +29,7 @@ export default function Card({
   );
   if (link)
     return (
-      <Link href={link} className={allClassNames}>
+      <Link href={link} className={allClassNames} prefetch={false}>
         {children}
       </Link>
     );

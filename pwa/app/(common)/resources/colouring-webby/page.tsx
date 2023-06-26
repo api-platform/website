@@ -3,7 +3,6 @@ import path from "node:path";
 import { Metadata } from "next";
 import ColouringList from "./components/ColouringList";
 import Heading from "components/common/typography/Heading";
-import Link from "components/common/Link";
 import Image from "next/image";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -44,14 +43,14 @@ export default async function Page() {
             <p className="text-md pt-5 font-light max-w-xl">
               You (or your kids) get bored? Download our coloring pages and
               share your work by mentioning{" "}
-              <Link
+              <a
                 className="font-semibold"
                 href="https://twitter.com/ApiPlatform"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 API Platform on Twitter
-              </Link>
+              </a>
               !
             </p>
           </div>

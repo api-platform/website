@@ -102,8 +102,10 @@ export default function Timeline() {
           </ul>
           <p>
             Alternatively,{" "}
-            <Link href="/docs/schema-generator">generate the classes</Link> from
-            an existing{" "}
+            <Link href="/docs/schema-generator" prefetch={false}>
+              generate the classes
+            </Link>{" "}
+            from an existing{" "}
             <a
               href="https://schema.org/"
               target="_blank"

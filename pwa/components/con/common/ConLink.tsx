@@ -58,7 +58,7 @@ export default function ConLink({
       {children}
     </a>
   ) : (
-    <Link className={className} href={href || ""}>
+    <Link prefetch={false} className={className} href={href || ""}>
       {children}
     </Link>
   );

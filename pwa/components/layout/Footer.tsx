@@ -84,6 +84,7 @@ export default function Footer() {
               >
                 {footerPart.link ? (
                   <Link
+                    prefetch={false}
                     className="uppercase font-title text-blue-light font-semibold mb-1 text-xl"
                     href={footerPart.link}
                   >
