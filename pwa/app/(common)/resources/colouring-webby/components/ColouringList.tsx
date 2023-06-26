@@ -7,7 +7,7 @@ interface ColouringListProps {
 
 export default function ColouringList({ images }: ColouringListProps) {
   return (
-    <div className="container grid gap-6 -translate-y-10 grid-cols-[repeat(auto-fit,350px)] w-full place-content-center">
+    <div className="container grid gap-6 grid-cols-[repeat(auto-fit,350px)] w-full place-content-center py-12">
       {images.map((image: string) => {
         return (
           <Card
