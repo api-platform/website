@@ -25,6 +25,11 @@ export const openSourceData: Reference[] = [
     highlight: true,
   },
   {
+    name: "QOwnNotes",
+    logo: "qownnotes",
+    link: "https://www.qownnotes.org/",
+  },
+  {
     name: "MBT Bundle",
     logo: "mbt-bundle",
     link: "https://mbtbundle.org/",
@@ -121,9 +126,24 @@ export const otherData: Reference[] = [
     link: "https://www.campings.com/",
   },
   {
+    name: "Cartier",
+    logo: "cartier",
+    link: "https://www.cartier.com/",
+  },
+  {
     name: "Decathlon",
     logo: "decathlon",
     link: "https://www.decathlon.fr/",
+  },
+  {
+    name: "Deutsche Institution für Schiedsgerichtsbarkeit",
+    logo: "dis",
+    link: "https://www.disarb.org/",
+  },
+  {
+    name: "eonX",
+    logo: "eonx",
+    link: "https://eonx.com/",
   },
   {
     name: "eVaali.fi",
@@ -155,12 +175,17 @@ export const otherData: Reference[] = [
     name: "General Electric",
     logo: "general-electric",
     link: "https://www.ge.com/",
+    highlight: true,
+  },
+  {
+    name: "Instamed",
+    logo: "instamed",
+    link: "https://www.instamed.fr/",
   },
   {
     name: "izi by eDF",
     logo: "izi",
     link: "https://izi-by-edf.fr/",
-    highlight: true,
   },
   {
     name: "Leah",
@@ -194,6 +219,11 @@ export const otherData: Reference[] = [
     link: "https://locastic.com/",
   },
   {
+    name: "Mail.tm",
+    logo: "mail-tm",
+    link: "https://mail.tm/",
+  },
+  {
     name: "M6",
     logo: "m6",
     link: "https://www.groupem6.fr/",
@@ -214,10 +244,25 @@ export const otherData: Reference[] = [
     link: "https://www.microdon.org/",
   },
   {
+    name: "Oney",
+    logo: "oney",
+    link: "https://www.oney.fr/",
+  },
+  {
     name: "Orange",
     logo: "orange",
     link: "https://www.orange.fr/",
     highlight: true,
+  },
+  {
+    name: "Oskab",
+    logo: "oskab",
+    link: "https://www.oskab.com/",
+  },
+  {
+    name: "ProwebCE",
+    logo: "proweb-ce",
+    link: "https://prowebce.com/",
   },
   {
     name: "Quotatis",
@@ -230,10 +275,14 @@ export const otherData: Reference[] = [
     link: "https://www.racepack.com/",
   },
   {
+    name: "Ramsay santé",
+    logo: "ramsay-sante",
+    link: "https://www.ramsaysante.fr/",
+  },
+  {
     name: "Renault",
     logo: "renault",
     link: "https://www.renault.fr/",
-    highlight: true,
   },
   {
     name: "Ville de Roubaix",
@@ -260,6 +309,17 @@ export const otherData: Reference[] = [
     name: "Sezane",
     logo: "sezane",
     link: "https://www.sezane.com/",
+    highlight: true,
+  },
+  {
+    name: "SGS",
+    logo: "sgs",
+    link: "https://www.sgs.com/",
+  },
+  {
+    name: "Siemens",
+    logo: "siemens",
+    link: "https://www.siemens.com/",
   },
   {
     name: "Simplon",
@@ -270,7 +330,6 @@ export const otherData: Reference[] = [
     name: "Smile",
     logo: "smile",
     link: "https://www.smile.eu/",
-    highlight: true,
   },
   {
     name: "SpotAtHome",
@@ -301,6 +360,27 @@ export const otherData: Reference[] = [
     name: "TMM",
     logo: "tmm",
     link: "http://www.tmm-groupe.com/",
+  },
+  {
+    name: "Trace",
+    logo: "trace-tv",
+    link: "http://trace.tv",
+  },
+  {
+    name: "US Government",
+    logo: "us-government",
+    link: "https://data.usbr.gov/rise/api",
+  },
+  {
+    name: "Vestiaire collective",
+    logo: "vestiaire-collective",
+    link: "https://vestiairecollective.com/",
+  },
+  {
+    name: " Volvo",
+    logo: "volvo",
+    link: "https://www.volvocars.com/",
+    highlight: true,
   },
   {
     name: "whatwedo",

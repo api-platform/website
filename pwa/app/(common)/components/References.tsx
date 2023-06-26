@@ -1,7 +1,6 @@
 import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
-import Link from "components/common/Link";
 import { Reference } from "types";
 import LogoItem from "./ReferenceLogoItem";
 
@@ -71,7 +70,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
         </div>
         <div className="flex flex-row flex-wrap py-12">
           {refs.map((ref) => (
-            <Link
+            <a
               key={ref.name}
               href={ref.link}
               target="_blank"
@@ -85,7 +84,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
                 width={200}
                 className="max-w-[120px] mx-auto"
               />
-            </Link>
+            </a>
           ))}
         </div>
         <Button empty href="/references">

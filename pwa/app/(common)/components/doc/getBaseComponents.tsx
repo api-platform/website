@@ -7,7 +7,11 @@ const GetBaseComponents = {
     return <CodeSelector>{props.children}</CodeSelector>;
   },
   a: (props: Omit<LinkProps, "className">) => (
-    <Link className="text-blue font-semibold not-prose" {...props} />
+    <Link
+      prefetch={false}
+      className="text-blue font-semibold not-prose"
+      {...props}
+    />
   ),
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre

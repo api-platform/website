@@ -45,7 +45,11 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
         )}
       >
         {link ? (
-          <Link href={link} className="flex-1 font-semibold uppercase">
+          <Link
+            href={link}
+            prefetch={false}
+            className="flex-1 font-semibold uppercase"
+          >
             {title}
           </Link>
         ) : (

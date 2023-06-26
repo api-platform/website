@@ -145,6 +145,7 @@ export default async function Page({
             <Link
               className="uppercase font-semibold text-sm mb-2 opacity-80"
               href="/community/contributors"
+              prefetch={false}
             >
               Our contributors
             </Link>
