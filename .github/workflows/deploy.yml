@@ -141,8 +141,8 @@ jobs:
             --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
             --set=ressources.requests.cpu=250m \
-            --set=ressources.requests.memory=256Mi \
-            --set=ressources.limits.memory=700Mi \
+            --set=ressources.requests.memory=500Mi \
+            --set=ressources.limits.memory=2000Mi \
             --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
             --set=postgresql.global.postgresql.auth.username=website \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
@@ -172,8 +172,8 @@ jobs:
             --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=ressources.requests.cpu=250m \
-            --set=ressources.requests.memory=256Mi \
-            --set=ressources.limits.memory=700Mi \
+            --set=ressources.requests.memory=600Mi \
+            --set=ressources.limits.memory=2000Mi \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'

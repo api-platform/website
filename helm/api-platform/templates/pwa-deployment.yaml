@@ -59,7 +59,7 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources.pwa | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
