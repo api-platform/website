@@ -56,11 +56,11 @@ export default function Footer() {
                 rel="noreferer noopener"
                 className="font-bold"
               >
-                Les-Tileuls.coop
+                Les-Tilleuls.coop
               </a>{" "}
               can help you design and develop your APIs and web projects, and
               train your teams in API Platform, Symfony, Next.js, Kubernetes and
-              a wild range of other technologies.
+              a wide range of other technologies.
             </p>
             <Button
               size="medium"
