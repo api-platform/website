@@ -170,8 +170,8 @@ export default async function Page() {
           </Button>
         </div>
       </ShapeSection>
-      <div className="bg-gray-100 dark:bg-blue-darkest pb-12">
-        <div className="container relative py-6">
+      <div className="bg-gray-100 dark:bg-blue-darkest after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-gray-100 after:dark:bg-blue-darkest">
+        <div className="container relative pt-6">
           <Heading size="lg" level="h2">
             Our events
           </Heading>

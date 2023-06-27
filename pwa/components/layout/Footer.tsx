@@ -27,7 +27,7 @@ function FooterLink(props: LinkProps & PropsWithChildren) {
 export default function Footer() {
   return (
     <>
-      <div className="container">
+      <div className="container relative z-10">
         <div
           className={classNames(
             "w-[650px] p-4 max-w-[90%] translate-y-1/2 bg-blue text-white mx-auto flex flex-col items-center shadow-xl",
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-blue-black pt-24 text-white border-t-2 border-t-blue-black dark:border-t-blue-dark">
+      <div className="bg-blue-black pt-24 text-white border-t-2 border-t-blue-black dark:border-t-blue-dark relative">
         <div className="container py-12">
           <div className="flex flex-row justify-center | sm:justify-between">
             <div className="text-xs font-light text-center | sm:text-left">
