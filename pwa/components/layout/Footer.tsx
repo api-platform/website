@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-blue-black pt-24 text-white border-t-2 border-t-blue-black dark:border-t-blue-dark relative">
+      <div className="bg-blue-black pt-36 text-white border-t-2 border-t-blue-black dark:border-t-blue-dark relative md:pt-24">
         <div className="container py-12">
           <div className="flex flex-row justify-center | sm:justify-between">
             <div className="text-xs font-light text-center | sm:text-left">

@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { extractHeadingsFromMarkdown } from "utils";
+import { extractHeadingsFromMarkdown, slugify } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
 import { markedHighlight } from "marked-highlight";
@@ -185,6 +185,8 @@ const absoluteImgRegex = /src="\/docs\/(.*?\.(jpg|jpeg|png|gif|svg))"/gm;
 const blankLinkRegex =
   /<a\s+([^>]*\s+)?href="http[^"]*"(?![^>]*\starget=[^>]*>)/gm;
 
+const headingRegex = /<h([2-4])>(.*?)<\/h\1>/gm;
+
 function getLang(block: string): string {
   const language = block.match(codeLanguage);
 
@@ -321,5 +323,12 @@ export const getHtmlFromGithubContent = async (
       absoluteImgRegex,
       `src="https://raw.githubusercontent.com/api-platform/docs/${version}/$1"`
     )
+    .replace(headingRegex, (match, p1, p2) => {
+      const slug = slugify(p2);
+      return `<h${p1} class="group">${p2} <a id=${slug} class="opacity-0 group-hover:opacity-100" style="
+    padding-top: 80px;
+    margin-top: -80px;
+" href=#${slug}>#</a></h${p1}>`;
+    })
     .replace(blankLinkRegex, '$& target="_blank"');
 };

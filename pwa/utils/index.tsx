@@ -66,3 +66,11 @@ export const getRootUrl = () => {
     ? process.env.NEXT_ROOT_URL
     : `https://${process.env.NEXT_ROOT_URL}`;
 };
+
+export const slugify = (t: string) =>
+  t
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "") // Supprimer les caractères spéciaux sauf les espaces et les tirets
+    .replace(/\s+/g, "-") // Remplacer les espaces par des tirets
+    .replace(/-+/g, "-") // Supprimer les tirets consécutifs
+    .trim(); // Supprimer les espaces en début et fin de chaîne
