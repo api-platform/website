@@ -38,6 +38,10 @@ export default function Nav({ withPreheader = false }) {
   }, [isOpen]);
 
   useEffect(() => {
+    forceClose();
+  }, [pathname]);
+
+  useEffect(() => {
     setIsMounted(true);
   }, []);
 
