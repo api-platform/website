@@ -27,7 +27,7 @@ export default async function Page() {
     .filter((filename: string) => path.parse(filename).ext === ".jpg")
     .map((filename: string) => path.parse(filename).name);
   return (
-    <section className="pt-16 bg-gray-100 dark:bg-blue-black">
+    <section className="pt-16 bg-gray-100 dark:bg-blue-black after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-gray-100 after:dark:bg-blue-black">
       <div className="bg-blue py-8 text-white dark:text-blue-black">
         <div className="container relative z-10 text-white flex flex-row gap-8 justify-center items-center min-h-full">
           <div className="text-center">

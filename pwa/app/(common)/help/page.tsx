@@ -159,8 +159,8 @@ export default async function Page() {
           />
         </div>
       </div>
-      <div className="bg-blue-extralight/50 dark:bg-blue-dark dark:text-white">
-        <div className="container xl:max-w-5xl flex flew-row items-center relative gap-16 py-12">
+      <div className="bg-blue-extralight/50 dark:bg-blue-dark dark:text-white after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-blue-extralight/50 after:dark:bg-blue-dark">
+        <div className="container xl:max-w-5xl flex flew-row items-center relative gap-16 pt-12">
           <Image
             width={800}
             height={686}

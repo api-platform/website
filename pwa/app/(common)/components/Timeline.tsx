@@ -185,7 +185,7 @@ export default function Timeline() {
             >
               paginate
             </Link>{" "}
-            and
+            and{" "}
             <Link
               href="/docs/core/validation"
               prefetch={false}
@@ -202,7 +202,7 @@ export default function Timeline() {
               className="link"
             >
               PostgreSQL
-            </Link>{" "}
+            </Link>
             ,{" "}
             <Link href="/docs/core/mongodb/" prefetch={false} className="link">
               MongoDB
@@ -244,6 +244,7 @@ export default function Timeline() {
               prefetch={false}
               className="link"
             >
+              {" "}
               extension points
             </Link>
             .
