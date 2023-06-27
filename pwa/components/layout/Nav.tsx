@@ -2,16 +2,18 @@
 import classNames from "classnames";
 import Logo from "components/common/Logo";
 import ThemeToggle from "components/common/ThemeToggle";
-import { Github } from "components/icons/social";
+import { Github, Mastodon, Twitter } from "components/icons/social";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useState, useEffect } from "react";
 import Preheader from "./Preheader";
 import { DocSearch } from "@docsearch/react";
 import { current } from "consts";
+import LogoTilleuls from "components/common/LogoTilleuls";
 
 export default function Nav({ withPreheader = false }) {
   const [isOpen, setOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // avoid error hydration due to docsearch
   const pathname = usePathname();
   const withBg = pathname !== "/";
   const isDocPage = pathname?.startsWith("/docs");
@@ -35,6 +37,14 @@ export default function Nav({ withPreheader = false }) {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    forceClose();
+  }, [pathname]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
       {!isDocPage && withPreheader ? <Preheader /> : null}
@@ -57,11 +67,10 @@ export default function Nav({ withPreheader = false }) {
         />
         <nav
           className={classNames(
-            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-8",
+            "mx-auto px-6 md:px-8 h-16 flex flex-row items-center gap-x-6 w-full max-w-8xl",
             withBg
               ? "text-blue-black dark:text-white"
-              : "text-white dark:text-blue-black",
-            isDocPage ? "max-w-8xl" : "container"
+              : "text-white dark:text-blue-black"
           )}
         >
           <NavLink
@@ -72,9 +81,20 @@ export default function Nav({ withPreheader = false }) {
             )}
             title="API Platform"
           >
-            <Logo className="h-5" inline />
+            <div
+              className={classNames(
+                "w-[50px] h-[50px] bg-blue-extralight rounded-full flex items-center justify-center p-1 sm:hidden",
+                withBg && "dark:bg-blue-light"
+              )}
+            >
+              <img src="/images/logo_spider.svg" className="w-full" alt="" />
+            </div>
+            <div className="hidden sm:block">
+              <Logo className="h-5" inline />
+            </div>
           </NavLink>
-          {process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
+          {isMounted &&
+          process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID &&
           process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME &&
           process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY ? (
             <DocSearch
@@ -96,32 +116,81 @@ export default function Nav({ withPreheader = false }) {
           <div
             className={classNames(
               "-lg:uppercase -lg:font-bold -lg:text-xl fixed h-screen w-5/6 max-w-md top-0 bg-white dark:bg-blue-black z-40 transition-all duration-500 flex flex-col gap-6 justify-start items-center",
-              "lg:bg-transparent lg:dark:bg-transparent lg:h-auto lg:w-auto lg:flex-row lg:static lg:justify-end",
+              "lg:bg-transparent lg:dark:bg-transparent lg:h-auto lg:w-auto lg:flex-row lg:static lg:justify-end lg:max-w-none",
               isOpen
                 ? "right-0 text-blue dark:text-blue-extralight"
                 : "-right-full"
             )}
           >
-            <div className="flex flex-col flex-1 items-center justify-center gap-8 lg:flex-row">
+            <div className="flex flex-col flex-1 items-center justify-center gap-5 lg:flex-row">
               <NavLink href="/docs">Docs</NavLink>
+              <NavLink href="https://symfonycasts.com/screencast/api-platform?cid=apip">
+                Screencasts
+              </NavLink>
               <NavLink href="https://api-platform.myspreadshop.net/">
                 Shop
               </NavLink>
               <NavLink href="/events">Events</NavLink>
-              <NavLink href="/help">Need help?</NavLink>
-              <div className="lg:border-l-2 lg:pl-6 lg:border-current">
-                <Github className="h-8 w-8 lg:h-5 lg:w-5" />
+              <NavLink href="/help">Need&nbsp;help?</NavLink>
+              <div
+                className={classNames(
+                  "lg:border-x-2 py-1 lg:px-4 flex flex-row gap-4 lg:gap-2.5",
+                  withBg
+                    ? "text-blue dark:text-blue-light lg:border-gray-300 lg:dark:border-white/50"
+                    : "text-white lg:border-white/50 dark:text-blue-black dark:lg:border-blue-black/25"
+                )}
+              >
+                <a
+                  href="https://github.com/api-platform/api-platform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Github className="h-7 w-7 lg:h-4 lg:w-4" />
+                </a>
+                <a
+                  href="https://fosstodon.org/@ApiPlatform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Mastodon className="h-7 w-7 lg:h-4 lg:w-4" />
+                </a>
+                <a
+                  href="https://twitter.com/ApiPlatform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Twitter className="h-7 w-7 lg:h-4 lg:w-4" />
+                </a>
               </div>
+              <a
+                href="https://les-tilleuls.coop/en"
+                target="_blank"
+                rel="noreferer noopener"
+                className="hidden flex-col justify-center items-center text-center xl:flex"
+              >
+                <p className="text-xs opacity-70 -mt-1">Powered by</p>
+                <LogoTilleuls className="w-28" red={withBg} />
+              </a>
             </div>
-            <NavLink
-              href="/"
+            <div
               className={classNames(
-                "bg-blue text-white dark:text-blue-black py-16 w-full px-12 block lg:hidden"
+                "bg-blue text-white dark:text-blue-black py-16 w-full px-12 block text-center lg:hidden"
               )}
               title="API Platform"
             >
-              <Logo className="w-full" inline />
-            </NavLink>
+              <NavLink href="/" title="API Platform">
+                <Logo className="w-full" inline />
+              </NavLink>
+              <p className="text-sm font-light mt-4">powered by</p>
+              <a
+                href="https://les-tilleuls.coop/en"
+                target="_blank"
+                rel="noreferer noopener"
+                className="font-bold"
+              >
+                <LogoTilleuls className="max-w-[170px] mx-auto" />
+              </a>
+            </div>
           </div>
           <ThemeToggle withBgNav={withBg} />
           <div

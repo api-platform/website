@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { Arrow } from "components/icons";
 
 export interface ArrowLinkProps {

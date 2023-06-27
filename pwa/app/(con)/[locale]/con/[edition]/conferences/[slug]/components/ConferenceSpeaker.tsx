@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import classNames from "classnames";
 import { Conference, Speaker } from "types/con";
 import Overline from "components/con/common/typography/Overline";
-import Link from "next/link";
+import Link from "components/common/Link";
 import SpeakerImage from "components/con/speakers/SpeakerImage";
 import Button from "components/con/common/Button";
 import { LanguageContext } from "contexts/con/LanguageContext";

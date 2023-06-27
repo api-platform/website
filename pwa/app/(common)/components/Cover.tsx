@@ -37,13 +37,18 @@ export default function Cover() {
         <div className="relative w-full flex flex-col items-center text-center py-12 z-20 | md:w-7/12 md:ml-auto md:py-32 | lg:w-1/2">
           <Logo className="w-full max-w-sm" />
           <p className="font-title text-3xl my-6 font-semibold">
-            The API first framework
+            The API-first framework
           </p>
           <div className="flex flex-row flex-wrap items-center justify-center">
-            <Button className="m-2" color="white" href="">
+            <Button
+              className="m-2"
+              color="white"
+              href="https://github.com/api-platform/api-platform/releases"
+              external
+            >
               Download
             </Button>
-            <Button color="white" className="m-2" href="">
+            <Button color="white" className="m-2" href="/docs/distribution/">
               Getting started
             </Button>
           </div>

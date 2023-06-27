@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "components/common/Link";
 import { DocReferenceLink } from "types";
 import ReferenceTypeIcon from "./ReferenceTypeIcon";
 
@@ -21,6 +21,7 @@ export default function ReferenceSummaryPart({
           <Link
             key={link.title}
             href={link.link}
+            prefetch={false}
             className="flex flex-row items-center justify-start transition-all py-1 pr-1.5 group | hover:text-blue hover:pr-0 hover:pl-1.5"
           >
             <ReferenceTypeIcon type={link.type} />

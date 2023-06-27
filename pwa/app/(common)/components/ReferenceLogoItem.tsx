@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Link from "next/link";
 import Image from "next/image";
 import { Reference } from "types";
 
@@ -56,7 +55,7 @@ export default function LogoItem({
   }
 
   return (
-    <Link
+    <a
       target="_blank"
       rel="noopener noreferrer"
       href={reference.link}
@@ -72,8 +71,8 @@ export default function LogoItem({
         src={`/images/references/oss/${reference.logo}.png`}
         height={50}
         width={200}
-        className="cursor-pointer h-full w-auto brightness-0 invert"
+        className="h-full w-auto brightness-0 invert"
       />
-    </Link>
+    </a>
   );
 }

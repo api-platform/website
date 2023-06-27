@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import { Edition } from "types/con";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
 interface EditionCardProps {
@@ -23,6 +23,7 @@ export default function EditionCard({
     <Link
       href={link || `/${locale}/con/${edition.year}`}
       className="relative bg-white p-2 group hover:-translate-y-1 transition-transform"
+      prefetch={false}
     >
       <Image
         width={size === "big" ? 400 : 240}

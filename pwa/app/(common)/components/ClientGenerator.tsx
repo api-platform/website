@@ -1,6 +1,8 @@
 import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
+import Link from "components/common/Link";
+
 import {
   VueIcon,
   NextIcon,
@@ -12,6 +14,38 @@ import {
 import ShapeSection from "components/common/ShapeSection";
 
 export default function ClientGenerator() {
+  const logos = [
+    {
+      Icon: NextIcon,
+      title: "Next.js",
+      link: "https://nextjs.org/",
+    },
+    {
+      Icon: NuxtIcon,
+      title: "Nuxt",
+      link: "https://nuxt.com/",
+    },
+    {
+      Icon: ReactIcon,
+      title: "React",
+      link: "https://react.dev/",
+    },
+    {
+      Icon: VueIcon,
+      title: "Vue.js",
+      link: "https://vuejs.org/",
+    },
+    {
+      Icon: QuasarIcon,
+      title: "Quasar",
+      link: "https://quasar.dev/",
+    },
+    {
+      Icon: VuetifyIcon,
+      title: "Vuetify",
+      link: "https://vuetifyjs.com/en/",
+    },
+  ];
   return (
     <ShapeSection
       maskColor="white"
@@ -30,20 +64,69 @@ export default function ClientGenerator() {
             Scaffold <strong>client apps</strong>
           </Heading>
           <p className="text-white/60 text-xl font-light mt-8">
-            We don&apos;t want to decide for you which front-end framework you
-            want to work with. That&apos;s why we allow you to generate a web or
-            mobile application for most popular front-end frameworks, like Vue,
-            React, or Quasar.
+            We provide a scaffolding with first-class support for{" "}
+            <a
+              className="link"
+              href="https://nextjs.org/"
+              target="_blank"
+              rel="noreferer noopener"
+            >
+              Next.js
+            </a>
+            , but don&apos;t want to decide for you which front-end framework
+            you want to work with so skeletons for many other frontend
+            frameworks are supported such as:{" "}
+            <Link
+              href="/docs/create-client/nuxt/"
+              prefetch={false}
+              className="link"
+            >
+              Nuxt (Vue)
+            </Link>
+            ,{" "}
+            <Link
+              href="/docs/create-client/react-native/"
+              prefetch={false}
+              className="link"
+            >
+              Expo (React Native)
+            </Link>
+            ,{" "}
+            <Link
+              href="/docs/create-client/Quasar/"
+              prefetch={false}
+              className="link"
+            >
+              Quasar
+            </Link>
+            , and{" "}
+            <Link
+              href="/docs/create-client/#generated-react-and-react-native-apps-updated-in-real-time"
+              prefetch={false}
+              className="link"
+            >
+              many more...
+            </Link>
           </p>
           <div className="flex flex-row py-8 text-blue | sm:w-1/2 | md:w-full">
-            <NextIcon className="m-2 h-10 w-auto" />
-            <NuxtIcon className="m-2 h-10 w-auto" />
-            <ReactIcon className="m-2 h-10 w-auto" />
-            <VueIcon className="m-2 h-10 w-auto" />
-            <QuasarIcon className="m-2 h-10 w-auto" />
-            <VuetifyIcon className="m-2 h-10 w-auto" />
+            {logos.map((logo) => (
+              <a
+                key={logo.title}
+                href={logo.link}
+                title={logo.title}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:brightness-125 transition-all"
+              >
+                <logo.Icon className="m-2 h-10 w-auto" />
+              </a>
+            ))}
           </div>
-          <Button empty href="/docs" ariaLabel="See our managed clients">
+          <Button
+            empty
+            href="/docs/create-client"
+            ariaLabel="See our managed clients"
+          >
             Learn more
           </Button>
         </div>

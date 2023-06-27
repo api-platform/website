@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLDivElement> {
@@ -78,6 +78,7 @@ export default function Button({
   return href ? (
     <Link
       className={allClassNames}
+      prefetch={false}
       href={href}
       {...(external ? externalProps : {})}
       aria-label={ariaLabel}

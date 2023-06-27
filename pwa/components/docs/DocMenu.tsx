@@ -1,6 +1,6 @@
 "use client";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { DocLink } from "types";
@@ -13,6 +13,8 @@ export interface NavPartProps {
   links?: DocLink[];
   autoOpen?: boolean;
 }
+
+const trimLink = (str: string) => str.replace(/\/$/, "");
 
 function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   const pathname = usePathname();
@@ -43,7 +45,11 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
         )}
       >
         {link ? (
-          <Link href={link} className="flex-1 font-semibold uppercase">
+          <Link
+            href={link}
+            prefetch={false}
+            className="flex-1 font-semibold uppercase"
+          >
             {title}
           </Link>
         ) : (
@@ -100,7 +106,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
                 prefetch={false}
                 className={classNames(
                   "relative block pl-4 -translate-x-px border-l-px transition-all hover:border-l-gray-500",
-                  pathname === subLink.link || `${pathname}/` === subLink.link
+                  trimLink(pathname) === trimLink(subLink.link)
                     ? "text-blue border-l-blue font-semibold"
                     : "text-gray-500 border-l-transparent"
                 )}

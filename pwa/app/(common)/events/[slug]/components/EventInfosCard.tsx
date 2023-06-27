@@ -1,6 +1,6 @@
 import { Clock, IconProps, Location, Users, Website } from "components/icons";
 import { convertTime, toLocaleDate } from "utils";
-import Link from "next/link";
+import Link from "components/common/Link";
 import { Event as EventType } from "types";
 import { PropsWithChildren } from "react";
 import classNames from "classnames";

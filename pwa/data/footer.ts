@@ -23,20 +23,20 @@ const footer: FooterPart[] = [
     link: "/help",
     links: [
       {
+        title: "Need help?",
+        url: "/help",
+      },
+      {
         title: "Screencasts",
         url: "https://symfonycasts.com/screencast/api-platform?cid=apip",
       },
       {
-        title: "Stack overflow",
+        title: "Stack Overflow",
         url: "https://stackoverflow.com/questions/tagged/api-platform.com",
       },
       {
         title: "Slack",
         url: "https://symfony-devs.slack.com/",
-      },
-      {
-        title: "Code of conduct",
-        url: "/help/code-of-conduct",
       },
     ],
   },
@@ -44,6 +44,10 @@ const footer: FooterPart[] = [
     title: "Community",
     link: "/community",
     links: [
+      {
+        title: "Overview",
+        url: "/community",
+      },
       {
         title: "Events",
         url: "/events",
@@ -57,16 +61,8 @@ const footer: FooterPart[] = [
         url: "/community/contributors",
       },
       {
-        title: "Twitter",
-        url: "/resources/colouring-webby",
-      },
-      {
-        title: "Github",
-        url: "/resources/colouring-webby",
-      },
-      {
-        title: "Contribute",
-        url: "/resources/colouring-webby",
+        title: "How to contribute",
+        url: "/docs/extra/contribution-guides/",
       },
     ],
   },

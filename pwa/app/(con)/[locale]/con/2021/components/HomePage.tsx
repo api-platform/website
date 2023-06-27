@@ -26,7 +26,9 @@ export default function HomePage({ speakers, partners }: HomePageProps) {
         date={t("2021.date")}
         baseline={t("2021.baseline")}
         button={
-          <Button to={`/${locale}/con`}>{t("back_to_current_edition")}</Button>
+          <Button className="pink" to={`/${locale}/con`}>
+            {t("back_to_current_edition")}
+          </Button>
         }
       />
 

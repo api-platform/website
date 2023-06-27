@@ -1,7 +1,6 @@
 import Button from "components/common/Button";
 import Heading from "components/common/typography/Heading";
 import Image from "next/image";
-import Link from "next/link";
 import { Reference } from "types";
 import LogoItem from "./ReferenceLogoItem";
 
@@ -22,13 +21,13 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
         <Heading size="xl" overline="References" level="h2">
           They <strong>use</strong> API Platform
         </Heading>
-        <div className="relative py-12 flex flex-row items-center justify-center pointer-events-none">
+        <div className="relative py-12 flex flex-row items-center justify-center">
           <Image
             src="/images/web.svg"
             alt=""
             width={1000}
             height={1000}
-            className="absolute z-0 top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 opacity-75 | sm:left-1/3 | lg:left-1/2"
+            className="absolute pointer-events-none z-0 top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 opacity-75 | sm:left-1/3 | lg:left-1/2"
           />
           <div className="hidden flex-1 justify-center items-end flex-col pr-12 | lg:flex">
             {firstHalf.map((ref, index) => (
@@ -43,7 +42,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
           </div>
           <div className="p-3 shadow-2xl rounded-full bg-blue -rotate-90 inline-flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 | sm:relative sm:translate-y-0 sm:translate-x-0 sm:rotate-0 | md:p-4 z-20">
             <div className="bg-white dark:bg-blue-black flex items-end justify-center uppercase font-bold text-xl p-8 text-blue text-center shadow-md w-48 aspect-square rounded-full | sm:text-2xl sm:items-center">
-              <span className="leading-none">Open source</span>
+              <span className="leading-none">Free software</span>
             </div>
           </div>
           <div className="hidden w-1/2 flex-1 flex-wrap basis-0 justify-center items-start flex-col pl-12 | lg:flex">
@@ -71,7 +70,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
         </div>
         <div className="flex flex-row flex-wrap py-12">
           {refs.map((ref) => (
-            <Link
+            <a
               key={ref.name}
               href={ref.link}
               target="_blank"
@@ -85,7 +84,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
                 width={200}
                 className="max-w-[120px] mx-auto"
               />
-            </Link>
+            </a>
           ))}
         </div>
         <Button empty href="/references">

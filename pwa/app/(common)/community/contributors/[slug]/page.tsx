@@ -5,7 +5,7 @@ import {
 } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
-import Link from "next/link";
+import Link from "components/common/Link";
 import ContributorRepositories from "./components/ContributorRepositories";
 import ContributorProfileCard from "./components/ContributorProfileCard";
 import { Fragment } from "react";
@@ -145,6 +145,7 @@ export default async function Page({
             <Link
               className="uppercase font-semibold text-sm mb-2 opacity-80"
               href="/community/contributors"
+              prefetch={false}
             >
               Our contributors
             </Link>

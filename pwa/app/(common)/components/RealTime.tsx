@@ -28,7 +28,7 @@ export default function RealTime() {
             className="mt-8"
             empty
             external
-            href="https://mercure.rocks"
+            href="/docs/core/mercure/"
             ariaLabel="Real time with Mercure"
           >
             Learn more

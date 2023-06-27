@@ -50,7 +50,7 @@ const prices: Price[] = [
     id: 2,
     title: {
       fr: "Workshops",
-      en: "Worskshops",
+      en: "Workshops",
     },
     languages: {
       fr: "Apprenez le meilleur d'API Platform",

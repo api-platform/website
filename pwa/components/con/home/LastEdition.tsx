@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import Link from "next/link";
+import Link from "components/common/Link";
 import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
 import Section from "components/con/home/Section";
@@ -29,7 +29,11 @@ export default function LastEdition({
         <SectionSubTitle>
           {t("last_edition.subtitle", { edition }).replace(
             "%review%",
-            <Link href={`/con/${edition}/review`} className="link">
+            <Link
+              prefetch={false}
+              href={`/con/${edition}/review`}
+              className="link"
+            >
               {t("last_edition.our_review")}
             </Link>
           )}

@@ -10,7 +10,9 @@ import Heading from "components/common/typography/Heading";
 
 export default async function Page() {
   const ossRefs = openSourceData.filter((ref) => ref.highlight);
-  const refs = otherData.filter((ref) => ref.highlight);
+  const refs = otherData
+    .filter((ref) => ref.highlight)
+    .sort((a, b) => (a.highlight as number) - (b.highlight as number));
 
   return (
     <>

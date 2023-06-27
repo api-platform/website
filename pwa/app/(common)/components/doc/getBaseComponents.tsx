@@ -1,13 +1,17 @@
 import CodeSelector from "app/common/components/doc/CodeSelector";
 import classNames from "classnames";
-import Link, { LinkProps } from "next/link";
+import Link, { LinkProps } from "components/common/Link";
 
 const GetBaseComponents = {
   CodeSelector: (props: React.HTMLAttributes<HTMLDivElement>) => {
     return <CodeSelector>{props.children}</CodeSelector>;
   },
   a: (props: Omit<LinkProps, "className">) => (
-    <Link className="text-blue font-semibold not-prose" {...props} />
+    <Link
+      prefetch={false}
+      className="text-blue font-semibold not-prose"
+      {...props}
+    />
   ),
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre

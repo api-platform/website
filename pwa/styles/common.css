@@ -87,6 +87,10 @@ body .DocSearch {
 	--docsearch-searchbox-shadow: "none";
 }
 
+body .DocSearch-Input {
+    @apply focus-visible:outline-none;
+}
+
 body .DocSearch-Logo svg>* {
 	@apply fill-blue;
 }

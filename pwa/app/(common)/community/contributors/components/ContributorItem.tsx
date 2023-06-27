@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Contributor } from "types";
 import classNames from "classnames";
-import Link from "next/link";
+import Link from "components/common/Link";
 import Heading from "components/common/typography/Heading";
 
 interface ContributorItemProps {

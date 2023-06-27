@@ -1,10 +1,8 @@
 import { Metadata } from "next";
 import Heading from "components/common/typography/Heading";
 import { openSourceData, otherData } from "data/logos";
-import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
-import ShapeSection from "components/common/ShapeSection";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -40,12 +38,12 @@ export default async function Page() {
             size="lg"
             className="w-full border-b-2 border-b-blue mb-4"
           >
-            Open source projects
+            Free software
           </Heading>
         </div>
         <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(120px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(150px,1fr))] w-full place-content-center">
           {openSourceData.map((ref) => (
-            <Link
+            <a
               key={ref.name}
               href={ref.link}
               target="_blank"
@@ -64,7 +62,7 @@ export default async function Page() {
                 />
               </div>
               <p className="text-md leading-none font-title">{ref.name}</p>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
@@ -80,7 +78,7 @@ export default async function Page() {
         </div>
         <div className="flex flex-row flex-wrap">
           {otherData.map((ref) => (
-            <Link
+            <a
               key={ref.name}
               href={ref.link}
               target="_blank"
@@ -94,7 +92,7 @@ export default async function Page() {
                 width={200}
                 className="max-w-[120px] mx-auto"
               />
-            </Link>
+            </a>
           ))}
         </div>
       </div>
