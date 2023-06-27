@@ -20,7 +20,15 @@ export default function Admin() {
               Entirely <strong>customizable</strong>
             </ListPoint>
             <ListPoint direction="left">
-              <strong>Hydra</strong> and <Link href="/docs/admin/openapi/" prefetch={false} className="link"><strong>OpenAPI</strong></Link> compatible
+              <strong>Hydra</strong> and{" "}
+              <Link
+                href="/docs/admin/openapi/"
+                prefetch={false}
+                className="link"
+              >
+                <strong>OpenAPI</strong>
+              </Link>{" "}
+              compatible
             </ListPoint>
             <ListPoint direction="left">
               Built on top of <strong>Material UI</strong> and{" "}

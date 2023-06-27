@@ -58,20 +58,23 @@ export default function Features() {
               href="/docs/distribution/caddy/#configuring-the-caddy-web-server"
               prefetch={false}
             >
-            Caddy server</Link> integration HTTPS & HTTP/3
+              Caddy server
+            </Link>{" "}
+            integration HTTPS & HTTP/3
           </FeatureItem>
           <FeatureItem Icon={icons.PaginationIcon} index={6}>
-            Automatic <Link
+            Automatic{" "}
+            <Link
               className="link"
               href="/docs/core/pagination/"
               prefetch={false}
             >
-            pagination</Link> and <Link
-              className="link"
-              href="/docs/core/filters/"
-              prefetch={false}
-            >filtering</Link>
-
+              pagination
+            </Link>{" "}
+            and{" "}
+            <Link className="link" href="/docs/core/filters/" prefetch={false}>
+              filtering
+            </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.DockerIcon} index={7}>
             <Link className="link" href="/docs/deployment/" prefetch={false}>

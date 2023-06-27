@@ -63,29 +63,49 @@ export default function Timeline() {
           <ul className="mt-8 mb-16">
             <ListPoint>
               A stable <strong>state-of-the-art</strong>{" "}
-              <Link href="/docs/distribution/#introduction" prefetch={false} className="link">
+              <Link
+                href="/docs/distribution/#introduction"
+                prefetch={false}
+                className="link"
+              >
                 REST
               </Link>{" "}
               &{" "}
-              <Link href="/docs/core/graphql/" prefetch={false} className="link">
+              <Link
+                href="/docs/core/graphql/"
+                prefetch={false}
+                className="link"
+              >
                 GraphQL
               </Link>{" "}
               API
             </ListPoint>
             <ListPoint>
               <strong>Automatic documentation</strong>{" "}
-              <Link href="/docs/core/openapi/" prefetch={false} className="link">
+              <Link
+                href="/docs/core/openapi/"
+                prefetch={false}
+                className="link"
+              >
                 OpenAPI
               </Link>
               , SwaggerUI, GraphiQL...
             </ListPoint>
             <ListPoint>
               Support for <strong>standards</strong> and formats{" "}
-              <Link href="/docs/core/extending-jsonld-context/#jsonld" prefetch={false} className="link">
+              <Link
+                href="/docs/core/extending-jsonld-context/#jsonld"
+                prefetch={false}
+                className="link"
+              >
                 JSON-LD
               </Link>
               ,{" "}
-              <Link href="/docs/core/extending-jsonld-context/#hydra" prefetch={false} className="link">
+              <Link
+                href="/docs/core/extending-jsonld-context/#hydra"
+                prefetch={false}
+                className="link"
+              >
                 Hydra
               </Link>
               , JSON:API
@@ -93,13 +113,26 @@ export default function Timeline() {
           </ul>
           <p>
             Alternatively,{" "}
-            <Link href="/docs/schema-generator" prefetch={false} className="link">
+            <Link
+              href="/docs/schema-generator"
+              prefetch={false}
+              className="link"
+            >
               generate the classes from an existing RDF vocabulary
             </Link>
             .
             <br />
             <br /> API Platform automatically exposes production-grade{" "}
-            <strong><Link className="link" href="/docs/distribution/#a-bookshop-api" prefetch={false}>HATEOAS</Link></strong> API for you!
+            <strong>
+              <Link
+                className="link"
+                href="/docs/distribution/#a-bookshop-api"
+                prefetch={false}
+              >
+                HATEOAS
+              </Link>
+            </strong>{" "}
+            API for you!
           </p>
         </StepContent>
         <TimelineStepTitle step={3}>
@@ -112,11 +145,7 @@ export default function Timeline() {
           <p className="mt-6 sm:mt-0">
             The framework has been designed from the ground up to be usable from
             Rapid Application Development contexts to{" "}
-            <Link
-              className="link"
-              href="/docs/core/design/"
-              prefetch={false}
-            >
+            <Link className="link" href="/docs/core/design/" prefetch={false}>
               Domain-Driven Design
             </Link>{" "}
             or Clean Architecture-like approaches.
@@ -132,11 +161,49 @@ export default function Timeline() {
           </CodeBlock>
           <br />
           <p>
-            API Platform can automatically <Link className="link" href="/docs/core/state-providers/#state-providers" prefetch={false}>retrieve</Link>, <Link className="link" href="/docs/core/state-processors/" prefetch={false}>persist</Link>, <Link href="/docs/core/pagination" prefetch={false} className="link">paginate</Link> and
-            <Link href="/docs/core/validation" prefetch={false} className="link">validate</Link> data using the most popular database systems.
+            API Platform can automatically{" "}
+            <Link
+              className="link"
+              href="/docs/core/state-providers/#state-providers"
+              prefetch={false}
+            >
+              retrieve
+            </Link>
+            ,{" "}
+            <Link
+              className="link"
+              href="/docs/core/state-processors/"
+              prefetch={false}
+            >
+              persist
+            </Link>
+            ,{" "}
+            <Link
+              href="/docs/core/pagination"
+              prefetch={false}
+              className="link"
+            >
+              paginate
+            </Link>{" "}
+            and
+            <Link
+              href="/docs/core/validation"
+              prefetch={false}
+              className="link"
+            >
+              validate
+            </Link>{" "}
+            data using the most popular database systems.
           </p>
           <p>
-            <Link href="/docs/distribution/#plugging-the-persistence-system" prefetch={false} className="link">PostgreSQL</Link> ,{" "}
+            <Link
+              href="/docs/distribution/#plugging-the-persistence-system"
+              prefetch={false}
+              className="link"
+            >
+              PostgreSQL
+            </Link>{" "}
+            ,{" "}
             <Link href="/docs/core/mongodb/" prefetch={false} className="link">
               MongoDB
             </Link>
@@ -148,20 +215,38 @@ export default function Timeline() {
             >
               ElasticSearch
             </Link>
-            , SQLite, MySQL, MariaDB, SQL Server and Oracle are supported <Link href="/docs/core/state-providers/#state-providers">out of
-            the box</Link>.
+            , SQLite, MySQL, MariaDB, SQL Server and Oracle are supported{" "}
+            <Link href="/docs/core/state-providers/#state-providers">
+              out of the box
+            </Link>
+            .
           </p>
         </StepContent>
         <StepContent className="sm:mt-24">
           <p className="font-semibold text-blue text-2xl leading-tight">
-            You can also make your own <Link href="/docs/core/state-processors/" prefetch={false} className="link">persistence system</Link>!
+            You can also make your own{" "}
+            <Link
+              href="/docs/core/state-processors/"
+              prefetch={false}
+              className="link"
+            >
+              persistence system
+            </Link>
+            !
           </p>
         </StepContent>
         <TimelineStepTitle step={4}>Customize!</TimelineStepTitle>
         <StepContent withPoint={false}>
           <p>
             Customize every single behavior thanks to our carefully designed
-            <Link href="/docs/core/extending/" prefetch={false} className="link">extension points</Link>.
+            <Link
+              href="/docs/core/extending/"
+              prefetch={false}
+              className="link"
+            >
+              extension points
+            </Link>
+            .
           </p>
           <br />
         </StepContent>
