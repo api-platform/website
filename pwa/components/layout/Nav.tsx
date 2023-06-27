@@ -128,39 +128,65 @@ export default function Nav({ withPreheader = false }) {
               </NavLink>
               <NavLink href="/events">Events</NavLink>
               <NavLink href="/help">Need&nbsp;help?</NavLink>
-              <div className="lg:border-l-2 lg:pl-6 lg:border-current flex flex-row gap-2">
+              <div
+                className={classNames(
+                  "lg:border-x-2 py-1 lg:px-4 flex flex-row gap-4 lg:gap-2.5",
+                  withBg
+                    ? "text-blue dark:text-blue-light lg:border-gray-300 lg:dark:border-white/50"
+                    : "text-white lg:border-white/50 dark:text-blue-black dark:lg:border-blue-black/25"
+                )}
+              >
                 <a
                   href="https://github.com/api-platform/api-platform"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <Github className="h-8 w-8 lg:h-5 lg:w-5" />
+                  <Github className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
                 <a
                   href="https://fosstodon.org/@ApiPlatform"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <Mastodon className="h-8 w-8 lg:h-5 lg:w-5" />
+                  <Mastodon className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
                 <a
                   href="https://twitter.com/ApiPlatform"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <Twitter className="h-8 w-8 lg:h-5 lg:w-5" />
+                  <Twitter className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
               </div>
+              <a
+                href="https://les-tilleuls.coop/en"
+                target="_blank"
+                rel="noreferer noopener"
+                className="hidden flex-col justify-center items-center text-center xl:flex"
+              >
+                <p className="text-xs opacity-70 -mt-1">Powered by</p>
+                <LogoTilleuls className="w-28" red={withBg} />
+              </a>
             </div>
-            <NavLink
-              href="/"
+            <div
               className={classNames(
-                "bg-blue text-white dark:text-blue-black py-16 w-full px-12 block lg:hidden"
+                "bg-blue text-white dark:text-blue-black py-16 w-full px-12 block text-center lg:hidden"
               )}
               title="API Platform"
             >
-              <Logo className="w-full" inline />
-            </NavLink>
+              <NavLink href="/" title="API Platform">
+                <Logo className="w-full" inline />
+              </NavLink>
+              <p className="text-sm font-light mt-4">powered by</p>
+              <a
+                href="https://les-tilleuls.coop/en"
+                target="_blank"
+                rel="noreferer noopener"
+                className="font-bold"
+              >
+                <LogoTilleuls className="max-w-[170px] mx-auto" />
+              </a>
+            </div>
           </div>
           <ThemeToggle withBgNav={withBg} />
           <div

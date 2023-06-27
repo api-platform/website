@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="container">
         <div
           className={classNames(
-            "w-[600px] p-4 max-w-[90%] translate-y-1/2 bg-blue text-white mx-auto flex flex-col items-center shadow-xl",
+            "w-[650px] p-4 max-w-[90%] translate-y-1/2 bg-blue text-white mx-auto flex flex-col items-center shadow-xl",
             "lg:flex-row",
             "dark:brightness-90 dark:text-blue-black"
           )}
@@ -50,8 +50,17 @@ export default function Footer() {
             )}
           >
             <p className="text-sm mb-4">
-              Les-Tilleuls.coop offers a wide range of API Platform solutions:
-              migration, trainings, coaching or web development.
+              <a
+                href="https://les-tilleuls.coop/en"
+                target="_blank"
+                rel="noreferer noopener"
+                className="font-bold"
+              >
+                Les-Tileuls.coop
+              </a>{" "}
+              can help you design and develop your APIs and web projects, and
+              train your teams in API Platform, Symfony, Next.js, Kubernetes and
+              a wild range of other technologies.
             </p>
             <Button
               size="medium"

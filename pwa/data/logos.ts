@@ -10,19 +10,25 @@ export const openSourceData: Reference[] = [
     name: "Bolt",
     logo: "bolt",
     link: "https://boltcms.io/",
-    highlight: true,
+    highlight: 1,
   },
   {
     name: "CoopCycle",
     logo: "coopcycle",
     link: "https://github.com/coopcycle/coopcycle-web",
-    highlight: true,
+    highlight: 1,
   },
   {
     name: "Digital State",
     logo: "digital-state",
     link: "http://digitalstate.io/",
-    highlight: true,
+    highlight: 1,
+  },
+  {
+    name: "Kbin",
+    logo: "kbin",
+    link: "https://kbin.pub/en",
+    highlight: 1,
   },
   {
     name: "QOwnNotes",
@@ -38,19 +44,18 @@ export const openSourceData: Reference[] = [
     name: "Mobicoop",
     logo: "mobicoop",
     link: "https://gitlab.com/mobicoop/mobicoop-platform",
-    highlight: true,
+    highlight: 1,
   },
   {
     name: "PartKeepr",
     logo: "partkeepr",
     link: "https://partkeepr.org/",
-    highlight: true,
+    highlight: 1,
   },
   {
     name: "Sylius",
     logo: "sylius",
     link: "https://sylius.com/",
-    highlight: true,
   },
   {
     name: "French Government",
@@ -74,13 +79,11 @@ export const otherData: Reference[] = [
     name: "24 Sèvres",
     logo: "24-sevres",
     link: "https://www.24sevres.com/",
-    highlight: true,
   },
   {
     name: "Adeo",
     logo: "adeo",
     link: "https://www.adeo.com/",
-    highlight: true,
   },
   {
     name: "Agence Koul",
@@ -91,18 +94,18 @@ export const otherData: Reference[] = [
     name: "Alstom",
     logo: "alstom",
     link: "https://www.alstom.com/",
-    highlight: true,
   },
   {
     name: "Arte",
     logo: "arte",
     link: "https://www.arte.tv/fr/",
-    highlight: true,
+    highlight: 7,
   },
   {
     name: "beIN SPORTS",
     logo: "bein-sports",
     link: "https://www.beinsports.com/",
+    highlight: 8,
   },
   {
     name: "Biig",
@@ -113,7 +116,7 @@ export const otherData: Reference[] = [
     name: "BNP",
     logo: "bnp",
     link: "https://mabanque.bnpparibas/",
-    highlight: true,
+    highlight: 6,
   },
   {
     name: "Bonjour",
@@ -129,11 +132,13 @@ export const otherData: Reference[] = [
     name: "Cartier",
     logo: "cartier",
     link: "https://www.cartier.com/",
+    highlight: 5,
   },
   {
     name: "Decathlon",
     logo: "decathlon",
     link: "https://www.decathlon.fr/",
+    highlight: 10,
   },
   {
     name: "Deutsche Institution für Schiedsgerichtsbarkeit",
@@ -169,13 +174,12 @@ export const otherData: Reference[] = [
     name: "France TV",
     logo: "france-tv",
     link: "https://www.france.tv/",
-    highlight: true,
+    highlight: 9,
   },
   {
     name: "General Electric",
     logo: "general-electric",
     link: "https://www.ge.com/",
-    highlight: true,
   },
   {
     name: "Instamed",
@@ -206,7 +210,6 @@ export const otherData: Reference[] = [
     name: "Libération",
     logo: "liberation",
     link: "https://www.liberation.fr/",
-    highlight: true,
   },
   {
     name: "The London Internet Exchange",
@@ -252,7 +255,7 @@ export const otherData: Reference[] = [
     name: "Orange",
     logo: "orange",
     link: "https://www.orange.fr/",
-    highlight: true,
+    highlight: 2,
   },
   {
     name: "Oskab",
@@ -283,6 +286,7 @@ export const otherData: Reference[] = [
     name: "Renault",
     logo: "renault",
     link: "https://www.renault.fr/",
+    highlight: 11,
   },
   {
     name: "Ville de Roubaix",
@@ -303,13 +307,11 @@ export const otherData: Reference[] = [
     name: "SensioLabs",
     logo: "sensio-labs",
     link: "https://sensiolabs.com/",
-    highlight: true,
   },
   {
     name: "Sezane",
     logo: "sezane",
     link: "https://www.sezane.com/",
-    highlight: true,
   },
   {
     name: "SGS",
@@ -320,6 +322,7 @@ export const otherData: Reference[] = [
     name: "Siemens",
     logo: "siemens",
     link: "https://www.siemens.com/",
+    highlight: 1,
   },
   {
     name: "Simplon",
@@ -370,17 +373,19 @@ export const otherData: Reference[] = [
     name: "US Government",
     logo: "us-government",
     link: "https://data.usbr.gov/rise/api",
+    highlight: 4,
   },
   {
     name: "Vestiaire collective",
     logo: "vestiaire-collective",
     link: "https://vestiairecollective.com/",
+    highlight: 12,
   },
   {
     name: " Volvo",
     logo: "volvo",
     link: "https://www.volvocars.com/",
-    highlight: true,
+    highlight: 3,
   },
   {
     name: "whatwedo",
