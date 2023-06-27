@@ -38,7 +38,7 @@ export default async function Page() {
             size="lg"
             className="w-full border-b-2 border-b-blue mb-4"
           >
-            Open source projects
+            Free software
           </Heading>
         </div>
         <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(120px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(150px,1fr))] w-full place-content-center">

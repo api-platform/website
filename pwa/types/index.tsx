@@ -6,7 +6,7 @@ export interface Reference {
   name: string;
   logo: string;
   link: string;
-  highlight?: boolean;
+  highlight?: number;
 }
 
 export interface GuideFrontMatter {

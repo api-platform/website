@@ -71,7 +71,7 @@ export default function LogoItem({
         src={`/images/references/oss/${reference.logo}.png`}
         height={50}
         width={200}
-        className="cursor-pointer h-full w-auto brightness-0 invert"
+        className="h-full w-auto brightness-0 invert"
       />
     </a>
   );
