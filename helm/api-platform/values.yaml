@@ -25,6 +25,11 @@ pwa:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
+  resources: 
+    requests:
+      memory: 100MI
+      CPU: 1m
+
 
 next: 
   rootUrl: ChangeMe
