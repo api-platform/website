@@ -52,7 +52,7 @@ export default function MobileSideBar({
           />
         </svg>
       </button>
-      <div className="pl-4 flex flex-row gap-1 items-center justify-center leading-none text-sm font-light text-text-secondary">
+      <div className="pl-4 flex flex-row gap-1 items-center justify-center leading-none text-sm font-light text-text-secondary dark:text-white/70">
         {breadCrumbs.map((docLink, index) => (
           <Fragment key={docLink.title}>
             {docLink.link ? (
@@ -67,7 +67,7 @@ export default function MobileSideBar({
               <span
                 className={`${
                   index === breadCrumbs.length - 1 &&
-                  "font-bold text-text-primary text-ellipsis whitespace-nowrap overflow-hidden"
+                  "font-bold text-text-primary text-ellipsis whitespace-nowrap overflow-hidden dark:text-white/50"
                 }`}
               >
                 {docLink.title}
