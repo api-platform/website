@@ -140,8 +140,6 @@ jobs:
             --set=php.host=${{ env.URL }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
-            --set=pwa.ressources.requests.cpu=250m \
-            --set=pwa.ressources.requests.memory=700Mi \
             --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
             --set=postgresql.global.postgresql.auth.username=website \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
@@ -170,8 +168,6 @@ jobs:
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ env.URL }} \
-            --set=pwa.ressources.requests.cpu=250m \
-            --set=pwa.ressources.requests.memory=700Mi \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'

@@ -27,8 +27,8 @@ pwa:
     tag: ""
   resources: 
     requests:
-      memory: 100MI
-      CPU: 1m
+      memory: 700Mi
+      cpu: 250m
 
 
 next: 
@@ -64,13 +64,13 @@ postgresql:
         username: "example"
         password: "!ChangeMe!"
         database: "api"
+  # Persistent Volume Storage configuration.
+  # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
+  primary:
     resources:
       requests:
         memory: 50Mi
         cpu: 1m
-  # Persistent Volume Storage configuration.
-  # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
-  primary:
     persistence:
       enabled: true
       storageClass: "standard"
