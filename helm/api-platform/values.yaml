@@ -25,6 +25,11 @@ pwa:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
+  resources: 
+    requests:
+      memory: 700Mi
+      cpu: 250m
+
 
 next: 
   rootUrl: ChangeMe
@@ -59,13 +64,13 @@ postgresql:
         username: "example"
         password: "!ChangeMe!"
         database: "api"
+  # Persistent Volume Storage configuration.
+  # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
+  primary:
     resources:
       requests:
         memory: 50Mi
         cpu: 1m
-  # Persistent Volume Storage configuration.
-  # ref: https://kubernetes.io/docs/user-guide/persistent-volumes
-  primary:
     persistence:
       enabled: true
       storageClass: "standard"
@@ -125,11 +130,9 @@ ingress:
 #   # choice for the user. This also increases chances charts run on environments with little
 #   # resources, such as Minikube. If you do want to specify resources, uncomment the following
 #   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-#   limits:
-#     memory: 750Mi
 #   requests:
 #     cpu: 150m
-#     memory: 256Mi
+#     memory: 500Mi
 
 # If you use Mercure, you need the managed or the On Premise version to deploy more than one pod: https://mercure.rocks/docs/hub/cluster
 replicaCount: 1

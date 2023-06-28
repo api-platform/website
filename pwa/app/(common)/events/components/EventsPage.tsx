@@ -47,7 +47,7 @@ export default function EventsPage({ events }: EventsPageProps) {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-blue-black pb-12">
+    <div className="bg-gray-100 dark:bg-blue-black pb-12 relative after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-gray-100 after:dark:bg-blue-black">
       <ShapeSection
         className="bg-blue-black h-[75vh]"
         effect="right-triangle"
