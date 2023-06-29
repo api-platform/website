@@ -12,6 +12,9 @@ import { getRootUrl } from "utils";
 
 const basePath = getRootUrl();
 
+const addTrailingSlashIfNecessary = (str: string) =>
+  str.charAt(str.length - 1) === "/" ? str : `${str}/`;
+
 function createLocalePath(locale: Locale, path: string, edition?: string) {
   const baseLocalePath =
     i18n.defaultLocale === locale ? basePath : `${basePath}/${locale}`;
@@ -54,7 +57,7 @@ async function getAllConRoutes() {
         routes.push(createLocalePath(locale, `con/${edition}/${legal}`));
     }
   }
-  return routes;
+  return routes.map((route) => addTrailingSlashIfNecessary(route));
 }
 
 async function getAllStandardRoutes() {
@@ -92,13 +95,14 @@ async function getAllStandardRoutes() {
     }
   }
 
-  return routes;
+  return routes.map((route) => addTrailingSlashIfNecessary(route));
 }
 
 export default async function sitemap() {
   const allLinks = [
-    ...(await getAllConRoutes()),
+    basePath,
     ...(await getAllStandardRoutes()),
+    ...(await getAllConRoutes()),
   ];
   return allLinks.map((path) => ({ url: path }));
 }
