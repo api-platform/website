@@ -22,7 +22,7 @@ export default function CodeBlock({ title, children }: CodeBlockProps) {
   return (
     <div
       ref={animation}
-      className="dark bg-blue-black dark:bg-blue-darkest rounded-2xl p-6 w-full flex flex-col shadow-xl my-4 | sm:my-8 md:absolute md:right-[calc(100%+3rem)] md:w-full md:max-w-lg md:my-0"
+      className="dark text-left bg-blue-black dark:bg-blue-darkest rounded-2xl p-6 w-full flex flex-col shadow-xl my-4 | sm:my-8 md:absolute md:right-[calc(100%+3rem)] md:w-full md:max-w-lg md:my-0"
     >
       <div className="flex flew-row items-center gap-2">
         <div className="rounded-full w-3 h-3 bg-[#ed6a5d]" />

@@ -123,8 +123,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=200m \
-            --set=pwa.resources.requests.memory=700Mi \
+            --set=pwa.resources.requests.cpu=500m \
+            --set=pwa.resources.requests.memory=1400Mi \
+            --set=pwa.resources.limits.memory=1400Mi \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             --set=service.type=NodePort \
@@ -167,8 +168,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=200m \
-            --set=pwa.resources.requests.memory=700Mi \
+            --set=pwa.resources.requests.cpu=500m \
+            --set=pwa.resources.requests.memory=1400Mi \
+            --set=pwa.resources.limits.memory=1400Mi \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ env.URL }} \

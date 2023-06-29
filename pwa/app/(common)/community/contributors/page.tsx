@@ -21,6 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const revalidate = 86400; // revalidate the contributors ranking every day
+
 export default async function Page() {
   const contributors = await getAllContributors();
   return (

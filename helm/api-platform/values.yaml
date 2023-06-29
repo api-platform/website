@@ -27,8 +27,10 @@ pwa:
     tag: ""
   resources: 
     requests:
-      memory: 700Mi
-      cpu: 250m
+      memory: 1400Mi
+      cpu: 500m
+    limits:
+      memory: 1400Mi      
 
 
 next: 

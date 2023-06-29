@@ -5,7 +5,7 @@ export default async function NotFound() {
   return (
     <div
       className={classNames(
-        "h-screen pt-16 bg-blue text-white flex flex-col items-center justify-center md:flex-row",
+        "h-screen pt-16 bg-blue-light text-white flex flex-col items-center justify-center md:flex-row after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-blue-light",
         "dark:text-blue-black"
       )}
     >
