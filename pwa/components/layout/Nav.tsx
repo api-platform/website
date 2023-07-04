@@ -102,7 +102,7 @@ export default function Nav({ withPreheader = false }) {
               indexName={process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME}
               apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY}
               searchParameters={{
-                facetFilters: [`version:v${version}`],
+                facetFilters: [`version:${version}`],
               }}
               transformItems={(items: any[]) => {
                 return items.map((item) => ({
