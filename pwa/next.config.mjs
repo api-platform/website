@@ -90,16 +90,10 @@ const nextConfig = {
     swcMinify: true,
     output: "standalone",
     images: {
-        domains: [
-            "avatars.githubusercontent.com",
-            "img.youtube.com",
-            "secure.meetupstatic.com",
-        ],
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "raw.githubusercontent.com",
-                port: "",
+                hostname: "**",
             },
         ],
         deviceSizes: [640, 768, 828, 1024, 1280, 1536, 1920, 2048],

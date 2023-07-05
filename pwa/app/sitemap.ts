@@ -82,7 +82,7 @@ async function getAllStandardRoutes() {
 
   const contributors = await getAllContributors();
   for (const contributor of contributors) {
-    routes.push(`${basePath}/contributors/${contributor.login}`);
+    routes.push(`${basePath}/community/contributors/${contributor.login}`);
   }
 
   for (const version of versions) {

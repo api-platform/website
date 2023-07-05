@@ -31,7 +31,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
   return (
     <div
       className={classNames(
-        "transition-all duration-300",
+        "doc-nav transition-all duration-300",
         isOpen ? "mb-8" : "mb-4"
       )}
     >
@@ -48,7 +48,13 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
           <Link
             href={link}
             prefetch={false}
-            className="flex-1 font-semibold uppercase"
+            className={classNames(
+              "flex-1 font-semibold uppercase doc-category",
+              pathname === link ||
+                (pathname.startsWith(basePath) &&
+                  basePath !== "" &&
+                  "is-active") // for docsearch
+            )}
           >
             {title}
           </Link>
@@ -56,7 +62,13 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
           <p
             role="button"
             onClick={() => setOpen(!isOpen)}
-            className="flex-1 font-semibold uppercase"
+            className={classNames(
+              "flex-1 font-semibold uppercase doc-category",
+              pathname === link ||
+                (pathname.startsWith(basePath) &&
+                  basePath !== "" &&
+                  "is-active") // for docsearch
+            )}
           >
             {title}
           </p>
