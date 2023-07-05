@@ -1,0 +1,30 @@
+export const meta = {
+    creator: "AFUP",
+    type: "conference",
+    venue: {
+        city: "Disneyland Paris",
+        country: "France",
+    },
+    startDate: {
+        date: "2023-10-12",
+        time: "09:00",
+    },
+    endDate: {
+        date: "2023-10-13",
+        time: "18:00",
+    },
+    link: 'https://event.afup.org/forum-php-2023/programme/#4425',
+    picture: "https://event.afup.org/wp-content/uploads/cropped-logoforumphp2023-fondnoir.png",
+    speakers: [{
+        name: "Antoine Bluchet",
+        github: "soyuka",
+    }],
+};
+
+# Comment nous avons rendu API Platform compatible avec Laravel
+
+API Platform, cadriciel écrit en PHP basé sur Symfony est un outil de développement d'APIs web parmi les plus puissants. 
+
+En effet, en embarquant les standards les plus populaires du marché, il permet aux devs de s'abstraire de l'implémentation protocoles académiques complexes (JSON-LD, Hypermedia, JSON Schema etc.) et de profiter de leurs fonctionnalités. La communauté Laravel, proche de leurs outils et de l'approche plus abstraite de Laravel face à Symfony, ne bénéficiait jusqu'alors pas d'outils aussi performants. 
+
+De ce fait, nous avons souhaité rendre API Platform compatible avec Laravel et nous vous embarquons avec nous dans l'aventure pour partager l'intégration de ces deux outils. Au menu de cette présentation, quelles ont été les décisions techniques qui nous ont permis de le faire, quelles sont les difficultés que nous avons rencontrées et comment se lancer avec Laravel et API Platform.
