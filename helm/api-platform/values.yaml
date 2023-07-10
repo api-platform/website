@@ -20,6 +20,7 @@ php:
     - "192.168.0.0/16"
 
 pwa:
+  replicaCount: 1
   image:
     repository: "chart-example.local/api-platform/pwa"
     pullPolicy: IfNotPresent
