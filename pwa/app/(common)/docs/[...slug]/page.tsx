@@ -32,17 +32,6 @@ export async function generateStaticParams() {
       }
     }
   }
-  /*const navs = await loadV2DocumentationNav(current);
-  for (const nav of navs) {
-    for (const link of nav.links) {
-      slugs.push({
-        slug: link.link
-          .replace("/docs/", "")
-          .split("/")
-          .filter((p) => p !== ""),
-      });
-    }
-  }*/
   return slugs;
 }
 

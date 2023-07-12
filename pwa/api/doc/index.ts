@@ -16,11 +16,6 @@ import { Chapters } from "types";
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
 
-type Options = {
-  method?: string;
-  url?: string;
-};
-
 function toAbsoluteUrl(url: string, githubPath: string): string {
   try {
     new URL(url);
@@ -36,40 +31,6 @@ function toAbsoluteUrl(url: string, githubPath: string): string {
       .replace(".md", "");
   }
 }
-
-const octokit = new MyOctokit({
-  auth: process.env.GITHUB_KEY,
-  throttle: {
-    onRateLimit: (
-      retryAfter: number,
-      options: Options,
-      _octokit,
-      retryCount: number
-    ) => {
-      console.warn(
-        `Request quota exhausted for request ${options.method} ${options.url}`
-      );
-
-      if (retryCount < 1) {
-        // only retries once
-        console.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      } else
-        throw `Request quota exhausted for request ${options.method} ${options.url}`;
-    },
-    onSecondaryRateLimit: (retryAfter: number, options: any) => {
-      // does not retry, only logs a warning
-      console.warn(
-        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
-      );
-    },
-  },
-  request: {
-    fetch: (url: string, opts: any) => {
-      return fetch(url, { ...opts, next: { tags: ["v2"] } });
-    },
-  },
-});
 
 export async function loadMarkdownBySlugArray(slug: string[]) {
   const mdx = await import(`data/docs/${slug.join("/")}.mdx`);
@@ -93,8 +54,7 @@ export const getDocTitle = async (version: string, slug: string[]) => {
       return sidebarMemoryCache.get(key);
     }
     const { data } = await getDocContentFromSlug(version, slug);
-    const md = Buffer.from((data as any).content, "base64").toString();
-    const title = extractHeadingsFromMarkdown(md, 1)?.[0];
+    const title = extractHeadingsFromMarkdown(data, 1)?.[0];
 
     sidebarMemoryCache.set(key, title || slug.shift());
     return sidebarMemoryCache.get(key);
@@ -106,18 +66,11 @@ export const getDocTitle = async (version: string, slug: string[]) => {
 
 export const loadV2DocumentationNav = cache(async (branch: string) => {
   try {
-    const { data } = await octokit.rest.repos.getContent({
-      owner: "api-platform",
-      repo: "docs",
-      path: "outline.yaml",
-      ref: branch,
-    });
-
-    if (!("content" in data)) return [];
-
-    const result = Buffer.from(data.content, "base64");
-
-    const navData: Chapters = YAML.parse(result.toString());
+    const url = `https://raw.githubusercontent.com/api-platform/docs/${branch}/outline.yaml`;
+    const response = await fetch(url);
+    //return [];
+    const data = await response.text();
+    const navData: Chapters = YAML.parse(data);
 
     const basePath = branch === current ? `/docs` : `/docs/v${branch}`;
     return Promise.all(
@@ -163,12 +116,9 @@ export const getDocContentFromSlug = async (
   const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
   try {
-    const { data } = await octokit.rest.repos.getContent({
-      owner: "api-platform",
-      repo: "docs",
-      path: p,
-      ref: version,
-    });
+    const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
+    const response = await fetch(url);
+    const data = await response.text();
 
     return { data, path: p };
   } catch (error) {
@@ -202,7 +152,7 @@ export const getHtmlFromGithubContent = async (
   githubPath: string,
   version: string
 ) => {
-  const result = Buffer.from(data.content, "base64").toString();
+  const result = data;
 
   marked.setOptions({ mangle: false, headerIds: false });
 
