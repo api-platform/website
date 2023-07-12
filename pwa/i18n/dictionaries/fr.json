@@ -63,6 +63,16 @@
       "tip_title": "Important",
       "tip": "Des chambres d’hôtels ont été spécialement négociées et bloquées pour faciliter votre déplacement à Lille. La demande hôtelière est très élevée à Lille à cette époque de l’année : jetez un œil aux chambres disponibles et réservez-les dès que possible {{tip_link}}",
       "tip_link": "en suivant ce lien"
+    },
+    "conferences": {
+      "tags": {
+        "security": "Sécurité",
+        "performance": "Performance",
+        "archi": "Architecture",
+        "good-practices": "Bonnes pratiques",
+        "society": "Société",
+        "feedback": "REX"
+      }
     }
   },
   "an_event_by": "Un événement organisé par",
@@ -73,8 +83,7 @@
   "coming_soon": "Prochainement",
   "conferences": {
     "by_speaker": "par {{speaker}}",
-    "see_speaker_details": "En savoir plus sur le speaker",
-    "track": "Track {{track}}"
+    "see_speaker_details": "Plus d'infos"
   },
   "contact_us": "Contactez-nous !",
   "days_count": "{{count}} jour",

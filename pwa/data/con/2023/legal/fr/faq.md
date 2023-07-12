@@ -24,6 +24,10 @@ L'API Platform Conference s'engage à offrir une **expérience inclusive à ses 
 
 Si vous avez besoin de tirer votre lait, une salle avec un réfrigérateur sera mise à votre disposition. Si vous souhaitez amener votre bébé et que vous allaitez, veuillez prévenir [Cécile](mailto:cecile@les-tilleuls.coop), qui veillera à ce que vous soyez accueillie dans les meilleures conditions.
 
+## Je ne peux plus venir : est-ce que je peux me faire rembourser ma place ?
+
+Seule l'annulation de l'événement par Les-Tilleuls.coop donne lieu à un remboursement des billets. Toute commande est **ferme et définitive et ne peut donner lieu à remboursement complet ou partiel** sur demande de l’acheteur quelque soit le motif. Si vous ne pouvez plus assister à l'événement, vous pouvez demander cependant transférer votre place : contactez [Cécile](mailto:cecile@les-tilleuls.coop) une fois que vous avez trouvé un repreneur pour qu'elle puisse faire la modification de nom sur le badge.
+
 ## Puis-je avoir accès à un parking ?
 
 Une fois arrivé à Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).

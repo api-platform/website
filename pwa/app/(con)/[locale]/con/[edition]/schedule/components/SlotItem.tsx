@@ -1,19 +1,25 @@
 "use client";
 import React, { Fragment, useContext } from "react";
-import { Conference } from "types/con";
+import { ExtraConference } from "types/con";
 import { getConferenceTimes } from "utils/con";
 import Avatar from "./SlotAvatar";
 import Overline from "components/con/common/typography/Overline";
 import { LanguageContext } from "contexts/con/LanguageContext";
+import TagLabel from "components/con/conferences/TagLabel";
 
 interface SlotItemProps {
-  conference: Conference;
+  conference: ExtraConference;
   animated?: boolean;
 }
 
 export default function SlotItem({ conference }: SlotItemProps) {
-  const { title, start, end, date, url, speakers } = conference;
-  const { Translate } = useContext(LanguageContext);
+  const { start, end, date, url, speakers, tag } = conference;
+  const { Translate, locale } = useContext(LanguageContext);
+
+  const title =
+    typeof conference.title === "string"
+      ? conference.title
+      : conference.title[locale];
 
   const uniqueCompanies = Array.from(
     new Set(
@@ -28,6 +34,11 @@ export default function SlotItem({ conference }: SlotItemProps) {
     >
       {speakers.length ? <Avatar speakers={speakers} /> : null}
       <div className="flex flex-col flex-1">
+        <div className="flex flex-row gap-1">
+          {tag
+            ? tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)
+            : null}
+        </div>
         <Overline className="opacity-70 lg:hidden">
           {getConferenceTimes(date, start, end)}
         </Overline>

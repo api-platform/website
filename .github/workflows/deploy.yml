@@ -81,6 +81,7 @@ jobs:
               echo "URL=api-platform.com" >> "$GITHUB_ENV"
               echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
+              echo "REPLICA=3" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
@@ -91,6 +92,7 @@ jobs:
                   export RELEASE_NAME=${{ github.ref_name }}
               fi
               echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
+              echo "REPLICA=1" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
               echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
           fi
@@ -126,6 +128,7 @@ jobs:
             --set=pwa.resources.requests.cpu=500m \
             --set=pwa.resources.requests.memory=1400Mi \
             --set=pwa.resources.limits.memory=1400Mi \
+            --set=pwa.replicaCount=${{ env.REPLICA }} \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
             --set=service.type=NodePort \
@@ -171,6 +174,7 @@ jobs:
             --set=pwa.resources.requests.cpu=500m \
             --set=pwa.resources.requests.memory=1400Mi \
             --set=pwa.resources.limits.memory=1400Mi \
+            --set=pwa.replicaCount=${{ env.REPLICA }} \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
             --set=next.rootUrl=${{ env.URL }} \
