@@ -107,7 +107,7 @@ export default function Nav({ withPreheader = false }) {
               transformItems={(items: any[]) => {
                 return items.map((item) => ({
                   ...item,
-                  url: item.url ? new URL(item.url).pathname : "/docs",
+                  url: item.url ? new URL(item.url).pathname : "/docs/",
                 }));
               }}
               placeholder="Search..."
@@ -123,15 +123,15 @@ export default function Nav({ withPreheader = false }) {
             )}
           >
             <div className="flex flex-col flex-1 items-center justify-center gap-5 lg:flex-row">
-              <NavLink href="/docs">Docs</NavLink>
+              <NavLink href="/docs/">Docs</NavLink>
               <NavLink href="https://symfonycasts.com/screencast/api-platform?cid=apip">
                 Screencasts
               </NavLink>
               <NavLink href="https://api-platform.myspreadshop.net/">
                 Shop
               </NavLink>
-              <NavLink href="/events">Events</NavLink>
-              <NavLink href="/help">Need&nbsp;help?</NavLink>
+              <NavLink href="/events/">Events</NavLink>
+              <NavLink href="/help/">Need&nbsp;help?</NavLink>
               <div
                 className={classNames(
                   "lg:border-x-2 py-1 lg:px-4 flex flex-row gap-4 lg:gap-2.5",

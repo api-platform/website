@@ -1,11 +1,11 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
-import { marked } from "marked";
 import { Locale } from "i18n/i18n-config";
 import { getPlaceholder } from "utils/getPlaceholder";
 
 import { Speaker } from "types/con";
+import MarkdownIt from "markdown-it";
 
 export const getAllSpeakers = async (edition: string, locale: Locale) => {
   try {
@@ -57,12 +57,13 @@ export const getSpeakerData = async (
 
   const { id } = matterResult.data;
 
-  marked.setOptions({ mangle: false, headerIds: false });
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
 
-  const processedContent =
-    withDescription && (await marked(matterResult.content, { async: true }));
-
-  const contentHtml = processedContent?.toString();
+  const contentHtml = withDescription ? md.render(matterResult.content) : "";
 
   const placeholder = await getPlaceholder(
     path.join(process.cwd(), `/public/images/con/${edition}/speakers/${id}.png`)

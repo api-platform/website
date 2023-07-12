@@ -185,13 +185,15 @@ export default function Footer() {
               </a>
             </p>
             <div className="flex flex-col gap-2 text-center text-sm | sm:flex-row sm:gap-8">
-              <FooterLink href="/docs/extra/enterprise">
+              <FooterLink href="/docs/extra/enterprise/">
                 Enterprise subscription
               </FooterLink>
-              <FooterLink href="/docs/extra/security-policy">
+              <FooterLink href="/docs/extra/security-policy/">
                 Security Policy
               </FooterLink>
-              <FooterLink href="/trademark-policy">Trademark Policy</FooterLink>
+              <FooterLink href="/trademark-policy/">
+                Trademark Policy
+              </FooterLink>
             </div>
           </div>
         </div>

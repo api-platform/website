@@ -4,24 +4,21 @@ import matter from "gray-matter";
 import { extractHeadingsFromMarkdown, slugify } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
-import { markedHighlight } from "marked-highlight";
 import { Lang, getHighlighter } from "shiki";
 import YAML from "yaml";
-import { marked } from "marked";
+import MarkdownIt from "markdown-it";
 import { cache } from "react";
 import { current } from "consts";
-import { load as parseHtml } from "cheerio";
 import { Chapters } from "types";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
 
-type Options = {
-  method?: string;
-  url?: string;
-};
-
-function toAbsoluteUrl(url: string, githubPath: string): string {
+function toAbsoluteUrl(
+  url: string,
+  githubPath: string,
+  version?: string
+): string {
   try {
     new URL(url);
     return url;
@@ -31,45 +28,15 @@ function toAbsoluteUrl(url: string, githubPath: string): string {
     }
 
     return path
-      .normalize(`/docs/${path.dirname(githubPath)}/${url}`)
+      .normalize(
+        `/docs/${
+          !version || version === current ? "" : `v${version}`
+        }/${path.dirname(githubPath)}/${url}`
+      )
       .replace("index.md", "")
       .replace(".md", "");
   }
 }
-
-const octokit = new MyOctokit({
-  auth: process.env.GITHUB_KEY,
-  throttle: {
-    onRateLimit: (
-      retryAfter: number,
-      options: Options,
-      _octokit,
-      retryCount: number
-    ) => {
-      console.warn(
-        `Request quota exhausted for request ${options.method} ${options.url}`
-      );
-
-      if (retryCount < 1) {
-        // only retries once
-        console.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      } else
-        throw `Request quota exhausted for request ${options.method} ${options.url}`;
-    },
-    onSecondaryRateLimit: (retryAfter: number, options: any) => {
-      // does not retry, only logs a warning
-      console.warn(
-        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
-      );
-    },
-  },
-  request: {
-    fetch: (url: string, opts: any) => {
-      return fetch(url, { ...opts, next: { tags: ["v2"] } });
-    },
-  },
-});
 
 export async function loadMarkdownBySlugArray(slug: string[]) {
   const mdx = await import(`data/docs/${slug.join("/")}.mdx`);
@@ -93,8 +60,7 @@ export const getDocTitle = async (version: string, slug: string[]) => {
       return sidebarMemoryCache.get(key);
     }
     const { data } = await getDocContentFromSlug(version, slug);
-    const md = Buffer.from((data as any).content, "base64").toString();
-    const title = extractHeadingsFromMarkdown(md, 1)?.[0];
+    const title = extractHeadingsFromMarkdown(data, 1)?.[0];
 
     sidebarMemoryCache.set(key, title || slug.shift());
     return sidebarMemoryCache.get(key);
@@ -106,24 +72,17 @@ export const getDocTitle = async (version: string, slug: string[]) => {
 
 export const loadV2DocumentationNav = cache(async (branch: string) => {
   try {
-    const { data } = await octokit.rest.repos.getContent({
-      owner: "api-platform",
-      repo: "docs",
-      path: "outline.yaml",
-      ref: branch,
-    });
-
-    if (!("content" in data)) return [];
-
-    const result = Buffer.from(data.content, "base64");
-
-    const navData: Chapters = YAML.parse(result.toString());
+    const url = `https://raw.githubusercontent.com/api-platform/docs/${branch}/outline.yaml`;
+    const response = await fetch(url);
+    //return [];
+    const data = await response.text();
+    const navData: Chapters = YAML.parse(data);
 
     const basePath = branch === current ? `/docs` : `/docs/v${branch}`;
     return Promise.all(
       navData.chapters.map(async (part) => ({
         title: part.title,
-        basePath: `${basePath}/${part.path}`,
+        basePath: `${basePath}/${part.path}/`,
         links: await Promise.all(
           part.items.map(async (item: string) => ({
             title: await getDocTitle(branch, [
@@ -133,7 +92,7 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
             link:
               item === "index"
                 ? `${basePath}/${part.path}/`
-                : `${basePath}/${part.path}/${item}`,
+                : `${basePath}/${part.path}/${item}/`,
           }))
         ),
       }))
@@ -163,12 +122,9 @@ export const getDocContentFromSlug = async (
   const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
   try {
-    const { data } = await octokit.rest.repos.getContent({
-      owner: "api-platform",
-      repo: "docs",
-      path: p,
-      ref: version,
-    });
+    const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
+    const response = await fetch(url);
+    const data = await response.text();
 
     return { data, path: p };
   } catch (error) {
@@ -184,6 +140,8 @@ const codeLanguage = /```([a-z]+)/;
 const absoluteImgRegex = /src="\/docs\/(.*?\.(jpg|jpeg|png|gif|svg))"/gm;
 const blankLinkRegex =
   /<a\s+([^>]*\s+)?href="http[^"]*"(?![^>]*\starget=[^>]*>)/gm;
+const imgRegex = /<img([^>]*)src="([^"]+)"([^>]*)>/g;
+const linkRegex = /<a([^>]*)href="([^"]+)"([^>]*)>/g;
 
 const headingRegex = /<h([2-4])>(.*?)<\/h\1>/gm;
 
@@ -202,128 +160,99 @@ export const getHtmlFromGithubContent = async (
   githubPath: string,
   version: string
 ) => {
-  const result = Buffer.from(data.content, "base64").toString();
+  const result = data;
 
-  marked.setOptions({ mangle: false, headerIds: false });
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
 
   const highlighter = await getHighlighter({
     themes: ["github-light", "one-dark-pro"],
   });
   const languages = highlighter.getLoadedLanguages();
 
-  marked.use(
-    markedHighlight({
-      langPrefix: "not-prose language-",
-      highlight(code, language) {
-        if (code.includes('class="shiki')) return code; // ugly but fix https://github.com/markedjs/marked-highlight/issues/26
+  const highlightCode = (code: string, language: string) => {
+    language = language.toLowerCase();
+    const langExists = languages.includes(language as Lang);
 
-        language = language.toLowerCase();
-        const langExists = languages.includes(language as Lang);
-        const lang = langExists ? language : "shell";
+    const lang = langExists ? language : "shell";
 
-        return (
-          highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
-          highlighter.codeToHtml(code, { lang, theme: "github-light" })
-        );
-      },
-    })
-  );
+    return (
+      highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
+      highlighter.codeToHtml(code, { lang, theme: "github-light" })
+    );
+  };
 
-  // Links transformation, we use trailingSlash: true, and links skip the ".md" part
-  // this allows the doc to work on github and on our nextjs website
-  marked.use({
-    walkTokens: (token: any) => {
-      if (!["link", "image", "html"].includes(token.type)) {
-        return;
+  md.options.highlight = highlightCode;
+
+  // convert code selectors
+  const transformCodeBlocks = (markdown: string) => {
+    {
+      const matches = markdown.match(codeInside);
+
+      if (!matches?.length) {
+        return markdown;
       }
 
-      if (token.type === "html") {
-        const $ = parseHtml(token.raw);
-        $("a").map(function (i, elem) {
-          const el = $(this);
-          const href = el.attr("href");
+      matches.forEach((m: string) => {
+        const blocks = m.match(codeBlock);
 
-          if (href) {
-            el.attr("href", toAbsoluteUrl(href, githubPath));
-          }
-
-          return el;
-        });
-
-        $("img").map(function (i, elem) {
-          const el = $(this);
-          const src = el.attr("src");
-          if (src) {
-            el.attr("src", toAbsoluteUrl(src, githubPath));
-          }
-
-          return el;
-        });
-
-        token.text = $.html();
-        return;
-      }
-
-      token.href = toAbsoluteUrl(token.href, githubPath);
-    },
-  });
-
-  marked.use({
-    hooks: {
-      preprocess: (markdown: any) => {
-        const matches = markdown.match(codeInside);
-
-        if (!matches?.length) {
-          return markdown;
+        if (!blocks) {
+          return;
         }
 
-        matches.forEach((m: string) => {
-          const blocks = m.match(codeBlock);
-
-          if (!blocks) {
-            return;
-          }
-
-          let html = `
+        let html = `
 <div class="mb-4 overflow-hidden rounded-2xl bg-gray-100 dark:bg-blue-darkest not-prose">
   <div class="flex flex-wrap -mb-px bg-gray-300/10 dark:bg-blue/20 border-b border-gray-300 dark:border-blue-dark">
 `;
 
-          blocks.forEach((block: string, i: number) => {
-            const l = getLang(block);
-            html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
-              i === 0
-                ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
-                : "text-gray-400 dark:text-blue/60 border-transparent"
-            }">${l}</a></div>`;
-          });
-
-          html += "</div>";
-
-          blocks.forEach((block: string, i: number) => {
-            const l = getLang(block);
-            const h = marked.parse(block + `\n\`\`\``);
-            html += `<div key="${l}" class="p-4 ${
-              i > 0 ? "hidden" : ""
-            }">${h}</div>`;
-          });
-
-          html += "</div>";
-          markdown = markdown.replace(m, html);
+        blocks.forEach((block: string, i: number) => {
+          const l = getLang(block);
+          html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
+            i === 0
+              ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
+              : "text-gray-400 dark:text-blue/60 border-transparent"
+          }">${l}</a></div>`;
         });
 
-        return markdown.replaceAll("[/codeSelector]", "");
-      },
-    },
-  });
+        html += "</div>";
 
-  return marked
-    .parse(result)
+        blocks.forEach((block: string, i: number) => {
+          const l = getLang(block);
+          const h = md.render(block + `\n\`\`\``);
+          html += `<div key="${l}" class="p-4 ${
+            i > 0 ? "hidden" : ""
+          }">${h}</div>`;
+        });
+
+        html += "</div>";
+        markdown = markdown.replace(m, html);
+      });
+
+      return markdown.replaceAll("[/codeSelector]", "");
+    }
+  };
+
+  const transformedMarkdown = transformCodeBlocks(result);
+  return md
+    .render(transformedMarkdown)
+    .replace(
+      imgRegex,
+      (_match: string, p1: string, srcValue: string, p3: string) =>
+        `<img${p1}src="${toAbsoluteUrl(srcValue, githubPath)}"${p3}>`
+    )
     .replace(
       absoluteImgRegex,
       `src="https://raw.githubusercontent.com/api-platform/docs/${version}/$1"`
     )
-    .replace(headingRegex, (match, p1, p2) => {
+    .replace(
+      linkRegex,
+      (_match: string, p1: string, srcValue: string, p3: string) =>
+        `<a${p1}href="${toAbsoluteUrl(srcValue, githubPath, version)}"${p3}>`
+    )
+    .replace(headingRegex, (_match: string, p1: string, p2: string) => {
       const slug = slugify(p2);
       return `<h${p1} class="group">${p2} <a id=${slug} class="opacity-0 group-hover:opacity-100" style="
     padding-top: 80px;

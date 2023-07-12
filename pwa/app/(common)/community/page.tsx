@@ -101,7 +101,7 @@ function SocialItem({
         <p className="text text-secondary text-sm font-light flex-1">{text}</p>
         <ArrowLink
           size="small"
-          href="/events"
+          href="/events/"
           text={`Go to ${title}`}
           className="w-fit ml-auto mt-4 hidden lg:block"
         />
@@ -181,7 +181,7 @@ export default async function Page() {
             ))}
           </div>
           <ArrowLink
-            href="/events"
+            href="/events/"
             text="Discover all our events"
             className="w-fit ml-auto"
           />
