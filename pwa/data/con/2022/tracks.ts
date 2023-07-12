@@ -2,14 +2,20 @@ import { Track } from "types/con";
 
 const tracks: Track[] = [
   {
-    id: "EN",
+    id: "1",
+    title: {
+      en: "Track EN",
+      fr: "Track EN",
+    },
     type: "English-speaking track",
-    date: "10 sep, 2021",
   },
   {
-    id: "FR",
+    id: "2",
+    title: {
+      en: "Track FR",
+      fr: "Track FR",
+    },
     type: "French-speaking track",
-    date: "10 sep, 2021",
   },
 ];
 

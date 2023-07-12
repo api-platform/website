@@ -1,3 +1,5 @@
+import tags from "data/con/conferenceTags";
+
 export type Edition = {
   year: string;
   image: string;
@@ -52,7 +54,7 @@ export type Conference = {
   start: string;
   end: string;
   date: string;
-  track: "FR" | "EN";
+  track: Track;
   description?: string;
   short?: string;
   slug?: string;
@@ -61,12 +63,19 @@ export type Conference = {
   type?: "extra" | "upcoming" | "break" | "conference" | "empty";
   url?: string;
   day?: Day;
+  tag?: keyof typeof tags;
 };
 
+export interface ExtraConference extends Omit<Conference, "title"> {
+  title: string | { fr: string; en: string };
+}
+
 export type Track = {
-  id: "FR" | "EN";
-  type: string;
-  date: string;
+  id: string;
+  title: {
+    fr: string;
+    en: string;
+  };
 };
 
 export type Offer = {
@@ -101,7 +110,10 @@ export type Break = {
 
 export type Day = {
   date: string;
-  title?: string;
+  title?: {
+    fr: string;
+    en: string;
+  };
   tracks?: string[];
   single: boolean;
 };
