@@ -16,7 +16,11 @@ import { Chapters } from "types";
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
 
-function toAbsoluteUrl(url: string, githubPath: string): string {
+function toAbsoluteUrl(
+  url: string,
+  githubPath: string,
+  version?: string
+): string {
   try {
     new URL(url);
     return url;
@@ -26,7 +30,11 @@ function toAbsoluteUrl(url: string, githubPath: string): string {
     }
 
     return path
-      .normalize(`/docs/${path.dirname(githubPath)}/${url}`)
+      .normalize(
+        `/docs/${
+          !version || version === current ? "" : `v${version}`
+        }/${path.dirname(githubPath)}/${url}`
+      )
       .replace("index.md", "")
       .replace(".md", "");
   }
@@ -194,7 +202,7 @@ export const getHtmlFromGithubContent = async (
           const href = el.attr("href");
 
           if (href) {
-            el.attr("href", toAbsoluteUrl(href, githubPath));
+            el.attr("href", toAbsoluteUrl(href, githubPath, version));
           }
 
           return el;
@@ -213,8 +221,11 @@ export const getHtmlFromGithubContent = async (
         token.text = $.html();
         return;
       }
-
-      token.href = toAbsoluteUrl(token.href, githubPath);
+      token.href = toAbsoluteUrl(
+        token.href,
+        githubPath,
+        token.type === "link" ? version : undefined
+      );
     },
   });
 
