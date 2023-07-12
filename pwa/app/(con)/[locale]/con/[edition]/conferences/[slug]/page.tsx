@@ -57,7 +57,7 @@ export async function generateStaticParams({
 }: {
   params: { edition: string; locale: Locale };
 }) {
-  const slugs = await getAllConferenceSlugs(edition, locale);
+  const slugs = await getAllConferenceSlugs(edition);
 
   return slugs.map((slug: string) => ({
     slug,

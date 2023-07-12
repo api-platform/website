@@ -46,7 +46,7 @@ async function getAllConRoutes() {
           createLocalePath(locale, `con/${edition}/speakers/${speaker}`)
         );
 
-      const conferences = await getAllConferenceSlugs(edition, locale);
+      const conferences = await getAllConferenceSlugs(edition);
       for (const conference of conferences)
         routes.push(
           createLocalePath(locale, `con/${edition}/conferences/${conference}`)
