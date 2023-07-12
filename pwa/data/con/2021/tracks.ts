@@ -7,7 +7,6 @@ const tracks: Track[] = [
       en: "Track EN",
       fr: "Track EN",
     },
-    type: "English-speaking track",
   },
   {
     id: "2",
@@ -15,7 +14,6 @@ const tracks: Track[] = [
       en: "Track FR",
       fr: "Track FR",
     },
-    type: "French-speaking track",
   },
 ];
 
