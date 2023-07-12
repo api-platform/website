@@ -74,3 +74,5 @@ export const slugify = (t: string) =>
     .replace(/\s+/g, "-") // Remplacer les espaces par des tirets
     .replace(/-+/g, "-") // Supprimer les tirets consécutifs
     .trim(); // Supprimer les espaces en début et fin de chaîne
+
+export const unbreakable = (t: string) => t.replace(/\s+(?=[!|?])/g, "\u00A0");

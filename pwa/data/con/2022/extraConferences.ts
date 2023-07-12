@@ -53,7 +53,7 @@ const extra = [
     date: "2022-09-16",
     start: "14:50",
     end: "15:30",
-    track: "FR",
+    track: "2",
     type: "upcoming",
   },
   {
@@ -61,7 +61,7 @@ const extra = [
     date: "2022-09-15",
     start: "16:00",
     end: "16:20",
-    track: "FR",
+    track: "2",
     type: "empty",
   },
   {
@@ -69,7 +69,7 @@ const extra = [
     date: "2022-09-16",
     start: "10:20",
     end: "10:40",
-    track: "FR",
+    track: "2",
     type: "empty",
   },
 ];
