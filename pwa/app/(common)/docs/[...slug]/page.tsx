@@ -14,7 +14,25 @@ import { getVersionAndSlugFromSlugs } from "utils";
 
 export async function generateStaticParams() {
   const slugs: { slug: string[] }[] = [];
-  const navs = await loadV2DocumentationNav(current);
+  const allNavs = await Promise.all(
+    versions.map(async (version) => {
+      const nav = await loadV2DocumentationNav(version);
+      return nav;
+    })
+  );
+  for (const navs of allNavs) {
+    for (const nav of navs) {
+      for (const link of nav.links) {
+        slugs.push({
+          slug: link.link
+            .replace("/docs/", "")
+            .split("/")
+            .filter((p) => p !== ""),
+        });
+      }
+    }
+  }
+  /*const navs = await loadV2DocumentationNav(current);
   for (const nav of navs) {
     for (const link of nav.links) {
       slugs.push({
@@ -24,9 +42,11 @@ export async function generateStaticParams() {
           .filter((p) => p !== ""),
       });
     }
-  }
+  }*/
   return slugs;
 }
+
+export const dynamicParams = false;
 
 export default async function Page({
   params: { slug },
