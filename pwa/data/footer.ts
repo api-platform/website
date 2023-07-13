@@ -6,25 +6,25 @@ const footer: FooterPart[] = [
     links: [
       {
         title: "Logos",
-        url: "/resources/logos",
+        url: "/resources/logos/",
       },
       {
         title: "Wallpapers",
-        url: "/resources/wallpapers",
+        url: "/resources/wallpapers/",
       },
       {
         title: "Colouring webby",
-        url: "/resources/colouring-webby",
+        url: "/resources/colouring-webby/",
       },
     ],
   },
   {
     title: "Help",
-    link: "/help",
+    link: "/help/",
     links: [
       {
         title: "Need help?",
-        url: "/help",
+        url: "/help/",
       },
       {
         title: "Screencasts",
@@ -42,23 +42,23 @@ const footer: FooterPart[] = [
   },
   {
     title: "Community",
-    link: "/community",
+    link: "/community/",
     links: [
       {
         title: "Overview",
-        url: "/community",
+        url: "/community/",
       },
       {
         title: "Events",
-        url: "/events",
+        url: "/events/",
       },
       {
         title: "API Platform Conference",
-        url: "/con",
+        url: "/con/",
       },
       {
         title: "Contributors",
-        url: "/community/contributors",
+        url: "/community/contributors/",
       },
       {
         title: "How to contribute",

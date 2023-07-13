@@ -1,10 +1,9 @@
 import path from "node:path";
 import { readFile, readdir } from "node:fs/promises";
-
 import matter from "gray-matter";
-import { marked } from "marked";
 import { extractHeadingsFromMarkdown } from "utils";
 import { Locale, i18n } from "i18n/i18n-config";
+import MarkdownIt from "markdown-it";
 
 export const getLegalData = async (
   edition: string,
@@ -17,10 +16,13 @@ export const getLegalData = async (
   );
 
   const matterResult = matter(fileContents);
-  marked.setOptions({ mangle: false, headerIds: false });
-  const processedContent = await marked(matterResult.content, { async: true });
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
 
-  const contentHtml = processedContent?.toString();
+  const contentHtml = md.render(matterResult.content);
   // Combine the data with the id and contentHtml
   return {
     content: contentHtml

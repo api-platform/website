@@ -16,6 +16,9 @@ export function sortByTitle(a: { title: string }, b: { title: string }) {
   return 0;
 }
 
+export const addTrailingSlashIfNecessary = (str: string) =>
+  str.charAt(str.length - 1) === "/" ? str : `${str}/`;
+
 export function extractHeadingsFromMarkdown(content: string, level: number) {
   const headings = content
     .split("\n")

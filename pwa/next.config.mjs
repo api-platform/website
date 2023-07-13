@@ -134,6 +134,11 @@ const nextConfig = {
                 destination: "/fr/con/2023",
                 permanent: true,
             },
+            {
+                source: "/docs/",
+                destination: "/docs/distribution/",
+                permanent: true,
+            },
         ];
     },
 };

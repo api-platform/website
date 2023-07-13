@@ -1,13 +1,13 @@
 import { unbreakable } from "./../../utils/index";
 import path from "node:path";
 import matter from "gray-matter";
-import { marked } from "marked";
 import { readFile, readdir } from "node:fs/promises";
 import { sortByStartDate } from "utils/con";
 import { extractHeadingsFromMarkdown } from "utils";
 import { getSpeakerById } from "./speakers";
 import { Conference, Day, Speaker, Track } from "types/con";
 import { Locale, i18n } from "i18n/i18n-config";
+import MarkdownIt from "markdown-it";
 
 export const getAllConferences = async (
   edition: string,
@@ -66,12 +66,13 @@ export const getConferenceData = async (
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  marked.setOptions({ mangle: false, headerIds: false });
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
 
-  const processedContent =
-    withDescription && (await marked(matterResult.content, { async: true }));
-
-  const contentHtml = processedContent?.toString();
+  const contentHtml = withDescription ? md.render(matterResult.content) : "";
 
   const speakers = matterResult.data.speakers
     .split(" ")
