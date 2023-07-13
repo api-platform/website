@@ -4,7 +4,6 @@ import matter from "gray-matter";
 import { extractHeadingsFromMarkdown, slugify } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
-import { Lang } from "shiki";
 import YAML from "yaml";
 import MarkdownIt from "markdown-it";
 import { cache } from "react";
@@ -136,7 +135,7 @@ export const getDocContentFromSlug = async (
 };
 
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
-const codeBlock = /```[a-z]([\s\S]+?)(?=```)/gm;
+const codeBlockRegex = /```[a-z]([\s\S]+?)(?=```)/gm;
 const codeLanguage = /```([a-z]+)/;
 const absoluteImgRegex = /src="\/docs\/(.*?\.(jpg|jpeg|png|gif|svg))"/gm;
 const blankLinkRegex =
@@ -145,7 +144,6 @@ const imgRegex = /<img([^>]*)src="([^"]+)"([^>]*)>/g;
 const linkRegex = /<a([^>]*)href="([^"]+)"([^>]*)>/g;
 
 const headingRegex = /<h([2-4])>(.*?)<\/h\1>/gm;
-const codeBlockWithoutLangRegex = /(?:^|\n) {4}(\$|#)(.*(?:\n {4}.+)*)/g;
 
 function getLang(block: string): string {
   const language = block.match(codeLanguage);
@@ -184,7 +182,7 @@ export const getHtmlFromGithubContent = async (
       }
 
       matches.forEach((m: string) => {
-        const blocks = m.match(codeBlock);
+        const blocks = m.match(codeBlockRegex);
 
         if (!blocks) {
           return;
@@ -222,9 +220,38 @@ export const getHtmlFromGithubContent = async (
     }
   };
 
-  const transformedMarkdown = transformCodeSelectors(result)
-    .replace(codeBlockWithoutLangRegex, "\n```\n$1$2\n```\n") // convert codeblocks with indentation into classic codeblocks
-    .replace(/^(?: {4})/gm, "");
+  // convert indented code block to classic code blocks with backticks
+  const convertIndentedBlocCode = (str: string) => {
+    const codeBlockWithoutLangRegex =
+      /(^|\n)((?:\s{4}.*\n)+)(\n|$)(?!(^|\n)```)/g;
+
+    // Structure intermédiaire pour stocker les blocs de code
+    const blocsCode: string[] = [];
+
+    // Remplacer les blocs de code classiques par un marqueur et les stocker
+    const texteSansBlocsCode = str.replace(codeBlockRegex, (match: string) => {
+      blocsCode.push(match);
+      return `***BLOC_CODE_${blocsCode.length - 1}***`;
+    });
+
+    const texteAvecLignesModifiees = texteSansBlocsCode
+      .replace(codeBlockWithoutLangRegex, "\n```\n$2\n```\n")
+      .replace(/^(?: {4})/gm, "");
+
+    // Réintégrer les blocs de code classiques au bon endroit
+    const resultat = texteAvecLignesModifiees.replace(
+      /\*\*\*BLOC_CODE_(\d+)\*\*\*/g,
+      (match, index) => {
+        return blocsCode[index];
+      }
+    );
+
+    return resultat;
+  };
+
+  const transformedMarkdown = convertIndentedBlocCode(
+    transformCodeSelectors(result)
+  );
 
   return md
     .render(transformedMarkdown)
