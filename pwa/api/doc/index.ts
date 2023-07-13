@@ -4,12 +4,13 @@ import matter from "gray-matter";
 import { extractHeadingsFromMarkdown, slugify } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
-import { Lang, getHighlighter } from "shiki";
+import { Lang } from "shiki";
 import YAML from "yaml";
 import MarkdownIt from "markdown-it";
 import { cache } from "react";
 import { current } from "consts";
 import { Chapters } from "types";
+import { getOrCreateHighlighter, highlightCode } from "utils/highlighter";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
@@ -144,6 +145,7 @@ const imgRegex = /<img([^>]*)src="([^"]+)"([^>]*)>/g;
 const linkRegex = /<a([^>]*)href="([^"]+)"([^>]*)>/g;
 
 const headingRegex = /<h([2-4])>(.*?)<\/h\1>/gm;
+const codeBlockWithoutLangRegex = /(?:^|\n) {4}(\$|#)(.*(?:\n {4}.+)*)/g;
 
 function getLang(block: string): string {
   const language = block.match(codeLanguage);
@@ -168,27 +170,12 @@ export const getHtmlFromGithubContent = async (
     typographer: true,
   });
 
-  const highlighter = await getHighlighter({
-    themes: ["github-light", "one-dark-pro"],
-  });
-  const languages = highlighter.getLoadedLanguages();
-
-  const highlightCode = (code: string, language: string) => {
-    language = language.toLowerCase();
-    const langExists = languages.includes(language as Lang);
-
-    const lang = langExists ? language : "shell";
-
-    return (
-      highlighter.codeToHtml(code, { lang, theme: "one-dark-pro" }) +
-      highlighter.codeToHtml(code, { lang, theme: "github-light" })
-    );
-  };
+  await getOrCreateHighlighter();
 
   md.options.highlight = highlightCode;
 
   // convert code selectors
-  const transformCodeBlocks = (markdown: string) => {
+  const transformCodeSelectors = (markdown: string) => {
     {
       const matches = markdown.match(codeInside);
 
@@ -235,7 +222,10 @@ export const getHtmlFromGithubContent = async (
     }
   };
 
-  const transformedMarkdown = transformCodeBlocks(result);
+  const transformedMarkdown = transformCodeSelectors(result)
+    .replace(codeBlockWithoutLangRegex, "\n```\n$1$2\n```\n") // convert codeblocks with indentation into classic codeblocks
+    .replace(/^(?: {4})/gm, "");
+
   return md
     .render(transformedMarkdown)
     .replace(

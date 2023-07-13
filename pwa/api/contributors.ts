@@ -32,7 +32,7 @@ export const octokit = new MyOctokit({
     onRateLimit: (
       retryAfter: number,
       options: Options,
-      _octokit,
+      _octokit: any,
       retryCount: number
     ) => {
       console.warn(
