@@ -55,7 +55,10 @@ export const octokit = new MyOctokit({
   },
   request: {
     fetch: (url: string, opts: any) => {
-      return fetch(url, { ...opts, next: { tags: ["contributors"] } });
+      return fetch(url, {
+        ...opts,
+        next: { tags: ["contributors"], revalidate: 86400 },
+      });
     },
   },
 });
