@@ -1,7 +1,7 @@
 import {
+  getAllContributors,
   getContributorBySlug,
   getContributorConferencesBySlug,
-  getContributors,
 } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
@@ -69,7 +69,7 @@ const parseGithubText = (text: string) => {
 };
 
 export async function generateStaticParams() {
-  const contributors = await getContributors(0, 100);
+  const contributors = await getAllContributors();
   return contributors.map((c) => ({ slug: c.login }));
 }
 
