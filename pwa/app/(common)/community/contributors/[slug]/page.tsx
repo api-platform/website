@@ -73,6 +73,8 @@ export async function generateStaticParams() {
   return contributors.map((c) => ({ slug: c.login }));
 }
 
+export const revalidate = 86400;
+
 export default async function Page({
   params: { slug },
 }: {
