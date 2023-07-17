@@ -21,17 +21,6 @@ const extra = [
   },
   {
     title: {
-      en: "TBA",
-      fr: "Prochainement",
-    },
-    date: "2023-09-21",
-    start: "14:50",
-    end: "15:30",
-    track: "2",
-    type: "upcoming",
-  },
-  {
-    title: {
       en: "Afternoon break",
       fr: "Pause café",
     },
