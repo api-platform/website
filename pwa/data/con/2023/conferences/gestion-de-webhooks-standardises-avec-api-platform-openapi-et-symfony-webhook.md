@@ -3,7 +3,7 @@ type: conference
 speakers: -allison-guilhem
 track: '2'
 date: '2023-09-21'
-start: ''14:50'
+start: '14:50'
 end: '15:30'
 short: Comment implémenter une gestion de webhooks respectueuse des standards du web ouvert
 tag: architecture
