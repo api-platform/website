@@ -9,7 +9,7 @@ short: Partez à la découverte du Fediverse !
 tag: archi
 ---
 
-# Rejoignez le Fediverse avec l'aide d'API Platform ! (🇫🇷) 
+# Rejoignez le Fediverse avec d'API Platform ! (🇫🇷) 
 
 En 2022, Elon Musk rachète Twitter. S'ensuit une série de décisions désastreuses amenant de nombreux internautes à se réfugier sur Mastodon, un réseau social qui revendique ne pas être à vendre, et qui a la particularité d'être décentralisé : le logiciel, publié sous licence libre, est installé sur des serveurs administrés par des volontaires, capables de communiquer entre eux grâce à un protocole nommé ActivityPub.
 
