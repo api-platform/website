@@ -6,7 +6,7 @@ date: '2023-09-21'
 start: '14:50'
 end: '15:30'
 short: Comment implémenter une gestion de webhooks respectueuse des standards du web ouvert
-tag: architecture
+tag: archi
 ---
 
 # Gestion de webhooks standardisés avec API Platform, OpenAPI et Symfony Webhook (🇫🇷)
