@@ -8,12 +8,9 @@ import { getAllEvents } from "api/events";
 import { getAllContributors } from "api/contributors";
 import { versions } from "consts";
 import { loadV2DocumentationNav } from "api/doc";
-import { getRootUrl } from "utils";
+import { addTrailingSlashIfNecessary, getRootUrl } from "utils";
 
 const basePath = getRootUrl();
-
-const addTrailingSlashIfNecessary = (str: string) =>
-  str.charAt(str.length - 1) === "/" ? str : `${str}/`;
 
 function createLocalePath(locale: Locale, path: string, edition?: string) {
   const baseLocalePath =
@@ -46,7 +43,7 @@ async function getAllConRoutes() {
           createLocalePath(locale, `con/${edition}/speakers/${speaker}`)
         );
 
-      const conferences = await getAllConferenceSlugs(edition, locale);
+      const conferences = await getAllConferenceSlugs(edition);
       for (const conference of conferences)
         routes.push(
           createLocalePath(locale, `con/${edition}/conferences/${conference}`)
@@ -69,7 +66,6 @@ async function getAllStandardRoutes() {
   routes.push(`${basePath}/community/contributors`);
   routes.push(`${basePath}/help`);
   routes.push(`${basePath}/404`);
-  routes.push(`${basePath}/help/code-of-conduct`);
   routes.push(`${basePath}/resources/wallpapers`);
   routes.push(`${basePath}/resources/logos`);
   routes.push(`${basePath}/resources/colouring-webby`);

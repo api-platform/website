@@ -141,7 +141,7 @@ export default function DocMenu({
   autoOpen?: boolean;
 }) {
   const versionLinks = versions.map((v) => ({
-    link: v === current ? "/docs" : `/docs/v${v}/distribution/`,
+    link: v === current ? "/docs/distribution/" : `/docs/v${v}/distribution/`,
     title: v,
   }));
   return (

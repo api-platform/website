@@ -125,9 +125,9 @@
         [time-1900] auto;
     grid-template-columns:
         [times] 3em
-        [track-EN] 1fr
-        [track-FR] 1fr
-        [track-FR-end];
+        [track-1] 1fr
+        [track-2] 1fr
+        [track-2-end];
 }
 .track-header {
     @apply grid bg-blue-gradient bg-blue text-white font-title font-bold uppercase py-2;

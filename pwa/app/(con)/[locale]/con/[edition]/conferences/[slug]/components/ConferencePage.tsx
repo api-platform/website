@@ -15,7 +15,7 @@ interface ConferencePageProps {
 
 const ConferencePageTemplate = ({ conference, day }: ConferencePageProps) => {
   const { title, date, start, end, track, description } = conference;
-  const { t } = useContext(LanguageContext);
+  const { t, locale } = useContext(LanguageContext);
 
   return (
     <div className="container max-w-6xl flex flex-col items-center pt-10 pb-80 before:bg-wave before:absolute before:w-[2000px] before:h-[500px] before:bg-no-repeat before:opacity-30 before:-translate-x-1/2 before:top-[220px] before:left-[65%] | sm:pt-20">
@@ -26,8 +26,8 @@ const ConferencePageTemplate = ({ conference, day }: ConferencePageProps) => {
         <>
           {day ? (
             <p className="uppercase font-light text-xl relative">
-              <strong className="font-bold">{day.title}</strong>
-              {track ? ` - ${t("conferences.track", { track })}` : null}
+              <strong className="font-bold">{day.title?.[locale]}</strong>
+              {track ? ` - ${track.title?.[locale]}` : null}
             </p>
           ) : null}
           {date ? (

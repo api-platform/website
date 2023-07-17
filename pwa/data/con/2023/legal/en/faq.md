@@ -24,6 +24,10 @@ The API Platform Conference is dedicated to providing **an inclusive experience 
 
 If you need to pump milk, there will be a room reserved for you with a refrigerator. If you want to bring your baby and you are breastfeeding, please contact [Cécile](mailto:cecile@les-tilleuls.coop), and she will ensure that you are welcomed with the best conditions.
 
+## What is the refund policy?
+
+Tickets **are non refundable**. Tickets will only be refunded if Les-Tilleuls.coop cancels the event. However, you can transfer your ticket by your own: please reach [Cécile](mailto:cecile@les-tilleuls.coop) once you've found a buyer so that she can change the name on the badge.
+
 ## Can I access to a car park?
 
 Once you’re arrived in Lille, we invite you to use public transport. You will find all travel information on how to get to the event [on this link](#venue).

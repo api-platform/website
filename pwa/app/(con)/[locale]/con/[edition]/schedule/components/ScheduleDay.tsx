@@ -1,14 +1,20 @@
 "use client";
 import React, { useContext } from "react";
 import { getConferenceDate, sortByStartDate } from "utils/con";
-import { Conference, Day } from "types/con";
+import { Conference, Day, ExtraConference, Track } from "types/con";
 import SlotItem from "./SlotItem";
 import Overline from "components/con/common/typography/Overline";
 import styles from "./ScheduleDay.module.css";
 import classNames from "classnames";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
-function ExtraSlotItem({ conference }: { conference: Conference }) {
+function ExtraSlotItem({ conference }: { conference: ExtraConference }) {
+  const { locale } = useContext(LanguageContext);
+  const title =
+    typeof conference.title === "string"
+      ? conference.title
+      : conference.title[locale];
+
   return (
     <div
       className={classNames(
@@ -19,29 +25,36 @@ function ExtraSlotItem({ conference }: { conference: Conference }) {
         conference.type === "upcoming" && "bg-grey opacity-40"
       )}
     >
-      <span className="h6">{conference.title}</span>
+      <span className="h6">{title}</span>
     </div>
   );
 }
 
 function ScheduleByTrack({
-  track,
+  track: trackId,
   conferences: allConferences,
+  tracks,
 }: {
   track?: string;
   conferences: Conference[];
+  tracks: Track[];
 }) {
-  const { t } = useContext(LanguageContext);
   const conferences = allConferences
-    .filter((conference) => conference.track === track || !conference.track)
+    .filter(
+      (conference) => conference.track?.id === trackId || !conference.track
+    )
     .sort(sortByStartDate);
+
+  const { locale } = useContext(LanguageContext);
+
+  const track = trackId && tracks.find((t) => t.id === trackId);
 
   return (
     <div className="grid-cols-1 gap-1 grid bg-white p-2">
       {track ? (
         <div className={styles["track-header"]}>
           <div className="h5" data-value="day">
-            {t("conferences.track", { track })}
+            {track.title?.[locale]}
           </div>
         </div>
       ) : null}
@@ -61,17 +74,26 @@ function ScheduleByTrack({
 interface ScheduleDayProps {
   day: Day;
   conferences: Conference[];
+  tracks: Track[];
 }
 
-export default function ScheduleDay({ day, conferences }: ScheduleDayProps) {
+export default function ScheduleDay({
+  day,
+  conferences,
+  tracks,
+}: ScheduleDayProps) {
+  const { locale } = useContext(LanguageContext);
   const times = conferences.reduce((acc, conference) => {
     if (!acc.includes(conference.start)) acc.push(conference.start);
     if (!acc.includes(conference.end)) acc.push(conference.end);
     return acc;
   }, [] as string[]);
+
   return day ? (
-    <div className="mb-14 last:mb-0" key={day.title}>
-      <h2 className="text-white font-title text-4xl font-bold">{day.title}</h2>
+    <div className="mb-14 last:mb-0" key={day.title?.[locale]}>
+      <h2 className="text-white font-title text-4xl font-bold">
+        {day.title?.[locale]}
+      </h2>
       <Overline className="text-white/80 py-2">
         {" "}
         {getConferenceDate(day.date)}
@@ -79,17 +101,21 @@ export default function ScheduleDay({ day, conferences }: ScheduleDayProps) {
       {day.tracks ? (
         day.tracks.map((track) => (
           <div key={track} className="lg:hidden">
-            <ScheduleByTrack conferences={conferences} track={track} />
+            <ScheduleByTrack
+              conferences={conferences}
+              track={track}
+              tracks={tracks}
+            />
           </div>
         ))
       ) : (
         <div className="lg:hidden">
-          <ScheduleByTrack conferences={conferences} />
+          <ScheduleByTrack conferences={conferences} tracks={tracks} />
         </div>
       )}
       <div className="bg-white my-5 hidden max-w-5xl mx-auto | lg:block">
         {day.single ? (
-          <ScheduleByTrack conferences={conferences} />
+          <ScheduleByTrack conferences={conferences} tracks={tracks} />
         ) : (
           <div className="p-2">
             {day.tracks ? (
@@ -99,15 +125,21 @@ export default function ScheduleDay({ day, conferences }: ScheduleDayProps) {
                   styles["schedule-grid"]
                 )}
               >
-                {day.tracks.map((track) => (
-                  <span
-                    key={track}
-                    style={{ gridColumn: `track-${track}`, gridRow: "tracks" }}
-                    aria-hidden="true"
-                  >
-                    {`Track ${track}`}
-                  </span>
-                ))}
+                {day.tracks.map((trackId) => {
+                  const track = tracks.find((t) => t.id === trackId);
+                  return (
+                    <span
+                      key={trackId}
+                      style={{
+                        gridColumn: `track-${trackId}`,
+                        gridRow: "tracks",
+                      }}
+                      aria-hidden="true"
+                    >
+                      {track?.title[locale]}
+                    </span>
+                  );
+                })}
               </div>
             ) : null}
             <div
@@ -132,8 +164,8 @@ export default function ScheduleDay({ day, conferences }: ScheduleDayProps) {
                     key={`${conference.title} ${conference.start} ${conference.date}`}
                     style={{
                       gridColumn: conference.track
-                        ? `track-${conference.track}`
-                        : "track-EN / track-FR-end",
+                        ? `track-${conference.track.id}`
+                        : "track-1 / track-2-end",
                       gridRow: `time-${conference.start.replace(
                         ":",
                         ""

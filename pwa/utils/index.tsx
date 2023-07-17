@@ -16,6 +16,9 @@ export function sortByTitle(a: { title: string }, b: { title: string }) {
   return 0;
 }
 
+export const addTrailingSlashIfNecessary = (str: string) =>
+  str.charAt(str.length - 1) === "/" ? str : `${str}/`;
+
 export function extractHeadingsFromMarkdown(content: string, level: number) {
   const headings = content
     .split("\n")
@@ -74,3 +77,5 @@ export const slugify = (t: string) =>
     .replace(/\s+/g, "-") // Remplacer les espaces par des tirets
     .replace(/-+/g, "-") // Supprimer les tirets consécutifs
     .trim(); // Supprimer les espaces en début et fin de chaîne
+
+export const unbreakable = (t: string) => t.replace(/\s+(?=[!|?])/g, "\u00A0");
