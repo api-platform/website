@@ -81,7 +81,7 @@ jobs:
               echo "URL=api-platform.com" >> "$GITHUB_ENV"
               echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
-              echo "REPLICA=3" >> "$GITHUB_ENV"
+              echo "REPLICA=1" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
