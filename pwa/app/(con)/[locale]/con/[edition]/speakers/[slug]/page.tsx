@@ -3,7 +3,6 @@ import { getConferencesBySpeaker } from "api/con/conferences";
 import SpeakerPage from "./SpeakerPage";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
-import { describe } from "node:test";
 
 async function getSpeaker(slug: string, edition: string, locale: string) {
   const speaker = await getSpeakerData(slug, edition, locale);
