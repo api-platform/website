@@ -2,6 +2,7 @@
 const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
+const { current } = require("./consts");
 
 export async function createWallpaper(
   inputDirectory: string,
@@ -183,5 +184,53 @@ export async function updateAllReferenceLinks(directory: string) {
   );
 }
 
+const checkStatus = (response: any) => {
+  if (response.ok) {
+    return response;
+  }
+
+  throw new Error(
+    `HTTP Error Response: ${response.status} ${response.statusText}`
+  );
+};
+
+async function generateXsd() {
+  try {
+    const xsdMetadataPath = "public/schema/metadata";
+    const resResources = await fetch(
+      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/resources.xsd`
+    );
+    const resProperties = await fetch(
+      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/properties.xsd`
+    );
+    const xsd = await fetch(
+      `https://github.com/api-platform/core/raw/2.7/src/Core/Metadata/schema/metadata.xsd`
+    );
+    checkStatus(resProperties);
+    checkStatus(resResources);
+    checkStatus(xsd);
+
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}/resources-3.0.xsd`),
+      await resResources.text()
+    );
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}/properties-3.0.xsd`),
+      await resProperties.text()
+    );
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}//metadata-2.0.xsd`),
+      await xsd.text()
+    );
+  } catch (error) {
+    console.warn(
+      "\x1b[31m",
+      `Failed to retrieve metadata XSD files: ${error}`,
+      "\x1b[37m"
+    );
+  }
+}
+
 updateAllDocFiles(path.join(process.cwd(), "data/docs"));
+generateXsd();
 //updateAllReferenceLinks(path.join(process.cwd(), "data/docs/reference"));
