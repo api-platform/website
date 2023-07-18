@@ -40,7 +40,3 @@ export default function Schedule({
     </div>
   );
 }
-
-export async function generateStaticParams() {
-  return [{ edition: "2021" }, { edition: "2022" }];
-}
