@@ -80,6 +80,12 @@ const partners: Partner[] = [
     rank: 5,
   },
   {
+    name: "Afup",
+    logo: "afup",
+    link: "https://afup.org/home/",
+    rank: 5,
+  },
+  {
     name: "Accor Group",
     logo: "accor",
     link: "https://all.accor.com/",
