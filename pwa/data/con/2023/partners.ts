@@ -82,7 +82,7 @@ const partners: Partner[] = [
   {
     name: "Afup",
     logo: "afup",
-    link: "https://afup.org/home/",
+    link: "https://afup.org",
     rank: 5,
   },
   {
