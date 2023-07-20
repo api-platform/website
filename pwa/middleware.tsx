@@ -4,17 +4,24 @@ import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
 function getLocale(request: NextRequest): string | undefined {
-  // Negotiator expects plain object so we need to transform headers
-  const negotiatorHeaders: Record<string, string> = {};
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+  try {
+    // Negotiator expects plain object so we need to transform headers
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  // Use negotiator and intl-localematcher to get best locale
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-  const locales = [...i18n.locales];
-  const locale = matchLocale(languages, locales, i18n.defaultLocale);
-  return ([...i18n.locales] as string[]).includes(locale)
-    ? locale
-    : i18n.defaultLocale;
+    // Use negotiator and intl-localematcher to get best locale
+    const languages = new Negotiator({
+      headers: negotiatorHeaders,
+    }).languages();
+    const locales = [...i18n.locales];
+    const locale = matchLocale(languages, locales, i18n.defaultLocale);
+    return ([...i18n.locales] as string[]).includes(locale)
+      ? locale
+      : i18n.defaultLocale;
+  } catch (e) {
+    console.error(e);
+    return i18n.defaultLocale;
+  }
 }
 
 export async function middleware(request: NextRequest) {

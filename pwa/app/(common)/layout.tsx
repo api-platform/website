@@ -1,6 +1,6 @@
 import "styles/common.css";
 import "@docsearch/css";
-import { Poppins } from "next/font/google";
+import { Poppins, Fira_Mono } from "next/font/google";
 import Layout from "components/layout/Layout";
 import { Metadata } from "next";
 import { getRootUrl } from "utils";
@@ -9,6 +9,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
   display: "swap",
   weight: ["300", "400", "500", "600", "700", "800"],
+  subsets: ["latin", "latin-ext"],
+});
+
+const fira = Fira_Mono({
+  variable: "--font-fira",
+  display: "swap",
+  weight: ["400", "500", "700"],
   subsets: ["latin", "latin-ext"],
 });
 
@@ -56,7 +63,10 @@ function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} w-full light`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${fira.variable} w-full light`}
+    >
       <body className="bg-white dark:bg-blue-black">
         <Layout>{children}</Layout>
       </body>

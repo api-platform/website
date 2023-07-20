@@ -66,6 +66,7 @@ module.exports = {
       },
       fontFamily: {
         title: ["var(--font-poppins)"],
+        mono: ["var(--font-fira)"],
       },
       maxWidth: {
         "8xl": "90rem",

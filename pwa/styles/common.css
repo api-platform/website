@@ -40,7 +40,7 @@
         @apply hidden;
     }
     .doc pre {
-        @apply text-sm whitespace-pre-wrap leading-relaxed !bg-gray-100 dark:!bg-blue-darkest rounded-2xl mt-2 mb-4 overflow-x-auto;
+        @apply font-mono text-sm whitespace-pre-wrap leading-relaxed !bg-gray-100 dark:!bg-blue-darkest rounded-2xl mt-2 mb-4 overflow-x-auto;
     }
     .doc pre > code > pre {
         @apply p-0 m-0 rounded-none !bg-transparent;
@@ -53,6 +53,9 @@
     }
     .doc a {
         @apply text-blue;
+    }
+    .doc code span.line:not(:last-of-type):after {
+        content: "\200B"; /* useful to set correct height on empty lines */
     }
 }
 
