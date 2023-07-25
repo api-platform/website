@@ -122,7 +122,7 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
           <Button
             className="mx-auto mb-10"
             external
-            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"
+            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8"
           >
             {t("missing_conferences.watch_the_conferences")}
           </Button>
@@ -145,5 +145,7 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
     </>
   );
 };
+
+export const revalidate = 43200;
 
 export default HomePage;
