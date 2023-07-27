@@ -27,7 +27,7 @@ const prices: Price[] = [
         },
         price: 159,
         startDate: "2023-04-25",
-        limitDate: "2023-07-31",
+        limitDate: "2023-07-26",
       },
       {
         title: {
@@ -35,7 +35,7 @@ const prices: Price[] = [
           en: "2 days on-site event <br>(Late bird)</br>",
         },
         price: 209,
-        startDate: "2023-08-01",
+        startDate: "2023-07-27",
       },
       {
         title: {
