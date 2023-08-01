@@ -173,7 +173,7 @@ jobs:
       - name: Define URL
         run: |       
           set -o pipefail
-          if [[ "${{ github.ref }}" == 'refs/heads/prod' ]]; then
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               echo "URL=api-platform.com" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod

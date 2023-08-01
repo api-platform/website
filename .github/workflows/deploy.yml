@@ -74,7 +74,7 @@ jobs:
       - name: Define namespace
         run: |       
           set -o pipefail
-          if [[ "${{ github.ref }}" == 'refs/heads/prod' ]]; then
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
               echo "CONTEXT=prod" >> "$GITHUB_ENV"
               echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
@@ -82,6 +82,9 @@ jobs:
               echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
               echo "REPLICA=1" >> "$GITHUB_ENV"
+              echo "CPU_REQUEST=500m" >> "$GITHUB_ENV"
+              echo "MEM_REQUEST=1400Mi" >> "$GITHUB_ENV"
+              echo "MEM_LIMIT=1400Mi" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
@@ -95,6 +98,9 @@ jobs:
               echo "REPLICA=1" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
               echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              echo "CPU_REQUEST=20m" >> "$GITHUB_ENV"
+              echo "MEM_REQUEST=100Mi" >> "$GITHUB_ENV"
+              echo "MEM_LIMIT=600Mi" >> "$GITHUB_ENV"
           fi
       - name: Check for existing namespace
         id: k8s-namespace
@@ -125,9 +131,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=500m \
-            --set=pwa.resources.requests.memory=1400Mi \
-            --set=pwa.resources.limits.memory=1400Mi \
+            --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
+            --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
+            --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
             --set=pwa.replicaCount=${{ env.REPLICA }} \
             --set=bucket.s3Upstream=storage.googleapis.com \
             --set=bucket.s3Name=api-platform-website-v3 \
