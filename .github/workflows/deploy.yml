@@ -74,7 +74,7 @@ jobs:
       - name: Define namespace
         run: |       
           set -o pipefail
-          if [[ "${{ github.ref }}" == 'refs/heads/prod' ]]; then
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
               echo "CONTEXT=prod" >> "$GITHUB_ENV"
               echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
