@@ -24,7 +24,7 @@
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-root-import": "^2.0.6",
     "gatsby-plugin-sass": "^4.14.0",
-    "gatsby-plugin-sharp": "^2.4.5",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-sitemap": "^2.0.4",
     "gatsby-plugin-twitter": "^2.0.8",
     "gatsby-remark-external-links": "^0.0.4",
