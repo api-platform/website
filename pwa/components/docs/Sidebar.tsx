@@ -41,7 +41,7 @@ export default function Sidebar({
       </button>
       <nav
         className={classNames(
-          "relative w-72 h-full px-8 py-16 overflow-y-auto transition-all duration-300",
+          "relative w-72 h-full px-8 pt-16 overflow-y-auto transition-all duration-300",
           minimized && "-translate-x-full"
         )}
       >

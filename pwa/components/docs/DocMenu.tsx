@@ -32,7 +32,7 @@ function NavPart({ title, link, links, basePath, autoOpen }: NavPartProps) {
     <div
       className={classNames(
         "doc-nav transition-all duration-300",
-        isOpen ? "mb-8" : "mb-4"
+        isOpen && links?.length ? "mb-8" : "mb-4"
       )}
     >
       <div
