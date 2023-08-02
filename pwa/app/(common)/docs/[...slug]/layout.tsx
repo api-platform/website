@@ -18,7 +18,7 @@ async function Layout({
   if (slug && slug.length) {
     const slugVersion = slug[0].substring(1);
     if (versions.includes(slugVersion)) {
-      version = slugVersion
+      version = slugVersion;
     }
   }
 
@@ -28,17 +28,17 @@ async function Layout({
   const nav = [
     ...v2Nav.slice(0, 2),
     {
-      title: 'Core API Reference',
-      basePath: '/docs/reference',
-      link: '/docs/references'
+      title: "Core API Reference",
+      basePath: "/docs/reference",
+      link: "/docs/references",
     },
     {
-      title: 'Core Guides',
-      basePath: '/docs/guide',
-      link: '/docs/guides',
+      title: "Core Guides",
+      basePath: "/docs/guide",
+      link: "/docs/guides",
       links: guideLinks,
     },
-    ...v2Nav.slice(2)
+    ...v2Nav.slice(2),
   ];
 
   return <DocLayout nav={nav}>{children}</DocLayout>;

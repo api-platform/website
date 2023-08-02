@@ -19,9 +19,10 @@ RUN corepack enable && \
 FROM php as php_documentation_generator
 
 WORKDIR /api-platform
-RUN apt-get update && apt-get install -y gnupg git
+RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
+RUN docker-php-ext-install zip
 RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
 RUN git clone https://github.com/soyuka/core /api-platform/core && cd /api-platform/core && git switch docs && composer install --no-dev && composer require webonyx/graphql-php
 COPY pdg.config.yaml /api-platform/core/docs

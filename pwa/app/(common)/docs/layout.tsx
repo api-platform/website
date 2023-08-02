@@ -1,3 +1,3 @@
-import Layout from './[...slug]/layout'
+import Layout from "./[...slug]/layout";
 
 export default Layout;
