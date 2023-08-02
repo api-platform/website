@@ -74,7 +74,6 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
   try {
     const url = `https://raw.githubusercontent.com/api-platform/docs/${branch}/outline.yaml`;
     const response = await fetch(url);
-    //return [];
     const data = await response.text();
     const navData: Chapters = YAML.parse(data);
 

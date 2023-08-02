@@ -16,6 +16,18 @@ RUN corepack enable && \
 # Uncomment the following line in case you want to disable telemetry during dev and build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+FROM php as php_documentation_generator
+
+WORKDIR /api-platform
+RUN apt-get update && apt-get install -y gnupg git
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
+RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
+RUN git clone https://github.com/soyuka/core /api-platform/core && cd /api-platform/core && git switch docs && composer install --no-dev && composer require webonyx/graphql-php
+COPY pdg.config.yaml /api-platform/core/docs
+ARG PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php
+RUN cd /api-platform/core/docs && /api-platform/tools/pdg guides
+RUN cd /api-platform/core/docs && /api-platform/tools/pdg references
 
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
@@ -38,10 +50,11 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs /srv/app/data/docs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
-# RUN echo $NEXT_ROOT_URL 
+# RUN echo $NEXT_ROOT_URL
 
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
