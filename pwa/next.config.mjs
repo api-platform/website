@@ -9,44 +9,37 @@ import { visit } from "unist-util-visit";
 function transformCustomLinks() {
     return (tree) => {
         visit(tree, "element", (node) => {
+            let linkMatch = null
+
             if (
                 node.tagName === "span" &&
                 node.children.length === 1 &&
                 node.children[0].type === "text"
             ) {
                 const text = node.children[0].value.trim();
-                const linkMatch = text.match(
-                    /`<a href="\/(\S+)">([^\s<]+)<\/a>`/
+                linkMatch = text.match(
+                    /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
                 );
-                if (linkMatch) {
-                    const [, linkHref, linkText] = linkMatch;
-                    const linkNode = {
-                        type: "element",
-                        tagName: "a",
-                        properties: { href: linkHref },
-                        children: [{ type: "text", value: linkText }],
-                    };
-                    Object.assign(node, linkNode);
-                }
             } else if (
                 node.tagName === "code" &&
                 node.children.length === 1 &&
                 node.children[0].type === "text"
             ) {
                 const text = node.children[0].value.trim();
-                const linkMatch = text.match(
-                    /<a href="\/(\S+)">([^\s<]+)<\/a>/
+                linkMatch = text.match(
+                    /<a href="(\/\S+)">([^\s<]+)<\/a>/
                 );
-                if (linkMatch) {
-                    const [, linkHref, linkText] = linkMatch;
-                    const linkNode = {
-                        type: "element",
-                        tagName: "a",
-                        properties: { href: linkHref },
-                        children: [{ type: "text", value: linkText }],
-                    };
-                    Object.assign(node, linkNode);
-                }
+            }
+
+            if (linkMatch) {
+                const [, linkHref, linkText] = linkMatch;
+                const linkNode = {
+                    type: "element",
+                    tagName: "a",
+                    properties: { href: linkHref },
+                    children: [{ type: "text", value: linkText }],
+                };
+                Object.assign(node, linkNode);
             }
         });
     };
@@ -150,7 +143,7 @@ const withMDX = nextMDX({
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
             [rehypePrettyCode, prettyOptions],
-            transformCustomLinks,
+            transformCustomLinks
         ],
     },
 });
