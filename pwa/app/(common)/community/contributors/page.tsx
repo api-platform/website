@@ -11,8 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dictionary["contributors"].title,
     description: dictionary["contributors"].description,
     openGraph: {
+      url: "https://api-platform.com",
       title: dictionary["contributors"].title,
       description: dictionary["contributors"].description,
+      type: "website",
     },
     twitter: {
       title: dictionary["contributors"].title,
