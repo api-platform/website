@@ -3,44 +3,128 @@
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeSlug from "rehype-slug"
 import nextMDX from "@next/mdx";
-import { visit } from "unist-util-visit";
+import { visit, CONTINUE, SKIP } from "unist-util-visit";
 
+/**
+ * This handles links after the code is rendered so that
+ * we can link method types and interfaces directly from the code.
+ */
 function transformCustomLinks() {
+    function getLinkNode(text) {
+        const linkMatch = text.match(
+            /<a href="(\/\S+)">([^\s<]+)<\/a>/
+        );
+
+        if (!linkMatch) {
+            return null;
+        }
+
+        const [, linkHref, linkText] = linkMatch;
+        return {
+            type: "element",
+            tagName: "a",
+            properties: { href: linkHref },
+            children: [{ type: "text", value: linkText }],
+        };
+    }
+
     return (tree) => {
-        visit(tree, "element", (node) => {
-            let linkMatch = null
-
-            if (
-                node.tagName === "span" &&
-                node.children.length === 1 &&
-                node.children[0].type === "text"
-            ) {
-                const text = node.children[0].value.trim();
-                linkMatch = text.match(
-                    /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
-                );
-            } else if (
-                node.tagName === "code" &&
-                node.children.length === 1 &&
-                node.children[0].type === "text"
-            ) {
-                const text = node.children[0].value.trim();
-                linkMatch = text.match(
-                    /<a href="(\/\S+)">([^\s<]+)<\/a>/
-                );
+        visit(tree, "element", (code) => {
+            if (code.tagName !== 'code') {
+                return CONTINUE;
             }
 
-            if (linkMatch) {
-                const [, linkHref, linkText] = linkMatch;
-                const linkNode = {
-                    type: "element",
-                    tagName: "a",
-                    properties: { href: linkHref },
-                    children: [{ type: "text", value: linkText }],
-                };
-                Object.assign(node, linkNode);
-            }
+            let start = null
+            visit(code, "element", (node, index, parent) => {
+                if (node.children.length !== 1 || node.children[0].type !== 'text') {
+                    return CONTINUE;
+                }
+
+                const text = node.children[0].value.trim();
+
+                if (text === '`<') {
+                    start = index
+                    return CONTINUE;
+                }
+
+                if (text === '>`') {
+                    const text = parent.children.slice(start, index + 1).map((e) => e.children[0].value)
+                    const linkNode = getLinkNode(text.join(''))
+
+                    if (linkNode) {
+                        linkNode.children[0].value = ' ' + linkNode.children[0].value
+                        parent.children.splice(start, index + 1 - start, linkNode)
+                    }
+
+                    start = null;
+                    return CONTINUE;
+                }
+
+                if (start !== null) {
+                    return CONTINUE;
+                }
+
+                const linkNode = getLinkNode(text)
+                if (linkNode) {
+                    Object.assign(node, linkNode);
+                }
+            });
+
+            // console.log(node)
+
+            // node.children.forEach((e) => {
+            //     if (e.tagName !== 'span') {
+            //         return;
+            //     }
+            //
+            //     console.log(e)
+            // })
+
+            return SKIP;
+            // let linkMatch = null
+            //
+            // // There are two cases, the easiest is where a <span> has our link,
+            // // the other one it's split into multiple <span> from the prettier
+            // if (
+            //     node.tagName === "span" &&
+            //     node.children.length === 1 &&
+            //     node.children[0].type === "text"
+            // ) {
+            //     const text = node.children[0].value.trim();
+            //     linkMatch = text.match(
+            //         /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
+            //     );
+            // }
+            //
+            //
+            // // } else if (
+            // //     node.tagName === "code" &&
+            // //     node.children.length === 1 &&
+            // //     node.children[0].type === "text"
+            // // ) {
+            // //     const text = node.children[0].value.trim();
+            // //     linkMatch = text.match(
+            // //         /<a href="(\/\S+)">([^\s<]+)<\/a>/
+            // //     );
+            // // }
+            //
+            // if (linkMatch) {
+            //     const text = node.children[0].value.trim();
+            //     linkMatch = text.match(
+            //         /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
+            //     );
+            //     const [, linkHref, linkText] = linkMatch;
+            //     const linkNode = {
+            //         type: "element",
+            //         tagName: "a",
+            //         properties: { href: linkHref },
+            //         children: [{ type: "text", value: linkText }],
+            //     };
+            //     Object.assign(node, linkNode);
+            // }
         });
     };
 }
@@ -143,7 +227,9 @@ const withMDX = nextMDX({
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
             [rehypePrettyCode, prettyOptions],
-            transformCustomLinks
+            transformCustomLinks,
+			rehypeSlug,
+			rehypeAutolinkHeadings,
         ],
     },
 });

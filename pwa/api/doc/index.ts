@@ -113,7 +113,7 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-export const getDocContentFromSlug = async (
+export const getDocContentFromSlug = cache(async (
   version: string,
   slug: string[]
 ) => {
@@ -132,7 +132,7 @@ export const getDocContentFromSlug = async (
     console.error(error);
     throw error;
   }
-};
+});
 
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
 const codeBlockRegex = /```[a-z]([\s\S]+?)(?=```)/gm;
