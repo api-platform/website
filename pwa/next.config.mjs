@@ -69,62 +69,15 @@ function transformCustomLinks() {
 
                 const linkNode = getLinkNode(text)
                 if (linkNode) {
+                    if (node.children[0].value.startsWith(' ')) {
+                        linkNode.children[0].value = ' ' + linkNode.children[0].value
+                    }
+
                     Object.assign(node, linkNode);
                 }
             });
 
-            // console.log(node)
-
-            // node.children.forEach((e) => {
-            //     if (e.tagName !== 'span') {
-            //         return;
-            //     }
-            //
-            //     console.log(e)
-            // })
-
             return SKIP;
-            // let linkMatch = null
-            //
-            // // There are two cases, the easiest is where a <span> has our link,
-            // // the other one it's split into multiple <span> from the prettier
-            // if (
-            //     node.tagName === "span" &&
-            //     node.children.length === 1 &&
-            //     node.children[0].type === "text"
-            // ) {
-            //     const text = node.children[0].value.trim();
-            //     linkMatch = text.match(
-            //         /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
-            //     );
-            // }
-            //
-            //
-            // // } else if (
-            // //     node.tagName === "code" &&
-            // //     node.children.length === 1 &&
-            // //     node.children[0].type === "text"
-            // // ) {
-            // //     const text = node.children[0].value.trim();
-            // //     linkMatch = text.match(
-            // //         /<a href="(\/\S+)">([^\s<]+)<\/a>/
-            // //     );
-            // // }
-            //
-            // if (linkMatch) {
-            //     const text = node.children[0].value.trim();
-            //     linkMatch = text.match(
-            //         /`<a href="(\/\S+)">([^\s<]+)<\/a>`/
-            //     );
-            //     const [, linkHref, linkText] = linkMatch;
-            //     const linkNode = {
-            //         type: "element",
-            //         tagName: "a",
-            //         properties: { href: linkHref },
-            //         children: [{ type: "text", value: linkText }],
-            //     };
-            //     Object.assign(node, linkNode);
-            // }
         });
     };
 }
