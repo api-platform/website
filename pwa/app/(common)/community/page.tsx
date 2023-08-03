@@ -53,8 +53,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dictionary["community"].title,
     description: dictionary["community"].description,
     openGraph: {
+      url: "https://api-platform.com",
       title: dictionary["community"].title,
       description: dictionary["community"].description,
+      type: "website",
     },
     twitter: {
       title: dictionary["community"].title,
