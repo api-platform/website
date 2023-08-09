@@ -8,10 +8,12 @@ import { MdxComponent } from "types";
 export default function DocPage({
   Mdx,
   title,
+  slug,
   tags = [],
 }: {
   Mdx: MdxComponent;
   title: string;
+  slug: string;
   tags?: string[];
 }) {
   const components = {
@@ -60,6 +62,14 @@ export default function DocPage({
       <div className="relative">
         <Mdx components={components} />
       </div>
+      <p className="mt-10">
+        <a
+          className="text-blue"
+          href={`https://github.com/api-platform/core/edit/main/docs/guides/${slug}.php`}
+        >
+          You can also help us improve this guide.
+        </a>
+      </p>
     </div>
   );
 }
