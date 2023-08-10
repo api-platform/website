@@ -21,6 +21,7 @@ export default async function Page({
       <GuidePage
         Mdx={mdxContent.default}
         title={mdxContent.name}
+        slug={slug}
         tags={mdxContent.tags?.split(",")}
       />
     );

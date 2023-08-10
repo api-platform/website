@@ -83,6 +83,14 @@ export default async function Page({
         <BreadCrumbs breadCrumbs={breadCrumbs} />
         <div className="prose max-w-none dark:prose-invert prose-img:w-full prose-img:max-w-2xl prose-headings:font-title prose-h1:font-bold prose-code:after:hidden prose-code:before:hidden prose-code:py-1 prose-code:px-1.5 prose-code:bg-gray-100 prose-code:dark:bg-blue-darkest prose-h1:border-b-px prose-h1:border-b-gray-300 prose-h1:pb-2 max-md:prose-tr:flex max-md:prose-tr:flex-col max-md:prose-td:px-0 max-md:prose-td:py-1">
           <div className="doc" dangerouslySetInnerHTML={{ __html: html }}></div>
+          <p className="mt-10">
+            <a
+              className="text-blue"
+              href={`https://github.com/api-platform/docs/edit/${version}/${path}`}
+            >
+              You can also help us improve the documentation of this page.
+            </a>
+          </p>
         </div>
         <Script id="codeselector-switch">
           {`function switchCode(event) {
