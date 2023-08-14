@@ -6,7 +6,7 @@ composer install --no-dev
 composer require webonyx/graphql-php
 
 PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php
-versions=("3.1", "main")
+versions=("3.1" "main")
 for version in "${versions[@]}"
 do
 	git checkout $version
