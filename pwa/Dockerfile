@@ -25,11 +25,10 @@ COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
 RUN docker-php-ext-install zip
 RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
 # TODO: at some point we need to build references for each supported version (starts with 3.1)
-RUN git clone https://github.com/api-platform/core /api-platform/core && cd /api-platform/core && composer install --no-dev && composer require webonyx/graphql-php
-COPY pdg.config.yaml /api-platform/core/docs
-ARG PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php
-RUN cd /api-platform/core/docs && /api-platform/tools/pdg guides
-RUN cd /api-platform/core/docs && /api-platform/tools/pdg references
+COPY get-core-docs.sh /
+COPY pdg.config.yaml /
+RUN chmod +x /get-core-docs.sh
+RUN /get-core-docs.sh
 
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
