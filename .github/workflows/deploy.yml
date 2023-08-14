@@ -190,3 +190,8 @@ jobs:
       - name: Debug kube events
         if: failure()
         run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp
+
+      - name: Check for dead links
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          args: --verbose --no-progress https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh
