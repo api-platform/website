@@ -205,10 +205,8 @@ jobs:
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
                   echo RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
-                  export RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
               else
                   echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
-                  export RELEASE_NAME=${{ github.ref_name }}
               fi
           fi
       - name: Check for dead links
