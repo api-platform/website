@@ -196,6 +196,20 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: lycheeverse/lychee-action@v1.8.0
+      - name: Define release name
+        run: |
+          set -o pipefail
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
+              echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
+          else
+              CONTEXT=nonprod
+              if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+                  echo RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
+              else
+                  echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
+              fi
+          fi
+      - name: Check for dead links
+        uses: lycheeverse/lychee-action@v1.8.0
         with:
           args: --verbose --no-progress https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh
