@@ -40,6 +40,9 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
+COPY --link . .
+COPY --from=deps --link /srv/app/node_modules ./node_modules
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs /srv/app/data/docs
 
 EXPOSE 3000
 ENV PORT 3000
