@@ -8,9 +8,10 @@ import { extractHeadingsFromMarkdown, sortByPosition } from "utils";
 export async function getAllDocLinks(
   folder: string,
   outputFolder?: string,
-  extname = ".mdx"
+  extname = ".mdx",
+  version = "main"
 ) {
-  const directory = `data/docs/${folder}`;
+  const directory = `data/docs/${folder}/${version}`;
   const files = (await readdir(path.join(process.cwd(), directory))).filter(
     (file) => path.extname(file) === extname
   );
@@ -37,13 +38,14 @@ export async function getAllDocLinks(
     title: link.name,
     link: `/docs/${outputFolder || folder}/${link.slug}`,
     slug: link.slug,
+    version: version,
   }));
 }
 
-export async function getGuideContent(slug: string) {
+export async function getGuideContent(slug: string, version = "main") {
   const [fileContents, mdx] = await Promise.all([
-    readFile(`data/docs/guides/${slug}.mdx`, "utf8"),
-    import(`data/docs/guides/${slug}.mdx`),
+    readFile(`data/docs/guides/${version}/${slug}.mdx`, "utf8"),
+    import(`data/docs/guides/${version}/${slug}.mdx`),
   ]);
   const { data } = matter(fileContents);
 

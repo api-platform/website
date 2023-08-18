@@ -4,6 +4,7 @@ import DocLayout from "../components/DocLayout";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const guideLinks = await getAllDocLinks("guides", "guide");
+  const referenceLinks = await getAllDocLinks("reference", "reference");
   const tutorialLinks = await getAllDocLinks("tutorial");
   const inDepthLinks = await getAllDocLinks("in-depth");
 
@@ -16,8 +17,7 @@ async function Layout({ children }: { children: React.ReactNode }) {
     {
       title: "References",
       basePath: "/docs/reference",
-      link: "/docs/references",
-      links: [],
+      links: referenceLinks,
     },
     {
       title: "Tutorials",

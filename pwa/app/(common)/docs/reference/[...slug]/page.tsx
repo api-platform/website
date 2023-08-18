@@ -9,15 +9,16 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Page({
-  params: { slug },
+  params: { slug, version },
 }: {
   params: {
     slug: string[];
+    version: string;
   };
 }) {
   const { default: Mdx, type } = await loadMarkdownBySlugArray([
     "reference",
     ...slug,
   ]);
-  return <DocPage Mdx={Mdx} type={type} slug={slug} />;
+  return <DocPage Mdx={Mdx} type={type} slug={slug} version={version} />;
 }

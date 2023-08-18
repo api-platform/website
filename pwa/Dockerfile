@@ -18,6 +18,7 @@ RUN corepack enable && \
 
 FROM php as php_documentation_generator
 
+VOLUME /data/docs
 WORKDIR /api-platform
 RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -42,7 +43,7 @@ RUN pnpm install --offline --frozen-lock
 FROM deps as dev
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs /srv/app/data/docs
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -53,7 +54,7 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs /srv/app/data/docs
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
@@ -86,6 +87,7 @@ COPY --from=builder --link /srv/app/public ./public
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/public/* ./public/
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 USER nextjs
 

@@ -9,13 +9,15 @@ export default function DocPage({
   Mdx,
   type,
   slug,
+  version,
 }: {
   Mdx: MdxComponent;
   type: string;
   slug: string[];
+  version: string;
 }) {
   const breadCrumbs = [
-    { title: "References", link: "/docs/references" },
+    { title: "References", link: `/docs/references/${version}` },
     { title: slug[slug.length - 1] },
   ];
 

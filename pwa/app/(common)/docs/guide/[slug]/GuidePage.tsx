@@ -9,11 +9,13 @@ export default function DocPage({
   Mdx,
   title,
   slug,
+  version = "main",
   tags = [],
 }: {
   Mdx: MdxComponent;
   title: string;
   slug: string;
+  version?: string;
   tags?: string[];
 }) {
   const components = {
@@ -40,7 +42,10 @@ export default function DocPage({
       )}
     >
       <BreadCrumbs
-        breadCrumbs={[{ title: "Guides", link: "/docs/guides" }, { title }]}
+        breadCrumbs={[
+          { title: "Guides", link: `/docs/guides/${version}` },
+          { title },
+        ]}
       />
       <span className="text-xs uppercase text-gray-500 dark:text-gray-500">
         Guide
@@ -65,7 +70,7 @@ export default function DocPage({
       <p className="mt-10">
         <a
           className="text-blue"
-          href={`https://github.com/api-platform/core/edit/main/docs/guides/${slug}.php`}
+          href={`https://github.com/api-platform/core/edit/${version}/docs/guides/${slug}.php`}
         >
           You can also help us improve this guide.
         </a>

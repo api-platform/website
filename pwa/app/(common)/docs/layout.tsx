@@ -23,7 +23,13 @@ async function Layout({
   }
 
   const v2Nav = await loadV2DocumentationNav(version);
-  const guideLinks = await getAllDocLinks("guides", "guide");
+  const guideLinks = await getAllDocLinks("guides", "guide", ".mdx", version);
+  const referenceLinks = await getAllDocLinks(
+    "reference",
+    "reference",
+    ".mdx",
+    version
+  );
 
   const nav = [
     ...v2Nav.slice(0, 2),
@@ -31,6 +37,7 @@ async function Layout({
       title: "Core API Reference",
       basePath: "/docs/reference",
       link: "/docs/references",
+      links: referenceLinks,
     },
     {
       title: "Core Guides",

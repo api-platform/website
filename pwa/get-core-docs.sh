@@ -2,7 +2,6 @@
 
 git clone https://github.com/api-platform/core /api-platform/core
 
-
 versions=("3.1" "main")
 for version in "${versions[@]}"
 do
