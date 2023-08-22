@@ -1,5 +1,6 @@
 import GuidePage from "./GuidePage";
 import { getAllDocLinks, getGuideContent } from "api/doc/guides";
+import { getVersionAndSlugFromSlugs } from "../../../../../utils";
 
 export async function generateStaticParams() {
   const guideLinks = await getAllDocLinks("guides");
@@ -11,15 +12,17 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Page({
-  params: { slug, version },
+  params: { slug },
 }: {
   params: {
     slug: string;
-    version: string;
   };
 }) {
   try {
+    const slugs = slug.split("/");
+    const { version: version } = getVersionAndSlugFromSlugs(slugs);
     const mdxContent = await getGuideContent(slug, version);
+
     return (
       <GuidePage
         Mdx={mdxContent.default}

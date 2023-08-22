@@ -24,29 +24,24 @@ async function Layout({
 
   const v2Nav = await loadV2DocumentationNav(version);
   const guideLinks = await getAllDocLinks("guides", "guide", ".mdx", version);
-  const referenceLinks = await getAllDocLinks(
-    "reference",
-    "reference",
-    ".mdx",
-    version
-  );
 
-  const nav = [
-    ...v2Nav.slice(0, 2),
-    {
-      title: "Core API Reference",
-      basePath: "/docs/reference",
-      link: "/docs/references",
-      links: referenceLinks,
-    },
-    {
-      title: "Core Guides",
-      basePath: "/docs/guide",
-      link: "/docs/guides",
-      links: guideLinks,
-    },
-    ...v2Nav.slice(2),
-  ];
+  const nav =
+    version === "3.1"
+      ? [
+          ...v2Nav.slice(0, 2),
+          {
+            title: "Core API Reference",
+            basePath: "/docs/reference",
+            link: "/docs/references",
+          },
+          {
+            title: "Core Guides",
+            basePath: "/docs/guide",
+            links: guideLinks,
+          },
+          ...v2Nav.slice(2),
+        ]
+      : v2Nav;
 
   return <DocLayout nav={nav}>{children}</DocLayout>;
 }

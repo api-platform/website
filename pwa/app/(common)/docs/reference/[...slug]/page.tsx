@@ -1,6 +1,7 @@
 import DocPage from "./DocPage";
 import { loadMarkdownBySlugArray } from "api/doc";
 import { getAllReferenceSlugs } from "api/doc/references";
+import { getVersionAndSlugFromSlugs } from "../../../../../utils";
 
 export async function generateStaticParams() {
   const slugs = await getAllReferenceSlugs();
@@ -9,16 +10,17 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Page({
-  params: { slug, version },
+  params: { slug },
 }: {
   params: {
     slug: string[];
-    version: string;
   };
 }) {
+  const { version: v, slugs: s } = getVersionAndSlugFromSlugs(slug);
   const { default: Mdx, type } = await loadMarkdownBySlugArray([
     "reference",
-    ...slug,
+    ...s,
   ]);
-  return <DocPage Mdx={Mdx} type={type} slug={slug} version={version} />;
+
+  return <DocPage Mdx={Mdx} type={type} slug={slug} version={v} />;
 }

@@ -50,7 +50,7 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
   return {
     ...mdx,
     name: mdx.name || extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
-    type: matterResult.data.type
+    type: matterResult.data.type,
   };
 }
 

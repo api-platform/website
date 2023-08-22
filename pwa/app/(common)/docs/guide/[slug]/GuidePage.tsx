@@ -4,12 +4,13 @@ import baseComponents from "app/common/components/doc/getBaseComponents";
 import SectionGuide from "app/common/components/doc/SectionGuide";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { MdxComponent } from "types";
+import { current } from "../../../../../consts";
 
 export default function DocPage({
   Mdx,
   title,
   slug,
-  version = "main",
+  version = current,
   tags = [],
 }: {
   Mdx: MdxComponent;
