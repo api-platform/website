@@ -26,7 +26,7 @@ async function Layout({
   const guideLinks = await getAllDocLinks("guides", "guide", ".mdx", version);
 
   const nav =
-    version === "3.1"
+    version === "3.1" || version === "main"
       ? [
           ...v2Nav.slice(0, 2),
           {
