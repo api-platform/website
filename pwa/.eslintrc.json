@@ -4,8 +4,15 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "react-app",
+    "next"
   ],
-  "rules": {}
+  "rules": {},
+  "settings": {
+   "next": {
+      "rootDir": "app"
+    }
+  }
 }

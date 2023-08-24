@@ -36,6 +36,7 @@ export default async function Page({
       <GuidePage
         Mdx={mdxContent.default}
         title={mdxContent.name}
+        executable={mdxContent.executable}
         slug={slug}
         tags={mdxContent.tags?.split(",")}
         version={version}

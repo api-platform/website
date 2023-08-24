@@ -1,4 +1,6 @@
 #syntax=docker/dockerfile:1.4
+# We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
+ENV OPTIMIZE=-O1
 # Base stage for dev and build
 FROM node:18-alpine as builder_base
 
@@ -15,6 +17,14 @@ RUN corepack enable && \
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during dev and build.
 # ENV NEXT_TELEMETRY_DISABLED 1
+
+FROM soyuka/php-wasm as phpwasm
+RUN git clone https://github.com/api-platform/core /src/core
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+WORKDIR /src/core
+RUN composer install
+WORKDIR /build
+RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/src/core/docs" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
 
 FROM php as php_documentation_generator
 
@@ -52,6 +62,13 @@ FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data /srv/app/public/php-web.data
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm /srv/app/public/php-web.wasm
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm /srv/app/public/php-web.wasm
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm /srv/app/playground/utils/
+COPY --from=phpwamm --chown=nextjs:nodejs /build/php-web.mjs /srv/app/php-web.mjs
+RUN sed '/--pre-js/r php-wasm/php-web.data.js' /srv/app/php-web.mjs > /srv/app/playground/utils/php-web.mjs
+RUN rm /srv/app/php-web.mjs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
