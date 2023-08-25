@@ -1,5 +1,6 @@
 import GuidePage from "./GuidePage";
 import { getAllDocLinks, getGuideContent } from "api/doc/guides";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const guideLinks = await getAllDocLinks("guides");
@@ -26,6 +27,7 @@ export default async function Page({
       />
     );
   } catch (error) {
-    return <div>Error during loading page content</div>;
+    console.error(error);
+    notFound();
   }
 }
