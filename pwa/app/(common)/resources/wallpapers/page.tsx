@@ -4,6 +4,7 @@ import { Metadata } from "next";
 
 import Heading from "components/common/typography/Heading";
 import WallpaperCard from "./components/WallpaperCard";
+import OGImage from "../../../../public/images/opengraph-image.png";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -14,6 +15,14 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: dictionary["wallpapers"].title,
       description: dictionary["wallpapers"].description,
+      images: [
+        {
+          url: OGImage.src,
+          width: 1200,
+          height: 630,
+          alt: "API Platform logo",
+        },
+      ],
     },
     twitter: {
       title: dictionary["wallpapers"].title,
