@@ -8,6 +8,9 @@ export const versions = [
   "2.3",
   "2.2",
   "2.1",
+  "main",
 ];
+
+export const refVersions = ["3.1", "main"];
 
 export const current = "3.1";

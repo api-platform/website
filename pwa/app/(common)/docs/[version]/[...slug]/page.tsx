@@ -10,70 +10,56 @@ import Script from "next/script";
 import { Metadata } from "next";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { notFound } from "next/navigation";
-import { getVersionAndSlugFromSlugs } from "utils";
 
 export async function generateStaticParams() {
-  const slugs: { slug: string[] }[] = [];
-  const allNavs = await Promise.all(
+  const allParams: { version: string; slug: string[] }[] = [];
+  await Promise.all(
     versions.map(async (version) => {
-      const nav = await loadV2DocumentationNav(version);
-      return nav;
+      const navs = await loadV2DocumentationNav(version);
+      for (const nav of navs) {
+        for (const link of nav.links) {
+          allParams.push({
+            slug: link.link
+              .replace(version === current ? "docs/" : `/docs/v${version}/`, "")
+              .split("/")
+              .filter((p) => p !== ""),
+            version: `v${version}`,
+          });
+        }
+      }
     })
   );
-  for (const navs of allNavs) {
-    for (const nav of navs) {
-      for (const link of nav.links) {
-        slugs.push({
-          slug: link.link
-            .replace("/docs/", "")
-            .split("/")
-            .filter((p) => p !== ""),
-        });
-      }
-    }
-  }
-  return slugs;
+  return allParams;
 }
 
 export default async function Page({
-  params: { slug },
+  params: { slug: slugs, version },
 }: {
   params: {
     slug: string[];
+    version: string;
   };
 }) {
-  const slugs: { slug: string[] }[] = [];
-  const navs = await loadV2DocumentationNav(current);
-  for (const nav of navs) {
-    for (const link of nav.links) {
-      slugs.push({
-        slug: link.link
-          .replace("/docs/", "")
-          .split("/")
-          .filter((s) => s !== ""),
-      });
-    }
-  }
+  const v = version.substring(1);
   try {
-    const { version, slugs } = getVersionAndSlugFromSlugs(slug);
-    const { data, path } = await getDocContentFromSlug(version, slugs);
+    const { data, path } = await getDocContentFromSlug(v, slugs);
 
-    const html = await getHtmlFromGithubContent(data, path, version);
+    const html = await getHtmlFromGithubContent(data, path, v);
     if (html.includes("404: Not Found")) {
       notFound();
     }
 
-    const title = await getDocTitle(version, slugs);
+    const title = await getDocTitle(v, slugs);
 
     const breadCrumbs = [
       {
-        title: version,
-        link: version === current ? `/docs/v${version}` : "/docs",
+        title: v,
+        link: v !== current ? `/docs/v${v}` : "/docs",
       },
       { title },
     ];
 
-    if (slug.length > 2 || (slug.length === 2 && !versions.includes(slug[0]))) {
+    if (slugs.length > 2) {
       breadCrumbs.splice(1, 0, { title: "..." });
     }
 
@@ -90,7 +76,7 @@ export default async function Page({
           <p className="mt-10">
             <a
               className="text-blue"
-              href={`https://github.com/api-platform/docs/edit/${version}/${path}`}
+              href={`https://github.com/api-platform/docs/edit/${v}/${path}`}
             >
               You can also help us improve the documentation of this page.
             </a>
@@ -121,16 +107,18 @@ export default async function Page({
   }
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({
-  params: { slug },
+  params: { slug: slugs, version },
 }: {
   params: {
     slug: string[];
+    version: string;
   };
 }): Promise<Metadata> {
   try {
-    const { version, slugs } = getVersionAndSlugFromSlugs(slug);
-    const title = await getDocTitle(version, slugs);
+    const title = await getDocTitle(version.substring(1), slugs);
 
     return {
       title: `${title} - API Platform`,
