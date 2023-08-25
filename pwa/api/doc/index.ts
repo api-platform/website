@@ -50,7 +50,7 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
   return {
     ...mdx,
     name: mdx.name || extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
-    type: matterResult.data.type
+    type: matterResult.data.type,
   };
 }
 
@@ -113,26 +113,26 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-export const getDocContentFromSlug = cache(async (
-  version: string,
-  slug: string[]
-) => {
-  slug = slug.filter((v) => v);
-  const lastPart = slug.slice(-1)[0];
-  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
+export const getDocContentFromSlug = cache(
+  async (version: string, slug: string[]) => {
+    slug = slug.filter((v) => v);
+    const lastPart = slug.slice(-1)[0];
+    const p =
+      slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
-  try {
-    const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
-    const response = await fetch(url);
-    const data = await response.text();
+    try {
+      const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
+      const response = await fetch(url);
+      const data = await response.text();
 
-    return { data, path: p };
-  } catch (error) {
-    console.error(`An error occured while fetching ${p}`);
-    console.error(error);
-    throw error;
+      return { data, path: p };
+    } catch (error) {
+      console.error(`An error occured while fetching ${p}`);
+      console.error(error);
+      throw error;
+    }
   }
-});
+);
 
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
 const codeBlockRegex = /```[a-z]([\s\S]+?)(?=```)/gm;
