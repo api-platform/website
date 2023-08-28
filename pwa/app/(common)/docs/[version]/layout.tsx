@@ -16,7 +16,6 @@ async function Layout({
   };
   children: React.ReactNode;
 }) {
-  console.log(version);
   const v = versions.includes(version.substring(1))
     ? version.substring(1)
     : current;
