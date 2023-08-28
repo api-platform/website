@@ -59,6 +59,10 @@ export default async function Page({
     const { data, path } = await getDocContentFromSlug(version, slugs);
 
     const html = await getHtmlFromGithubContent(data, path, version);
+    if (html.includes("404: Not Found")) {
+      notFound();
+    }
+
     const title = await getDocTitle(version, slugs);
 
     const breadCrumbs = [
