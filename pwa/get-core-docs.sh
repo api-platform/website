@@ -7,8 +7,8 @@ for version in "${versions[@]}"
 do
 	cd /api-platform/core
 	git checkout $version
-	composer require --no-update webonyx/graphql-php
-	composer install --no-dev -a
+	composer install --no-dev
+	composer require webonyx/graphql-php
 	cp /pdg.config.yaml /api-platform/core/docs
 	mkdir -p /data/docs/{guides,reference}/$version
 	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg guides /data/docs/guides/$version
