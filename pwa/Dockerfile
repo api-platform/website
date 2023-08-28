@@ -41,9 +41,6 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
-COPY --link . .
-COPY --from=deps --link /srv/app/node_modules ./node_modules
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -87,7 +84,6 @@ COPY --from=builder --link /srv/app/public ./public
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/public/* ./public/
 COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 USER nextjs
 
