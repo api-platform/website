@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { DocReferenceLink } from "types";
 import { sortByTitle } from "utils";
+import {current} from "../../consts";
 
 export async function getLinksFromFolder(
   directory: string,
@@ -36,9 +37,9 @@ export async function getLinksFromFolder(
   }
 }
 
-export async function getReferencesSummary() {
+export async function getReferencesSummary(version = current) {
   const summary: Record<string, DocReferenceLink[]> = {};
-  await getLinksFromFolder("data/docs/reference", summary);
+  await getLinksFromFolder(`data/docs/reference/${version}`, summary);
 
   return Object.keys(summary)
     .map((k) => ({
@@ -48,10 +49,10 @@ export async function getReferencesSummary() {
     .sort(sortByTitle);
 }
 
-export async function getAllReferenceSlugs() {
-  const summary = await getReferencesSummary();
+export async function getAllReferenceSlugs(version = current) {
+  const summary = await getReferencesSummary(version);
   return summary
     .map((summaryPart) => summaryPart.links)
     .flat()
-    .map((link) => link.link.replace("/docs/reference/", ""));
+    .map((link) => link.link.replace(`/docs/reference/${version}`, ""));
 }

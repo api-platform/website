@@ -10,7 +10,7 @@ do
 	composer install --no-dev
 	composer require webonyx/graphql-php
 	cp /pdg.config.yaml /api-platform/core/docs
-	mkdir -p /data/docs/{guides,reference}/$version
-	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg guides /data/docs/guides/$version
-	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg references /api-platform/core/src /data/docs/reference/$version
+	mkdir -p /data/docs/{guides,reference}/v$version
+	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg guides /data/docs/guides/v$version
+	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg references /api-platform/core/src /data/docs/reference/v$version
 done

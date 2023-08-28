@@ -22,7 +22,7 @@ async function Layout({
 
   const v2Nav = await loadV2DocumentationNav(v);
 
-  const guideLinks = await getAllDocLinks("guides", "guide");
+  const guideLinks = await getAllDocLinks(`guides/v${v}`, "guide", ".mdx");
   // todo: versionner les guides et les références
   const nav = refVersions.includes(v)
     ? [
@@ -30,7 +30,7 @@ async function Layout({
         {
           title: "Core API Reference",
           basePath: "/docs/reference",
-          link: "/docs/references",
+          link: `/docs/${v !== current ? `v${v}/` : ""}references`,
         },
         {
           title: "Core Guides",

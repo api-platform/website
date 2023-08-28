@@ -40,10 +40,10 @@ export async function getAllDocLinks(
   }));
 }
 
-export async function getGuideContent(slug: string) {
+export async function getGuideContent(slug: string, version: string) {
   const [fileContents, mdx] = await Promise.all([
-    readFile(`data/docs/guides/${slug}.mdx`, "utf8"),
-    import(`data/docs/guides/${slug}.mdx`),
+    readFile(`data/docs/guides/${version}/${slug}.mdx`, "utf8"),
+    import(`data/docs/guides/${version}/${slug}.mdx`),
   ]);
   const { data } = matter(fileContents);
 
