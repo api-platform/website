@@ -7,9 +7,6 @@ import { getAllDocLinks } from "api/doc/guides";
 export async function generateStaticParams() {
   return versions.map((v) => ({ version: `v${v}` }));
 }
-
-//export const dynamicParams = false;
-
 async function Layout({
   params: { version },
   children,
