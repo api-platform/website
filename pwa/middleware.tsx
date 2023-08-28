@@ -29,18 +29,14 @@ export async function middleware(request: NextRequest) {
   const { locales, defaultLocale } = i18n;
   const pathname = request.nextUrl.pathname;
 
-  // handle current doc version to skip the version in pathname
+  // handle current doc version to skip the version in pathname (removes this when next will support optionnal parameter)
   if (
     pathname.startsWith("/docs/") &&
     !/\.(jpg|jpeg|png|gif)$/.test(pathname)
   ) {
-    if (
-      pathname.startsWith(`/docs/v${current}`) &&
-      !request.cookies.get("redirected")
-    ) {
+    if (pathname.startsWith(`/docs/v${current}`)) {
       const url = new URL(pathname.replace(`v${current}/`, ""), request.url);
       const response = NextResponse.redirect(url);
-      response.cookies.set("redirected", "true", { maxAge: 10 });
       return response;
     }
 
