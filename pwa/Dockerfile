@@ -18,7 +18,6 @@ RUN corepack enable && \
 
 FROM php as php_documentation_generator
 
-VOLUME /data/docs
 WORKDIR /api-platform
 RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -41,6 +40,7 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
