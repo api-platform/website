@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   return versions.map((v) => ({ version: `v${v}` }));
 }
 
-export const dynamicParams = false;
+//export const dynamicParams = false;
 
 async function Layout({
   params: { version },
@@ -19,6 +19,7 @@ async function Layout({
   };
   children: React.ReactNode;
 }) {
+  console.log(version);
   const v = versions.includes(version.substring(1))
     ? version.substring(1)
     : current;
