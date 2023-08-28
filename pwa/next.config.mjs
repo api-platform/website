@@ -171,6 +171,10 @@ const nextConfig = {
             },
         ];
     },
+    experimental: {
+      esmExternals: false,
+      webpackBuildWorker: true,
+    }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

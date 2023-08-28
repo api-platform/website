@@ -62,8 +62,20 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& pnpm run prebuild \
-	&& pnpm run build \
+	&& pnpm run prebuild
+
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
+	&& pnpm run build
+
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
 	&& pnpm run postbuild
 
 # Production image, copy all the files and run next
