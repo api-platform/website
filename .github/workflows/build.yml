@@ -72,7 +72,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./api
-          target: app_php
+          target: php_prod
           pull: true
           push: ${{ inputs.push }}
           tags: ${{ steps.docker-metadata.outputs.tags }}
@@ -123,7 +123,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./api
-          target: app_caddy
+          target: caddy_prod
           pull: true
           push: ${{ inputs.push }}
           tags: ${{ steps.docker-metadata.outputs.tags }}
