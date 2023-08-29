@@ -41,5 +41,6 @@ next-env.d.ts
 
 data/docs/guides
 data/docs/reference
+data/contributors.json
 
 public/schema/metadata/*.xsd
