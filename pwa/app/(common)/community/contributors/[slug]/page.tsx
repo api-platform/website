@@ -1,4 +1,5 @@
 import {
+  getAllContributors,
   getContributorBySlug,
   getContributorConferencesBySlug,
   getContributors,
@@ -78,11 +79,11 @@ const parseGithubText = (text: string) => {
 };
 
 export async function generateStaticParams() {
-  const contributors = await getContributors(0, 100);
+  const contributors = await getAllContributors();
   return contributors.map((c) => ({ slug: c.login }));
 }
 
-export const revalidate = 86400;
+export const dynamicParams = false;
 
 export default async function Page({
   params: { slug },
