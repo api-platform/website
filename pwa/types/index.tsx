@@ -1,5 +1,5 @@
 import { GetResponseDataTypeFromEndpointMethod } from "@octokit/types";
-import { octokit } from "api/contributors";
+import { octokit } from "api/contributorsRank";
 import { ReactNode } from "react";
 
 export interface Reference {
@@ -31,8 +31,6 @@ export type Contributor = GetResponseDataTypeFromEndpointMethod<
   typeof octokit.rest.repos.listContributors
 >[number] & {
   repos: { repo: string; contributions: number; url?: string }[];
-  additions: number;
-  deletions: number;
   rank: number;
   bio?: string | null;
   location?: string | null;
