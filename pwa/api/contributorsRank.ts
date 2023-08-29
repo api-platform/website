@@ -111,8 +111,6 @@ export const getAllContributors = async () => {
                   url: `https://github.com/${owner}/${repo}`,
                 },
               ],
-              additions: 0,
-              deletions: 0,
               rank: 0,
             });
           }
@@ -144,7 +142,27 @@ export const getAllContributors = async () => {
           });
         })
     );
-    return sortedContributors;
+    const allContributors = await Promise.all(
+      sortedContributors.map(async (contributor) => {
+        const { data } = await octokit.rest.users.getByUsername({
+          username: contributor.login || "",
+        });
+        return {
+          login: data.login,
+          repos: contributor.repos,
+          rank: contributor.rank,
+          contributions: contributor.contributions,
+          isCoreTeam: contributor.isCoreTeam,
+          avatar_url: contributor.avatar_url,
+          bio: data.bio,
+          name: data.name,
+          location: data.location,
+          company: data.company,
+          blog: data.blog,
+        };
+      })
+    );
+    return allContributors;
   } catch (e) {
     console.error(e);
     return [];

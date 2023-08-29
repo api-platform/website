@@ -1,57 +1,11 @@
 import { sortByStartDate } from "utils/con";
 import { getConferencesBySpeaker, getConferenceData } from "./con/conferences";
 import { getAllSpeakers } from "./con/speakers";
-import { Octokit } from "octokit";
-import { throttling } from "@octokit/plugin-throttling";
 import { Contributor } from "types";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { editions } from "data/con/editions";
 import fs from "fs";
-
-interface Options {
-  method?: string;
-  url?: string;
-}
-
-const MyOctokit = Octokit.plugin(throttling);
-
-export const octokit = new MyOctokit({
-  auth: process.env.GITHUB_KEY,
-  throttle: {
-    onRateLimit: (
-      retryAfter: number,
-      options: Options,
-      _octokit: any,
-      retryCount: number
-    ) => {
-      console.warn(
-        `Request quota exhausted for request ${options.method} ${options.url}`
-      );
-
-      if (retryCount < 1) {
-        // only retries once
-        console.info(`Retrying after ${retryAfter} seconds!`);
-        return true;
-      } else
-        throw `Request quota exhausted for request ${options.method} ${options.url}`;
-    },
-    onSecondaryRateLimit: (_retryAfter: number, options: Options) => {
-      // does not retry, only logs a warning
-      console.warn(
-        `SecondaryRateLimit detected for request ${options.method} ${options.url}`
-      );
-    },
-  },
-  request: {
-    fetch: (url: string, opts: any) => {
-      return fetch(url, {
-        ...opts,
-        next: { tags: ["contributors"], revalidate: 86400 },
-      });
-    },
-  },
-});
 
 export const getAllContributors = cache(async () => {
   const contributors: Contributor[] = [];
@@ -60,10 +14,7 @@ export const getAllContributors = cache(async () => {
     if (fs.existsSync("data/contributors.json")) {
       const data = fs.readFileSync("data/contributors.json", "utf-8");
       const allContributors: Contributor[] = JSON.parse(data);
-      /*const allContributors: Contributor[] = (
-        await import("data/contributors.json")
-      ).default;*/
-      return allContributors as Contributor[];
+      return allContributors;
     }
     return contributors;
   } catch (e) {
@@ -78,17 +29,7 @@ export async function getContributorBySlug(slug: string): Promise<Contributor> {
     (contributor) => contributor.login === slug
   );
   if (contributor) {
-    const { data } = await octokit.rest.users.getByUsername({
-      username: slug,
-    });
-    return {
-      ...contributor,
-      location: data.location,
-      company: data.company,
-      bio: data.bio,
-      blog: data.blog,
-      name: data.name ? data.name : undefined,
-    };
+    return contributor;
   }
   notFound();
 }
