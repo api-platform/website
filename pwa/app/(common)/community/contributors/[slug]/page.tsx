@@ -1,8 +1,4 @@
-import {
-  getContributorBySlug,
-  getContributorConferencesBySlug,
-  getContributors,
-} from "api/contributors";
+import { getContributorBySlug, getContributors } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
 import Link from "components/common/Link";
@@ -21,7 +17,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const dictionary = await import(`data/meta.json`);
-  const contributor = await getContributorBySlug(slug);
+  const contributor = getContributorBySlug(slug);
 
   const contributorName = contributor.name || contributor.login || "";
   const title = dictionary["contributor"].title.replace(
@@ -78,7 +74,7 @@ const parseGithubText = (text: string) => {
 };
 
 export async function generateStaticParams() {
-  const contributors = await getContributors(0, 100);
+  const contributors = getContributors(0, 100);
   return contributors.map((c) => ({ slug: c.login }));
 }
 
@@ -89,8 +85,13 @@ export default async function Page({
     slug: string;
   };
 }) {
-  const contributor = await getContributorBySlug(slug);
-  const conferences = await getContributorConferencesBySlug(slug);
+  const contributor = getContributorBySlug(slug);
+  //const conferences = await getContributorConferencesBySlug(slug);
+  const conferences: {
+    title: string;
+    youtubeLink: string;
+    imageLink: string;
+  }[] = [];
 
   const contributorName = contributor.name || contributor.login;
 

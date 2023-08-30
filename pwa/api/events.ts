@@ -40,7 +40,7 @@ export async function getAllEvents(withContent?: boolean) {
 }
 
 async function getSpeakerLink(login: string) {
-  const contributors = await getAllContributors();
+  const contributors = getAllContributors();
   const contributor = contributors.find(
     (contributor) => contributor.login === login
   );

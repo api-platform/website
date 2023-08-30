@@ -76,7 +76,7 @@ async function getAllStandardRoutes() {
     routes.push(`${basePath}/events/${event.slug}`);
   }
 
-  const contributors = await getAllContributors();
+  const contributors = getAllContributors();
   for (const contributor of contributors) {
     routes.push(`${basePath}/community/contributors/${contributor.login}`);
   }

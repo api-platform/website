@@ -114,7 +114,7 @@ function SocialItem({
 
 export default async function Page() {
   const events = (await getAllEvents()).splice(0, 2);
-  const contributors = await getContributors(1, 70);
+  const contributors = getContributors(1, 70);
 
   return (
     <div>
