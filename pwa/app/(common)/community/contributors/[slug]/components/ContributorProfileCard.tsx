@@ -2,7 +2,6 @@
 import { Github } from "components/icons/social";
 import { Contributor } from "types";
 import { Location, Company, Website } from "components/icons";
-import Image from "next/image";
 import classNames from "classnames";
 import TextIconInfo from "components/common/TextIconInfo";
 
