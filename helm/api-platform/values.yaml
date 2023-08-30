@@ -32,6 +32,8 @@ pwa:
       cpu: 500m
     limits:
       memory: 1400Mi      
+  podAnnotations:
+    instrumentation.opentelemetry.io/inject-nodejs: "true"
 
 
 next: 
