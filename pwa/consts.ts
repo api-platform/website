@@ -11,6 +11,6 @@ export const versions = [
   "main",
 ];
 
-export const refVersions = ["3.1", "main"];
+export const refVersions = [];
 
 export const current = "3.1";

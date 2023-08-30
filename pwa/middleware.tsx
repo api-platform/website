@@ -32,7 +32,7 @@ export async function middleware(request: NextRequest) {
   // handle current doc version to skip the version in pathname (removes this when next will support optionnal parameter)
   if (
     pathname.startsWith("/docs/") &&
-    !/\.(jpg|jpeg|png|gif)$/.test(pathname)
+    !/\.(jpg|jpeg|png|gif|svg)$/.test(pathname)
   ) {
     if (pathname.startsWith(`/docs/v${current}`)) {
       const url = new URL(pathname.replace(`v${current}/`, ""), request.url);
