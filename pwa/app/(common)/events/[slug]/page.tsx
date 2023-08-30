@@ -9,6 +9,7 @@ import EventResumeInfos from "../components/EventResumeInfos";
 import Chip from "components/common/Chip";
 import ShapeSection from "components/common/ShapeSection";
 import { Metadata } from "next";
+import OGImage from "../../../../public/images/opengraph-image.png";
 
 type Props = {
   params: { slug: string };
@@ -35,6 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t,
       description,
+      images: [
+        {
+          url: OGImage.src,
+          width: 1200,
+          height: 630,
+          alt: "API Platform logo",
+        },
+      ],
     },
     twitter: {
       title: t,

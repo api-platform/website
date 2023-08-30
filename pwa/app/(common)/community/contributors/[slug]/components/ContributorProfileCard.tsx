@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { Github } from "components/icons/social";
 import { Contributor } from "types";
 import { Location, Company, Website } from "components/icons";
-import Image from "next/image";
 import classNames from "classnames";
 import TextIconInfo from "components/common/TextIconInfo";
 
@@ -21,18 +21,17 @@ export default function ContributorProfileCard({
     >
       <div className="overflow-hidden w-full aspect-square bg-gray-100 dark:bg-blue-darkest border-px border-gray-100 dark:border-blue-darkest">
         {contributor.avatar_url ? (
-          <Image
+          <img
             alt=""
             src={contributor.avatar_url}
             width={400}
             height={400}
             className="object-cover w-full h-full group-hover:scale-110 transition-all duration-500"
-            loading="eager"
           />
         ) : null}
       </div>
       {contributor.isCoreTeam ? (
-        <Image
+        <img
           src="/images/badges/core-team.svg"
           alt="Core team badge"
           width={80}

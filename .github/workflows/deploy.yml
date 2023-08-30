@@ -82,8 +82,8 @@ jobs:
               echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
               echo "REPLICA=1" >> "$GITHUB_ENV"
-              echo "CPU_REQUEST=500m" >> "$GITHUB_ENV"
-              echo "MEM_REQUEST=1400Mi" >> "$GITHUB_ENV"
+              echo "CPU_REQUEST=10m" >> "$GITHUB_ENV"
+              echo "MEM_REQUEST=400Mi" >> "$GITHUB_ENV"
               echo "MEM_LIMIT=1400Mi" >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
@@ -98,7 +98,7 @@ jobs:
               echo "REPLICA=1" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
               echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
-              echo "CPU_REQUEST=20m" >> "$GITHUB_ENV"
+              echo "CPU_REQUEST=5m" >> "$GITHUB_ENV"
               echo "MEM_REQUEST=100Mi" >> "$GITHUB_ENV"
               echo "MEM_LIMIT=600Mi" >> "$GITHUB_ENV"
           fi
@@ -177,9 +177,9 @@ jobs:
             --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
             --set=pwa.image.tag=${{ inputs.docker-images-version }} \
             --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=500m \
-            --set=pwa.resources.requests.memory=1400Mi \
-            --set=pwa.resources.limits.memory=1400Mi \
+            --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
+            --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
+            --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
             --set=pwa.replicaCount=${{ env.REPLICA }} \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=github.key=${{ secrets.gh-key }} \
@@ -190,3 +190,26 @@ jobs:
       - name: Debug kube events
         if: failure()
         run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp
+
+  links:
+    name: Check for dead links
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Define release name
+        run: |
+          set -o pipefail
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
+              echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
+          else
+              CONTEXT=nonprod
+              if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+                  echo RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
+              else
+                  echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
+              fi
+          fi
+      - name: Check for dead links
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          args: --verbose --no-progress https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh

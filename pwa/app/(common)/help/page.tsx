@@ -4,6 +4,7 @@ import Button from "components/common/Button";
 import Image from "next/image";
 import NavLink from "components/layout/NavLink";
 import { Metadata } from "next";
+import OGImage from "../../../public/images/opengraph-image.png";
 
 export async function generateMetadata(): Promise<Metadata> {
   const dictionary = await import(`data/meta.json`);
@@ -12,8 +13,18 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dictionary["help"].title,
     description: dictionary["help"].description,
     openGraph: {
+      url: "https://api-platform.com",
+      type: "website",
       title: dictionary["help"].title,
       description: dictionary["help"].description,
+      images: [
+        {
+          url: OGImage.src,
+          width: 1200,
+          height: 630,
+          alt: "API Platform logo",
+        },
+      ],
     },
     twitter: {
       title: dictionary["help"].title,

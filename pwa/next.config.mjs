@@ -3,51 +3,90 @@
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 import nextMDX from "@next/mdx";
-import { visit } from "unist-util-visit";
+import { visit, CONTINUE, SKIP } from "unist-util-visit";
 
+/**
+ * This handles links after the code is rendered so that
+ * we can link method types and interfaces directly from the code.
+ */
 function transformCustomLinks() {
+    function getLinkNode(text) {
+        const linkMatch = text.match(/<a href="(\/\S+)">([^\s<]+)<\/a>/);
+
+        if (!linkMatch) {
+            return null;
+        }
+
+        const [, linkHref, linkText] = linkMatch;
+        return {
+            type: "element",
+            tagName: "a",
+            properties: { href: linkHref },
+            children: [{ type: "text", value: linkText }],
+        };
+    }
+
     return (tree) => {
-        visit(tree, "element", (node) => {
-            if (
-                node.tagName === "span" &&
-                node.children.length === 1 &&
-                node.children[0].type === "text"
-            ) {
-                const text = node.children[0].value.trim();
-                const linkMatch = text.match(
-                    /`<a href="\/(\S+)">([^\s<]+)<\/a>`/
-                );
-                if (linkMatch) {
-                    const [, linkHref, linkText] = linkMatch;
-                    const linkNode = {
-                        type: "element",
-                        tagName: "a",
-                        properties: { href: linkHref },
-                        children: [{ type: "text", value: linkText }],
-                    };
-                    Object.assign(node, linkNode);
-                }
-            } else if (
-                node.tagName === "code" &&
-                node.children.length === 1 &&
-                node.children[0].type === "text"
-            ) {
-                const text = node.children[0].value.trim();
-                const linkMatch = text.match(
-                    /<a href="\/(\S+)">([^\s<]+)<\/a>/
-                );
-                if (linkMatch) {
-                    const [, linkHref, linkText] = linkMatch;
-                    const linkNode = {
-                        type: "element",
-                        tagName: "a",
-                        properties: { href: linkHref },
-                        children: [{ type: "text", value: linkText }],
-                    };
-                    Object.assign(node, linkNode);
-                }
+        visit(tree, "element", (code) => {
+            if (code.tagName !== "code") {
+                return CONTINUE;
             }
+
+            let start = null;
+            visit(code, "element", (node, index, parent) => {
+                if (
+                    node.children.length !== 1 ||
+                    node.children[0].type !== "text"
+                ) {
+                    return CONTINUE;
+                }
+
+                const text = node.children[0].value.trim();
+
+                if (text === "`<") {
+                    start = index;
+                    return CONTINUE;
+                }
+
+                if (text === ">`") {
+                    const text = parent.children
+                        .slice(start, index + 1)
+                        .map((e) => e.children[0].value);
+                    const linkNode = getLinkNode(text.join(""));
+
+                    if (linkNode) {
+                        linkNode.children[0].value =
+                            " " + linkNode.children[0].value;
+                        parent.children.splice(
+                            start,
+                            index + 1 - start,
+                            linkNode
+                        );
+                    }
+
+                    start = null;
+                    return CONTINUE;
+                }
+
+                if (start !== null) {
+                    return CONTINUE;
+                }
+
+                const linkNode = getLinkNode(text);
+                if (linkNode) {
+                    if (node.children[0].value.startsWith(" ")) {
+                        linkNode.children[0].value =
+                            " " + linkNode.children[0].value;
+                    }
+
+                    Object.assign(node, linkNode);
+                }
+            });
+
+            return SKIP;
         });
     };
 }
@@ -141,6 +180,10 @@ const nextConfig = {
             },
         ];
     },
+    experimental: {
+      esmExternals: false,
+      webpackBuildWorker: true,
+    }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -151,6 +194,8 @@ const withMDX = nextMDX({
         rehypePlugins: [
             [rehypePrettyCode, prettyOptions],
             transformCustomLinks,
+            rehypeSlug,
+            rehypeAutolinkHeadings,
         ],
     },
 });

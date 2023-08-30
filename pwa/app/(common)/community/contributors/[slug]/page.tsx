@@ -1,8 +1,4 @@
-import {
-  getContributorBySlug,
-  getContributorConferencesBySlug,
-  getContributors,
-} from "api/contributors";
+import { getContributorBySlug, getContributors } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
 import Link from "components/common/Link";
@@ -12,6 +8,7 @@ import { Fragment } from "react";
 import ContributorVideos from "./components/ContributorVideos";
 import ShapeSection from "components/common/ShapeSection";
 import { Metadata } from "next";
+import OGImage from "../../../../../public/images/opengraph-image.png";
 
 type Props = {
   params: { slug: string };
@@ -20,7 +17,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const dictionary = await import(`data/meta.json`);
-  const contributor = await getContributorBySlug(slug);
+  const contributor = getContributorBySlug(slug);
 
   const contributorName = contributor.name || contributor.login || "";
   const title = dictionary["contributor"].title.replace(
@@ -38,6 +35,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
+      images: [
+        {
+          url: OGImage.src,
+          width: 1200,
+          height: 630,
+          alt: "API Platform logo",
+        },
+      ],
     },
     twitter: {
       title,
@@ -69,11 +74,9 @@ const parseGithubText = (text: string) => {
 };
 
 export async function generateStaticParams() {
-  const contributors = await getContributors(0, 100);
+  const contributors = getContributors(0, 100);
   return contributors.map((c) => ({ slug: c.login }));
 }
-
-export const revalidate = 86400;
 
 export default async function Page({
   params: { slug },
@@ -82,8 +85,13 @@ export default async function Page({
     slug: string;
   };
 }) {
-  const contributor = await getContributorBySlug(slug);
-  const conferences = await getContributorConferencesBySlug(slug);
+  const contributor = getContributorBySlug(slug);
+  //const conferences = await getContributorConferencesBySlug(slug);
+  const conferences: {
+    title: string;
+    youtubeLink: string;
+    imageLink: string;
+  }[] = [];
 
   const contributorName = contributor.name || contributor.login;
 

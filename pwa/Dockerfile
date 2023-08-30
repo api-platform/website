@@ -16,6 +16,18 @@ RUN corepack enable && \
 # Uncomment the following line in case you want to disable telemetry during dev and build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+FROM php as php_documentation_generator
+
+WORKDIR /api-platform
+RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
+RUN docker-php-ext-install zip
+RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
+COPY get-core-docs.sh /
+COPY pdg.config.yaml /
+RUN chmod +x /get-core-docs.sh
+RUN /get-core-docs.sh
 
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
@@ -28,6 +40,7 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -38,18 +51,31 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 FROM builder_base AS builder
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
+COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
-# RUN echo $NEXT_ROOT_URL 
+# RUN echo $NEXT_ROOT_URL
 
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& pnpm run prebuild \
-	&& pnpm run build \
+	&& pnpm run prebuild
+
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
+	&& pnpm run build
+
+RUN --mount=type=secret,id=GITHUB_KEY \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	if [ -z "$GITHUB_KEY" ]; then \
+		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
+	fi  \
 	&& pnpm run postbuild
 
 # Production image, copy all the files and run next

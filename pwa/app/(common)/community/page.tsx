@@ -53,8 +53,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dictionary["community"].title,
     description: dictionary["community"].description,
     openGraph: {
+      url: "https://api-platform.com",
       title: dictionary["community"].title,
       description: dictionary["community"].description,
+      type: "website",
     },
     twitter: {
       title: dictionary["community"].title,
@@ -112,7 +114,7 @@ function SocialItem({
 
 export default async function Page() {
   const events = (await getAllEvents()).splice(0, 2);
-  const contributors = await getContributors(1, 70);
+  const contributors = getContributors(1, 70);
 
   return (
     <div>

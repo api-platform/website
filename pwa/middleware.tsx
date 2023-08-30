@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { i18n } from "i18n/i18n-config";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
+import { current, versions } from "consts";
 
 function getLocale(request: NextRequest): string | undefined {
   try {
@@ -27,6 +28,28 @@ function getLocale(request: NextRequest): string | undefined {
 export async function middleware(request: NextRequest) {
   const { locales, defaultLocale } = i18n;
   const pathname = request.nextUrl.pathname;
+
+  // handle current doc version to skip the version in pathname (removes this when next will support optionnal parameter)
+  if (
+    pathname.startsWith("/docs/") &&
+    !/\.(jpg|jpeg|png|gif|svg)$/.test(pathname)
+  ) {
+    if (pathname.startsWith(`/docs/v${current}`)) {
+      const url = new URL(pathname.replace(`v${current}/`, ""), request.url);
+      const response = NextResponse.redirect(url);
+      return response;
+    }
+
+    const isMissingVersion = versions.every(
+      (version) => !pathname.startsWith(`/docs/v${version}/`)
+    );
+
+    if (isMissingVersion) {
+      return NextResponse.rewrite(
+        new URL(pathname.replace("/docs/", `/docs/v${current}/`), request.url)
+      );
+    }
+  }
 
   if (
     !pathname.startsWith("/fr/con") &&

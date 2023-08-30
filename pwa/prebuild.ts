@@ -1,3 +1,5 @@
+import { getAllContributors } from "./api/contributorsRank";
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const sharp = require("sharp");
 const path = require("path");
@@ -231,6 +233,16 @@ async function generateXsd() {
   }
 }
 
+async function getContributors() {
+  const allContributors = await getAllContributors();
+  fs.writeFileSync(
+    path.join(process.cwd(), "data/contributors.json"),
+    JSON.stringify(allContributors, null, 2),
+    "utf-8"
+  );
+}
+
 updateAllDocFiles(path.join(process.cwd(), "data/docs"));
 generateXsd();
+getContributors();
 //updateAllReferenceLinks(path.join(process.cwd(), "data/docs/reference"));

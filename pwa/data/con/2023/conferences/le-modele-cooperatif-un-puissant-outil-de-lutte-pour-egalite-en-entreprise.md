@@ -4,8 +4,8 @@ speakers: -marion-age
           -cecile-staehle
 track: '1'
 date: '2023-09-22'
-start: '17:10'
-end: '17:50'
+start: '16:20'
+end: '17:00'
 short: Comment les coopératives luttent contre les inégalités
 tag: society
 ---

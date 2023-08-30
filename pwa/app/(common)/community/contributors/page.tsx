@@ -11,8 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
     title: dictionary["contributors"].title,
     description: dictionary["contributors"].description,
     openGraph: {
+      url: "https://api-platform.com",
       title: dictionary["contributors"].title,
       description: dictionary["contributors"].description,
+      type: "website",
     },
     twitter: {
       title: dictionary["contributors"].title,
@@ -22,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const contributors = await getAllContributors();
+  const contributors = getAllContributors();
   return (
     <div className="py-16">
       <div className="bg-blue py-12 text-white dark:text-blue-black">

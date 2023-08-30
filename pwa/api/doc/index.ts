@@ -50,6 +50,7 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
   return {
     ...mdx,
     name: mdx.name || extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
+    type: matterResult.data.type,
   };
 }
 
@@ -74,7 +75,6 @@ export const loadV2DocumentationNav = cache(async (branch: string) => {
   try {
     const url = `https://raw.githubusercontent.com/api-platform/docs/${branch}/outline.yaml`;
     const response = await fetch(url);
-    //return [];
     const data = await response.text();
     const navData: Chapters = YAML.parse(data);
 
@@ -113,26 +113,26 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-export const getDocContentFromSlug = async (
-  version: string,
-  slug: string[]
-) => {
-  slug = slug.filter((v) => v);
-  const lastPart = slug.slice(-1)[0];
-  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
+export const getDocContentFromSlug = cache(
+  async (version: string, slug: string[]) => {
+    slug = slug.filter((v) => v);
+    const lastPart = slug.slice(-1)[0];
+    const p =
+      slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
-  try {
-    const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
-    const response = await fetch(url);
-    const data = await response.text();
+    try {
+      const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
+      const response = await fetch(url);
+      const data = await response.text();
 
-    return { data, path: p };
-  } catch (error) {
-    console.error(`An error occured while fetching ${p}`);
-    console.error(error);
-    throw error;
+      return { data, path: p };
+    } catch (error) {
+      console.error(`An error occured while fetching ${p}`);
+      console.error(error);
+      throw error;
+    }
   }
-};
+);
 
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
 const codeBlockRegex = /```[a-z]([\s\S]+?)(?=```)/gm;

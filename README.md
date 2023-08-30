@@ -64,7 +64,7 @@ cd website/pwa
 # Install dependencies
 pnpm install
 
-# Launch prebuild script (necessary to create some images variants like wallpapers or logos)
+# Launch prebuild script (necessary to create some images variants like wallpapers or logos, and to generate the contributors ranking)
 pnpm prebuild
 
 # Run project locally (for development)

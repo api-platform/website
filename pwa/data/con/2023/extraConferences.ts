@@ -62,28 +62,6 @@ const extra = [
   },
   {
     title: {
-      en: "TBA",
-      fr: "Prochainement",
-    },
-    date: "2023-09-22",
-    start: "14:00",
-    end: "14:40",
-    track: "2",
-    type: "upcoming",
-  },
-  {
-    title: {
-      en: "TBA",
-      fr: "Prochainement",
-    },
-    date: "2023-09-22",
-    start: "14:50",
-    end: "15:30",
-    track: "1",
-    type: "upcoming",
-  },
-  {
-    title: {
       en: "Lunch break",
       fr: "Pause déjeuner",
     },
@@ -108,8 +86,8 @@ const extra = [
       fr: "Discours de clôture",
     },
     date: "2023-09-22",
-    start: "17:50",
-    end: "18:00",
+    start: "17:00",
+    end: "17:10",
     type: "break",
   },
 ];

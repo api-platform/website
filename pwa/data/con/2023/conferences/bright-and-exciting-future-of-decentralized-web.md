@@ -3,8 +3,8 @@ type: conference
 speakers: -pauline-vos 
 track: '2'
 date: '2023-09-22'
-start: '16:20'
-end: '17:00'
+start: '10:00'
+end: '10:40'
 short: We can save the web with decentralization
 tag: good-practices
 ---
