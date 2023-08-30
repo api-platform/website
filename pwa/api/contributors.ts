@@ -5,18 +5,17 @@ import { Contributor } from "types";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { editions } from "data/con/editions";
-import fs from "fs";
 
 export const getAllContributors = cache(async () => {
   const contributors: Contributor[] = [];
 
   try {
-    if (fs.existsSync("data/contributors.json")) {
-      const data = fs.readFileSync("data/contributors.json", "utf-8");
-      const allContributors: Contributor[] = JSON.parse(data);
-      return allContributors;
-    }
-    return contributors;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const allContributors: Contributor[] = (
+      await import("data/contributors.json")
+    ).default;
+    return allContributors;
   } catch (e) {
     console.error(e);
     return contributors;
