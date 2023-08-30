@@ -3,27 +3,22 @@ import { getConferencesBySpeaker, getConferenceData } from "./con/conferences";
 import { getAllSpeakers } from "./con/speakers";
 import { Contributor } from "types";
 import { notFound } from "next/navigation";
-import { cache } from "react";
 import { editions } from "data/con/editions";
+import allContributors from "data/contributors.json";
 
-export const getAllContributors = cache(async () => {
+export const getAllContributors = () => {
   const contributors: Contributor[] = [];
 
   try {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const allContributors: Contributor[] = (
-      await import("data/contributors.json")
-    ).default;
-    return allContributors;
+    return allContributors as Contributor[];
   } catch (e) {
     console.error(e);
     return contributors;
   }
-});
+};
 
-export async function getContributorBySlug(slug: string): Promise<Contributor> {
-  const allContributors = await getAllContributors();
+export function getContributorBySlug(slug: string): Contributor {
+  const allContributors = getAllContributors();
   const contributor = allContributors.find(
     (contributor) => contributor.login === slug
   );
@@ -69,7 +64,7 @@ export async function getContributorConferencesBySlug(slug: string) {
   return result;
 }
 
-export async function getContributors(start: number, count: number) {
-  const allContributors = await getAllContributors();
+export function getContributors(start: number, count: number) {
+  const allContributors = getAllContributors();
   return [...allContributors].slice(start, count);
 }
