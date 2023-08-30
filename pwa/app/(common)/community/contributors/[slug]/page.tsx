@@ -2,7 +2,6 @@ import {
   getAllContributors,
   getContributorBySlug,
   getContributorConferencesBySlug,
-  getContributors,
 } from "api/contributors";
 import Heading from "components/common/typography/Heading";
 import RepoLink from "./components/RepoLink";
