@@ -1,10 +1,10 @@
 ---
 type: conference
 speakers: -loic-fremont
-track: '1'
+track: '2'
 date: '2023-09-22'
-start: '16:20'
-end: '17:00'
+start: '14:00'
+end: '14:40'
 short: Comment le framework API Platform sert de socle pour de nombreux projets Open Source.
 tag: archi
 ---
