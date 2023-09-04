@@ -4,11 +4,13 @@ import path from "node:path";
 import matter from "gray-matter";
 import { GuideFrontMatter } from "types";
 import { extractHeadingsFromMarkdown, sortByPosition } from "utils";
+import { current } from "../../consts";
 
 export async function getAllDocLinks(
   folder: string,
   outputFolder?: string,
-  extname = ".mdx"
+  extname = ".mdx",
+  version = current
 ) {
   const directory = `data/docs/${folder}`;
   const files = (await readdir(path.join(process.cwd(), directory))).filter(
@@ -35,15 +37,18 @@ export async function getAllDocLinks(
 
   return links.sort(sortByPosition).map((link) => ({
     title: link.name,
-    link: `/docs/${outputFolder || folder}/${link.slug}`,
+    link:
+      version === current
+        ? `/docs/${outputFolder || folder}/${link.slug}`
+        : `/docs/v${version}/${outputFolder || folder}/${link.slug}`,
     slug: link.slug,
   }));
 }
 
-export async function getGuideContent(slug: string) {
+export async function getGuideContent(slug: string, version = current) {
   const [fileContents, mdx] = await Promise.all([
-    readFile(`data/docs/guides/${slug}.mdx`, "utf8"),
-    import(`data/docs/guides/${slug}.mdx`),
+    readFile(`data/docs/guides/${version}/${slug}.mdx`, "utf8"),
+    import(`data/docs/guides/${version}/${slug}.mdx`),
   ]);
   const { data } = matter(fileContents);
 

@@ -7,7 +7,7 @@ export async function generateStaticParams() {
   const allParams: { version: string; slug: string[] }[] = [];
   await Promise.all(
     refVersions.map(async (version) => {
-      const slugs = await getAllReferenceSlugs(); // todo: appel versionné
+      const slugs = await getAllReferenceSlugs();
       slugs.map((slug) => {
         allParams.push({
           version: `v${version}`,
