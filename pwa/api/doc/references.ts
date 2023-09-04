@@ -7,7 +7,8 @@ import { current } from "../../consts";
 
 export async function getLinksFromFolder(
   directory: string,
-  summary: Record<string, DocReferenceLink[]>
+  summary: Record<string, DocReferenceLink[]>,
+  version: string
 ) {
   const files = (await readdir(directory)).filter(
     (file) => path.extname(file) !== ".md"
@@ -17,17 +18,22 @@ export async function getLinksFromFolder(
     let fullPath = `${directory}/${file}`;
     const s = await stat(fullPath);
     if (s.isDirectory()) {
-      await getLinksFromFolder(fullPath, summary);
+      await getLinksFromFolder(fullPath, summary, version);
     } else {
       const fileContents = await readFile(fullPath, "utf8");
       const matterResult = matter(fileContents);
       fullPath = fullPath.replace(".mdx", "");
       const item = {
         title: path.basename(fullPath),
-        link: fullPath.replace("data/docs", "/docs"),
+        link: fullPath.replace(
+          `data/docs/reference/${version}`,
+          version === current
+            ? "/docs/reference"
+            : `/docs/v${version}/reference`
+        ),
         type: matterResult.data.type,
       };
-      const basePath = directory.replace("data/docs/reference/", "");
+      const basePath = directory.replace(`data/docs/reference/${version}/`, "");
       if (summary[basePath]) {
         summary[basePath].push(item);
       } else {
@@ -39,7 +45,7 @@ export async function getLinksFromFolder(
 
 export async function getReferencesSummary(version = current) {
   const summary: Record<string, DocReferenceLink[]> = {};
-  await getLinksFromFolder(`data/docs/reference/${version}`, summary);
+  await getLinksFromFolder(`data/docs/reference/${version}`, summary, version);
 
   return Object.keys(summary)
     .map((k) => ({

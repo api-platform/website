@@ -1,6 +1,6 @@
 import { getReferencesSummary } from "api/doc/references";
 import ReferenceSummaryPage from "./ReferenceSummaryPage";
-import {current, versions} from "../../../../../consts";
+import { current, versions } from "../../../../../consts";
 
 export default async function Page({
   params: { version },
