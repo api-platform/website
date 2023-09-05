@@ -4,10 +4,8 @@ import { versions, current } from "consts";
 export function sortByPosition(
   a: { position: number },
   b: { position: number }
-) {
-  if (a.position > b.position) return 1;
-  if (a.position < b.position) return -1;
-  return 0;
+): number {
+  return a.position - b.position
 }
 
 export function sortByTitle(a: { title: string }, b: { title: string }) {
