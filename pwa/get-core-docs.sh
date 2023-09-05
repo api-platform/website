@@ -12,5 +12,10 @@ do
 	cp /pdg.config.yaml /api-platform/core/docs
 	mkdir -p /data/docs/{guides,reference}/$version
 	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg guides /data/docs/guides/$version
-	cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg references /api-platform/core/src /data/docs/reference/$version
+	if [ $version == "3.1" ]
+	then
+		cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg references /api-platform/core/src /data/docs/reference/$version
+	else
+		cd /api-platform/core/docs && PDG_AUTOLOAD=/api-platform/core/vendor/autoload.php /api-platform/tools/pdg references /api-platform/core/src /data/docs/reference/$version --base-url /docs/v$version/reference
+	fi
 done
