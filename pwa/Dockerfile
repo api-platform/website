@@ -26,8 +26,16 @@ RUN docker-php-ext-install zip
 RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
 COPY get-core-docs.sh /
 COPY pdg.config.yaml /
-RUN chmod +x /get-core-docs.sh
-RUN /get-core-docs.sh
+RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core /api-platform/core
+RUN cd /api-platform/core && composer install --no-dev && composer require webonyx/graphql-php
+RUN bash /get-core-docs.sh
+
+FROM soyuka/php-wasm:8.2.9 as phpwasm
+# We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
+ENV OPTIMIZE=-O1
+COPY --from=php_documentation_generator /api-platform/core/docs /src
+WORKDIR /build
+RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/src" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
 
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
@@ -49,9 +57,16 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
 FROM builder_base AS builder
+
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
 COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./public/php-web.wasm
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playground/utils/
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
+RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL

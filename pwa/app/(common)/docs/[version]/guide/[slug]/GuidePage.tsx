@@ -5,11 +5,13 @@ import SectionGuide from "app/common/components/doc/SectionGuide";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { MdxComponent } from "types";
 import { current } from "consts";
+import RunLive from "app/common/docs/components/RunLive";
 
 export default function DocPage({
   Mdx,
   title,
   slug,
+  executable = false,
   tags = [],
   version = current,
 }: {
@@ -18,6 +20,7 @@ export default function DocPage({
   slug: string;
   tags?: string[];
   version: string;
+  executable?: boolean;
 }) {
   const components = {
     ...baseComponents,
@@ -42,6 +45,7 @@ export default function DocPage({
         "relative py-6 px-6 md:px-10  leading-relaxed text-blue-black/80 | dark:text-white/80"
       )}
     >
+      <RunLive executable={executable} slug={slug} />
       <BreadCrumbs
         breadCrumbs={[{ title: "Guides", link: "/docs/guides" }, { title }]}
       />

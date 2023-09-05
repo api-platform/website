@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     params.locale
   );
   let SPEAKERS = "";
-  conference.speakers.map((speaker, index) => {
+  conference.speakers.forEach((speaker, index) => {
     SPEAKERS += speaker.name;
     if (index < conference.speakers.length - 2) SPEAKERS += ", ";
     if (index === conference.speakers.length - 2) SPEAKERS += " & ";

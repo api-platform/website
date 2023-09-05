@@ -17,7 +17,7 @@ export default function RandomContributors({
     setRandomContributors(
       contributors.sort(() => 0.5 - Math.random()).slice(0, 3)
     );
-  }, [setRandomContributors]);
+  }, [contributors]);
 
   return (
     <div className="flex flex-row flex-wrap aligh-start justify-center mx-auto w-full max-w-5xl">

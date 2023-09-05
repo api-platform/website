@@ -4,10 +4,12 @@ const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   future: {
     hoverOnlyWhenSupported: true,
   },
   content: [
+    "./app/playground/**/*.{js,jsx,ts,tsx,css}",
     "./app/(common)/**/*.{js,jsx,ts,tsx,css}",
     "./components/**/*.{js,ts,jsx,tsx,css}",
     "!./components/con/**/*.{js,ts,jsx,tsx,css}",

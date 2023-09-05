@@ -26,7 +26,7 @@ export async function getAllDocLinks(
       ...awaitedAcc,
       {
         ...matterResult.data,
-        position: matterResult.data.position || 9999,
+        position: matterResult.data.position === undefined ? 9999 : parseInt(matterResult.data.position, 10),
         name:
           matterResult.data.name ||
           extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
@@ -54,6 +54,7 @@ export async function getGuideContent(slug: string, version = current) {
 
   return {
     default: mdx.default,
+    executable: data.executable,
     tags: data.tags,
     name: data.name,
   };
