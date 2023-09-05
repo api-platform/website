@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { DocReferenceLink } from "types";
 import { sortByTitle } from "utils";
-import { current } from "../../consts";
+import { current } from "consts";
 
 export async function getLinksFromFolder(
   directory: string,

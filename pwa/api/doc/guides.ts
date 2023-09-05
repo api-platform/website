@@ -4,7 +4,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { GuideFrontMatter } from "types";
 import { extractHeadingsFromMarkdown, sortByPosition } from "utils";
-import { current } from "../../consts";
+import { current } from "consts";
 
 export async function getAllDocLinks(
   folder: string,
