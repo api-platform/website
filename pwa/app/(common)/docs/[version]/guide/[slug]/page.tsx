@@ -38,6 +38,7 @@ export default async function Page({
         title={mdxContent.name}
         slug={slug}
         tags={mdxContent.tags?.split(",")}
+        version={version}
       />
     );
   } catch (error) {
