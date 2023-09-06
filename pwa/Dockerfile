@@ -18,7 +18,6 @@ RUN corepack enable && \
 
 FROM php as php_documentation_generator
 
-WORKDIR /api-platform
 RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
@@ -27,14 +26,15 @@ RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --co
 COPY get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
-RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core /api-platform/core
-RUN cd /api-platform/core && composer install --no-dev && composer require webonyx/graphql-php # optimize for php-wasm
+RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core && \
+	 cd core && \
+	 composer install --no-dev && composer require webonyx/graphql-php # optimize for php-wasm
 RUN bash get-core-docs.sh
 
 FROM soyuka/php-wasm:8.2.9 as phpwasm
 # We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
 ENV OPTIMIZE=-O1
-COPY --from=php_documentation_generator /api-platform/core/docs /src
+COPY --from=php_documentation_generator core/docs /src
 WORKDIR /build
 RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/src" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
 
@@ -49,7 +49,13 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /api-platfom/data/docs ./data/docs
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./public/php-web.wasm
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playground/utils/
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
+COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
+RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
+COPY --from=php_documentation_generator --chown=nextjs:nodejs ./data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -61,13 +67,13 @@ FROM builder_base AS builder
 
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-COPY --from=php_documentation_generator --link --chown=nextjs:nodejs /data/docs ./data/docs
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./public/php-web.wasm
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playground/utils/
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
+COPY --from=php_documentation_generator --chown=nextjs:nodejs ./data/docs ./data/docs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
