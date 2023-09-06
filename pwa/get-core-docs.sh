@@ -22,6 +22,3 @@ do
 	$root/tools/pdg guides $root/data/docs/guides/$version
 	$root/tools/pdg references $root/core.temp/src $root/data/docs/reference/$version --base-url /docs/v$version/reference
 done
-
-cp -r $root/data/docs/guides/3.1/* $root/data/docs/guides/
-cp -r $root/data/docs/reference/3.1/* $root/data/docs/reference/

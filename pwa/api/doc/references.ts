@@ -19,26 +19,25 @@ export async function getLinksFromFolder(
     const s = await stat(fullPath);
     if (s.isDirectory()) {
       await getLinksFromFolder(fullPath, summary, version);
+      continue;
+    }
+
+    const fileContents = await readFile(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    fullPath = fullPath.replace(".mdx", "");
+    const item = {
+      title: path.basename(fullPath),
+      link: fullPath.replace(
+        `data/docs/reference/${version}`,
+        version === current ? "/docs/reference" : `/docs/v${version}/reference`
+      ),
+      type: matterResult.data.type,
+    };
+    const basePath = directory.replace(`data/docs/reference/${version}/`, "");
+    if (summary[basePath]) {
+      summary[basePath].push(item);
     } else {
-      const fileContents = await readFile(fullPath, "utf8");
-      const matterResult = matter(fileContents);
-      fullPath = fullPath.replace(".mdx", "");
-      const item = {
-        title: path.basename(fullPath),
-        link: fullPath.replace(
-          `data/docs/reference/${version}`,
-          version === current
-            ? "/docs/reference"
-            : `/docs/v${version}/reference`
-        ),
-        type: matterResult.data.type,
-      };
-      const basePath = directory.replace(`data/docs/reference/${version}/`, "");
-      if (summary[basePath]) {
-        summary[basePath].push(item);
-      } else {
-        summary[basePath] = [item];
-      }
+      summary[basePath] = [item];
     }
   }
 }

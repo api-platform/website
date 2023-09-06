@@ -1,25 +1,27 @@
 import DocPage from "./DocPage";
 import { loadMarkdownBySlugArray } from "api/doc";
-import { current, refVersions, versions } from "consts";
-import { getAllReferenceSlugs } from "api/doc/references";
+import { current, versions } from "consts";
+// import { current, refVersions, versions } from "consts";
+// import { getAllReferenceSlugs } from "api/doc/references";
 
-export async function generateStaticParams() {
-  const allParams: { version: string; slug: string[] }[] = [];
+// export async function generateStaticParams() {
+//   const allParams: { version: string; slug: string[] }[] = [];
+//
+//   for (const version of refVersions) {
+//     const slugs = await getAllReferenceSlugs(version);
+//     console.log(slugs);
+//     slugs.forEach((slug) => {
+//       allParams.push({
+//         version: `v${version}`,
+//         slug: slug.split("/"),
+//       });
+//     });
+//   }
+//
+//   return allParams;
+// }
 
-  for await (const version of refVersions) {
-    const slugs = await getAllReferenceSlugs(version);
-    slugs.forEach((slug) => {
-      allParams.push({
-        version: `v${version}`,
-        slug: slug.split("/"),
-      });
-    });
-  }
-
-  return allParams;
-}
-
-//export const dynamicParams = false;
+export const dynamicParams = true;
 
 export default async function Page({
   params: { slug, version },
