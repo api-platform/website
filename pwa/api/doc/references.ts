@@ -55,9 +55,16 @@ export async function getReferencesSummary(version = current) {
 }
 
 export async function getAllReferenceSlugs(version = current) {
-  const summary = await getReferencesSummary();
+  const summary = await getReferencesSummary(version);
   return summary
     .map((summaryPart) => summaryPart.links)
     .flat()
-    .map((link) => link.link.replace(`/docs/reference/${version}`, ""));
+    .map((link) =>
+      link.link.replace(
+        version === current
+          ? "/docs/reference/"
+          : `/docs/v${version}/reference/`,
+        ""
+      )
+    );
 }
