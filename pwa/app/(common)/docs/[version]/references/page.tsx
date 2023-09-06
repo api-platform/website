@@ -2,6 +2,14 @@ import { getReferencesSummary } from "api/doc/references";
 import ReferenceSummaryPage from "./ReferenceSummaryPage";
 import { current, versions } from "consts";
 
+import { refVersions } from "consts";
+
+export async function generateStaticParams() {
+  return refVersions.map((version) => ({ version }));
+}
+
+export const dynamicParams = false;
+
 export default async function Page({
   params: { version },
 }: {
