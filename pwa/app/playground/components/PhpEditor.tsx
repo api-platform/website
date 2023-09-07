@@ -10,11 +10,9 @@ export default function PhpEditor({
   onChange: (code: string) => void;
 }) {
   const onEditorChange = useCallback(
-    (newValue: string, _event: any) => {
-      debounce(() => {
-        onChange(newValue);
-      }, 750);
-    },
+    debounce((newValue: string, _event: any) => {
+      onChange(newValue);
+    }, 750),
     [onChange]
   );
 
