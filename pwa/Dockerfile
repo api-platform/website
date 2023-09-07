@@ -3,7 +3,7 @@
 FROM node:18-alpine as builder_base
 
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat bash git
 
 WORKDIR /srv/app
 
@@ -23,7 +23,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
 RUN docker-php-ext-install zip
 RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
-COPY get-core-docs.sh ./get-core-docs.sh
+COPY tools/get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
 RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core && \
@@ -74,6 +74,7 @@ COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/p
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
 COPY --from=php_documentation_generator --chown=nextjs:nodejs ./data/docs ./data/docs
+RUN bash ./tools/get-docs.sh
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
@@ -86,12 +87,14 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	fi  \
 	&& pnpm run prebuild
 
+ADD https://soyuka.me/contributors.json ./data/contributors.json
+
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& pnpm run build
+	&& npx next telemetry disable && pnpm run build
 
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \

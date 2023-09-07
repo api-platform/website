@@ -3,7 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { GuideFrontMatter } from "types";
-import { extractHeadingsFromMarkdown, sortByPosition } from "utils";
+import { extractTitleFromMarkdown, sortByPosition } from "utils";
 import { current } from "consts";
 
 export async function getAllDocLinks(
@@ -29,7 +29,7 @@ export async function getAllDocLinks(
         position: matterResult.data.position === undefined ? 9999 : parseInt(matterResult.data.position, 10),
         name:
           matterResult.data.name ||
-          extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
+          extractTitleFromMarkdown(matterResult.content),
         slug: matterResult.data.slug || path.parse(file).name,
       } as GuideFrontMatter,
     ];

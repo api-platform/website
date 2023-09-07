@@ -1,15 +1,16 @@
 import { readFile } from "node:fs/promises";
+import { Stream } from "node:stream";
+import { existsSync, createReadStream, ReadStream } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { extractHeadingsFromMarkdown, slugify } from "utils";
+import { extractTitleFromMarkdown, slugify } from "utils";
 import { Octokit } from "octokit";
 import { throttling } from "@octokit/plugin-throttling";
 import YAML from "yaml";
 import MarkdownIt from "markdown-it";
-import { cache } from "react";
 import { current } from "consts";
 import { Chapters } from "types";
-import { getOrCreateHighlighter, highlightCode } from "utils/highlighter";
+import { highlightCode } from "utils/highlighter";
 
 export const MyOctokit = Octokit.plugin(throttling);
 const sidebarMemoryCache = new Map();
@@ -49,59 +50,36 @@ export async function loadMarkdownBySlugArray(slug: string[]) {
 
   return {
     ...mdx,
-    name: mdx.name || extractHeadingsFromMarkdown(matterResult.content, 1)?.[0],
+    name: mdx.name || extractTitleFromMarkdown(matterResult.content),
     type: matterResult.data.type,
   };
 }
 
-export const getDocTitle = async (version: string, slug: string[]) => {
-  try {
-    const key = slug.join("");
-    if (sidebarMemoryCache.has(key)) {
-      return sidebarMemoryCache.get(key);
-    }
-    const { data } = await getDocContentFromSlug(version, slug);
-    const title = extractHeadingsFromMarkdown(data, 1)?.[0];
-
-    sidebarMemoryCache.set(key, title || slug.shift());
+export async function getMarkdownStreamTitle(version: string, slug: string[]) {
+  const key = `${version}/${slug.join("")}`;
+  if (sidebarMemoryCache.has(key)) {
     return sidebarMemoryCache.get(key);
-  } catch (err) {
-    console.error(err);
-    return null;
   }
-};
 
-export const loadV2DocumentationNav = cache(async (branch: string) => {
-  try {
-    const url = `https://raw.githubusercontent.com/api-platform/docs/${branch}/outline.yaml`;
-    const response = await fetch(url);
-    const data = await response.text();
-    const navData: Chapters = YAML.parse(data);
+  const stream = createSlugReadStream(version, slug);
+  let title: string;
 
-    const basePath = branch === current ? `/docs` : `/docs/v${branch}`;
-    return Promise.all(
-      navData.chapters.map(async (part) => ({
-        title: part.title,
-        basePath: `${basePath}/${part.path}/`,
-        links: await Promise.all(
-          part.items.map(async (item: string) => ({
-            title: await getDocTitle(branch, [
-              part.path,
-              item === "index" ? "" : item,
-            ]),
-            link:
-              item === "index"
-                ? `${basePath}/${part.path}/`
-                : `${basePath}/${part.path}/${item}/`,
-          }))
-        ),
-      }))
-    );
-  } catch (error) {
-    console.error(error);
-  }
-  return [];
-});
+  return new Promise((resolve, reject) => {
+    stream.on("data", (chunk) => {
+      title =
+        extractTitleFromMarkdown(chunk.toString()) ||
+        slug[slug.length - 1] ||
+        "";
+
+      if (title) {
+        sidebarMemoryCache.set(key, title);
+        resolve(title);
+        stream.destroy();
+      }
+    });
+    stream.on("error", (err) => reject(err));
+  });
+}
 
 const indexes = [
   "admin",
@@ -113,26 +91,40 @@ const indexes = [
   "schema-generator",
   "client-generator",
 ];
-export const getDocContentFromSlug = cache(
-  async (version: string, slug: string[]) => {
-    slug = slug.filter((v) => v);
-    const lastPart = slug.slice(-1)[0];
-    const p =
-      slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
-    try {
-      const url = `https://raw.githubusercontent.com/api-platform/docs/${version}/${p}`;
-      const response = await fetch(url);
-      const data = await response.text();
+export async function getDocContentFromSlug(version: string, slug: string[]) {
+  slug = slug.filter((v) => v);
+  const lastPart = slug.slice(-1)[0];
+  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
 
-      return { data, path: p };
-    } catch (error) {
-      console.error(`An error occured while fetching ${p}`);
-      console.error(error);
-      throw error;
-    }
+  try {
+    const buffer = await readFile(`data/docs/${version}/${p}`, "utf8");
+
+    return { data: buffer.toString(), path: p };
+  } catch (error) {
+    console.error(`An error occured while fetching ${p}`);
+    console.error(error);
+    throw error;
   }
-);
+}
+
+export function getGithubPath(slug: string[]): string {
+  slug = slug.filter((v) => v);
+  const lastPart = slug.slice(-1)[0];
+  return slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
+}
+
+export function createSlugReadStream(
+  version: string,
+  slug: string[]
+): ReadStream {
+  const filePath = path.join("data/docs/", version, getGithubPath(slug));
+  if (existsSync(filePath)) {
+    return createReadStream(filePath);
+  }
+
+  throw new Error(`File ${filePath} not found.`);
+}
 
 const codeInside = /\[codeSelector\]([\s\S]+?)(?=\[\/codeSelector])/gm;
 const codeBlockRegex = /```[a-z]([\s\S]+?)(?=```)/gm;
@@ -155,11 +147,20 @@ function getLang(block: string): string {
   return language[1];
 }
 
-export const getHtmlFromGithubContent = async (
+export function streamToString(stream: Stream) {
+  const chunks: Buffer[] = [];
+  return new Promise((resolve, reject) => {
+    stream.on("data", (chunk) => chunks.push(Buffer.from(chunk)));
+    stream.on("error", (err) => reject(err));
+    stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+  });
+}
+
+export function getHtmlFromGithubContent(
   data: any,
   githubPath: string,
   version: string
-) => {
+) {
   const result = data;
 
   const md = new MarkdownIt({
@@ -168,56 +169,52 @@ export const getHtmlFromGithubContent = async (
     typographer: true,
   });
 
-  await getOrCreateHighlighter();
-
   md.options.highlight = highlightCode;
 
   // convert code selectors
   const transformCodeSelectors = (markdown: string) => {
-    {
-      const matches = markdown.match(codeInside);
+    const matches = markdown.match(codeInside);
 
-      if (!matches?.length) {
-        return markdown;
+    if (!matches?.length) {
+      return markdown;
+    }
+
+    matches.forEach((m: string) => {
+      const blocks = m.match(codeBlockRegex);
+
+      if (!blocks) {
+        return;
       }
 
-      matches.forEach((m: string) => {
-        const blocks = m.match(codeBlockRegex);
-
-        if (!blocks) {
-          return;
-        }
-
-        let html = `
+      let html = `
 <div class="mb-4 overflow-hidden rounded-2xl bg-gray-100 dark:bg-blue-darkest not-prose">
   <div class="flex flex-wrap -mb-px bg-gray-300/10 dark:bg-blue/20 border-b border-gray-300 dark:border-blue-dark">
 `;
 
-        blocks.forEach((block: string, i: number) => {
-          const l = getLang(block);
-          html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
-            i === 0
-              ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
-              : "text-gray-400 dark:text-blue/60 border-transparent"
-          }">${l}</a></div>`;
-        });
-
-        html += "</div>";
-
-        blocks.forEach((block: string, i: number) => {
-          const l = getLang(block);
-          const h = md.render(block + `\n\`\`\``);
-          html += `<div key="${l}" class="p-4 ${
-            i > 0 ? "hidden" : ""
-          }">${h}</div>`;
-        });
-
-        html += "</div>";
-        markdown = markdown.replace(m, html);
+      blocks.forEach((block: string, i: number) => {
+        const l = getLang(block);
+        html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
+          i === 0
+            ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
+            : "text-gray-400 dark:text-blue/60 border-transparent"
+        }">${l}</a></div>`;
       });
 
-      return markdown.replaceAll("[/codeSelector]", "");
-    }
+      html += "</div>";
+
+      blocks.forEach((block: string, i: number) => {
+        const l = getLang(block);
+        const h = md.render(block + `\n\`\`\``);
+        html += `<div key="${l}" class="p-4 ${
+          i > 0 ? "hidden" : ""
+        }">${h}</div>`;
+      });
+
+      html += "</div>";
+      markdown = markdown.replace(m, html);
+    });
+
+    return markdown.replaceAll("[/codeSelector]", "");
   };
 
   // convert indented code block to classic code blocks with backticks
@@ -277,4 +274,4 @@ export const getHtmlFromGithubContent = async (
 " href=#${slug}>#</a></h${p1}>`;
     })
     .replace(blankLinkRegex, '$& target="_blank"');
-};
+}

@@ -1,8 +1,9 @@
 import {
-  getDocContentFromSlug,
-  getDocTitle,
+  createSlugReadStream,
+  getGithubPath,
   getHtmlFromGithubContent,
-  loadV2DocumentationNav,
+  getMarkdownStreamTitle,
+  streamToString,
 } from "api/doc";
 import classNames from "classnames";
 import { current, versions } from "consts";
@@ -10,19 +11,23 @@ import Script from "next/script";
 import { Metadata } from "next";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { notFound } from "next/navigation";
+import { getOrCreateHighlighter } from "utils/highlighter";
+import { readFile } from "fs/promises";
 
 export async function generateStaticParams() {
   const allParams: { version: string; slug: string[] }[] = [];
   await Promise.all(
     versions.map(async (version) => {
-      const navs = await loadV2DocumentationNav(version);
+      const nav = await readFile(`data/docs/${version}/nav.json`, "utf8");
+      const navs = JSON.parse(nav.toString());
+
       for (const nav of navs) {
         for (const link of nav.links) {
           allParams.push({
             slug: link.link
               .replace(version === current ? "docs/" : `/docs/v${version}/`, "")
               .split("/")
-              .filter((p) => p !== ""),
+              .filter((p: string) => p !== ""),
             version: `v${version}`,
           });
         }
@@ -42,14 +47,18 @@ export default async function Page({
 }) {
   const v = version.substring(1);
   try {
-    const { data, path } = await getDocContentFromSlug(v, slugs);
+    const stream = createSlugReadStream(v, slugs);
 
-    const html = await getHtmlFromGithubContent(data, path, v);
-    if (html.includes("404: Not Found")) {
-      notFound();
-    }
+    await getOrCreateHighlighter();
 
-    const title = await getDocTitle(v, slugs);
+    const path = getGithubPath(slugs);
+    const html = getHtmlFromGithubContent(
+      await streamToString(stream),
+      path,
+      v
+    );
+
+    const title = await getMarkdownStreamTitle(v, slugs);
 
     const breadCrumbs = [
       {
@@ -118,7 +127,7 @@ export async function generateMetadata({
   };
 }): Promise<Metadata> {
   try {
-    const title = await getDocTitle(version.substring(1), slugs);
+    const title = await getMarkdownStreamTitle(version.substring(1), slugs);
 
     return {
       title: `${title} - API Platform`,

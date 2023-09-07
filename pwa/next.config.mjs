@@ -138,6 +138,7 @@ const nextConfig = {
         deviceSizes: [640, 768, 828, 1024, 1280, 1536, 1920, 2048],
     },
     eslint: {
+        ignoreDuringBuilds: true,
         dirs: ["app"],
     },
     async headers() {
@@ -181,14 +182,16 @@ const nextConfig = {
         ];
     },
     experimental: {
-      esmExternals: false,
-      webpackBuildWorker: true,
-    }
+        serverMinification: false,
+        esmExternals: false,
+        webpackBuildWorker: true,
+        // mdxRs: true,
+    },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withMDX = nextMDX({
-    extension: /\.(md|mdx)$/,
+    extension: /\.(mdx)$/, // We have errors inside our md files on the documentation that we should fix to use MDX instead of MarkdownIt
     options: {
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
         rehypePlugins: [
