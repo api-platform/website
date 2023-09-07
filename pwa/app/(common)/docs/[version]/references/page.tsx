@@ -5,7 +5,7 @@ import { current, versions } from "consts";
 import { refVersions } from "consts";
 
 export async function generateStaticParams() {
-  return refVersions.map((version) => ({ version }));
+  return refVersions.map((version) => ({ version: `v${version}` }));
 }
 
 export const dynamicParams = false;
