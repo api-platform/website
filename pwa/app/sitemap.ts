@@ -7,8 +7,8 @@ import { getAllConferenceSlugs } from "api/con/conferences";
 import { getAllEvents } from "api/events";
 import { getAllContributors } from "api/contributors";
 import { versions } from "consts";
-import { loadV2DocumentationNav } from "api/doc";
 import { addTrailingSlashIfNecessary, getRootUrl } from "utils";
+import { readFile } from "fs/promises";
 
 const basePath = getRootUrl();
 
@@ -83,7 +83,10 @@ async function getAllStandardRoutes() {
 
   for (const version of versions) {
     routes.push(`${basePath}/docs/v${version}`);
-    const navs = await loadV2DocumentationNav(version);
+
+    const nav = await readFile(`data/docs/${version}/nav.json`, "utf8");
+    const navs = JSON.parse(nav.toString());
+
     for (const nav of navs) {
       for (const link of nav.links) {
         routes.push(`${basePath}${link.link}`);

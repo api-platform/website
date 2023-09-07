@@ -1,6 +1,5 @@
 #!/bin/bash
-set -xe
-
+# This script fetches api-platform/core to retrieve guides and references
 root=$(pwd)
 rm -rf core.temp
 git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.temp

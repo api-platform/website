@@ -1,7 +1,7 @@
 import path from "node:path";
 import { readFile, readdir } from "node:fs/promises";
 import matter from "gray-matter";
-import { extractHeadingsFromMarkdown } from "utils";
+import { extractTitleFromMarkdown } from "utils";
 import { Locale, i18n } from "i18n/i18n-config";
 import MarkdownIt from "markdown-it";
 
@@ -28,7 +28,7 @@ export const getLegalData = async (
     content: contentHtml
       .replace(/href="#/g, `href="/con/${edition}#`)
       .replace(/href="\/\//g, 'href="/'),
-    title: extractHeadingsFromMarkdown(matterResult.content, 1)?.[0] || "",
+    title: extractTitleFromMarkdown(matterResult.content) || "",
   };
 };
 

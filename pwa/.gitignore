@@ -39,8 +39,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-data/docs/guides
-data/docs/reference
+data/docs
+data/contributors.json
 
 public/schema/metadata/*.xsd
 
