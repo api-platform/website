@@ -1,3 +1,5 @@
+#!/bin/bash
+# This builds the API Platform WASM playground and preloads data
 docker rm php-wasm
 rm -rf core
 mkdir php-wasm
