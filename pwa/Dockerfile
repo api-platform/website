@@ -34,9 +34,10 @@ RUN bash get-core-docs.sh
 FROM soyuka/php-wasm:8.2.9 as phpwasm
 # We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
 ENV OPTIMIZE=-O1
-COPY --from=php_documentation_generator core.docs/docs /preload
+RUN rm -rf /src # TODO php-wasm leftovers
+COPY --from=php_documentation_generator core.docs/docs /src
 WORKDIR /build
-RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/preload" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
+RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/src" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
 
 # Deps stage, preserve dependencies in cache as long as the lockfile isn't changed
 FROM builder_base AS deps
