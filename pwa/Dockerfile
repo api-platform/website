@@ -26,15 +26,15 @@ RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --co
 COPY tools/get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
-RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core && \
-	 cd core/docs && \
+RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.docs && \
+	 cd core.docs/docs && \
 	 composer install
 RUN bash get-core-docs.sh
 
 FROM soyuka/php-wasm:8.2.9 as phpwasm
 # We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
 ENV OPTIMIZE=-O1
-COPY --from=php_documentation_generator core/docs /src
+COPY --from=php_documentation_generator core.docs/docs /src
 WORKDIR /build
 RUN python3 /emsdk/upstream/emscripten/tools/file_packager.py php-web.data --use-preload-cache --lz4 --preload "/src" --js-output=php-web.data.js --no-node --exclude '*Tests*' 'composer.lock' 'adr' '*features*' '*dist*' '*/.*' --export-name=createPhpModule
 
