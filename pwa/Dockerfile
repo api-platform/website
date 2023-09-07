@@ -27,8 +27,8 @@ COPY tools/get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
 RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core && \
-	 cd core && \
-	 composer install --no-dev && composer require webonyx/graphql-php # optimize for php-wasm
+	 cd core/docs && \
+	 composer install
 RUN bash get-core-docs.sh
 
 FROM soyuka/php-wasm:8.2.9 as phpwasm
