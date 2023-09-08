@@ -15,7 +15,6 @@
 **/docker-compose.yml
 **/Dockerfile
 **/Thumbs.db
-.next/
 build/
 node_modules/
 .editorconfig
