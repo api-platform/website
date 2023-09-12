@@ -21,16 +21,10 @@ export default function SlotItem({ conference }: SlotItemProps) {
       ? conference.title
       : conference.title[locale];
 
-  const uniqueCompanies = Array.from(
-    new Set(
-      speakers.map((speaker) => speaker.company).filter((company) => !!company)
-    )
-  );
-
   return (
     <a
       href={url}
-      className="bg-grey flex flex-row items-center text-blue-black overflow-hidden relative w-full h-full p-2 text-left transition-all hover:bg-blue-light/30"
+      className="bg-grey flex flex-row items-center text-blue-black overflow-hidden relative w-full h-full px-2 py-3 min-h-[100px] text-left transition-all hover:bg-blue-light/30"
     >
       {speakers.length ? <Avatar speakers={speakers} /> : null}
       <div className="flex flex-col flex-1">
@@ -65,15 +59,6 @@ export default function SlotItem({ conference }: SlotItemProps) {
             }}
           />
         </div>
-        <p className="text-sm">
-          {1 === speakers.length ? speakers[0].job : null}
-          {2 >= uniqueCompanies.length && 0 < uniqueCompanies.length ? (
-            <strong className="font-semibold">
-              {" "}
-              @ {uniqueCompanies.join(" & ")}
-            </strong>
-          ) : null}
-        </p>
       </div>
     </a>
   );

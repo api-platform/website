@@ -3,8 +3,8 @@ type: conference
 speakers: -damien-levallois
 track: '2'
 date: '2023-09-21'
-start: '17:10'
-end: '17:50'
+start: '10:00'
+end: '10:40'
 short: Améliorez la performance de vos requêtes complexes en reliant une Materialized View à une Resource d'API
 tag: performance
 ---

@@ -2,9 +2,9 @@
 type: conference
 speakers: -vincent-chalamon 
 track: '2'
-date: '2023-09-22'
-start: '14:50'
-end: '15:30'
+date: '2023-09-21'
+start: '17:10'
+end: '17:50'
 short: Partez à la découverte d'OpenID Connect avec API Platform.
 tag: feedback
 ---

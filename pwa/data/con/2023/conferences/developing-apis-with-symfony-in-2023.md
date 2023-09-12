@@ -1,10 +1,10 @@
 ---
 type: conference
 speakers: -nicolas-grekas
-track: '1'
+track: '2'
 date: '2023-09-22'
-start: '14:50'
-end: '15:30'
+start: '14:00'
+end: '14:40'
 short: Get practical knowledge and insights to build cutting-edge Symfony apps
 tag: good-practices
 ---
