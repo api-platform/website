@@ -3,7 +3,7 @@ type: conference
 speakers: -ryan-weaver
 track: '1'
 date: '2023-09-22'
-start: '09:00'
+start: '09:10'
 end: '09:50'
 short: Let's explore a new feature of API Platform
 tag: good-practices
