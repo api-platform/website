@@ -3,6 +3,7 @@
 docker rm php-wasm
 rm -rf core
 docker pull soyuka/php-wasm:8.2.9
+docker rm php-wasm
 docker create --name=php-wasm soyuka/php-wasm
 docker cp php-wasm:/build/php-web.mjs ./php-wasm
 docker cp php-wasm:/build/php-web.wasm ./php-wasm

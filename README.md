@@ -61,6 +61,12 @@ git clone https://github.com/api-platform/website.git
 # Change directory
 cd website/pwa
 
+phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy https://github.com/php-documentation-generator/php-documentation-generator/releases/download/v0.0.0-beta.1/pdg.phar
+bash tools/get-docs.sh
+bash tools/get-core-docs.sh
+bash tools/build-playground.sh
+curl https://soyuka.me/contributors.json  -o ./data/contributors.json (commented in the playground)
+
 # Install dependencies
 pnpm install
 
