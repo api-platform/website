@@ -1,20 +1,17 @@
 import { current, versions } from "consts";
 import { notFound } from "next/navigation";
-import {
-  getAllChangelogLinks,
-} from "../../../../../api/doc/changelog";
+import { getAllChangelogLinks } from "api/doc/changelog";
 import ChangelogPage from "app/common/docs/[version]/changelog/ChangelogPage";
-import { loadMarkdownBySlugArray } from "../../../../../api/doc";
+import { loadMarkdownBySlugArray } from "api/doc";
 
 export async function generateStaticParams() {
-  const allParams: { version: string; slug: string }[] = [];
+  const allParams: { version: string }[] = [];
 
   for await (const version of versions) {
     const changelogLinks = await getAllChangelogLinks(version);
     changelogLinks.forEach((changelogLink) => {
       allParams.push({
         version: `v${version}`,
-        slug: changelogLink.slug,
       });
     });
   }
@@ -25,10 +22,9 @@ export async function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function Page({
-  params: { slug, version },
+  params: { version },
 }: {
   params: {
-    slug: string;
     version: string;
   };
 }) {
