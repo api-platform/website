@@ -2,7 +2,7 @@
 # This script fetches api-platform/docs
 root=$(pwd)
 
-readarray -t versions < docs-versions.txt
+IFS=$'\n' read -d '' -r -a versions < docs-versions.txt
 
 rm -rf docs.temp
 git clone --depth=1 https://github.com/api-platform/docs docs.temp
