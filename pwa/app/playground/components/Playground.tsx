@@ -4,9 +4,12 @@ import usePHP from "../utils/usePHP";
 import PhpEditor from "./PhpEditor";
 import Response from "./Response";
 import SwaggerUI from "./SwaggerUI";
+import classNames from "classnames";
+import NavLink from "../../../components/layout/NavLink";
 import { bufferTime } from "rxjs";
 import { getGuides, GuideMetadata } from "../utils/getGuides";
 import { useParams } from "next/navigation";
+import Logo from "components/common/Logo";
 
 const STR = "string";
 
@@ -132,7 +135,20 @@ export default function Playground() {
 
   return (
     <>
-      <div className="h-screen w-full">
+      <div className="h-screen w-screen flex flex-col">
+        <div className="h-16 py-2 px-4 z-50 fixed w-full bg-white shadow-md flex flex-row items-center text-blue">
+          <NavLink
+            href="/"
+            className={classNames("flex-1 flex flex-row text-inherit")}
+            title="API Platform"
+          >
+            <div className="flex flex-row gap-2 items-center">
+              <Logo className="h-5" inline />
+              <div className="h-full w-px bg-blue" />
+              <span className="font-title font-bold">PLAYGROUND</span>
+            </div>
+          </NavLink>
+        </div>
         <div className="flex justify-around">
           <div className="text-left">API Platform {versions.apiPlatform}</div>
           <div>PHP {versions.php}</div>
