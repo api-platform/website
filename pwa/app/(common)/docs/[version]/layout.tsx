@@ -39,6 +39,7 @@ async function Layout({
       {
         title: "Core Guides",
         basePath: "/docs/guide",
+        link: v === current ? "/docs/guides" : `/docs/${version}/guides`,
         links: guideLinks,
       },
       ...v2Nav.slice(2),
