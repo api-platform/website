@@ -5,25 +5,31 @@ import throttle from "lodash.throttle";
 import { useCallback, useState } from "react";
 import GuideFilterDropdown from "./GuideFilterDropdown";
 import GuideSummaryPart from "./GuideSummaryPart";
+import { GuideFrontMatter } from "types";
+
+interface Guide extends GuideFrontMatter {
+  title: string;
+  link: string;
+}
 
 interface GuidesPageProps {
-  guides: {
-    title: string;
-    link: string;
-    tags: string[] | undefined;
-    executable: boolean;
-  }[];
+  guides: Guide[];
 }
 
 export default function GuideSummaryPage({ guides }: GuidesPageProps) {
   const [query, setQuery] = useState("");
   const [tag, setTag] = useState<string | undefined>(undefined);
-  const [isExecutable, setIsExecutable] = useState<string | undefined>(undefined);
+  const [isExecutable, setIsExecutable] = useState<string | undefined>(
+    undefined
+  );
 
   const tags: string[] = [];
   guides.forEach((guide) => {
     guide.tags?.forEach((tag) => {
-      if (tag !== "" && !tags.includes(tag.charAt(0).toUpperCase() + tag.slice(1))) {
+      if (
+        tag !== "" &&
+        !tags.includes(tag.charAt(0).toUpperCase() + tag.slice(1))
+      ) {
         tags.push(tag.charAt(0).toUpperCase() + tag.slice(1));
       }
     });
@@ -41,30 +47,50 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
     return title?.toLowerCase().includes(query);
   };
 
-  console.log(guides);
-
-  const isSearchedPart = (guide: {
-    title: string;
-    link: string;
-    tags: string[] | undefined;
-    executable: boolean;
-  }) => {
+  const isSearchedPart = (guide: Guide) => {
     if (isSearched(guide.title)) {
       if (isExecutable === undefined) {
         return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase());
       } else {
-        return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase()) && (isExecutable === "Yes" ? guide.executable : !guide.executable);
+        return (
+          guide.tags?.some(
+            (guideTag) => !tag || guideTag === tag.toLowerCase()
+          ) && (isExecutable === "Yes" ? guide.executable : !guide.executable)
+        );
       }
     } else {
       if (isExecutable === undefined) {
-        return guide.tags?.some((guideTag) => isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase()));
+        return guide.tags?.some(
+          (guideTag) =>
+            isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase())
+        );
       } else {
-        return guide.tags?.some((guideTag) => isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase())) && (isExecutable === "Yes" ? guide.executable : !guide.executable);
+        return (
+          guide.tags?.some(
+            (guideTag) =>
+              isSearched(guide.title) &&
+              (!tag || guideTag === tag.toLowerCase())
+          ) && (isExecutable === "Yes" ? guide.executable : !guide.executable)
+        );
       }
     }
   };
 
   const filteredGuides = guides.filter((guide) => isSearchedPart(guide));
+
+  const guidesByTag: { [tag: string]: Guide[] } = {};
+
+  filteredGuides.forEach((guide) => {
+    if (!guidesByTag[guide.tags ? guide.tags[0] : ""]) {
+      guidesByTag[guide.tags ? guide.tags[0] : ""] = [];
+    }
+    guidesByTag[guide.tags ? guide.tags[0] : ""].push(guide);
+  });
+
+  const guidesByTagArray = Object.entries(guidesByTag).map(([tag, guides]) => ({
+    tag,
+    guides,
+  }));
 
   return (
     <>
@@ -106,8 +132,8 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
         </div>
       </div>
       <div className="px-8 pt-4 pb-12">
-        {filteredGuides.map(({ title, link }) => (
-          <GuideSummaryPart key={title} title={title} link={link} />
+        {guidesByTagArray.map(({ tag, guides }) => (
+          <GuideSummaryPart key={tag} title={tag} guides={guides} />
         ))}
       </div>
     </>
