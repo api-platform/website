@@ -1,9 +1,10 @@
 import Link from "components/common/Link";
-import { GuideFrontMatter } from "types";
 
-interface Guide extends GuideFrontMatter {
+interface Guide {
   title: string;
   link: string;
+  tags?: string[];
+  executable?: boolean;
 }
 
 interface GuideSummaryPartProps {

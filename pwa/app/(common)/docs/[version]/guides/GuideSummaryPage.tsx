@@ -5,11 +5,12 @@ import throttle from "lodash.throttle";
 import { useCallback, useState } from "react";
 import GuideFilterDropdown from "./GuideFilterDropdown";
 import GuideSummaryPart from "./GuideSummaryPart";
-import { GuideFrontMatter } from "types";
 
-interface Guide extends GuideFrontMatter {
+interface Guide {
   title: string;
   link: string;
+  tags?: string[];
+  executable?: boolean;
 }
 
 interface GuidesPageProps {
@@ -50,7 +51,9 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
   const isSearchedPart = (guide: Guide) => {
     if (isSearched(guide.title)) {
       if (isExecutable === undefined) {
-        return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase());
+        return guide.tags?.some(
+          (guideTag) => !tag || guideTag === tag.toLowerCase()
+        );
       } else {
         return (
           guide.tags?.some(
@@ -104,8 +107,18 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
           <strong>Guides</strong>
         </Heading>
         <div className="mt-2 flex flex-col gap-2 | md:flex-row md:flex-1 md:items-center | xl:justify-end">
-          <GuideFilterDropdown name="Tag" value={tag} onChange={setTag} select={tags} />
-          <GuideFilterDropdown name="Executable" value={isExecutable} onChange={setIsExecutable} select={["Yes", "No"]} />
+          <GuideFilterDropdown
+            name="Tag"
+            value={tag}
+            onChange={setTag}
+            select={tags}
+          />
+          <GuideFilterDropdown
+            name="Executable"
+            value={isExecutable}
+            onChange={setIsExecutable}
+            select={["Yes", "No"]}
+          />
           <div className="relative inline-flex text-blue h-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"
