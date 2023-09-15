@@ -7,12 +7,18 @@ import GuideFilterDropdown from "./GuideFilterDropdown";
 import GuideSummaryPart from "./GuideSummaryPart";
 
 interface GuidesPageProps {
-  guides: { title: string; link: string; tags: string[] | undefined }[];
+  guides: {
+    title: string;
+    link: string;
+    tags: string[] | undefined;
+    executable: boolean;
+  }[];
 }
 
 export default function GuideSummaryPage({ guides }: GuidesPageProps) {
   const [query, setQuery] = useState("");
   const [tag, setTag] = useState<string | undefined>(undefined);
+  const [isExecutable, setIsExecutable] = useState<string | undefined>(undefined);
 
   const tags: string[] = [];
   guides.forEach((guide) => {
@@ -35,15 +41,26 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
     return title?.toLowerCase().includes(query);
   };
 
+  console.log(guides);
+
   const isSearchedPart = (guide: {
     title: string;
     link: string;
     tags: string[] | undefined;
+    executable: boolean;
   }) => {
     if (isSearched(guide.title)) {
-      return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase());
+      if (isExecutable === undefined) {
+        return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase());
+      } else {
+        return guide.tags?.some((guideTag) => !tag || guideTag === tag.toLowerCase()) && (isExecutable === "Yes" ? guide.executable : !guide.executable);
+      }
     } else {
-      return guide.tags?.some((guideTag) => isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase()));
+      if (isExecutable === undefined) {
+        return guide.tags?.some((guideTag) => isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase()));
+      } else {
+        return guide.tags?.some((guideTag) => isSearched(guide.title) && (!tag || guideTag === tag.toLowerCase())) && (isExecutable === "Yes" ? guide.executable : !guide.executable);
+      }
     }
   };
 
@@ -61,7 +78,8 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
           <strong>Guides</strong>
         </Heading>
         <div className="mt-2 flex flex-col gap-2 | md:flex-row md:flex-1 md:items-center | xl:justify-end">
-          <GuideFilterDropdown value={tag} onChange={setTag} select={tags} />
+          <GuideFilterDropdown name="Tag" value={tag} onChange={setTag} select={tags} />
+          <GuideFilterDropdown name="Executable" value={isExecutable} onChange={setIsExecutable} select={["Yes", "No"]} />
           <div className="relative inline-flex text-blue h-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"

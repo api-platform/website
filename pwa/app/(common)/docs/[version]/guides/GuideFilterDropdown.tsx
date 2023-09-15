@@ -1,8 +1,9 @@
 import DropDown from "components/common/inputs/Dropdown";
 
 interface GuideFilterDropdownProps {
-  value?: string;
-  onChange: (value?: string) => void;
+  name: string;
+  value?: any;
+  onChange: (value?: any) => void;
   select: string[];
 }
 
@@ -15,6 +16,7 @@ function CurrentValueComponent({ value }: { value?: string }) {
 }
 
 export default function GuideFilterDropdown({
+  name,
   value,
   onChange,
   select,
@@ -26,7 +28,7 @@ export default function GuideFilterDropdown({
       onChange={onChange}
       ListItem={ListItem}
       CurrentValueComponent={CurrentValueComponent}
-      label="Type"
+      label={name}
     />
   );
 }

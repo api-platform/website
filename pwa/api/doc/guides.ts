@@ -32,6 +32,7 @@ export async function getAllDocLinks(
           extractTitleFromMarkdown(matterResult.content),
         slug: matterResult.data.slug || path.parse(file).name,
         tags: matterResult.data.tags?.split(", ") || [""],
+        executable: matterResult.data.executable || false,
       } as GuideFrontMatter,
     ];
   }, Promise.resolve([]) as Promise<GuideFrontMatter[]>);
@@ -44,6 +45,7 @@ export async function getAllDocLinks(
         : `/docs/v${version}/${outputFolder || folder}/${link.slug}`,
     slug: link.slug,
     tags: link.tags,
+    executable: link.executable || false,
   }));
 }
 
