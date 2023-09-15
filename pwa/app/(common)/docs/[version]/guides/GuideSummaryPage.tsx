@@ -14,6 +14,15 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
   const [query, setQuery] = useState("");
   const [tag, setTag] = useState<string | undefined>(undefined);
 
+  const tags: string[] = [];
+  guides.forEach((guide) => {
+    guide.tags?.forEach((tag) => {
+      if (tag !== "" && !tags.includes(tag.charAt(0).toUpperCase() + tag.slice(1))) {
+        tags.push(tag.charAt(0).toUpperCase() + tag.slice(1));
+      }
+    });
+  });
+
   const onChangeHandler = ({ target }: { target: HTMLInputElement }) =>
     setQuery(target.value.toLowerCase());
 
@@ -52,7 +61,7 @@ export default function GuideSummaryPage({ guides }: GuidesPageProps) {
           <strong>Guides</strong>
         </Heading>
         <div className="mt-2 flex flex-col gap-2 | md:flex-row md:flex-1 md:items-center | xl:justify-end">
-          <GuideFilterDropdown value={tag} onChange={setTag} />
+          <GuideFilterDropdown value={tag} onChange={setTag} select={tags} />
           <div className="relative inline-flex text-blue h-9">
             <svg
               xmlns="http://www.w3.org/2000/svg"
