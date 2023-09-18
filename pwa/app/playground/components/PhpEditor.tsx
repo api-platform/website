@@ -25,6 +25,11 @@ export default function PhpEditor({
       options={{
         wordWrap: "on",
         automaticLayout: true,
+        minimap: { enabled: false },
+        fontSize: 14,
+        lineHeight: 1.6,
+        padding: { top: 10, bottom: 10 },
+        scrollBeyondLastLine: false,
       }}
     />
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { ChangeEvent, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import usePHP from "../utils/usePHP";
 import PhpEditor from "./PhpEditor";
 import Response from "./Response";
@@ -23,16 +23,25 @@ export default function Playground() {
   const [code, setCode] = useState("");
   const [guides, setGuides] = useState([] as GuideMetadata[]);
   const [activeTab, setActiveTab] = useState("response");
-  const notActiveTabClassname =
-    "py-4 px-1 inline-flex items-center gap-2 border-b-[3px] border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 active";
-  const activeTabClassname =
-    "font-semibold border-blue-600 text-blue-60 " + notActiveTabClassname;
 
   const routeParams = useParams();
 
   useEffect(() => {
     setGuide(routeParams.guide);
   }, [routeParams.guide]);
+
+  const guideName = useMemo(() => {
+    if (guides && guide) {
+      const currentGuideIndex = guides.findIndex((g) => guide === g.slug);
+      if (currentGuideIndex !== -1) {
+        const currentGuide = guides[currentGuideIndex];
+        return `${currentGuideIndex + 1} - ${currentGuide.name}`;
+      } else {
+        return ""; // Guide non trouvé, renvoie une chaîne vide
+      }
+    }
+    return "";
+  }, [guide, guides]);
 
   // handles stdout and stderr, note that stdout is our HTTP body response
   useEffect(() => {
@@ -121,8 +130,15 @@ export default function Playground() {
     [guide, FS, ccall]
   );
 
-  const onGuideChange = useCallback((event: ChangeEvent) => {
+  /*const onGuideChange = useCallback((event: ChangeEvent) => {
     const newGuide = (event.target as HTMLSelectElement).value;
+    const url = new URL(window.location.href);
+    url.pathname = "/playground/" + newGuide;
+    window.history.pushState({}, "", url);
+    setGuide(newGuide);
+  }, []);*/
+
+  const onGuideChange = useCallback((newGuide: string) => {
     const url = new URL(window.location.href);
     url.pathname = "/playground/" + newGuide;
     window.history.pushState({}, "", url);
@@ -135,75 +151,108 @@ export default function Playground() {
 
   return (
     <>
-      <div className="h-screen w-screen flex flex-col">
-        <div className="h-16 py-2 px-4 z-50 fixed w-full bg-white shadow-md flex flex-row items-center text-blue">
-          <NavLink
-            href="/"
-            className={classNames("flex-1 flex flex-row text-inherit")}
-            title="API Platform"
-          >
-            <div className="flex flex-row gap-2 items-center">
-              <Logo className="h-5" inline />
-              <div className="h-full w-px bg-blue" />
-              <span className="font-title font-bold">PLAYGROUND</span>
+      <div className="h-screen w-screen flex flex-col pt-16">
+        <div className="h-16 z-50 top-0 fixed w-full bg-white border-b-px border-b-gray-200">
+          <div className="mx-auto py-2 px-6 md:px-8 h-16 flex flex-row items-center gap-x-4 w-full">
+            <NavLink
+              href="/"
+              className={classNames("flex flex-row text-inherit text-blue")}
+              title="API Platform"
+            >
+              <div className="flex flex-row gap-2 items-center">
+                <Logo className="h-5" inline />
+                <div className="h-full w-px bg-blue" />
+                <h1 className="font-title font-semibold">PLAYGROUND</h1>
+              </div>
+            </NavLink>
+            <div className="flex flex-row flex-1 items-center justify-end gap-2 text-text-secondary/70 font-semibold">
+              <div className="text-left rounded-xl text-xs bg-gray-100 px-3 py-1">
+                API Platform {versions.apiPlatform}
+              </div>
+              <div className="text-left rounded-xl text-xs bg-gray-100 px-3 py-1">
+                PHP {versions.php}
+              </div>
             </div>
-          </NavLink>
-        </div>
-        <div className="flex justify-around">
-          <div className="text-left">API Platform {versions.apiPlatform}</div>
-          <div>PHP {versions.php}</div>
-          <div className="">
-            <select className="" value={guide} onChange={onGuideChange}>
-              {guides.map((e, i) => (
-                <option key={e.slug} value={e.slug}>
-                  {i + 1} - {e.name}
-                </option>
-              ))}
-            </select>
           </div>
         </div>
-        <div className="h-full grid grid-cols-2 gap-1">
-          <div className="h-full">
-            <PhpEditor code={code} onChange={onCodeChange} />
+        <div className="flex-1 grid grid-cols-2 overflow-hidden">
+          <div className="h-full flex flex-col">
+            <div className="flex flex-row items-center space-between py-3 pl-8 pr-4 shadow-md z-10">
+              <h2 className="font-title text-2xl text-text-secondary font-bold flex-1">{`${guideName}`}</h2>
+              <div className="group relative">
+                <div className="bg-blue rounded-3xl text-white text-xs font-semibold z-20 relative py-2 px-3 flex flex-row items-center gap-2 cursor-pointer group-hover:bg-blue-dark transition-colors">
+                  <div>Other examples</div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </div>
+
+                <ul
+                  className={classNames(
+                    "absolute top-0 border-px border-gray-200 text-sm right-0 flex flex-col max-h-[calc(100vh-150px)] w-72 bg-white rounded-xl pb-4 pt-6 shadow-2xl opacity-0 pointer-events-none overflow-hidden transition-[top,opacity]",
+                    "group-hover:opacity-100 group-hover:h-auto group-hover:pointer-events-auto group-hover:overflow-auto group-hover:top-1/2"
+                  )}
+                >
+                  {guides.map((e, i) => (
+                    <li
+                      className="block text-left cursor-pointer text-text-secondary px-4 py-2 hover:bg-gray-100 hover:text-blue"
+                      key={e.slug}
+                      onClick={() => onGuideChange(e.slug)}
+                    >
+                      {`${i + 1} - ${e.name}`}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="flex-1">
+              <PhpEditor code={code} onChange={onCodeChange} />
+            </div>
           </div>
-          <div className="h-full">
-            <div className="border-b border-gray-200 dark:border-gray-700">
-              <nav className="flex space-x-2" aria-label="Tabs" role="tablist">
-                <button
-                  type="button"
-                  className={
-                    activeTab === "response"
-                      ? activeTabClassname
-                      : notActiveTabClassname
-                  }
-                  id="tabs-with-underline-item-1"
-                  aria-controls="tabs-with-underline-1"
-                  role="tab"
-                  onClick={() => switchTab("response")}
-                >
-                  Response
-                </button>
-                <button
-                  type="button"
-                  className={
-                    activeTab === "swaggerui"
-                      ? activeTabClassname
-                      : notActiveTabClassname
-                  }
-                  id="tabs-with-underline-item-2"
-                  aria-controls="tabs-with-underline-2"
-                  role="tab"
-                  onClick={() => switchTab("swaggerui")}
-                >
-                  Swagger UI
-                </button>
+          <div className="flex flex-col justify-start h-[calc(100vh-64px)] bg-[#f6f8fa] border-l-px border-l-gray-100 z-10 relative">
+            <div className="border-b border-gray-200 shadow-sm z-10 px-4">
+              <nav className="flex gap-4" aria-label="Tabs" role="tablist">
+                {[
+                  { title: "Response", value: "response" },
+                  { title: "Swagger UI", value: "swaggerui" },
+                ].map((tab) => (
+                  <button
+                    key={tab.value}
+                    type="button"
+                    className={classNames(
+                      "relative flex py-4 text-sm font-semibold focus:outline-none after:absolute after:bg-blue rounded-full after:bottom-0 after:w-full",
+                      activeTab === tab.value
+                        ? "text-blue after:h-0.5"
+                        : "text-text-secondary"
+                    )}
+                    id="tabs-with-underline-item-1"
+                    aria-controls="tabs-with-underline-1"
+                    role="tab"
+                    onClick={() => switchTab(tab.value)}
+                  >
+                    {tab.title}
+                  </button>
+                ))}
               </nav>
             </div>
-            {activeTab === "response" ? (
-              <Response response={response} isJson={isJsonResponse} />
-            ) : (
-              <SwaggerUI guide={guide} ccall={ccall} />
-            )}
+            <div className="flex-1 overflow-auto px-4 py-2 text-sm leading-normal">
+              {activeTab === "response" ? (
+                <Response response={response} isJson={isJsonResponse} />
+              ) : (
+                <SwaggerUI guide={guide} ccall={ccall} />
+              )}
+            </div>
           </div>
         </div>
       </div>
