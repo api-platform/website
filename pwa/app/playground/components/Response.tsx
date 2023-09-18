@@ -10,7 +10,7 @@ export default function Response({
 }) {
   if (isJson) {
     return (
-      <Highlight theme={themes.vsLight} code={response} language="javascript">
+      <Highlight theme={themes.github} code={response} language="javascript">
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre style={style}>
             {tokens.map((line, i) => (
