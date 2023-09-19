@@ -38,9 +38,14 @@ export function getGuides(FS: any): GuideMetadata[] {
           line = line.replace("// ", "");
           const [key, value] = line.split(": ");
           if (!metadata[key]) {
-            metadata[key] = value;
+            metadata[key] = key === "position" ? parseInt(value, 10) : value;
           }
         }
+      }
+
+      // without that the sort comparison will silently fail
+      if (!metadata.position) {
+        metadata.position = 99
       }
 
       guides.push(metadata);

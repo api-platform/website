@@ -76,8 +76,6 @@ pnpm prebuild
 # Run project locally (for development)
 pnpm dev
 > Go to http://localhost:3000/
-
-
 ```
 
 ## Build the project locally
