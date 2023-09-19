@@ -14,6 +14,7 @@ export interface GuideFrontMatter {
   name: string;
   slug: string;
   executable?: boolean;
+  tags?: string[];
 }
 
 export interface FooterLink {

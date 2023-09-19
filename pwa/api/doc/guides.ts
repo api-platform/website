@@ -31,6 +31,8 @@ export async function getAllDocLinks(
           matterResult.data.name ||
           extractTitleFromMarkdown(matterResult.content),
         slug: matterResult.data.slug || path.parse(file).name,
+        tags: matterResult.data.tags?.split(", ") || [""],
+        executable: matterResult.data.executable || false,
       } as GuideFrontMatter,
     ];
   }, Promise.resolve([]) as Promise<GuideFrontMatter[]>);
@@ -42,6 +44,8 @@ export async function getAllDocLinks(
         ? `/docs/${outputFolder || folder}/${link.slug}`
         : `/docs/v${version}/${outputFolder || folder}/${link.slug}`,
     slug: link.slug,
+    tags: link.tags,
+    executable: link.executable || false,
   }));
 }
 
@@ -58,4 +62,26 @@ export async function getGuideContent(slug: string, version = current) {
     tags: data.tags,
     name: data.name,
   };
+}
+
+export async function getGuidesTags(version = current) {
+  const directory = `data/docs/guides/${version}`;
+  const files = await readdir(path.join(process.cwd(), directory));
+
+  const tags = await files.reduce(async (acc, file) => {
+    const fullPath = path.join(process.cwd(), directory, file);
+    const fileContents = await readFile(fullPath, "utf8");
+    const matterResult = matter(fileContents);
+    return [
+      {
+        tags: matterResult.data.tags || [],
+      } as GuideFrontMatter,
+    ];
+  }, Promise.resolve([]) as Promise<GuideFrontMatter[]>);
+
+  if (!tags) {
+    return [];
+  }
+
+  return tags.map((link) => link.tags).flat();
 }
