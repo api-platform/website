@@ -48,3 +48,4 @@ app/playground/utils/php-web.mjs
 app/playground/utils/php-web.wasm
 public/php-web.data
 public/php-web.wasm
+core.temp/

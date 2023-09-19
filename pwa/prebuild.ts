@@ -240,6 +240,13 @@ async function loadDocumentationNav() {
       });
     }
 
+    versionNav.push({
+      title: "Changelog",
+      basePath: `${basePath}/changelog/`,
+      link: `${basePath}/changelog/`,
+      links: [],
+    });
+
     fs.writeFileSync(
       `data/docs/${version}/nav.json`,
       JSON.stringify(versionNav)
