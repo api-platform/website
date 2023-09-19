@@ -23,13 +23,14 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY --from=phario/phive:0.15.2 /usr/local/bin/phive /usr/bin/phive
 RUN docker-php-ext-install zip
 RUN phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
+COPY docs-versions.txt docs-versions.txt
 COPY tools/get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
 RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.docs && \
 	 cd core.docs/docs && \
 	 composer install
-RUN bash get-core-docs.sh
+RUN echo 'run' && bash get-core-docs.sh
 
 FROM soyuka/php-wasm:8.2.9 as phpwasm
 # We want soyuka/php-wasm to compile without js optimisation so that we can `sed`

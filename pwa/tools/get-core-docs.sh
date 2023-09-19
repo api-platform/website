@@ -17,7 +17,7 @@ do
 	git fetch --depth=1 origin $version
 	git checkout FETCH_HEAD -b $version-temp
 	cp $root/core.temp/CHANGELOG.md $root/data/docs/changelog/$version.mdx
-	if [[ -d docs/guides ]];
+	if [[ -d $root/core.temp/docs/guides ]];
 	then
 		composer install
 		mkdir -p $root/data/docs/{guides,reference}/$version
