@@ -1,7 +1,7 @@
 import path from "node:path";
 import { readFile, readdir } from "node:fs/promises";
 import dayjs from "dayjs";
-import { extractHeadingsFromMarkdown } from "utils";
+import { extractTitleFromMarkdown } from "utils";
 import { Event, EventWithContent } from "types";
 import { getAllContributors } from "./contributors";
 
@@ -30,7 +30,7 @@ export async function getAllEvents(withContent?: boolean) {
 
       return {
         ...resultMdx.meta,
-        title: extractHeadingsFromMarkdown(fileContents, 1)?.[0],
+        title: extractTitleFromMarkdown(fileContents),
         slug: path.parse(file).name,
         Mdx: withContent && resultMdx.default,
       };
@@ -56,7 +56,7 @@ export async function getEventContent(slug: string): Promise<EventWithContent> {
     import(`data/events/${slug}.mdx`),
   ]);
 
-  const title = extractHeadingsFromMarkdown(fileContents, 1)?.[0];
+  const title = extractTitleFromMarkdown(fileContents) || slug;
 
   const speakers = resultMdx.meta.speakers
     ? await Promise.all(

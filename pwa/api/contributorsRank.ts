@@ -83,14 +83,15 @@ export const getAllContributors = async () => {
     await Promise.all(
       repositories.map(async ({ repo, owner }) => {
         const repositoryContributors = await octokit.paginate(
-          octokit.rest.repos.listContributors,
+          octokit.rest.repos.listContributors as any,
           {
             owner,
             repo,
             per_page: 100,
           }
         );
-        repositoryContributors.map((contributor) => {
+
+        repositoryContributors.forEach((contributor: Contributor) => {
           const existingContributor = contributors.find(
             (c) => c.login === contributor.login
           );

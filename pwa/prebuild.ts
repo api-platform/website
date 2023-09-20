@@ -1,10 +1,14 @@
 import { getAllContributors } from "./api/contributorsRank";
+import { readFile } from "fs/promises";
+import YAML from "yaml";
+import { Chapters } from "types";
+import { createReadStream } from "fs";
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
-const { current } = require("./consts");
+const { current, versions } = require("./consts");
 
 export async function createWallpaper(
   inputDirectory: string,
@@ -45,8 +49,6 @@ async function createWallpapers() {
   );
 }
 
-createWallpapers();
-
 export async function createLogo(
   inputDirectory: string,
   outputDirectory: string,
@@ -76,8 +78,6 @@ async function createLogos() {
   );
 }
 
-createLogos();
-
 async function createColouringMiniatures() {
   const inputDirectory = path.join(
     process.cwd(),
@@ -106,7 +106,153 @@ async function createColouringMiniatures() {
   );
 }
 
-createColouringMiniatures();
+const checkStatus = (response: any) => {
+  if (response.ok) {
+    return response;
+  }
+
+  throw new Error(
+    `HTTP Error Response: ${response.status} ${response.statusText}`
+  );
+};
+
+async function generateXsd() {
+  try {
+    const xsdMetadataPath = "public/schema/metadata";
+    const resResources = await fetch(
+      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/resources.xsd`
+    );
+    const resProperties = await fetch(
+      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/properties.xsd`
+    );
+    const xsd = await fetch(
+      `https://github.com/api-platform/core/raw/2.7/src/Core/Metadata/schema/metadata.xsd`
+    );
+    checkStatus(resProperties);
+    checkStatus(resResources);
+    checkStatus(xsd);
+
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}/resources-3.0.xsd`),
+      await resResources.text()
+    );
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}/properties-3.0.xsd`),
+      await resProperties.text()
+    );
+    fs.writeFileSync(
+      path.resolve(__dirname, `./${xsdMetadataPath}/metadata-2.0.xsd`),
+      await xsd.text()
+    );
+  } catch (error) {
+    console.warn(
+      "\x1b[31m",
+      `Failed to retrieve metadata XSD files: ${error}`,
+      "\x1b[37m"
+    );
+  }
+}
+
+const indexes = [
+  "admin",
+  "core",
+  "create-client",
+  "deployment",
+  "distribution",
+  "extra",
+  "schema-generator",
+  "client-generator",
+];
+
+function getGithubPath(slug: string[]): string {
+  slug = slug.filter((v) => v);
+  const lastPart = slug.slice(-1)[0];
+  return slug.join("/") + (indexes.includes(lastPart) ? "/index.md" : ".md");
+}
+
+function extractTitleFromMarkdown(content: string) {
+  const lines = content.split("\n");
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index];
+    const result = line.match(/#\s(.*)/);
+
+    if (null === result || result.length === 0) {
+      continue;
+    }
+
+    return result[1];
+  }
+
+  return null;
+}
+
+export async function getMarkdownStreamTitle(version: string, slug: string[]) {
+  const stream = createReadStream(
+    path.join("data/docs/", version, getGithubPath(slug))
+  );
+  let title: string;
+
+  return new Promise((resolve, reject) => {
+    stream.on("data", (chunk) => {
+      title =
+        extractTitleFromMarkdown(chunk.toString()) ||
+        slug[slug.length - 1] ||
+        "";
+
+      if (title) {
+        resolve(title);
+        stream.destroy();
+      }
+    });
+    stream.on("error", (err) => reject(err));
+  });
+}
+
+async function loadDocumentationNav() {
+  for (const version of versions) {
+    const data = await readFile(`data/docs/${version}/outline.yaml`, "utf8");
+    const navData: Chapters = YAML.parse(data.toString());
+    const basePath = version === current ? `/docs` : `/docs/v${version}`;
+    const versionNav = [];
+
+    for (const chapter of navData.chapters) {
+      const links = [];
+
+      for (const link of chapter.items) {
+        const title = await getMarkdownStreamTitle(version, [
+          chapter.path,
+          link === "index" ? "" : link,
+        ]);
+
+        links.push({
+          title,
+          link:
+            link === "index"
+              ? `${basePath}/${chapter.path}/`
+              : `${basePath}/${chapter.path}/${link}/`,
+        });
+      }
+
+      versionNav.push({
+        title: chapter.title,
+        basePath: `${basePath}/${chapter.path}/`,
+        links: links,
+      });
+    }
+
+    versionNav.push({
+      title: "Changelog",
+      basePath: `${basePath}/changelog/`,
+      link: `${basePath}/changelog/`,
+      links: [],
+    });
+
+    fs.writeFileSync(
+      `data/docs/${version}/nav.json`,
+      JSON.stringify(versionNav)
+    );
+  }
+}
 
 export async function updateAllDocFiles(directory: string) {
   const files = await fs.readdirSync(directory);
@@ -116,7 +262,7 @@ export async function updateAllDocFiles(directory: string) {
       const s = fs.statSync(fullPath);
       if (s.isDirectory()) await updateAllDocFiles(fullPath);
       else {
-        if (path.extname(fullPath) === ".md") fixDocContent(fullPath);
+        if (path.extname(fullPath) === ".mdx") fixDocContent(fullPath);
       }
     })
   );
@@ -162,87 +308,49 @@ function fixDocContent(filePath: string) {
   );
 }
 
-function fixReferencesLinks(filePath: string) {
-  const fileContent = fs.readFileSync(filePath, "utf-8");
+// function fixReferencesLinks(filePath: string) {
+//   const fileContent = fs.readFileSync(filePath, "utf-8");
+//
+//   const formattedContent = fileContent
+//     // replace wrong codeblock
+//     .replace(/(<a href=".+?">.+?<\/a>)/g, "`$1`");
+//
+//   fs.writeFileSync(filePath, formattedContent, "utf8");
+// }
+//
+// export async function updateAllReferenceLinks(directory: string) {
+//   const files = await fs.readdirSync(directory);
+//   await Promise.all(
+//     files.map(async (file: any) => {
+//       const fullPath = `${directory}/${file}`;
+//       const s = fs.statSync(fullPath);
+//       if (s.isDirectory()) await updateAllReferenceLinks(fullPath);
+//       else {
+//         if (path.extname(fullPath) === ".mdx") fixReferencesLinks(fullPath);
+//       }
+//     })
+//   );
 
-  const formattedContent = fileContent
-    // replace wrong codeblock
-    .replace(/(<a href=".+?">.+?<\/a>)/g, "`$1`");
+// soyuka.me/contributors.json
+// async function getContributors() {
+//   const allContributors = await getAllContributors();
+//   fs.writeFileSync(
+//     path.join(process.cwd(), "data/contributors.json"),
+//     JSON.stringify(allContributors, null, 2),
+//     "utf-8"
+//   );
+// }
 
-  fs.writeFileSync(filePath, formattedContent, "utf8");
-}
-
-export async function updateAllReferenceLinks(directory: string) {
-  const files = await fs.readdirSync(directory);
-  await Promise.all(
-    files.map(async (file: any) => {
-      const fullPath = `${directory}/${file}`;
-      const s = fs.statSync(fullPath);
-      if (s.isDirectory()) await updateAllReferenceLinks(fullPath);
-      else {
-        if (path.extname(fullPath) === ".mdx") fixReferencesLinks(fullPath);
-      }
-    })
-  );
-}
-
-const checkStatus = (response: any) => {
-  if (response.ok) {
-    return response;
-  }
-
-  throw new Error(
-    `HTTP Error Response: ${response.status} ${response.statusText}`
-  );
-};
-
-async function generateXsd() {
-  try {
-    const xsdMetadataPath = "public/schema/metadata";
-    const resResources = await fetch(
-      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/resources.xsd`
-    );
-    const resProperties = await fetch(
-      `https://github.com/api-platform/core/raw/${current}/src/Metadata/Extractor/schema/properties.xsd`
-    );
-    const xsd = await fetch(
-      `https://github.com/api-platform/core/raw/2.7/src/Core/Metadata/schema/metadata.xsd`
-    );
-    checkStatus(resProperties);
-    checkStatus(resResources);
-    checkStatus(xsd);
-
-    fs.writeFileSync(
-      path.resolve(__dirname, `./${xsdMetadataPath}/resources-3.0.xsd`),
-      await resResources.text()
-    );
-    fs.writeFileSync(
-      path.resolve(__dirname, `./${xsdMetadataPath}/properties-3.0.xsd`),
-      await resProperties.text()
-    );
-    fs.writeFileSync(
-      path.resolve(__dirname, `./${xsdMetadataPath}//metadata-2.0.xsd`),
-      await xsd.text()
-    );
-  } catch (error) {
-    console.warn(
-      "\x1b[31m",
-      `Failed to retrieve metadata XSD files: ${error}`,
-      "\x1b[37m"
-    );
-  }
-}
-
-async function getContributors() {
-  const allContributors = await getAllContributors();
-  fs.writeFileSync(
-    path.join(process.cwd(), "data/contributors.json"),
-    JSON.stringify(allContributors, null, 2),
-    "utf-8"
-  );
-}
-
-updateAllDocFiles(path.join(process.cwd(), "data/docs"));
-generateXsd();
-getContributors();
+try {
+  createWallpapers();
+  createLogos();
+  createColouringMiniatures();
+  generateXsd();
+  updateAllDocFiles(path.join(process.cwd(), "data/docs"));
+  loadDocumentationNav();
+  // getContributors();
 //updateAllReferenceLinks(path.join(process.cwd(), "data/docs/reference"));
+} catch (e) {
+  console.error(e);
+}
+

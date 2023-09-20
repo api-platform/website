@@ -5,8 +5,8 @@ pdg:
         src: './guides'
     references:
         base_url: '/docs/reference'
-        exclude: ['*Factory.php', '*.tpl.php']
-        exclude_path: ['JsonSchema/Tests', 'Metadata/Tests', 'OpenApi/Tests']
+        exclude: ['*Factory.php', '*.tpl.php', 'deprecation.php']
+        exclude_path: ['JsonSchema/Tests', 'Metadata/Tests', 'OpenApi/Tests', 'GraphQl/Tests', 'RamseyUuid/Tests', 'HttpCache/Tests', 'Elasticsearch/Tests', 'Doctrine/Tests', 'Validator/Tests', 'Serializer/Tests', 'Symfony/Tests', 'State/Tests']
         namespace: 'ApiPlatform'
         output: '/data/docs/reference'
         src: '../src'

@@ -4,17 +4,23 @@ import baseComponents from "app/common/components/doc/getBaseComponents";
 import SectionGuide from "app/common/components/doc/SectionGuide";
 import BreadCrumbs from "components/docs/BreadCrumbs";
 import { MdxComponent } from "types";
+import { current } from "consts";
+import RunLive from "app/common/docs/components/RunLive";
 
 export default function DocPage({
   Mdx,
   title,
   slug,
+  executable = false,
   tags = [],
+  version = current,
 }: {
   Mdx: MdxComponent;
   title: string;
   slug: string;
   tags?: string[];
+  version: string;
+  executable?: boolean;
 }) {
   const components = {
     ...baseComponents,
@@ -39,6 +45,7 @@ export default function DocPage({
         "relative py-6 px-6 md:px-10  leading-relaxed text-blue-black/80 | dark:text-white/80"
       )}
     >
+      <RunLive executable={executable} slug={slug} />
       <BreadCrumbs
         breadCrumbs={[{ title: "Guides", link: "/docs/guides" }, { title }]}
       />
@@ -65,7 +72,7 @@ export default function DocPage({
       <p className="mt-10">
         <a
           className="text-blue"
-          href={`https://github.com/api-platform/core/edit/main/docs/guides/${slug}.php`}
+          href={`https://github.com/api-platform/core/edit/${version}/docs/guides/${slug}.php`}
         >
           You can also help us improve this guide.
         </a>

@@ -29,7 +29,7 @@ export default function ReferenceFilterDropdown({
   useOnClickOutside(dropdown, () => setOpen(false));
 
   return (
-    <div ref={dropdown} className="relative z-10">
+    <div ref={dropdown} className="relative">
       <button
         type="button"
         className={classNames(

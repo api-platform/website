@@ -4,10 +4,8 @@ import { versions, current } from "consts";
 export function sortByPosition(
   a: { position: number },
   b: { position: number }
-) {
-  if (a.position > b.position) return 1;
-  if (a.position < b.position) return -1;
-  return 0;
+): number {
+  return a.position - b.position;
 }
 
 export function sortByTitle(a: { title: string }, b: { title: string }) {
@@ -19,20 +17,20 @@ export function sortByTitle(a: { title: string }, b: { title: string }) {
 export const addTrailingSlashIfNecessary = (str: string) =>
   str.charAt(str.length - 1) === "/" ? str : `${str}/`;
 
-export function extractHeadingsFromMarkdown(content: string, level: number) {
-  const headings = content
-    .split("\n")
-    .filter((line) => line.match(/#{1,3}\s/))
-    .map((line) => {
-      const result = line.match(/(#{1,3})\s(.*)/);
-      return {
-        level: result?.[1].length,
-        title: result?.[2],
-      };
-    });
-  return headings
-    .filter((heading) => heading.level === level)
-    .map((heading) => heading.title);
+export function extractTitleFromMarkdown(content: string) {
+  const lines = content.split("\n");
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index];
+    const result = line.match(/#\s(.*)/);
+
+    if (null === result || result.length === 0) {
+      continue;
+    }
+
+    return result[1];
+  }
+
+  return null;
 }
 
 export const toLocaleDate: (

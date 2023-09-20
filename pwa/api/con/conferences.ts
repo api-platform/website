@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { readFile, readdir } from "node:fs/promises";
 import { sortByStartDate } from "utils/con";
-import { extractHeadingsFromMarkdown } from "utils";
+import { extractTitleFromMarkdown } from "utils";
 import { getSpeakerById } from "./speakers";
 import { Conference, Day, Speaker, Track } from "types/con";
 import { Locale, i18n } from "i18n/i18n-config";
@@ -89,9 +89,7 @@ export const getConferenceData = async (
     description: contentHtml,
     url: `/con/${edition}/conferences/${slug}`,
     ...matterResult.data,
-    title: unbreakable(
-      extractHeadingsFromMarkdown(matterResult.content, 1)?.[0] || ""
-    ),
+    title: unbreakable(extractTitleFromMarkdown(matterResult.content) || ""),
     speakers: withSpeakers ? fullSpeakers : speakers,
     track: tracks.find((track: Track) => track.id === matterResult.data.track),
     day:

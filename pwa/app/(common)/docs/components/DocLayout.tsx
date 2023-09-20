@@ -15,7 +15,7 @@ export default function DocLayout({ nav, children }: DocLayoutProps) {
         <MobileSideBar docMenuParts={nav} />
         <div className="flex flex-row flex-wrap items-start justify-start">
           <Sidebar docMenuParts={nav} />
-          <div className="flex-1 overflow-clip">{children}</div>
+          <div className="flex-1 overflow-x-clip">{children}</div>
         </div>
       </DocProvider>
     </div>
