@@ -15,7 +15,7 @@ export default function Response({
   if (isJson) {
     return (
       <div
-        style={{ "white-space": "pre" }}
+        style={{ whiteSpace: "pre" }}
         dangerouslySetInnerHTML={{ __html: a }}
       />
     );
