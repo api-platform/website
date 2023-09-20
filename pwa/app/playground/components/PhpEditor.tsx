@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import Editor from "@monaco-editor/react";
 import debounce from "lodash.debounce";
+import ghLight from "../utils/gh-light.json";
 
 export default function PhpEditor({
   code,
@@ -16,12 +17,18 @@ export default function PhpEditor({
     [onChange]
   );
 
+  function handleEditorWillMount(monaco: any) {
+    monaco.editor.defineTheme("github", ghLight);
+  }
+
   return (
     <Editor
       onChange={(newValue, e) => newValue && onEditorChange(newValue, e)}
       language="php"
       value={code}
       defaultValue={`<?php\n  `}
+      beforeMount={handleEditorWillMount}
+      theme="github"
       options={{
         wordWrap: "on",
         automaticLayout: true,

@@ -1,5 +1,8 @@
-import React from "react";
-import { Highlight, themes } from "prism-react-renderer";
+import React, { useEffect, useState } from "react";
+import hljs from "highlight.js/lib/core";
+import "highlight.js/styles/github.css";
+import json from "highlight.js/lib/languages/json";
+hljs.registerLanguage("json", json);
 
 export default function Response({
   response,
@@ -8,21 +11,13 @@ export default function Response({
   response: string;
   isJson: boolean;
 }) {
+  const a = hljs.highlight(response, { language: "json" }).value;
   if (isJson) {
     return (
-      <Highlight theme={themes.github} code={response} language="javascript">
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre style={style}>
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+      <div
+        style={{ "white-space": "pre" }}
+        dangerouslySetInnerHTML={{ __html: a }}
+      />
     );
   }
 

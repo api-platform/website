@@ -86,7 +86,7 @@ export default function SwaggerUI({
       }
 
       ccall("setenv", null, [STR, STR, "number"], ["APP_GUIDE", guide, 1]);
-      const response = phpFetch(new URL("https://localhost/docs.json"), {
+      const response = phpFetch(new URL("https://localhost/docs"), {
         ccall,
       });
       const docs = await response.json();

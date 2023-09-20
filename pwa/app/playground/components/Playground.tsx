@@ -181,7 +181,7 @@ export default function Playground() {
               <h2 className="font-title text-2xl text-text-secondary font-bold flex-1">{`${guideName}`}</h2>
               <div className="group relative">
                 <div className="bg-blue rounded-3xl text-white text-xs font-semibold z-20 relative py-2 px-3 flex flex-row items-center gap-2 cursor-pointer group-hover:bg-blue-dark transition-colors">
-                  <div>Other examples</div>
+                  <div>Pick a guide</div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
