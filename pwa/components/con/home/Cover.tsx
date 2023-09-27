@@ -7,9 +7,15 @@ interface CoverProps {
   date: string;
   baseline: string;
   button?: JSX.Element;
+  logo?: string;
 }
 
-export default function Cover({ date, baseline, button }: CoverProps) {
+export default function Cover({
+  date,
+  baseline,
+  button,
+  logo = "/images/con/logo.svg",
+}: CoverProps) {
   const { isVisible } = useContext(SectionsContext);
   return (
     <Section
@@ -22,7 +28,7 @@ export default function Cover({ date, baseline, button }: CoverProps) {
         </span>
         <h1>
           <img
-            src="/images/con/logo.svg"
+            src={logo}
             alt="API Platform Conference"
             width="800"
             height="172"

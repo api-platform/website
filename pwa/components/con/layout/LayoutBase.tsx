@@ -9,6 +9,7 @@ interface LayoutProps extends PropsWithChildren {
   withSocialFooter?: boolean;
   footer?: FooterType;
   nav?: NavType;
+  isTicketingOpen?: boolean;
 }
 
 export default function LayoutBase({
@@ -17,10 +18,11 @@ export default function LayoutBase({
   withSocialFooter = false,
   nav,
   footer,
+  isTicketingOpen = true,
 }: LayoutProps) {
   return (
     <>
-      <Nav edition={edition} nav={nav} />
+      <Nav edition={edition} nav={nav} isTicketingOpen={isTicketingOpen} />
       <MobileNav nav={nav} />
       <div className="relative z-10">
         {children}

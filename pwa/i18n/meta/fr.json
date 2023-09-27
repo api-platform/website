@@ -13,6 +13,10 @@
     "title": "API Platform Conference 2023: meet the best API experts!",
     "description": "Rejoignez la seule conférence internationale consacrée au framework API Platform et son écosystème."
   },
+  "2024": {
+    "title": "API Platform Conference 2024: meet the best API experts!",
+    "description": "Rejoignez la seule conférence internationale consacrée au framework API Platform et son écosystème."
+  },
   "speaker": {
     "title": "Speakers",
     "description": "%name% fait partie des speakers de l'API Platform Conference %edition%!"

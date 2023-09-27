@@ -14,12 +14,8 @@ const nav = {
       text: "nav.links.schedule",
     },
     {
-      to: "/{{locale}}/con/2023/#pricing",
-      text: "nav.links.pricing",
-    },
-    {
-      to: "/{{locale}}/con/2023/#partners",
-      text: "nav.links.partners",
+      to: "/{{locale}}/con/2023/#venue",
+      text: "nav.links.venue",
     },
   ],
 };

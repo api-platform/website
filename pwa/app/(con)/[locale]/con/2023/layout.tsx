@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       default: dictionary[2023].title,
-      template: `%s - API Platform Conference 2021`,
+      template: `%s - API Platform Conference 2023`,
     },
     description: dictionary[2023].description,
     openGraph: {

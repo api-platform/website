@@ -22,7 +22,7 @@ type HomePageProps = {
 };
 
 const HomePage = ({ speakers, partners }: HomePageProps) => {
-  const { t, Translate } = useContext(LanguageContext);
+  const { t, Translate, locale } = useContext(LanguageContext);
   return (
     <>
       <Cover
@@ -35,6 +35,9 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
                 {t("buy_tickets")}
               </BuyButton>
             )}
+            <Button className="pink" to={`/${locale}/con`}>
+              {t("back_to_current_edition")}
+            </Button>
           </div>
         }
       />
@@ -55,42 +58,44 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
           ) : null}
         </div>
       </Section>
-      <Section
-        className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
-        section="pricing"
-      >
-        <div className="container relative z-10">
-          <SectionTitle dark>
-            <Translate translationKey="pricing.title" />
-          </SectionTitle>
-          <div className="max-w-4xl mx-auto flex flex-row flex-wrap justify-center">
-            {prices.map((price) => (
-              <PricingCard key={price.id} price={price} />
-            ))}
-            <div className="w-full self-center max-w-md mt-10 | lg:pl-10 lg:mt-0 lg:w-1/3">
-              <div className="p-5 dotted-corner flex flex-col items-center text-center bg-blue bg-blue-gradient shadow-md border-blue-dark border-4">
-                <span className="font-bold text-white leading-tight font-title uppercase lined-center lined-white relative">
-                  {t("pricing.student")}
-                </span>
-                <div className="mt-2 text-blue-black/80 font-semibold">
-                  <Translate translationKey="pricing.free_ticket" />
+      {currentEdition === "2023" && (
+        <Section
+          className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
+          section="pricing"
+        >
+          <div className="container relative z-10">
+            <SectionTitle dark>
+              <Translate translationKey="pricing.title" />
+            </SectionTitle>
+            <div className="max-w-4xl mx-auto flex flex-row flex-wrap justify-center">
+              {prices.map((price) => (
+                <PricingCard key={price.id} price={price} />
+              ))}
+              <div className="w-full self-center max-w-md mt-10 | lg:pl-10 lg:mt-0 lg:w-1/3">
+                <div className="p-5 dotted-corner flex flex-col items-center text-center bg-blue bg-blue-gradient shadow-md border-blue-dark border-4">
+                  <span className="font-bold text-white leading-tight font-title uppercase lined-center lined-white relative">
+                    {t("pricing.student")}
+                  </span>
+                  <div className="mt-2 text-blue-black/80 font-semibold">
+                    <Translate translationKey="pricing.free_ticket" />
+                  </div>
+                  <Button
+                    size="small"
+                    square
+                    className="white mt-2 mb-5"
+                    to="mailto:events@les-tilleuls.coop"
+                  >
+                    {t("contact_us")}
+                  </Button>
+                  <small className="text-xs text-blue-black/50 font-bold">
+                    *{t("pricing.certificate_needed")}
+                  </small>
                 </div>
-                <Button
-                  size="small"
-                  square
-                  className="white mt-2 mb-5"
-                  to="mailto:events@les-tilleuls.coop"
-                >
-                  {t("contact_us")}
-                </Button>
-                <small className="text-xs text-blue-black/50 font-bold">
-                  *{t("pricing.certificate_needed")}
-                </small>
               </div>
             </div>
           </div>
-        </div>
-      </Section>
+        </Section>
+      )}
       <Venue
         subtitle={t("2023.venue.subtitle")}
         tip_title={t("2023.venue.tip_title")}
