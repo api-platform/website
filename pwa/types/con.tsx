@@ -97,6 +97,8 @@ export type Partner = {
   name: string;
   link: string;
   rank: number;
+  highlight?: boolean;
+  edition?: string;
 };
 
 export type Break = {
