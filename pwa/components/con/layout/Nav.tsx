@@ -14,9 +14,14 @@ import NavLink from "./NavLink";
 interface NavProps {
   edition?: string;
   nav?: Navigation;
+  isTicketingOpen?: boolean;
 }
 
-export default function Nav({ edition, nav }: NavProps) {
+export default function Nav({
+  edition,
+  nav,
+  isTicketingOpen = true,
+}: NavProps) {
   const pathname = usePathname();
   const { t, locale } = useContext(LanguageContext);
   const logoAlwaysVisible = !pathname?.match(/\/con\/\d+(\/|)$/gi);
@@ -103,7 +108,7 @@ export default function Nav({ edition, nav }: NavProps) {
           </NavLink>
         ))}
       </div>
-      {currentEdition === edition ? (
+      {isTicketingOpen && currentEdition === edition ? (
         <BuyButton
           className="hidden md:block md:-translate-x-16 | lg:-translate-x-0"
           size="small"

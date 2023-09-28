@@ -32,9 +32,11 @@ export default function Place() {
       .setLngLat([3.020125223382465, 50.63318866197429])
       .addTo(newMap);
 
+    newMap.scrollZoom.disable();
+    newMap.addControl(new mapboxgl.NavigationControl({ showCompass: false }));
+
     if ("ontouchstart" in document.documentElement) {
       newMap.dragPan.disable();
-      newMap.scrollZoom.disable();
       newMap.touchPitch.disable();
       newMap.on("touchstart", function (e) {
         const oe = e.originalEvent;
