@@ -12,12 +12,14 @@ const partners: Partner[] = [
     logo: "sensiolabs",
     link: "https://sensiolabs.com/fr/",
     rank: 1,
+    highlight: true,
   },
   {
     name: "Vestiaire Collective",
     logo: "vestiaire-collective",
     link: "https://fr.vestiairecollective.com/",
     rank: 1,
+    highlight: true,
   },
   {
     name: "Wine in black",
@@ -60,12 +62,14 @@ const partners: Partner[] = [
     logo: "motoblouz",
     link: "https://www.motoblouz.com/",
     rank: 4,
+    highlight: true
   },
   {
     name: "SymfonyCasts",
     logo: "symfony-casts",
     link: "https://symfonycasts.com/",
     rank: 4,
+    highlight: true,
   },
   {
     name: "Sticker mule",

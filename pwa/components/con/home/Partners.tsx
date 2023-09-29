@@ -16,7 +16,7 @@ interface PartnersGridProps extends PropsWithChildren {
 function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center flex-wrap py-6 border-dotted border-grey border-b-2">
-      {partners.map(({ name, logo, link }) => (
+      {partners.map(({ name, logo, link, edition: partnerEdition }) => (
         <div
           key={name}
           className="grayscale opacity-50 transition-all px-8 py-4 hover:grayscale-0 hover:opacity-100"
@@ -35,7 +35,9 @@ function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
             <img
               width={small ? 140 : 200}
               height={small ? 140 : 200}
-              src={`/images/con/${edition}/partners/${logo}.png`}
+              src={`/images/con/${
+                partnerEdition || edition
+              }/partners/${logo}.png`}
               alt={name}
               className="w-7/8 h-auto"
             />
