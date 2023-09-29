@@ -53,6 +53,7 @@ const partners: Partner[] = [
     logo: "akawaka",
     link: "https://www.akawaka.fr/",
     rank: 4,
+    highlight: true,
   },
   {
     name: "Orbitale.io",
@@ -77,18 +78,21 @@ const partners: Partner[] = [
     logo: "we-love-dev",
     link: "https://welovedevs.com/",
     rank: 5,
+    highlight: true,
   },
   {
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
     rank: 5,
+    highlight: true,
   },
   {
     name: "Afup",
     logo: "afup",
     link: "https://afup.org",
     rank: 5,
+    highlight: true,
   },
   {
     name: "Accor Group",

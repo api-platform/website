@@ -62,6 +62,7 @@ const partners: Partner[] = [
     logo: "motoblouz",
     link: "https://www.motoblouz.com/",
     rank: 4,
+    highlight: true
   },
   {
     name: "SymfonyCasts",

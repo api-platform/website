@@ -272,7 +272,16 @@ export default function ReviewList() {
           <LinedTitle className="mb-5">Un moment plus que convivial</LinedTitle>
           <p>
             Cette année, la soirée communautaire était sponsorisée par le
-            cabinet JL Recrutement.
+            cabinet{" "}
+            <a
+              className="link"
+              href="https://www.jlrecrutement.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              JL Recrutement
+            </a>
+            .
           </p>
           <p>
             Un mélange de punch, de bières, de frites et de bonne humeur a créé

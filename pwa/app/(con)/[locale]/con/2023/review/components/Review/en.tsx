@@ -256,7 +256,16 @@ export default function ReviewList() {
             Let’s raise a toast to the API Platform community!
           </LinedTitle>
           <p>
-            This year, the community evening was sponsored by JL Recrutement.
+            This year, the community evening was sponsored by{" "}
+            <a
+              className="link"
+              href="https://www.jlrecrutement.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              JL Recrutement
+            </a>
+            .
           </p>
           <p>
             A mix of punch, beers, fries, and good vibes created the perfect
