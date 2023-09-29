@@ -170,8 +170,8 @@ export default function ReviewList() {
             >
               Alice's Garden
             </a>{" "}
-            nous fait à nouveau le plaisir de nous rejoindre en tant que sponsor
-            Silver.
+            nous a fait à nouveau le plaisir de nous rejoindre en tant que
+            sponsor Silver.
           </p>
           <p>
             Merci également à nos sponsors Bronze{" "}
@@ -200,8 +200,8 @@ export default function ReviewList() {
               rel="noreferrer noopener"
             >
               Orbitale
-            </a>
-            de soutenir cet événement.
+            </a>{" "}
+            d'avoir soutenu cet événement.
           </p>
           <p>
             Enfin, saluons nos partenaires communautaires{" "}
