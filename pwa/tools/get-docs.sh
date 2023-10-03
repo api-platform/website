@@ -39,3 +39,9 @@ do
 	git checkout FETCH_HEAD -b $version-temp
 	cp $root/core.temp/CHANGELOG.md $root/data/docs/changelog/$version.mdx
 done
+
+find $root/data/docs -name "*.md" | xargs -I {} mv {} {}.mdx
+npm run prettier:docs
+find $root/data/docs -name "*.mdx" | xargs sed -i "s/><br>/\/><br \/>/g"
+find $root/data/docs -name "*.mdx" | xargs sed -i "s/<br>/<br \/>/g"
+find $root/data/docs -name "*.mdx" | xargs sed -i "s/><\/a>/\/><\/a>/g"
