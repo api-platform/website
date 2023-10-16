@@ -1,4 +1,5 @@
 export const versions = [
+  "3.2",
   "3.1",
   "3.0",
   "2.7",
@@ -11,6 +12,6 @@ export const versions = [
   "main",
 ];
 
-export const refVersions: string[] = ["3.1", "main"];
+export const refVersions: string[] = ["3.2", "main"];
 
-export const current = "3.1";
+export const current = "3.2";
