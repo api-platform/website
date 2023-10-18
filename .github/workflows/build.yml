@@ -193,7 +193,9 @@ jobs:
           push: ${{ inputs.push }}
           tags: ${{ steps.docker-metadata.outputs.tags }}
           labels: ${{ steps.docker-metadata.outputs.labels }}
-          build-args: NEXT_ROOT_URL=${{ env.URL }} CACHE_BUST=${{ github.sha }}
+          build-args: |
+            NEXT_ROOT_URL=${{ env.URL }} 
+            CACHE_BUST=${{ github.sha }}
           cache-from: |
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
