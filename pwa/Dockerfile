@@ -27,10 +27,11 @@ COPY docs-versions.txt docs-versions.txt
 COPY tools/get-core-docs.sh ./get-core-docs.sh
 COPY pdg.config.yaml ./pdg.config.yaml
 # this is used to preload data see phpwasm
+ARG CACHE_BUST
 RUN git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.docs && \
 	 cd core.docs/docs && \
 	 composer install
-RUN echo 'run' && bash get-core-docs.sh
+RUN bash get-core-docs.sh
 
 FROM soyuka/php-wasm:8.2.9 as phpwasm
 # We want soyuka/php-wasm to compile without js optimisation so that we can `sed`
@@ -76,6 +77,7 @@ COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/p
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
 COPY --from=php_documentation_generator --chown=nextjs:nodejs ./data/docs ./data/docs
+ARG CACHE_BUST
 RUN bash ./tools/get-docs.sh
 
 ARG NEXT_ROOT_URL
