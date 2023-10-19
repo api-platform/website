@@ -184,6 +184,9 @@ jobs:
               fi
               echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
           fi
+      - name: Fetch documentation
+        working-directory: ./pwa
+        run: bash tools/get-docs.sh
       - name: Build and push
         uses: docker/build-push-action@v4    
         with:
@@ -195,7 +198,6 @@ jobs:
           labels: ${{ steps.docker-metadata.outputs.labels }}
           build-args: |
             NEXT_ROOT_URL=${{ env.URL }} 
-            CACHE_BUST=${{ github.sha }}
           cache-from: |
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
             type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
