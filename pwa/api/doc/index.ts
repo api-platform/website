@@ -25,7 +25,7 @@ function toAbsoluteUrl(
     return url;
   } catch (err) {
     if (path.isAbsolute(url)) {
-      return url.replace("index.md.mdx", "").replace(".md.mdx", "");
+      return url.replace("index.mdx", "").replace(".mdx", "");
     }
 
     return path
@@ -34,16 +34,16 @@ function toAbsoluteUrl(
           !version || version === current ? "" : `v${version}`
         }/${path.dirname(githubPath)}/${url}`
       )
-      .replace("index.md.mdx", "")
-      .replace(".md.mdx", "");
+      .replace("index.mdx", "")
+      .replace(".mdx", "");
   }
 }
 
 export async function loadMarkdownBySlugArray(slug: string[]) {
-  const mdx = await import(`data/docs/${slug.join("/")}.md.mdx`);
+  const mdx = await import(`data/docs/${slug.join("/")}.mdx`);
 
   const fileContents = await readFile(
-    path.join(process.cwd(), `/data/docs/${slug.join("/")}.md.mdx`),
+    path.join(process.cwd(), `/data/docs/${slug.join("/")}.mdx`),
     "utf-8"
   );
   const matterResult = matter(fileContents);
@@ -95,7 +95,7 @@ const indexes = [
 export async function getDocContentFromSlug(version: string, slug: string[]) {
   slug = slug.filter((v) => v);
   const lastPart = slug.slice(-1)[0];
-  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.md.mdx" : ".md.mdx");
+  const p = slug.join("/") + (indexes.includes(lastPart) ? "/index.mdx" : ".mdx");
 
   try {
     const buffer = await readFile(`data/docs/${version}/${p}`, "utf8");
@@ -111,7 +111,7 @@ export async function getDocContentFromSlug(version: string, slug: string[]) {
 export function getGithubPath(slug: string[]): string {
   slug = slug.filter((v) => v);
   const lastPart = slug.slice(-1)[0];
-  return slug.join("/") + (indexes.includes(lastPart) ? "/index.md.mdx" : ".md.mdx");
+  return slug.join("/") + (indexes.includes(lastPart) ? "/index.mdx" : ".mdx");
 }
 
 export function createSlugReadStream(

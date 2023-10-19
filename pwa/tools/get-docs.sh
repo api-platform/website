@@ -40,7 +40,7 @@ do
 	cp $root/core.temp/CHANGELOG.md $root/data/docs/changelog/$version.mdx
 done
 
-find $root/data/docs -name "*.md" | xargs -I {} mv {} {}.mdx
+find $root/data/docs -depth -name "*.md" -exec sh -c 'mv "$1" "${1%.md}.mdx"' _ {} \;
 npm run prettier:docs
 find $root/data/docs -name "*.mdx" | xargs sed -i "s/><br>/\/><br \/>/g"
 find $root/data/docs -name "*.mdx" | xargs sed -i "s/<br>/<br \/>/g"

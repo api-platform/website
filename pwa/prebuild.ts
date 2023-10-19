@@ -167,7 +167,7 @@ const indexes = [
 function getGithubPath(slug: string[]): string {
   slug = slug.filter((v) => v);
   const lastPart = slug.slice(-1)[0];
-  return slug.join("/") + (indexes.includes(lastPart) ? "/index.md.mdx" : ".md.mdx");
+  return slug.join("/") + (indexes.includes(lastPart) ? "/index.mdx" : ".mdx");
 }
 
 function extractTitleFromMarkdown(content: string) {

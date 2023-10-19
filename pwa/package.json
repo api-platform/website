@@ -10,7 +10,7 @@
     "i18n": "ts-node ./update-i18n.ts; prettier ./i18n/dictionaries/*.json --write",
     "prebuild": "ts-node ./prebuild.ts",
     "postbuild": "ts-node ./postbuild.ts",
-    "prettier:docs": "prettier --write \"data/docs/**/*.{md,mdx}\" --parser mdx"
+    "prettier:docs": "prettier --write \"data/docs/**/*.{mdx}\" --parser mdx"
   },
   "dependencies": {
     "@docsearch/react": "^3.5.2",
