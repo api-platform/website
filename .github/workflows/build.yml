@@ -187,6 +187,13 @@ jobs:
       - name: Fetch documentation
         working-directory: ./pwa
         run: bash tools/get-docs.sh
+      - name: Compute source documentation
+        working-directory: ./pwa
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: phive
+        run: bash tools/get-core-docs.sh
       - name: Build and push
         uses: docker/build-push-action@v4    
         with:

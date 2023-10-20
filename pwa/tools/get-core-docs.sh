@@ -3,6 +3,7 @@
 root=$(pwd)
 IFS=$'\n' read -d '' -r -a versions < docs-versions.txt
 
+phive install --trust-gpg-keys 62D05354C61458CB8378FD323F82299C64F51AD2 --copy php-documentation-generator/php-documentation-generator
 rm -rf core.temp
 git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.temp
 cd core.temp

@@ -30,8 +30,7 @@ function toAbsoluteUrl(
 
     return path
       .normalize(
-        `/docs/${
-          !version || version === current ? "" : `v${version}`
+        `/docs/${!version || version === current ? "" : `v${version}`
         }/${path.dirname(githubPath)}/${url}`
       )
       .replace("index.md", "")
@@ -40,18 +39,14 @@ function toAbsoluteUrl(
 }
 
 export async function loadMarkdownBySlugArray(slug: string[]) {
-  const mdx = await import(`data/docs/${slug.join("/")}.mdx`);
-
-  const fileContents = await readFile(
-    path.join(process.cwd(), `/data/docs/${slug.join("/")}.mdx`),
-    "utf-8"
+  const {  default: Mdx, frontmatter } = await import(
+    `data/docs/${slug.join("/")}.mdx`
   );
-  const matterResult = matter(fileContents);
 
   return {
-    ...mdx,
-    name: mdx.name || extractTitleFromMarkdown(matterResult.content),
-    type: matterResult.data.type,
+    default: Mdx,
+    name: frontmatter.name || slug[slug.length - 1],
+    type: frontmatter.type,
   };
 }
 
@@ -195,7 +190,7 @@ export function getHtmlFromGithubContent(
         const l = getLang(block);
         html += `<div><a key="${l}" onclick="switchCode(event)" role="button" class="inline-block py-2 px-6 border-b-2 font-semibold text-sm uppercase hover:bg-blue-black/5 dark:hover:bg-blue-black/30 transition-all ${
           i === 0
-            ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
+              ? "text-blue dark:text-white border-blue bg-blue-black/5 dark:bg-blue-black/30"
             : "text-gray-400 dark:text-blue/60 border-transparent"
         }">${l}</a></div>`;
       });
@@ -205,7 +200,7 @@ export function getHtmlFromGithubContent(
       blocks.forEach((block: string, i: number) => {
         const l = getLang(block);
         const h = md.render(block + `\n\`\`\``);
-        html += `<div key="${l}" class="p-4 ${
+          html += `<div key="${l}" class="p-4 ${
           i > 0 ? "hidden" : ""
         }">${h}</div>`;
       });
