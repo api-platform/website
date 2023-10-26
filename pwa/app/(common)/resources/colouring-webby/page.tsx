@@ -15,6 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: dictionary["colouring"].title,
       description: dictionary["colouring"].description,
+      url: "https://api-platform.com",
+      type: "website",
       images: [
         {
           url: OGImage.src,

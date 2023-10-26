@@ -33,10 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     openGraph: {
-      url: "https://api-platform.com",
-      type: "website",
       title,
       description,
+      url: "https://api-platform.com",
+      type: "website",
       images: [
         {
           url: OGImage.src,
