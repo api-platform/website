@@ -71,7 +71,7 @@ spec:
               port: 80
             initialDelaySeconds: 3
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.caddy.resources | nindent 12 }}
         - name: {{ .Chart.Name }}-php
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -152,7 +152,7 @@ spec:
                 - docker-healthcheck
             periodSeconds: 30
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.php.resources | nindent 12 }}
       volumes:
       - name: php-socket
         emptyDir: {}
