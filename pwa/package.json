@@ -46,7 +46,7 @@
     "remark-frontmatter": "^4.0.1",
     "remark-mdx-frontmatter": "^3.0.0",
     "rxjs": "^7.8.1",
-    "sharp": "^0.32.5",
+    "sharp": "^0.32.6",
     "shiki": "^0.14.3",
     "swagger-ui": "^5.4.2",
     "unist-util-visit": "^4.1.2",
