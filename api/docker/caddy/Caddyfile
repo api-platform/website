@@ -10,9 +10,7 @@ log {
 }
 
 @docsroot path_regexp ^/docs(/?)$
-@defaultdocs path_regexp ^/docs/distribution(.*)
-redir @docsroot /docs/3.2/distribution
-redir @defaultdocs /docs/3.2/distribution{1}
+redir @docsroot /docs/distribution/
 
 @version path_regexp version (/docs/[^/]+)$
 redir @version {re.version.1}/distribution
