@@ -26,7 +26,7 @@ handle_path /docs/* {
         header_up Host {http.reverse_proxy.upstream.hostport}
     }
 
-	# rewrite * /{$BUCKET_S3_NAME}{path}
+	rewrite * /{$BUCKET_S3_NAME}{path}
 }
 
 handle {
