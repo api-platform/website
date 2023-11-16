@@ -41,6 +41,10 @@ next:
 
 github:
   key: changeMe
+
+bucket:
+  s3Upstream: ChangeMe
+  s3Name: ChangeMe
   
 caddy:
   image:

@@ -50,7 +50,6 @@ COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playg
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
-ADD ./data/docs ./data/docs
 
 EXPOSE 3000
 ENV PORT 3000
@@ -68,7 +67,6 @@ COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playg
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
-ADD ./data/docs ./data/docs
 
 ARG NEXT_ROOT_URL
 ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
