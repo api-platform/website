@@ -17,6 +17,10 @@ redir @defaultdocs /docs/3.2/distribution{1}
 @version path_regexp version (/docs/[^/]+)$
 redir @version {re.version.1}/distribution
 
+@withoutExtension not path_regexp \.\w+$
+@withTld path_regexp \.(org|io|fr|com|pl|me|de|gg|dev)$
+@withTrailingSlash path_regexp ^(.*)/+$
+
 handle_path /docs/* {
     # you could ADD ./docs /srv/app/docs and use this for development
     # root * /srv/app/docs
@@ -25,6 +29,11 @@ handle_path /docs/* {
     reverse_proxy {$BUCKET_S3_UPSTREAM} {
         header_up Host {http.reverse_proxy.upstream.hostport}
     }
+
+    # Handles DocumentIndices
+    rewrite @withTld /{$BUCKET_S3_NAME}{path}/index.html
+    rewrite @withTrailingSlash /{$BUCKET_S3_NAME}{path}index.html
+    rewrite @withoutExtension /{$BUCKET_S3_NAME}{path}/index.html
 
 	rewrite * /{$BUCKET_S3_NAME}{path}
 }
