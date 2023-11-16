@@ -59,7 +59,7 @@ async function getAllConRoutes() {
 
 async function getAllStandardRoutes() {
   const routes: string[] = [];
-  routes.push(`${basePath}/docs`);
+  // routes.push(`${basePath}/docs`);
   routes.push(`${basePath}/events`);
   routes.push(`${basePath}/references`);
   routes.push(`${basePath}/community`);
@@ -81,18 +81,18 @@ async function getAllStandardRoutes() {
     routes.push(`${basePath}/community/contributors/${contributor.login}`);
   }
 
-  for (const version of versions) {
-    routes.push(`${basePath}/docs/v${version}`);
-
-    const nav = await readFile(`data/docs/${version}/nav.json`, "utf8");
-    const navs = JSON.parse(nav.toString());
-
-    for (const nav of navs) {
-      for (const link of nav.links) {
-        routes.push(`${basePath}${link.link}`);
-      }
-    }
-  }
+  // for (const version of versions) {
+  //   routes.push(`${basePath}/docs/v${version}`);
+  //
+  //   const nav = await readFile(`data/docs/${version}/nav.json`, "utf8");
+  //   const navs = JSON.parse(nav.toString());
+  //
+  //   for (const nav of navs) {
+  //     for (const link of nav.links) {
+  //       routes.push(`${basePath}${link.link}`);
+  //     }
+  //   }
+  // }
 
   return routes.map((route) => addTrailingSlashIfNecessary(route));
 }
