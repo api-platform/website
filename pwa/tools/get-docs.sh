@@ -23,19 +23,3 @@ do
 
 	git worktree add $root/data/docs/$version origin/$version
 done
-
-cd $root
-
-rm -rf core.temp
-git clone -b main --single-branch --depth=1 https://github.com/api-platform/core core.temp
-cd core.temp
-
-mkdir -p $root/data/docs/changelog
-for version in "${versions[@]}"
-do
-	git clean -f
-	git restore .
-	git fetch --depth=1 origin $version
-	git checkout FETCH_HEAD -b $version-temp
-	cp $root/core.temp/CHANGELOG.md $root/data/docs/changelog/$version.mdx
-done

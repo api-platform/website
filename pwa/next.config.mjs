@@ -183,9 +183,6 @@ const nextConfig = {
     },
     experimental: {
         serverMinification: false,
-        esmExternals: false,
-        webpackBuildWorker: true,
-        // mdxRs: true,
     },
 };
 

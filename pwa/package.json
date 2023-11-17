@@ -12,6 +12,7 @@
     "postbuild": "ts-node ./postbuild.ts"
   },
   "dependencies": {
+    "@docsearch/css": "^3.5.2",
     "@docsearch/react": "^3.5.2",
     "@formatjs/intl-localematcher": "^0.2.32",
     "@mdx-js/loader": "^2.3.0",

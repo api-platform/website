@@ -184,9 +184,6 @@ jobs:
               fi
               echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
           fi
-      - name: Fetch documentation
-        working-directory: ./pwa
-        run: bash tools/get-docs.sh
       - name: Build and push
         uses: docker/build-push-action@v4    
         with:

@@ -9,7 +9,34 @@ log {
 	output file /var/log/caddy/access.log
 }
 
-route {
+@docsroot path_regexp ^/docs(/?)$
+redir @docsroot /docs/distribution/
+
+@version path_regexp version (/docs/[^/]+)$
+redir @version {re.version.1}/distribution
+
+@withoutExtension not path_regexp \.\w+$
+@withTld path_regexp \.(org|io|fr|com|pl|me|de|gg|dev)$
+@withTrailingSlash path_regexp ^(.*)/+$
+
+handle_path /docs/* {
+    # you could ADD ./docs /srv/app/docs and use this for development
+    # root * /srv/app/docs
+    # file_server
+
+    reverse_proxy {$BUCKET_S3_UPSTREAM} {
+        header_up Host {http.reverse_proxy.upstream.hostport}
+    }
+
+    # Handles DocumentIndices
+    rewrite @withTld /{$BUCKET_S3_NAME}{path}/index.html
+    rewrite @withTrailingSlash /{$BUCKET_S3_NAME}{path}index.html
+    rewrite @withoutExtension /{$BUCKET_S3_NAME}{path}/index.html
+
+	rewrite * /{$BUCKET_S3_NAME}{path}
+}
+
+handle {
     # Disable Topics tracking if not enabled explicitly: https://github.com/jkarlin/topics
     header ?Permissions-Policy "browsing-topics=()"
 
