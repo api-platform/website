@@ -12,8 +12,15 @@ log {
 @docsroot path_regexp ^/docs(/?)$
 redir @docsroot /docs/distribution/
 
-@version path_regexp version (/docs/[^/]+)$
-redir @version {re.version.1}/distribution
+@withoutTrailingSlash {
+    not path_regexp ^/docs/.*/$
+    not path_regexp \.\w+$
+}
+
+redir @withoutTrailingSlash {path}/
+
+@version path_regexp version ^/docs/v([^/]+)/$
+redir @version /docs/v{re.version.1}/distribution/
 
 @withoutExtension not path_regexp \.\w+$
 @withTld path_regexp \.(org|io|fr|com|pl|me|de|gg|dev)$
