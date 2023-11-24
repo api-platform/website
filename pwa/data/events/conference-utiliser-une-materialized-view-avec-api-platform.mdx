@@ -1,0 +1,24 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2023-09-21",
+    },
+    link: '/con/2023/conferences/utiliser-materialized-view-postgresql-api-platform/',
+    picture: "https://img.youtube.com/vi/rVr7t88Kf50/0.jpg",
+    speakers: [{
+        name: "Damien Levallois",
+        github: "Damien-Lev",
+    }],
+    video: "https://www.youtube.com/watch?v=rVr7t88Kf50",
+};
+
+# Comment utiliser une Materialized View PostgreSQL avec API Platform ?
+
+Vos données s’entassent dans vos tables et vos requêtes en lecture sont de plus en plus longues à exécuter ? Certaines requêtes comprenant des calculs complexes ou bien de multiples jointures vous causent des problèmes de performance ?
+
+Dans cette présentation je vais démontrer comment je lie une Resource d’API et une Materialized View avec API Platform. Nous verrons en quoi cette stratégie se revèle très utile mais qu’il ne faut pas non plus en abuser.
