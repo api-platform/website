@@ -36,13 +36,13 @@ export default function EventsPage({ events }: EventsPageProps) {
       city: "Lille",
     },
     startDate: {
-      date: "2023-09-21",
+      date: "2024-09-19",
     },
     endDate: {
-      date: "2023-09-22",
+      date: "2024-09-20",
     },
     picture: `/images/con/og-2021.png`,
-    title: "API Platform Conference 2023",
+    title: "API Platform Conference 2024",
     slug: "api-con",
   };
 
@@ -98,7 +98,7 @@ export default function EventsPage({ events }: EventsPageProps) {
               <EventCard
                 event={apiConEvent}
                 link="/con"
-                description="The only event dedicated to API Platform and its ecosystem!"
+                description="The flagship event dedicated to API Platform and its ecosystem! Call for papers is now open: submit your talk pitch for a chance to speak at the conference!"
               />
             </div>
           </div>
