@@ -1,0 +1,24 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2023-09-21",
+    },
+    link: '/con/2023/conferences/valider-vos-donnees-avec-api-platform/',
+    picture: "https://img.youtube.com/vi/LYr9pNFTHd0/0.jpg",
+    speakers: [{
+        name: "Thibaut Arnoud",
+        github: "ArnoudThibaut",
+    }],
+    video: "https://www.youtube.com/watch?v=LYr9pNFTHd0",
+};
+
+# Valider vos données avec API Platform
+
+API Platform intègre le composant validator de Symfony afin de valider nos ressources après leur déserialization. Mais est-ce que ça ne serait pas intéressant de pouvoir valider le contenu de nos requêtes avant même l’instanciation de nos ressources ?
+
+Ensemble nous ferons un tour d’horizon de la validation dans API Platform puis nous verrons comment il est possible de valider la requête avant même la deserialization grâce à JSON Schema !

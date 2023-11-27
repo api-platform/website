@@ -1,0 +1,26 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2023-09-22",
+    },
+    link: '/con/2023/conferences/create-the-dto-system-of-your-dreams-stateoptions-entityclass/',
+    picture: "https://i.ytimg.com/vi/IVJjADhU7WM/hq720.jpg",
+    speakers: [{
+        name: "Ryan Weaver",
+        github: "weaverryan",
+    }],
+    video: "https://www.youtube.com/watch?v=IVJjADhU7WM",
+};
+
+# Create the DTO System of your Dreams: stateOptions + entityClass
+
+One of the best features of API Platform is the ability to add #[ApiResource] above an entity and… bam! You have a fully-functional API! Though, if you want to have full control and peak clarity, nothing beats creating a dedicated DTO class.
+
+But, creating a DTO class - especially when the data comes from Doctrine - feelslike reinventing the wheel! Suddenly you need to create a state provider, stateprocessor and filters… which all do the same thing that API Platform does automatically for entities.
+
+No more! In this talk, we’ll explore a new feature called “state options” that gives you the flexibility of a DTO class, but the convenience of an entity. We’ll explore how this works & exactly what you need (e.g. a mapper system) to create a DTO class and have it “just work”.
