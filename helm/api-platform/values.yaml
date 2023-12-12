@@ -18,6 +18,10 @@ php:
     - "10.0.0.0/8"
     - "172.16.0.0/12"
     - "192.168.0.0/16"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
 
 pwa:
   replicaCount: 1
@@ -41,6 +45,10 @@ next:
 
 github:
   key: changeMe
+
+bucket:
+  s3Upstream: ChangeMe
+  s3Name: ChangeMe
   
 caddy:
   image:
@@ -48,6 +56,10 @@ caddy:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
 
 # You may prefer using the managed version in production: https://mercure.rocks
 mercure:
@@ -127,15 +139,6 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
-# resources:
-#   # We usually recommend not to specify default resources and to leave this as a conscious
-#   # choice for the user. This also increases chances charts run on environments with little
-#   # resources, such as Minikube. If you do want to specify resources, uncomment the following
-#   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-#   requests:
-#     cpu: 150m
-#     memory: 500Mi
 
 # If you use Mercure, you need the managed or the On Premise version to deploy more than one pod: https://mercure.rocks/docs/hub/cluster
 replicaCount: 1

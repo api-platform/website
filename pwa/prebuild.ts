@@ -186,127 +186,127 @@ function extractTitleFromMarkdown(content: string) {
   return null;
 }
 
-export async function getMarkdownStreamTitle(version: string, slug: string[]) {
-  const stream = createReadStream(
-    path.join("data/docs/", version, getGithubPath(slug))
-  );
-  let title: string;
+// export async function getMarkdownStreamTitle(version: string, slug: string[]) {
+//   const stream = createReadStream(
+//     path.join("data/docs/", version, getGithubPath(slug))
+//   );
+//   let title: string;
+//
+//   return new Promise((resolve, reject) => {
+//     stream.on("data", (chunk) => {
+//       title =
+//         extractTitleFromMarkdown(chunk.toString()) ||
+//         slug[slug.length - 1] ||
+//         "";
+//
+//       if (title) {
+//         resolve(title);
+//         stream.destroy();
+//       }
+//     });
+//     stream.on("error", (err) => reject(err));
+//   });
+// }
 
-  return new Promise((resolve, reject) => {
-    stream.on("data", (chunk) => {
-      title =
-        extractTitleFromMarkdown(chunk.toString()) ||
-        slug[slug.length - 1] ||
-        "";
+// async function loadDocumentationNav() {
+//   for (const version of versions) {
+//     const data = await readFile(`data/docs/${version}/outline.yaml`, "utf8");
+//     const navData: Chapters = YAML.parse(data.toString());
+//     const basePath = version === current ? `/docs` : `/docs/v${version}`;
+//     const versionNav = [];
+//
+//     for (const chapter of navData.chapters) {
+//       const links = [];
+//
+//       for (const link of chapter.items) {
+//         const title = await getMarkdownStreamTitle(version, [
+//           chapter.path,
+//           link === "index" ? "" : link,
+//         ]);
+//
+//         links.push({
+//           title,
+//           link:
+//             link === "index"
+//               ? `${basePath}/${chapter.path}/`
+//               : `${basePath}/${chapter.path}/${link}/`,
+//         });
+//       }
+//
+//       versionNav.push({
+//         title: chapter.title,
+//         basePath: `${basePath}/${chapter.path}/`,
+//         links: links,
+//       });
+//     }
+//
+//     versionNav.push({
+//       title: "Changelog",
+//       basePath: `${basePath}/changelog/`,
+//       link: `${basePath}/changelog/`,
+//       links: [],
+//     });
+//
+//     fs.writeFileSync(
+//       `data/docs/${version}/nav.json`,
+//       JSON.stringify(versionNav)
+//     );
+//   }
+// }
 
-      if (title) {
-        resolve(title);
-        stream.destroy();
-      }
-    });
-    stream.on("error", (err) => reject(err));
-  });
-}
-
-async function loadDocumentationNav() {
-  for (const version of versions) {
-    const data = await readFile(`data/docs/${version}/outline.yaml`, "utf8");
-    const navData: Chapters = YAML.parse(data.toString());
-    const basePath = version === current ? `/docs` : `/docs/v${version}`;
-    const versionNav = [];
-
-    for (const chapter of navData.chapters) {
-      const links = [];
-
-      for (const link of chapter.items) {
-        const title = await getMarkdownStreamTitle(version, [
-          chapter.path,
-          link === "index" ? "" : link,
-        ]);
-
-        links.push({
-          title,
-          link:
-            link === "index"
-              ? `${basePath}/${chapter.path}/`
-              : `${basePath}/${chapter.path}/${link}/`,
-        });
-      }
-
-      versionNav.push({
-        title: chapter.title,
-        basePath: `${basePath}/${chapter.path}/`,
-        links: links,
-      });
-    }
-
-    versionNav.push({
-      title: "Changelog",
-      basePath: `${basePath}/changelog/`,
-      link: `${basePath}/changelog/`,
-      links: [],
-    });
-
-    fs.writeFileSync(
-      `data/docs/${version}/nav.json`,
-      JSON.stringify(versionNav)
-    );
-  }
-}
-
-export async function updateAllDocFiles(directory: string) {
-  const files = await fs.readdirSync(directory);
-  await Promise.all(
-    files.map(async (file: any) => {
-      const fullPath = `${directory}/${file}`;
-      const s = fs.statSync(fullPath);
-      if (s.isDirectory()) await updateAllDocFiles(fullPath);
-      else {
-        if (path.extname(fullPath) === ".mdx") fixDocContent(fullPath);
-      }
-    })
-  );
-}
-
-function fixDocContent(filePath: string) {
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const imgRegex = /<img\s+[^>]*?(?<!\/)>(?!<\/img>)/gi;
-  const codeBlockRegex = /\n{0,2}```([\w-]+)\n([\s\S]*?)\n```/g;
-  const codeSelectorRegex = /<div data-code-selector>([\s\S]*?)\n{0,1}<\/div>/g;
-  const braceRegex = /{@([^{}]+)}/g;
-
-  const guideRegex =
-    /(<a href="#section.*?>[\s\S]*?<\/a>)\n?([\s\S]*?)(?=\n?<a href="#section|$)/g;
-
-  const formattedContent = fileContent
-    // replace wrong codeblock
-    .replace(/````/g, "```")
-    // replace wrong br tags
-    .replace(/<br>/g, "<br/>")
-    // replace wrong img tags
-    .replace(/class=/g, "className=")
-    .replace(imgRegex, (match: string) => match.replace(/>$/, " />"))
-    .replace(/```<\/div>/g, "```\n</div>")
-    .replace(codeBlockRegex, "\n\n```$1\n$2\n```")
-    .replace(guideRegex, `<SectionGuide>\n$1\n$2\n</SectionGuide>\n`)
-    .replace(codeSelectorRegex, "<CodeSelector>$1\n</CodeSelector>")
-    .replace(braceRegex, "\\{@$1}")
-    .replace(/Converts {/g, "Converts {}")
-    // pagination exception
-    .replace(
-      /the page {- the offset {- the limit {/g,
-      "the page |- the offset |- the limit |"
-    )
-    // errorListener exception
-    .replace(/from the operation \({/g, "from the operation")
-    .replace(/<dunglas@gmail.com>/g, "");
-
-  fs.writeFileSync(
-    path.format({ ...path.parse(filePath), base: "", ext: ".mdx" }),
-    formattedContent,
-    "utf8"
-  );
-}
+// export async function updateAllDocFiles(directory: string) {
+//   const files = await fs.readdirSync(directory);
+//   await Promise.all(
+//     files.map(async (file: any) => {
+//       const fullPath = `${directory}/${file}`;
+//       const s = fs.statSync(fullPath);
+//       if (s.isDirectory()) await updateAllDocFiles(fullPath);
+//       else {
+//         if (path.extname(fullPath) === ".mdx") fixDocContent(fullPath);
+//       }
+//     })
+//   );
+// }
+//
+// function fixDocContent(filePath: string) {
+//   const fileContent = fs.readFileSync(filePath, "utf-8");
+//   const imgRegex = /<img\s+[^>]*?(?<!\/)>(?!<\/img>)/gi;
+//   const codeBlockRegex = /\n{0,2}```([\w-]+)\n([\s\S]*?)\n```/g;
+//   const codeSelectorRegex = /<div data-code-selector>([\s\S]*?)\n{0,1}<\/div>/g;
+//   const braceRegex = /{@([^{}]+)}/g;
+//
+//   const guideRegex =
+//     /(<a href="#section.*?>[\s\S]*?<\/a>)\n?([\s\S]*?)(?=\n?<a href="#section|$)/g;
+//
+//   const formattedContent = fileContent
+//     // replace wrong codeblock
+//     .replace(/````/g, "```")
+//     // replace wrong br tags
+//     .replace(/<br>/g, "<br/>")
+//     // replace wrong img tags
+//     .replace(/class=/g, "className=")
+//     .replace(imgRegex, (match: string) => match.replace(/>$/, " />"))
+//     .replace(/```<\/div>/g, "```\n</div>")
+//     .replace(codeBlockRegex, "\n\n```$1\n$2\n```")
+//     .replace(guideRegex, `<SectionGuide>\n$1\n$2\n</SectionGuide>\n`)
+//     .replace(codeSelectorRegex, "<CodeSelector>$1\n</CodeSelector>")
+//     .replace(braceRegex, "\\{@$1}")
+//     .replace(/Converts {/g, "Converts {}")
+//     // pagination exception
+//     .replace(
+//       /the page {- the offset {- the limit {/g,
+//       "the page |- the offset |- the limit |"
+//     )
+//     // errorListener exception
+//     .replace(/from the operation \({/g, "from the operation")
+//     .replace(/<dunglas@gmail.com>/g, "");
+//
+//   fs.writeFileSync(
+//     path.format({ ...path.parse(filePath), base: "", ext: ".mdx" }),
+//     formattedContent,
+//     "utf8"
+//   );
+// }
 
 // function fixReferencesLinks(filePath: string) {
 //   const fileContent = fs.readFileSync(filePath, "utf-8");
@@ -346,8 +346,8 @@ try {
   createLogos();
   createColouringMiniatures();
   generateXsd();
-  updateAllDocFiles(path.join(process.cwd(), "data/docs"));
-  loadDocumentationNav();
+  // updateAllDocFiles(path.join(process.cwd(), "data/docs"));
+  // loadDocumentationNav();
   // getContributors();
 //updateAllReferenceLinks(path.join(process.cwd(), "data/docs/reference"));
 } catch (e) {
