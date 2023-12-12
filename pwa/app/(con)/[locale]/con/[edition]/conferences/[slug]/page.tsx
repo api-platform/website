@@ -3,6 +3,7 @@ import { getAllConferenceSlugs, getConferenceData } from "api/con/conferences";
 import ConferencePage from "./components/ConferencePage";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { locale: Locale; edition: string; slug: string };
@@ -29,12 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .replace("%name%", SPEAKERS)
     .replace("%edition%", params.edition);
 
+  const URL = `${getRootUrl()}/${params.locale}/con/${params.edition}/${params.slug}`;
+
   return {
     title: conference.title,
     description: DESCRIPTION,
     openGraph: {
       title: `${conference.title} - API Platform Conference`,
       description: DESCRIPTION,
+      url: URL,
+      type: 'website',
     },
     twitter: {
       title: `${conference.title} - API Platform Conference`,
