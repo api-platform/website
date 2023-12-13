@@ -40,6 +40,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: DESCRIPTION,
       url: URL,
       type: 'website',
+      images: [
+        {
+          url: `${getRootUrl()}/images/con/og-${params.edition}.png`,
+          width: 1200,
+          height: 630,
+          alt: "API Platform logo",
+        },
+      ],
     },
     twitter: {
       title: `${conference.title} - API Platform Conference`,
