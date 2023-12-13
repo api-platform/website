@@ -73,14 +73,6 @@ const parseGithubText = (text: string) => {
   );
 };
 
-const addHttpsToUrls = (url: string) => {
-  if (!/^https?:\/\//i.test(url)) {
-    return "https://" + url;
-  }
-
-  return url;
-}
-
 export async function generateStaticParams() {
   const contributors = getContributors(0, 100);
   return contributors.map((c) => ({ slug: c.login }));
@@ -102,10 +94,6 @@ export default async function Page({
   }[] = [];
 
   const contributorName = contributor.name || contributor.login;
-
-  if (contributor.blog) {
-    contributor.blog = addHttpsToUrls(contributor.blog);
-  }
 
   const getContributionsText = () => {
     if (10 >= contributor.rank) {
