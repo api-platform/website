@@ -2,7 +2,7 @@ import { getAllContributors } from "./api/contributorsRank";
 const fs = require("fs");
 const path = require("path");
 
-export async function getContributors() {
+async function getContributors() {
   const allContributors = await getAllContributors();
   fs.writeFileSync(
     path.join(process.cwd(), "data/contributors.json"),
@@ -10,3 +10,5 @@ export async function getContributors() {
     "utf-8"
   );
 }
+
+getContributors();
