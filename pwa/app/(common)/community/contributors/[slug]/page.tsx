@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
+      url: "https://api-platform.com",
+      type: "website",
       images: [
         {
           url: OGImage.src,
