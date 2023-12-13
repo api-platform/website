@@ -37,6 +37,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: URL,
       title: `${dictionary[edition].title} - API Platform Conference`,
       description: dictionary[edition].description,
+      type: "website",
+      images: [
+        {
+          url: `${getRootUrl()}/images/con/og-${edition}.png`,
+          width: 1200,
+          height: 630,
+          alt: `API Platform Conference ${edition}`,
+        },
+      ],
     },
     twitter: {
       title: `${dictionary[edition].title} - API Platform Conference`,
