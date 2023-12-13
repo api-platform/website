@@ -8,7 +8,7 @@ on:
       - staging
   # Deploy if "deploy" label exists
   pull_request:
-    types: [ reopened, synchronize, labeled ]
+    types: [reopened, synchronize, labeled]
 
 # Do not use concurrency to prevent simultaneous helm deployments
 jobs:
@@ -22,6 +22,33 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
             deploy
+
+  storage:
+    name: Put data in storage
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy'))
+    permissions:
+      contents: "read"
+      id-token: "write"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # gcloud does not work with Python 3.10 because collections.Mappings was removed in Python 3.10.
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9.15
+      - name: Auth gcloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.gke-credentials }}
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.gke-project }}
+      - name: Store contributors
+        run: |
+          pnpm contributors
+          gsutils -q -m rsync -d -r ./data/contributors.json gs://api-platform-website-v3/
 
   build:
     name: Build
@@ -40,10 +67,9 @@ jobs:
       gke-project: ${{ secrets.GKE_PROJECT }}
       gh-key: ${{ secrets.GH_KEY }}
 
-
   deploy:
     name: Deploy
-    needs: [ build ]
+    needs: [build]
     if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy'))
     uses: ./.github/workflows/deploy.yml
     with:
