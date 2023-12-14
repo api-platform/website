@@ -40,6 +40,7 @@ jobs:
       gke-project: ${{ secrets.GKE_PROJECT }}
       gh-key: ${{ secrets.GH_KEY }}
 
+
   deploy:
     name: Deploy
     needs: [ build ]
