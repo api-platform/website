@@ -48,7 +48,7 @@ jobs:
       - name: Store contributors
         run: |
           pnpm contributors
-          gsutils -q -m rsync -d -r ./data/contributors.json gs://api-platform-website-v3/
+          gsutils rsync ./data/contributors.json gs://api-platform-website-v3/storage
 
   build:
     name: Build
