@@ -25,5 +25,6 @@ jobs:
           project_id: ${{ secrets.gke-project }}
       - name: Store contributors
         run: |
+          pnpm install
           pnpm contributors
           gsutils rsync ./data/contributors.json gs://api-platform-website-v3/storage
