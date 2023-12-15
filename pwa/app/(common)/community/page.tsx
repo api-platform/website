@@ -103,7 +103,7 @@ function SocialItem({
         <p className="text text-secondary text-sm font-light flex-1">{text}</p>
         <ArrowLink
           size="small"
-          href="/events/"
+          href={link}
           text={`Go to ${title}`}
           className="w-fit ml-auto mt-4 hidden lg:block"
         />
