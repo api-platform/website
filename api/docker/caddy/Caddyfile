@@ -24,6 +24,8 @@ redir @withoutTrailingSlash {path}/
 redir @version /docs/v{re.version.1}/distribution/
 @version_trailing path_regexp version ^/docs/v([^/]+)/$
 redir @version_trailing /docs/v{re.version.1}/distribution/
+@version_current path_regexp path ^/docs/v3.2/(.*)
+redir @version_current /docs/{re.path.1}
 
 @withoutExtension not path_regexp \.\w+$
 @withTld path_regexp \.(org|io|fr|com|pl|me|de|gg|dev)$
@@ -36,6 +38,11 @@ handle_path /docs/* {
 
     reverse_proxy {$BUCKET_S3_UPSTREAM} {
         header_up Host {http.reverse_proxy.upstream.hostport}
+        @error status 404
+        handle_response @error {
+            rewrite * /not-found
+        }
+
     }
 
     # Handles DocumentIndices
