@@ -38,10 +38,6 @@ handle_path /docs/* {
 
     reverse_proxy {$BUCKET_S3_UPSTREAM} {
         header_up Host {http.reverse_proxy.upstream.hostport}
-        @error status 404
-        handle_response @error {
-            rewrite * /not-found
-        }
     }
 
     # Handles DocumentIndices
