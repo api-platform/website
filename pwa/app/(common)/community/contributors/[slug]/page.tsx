@@ -35,6 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
+      url: "https://api-platform.com",
+      type: "website",
       images: [
         {
           url: OGImage.src,
@@ -97,20 +99,16 @@ export default async function Page({
 
   const getContributionsText = () => {
     if (10 >= contributor.rank) {
-      return `${
-        contributor.isCoreTeam ? "As an API Platform core team member, " : ""
-      }${contributorName} is one of the most active contributors to the API Platform framework and worked on`;
+      return `${contributor.isCoreTeam ? "As an API Platform core team member, " : ""
+        }${contributorName} is one of the most active contributors to the API Platform framework and worked on`;
     }
     if (20 < contributor.contributions) {
-      return `${
-        contributor.isCoreTeam ? "As an API Platform core team member, " : ""
-      }${contributorName} enhanced the API Platform framework with no less than ${
-        contributor.contributions
-      } contributions. This active contributor worked on`;
+      return `${contributor.isCoreTeam ? "As an API Platform core team member, " : ""
+        }${contributorName} enhanced the API Platform framework with no less than ${contributor.contributions
+        } contributions. This active contributor worked on`;
     }
-    return `${contributorName} is a ${
-      contributor.isCoreTeam ? "core team member and a " : ""
-    }contributor to the API Platform framework and worked on`;
+    return `${contributorName} is a ${contributor.isCoreTeam ? "core team member and a " : ""
+      }contributor to the API Platform framework and worked on`;
   };
 
   const getProjectsText = () => {
@@ -136,8 +134,8 @@ export default async function Page({
         {index === contributor.repos.length - 2
           ? " and "
           : index === contributor.repos.length - 1
-          ? "."
-          : ", "}
+            ? "."
+            : ", "}
       </>
     ));
   };
@@ -163,9 +161,8 @@ export default async function Page({
               <strong>#{contributor.rank}</strong>{" "}
               <span>{contributorName}</span>
             </Heading>
-            <p className="uppercase font-extralight py-4 text-xl">{`${
-              contributor.contributions
-            } contribution${contributor.contributions > 1 ? "s" : ""}`}</p>
+            <p className="uppercase font-extralight py-4 text-xl">{`${contributor.contributions
+              } contribution${contributor.contributions > 1 ? "s" : ""}`}</p>
           </div>
           <ContributorProfileCard
             contributor={contributor}
