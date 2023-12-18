@@ -106,6 +106,7 @@ function SocialItem({
           href={link}
           text={`Go to ${title}`}
           className="w-fit ml-auto mt-4 hidden lg:block"
+          external
         />
       </div>
     </Card>
