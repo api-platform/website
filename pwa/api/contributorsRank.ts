@@ -148,6 +148,10 @@ export const getAllContributors = async () => {
         const { data } = await octokit.rest.users.getByUsername({
           username: contributor.login || "",
         });
+        if (data.blog) {
+          data.blog = addHttpsToUrls(data.blog);
+        }
+
         return {
           login: data.login,
           repos: contributor.repos,
@@ -169,3 +173,11 @@ export const getAllContributors = async () => {
     return [];
   }
 };
+
+const addHttpsToUrls = (url: string) => {
+  if (!/^https?:\/\//i.test(url)) {
+    return "https://" + url;
+  }
+
+  return url;
+}
