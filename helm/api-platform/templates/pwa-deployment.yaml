@@ -13,7 +13,7 @@ spec:
       {{- include "api-platform.selectorLabelsPWA" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with .Values.pwa.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
