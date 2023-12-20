@@ -31,6 +31,6 @@ jobs:
 
       - name: Store contributors
         run: |
-          pnpm install
-          pnpm contributors
+          npm install
+          npm run contributors
           gsutils -q rsync ./data/contributors.json gs://api-platform-website-v3/storage
