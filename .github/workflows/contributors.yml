@@ -31,6 +31,7 @@ jobs:
 
       - name: Store contributors
         run: |
+          cd pwa/
           npm install
           npm run contributors
           gsutils -q rsync ./data/contributors.json gs://api-platform-website-v3/storage
