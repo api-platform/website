@@ -1,45 +1,9 @@
-name: Storage
+name: Contributors
 
 on:
   schedule:
     - cron: 0 0 * * *
   workflow_dispatch: ~
-  workflow_call:
-    inputs:
-      environment:
-        type: string
-        description: GitHub Environment Name
-        default: prod
-        required: false
-      docker-images-version:
-        type: string
-        description: Docker Images Version
-        default: latest
-        required: false
-      gke-cluster:
-        type: string
-        description: Google Kubernetes Engine Cluster
-        required: true
-      gke-zone:
-        type: string
-        description: Google Kubernetes Engine Zone
-        required: true
-    secrets:
-      gke-credentials:
-        description: Google Kubernetes Engine Credentials as JSON
-        required: true
-      gke-project:
-        description: Google Kubernetes Engine Project
-        required: true
-      gh-key:
-        description: Github authentication key
-        required: true
-      # cloudflare-api-token:
-      #   description: Cloudflare API Token
-      #   required: true
-      # cloudflare-zone-id:
-      #   description: Cloudflare Zone Id
-      #   required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -47,7 +11,7 @@ concurrency:
 
 jobs:
   storage:
-    name: Put data in storage
+    name: Fetch contributors
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -56,16 +20,17 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.9.15
+             
       - name: Auth gcloud
         uses: google-github-actions/auth@v1
         with:
-          credentials_json: ${{ secrets.gke-credentials }}
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
-        with:
-          project_id: ${{ secrets.gke-project }}
+          credentials_json: ${{ secrets.BUCKET_CREDS }}
+        
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
       - name: Store contributors
         run: |
           pnpm install
           pnpm contributors
-          gsutils rsync ./data/contributors.json gs://api-platform-website-v3/storage
+          gsutils -q rsync ./data/contributors.json gs://api-platform-website-v3/storage
