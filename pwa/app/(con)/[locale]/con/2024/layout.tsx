@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function EditionLayout({ children }: { children: React.ReactNode }) {
-  const eventData = getEditionEventData("2023");
+  const eventData = getEditionEventData("2024");
   return (
     <LayoutBase
       edition="2024"
       nav={nav}
       footer={footer}
-      isTicketingOpen={false}
+      isTicketingOpen
       withSocialFooter
     >
       <script

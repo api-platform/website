@@ -127,7 +127,7 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
           <Button
             className="mx-auto mb-10"
             external
-            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eQfYOEmuQNG8he3AeOeWaz8"
+            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eQ4jnGymiYRBmmOBz_skNmM"
           >
             {t("missing_conferences.watch_the_conferences")}
           </Button>
