@@ -38,6 +38,8 @@ export default function RealTime() {
             src="/images/mercure.png"
             alt=""
             fill
+            quality={100}
+            sizes="(max-width: 768px) 400px, 800px"
             className="object-contain"
           />
         </div>

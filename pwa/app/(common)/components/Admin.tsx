@@ -45,10 +45,8 @@ export default function Admin() {
           </div>
         </div>
         <div className="w-full max-w-md -mb-12 | lg:mb-0 lg:max-w-none lg:w-1/2 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2">
-          <Image
+          <img
             src="/images/admin.svg"
-            width={400}
-            height={400}
             className="w-full h-auto md:scale-110 -translate-x-[5%]"
             alt=""
           />

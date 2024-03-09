@@ -1,5 +1,4 @@
 import Card from "components/common/Card";
-import Image from "next/image";
 
 interface LogoCardProps {
   imageName: string;
@@ -48,7 +47,7 @@ export default function LogoCard({ imageName }: LogoCardProps) {
         href={`/images/logos/${imageName}.svg`}
         className="w-full aspect-[2/1] p-4 overflow-hidden bg-checkboard bg-gray-500/10 bg-4 bg-left-top dark:bg-checkboard-dark"
       >
-        <Image
+        <img
           src={`/images/logos/${imageName}.svg`}
           width="330"
           height="200"

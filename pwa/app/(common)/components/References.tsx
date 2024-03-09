@@ -22,7 +22,7 @@ export default function References({ refs, ossRefs }: ReferencesProps) {
           They <strong>use</strong> API Platform
         </Heading>
         <div className="relative py-12 flex flex-row items-center justify-center">
-          <Image
+          <img
             src="/images/web.svg"
             alt=""
             width={1000}
