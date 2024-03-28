@@ -2,7 +2,6 @@ import Logo from "components/common/Logo";
 import { Github, Mastodon, Twitter } from "components/icons/social";
 import footerData from "data/footer";
 import Link, { LinkProps } from "components/common/Link";
-import Image from "next/image";
 import { PropsWithChildren } from "react";
 import classNames from "classnames";
 import Button from "components/common/Button";
@@ -155,10 +154,9 @@ export default function Footer() {
               ))}
             </div>
             <div className="relative w-1/2 aspect-[4/3] | sm:w-1/3 sm:ml-4">
-              <Image
+              <img
                 alt=""
                 src="/images/super-webby.svg"
-                fill
                 className="w-full h-full object-contain"
               />
             </div>

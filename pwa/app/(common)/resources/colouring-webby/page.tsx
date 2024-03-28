@@ -65,7 +65,7 @@ export default async function Page() {
               !
             </p>
           </div>
-          <Image
+          <img
             className="w-[400px] hidden | lg:block lg:translate-y-16"
             width={300}
             height={300}

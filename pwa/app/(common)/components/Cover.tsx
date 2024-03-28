@@ -17,21 +17,18 @@ export default function Cover() {
           "container relative h-full pt-12 flex flex-col-reverse items-center justify-center text-white dark:text-blue-darkest | lg:min-h-screen | 2xl:min-h-[70vh]"
         )}
       >
-        <Image
+        <img
           src="/images/web.svg"
           alt=""
-          loading="eager"
           width={1200}
           height={1200}
           className="absolute z-10 top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 | md:left-3/4"
         />
         <div className="w-full flex h-full z-20 max-w-sm | md:absolute md:bottom-12 md:max-w-2xl md:w-3/5 md:self-end md:right-1/2 md:-translate-x-[10%] | lg:translate-x-[5%] lg:w-4/5">
-          <Image
+          <img
             alt=""
             src="/images/zeus.svg"
-            loading="eager"
-            fill
-            className="object-contain object-bottom !relative"
+            className="object-contain object-bottom w-full h-full"
           />
         </div>
         <div className="relative w-full flex flex-col items-center text-center py-12 z-20 | md:w-7/12 md:ml-auto md:py-32 | lg:w-1/2">

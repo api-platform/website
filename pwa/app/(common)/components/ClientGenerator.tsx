@@ -131,14 +131,14 @@ export default function ClientGenerator() {
           </Button>
         </div>
         <div className="relative z-20 w-96 max-w-full -mb-10 | sm:absolute sm:w-1/2 sm:bottom-0 sm:right-0 | lg:right-auto lg:bottom-auto lg:relative lg:h-auto lg:w-1/2 lg:translate-y-28">
-          <Image
+          <img
             alt=""
             width={600}
             height={600}
             src="/images/wheel.png"
             className=" w-full | lg:absolute lg:bottom-0 lg:min-w-[600px] lg:right-0"
           />
-          <Image
+          <img
             alt=""
             width={300}
             height={300}

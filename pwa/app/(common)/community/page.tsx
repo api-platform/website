@@ -7,7 +7,6 @@ import ArrowLink from "components/common/ArrowLink";
 import Button from "components/common/Button";
 import RandomContributors from "./components/RandomContributors";
 import ShapeSection from "components/common/ShapeSection";
-import Image from "next/image";
 import Card from "components/common/Card";
 import classNames from "classnames";
 import { Metadata } from "next";
@@ -85,7 +84,7 @@ function SocialItem({
       className="flex flex-row items-center justify-center w-full gap-8"
     >
       <div className="h-16 aspect-square relative p-2">
-        <Image
+        <img
           alt=""
           src={`/images/social/${image}.svg`}
           width={150}
@@ -126,9 +125,8 @@ export default async function Page() {
         darkModeColor="blue-black"
       >
         <div className="absolute left-0 top-0 w-full h-full opacity-70 z-0">
-          <Image
+          <img
             src="/images/community_cover.png"
-            fill
             className="w-full h-full object-cover"
             alt=""
           />

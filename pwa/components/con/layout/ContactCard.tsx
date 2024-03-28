@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext } from "react";
-import Image from "next/image";
 import useAnimation from "hooks/con/useAnimation";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
@@ -31,7 +30,7 @@ export default function ContactCard() {
       <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-gradient bg-blue shadow-xl mx-auto w-11/12 max-w-xl text-white top-0">
         <div className="dotted-corner w-full h-full p-4 flex flex-row items-center after:absolute after:w-[calc(100%-36px)] after:h-[calc(100%-36px)] after:border-2 after:border-blue-light after:border-dotted after:left-1/2 after:top-1/2 after:-translate-y-1/2 after:-translate-x-1/2 after:pointer-events-none">
           <div className="w-1/3 relative z-10 -translate-y-1 hidden sm:block">
-            <Image
+            <img
               src="/images/con/spider_contact.svg"
               alt="spider"
               width="168"
