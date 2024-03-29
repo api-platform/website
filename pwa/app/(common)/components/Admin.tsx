@@ -12,7 +12,7 @@ export default function Admin() {
           Enjoy a beautiful <strong>B2B interface</strong>
         </Heading>
         <p className="text-text-secondary dark:text-white text-xl font-light mt-8">
-          API Platform Admin exposes your data trough a beautiful UI.
+          API Platform Admin exposes your data through a beautiful UI.
         </p>
         <div className="flex flex-col w-full justify-between items-center py-8 gap-y-8 | sm:flex-row sm:max-w-xl sm:gap-x-24 sm:gap-y-0 sm:mt-8 | md:max-w-none | xl:min-h-[450px]">
           <div className="flex flex-col items-center text-center w-full | sm:items-start sm:text-left | lg:w-1/4">
@@ -45,10 +45,8 @@ export default function Admin() {
           </div>
         </div>
         <div className="w-full max-w-md -mb-12 | lg:mb-0 lg:max-w-none lg:w-1/2 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2">
-          <Image
+          <img
             src="/images/admin.svg"
-            width={400}
-            height={400}
             className="w-full h-auto md:scale-110 -translate-x-[5%]"
             alt=""
           />

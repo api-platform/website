@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Heading from "components/common/typography/Heading";
 import ContentFormatter from "components/common/ContentFormatter";
 
@@ -14,7 +13,7 @@ export default async function Page() {
       </div>
       <div className="container max-w-5xl pt-16 font- leading-relaxed">
         <div className="w-full flex flex-col items-center pb-16 | sm:flex-row">
-          <Image
+          <img
             src="/images/copyright.svg"
             width={50}
             height={50}
