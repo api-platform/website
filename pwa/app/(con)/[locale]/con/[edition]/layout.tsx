@@ -11,7 +11,12 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return [{ edition: "2021" }, { edition: "2022" }, { edition: "2023" }];
+  return [
+    { edition: "2021" },
+    { edition: "2022" },
+    { edition: "2023" },
+    { edition: "2024" },
+  ];
 }
 
 export const dynamicParams = false;

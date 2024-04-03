@@ -87,7 +87,7 @@
     "date": "19 et 20 septembre 2024 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
-      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement. Vous souhaitez proposer un sujet ? {{link}}",
+      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement.",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
     },

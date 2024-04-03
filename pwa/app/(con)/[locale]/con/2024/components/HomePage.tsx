@@ -248,12 +248,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 {t("buy_tickets")}
               </BuyButton>
             )}
-            <Button
-              external
-              to="https://conference-hall.io/public/event/GMijW4ZrZDo6hzKeF1gk"
-            >
-              {t("become_speaker")}
-            </Button>
           </div>
         </div>
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] right-[6%] top-[38%] -translate-y-1/2 -rotate-[4deg]" />
