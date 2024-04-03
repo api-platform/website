@@ -41,13 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function EditionLayout({ children }: { children: React.ReactNode }) {
   const eventData = getEditionEventData("2024");
   return (
-    <LayoutBase
-      edition="2024"
-      nav={nav}
-      footer={footer}
-      isTicketingOpen
-      withSocialFooter
-    >
+    <LayoutBase edition="2024" nav={nav} footer={footer} isTicketingOpen>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventData) }}
