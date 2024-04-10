@@ -94,7 +94,7 @@ export default function Preheader() {
                 (author of the API Platform screencasts and long-time
                 contributor){" "}
               </span>
-              and his family needs our help!
+              and his family need our help!
             </p>
             <p className="hidden md:block text-sm font-light">
               Please consider making a donation now to support them.
