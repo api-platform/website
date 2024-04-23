@@ -11,6 +11,10 @@ const nav = {
       text: "nav.links.previous_editions",
     },
     {
+      to: "/{{locale}}/con/2024/speakers",
+      text: "nav.links.speakers",
+    },
+    {
       to: "/{{locale}}/con/2024/#pricing",
       text: "nav.links.pricing",
     },

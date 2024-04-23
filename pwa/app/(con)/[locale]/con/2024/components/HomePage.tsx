@@ -253,67 +253,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] right-[6%] top-[38%] -translate-y-1/2 -rotate-[4deg]" />
       </Section>
       <Section
-        section="lastYear"
-        className="bg-white z-10 relative pb-10 overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle>
-            <Translate translationKey="last_edition.title" />
-          </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="last_edition.subtitle"
-              translationParams={{
-                edition: "2023",
-                link: (
-                  <a href={`/${locale}/con/2023/review`} className="link">
-                    {t("last_edition.subtitle_link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <PictureGallery
-            className="py-4"
-            link="https://www.flickr.com/photos/194052559@N02/albums/72177720311494546"
-          >
-            {images.map((image: string) => (
-              <Image
-                className="object-cover"
-                key={image}
-                fill
-                src={image}
-                alt=""
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
-              />
-            ))}
-          </PictureGallery>
-        </div>
-      </Section>
-      <Section
-        section="missing"
-        className="relative z-10 text-center overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle dark>
-            <Translate
-              translationKey="missing_conferences.title"
-              translationParams={{ edition: "2023" }}
-            />
-          </SectionTitle>
-          <SectionSubTitle dark>
-            {t("missing_conferences.subtitle")}
-          </SectionSubTitle>
-          <Button
-            className="mx-auto mb-10"
-            external
-            to="https://www.youtube.com/watch?v=Xo6w8YMjeNg&list=PL3hoUDjLa7eQ4jnGymiYRBmmOBz_skNmM"
-          >
-            {t("missing_conferences.watch_the_conferences")}
-          </Button>
-        </div>
-      </Section>
-      <Section
         section="speakers"
         className="bg-white z-10 relative py-4 overflow-x-hidden"
       >
