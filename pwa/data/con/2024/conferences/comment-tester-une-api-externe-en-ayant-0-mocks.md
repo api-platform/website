@@ -6,7 +6,7 @@ date:
 start: 
 end: 
 short: Découvrez des méthodes pour tester des API externes. 
-tag: Bonnes pratiques
+tag:
 ---
 
 # Comment tester une API externe en ayant 0 mocks ? (🇫🇷) 
