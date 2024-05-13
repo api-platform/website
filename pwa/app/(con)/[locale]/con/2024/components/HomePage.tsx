@@ -6,7 +6,6 @@ import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
 import Web from "components/con/common/Web";
 import Wave from "components/con/common/Wave";
 import Venue from "components/con/home/Venue";
-import Image from "next/image";
 import Partners from "components/con/home/Partners";
 import LookingSponsorCard from "components/con/home/LookingSponsorCard";
 import { currentEdition } from "data/con/editions";
@@ -17,7 +16,6 @@ import { Partner, Speaker } from "types/con";
 import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import Section, { SectionsContext } from "components/con/home/Section";
-import PictureGallery from "components/con/common/PictureGallery";
 
 type HomePageProps = {
   speakers: Speaker[];
@@ -332,14 +330,17 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <LookingSponsorCard />
         </div>
-        <div className="bg-white text-center relative z-10 pt-40 pb-40">
+        <Section
+          section="partners"
+          className="bg-white text-center relative z-10 pt-40 pb-40"
+        >
           <div className="container text-center">
             <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              {t("sponsorship.they_trust_us", { year: "2023" })}
+              <Translate translationKey="partners.title" />
             </div>
-            <Partners data={partners} edition="2023" />
+            <Partners data={partners} edition="2024" />
           </div>
-        </div>
+        </Section>
       </Section>
     </>
   );

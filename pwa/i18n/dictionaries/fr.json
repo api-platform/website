@@ -83,7 +83,7 @@
     }
   },
   "2024": {
-    "baseline": "Le seul événement consacré au framework API Platform et à son écosystème est de retour pour sa quatrième édition les 19 et 20 septembre 2024 à Lille, et en ligne.",
+    "baseline": "Le seul événement consacré à API Platform et son écosystème de retour les 19 et 20 septembre 2024, à Lille et en ligne.",
     "date": "19 et 20 septembre 2024 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
@@ -182,7 +182,8 @@
       "schedule": "Agenda",
       "speakers": "Speakers",
       "sponsorship": "Partenariat",
-      "venue": "Le lieu"
+      "venue": "Le lieu",
+      "faq": "FAQ"
     }
   },
   "or_follow_us": "ou suivez-nous sur nos réseaux",
