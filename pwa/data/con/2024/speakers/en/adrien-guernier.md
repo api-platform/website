@@ -9,7 +9,7 @@ twitter:
 github: https://github.com/adguernier
 ---
 
-## About d'Adrien
+## About Adrien
 
 Adrien has a passion for **learning and sharing**. After transitioning into web development a couple of years ago, he began freelancing as a PHP developer and trainer. His top pick for a framework? Symfony!
 
