@@ -4,9 +4,9 @@ type: legal
 
 # Frequently Asked Questions
 
-## What is API Platform Con and which audience is it targeting?
+## What is the API Platform Conference and which audience is it targeting?
 
-The API Platform Conference offers a 2-days digest of the latest trends and best practices of [API Platform’s](https://api-platform.com/) ecosystem. This conference brings together innovative companies, project leaders and highly skilled developers. Large topics will be discussed in English but also in French: APIs, PHP, Symfony, JavaScript, Svelte, Docker... If you are a developer, a CTO or decision-maker specialized in one of these technologies: this event is made for you!
+The API Platform Conference offers a 2-days digest of the latest trends and best practices of [API Platform’s](https://api-platform.com/) ecosystem. This conference brings together innovative companies, project leaders and highly skilled developers. Large topics will be discussed in English but also in French: APIs, PHP, Symfony, JavaScript, AI, FrankenPHP... If you are a developer, a CTO or decision-maker specialized in one of these technologies: this event is made for you!
 
 ## Where does the event take place and how do we get there?
 
@@ -24,6 +24,14 @@ If you need to pump milk, there will be a room reserved for you with a refrigera
 
 Tickets **are non refundable**. Tickets will only be refunded if Les-Tilleuls.coop cancels the event. However, you can transfer your ticket by your own: please reach [Cécile](mailto:cecile@les-tilleuls.coop) once you've found a buyer so that she can change the name on the badge.
 
+## Can I convert my on-site ticket to an online ticket?
+
+You can convert your on-site ticket to an online ticket. However, please note that the price difference between the two tickets is non-refundable. If you wish to convert your ticket, [email us](mailto:events@les-tilleuls.coop) and we will do our best to help you.
+
+## Can I convert my online ticket to an on-site ticket?
+
+You can convert your online ticket to an on-site ticket. The price difference between the online ticket and the current on-site rate at the time of your request will be charged to you. If you need to convert your ticket, [contact us](mailto:events@les-tilleuls.coop).
+
 ## Can I access to a car park?
 
 Once you’re arrived in Lille, we invite you to use public transport. You will find all travel information on how to get to the event [on this link](#venue).
@@ -40,7 +48,7 @@ Your invitation with your personal access will be sent a couple of hours before 
 
 ## When does the event start?
 
-The doors will open on **September 19 at 08:15 AM** and the opening keynote will start at 09:10 AM. After presenting a piece of ID at the reception desk, you will receive your access badge.
+The doors will open on **September 19 at 08:30 AM** and the opening keynote will start at 09:30 AM. After presenting a piece of ID at the reception desk, you will receive your access badge.
 
 ## How do I buy my ticket? Can I buy it at the registration desk?
 
@@ -80,7 +88,7 @@ You can take pictures of the venue and of the conferences, just **be careful to 
 
 ## How can I share the event through social media?
 
-Use the hashtag **#ApiPlatformCon** and don’t forget to mention [@apiPlatform](https://twitter.com/ApiPlatform)!
+Use the hashtag **#ApiPlatformCon** and don’t forget to mention [@ApiPlatform](https://twitter.com/ApiPlatform)!
 
 ## Can I distribute flyers?
 
