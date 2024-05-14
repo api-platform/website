@@ -16,16 +16,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = params.locale || i18n.defaultLocale;
   const dictionary = await import(`i18n/meta/${locale}.json`);
 
+  const DESCRIPTION = dictionary.speakers.description.replace(
+    "%edition%",
+    edition
+  );
+
   return {
     title: dictionary.speakers.title,
-    description: dictionary.speakers.description,
+    description: DESCRIPTION,
     openGraph: {
       title: `${dictionary.speakers.title} - API Platform Conference`,
-      description: dictionary.speakers.description,
+      description: DESCRIPTION,
     },
     twitter: {
       title: `${dictionary.speakers.title} - API Platform Conference`,
-      description: dictionary.speakers.description,
+      description: DESCRIPTION,
     },
     alternates: {
       languages: {
