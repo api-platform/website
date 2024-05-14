@@ -23,6 +23,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Emagma",
+    logo: "emagma",
+    link: "https://www.emagma.fr/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
