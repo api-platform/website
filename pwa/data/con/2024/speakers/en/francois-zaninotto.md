@@ -1,10 +1,10 @@
 ---
 type: speaker
 id: francois-zaninotto-2024
-number: 100
+number: 5
 name: François Zaninotto
-job: CEO
-company: Marmelab
+job: React-admin creator
+company: 
 twitter: https://twitter.com/francoisz
 github: https://github.com/fzaninotto
 ---

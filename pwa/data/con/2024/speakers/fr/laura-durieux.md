@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: laura-durieux-2024
-number: 5
+number: 9
 name: Laura Durieux
 job: Fullstack developer
 company: Business Inside Software

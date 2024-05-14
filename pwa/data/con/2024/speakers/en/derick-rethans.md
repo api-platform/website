@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: derick-rethans-2024
-number: 3
+number: 1
 name: Derick Rethans
 job: Creator
 company: Xdebug

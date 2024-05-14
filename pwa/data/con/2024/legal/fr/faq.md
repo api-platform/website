@@ -35,7 +35,7 @@ Vous pouvez transformer votre billet online en billet on-site. La différence de
 
 ## Puis-je avoir accès à un parking ?
 
-Une fois que vous serez arrivé Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).
+Une fois que vous serez arrivé à Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).
 
 La station de métro la plus proche est Canteleu, à seulement 10 minutes à pieds de l'événement. Lille est aussi une ville _bike-friendly_, vous trouverez un système de location de vélo situé juste en face de l'événement. Des places de parking sont également disponibles à proximité, mais payantes et en nombre limité. 
 

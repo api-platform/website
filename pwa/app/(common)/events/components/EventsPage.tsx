@@ -98,7 +98,7 @@ export default function EventsPage({ events }: EventsPageProps) {
               <EventCard
                 event={apiConEvent}
                 link="/con"
-                description="The flagship event dedicated to API Platform and its ecosystem! Call for papers is now open: submit your talk pitch for a chance to speak at the conference!"
+                description="The flagship event dedicated to API Platform and its ecosystem! Get ready for two days of ideas and knowledge-sharing with our incredible lineup of renowned PHP, JavaScript, and API specialists."
               />
             </div>
           </div>

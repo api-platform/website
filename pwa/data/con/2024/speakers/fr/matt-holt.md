@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: matt-holt-2024
-number: 1
+number: 4
 name: Matt Holt
 job: Creator
 company: Caddy Web Server
