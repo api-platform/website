@@ -3,8 +3,8 @@ type: speaker
 id: antoine-bluchet-2024
 number: 100
 name: Antoine Bluchet (Soyuka)
-job: Core Team
-company: API Platform
+job: API Platform project lead 
+company: 
 twitter: https://twitter.com/s0yuka
 github: https://github.com/soyuka
 ---
