@@ -83,16 +83,16 @@
     }
   },
   "2024": {
-    "baseline": "L'événement phare dédié à API Platform et son écosystème revient en 2024 !",
+    "baseline": "Le seul événement consacré à API Platform et son écosystème de retour les 19 et 20 septembre 2024, à Lille et en ligne.",
     "date": "19 et 20 septembre 2024 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
-      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement.",
+      "subtitle": "Découvrez dès à présent les speakers qui monteront sur scène les 19 et 20 septembre prochains à Lille. Retours d'expérience, architecture, performances ou encore IA... Découvrez celles et ceux que vous rencontrerez prochainement !",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "L'API Platform Conference se déroulera à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pourrez acheter un billet pour suivre les conférences en ligne.",
+      "subtitle": "L'API Platform Conference se tient à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas vous rendre sur place, vous pouvez acheter un billet pour suivre les conférences en direct sur internet.",
       "tip_title": "Important",
       "tip": "Des chambres d’hôtels ont été spécialement négociées et bloquées pour faciliter votre déplacement à Lille. La demande hôtelière est très élevée à Lille à cette époque de l’année : jetez un œil aux chambres disponibles et réservez-les dès que possible {{tip_link}}",
       "tip_link": "en suivant ce lien"
@@ -182,7 +182,8 @@
       "schedule": "Agenda",
       "speakers": "Speakers",
       "sponsorship": "Partenariat",
-      "venue": "Le lieu"
+      "venue": "Le lieu",
+      "faq": "FAQ"
     }
   },
   "or_follow_us": "ou suivez-nous sur nos réseaux",
@@ -215,7 +216,7 @@
   "speakers": {
     "see_all": "Voir tous les speakers",
     "speaker_schedule": "Agenda de {{speaker}}",
-    "subtitle": "Écoutez des speakers internationaux de renom partager leurs connaissances autour des API et d'API Platform",
+    "subtitle": "La programmation complète vient de sortir. Découvrez les speakers et les sujets qui marqueront l'API Platform Con 2024, et rejoignez-nous !",
     "title": "Découvrez nos <strong>speakers</strong>"
   },
   "sponsorship": {

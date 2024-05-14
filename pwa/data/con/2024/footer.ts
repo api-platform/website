@@ -33,12 +33,12 @@ const footer = [
     title: "footer.legal.title",
     links: [
       {
-        title: "footer.legal.links.code_of_conduct",
-        link: "/{{locale}}/con/2024/code-of-conduct",
-      },
-      {
         title: "footer.legal.links.faq",
         link: "/{{locale}}/con/2024/faq",
+      },
+      {
+        title: "footer.legal.links.code_of_conduct",
+        link: "/{{locale}}/con/2024/code-of-conduct",
       },
       {
         title: "footer.legal.links.transparency",

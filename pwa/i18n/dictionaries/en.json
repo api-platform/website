@@ -85,16 +85,16 @@
     }
   },
   "2024": {
-    "baseline": "The flagship conference dedicated to API Platform and its ecosystem is coming back in 2024.",
+    "baseline": "The flagship conference dedicated to API Platform and its ecosystem is back in Lille, France, on 19 and 20 September 2024.",
     "date": "September 19-29, 2024 - Lille & online",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Our selected speakers will be revealed very soon.",
+      "subtitle": "The full schedule has just been unveiled. Take a look at the speakers and topics that will be on stage at the API Platform Conference 2024, and join us!",
       "subtitle_link": "Contact us!",
       "title": "Our <strong>speakers</strong>"
     },
     "venue": {
-      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic French city. If you can't come to Lille, you can watch the event online.",
       "tip_title": "Important",
       "tip": "Hotel rooms have been negotiated and pre-booked to make your travel easier. Hotel demand is very high in Lille at this time of year: take a look at the available rooms and book them as soon as possible {{tip_link}}",
       "tip_link": "by following this link"
@@ -184,7 +184,8 @@
       "schedule": "Schedule",
       "speakers": "Speakers",
       "sponsorship": "Sponsorship",
-      "venue": "Venue"
+      "venue": "Venue",
+      "faq": "FAQ"
     }
   },
   "or_follow_us": "or follow us on social media",
@@ -197,7 +198,7 @@
         "on_site_early": "2 days on-site event <br>(Early bird)</br>",
         "online_tickets": "Online ticket"
       },
-      "subtitle": "French and english-speaking talks"
+      "subtitle": "French and English-speaking talks"
     },
     "free_ticket": "Your ticket is <strong>free*</strong>",
     "student": "Student or unemployed developer?",
@@ -217,7 +218,7 @@
   "speakers": {
     "see_all": "See all our speakers",
     "speaker_schedule": "{{speaker}}'s schedule",
-    "subtitle": "Join international speakers sharing their lastest insights",
+    "subtitle": "Check out our speaker line up for the API Platform Conference 2024 and get the best resources on architecture, performance, security or best practices on PHP, JavaScript or API Design.",
     "title": "Meet our <strong>speakers</strong>"
   },
   "sponsorship": {

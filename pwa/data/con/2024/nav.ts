@@ -7,8 +7,8 @@ const nav = {
       mobileOnly: true,
     },
     {
-      to: "/{{locale}}/con/editions",
-      text: "nav.links.previous_editions",
+      to: "/{{locale}}/con/2024/speakers",
+      text: "nav.links.speakers",
     },
     {
       to: "/{{locale}}/con/2024/#pricing",
@@ -19,8 +19,12 @@ const nav = {
       text: "nav.links.venue",
     },
     {
-      to: "/{{locale}}/con/2024/#sponsorship",
-      text: "nav.links.sponsorship",
+      to: "/{{locale}}/con/2024/#partners",
+      text: "nav.links.partners",
+    },
+    {
+      to: "/{{locale}}/con/2024/faq",
+      text: "nav.links.faq",
     },
   ],
 };

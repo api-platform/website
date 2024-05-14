@@ -6,11 +6,11 @@ type: legal
 
 ## Qu'est-ce que l'API Platform Conference et à quel public cet événement s'adresse t-il ?
 
-L'API Platform Conference propose un programme de deux jours axé sur le framework [API Platform](https://api-platform.com/) et son écosystème. Cette conférence réunit des entreprises innovantes et une communauté de développeuses et développeurs de tous niveaux. Les sujets abordés couvrent un large éventail de domaines tels que les API, PHP, Symfony, JavaScript, Svelte, Docker, et bien d'autres encore. Les conférences se déroulent en anglais et en français. Que vous soyez développeur, développeuse, CTO, RH travaillant dans une entreprise spécialisée dans ces technologies, cet événement est spécialement conçu pour vous !
+L'API Platform Conference est un événement de deux jours axé sur le framework [API Platform](https://api-platform.com/) et son écosystème. Cette conférence réunit des entreprises innovantes et une communauté de développeuses et développeurs de tous niveaux. Les sujets abordés couvrent un large éventail de domaines tels que les API, PHP, Symfony, JavaScript, l'IA, FrankenPHP et bien d'autres encore. Les conférences se déroulent en anglais et en français. Que vous soyez développeur, développeuse, CTO, RH travaillant dans une entreprise spécialisée dans ces technologies, cet événement est spécialement conçu pour vous !
 
 ## Où se déroule l'événement et comment puis-je m'y rendre ?
 
-L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), carrefour de grandes villes européennes et capitale des Flandres. Les conférences ont lieu à [Euratechnologies](https://www.euratechnologies.com/), le plus grand incubateur de start-ups en Europe. En plus d'être organisées à Lille, les conférences sont retransmises en direct sur internet.
+L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), carrefour de grandes villes européennes et capitale des Flandres. Les conférences ont lieu à [Euratechnologies](https://www.euratechnologies.com/), le plus grand incubateur de start-ups en Europe. En plus d'être organisées à Lille, les conférences sont retransmises en direct sur internet à partir d'une plateforme de streaming privée.
 
 ## Il y a t-il un code de conduite ?
 
@@ -24,13 +24,22 @@ Si vous avez besoin de tirer votre lait, une salle avec un réfrigérateur sera 
 
 Seule l'annulation de l'événement par Les-Tilleuls.coop donne lieu à un remboursement des billets. Toute commande est **ferme et définitive et ne peut donner lieu à remboursement complet ou partiel** sur demande de l’acheteur quelque soit le motif. Si vous ne pouvez plus assister à l'événement, vous pouvez demander cependant transférer votre place : contactez [Cécile](mailto:cecile@les-tilleuls.coop) une fois que vous avez trouvé un repreneur pour qu'elle puisse faire la modification de nom sur le badge.
 
+## Est-ce que je peux transformer ma place on-site en place online ?
+
+Vous pouvez transformer votre billet sur place en billet en ligne. Sachez toutefois que la différence de tarif entre les deux tickets n'est pas remboursable. Si vous souhaitez transformer votre place, [écrivez nous](mailto:events@les-tilleuls.coop) et nous ferons tout pour vous aider.
+
+## Est-ce que je peux transformer ma place online en place on-site ?
+
+Vous pouvez transformer votre billet online en billet on-site. La différence de tarif entre le billet en ligne et le tarif en vigueur au moment de votre demande vous sera facturé. Si vous avez besoin de transformer votre place, [écrivez-nous](mailto:events@les-tilleuls.coop).
+
+
 ## Puis-je avoir accès à un parking ?
 
-Une fois arrivé à Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).
+Une fois que vous serez arrivé Lille, nous vous recommandons d'utiliser les transports en commun pour vous déplacer. Toutes les informations nécessaires pour vous rendre à l'événement sont disponibles [sur ce lien](#venue).
 
 La station de métro la plus proche est Canteleu, à seulement 10 minutes à pieds de l'événement. Lille est aussi une ville _bike-friendly_, vous trouverez un système de location de vélo situé juste en face de l'événement. Des places de parking sont également disponibles à proximité, mais payantes et en nombre limité. 
 
-## Est-ce que l'API Platform Con est accessible aux personnes à mobilité réduite ?
+## Est-ce que l'API Platform Conference est accessible aux personnes à mobilité réduite ?
 
 Oui : l'accueil, les salles de conférences, le hall exposants et les toilettes sont accessibles aux personnes à mobilité réduite. Vous avez besoin d'un aménagemet spécial ou souhaitez une information ne se trouvant pas dans cette FAQ ? Envoyez un e-mail à [Cécile](mailto:cecile@les-tilleuls.coop) qui reviendra vers vous dès que possible.
 
@@ -42,7 +51,7 @@ Si vous participez à l'édition sur place, votre convocation vous sera égaleme
 
 ## Quand démarre l'événement ?
 
-L'ouverture des portes est prévue le **19 septembre à partir de 08h15**, la keynote d'ouverture démarrera à 9h10. Le jour J, présentez-vous à l'accueil de l'événement avec une pièce d'identité : vous recevrez en échange votre badge vous donnant accès à l'événement.
+L'ouverture des portes est prévue le **19 septembre à partir de 08h30**, la keynote d'ouverture démarrera à 9h30. Le jour J, présentez-vous à l'accueil de l'événement avec une pièce d'identité : vous recevrez en échange votre badge vous donnant accès à l'événement.
 
 ## Comment puis-je acheter un billet ? Est-ce que je peux en acheter un sur place ?
 
@@ -82,8 +91,8 @@ Vous pouvez prendre des photos, mais **veillez à ne pas perturber les speakers 
 
 ## Comment je peux communiquer sur l'événement ?
 
-Utilisez le hashtag **#ApiPlatformCon** et n'oubliez pas de mentionner [@apiPlatform](https://twitter.com/ApiPlatform) !
+Utilisez le hashtag **#ApiPlatformCon** et n'oubliez pas de mentionner [@ApiPlatform](https://twitter.com/ApiPlatform) !
 
 ## Est-ce que je peux distribuer des flyers ou de la publicité sur le lieu de l'événement ?
 
-À moins de figurer parmi les sponsors de l'API Platform Con, **il est strictement interdit de distribuer du matériel promotionnel** sur place.
+À moins de figurer parmi les sponsors de l'API Platform Conference, **il est strictement interdit de distribuer du matériel promotionnel** sur place.
