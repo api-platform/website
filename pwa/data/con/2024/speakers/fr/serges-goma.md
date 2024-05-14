@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: serges-goma-2024
-number: 100
+number: 10
 name: Sergès Goma
 job: Sofware developer
 company: Eveasoft

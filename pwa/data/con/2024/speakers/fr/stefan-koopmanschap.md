@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: stefan-koopmanschap-2024
-number: 100
+number: 6
 name: Stefan Koopmanschap 
 job: Co-founder
 company: Ingewikkeld

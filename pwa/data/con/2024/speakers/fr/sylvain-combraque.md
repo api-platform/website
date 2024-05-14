@@ -3,7 +3,7 @@ type: speaker
 id: sylvain-combraque-2024
 number: 100
 name: Sylvain Combraque
-job: Freelance Golang developer
+job: Souin cache server creator
 company: 
 twitter: https://twitter.com/Darkweak_dev
 github: https://github.com/Darkweak

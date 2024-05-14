@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: steve-mcdougall-2024
-number: 100
+number: 2
 name: Steve McDougall
 job: DevRel
 company: Treblle

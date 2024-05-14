@@ -3,7 +3,7 @@ type: speaker
 id: cecile-staehle-2024
 number: 100
 name: Cécile Staehle
-job:  RH
+job:  Cooperator
 company: Troopers
 twitter:
 github:
