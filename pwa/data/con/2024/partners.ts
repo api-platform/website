@@ -56,6 +56,12 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Motiv'Her",
+    logo: "motivher",
+    link: "https://www.motivher.fr/",
+    rank: 4,
+  },
+  {
     name: "Accor Group",
     logo: "accor",
     link: "https://all.accor.com/",
