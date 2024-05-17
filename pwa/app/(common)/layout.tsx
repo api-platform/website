@@ -4,6 +4,7 @@ import { Poppins, Fira_Mono } from "next/font/google";
 import Layout from "components/layout/Layout";
 import { Metadata } from "next";
 import { getRootUrl } from "utils";
+import ModalCon from "./components/ModalCon";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -68,6 +69,7 @@ function RootLayout({
       className={`${poppins.variable} ${fira.variable} w-full light`}
     >
       <body className="bg-white dark:bg-blue-black">
+        <ModalCon />
         <Layout>{children}</Layout>
       </body>
     </html>

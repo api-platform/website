@@ -55,11 +55,7 @@ export default function Nav({ withPreheader = false }) {
           "left-0 w-full absolute z-50",
           withBg && "bg-white dark:bg-blue-darkest shadow-md",
           isDocPage ? "sticky" : "absolute",
-          withPreheader && !isDocPage
-            ? withRyanHeader
-              ? "top-16 md:top-20"
-              : "top-16"
-            : "top-0"
+          withPreheader && !isDocPage ? "top-16" : "top-0"
         )}
       >
         <div
