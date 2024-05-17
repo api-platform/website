@@ -50,7 +50,7 @@ export default function ModalCon() {
       <div
         ref={modal}
         className={classNames(
-          "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] rounded-3xl w-4/5 max-w-[800px] overflow-hidden border-white border-px transition-transform duration-500",
+          "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] rounded-3xl w-11/12 md:w-4/5 max-w-[800px] overflow-hidden border-white border-px transition-transform duration-500",
           open ? "scale-100" : "scale-0"
         )}
       >
@@ -98,11 +98,10 @@ export default function ModalCon() {
               API Platform Conference 2024: meet the best PHP, JavaScript and
               API experts
             </h2>
-            <p className="font-light text-sm">
-              <strong className="font-bold">Learn more</strong> about the event, register for the
-              conference, and get ready for two days of inspiration, ideas, and
-              knowledge-sharing with our incredible lineup of renowned
-              specialists and advocates.
+            <p className="font-light text-sm text-blue-black">
+              Lear more about the event, register for the conference, and get
+              ready for two days of inspiration, ideas, and knowledge-sharing
+              with our incredible lineup of renowned specialists and advocates.
             </p>
             <Button color="pink" size="large" href="/con" className="mt-4">
               Register now
