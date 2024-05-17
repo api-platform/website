@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: nicolas-grekas-2024
-number: 7
+number: 10
 name: Nicolas Grekas
 job: Core Team
 company: Symfony

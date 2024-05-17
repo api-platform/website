@@ -25,6 +25,7 @@
     "@types/http-headers": "^3.0.0",
     "@types/swagger-ui": "^3.52.0",
     "classnames": "^2.3.2",
+    "cookies-next": "^4.1.1",
     "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
     "gray-matter": "^4.0.3",
@@ -86,5 +87,6 @@
   "peerDependencies": {
     "@babel/core": "^7.19.0",
     "@popperjs/core": "^2.11.6"
-  }
+  },
+  "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
 }
