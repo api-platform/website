@@ -36,13 +36,6 @@ const partners: Partner[] = [
     rank: 3,
   },
   {
-    name: "Akawaka",
-    logo: "akawaka",
-    link: "https://www.akawaka.fr/",
-    rank: 3,
-    highlight: true,
-  },
-  {
     name: "JL recrutement",
     logo: "jl-recrutement",
     link: "https://www.jlrecrutement.com/",
@@ -59,6 +52,12 @@ const partners: Partner[] = [
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
+    rank: 4,
+  },
+  {
+    name: "Archimag",
+    logo: "archimag",
+    link: "https://www.archimag.com/",
     rank: 4,
   },
   {
