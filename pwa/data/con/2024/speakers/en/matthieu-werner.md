@@ -4,7 +4,7 @@ id: matthieu-werner-2024
 number: 100
 name: Matthieu Werner
 job: Consultant
-company: JoliCode
+company: 
 twitter: https://twitter.com/WernerMatthieu
 github: https://github.com/matthieuwerner
 ---
