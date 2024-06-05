@@ -30,6 +30,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Akawaka",
+    logo: "akawaka",
+    link: "https://www.akawaka.fr/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
@@ -61,15 +68,21 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
-    name: "Accor Group",
-    logo: "accor",
-    link: "https://all.accor.com/",
+    name: "Symfony",
+    logo: "symfony",
+    link: "https://symfony.com/",
     rank: 4,
   },
   {
     name: "Euratechnologies",
     logo: "euratechnologies",
     link: "https://www.euratechnologies.com/",
+    rank: 4,
+  },
+  {
+    name: "Accor Group",
+    logo: "accor",
+    link: "https://all.accor.com/",
     rank: 4,
   },
 ];

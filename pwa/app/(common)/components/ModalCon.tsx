@@ -15,10 +15,19 @@ export default function ModalCon() {
       }
     };
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === "Escape") {
+        setOpen(false);
+        document.removeEventListener("keydown", handleKeyDown);
+      }
+    }
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
