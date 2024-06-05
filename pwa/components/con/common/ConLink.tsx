@@ -29,8 +29,9 @@ export default function ConLink({
       }
       const element = getRef(`section-${section}`);
       element?.current?.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState({}, "", `${pathname}#${section}`);
     },
-    [getRef]
+    [getRef, pathname]
   );
 
   const normalizedUrl = (url = "") => {
@@ -44,7 +45,8 @@ export default function ConLink({
   const { pathname: currentPathname } = normalizedUrl(pathname);
   const { pathname: linkPathname, anchor } = normalizedUrl(href);
 
-  return currentPathname == linkPathname ? (
+  return currentPathname === linkPathname ||
+    `/en${currentPathname}` === linkPathname ? (
     <div
       className={className}
       onClick={() => goToAnchorLink(anchor)}
