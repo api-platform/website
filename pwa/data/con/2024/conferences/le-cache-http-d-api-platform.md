@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -sylvain-combraque-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-20'
+start: '16:10'
+end: '16:50'
 short: Une initiation au cache HTTP du framework, basé sur Caddy et propulsé par FrankenPHP. 
-tag: 
+tag: 'performance'
 ---
 
 # Le cache HTTP d'API Platform (🇫🇷) 

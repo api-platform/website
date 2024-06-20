@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -fabien-papet-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-20'
+start: '11:30'
+end: '11:50'
 short: Présentation de l'intégration d'Elastica dans API Platform. 
-tag: 
+tag: 'feedback'
 ---
 
 # Construire un moteur de recherche avancé avec Elastica et API Platform (🇫🇷) 

@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -matthieu-werner-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-19'
+start: '10:30'
+end: '10:50'
 short: Développer une app avec PHP, JavaScript et l'IA. 
-tag: 
+tag: 'good-practices,ia'
 ---
 
 # L'IA au service de vos projets API Platform (🇫🇷) 

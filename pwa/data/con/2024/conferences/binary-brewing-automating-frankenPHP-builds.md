@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -boas-falke-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-20'
+start: '11:30'
+end: '11:50'
 short: Learn how FrankenPHP simplifies your deployments. 
-tag: 
+tag: 'feedback'
 ---
 
 # Binary Brewing: Automating FrankenPHP Builds (🇺🇸) 

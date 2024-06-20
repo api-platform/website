@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -imen-ezzine-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-20'
+start: '09:30'
+end: '10:10'
 short: Découvrez des méthodes pour tester des API externes. 
-tag:
+tag: 'feedback'
 ---
 
 # Comment tester une API externe en ayant 0 mocks ? (🇫🇷) 

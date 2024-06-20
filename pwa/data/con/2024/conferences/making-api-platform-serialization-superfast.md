@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -mathias-arlaud-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-19'
+start: '11:20'
+end: '12:00'
 short: Take a look at new tools to enhance the Serializer component. 
-tag: 
+tag: 'performance'
 ---
 
 # Making API Platform serialization superfast (🇺🇸) 

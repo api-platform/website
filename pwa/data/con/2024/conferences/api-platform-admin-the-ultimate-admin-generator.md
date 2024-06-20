@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -francois-zaninotto-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-19'
+start: '14:30'
+end: '15:10'
 short: An update on API Platform's admin generator. 
-tag: 
+tag: 'archi'
 ---
 
 # API Platform Admin: The Ultimate Admin Generator (🇺🇸) 
