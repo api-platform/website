@@ -5,6 +5,7 @@ const tags = {
   feedback: "#2b969c",
   security: "#f16935",
   performance: "#e1017d",
+  ia: "#209182",
   default: "#2FC1C1",
 };
 

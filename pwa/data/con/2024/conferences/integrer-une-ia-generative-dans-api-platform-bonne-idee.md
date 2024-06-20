@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -laura-durieux-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-20'
+start: '14:50'
+end: '15:30'
 short: Découvrons les possibilités du machine learning avec PHP et API Platform.
-tag: 
+tag: 'archi,ia'
 ---
 
 # Intégrer une IA générative dans API Platform, bonne idée ? (🇫🇷) 

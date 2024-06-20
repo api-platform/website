@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -frederic-bouchery-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-19'
+start: '16:40'
+end: '17:20'
 short: Utiliser RabbitMQ avec Symfony et API Platform. 
-tag: 
+tag: 'feedback'
 ---
 
 # Adopter un lapin (🇫🇷) 

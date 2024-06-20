@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -marion-age-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-19'
+start: '15:20'
+end: '16:00'
 short: Une exploration des configurations offertes par API Platform, notamment sur la personnalisation de la doc de l'API.
-tag: 
+tag: 'good-practices'
 ---
 
 # Générer une documentation d’API aux petits oignons (🇫🇷) 

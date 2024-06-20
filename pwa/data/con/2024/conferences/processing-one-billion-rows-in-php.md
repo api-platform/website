@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -florian-engelhardt-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-20'
+start: '10:20'
+end: '11:00'
 short: An exploration of the 1BRC. 
-tag: 
+tag: 'performance'
 ---
 
 # Processing One Billion Rows in PHP (🇺🇸) 

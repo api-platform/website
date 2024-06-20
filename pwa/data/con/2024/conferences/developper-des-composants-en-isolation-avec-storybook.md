@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -adrien-guernier-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-20'
+start: '14:00'
+end: '14:40'
 short: Découverte de Storybook, un outil open source facilitant la création et les tests de composants de manière isolée.
-tag: 
+tag: 'good-practices'
 ---
 
 # Développer des composants en isolation avec Storybook (🇫🇷) 

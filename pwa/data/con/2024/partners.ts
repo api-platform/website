@@ -56,6 +56,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Lior Chamla",
+    logo: "lior-chamla",
+    link: "https://learn.web-develop.me/",
+    rank: 3,
+    highlight: true,
+  },
+  {
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
@@ -65,6 +72,12 @@ const partners: Partner[] = [
     name: "Archimag",
     logo: "archimag",
     link: "https://www.archimag.com/",
+    rank: 4,
+  },
+  {
+    name: "Programmez !",
+    logo: "programmez",
+    link: "https://www.programmez.com/",
     rank: 4,
   },
   {
@@ -80,9 +93,9 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
-    name: "Accor Group",
-    logo: "accor",
-    link: "https://all.accor.com/",
+    name: "Hotels de Lille",
+    logo: "hotels-de-lille",
+    link: "https://www.hotelsdelille.com/",
     rank: 4,
   },
 ];

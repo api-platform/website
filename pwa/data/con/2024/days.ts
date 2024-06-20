@@ -2,8 +2,8 @@ const days = [
   {
     date: "2024-09-19",
     title: {
-      fr: "Conference jour 1",
-      en: "Con Day 1",
+      fr: "Jour 1",
+      en: "Day 1",
     },
     tracks: ["1", "2"],
     single: false,
@@ -11,8 +11,8 @@ const days = [
   {
     date: "2024-09-20",
     title: {
-      fr: "Conference jour 2",
-      en: "Con Day 2",
+      fr: "Jour 2",
+      en: "Day 2",
     },
     tracks: ["1", "2"],
     single: false,

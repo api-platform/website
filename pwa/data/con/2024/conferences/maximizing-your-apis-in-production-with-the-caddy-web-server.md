@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -matt-holt-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-20'
+start: '09:30'
+end: '10:10'
 short: Explore leveraging Caddy's flagship features to strengthen your website. 
-tag: 
+tag: 'archi'
 ---
 
 # Maximizing your APIs in Production with the Caddy Web Server (🇺🇸) 

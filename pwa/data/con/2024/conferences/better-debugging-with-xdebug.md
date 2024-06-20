@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -derick-rethans-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-19'
+start: '16:40'
+end: '17:20'
 short: How Xdebug helps you to be more productive. 
-tag: 
+tag: 'good-practices'
 ---
 
 # Better Debugging with Xdebug (🇺🇸) 
