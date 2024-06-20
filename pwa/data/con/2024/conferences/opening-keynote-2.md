@@ -9,6 +9,6 @@ short: TBA
 tag: 'feedback'
 ---
 
-# Antoine's talk (🇺🇸)
+# Opening Keynote (🇺🇸)
 
 The subject of this conference will be announced shortly.

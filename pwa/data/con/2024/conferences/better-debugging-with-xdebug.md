@@ -3,8 +3,8 @@ type: conference
 speakers: -derick-rethans-2024 
 track: '1'
 date: '2024-09-19'
-start: '16:40'
-end: '17:20'
+start: '16:30'
+end: '17:10'
 short: How Xdebug helps you to be more productive. 
 tag: 'good-practices'
 ---
