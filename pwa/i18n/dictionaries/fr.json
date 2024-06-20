@@ -70,16 +70,6 @@
       "subtitle_3": "L'API Platform Conference revient les 19 et 20 septembre 2024. {{link}}, rejoignez-nous ! ",
       "title": "Jamais deux sans trois !",
       "link": "Le CFP vient d’ouvrir"
-    },
-    "conferences": {
-      "tags": {
-        "security": "Sécurité",
-        "performance": "Performance",
-        "archi": "Architecture",
-        "good-practices": "Bonnes pratiques",
-        "society": "Société",
-        "feedback": "REX"
-      }
     }
   },
   "2024": {
@@ -94,18 +84,8 @@
     "venue": {
       "subtitle": "L'API Platform Conference se tient à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas vous rendre sur place, vous pouvez acheter un billet pour suivre les conférences en direct sur internet.",
       "tip_title": "Important",
-      "tip": "Des chambres d’hôtels ont été spécialement négociées et bloquées pour faciliter votre déplacement à Lille. La demande hôtelière est très élevée à Lille à cette époque de l’année : jetez un œil aux chambres disponibles et réservez-les dès que possible {{tip_link}}",
-      "tip_link": "en suivant ce lien"
-    },
-    "conferences": {
-      "tags": {
-        "security": "Sécurité",
-        "performance": "Performance",
-        "archi": "Architecture",
-        "good-practices": "Bonnes pratiques",
-        "society": "Société",
-        "feedback": "REX"
-      }
+      "tip": "<p class='mb-2'>La demande hôtelière est très forte à Lille à cette période de l'année, alors pour faciliter votre voyage, nous avons négocié des prix spéciaux.</p><p class='mb-2'>Consultez les chambres disponibles sur {{tip_link}}, bénéficiez d'une réduction de 10 % sur votre séjour et réservez-les dès que possible avec ce code&nbsp;:</p><p><strong class='inline-block mb-4 mt-2 p-2 border-2 border-blue'>TILLEULS24</strong></p><p class='mb-2'>Ce code est valable pour les hôtels suivants : Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, et Le Rosa 3* pour des séjours entre le 18 et le 22 septembre.</p><p class='text-blue-black/60 text-sm'>Cette réduction est disponible jusqu'au 4 septembre 2024.</p>",
+      "tip_link": "ce site"
     }
   },
   "an_event_by": "Un événement organisé par",
@@ -116,7 +96,16 @@
   "coming_soon": "Prochainement",
   "conferences": {
     "by_speaker": "par {{speaker}}",
-    "see_speaker_details": "Plus d'infos"
+    "see_speaker_details": "Plus d'infos",
+    "tags": {
+      "security": "Sécurité",
+      "performance": "Performance",
+      "archi": "Architecture",
+      "good-practices": "Bonnes pratiques",
+      "society": "Société",
+      "feedback": "REX",
+      "ia": "IA"
+    }
   },
   "contact_us": "Contactez-nous !",
   "days_count": "{{count}} jour",

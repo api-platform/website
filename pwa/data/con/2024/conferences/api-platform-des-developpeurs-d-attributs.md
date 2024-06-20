@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -clement-talleu-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-19'
+start: '14:30'
+end: '15:10'
 short: Comment les attributs offrent des fonctionnalités avancées avec peu de code. 
-tag: 
+tag: 'archi'
 ---
 
 # API Platform, des développeurs d'attributs ? (🇫🇷) 

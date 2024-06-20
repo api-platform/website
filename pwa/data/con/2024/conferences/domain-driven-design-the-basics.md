@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -stefan-koopmanschap-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-19'
+start: '15:20'
+end: '16:00'
 short: Learn more about the DDD approach. 
-tag: 
+tag: 'archi'
 ---
 
 # Domain-Driven Design: The Basics (🇺🇸) 

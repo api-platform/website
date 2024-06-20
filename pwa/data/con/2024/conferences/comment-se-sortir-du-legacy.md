@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -smaine-milianni-2024 
-track: 
-date: 
-start: 
-end: 
+track: '1'
+date: '2024-09-20'
+start: '10:20'
+end: '11:00'
 short: Des conseils pour maîtriser les challenges du code legacy. 
-tag: 
+tag: 'good-practices,feedback'
 ---
 
 # Comment se sortir du legacy (🇫🇷) 

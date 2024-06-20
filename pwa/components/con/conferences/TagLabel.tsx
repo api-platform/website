@@ -24,7 +24,7 @@ export default function TagLabel({ tag = "default", small }: TagLabelProps) {
           : "border-2 text-xs px-2 py-1 mb-2"
       )}
     >
-      {t(`2023.conferences.tags.${tag}`)}
+      {t(`conferences.tags.${tag}`)}
     </span>
   );
 }

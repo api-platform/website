@@ -1,12 +1,12 @@
 ---
 type: conference
 speakers: -serges-goma-2024 
-track: 
-date: 
-start: 
-end: 
+track: '2'
+date: '2024-09-19'
+start: '10:30'
+end: '10:50'
 short: When technology and ethics meet. 
-tag: 
+tag: 'society'
 ---
 
 # Evil Tech: How Devs Became Villains (🇺🇸) 

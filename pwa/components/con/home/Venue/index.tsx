@@ -13,11 +13,13 @@ import { localeDuration } from "utils/con";
 export default function Venue({
   subtitle,
   tip,
-  tip_title = "Tip"
+  tip_title = "Tip",
+  tip_className = "",
 }: {
   subtitle: string;
   tip?: string;
   tip_title?: string;
+  tip_className?: string;
 }) {
   const { t, Translate, locale: language } = useContext(LanguageContext);
   return (
@@ -29,7 +31,11 @@ export default function Venue({
         <SectionSubTitle className="mb-4">{subtitle}</SectionSubTitle>
         <Place />
         {tip ? (
-          <Warning title={tip_title} img={"/images/con/tip.svg"}>
+          <Warning
+            title={tip_title}
+            img={"/images/con/tip.svg"}
+            className={tip_className}
+          >
             <div
               dangerouslySetInnerHTML={{
                 __html: tip,
