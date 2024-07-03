@@ -1,3 +1,5 @@
+import { MetadataRoute } from "next";
+
 import editions, { currentEdition } from "data/con/editions";
 import { Locale, i18n } from "i18n/i18n-config";
 import { generateStaticParams as getScheduleEditions } from "app/con/[edition]/schedule/page";
@@ -6,9 +8,7 @@ import { getAllSpeakerSlugs } from "api/con/speakers";
 import { getAllConferenceSlugs } from "api/con/conferences";
 import { getAllEvents } from "api/events";
 import { getAllContributors } from "api/contributors";
-import { versions } from "consts";
 import { addTrailingSlashIfNecessary, getRootUrl } from "utils";
-import { readFile } from "fs/promises";
 
 const basePath = getRootUrl();
 
@@ -103,5 +103,27 @@ export default async function sitemap() {
     ...(await getAllStandardRoutes()),
     ...(await getAllConRoutes()),
   ];
-  return allLinks.map((path) => ({ url: path }));
+  const sitemapLinks = allLinks.map((path) => {
+    if (path.includes("/con/2")) {
+      if (path.includes(`/${currentEdition}/`))
+        return { url: path, priority: 1 };
+      else return { url: path, priority: 0.5 };
+    }
+    return { url: path, priority: 1 };
+  });
+  for (const locale of i18n.locales) {
+    for (const { year: edition } of editions) {
+      if (edition === currentEdition)
+        sitemapLinks.push({
+          url: createLocalePath(locale, `con/${edition}`),
+          priority: 1,
+        });
+      else
+        sitemapLinks.push({
+          url: createLocalePath(locale, `con/${edition}`),
+          priority: 0.5,
+        });
+    }
+  }
+  return sitemapLinks;
 }

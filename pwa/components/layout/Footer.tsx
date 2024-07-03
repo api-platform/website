@@ -186,7 +186,7 @@ export default function Footer() {
               <FooterLink href="/docs/extra/enterprise/">
                 Enterprise subscription
               </FooterLink>
-              <FooterLink href="/docs/extra/security-policy/">
+              <FooterLink href="/docs/extra/security/">
                 Security Policy
               </FooterLink>
               <FooterLink href="/trademark-policy/">

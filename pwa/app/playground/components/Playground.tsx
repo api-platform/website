@@ -14,7 +14,7 @@ import Logo from "components/common/Logo";
 const STR = "string";
 
 export default function Playground() {
-  const [guide, setGuide] = useState("");
+  const [guide, setGuide] = useState<string>("");
   const { FS, stdout, stderr, ccall, loading } = usePHP();
   const [response, setResponse] = useState("");
   // TODO: use this somehow to show errors
@@ -27,7 +27,7 @@ export default function Playground() {
   const routeParams = useParams();
 
   useEffect(() => {
-    setGuide(routeParams.guide);
+    setGuide(routeParams.guide as string);
   }, [routeParams.guide]);
 
   const guideName = useMemo(() => {
