@@ -93,7 +93,7 @@ export default function ClientGenerator() {
             </Link>
             ,{" "}
             <Link
-              href="/docs/create-client/Quasar/"
+              href="/docs/create-client/quasar/"
               prefetch={false}
               className="link"
             >

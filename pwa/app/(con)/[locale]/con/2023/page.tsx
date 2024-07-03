@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: dictionary[2023].title,
-      template: `%s - API Platform Conference 2023`,
+      template: `%s - API Platform Conference 2023 (Archive)`,
     },
     alternates: {
       languages: {

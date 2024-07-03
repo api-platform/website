@@ -62,10 +62,11 @@ export const getVersionAndSlugFromSlugs = (allSlugs: string[]) => {
 };
 
 export const getRootUrl = () => {
-  if (!process.env.NEXT_ROOT_URL) return "https://api-platform.com";
+  return "https://api-platform.com";
+  /*if (!process.env.NEXT_ROOT_URL) return "https://api-platform.com";
   return process.env.NEXT_ROOT_URL?.startsWith("http")
     ? process.env.NEXT_ROOT_URL
-    : `https://${process.env.NEXT_ROOT_URL}`;
+    : `https://${process.env.NEXT_ROOT_URL}`;*/
 };
 
 export const slugify = (t: string) =>
