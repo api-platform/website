@@ -1,5 +1,4 @@
 "use client";
-import Link from "components/common/Link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Locale, i18n } from "i18n/i18n-config";
@@ -53,13 +52,13 @@ export default function LangSwitcher({ locale }: LangSwitcherProps) {
             {locales
               .filter((l) => l !== locale)
               .map((newLocale: Locale) => (
-                <Link
+                <a
                   key={locale}
                   className="z-10 w-full px-2 block"
                   href={getSwitchLink(newLocale)}
                 >
                   {newLocale}
-                </Link>
+                </a>
               ))}
           </div>
         </div>
