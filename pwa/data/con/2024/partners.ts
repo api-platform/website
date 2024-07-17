@@ -113,6 +113,12 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
+    name: "BitExpert",
+    logo: "bitexpert",
+    link: "https://www.bitexpert.de/de",
+    rank: 4,
+  },
+  {
     name: "Hotels de Lille",
     logo: "hotels-de-lille",
     link: "https://www.hotelsdelille.com/",
