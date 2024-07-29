@@ -51,6 +51,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Sylius",
+    logo: "sylius",
+    link: "https://sylius.com/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
@@ -86,6 +93,12 @@ const partners: Partner[] = [
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
+    rank: 4,
+  },
+  {
+    name: "Laravel France",
+    logo: "laravel-france",
+    link: "https://laravel-france.com/",
     rank: 4,
   },
   {
