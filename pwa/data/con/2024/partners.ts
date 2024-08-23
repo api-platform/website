@@ -58,6 +58,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Codein",
+    logo: "codein",
+    link: "https://www.codein.fr/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
