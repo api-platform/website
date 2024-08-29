@@ -11,6 +11,6 @@ tag: 'archi,ia'
 
 # Intégrer une IA générative dans API Platform, bonne idée ? (🇫🇷) 
 
-Cette conférence ne fera pas l’apologie des IA génératives, mais plutôt comment intégrer et exploiter ces technologies, ainsi que les outils disponibles. 
+Laissez moi vous présenter IMPACT - Initiative for Minoritized Pioneers and Achievements in Computer Technologies, mon projet open source qui compte centraliser le plus d’informations possible sur les femmes qui ont influencé l’histoire de l’informatique. Sa particularité ? C’est qu’il est pensé de manière à ce que ça soit **une IA generative** qui crée les biographies des femmes en fonction des données qui seront apportées et bien plus de fonctionnalités.
 
-En prime, nous nous demanderons si le machine learning en PHP est réalisable et quelles sont ses limites. Une discussion stimulante sur **les défis et les opportunités à saisir** dans ce domaine !
+Construite en API Platform, découvrons comment il est possible d’y intégrer une IA, et si c’est une bonne idée.
