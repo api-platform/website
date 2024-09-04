@@ -9,7 +9,7 @@ short: Using API Platform with Laravel.
 tag: 'archi'
 ---
 
-# Artisinal API Platform (🇺🇸)
+# Artisinal API Platform (🇬🇧)
 
 Join me at the API Platform Conference for an insight into how to make the API Platform more "artisinal". By this, I mean we are going to explore how we can **use API Platform within a Laravel application**, and how we can lean on API Platform to craft robust APIs. We will delve into practical strategies, demonstrating how you can leverage the strengths of both frameworks to enhance your API development.
 

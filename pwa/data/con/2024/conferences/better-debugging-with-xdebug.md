@@ -9,7 +9,7 @@ short: How Xdebug helps you to be more productive.
 tag: 'good-practices'
 ---
 
-# Better Debugging with Xdebug (🇺🇸) 
+# Better Debugging with Xdebug (🇬🇧) 
 
 In this talk I explain how to use Xdebug to **get more productive writing PHP code**, focussing on the improvements in Xdebug 3.2 and 3.3, to make
 the debugging experience better and easier to set up.
