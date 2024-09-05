@@ -20,7 +20,7 @@ export default function ModalCon() {
         setOpen(false);
         document.removeEventListener("keydown", handleKeyDown);
       }
-    }
+    };
 
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
@@ -104,16 +104,33 @@ export default function ModalCon() {
               The international conference on the API Platform Framework
             </p>
             <h2 className="text-blue-light text-2xl font-bold text-center">
-              API Platform Conference 2024: meet the best PHP, JavaScript and
-              API experts
+              Get ready for game-changing announcements for the PHP community!
             </h2>
             <p className="font-light text-sm text-blue-black">
-              Lear more about the event, register for the conference, and get
-              ready for two days of inspiration, ideas, and knowledge-sharing
-              with our incredible lineup of renowned specialists and advocates.
+              The API Platform Conference 2024 is happening soon, and it&apos;s close to selling out.<br/>API
+              Platform 4, Caddy web server, Xdebug, AI... Enjoy two days of
+              inspiring talks with our friendly community and our amazing
+              speakers.
             </p>
-            <Button color="pink" size="large" href="/con" className="mt-4">
-              Register now
+            <Button
+              color="pink"
+              size="large"
+              href="/con"
+              className="mt-4 flex flex-row gap-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 0 1 1.925-3.546 3.75 3.75 0 0 1 3.255 3.718Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Only a few tickets left!
             </Button>
           </div>
         </div>

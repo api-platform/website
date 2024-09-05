@@ -110,7 +110,7 @@ export default function Nav({
       </div>
       {isTicketingOpen && currentEdition === edition ? (
         <BuyButton
-          className="hidden md:block md:-translate-x-16 | lg:-translate-x-0"
+          className="hidden md:flex md:-translate-x-16 | lg:-translate-x-0"
           size="small"
           id="nav"
         >
