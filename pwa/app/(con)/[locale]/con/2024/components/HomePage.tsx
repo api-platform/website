@@ -243,7 +243,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           <div className="flex gap-2">
             {currentEdition === "2024" && (
               <BuyButton className="mr-2" id="cover">
-                {t("buy_tickets")}
+                {t("last_places")}
               </BuyButton>
             )}
           </div>
@@ -322,18 +322,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </div>
         </Section>
       }
-      <Venue
-        subtitle={t("2024.venue.subtitle")}
-        tip_title={t("2024.venue.tip_title")}
-        tip_className="!w-full! !max-w-4xl"
-        tip={t("2024.venue.tip", {
-          tip_link: (
-            <a className="link" href="https://www.hotelsdelille.com/">
-              {t("2024.venue.tip_link")}
-            </a>
-          ),
-        })}
-      />
+      <Venue subtitle={t("2024.venue.subtitle")} />
       <Section section="sponsorship" className="py-8">
         <div className="container text-center">
           <SectionTitle dark>

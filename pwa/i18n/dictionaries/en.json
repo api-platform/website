@@ -94,20 +94,21 @@
   "back_to_current_edition": "< Back to current edition",
   "become_speaker": "Become speaker",
   "become_sponsor": "Become sponsor",
+  "last_places": "Only a few tickets left!",
   "buy_tickets": "Buy tickets",
   "coming_soon": "Coming soon",
   "conferences": {
     "by_speaker": "by {{speaker}}",
     "see_speaker_details": "See speaker's details",
-      "tags": {
-        "security": "Security",
-        "performance": "Performance",
-        "archi": "Architecture",
-        "good-practices": "Good practices",
-        "society": "Society",
-        "feedback": "Feedback",
-        "ia": "AI"
-      }
+    "tags": {
+      "security": "Security",
+      "performance": "Performance",
+      "archi": "Architecture",
+      "good-practices": "Good practices",
+      "society": "Society",
+      "feedback": "Feedback",
+      "ia": "AI"
+    }
   },
   "contact_us": "Contact us!",
   "days_count": "{{count}} day",

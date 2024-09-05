@@ -72,6 +72,17 @@ const extra = [
   },
   {
     title: {
+      fr: "Lightning talks",
+      en: "Lightning talks",
+    },
+    date: "2024-09-19",
+    start: "17:20",
+    end: "18:00",
+    track: "2",
+    type: "upcoming",
+  },
+  {
+    title: {
       en: "Lunch break",
       fr: "Pause déjeuner",
     },
