@@ -1,4 +1,8 @@
 {
   "typescript.tsdk": "node_modules/.pnpm/typescript@4.8.3/node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "tailwindCSS.experimental.configFile": {
+    "common.tailwind.config.js": ["app/(common)/**/*", "components/**/*"],
+    "con.tailwind.config.js": ["app/(con)/**/*", "components/con/**/*"]
+  }
 }
