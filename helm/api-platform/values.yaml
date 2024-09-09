@@ -30,17 +30,17 @@ pwa:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
-  resources: 
+  resources:
     requests:
       memory: 1400Mi
       cpu: 500m
     limits:
-      memory: 1400Mi      
+      memory: 1400Mi
   podAnnotations:
     instrumentation.opentelemetry.io/inject-nodejs: "true"
 
 
-next: 
+next:
   rootUrl: ChangeMe
   publicEventBriteId: ChangeMe
   publicMapboxKey: ChangeMe
@@ -51,7 +51,7 @@ github:
 bucket:
   s3Upstream: ChangeMe
   s3Name: ChangeMe
-  
+
 caddy:
   image:
     repository: "chart-example.local/api-platform/caddy"
@@ -146,10 +146,10 @@ ingress:
 replicaCount: 1
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 1
   maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
+  targetCPUUtilizationPercentage: 50
   # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
