@@ -65,6 +65,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Sweeek",
+    logo: "sweeek",
+    link: "https://www.sweeek.fr/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
