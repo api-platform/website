@@ -3,9 +3,8 @@ import React from "react";
 import classNames from "classnames";
 import Link from "components/common/Link";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLDivElement> {
-  size?: "small" | "medium" | "large";
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
+  size?: "small" | "medium" | "large" | "extralarge";
   className?: string;
   empty?: boolean;
   disabled?: boolean;
@@ -38,6 +37,9 @@ export default function Button({
       break;
     case "medium":
       sizeClassName = "text-base px-3 py-1";
+      break;
+    case "extralarge":
+      sizeClassName = "py-2 px-6 text-lg";
       break;
     default:
       sizeClassName = "py-1 px-5 text-lg";

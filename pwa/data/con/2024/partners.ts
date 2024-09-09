@@ -65,6 +65,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Sweeek",
+    logo: "sweeek",
+    link: "https://www.codein.fr/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Codein",
     logo: "codein",
     link: "https://www.codein.fr/",

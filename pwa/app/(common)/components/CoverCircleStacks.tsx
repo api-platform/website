@@ -7,7 +7,7 @@ export default function CoverCircleStacks() {
   const stack = searchParams.get("s");
 
   return (
-    <div className="w-[200%] aspect-square relative -translate-x-1/3 left-0 bottom-0 translate-y-1/3">
+    <div className="w-[180%] aspect-square relative -translate-x-1/2 left-1/2 top-full -translate-y-1/4 | xl:-translate-y-[22%] xl:w-[200%] | 2xl:-translate-y-1/4">
       <div
         id="#laravel_back"
         className={classNames(
