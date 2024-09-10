@@ -72,6 +72,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Fairness",
+    logo: "fairness",
+    link: "https://fairness.coop/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
