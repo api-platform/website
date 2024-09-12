@@ -72,7 +72,7 @@ jobs:
           helm repo add stable https://charts.helm.sh/stable/
           helm dependency build ./helm/api-platform
       - name: Define namespace
-        run: |       
+        run: |
           set -o pipefail
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
@@ -102,91 +102,84 @@ jobs:
               echo "MEM_REQUEST=100Mi" >> "$GITHUB_ENV"
               echo "MEM_LIMIT=600Mi" >> "$GITHUB_ENV"
           fi
-      - name: Check for existing namespace
-        id: k8s-namespace
-        run: echo "namespace=$(kubectl get namespace ${{ env.NAMESPACE }} | tr -d '\n' 2> /dev/null)" >> $GITHUB_OUTPUT
-      # Release name MUST start with a letter
-      # GitHub doesn't support multilines environment variables (JWT_*_KEY)
-      - name: Deploy in new namespace
-        if: steps.k8s-namespace.outputs.namespace == ''
+      - name: HELM Deploy
         run: |
           set -o pipefail
-          JWT_PASSPHRASE=$(openssl rand -base64 32)
-          JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
-          helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
-            --reuse-values \
-            --install \
-            --create-namespace \
-            --debug \
-            --wait \
-            --atomic \
-            --namespace=${{ env.NAMESPACE }} \
-            --set=app.version=${{ github.sha }} \
-            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
-            --set=php.image.tag=${{ inputs.docker-images-version }} \
-            --set=php.image.pullPolicy=Always \
-            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
-            --set=caddy.image.tag=${{ inputs.docker-images-version }} \
-            --set=caddy.image.pullPolicy=Always \
-            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
-            --set=pwa.image.tag=${{ inputs.docker-images-version }} \
-            --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
-            --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
-            --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
-            --set=pwa.replicaCount=${{ env.REPLICA }} \
-            --set=bucket.s3Upstream=storage.googleapis.com \
-            --set=bucket.s3Name=api-platform-website-v3 \
-            --set=service.type=NodePort \
-            --set=ingress.enabled=true \
-            --set=ingress.hosts[0].host=${{ env.URL }} \
-            --set=ingress.hosts[0].paths[0].path=/ \
-            --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
-            --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
-            --set=ingress.tls[0].secretName=${{ env.RELEASE_NAME }}-website-ssl \
-            --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
-            --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
-            --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
-            --set=php.host=${{ env.URL }} \
-            --set=next.rootUrl=${{ env.URL }} \
-            --set=github.key=${{ secrets.gh-key }} \
-            --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
-            --set=postgresql.global.postgresql.auth.username=website \
-            | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
-      - name: Upgrade namespace
-        if: steps.k8s-namespace.outputs.namespace != ''
-        run: |
-          set -o pipefail
-          helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
-            --reuse-values \
-            --install \
-            --create-namespace \
-            --debug \
-            --wait \
-            --atomic \
-            --namespace=${{ env.NAMESPACE }} \
-            --set=app.version=${{ github.sha }} \
-            --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
-            --set=php.image.tag=${{ inputs.docker-images-version }} \
-            --set=php.image.pullPolicy=Always \
-            --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
-            --set=caddy.image.tag=${{ inputs.docker-images-version }} \
-            --set=caddy.image.pullPolicy=Always \
-            --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
-            --set=pwa.image.tag=${{ inputs.docker-images-version }} \
-            --set=pwa.image.pullPolicy=Always \
-            --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
-            --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
-            --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
-            --set=pwa.replicaCount=${{ env.REPLICA }} \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
-            --set=github.key=${{ secrets.gh-key }} \
-            --set=next.rootUrl=${{ env.URL }} \
-            --set=bucket.s3Upstream=storage.googleapis.com \
-            --set=bucket.s3Name=api-platform-website-v3 \
-            | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
+          if ! helm status $RELEASE_NAME &>/dev/null; then
+            JWT_PASSPHRASE=$(openssl rand -base64 32)
+            JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
+            helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
+              --reuse-values \
+              --install \
+              --create-namespace \
+              --debug \
+              --wait \
+              --atomic \
+              --namespace=${{ env.NAMESPACE }} \
+              --set=app.version=${{ github.sha }} \
+              --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
+              --set=php.image.tag=${{ inputs.docker-images-version }} \
+              --set=php.image.pullPolicy=Always \
+              --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
+              --set=caddy.image.tag=${{ inputs.docker-images-version }} \
+              --set=caddy.image.pullPolicy=Always \
+              --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
+              --set=pwa.image.tag=${{ inputs.docker-images-version }} \
+              --set=pwa.image.pullPolicy=Always \
+              --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
+              --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
+              --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
+              --set=pwa.replicaCount=${{ env.REPLICA }} \
+              --set=bucket.s3Upstream=storage.googleapis.com \
+              --set=bucket.s3Name=api-platform-website-v3 \
+              --set=service.type=NodePort \
+              --set=ingress.enabled=true \
+              --set=ingress.hosts[0].host=${{ env.URL }} \
+              --set=ingress.hosts[0].paths[0].path=/ \
+              --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
+              --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
+              --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
+              --set=ingress.tls[0].secretName=${{ env.RELEASE_NAME }}-website-ssl \
+              --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
+              --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
+              --set=php.jwt.passphrase=$JWT_PASSPHRASE \
+              --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
+              --set=php.host=${{ env.URL }} \
+              --set=next.rootUrl=${{ env.URL }} \
+              --set=github.key=${{ secrets.gh-key }} \
+              --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
+              --set=postgresql.global.postgresql.auth.username=website \
+              | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
+            else
+              helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
+                --reuse-values \
+                --install \
+                --create-namespace \
+                --debug \
+                --wait \
+                --atomic \
+                --namespace=${{ env.NAMESPACE }} \
+                --set=app.version=${{ github.sha }} \
+                --set=php.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/php \
+                --set=php.image.tag=${{ inputs.docker-images-version }} \
+                --set=php.image.pullPolicy=Always \
+                --set=caddy.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/caddy \
+                --set=caddy.image.tag=${{ inputs.docker-images-version }} \
+                --set=caddy.image.pullPolicy=Always \
+                --set=pwa.image.repository=eu.gcr.io/${{ secrets.gke-project }}/website/pwa \
+                --set=pwa.image.tag=${{ inputs.docker-images-version }} \
+                --set=pwa.image.pullPolicy=Always \
+                --set=pwa.resources.requests.cpu=${{ env.CPU_REQUEST }} \
+                --set=pwa.resources.requests.memory=${{ env.MEM_REQUEST }} \
+                --set=pwa.resources.limits.memory=${{ env.MEM_LIMIT }} \
+                --set=pwa.replicaCount=${{ env.REPLICA }} \
+                --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
+                --set=github.key=${{ secrets.gh-key }} \
+                --set=next.rootUrl=${{ env.URL }} \
+                --set=bucket.s3Upstream=storage.googleapis.com \
+                --set=bucket.s3Name=api-platform-website-v3 \
+                | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
+            fi
       - name: Debug kube events
         if: failure()
         run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp
