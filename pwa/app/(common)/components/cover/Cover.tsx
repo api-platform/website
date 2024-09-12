@@ -10,7 +10,7 @@ export default function Cover() {
       <div className="z-50 h-20 md:h-32 absolute -bottom-px left-0 w-full bg-white clip-path-corner-left dark:bg-blue-black 2xl:-bottom-0.5" />
       <div
         className={classNames(
-          "container relative h-full pt-12 pb-64 flex flex-col-reverse items-center justify-center text-white dark:text-blue-darkest | md:pb-12 md:min-h-[90vh] | lg:min-h-screen | 2xl:min-h-[1000px]"
+          "container relative h-full pt-12 pb-64 flex flex-col-reverse items-center justify-center text-white dark:text-blue-darkest | md:pb-12 md:min-h-[90vh] | lg:min-h-screen | 2xl:min-h-[900px]"
         )}
       >
         <img

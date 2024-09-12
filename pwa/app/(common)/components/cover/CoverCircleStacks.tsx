@@ -112,7 +112,7 @@ export default function CoverCircleStacks() {
         <img
           src="/images/cover/symfony-front.svg"
           alt=""
-          className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[70%] w-[30%]"
+          className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[65%] w-[40%]"
         />
       </div>
       <div
