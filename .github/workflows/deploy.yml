@@ -105,7 +105,7 @@ jobs:
       - name: HELM Deploy
         run: |
           set -o pipefail
-          if ! helm status $RELEASE_NAME &>/dev/null; then
+          if ! helm -n ${{ env.NAMESPACE }} status ${{ env.RELEASE_NAME }} &>/dev/null; then
             JWT_PASSPHRASE=$(openssl rand -base64 32)
             JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
             helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
