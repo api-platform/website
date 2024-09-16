@@ -24,24 +24,27 @@ export default function StackSelector() {
         Choose your favorite stack :
       </p>
       <div className="bg-white px-1 py-1 rounded-[50px] shadow-2xl">
-        <div className=" text-text-primary grid grid-cols-3 gap-2 h-12 items-center uppercase font-semibold relative text-[10px] sm:text-sm lg:text-base">
+        <div className=" text-text-primary flex flex-row gap-2 h-12 items-center uppercase font-semibold relative text-base">
           <div
             className={classNames(
-              "h-full w-1/3 absolute rounded-[50px] top-1/2 -translate-y-1/2 transition-all duration-500 shadow-lg",
+              "h-full absolute rounded-[50px] top-1/2 -translate-y-1/2 transition-all duration-500 shadow-lg",
               stack === "symfony"
-                ? "left-2/3 bg-[#000]"
+                ? "left-full -translate-x-full bg-[#000] w-32"
                 : stack === "laravel"
-                ? "left-0 bg-[#ff2d20]"
-                : "left-1/3 bg-blue-extralight"
+                ? "left-0 w-32 bg-[#ff2d20]"
+                : "left-1/2 bg-blue-extralight w-12 -translate-x-1/2"
             )}
           />
           <button
             onClick={() => onStackChoose("laravel")}
             className={classNames(
-              "flex flex-row gap-2 px-2 md:px-3 relative items-center justify-center",
-              stack !== "laravel" ? "text-[#ff2d20]" : "text-white"
+              "flex flex-row w-32 gap-2 h-full rounded-[50px] relative items-center justify-center z-20 transition-all",
+              stack !== "laravel"
+                ? "text-[#ff2d20] hover:bg-[#ff2d20]/10"
+                : "text-white delay-200"
             )}
           >
+            {!stack && <div className="absolute left-0 w-40 h-12 top-0" />}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 2413.7 2484.79"
@@ -54,36 +57,74 @@ export default function StackSelector() {
             </svg>
             <span>Laravel</span>
           </button>
-          <button
-            onClick={() => onStackChoose(undefined)}
-            className={classNames(
-              "flex flex-row gap-2 px-2 md:px-3 relative items-center justify-center",
-              stack ? "opacity-50 text-text-primary/50" : "text-white"
-            )}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-6 h-6"
+          {stack ? (
+            <button
+              onClick={() => onStackChoose(undefined)}
+              className={classNames(
+                "flex flex-row  items-center justify-center size-12 rounded-full z-30 opacity-50 text-text-primary/50 hover:bg-blue-extralight/50"
+              )}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
-              />
-            </svg>
-            <span className="text-left text-sm">No preference</span>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div
+              className={classNames(
+                "flex flex-row items-center justify-center size-12 rounded-full text-white z-10 overflow-hidden"
+              )}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6 relative"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6 relative"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </div>
+          )}
           <button
             onClick={() => onStackChoose("symfony")}
             className={classNames(
-              "flex flex-row gap-2 px-2 md:px-3 relative items-center justify-center",
-              stack !== "symfony" ? " text-[#000]" : "text-white"
+              "flex flex-row h-full rounded-[50px] w-32 gap-2 relative items-center justify-center z-20 transition-all",
+              stack !== "symfony"
+                ? " text-[#000] hover:bg-[#000]/10"
+                : "text-white delay-200"
             )}
           >
+            {!stack && <div className="absolute right-0 w-40 h-12 top-0" />}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 112.16 112.17"
