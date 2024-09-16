@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import classNames from "classnames";
 import styles from "./Timeline.module.css";
 import TimelineSymfony from "./timeline/TimelineSymfony";
+import TimelinePhp from "./timeline/TimelinePhp";
 import TimelineLaravel from "./timeline/TimelineLaravel";
 
 export default function Timeline() {
@@ -16,7 +17,7 @@ export default function Timeline() {
         styles.timeline
       )}
     >
-      {stack === "laravel" ? <TimelineLaravel />: <TimelineSymfony />}
+      {stack === "laravel" ? <TimelineLaravel />: stack === "symfony" ? <TimelineSymfony /> : <TimelinePhp />}
     </div>
   );
 }
