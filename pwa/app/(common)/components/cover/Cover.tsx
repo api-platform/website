@@ -1,3 +1,5 @@
+"use client";
+import { useSearchParams } from "next/navigation";
 import Button from "components/common/Button";
 import Logo from "components/common/Logo";
 import classNames from "classnames";
@@ -5,12 +7,15 @@ import CoverCircleStacks from "./CoverCircleStacks";
 import StackSelector from "./StackSelector";
 
 export default function Cover() {
+  const searchParams = useSearchParams();
+  const stack = searchParams.get("s");
+
   return (
     <div className={classNames("relative bg-blue mb-16 overflow-hidden")}>
       <div className="z-50 h-20 md:h-32 absolute -bottom-px left-0 w-full bg-white clip-path-corner-left dark:bg-blue-black 2xl:-bottom-0.5" />
       <div
         className={classNames(
-          "container relative h-full pt-12 pb-64 flex flex-col-reverse items-center justify-center text-white dark:text-blue-darkest | md:pb-12 md:min-h-[90vh] | lg:min-h-screen | 2xl:min-h-[900px]"
+          "container relative h-full pt-12 pb-64 flex flex-col-reverse items-center justify-center text-white dark:text-blue-darkest | md:pb-12 md:min-h-[90vh] | lg:min-h-screen | 2xl:min-h-[850px]"
         )}
       >
         <img
@@ -36,7 +41,8 @@ export default function Cover() {
           <Button
             color="default"
             size="extralarge"
-            className="bg-blue-dark border-blue-dark mt-6 mb-4 md:mb-0 md:mt-8 "
+            className="bg-blue-dark border-blue-dark mt-6 mb-4 md:mb-0 md:mt-8"
+            href={stack === "laravel" ? "/docs/laravel" : stack === "symfony" ? "/docs/symfony" : "/docs/core/bootstrap"}
           >
             Getting started
           </Button>

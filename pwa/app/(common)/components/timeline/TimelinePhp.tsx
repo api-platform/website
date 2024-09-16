@@ -14,34 +14,11 @@ export default function TimelineSymfony() {
   return (
     <div className="relative dark:bg-blue-black">
       <TimelineStepTitle step={1}>Install the framework</TimelineStepTitle>
-      <StepContent>
+      <StepContent className="pb-24">
         Install the API Platform Framework
         <CodeBlock title="Install">
           <InstallCode />
         </CodeBlock>
-      </StepContent>
-      <StepContent className="sm:mt-32">
-        <p className="font-semibold text-blue text-2xl mb-4 leading-tight">
-          Your development environment is ready!{" "}
-        </p>
-        Continuous integration (GitHub Action) as well as recipes to deploy in
-        production with{" "}
-        <Link
-          href="/docs/deployment/docker-compose/#deploying-with-docker-compose"
-          prefetch={false}
-          className="link"
-        >
-          Docker Compose
-        </Link>{" "}
-        or{" "}
-        <Link
-          href="/docs/deployment/kubernetes/"
-          className="link"
-          prefetch={false}
-        >
-          Kubernetes
-        </Link>{" "}
-        are also pre-installed.
       </StepContent>
       <TimelineStepTitle step={2}>
         Define the resources
