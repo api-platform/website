@@ -90,14 +90,18 @@ export default function ScheduleDay({
     return acc;
   }, [] as string[]);
 
-  const daySlug = slugify(day.title?.[locale] || '');
+  const daySlug = slugify(day.title?.[locale] || "");
 
   return day ? (
     <div className="mb-14 last:mb-0" key={day.title?.[locale]}>
-      <a id={daySlug} href={`#${daySlug}`} className='block -mt-24 pt-24'>
-      <h2 className="text-white font-title text-4xl font-bold">
-        {day.title?.[locale]}
-      </h2>
+      <a
+        id={daySlug}
+        href={`#${daySlug}`}
+        className="block -mt-24 pt-24 outline-none"
+      >
+        <h2 className="text-white font-title text-4xl font-bold">
+          {day.title?.[locale]}
+        </h2>
       </a>
       <Overline className="text-white/80 py-2">
         {" "}
