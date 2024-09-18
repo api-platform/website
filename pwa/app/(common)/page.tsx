@@ -1,5 +1,5 @@
 import ClientGenerator from "./components/ClientGenerator";
-import Cover from "./components/Cover";
+import Cover from "./components/cover/Cover";
 import Admin from "./components/Admin";
 import RealTime from "./components/RealTime";
 import Features from "./components/Features";
