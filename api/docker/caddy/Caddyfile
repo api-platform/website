@@ -10,7 +10,7 @@ log {
 }
 
 @docsroot path_regexp ^/docs(/?)$
-redir @docsroot /docs/distribution/
+redir @docsroot /docs/symfony/
 
 @withoutTrailingSlash {
     path_regexp ^/docs
@@ -21,9 +21,9 @@ redir @docsroot /docs/distribution/
 redir @withoutTrailingSlash {path}/
 
 @version path_regexp version ^/docs/v([^/]+)$
-redir @version /docs/v{re.version.1}/distribution/
+redir @version /docs/v{re.version.1}/symfony/
 @version_trailing path_regexp version ^/docs/v([^/]+)/$
-redir @version_trailing /docs/v{re.version.1}/distribution/
+redir @version_trailing /docs/v{re.version.1}/symfony/
 @version_current path_regexp path ^/docs/v3\.2/(.*)
 redir @version_current /docs/{re.path.1}
 
