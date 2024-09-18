@@ -176,7 +176,12 @@ const nextConfig = {
             },
             {
                 source: "/docs/",
-                destination: "/docs/distribution/",
+                destination: "/docs/symfony/",
+                permanent: true,
+            },
+            {
+                source: "/docs/distribution/",
+                destination: "/docs/symfony/",
                 permanent: true,
             },
         ];
