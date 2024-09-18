@@ -20,11 +20,13 @@ redir @docsroot /docs/symfony/
 
 redir @withoutTrailingSlash {path}/
 
-@version path_regexp version ^/docs/v([^/]+)$
+@versionold path_regexp version ^/docs/v(2\.\d|3\.[123])/?$
+redir @versionold /docs/v{re.version.1}/distribution/
+
+@version path_regexp version ^/docs/v([^/]+)/?$
 redir @version /docs/v{re.version.1}/symfony/
-@version_trailing path_regexp version ^/docs/v([^/]+)/$
-redir @version_trailing /docs/v{re.version.1}/symfony/
-@version_current path_regexp path ^/docs/v3\.2/(.*)
+
+@version_current path_regexp path ^/docs/v4\.0/(.*)
 redir @version_current /docs/{re.path.1}
 
 @withoutExtension not path_regexp \.\w+$
