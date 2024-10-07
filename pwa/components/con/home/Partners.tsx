@@ -49,8 +49,8 @@ function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
 }
 
 export default function Partners({ edition, data }: PartnersProps) {
-  const sponsors = data.filter((p) => p.rank < 6);
-  const partners = data.filter((p) => p.rank >= 6);
+  const sponsors = data.filter((p) => p.rank < 3);
+  const partners = data.filter((p) => p.rank >= 3);
   return (
     <div className="mb-12">
       <PartnersGrid edition={edition} partners={sponsors} />

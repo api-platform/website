@@ -16,7 +16,7 @@ export default function ReviewList() {
         <ReviewItem
           edition="2023"
           imageId="days"
-          big
+          size="lg"
           title={
             <>
               <strong>2</strong>
@@ -55,7 +55,7 @@ export default function ReviewList() {
         <ReviewItem
           edition="2023"
           imageId="speakers"
-          big
+          size="lg"
           title={
             <>
               <strong>25</strong>
@@ -102,7 +102,7 @@ export default function ReviewList() {
         <ReviewItem
           edition="2023"
           imageId="sponsors"
-          big
+           size="lg"
           title={
             <>
               <strong>14</strong>

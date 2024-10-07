@@ -11,12 +11,10 @@ interface LangSwitcherProps {
 export default function LangSwitcher({ locale }: LangSwitcherProps) {
   const pathname = usePathname();
   const [opened, setOpened] = useState(false);
-  const { locales, defaultLocale } = i18n;
+  const { locales } = i18n;
 
   const getSwitchLink = (newLocale: Locale) =>
-    defaultLocale === locale
-      ? `/${newLocale}${pathname}`
-      : `${pathname?.replace(`/${locale}`, `/${newLocale}`)}`;
+    `/${newLocale}${pathname.replace(`/${locale}`, "")}`;
 
   return (
     <div className="relative bg-white text-blue cursor-pointer">
