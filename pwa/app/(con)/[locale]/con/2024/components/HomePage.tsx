@@ -23,7 +23,7 @@ type HomePageProps = {
   images: string[];
 };
 
-const HomePage = ({ speakers, partners, images }: HomePageProps) => {
+const HomePage = ({ speakers, partners }: HomePageProps) => {
   const { t, Translate, locale } = useContext(LanguageContext);
   const { isVisible } = useContext(SectionsContext);
   return (

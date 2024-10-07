@@ -37,12 +37,15 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
             <Logo />
           </div>
           <div className="flex-1 flex flex-col items-center md:items-start">
-            <span className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
-              {t("2024.baseline")}
-            </span>
+            <p className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
+              {t("2025.baseline")}
+            </p>
+            <p className="flex-1 text-sm md:text-md font-extrabold pb-6 lg:text-lg md:text-left">
+              {t("2025.subbaseline")}
+            </p>
             <div className="flex gap-2">
               <Button className="pink" to={`/${locale}/con/2024/review`}>
-                {t("footer.previous_edition.title")}
+                {t("2025.previous_edition")}
               </Button>
             </div>
           </div>
@@ -64,12 +67,12 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <SectionSubTitle>
             <Translate
-              translationKey="last_edition.subtitle"
+              translationKey="2025.see_review.subtitle"
               translationParams={{
                 edition: "2024",
                 link: (
                   <a href={`/${locale}/con/2024/review`} className="link">
-                    {t("last_edition.subtitle_link")}
+                    {t("2025.see_review.link")}
                   </a>
                 ),
               }}
@@ -106,13 +109,29 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               translationParams={{ edition: "2024" }}
             />
           </SectionTitle>
-          <SectionSubTitle>{t("missing_conferences.subtitle")}</SectionSubTitle>
+          <SectionSubTitle>
+            <Translate
+              translationKey="2025.missing_conferences.subtitle"
+              translationParams={{
+                link: (
+                  <a
+                    className="link"
+                    href="https://www.youtube.com/@coopTilleuls"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("2025.missing_conferences.link")}
+                  </a>
+                ),
+              }}
+            />
+          </SectionSubTitle>
           <Button
-            className="mx-auto mb-10 opacity-70 pointer-events-none"
+            className="mx-auto mb-10"
             external
-            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSo7-CAyiirYfhJe4h_Wxs4"
+            to="https://www.youtube.com/@coopTilleuls"
           >
-            {t("coming_soon")}
+            {t("2025.missing_conferences.subscribe")}
           </Button>
         </div>
       </Section>
@@ -122,7 +141,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
       >
         <div className="container text-center">
           <SectionTitle dark h1>
-            <Translate translationKey="speakers.title" />
+            <Translate translationKey="2025.our_speakers.title" />
           </SectionTitle>
           <SectionSubTitle dark>
             <Translate
@@ -131,7 +150,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 edition: "2025",
                 link: (
                   <a
-                    href="mailto:events@les-tilleuls.coop"
+                    href="https://forms.gle/kNpkFsEZshYnfJST6"
                     className="link"
                     target="_blank"
                     rel="noreferrer nooepener"
@@ -144,10 +163,16 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionSubTitle>
           <SpeakerList speakers={speakers} max={6} />
           {speakers.length > 6 ? (
-            <Button className="mx-auto my-7" to="/con/2024/speakers">
+            <Button
+              className="mx-auto my-7"
+              to={`/${locale}/con/2025/speakers`}
+            >
               {t("speakers.see_all")}
             </Button>
           ) : null}
+          <Button className="mx-auto my-7" to={`/${locale}/con/2024/speakers`}>
+            {t("2025.our_speakers.see_2024")}
+          </Button>
         </div>
       </Section>
       <Venue subtitle={t("2025.venue.subtitle")} />

@@ -111,13 +111,25 @@
     }
   },
   "2025": {
-    "baseline": "The flagship conference dedicated to API Platform and its ecosystem is coming back in 2025.",
+    "baseline": "Join us on September 18 and 19, 2025, in Lille and online, to celebrate the 10th anniversary of the API Platform framework.",
+    "subbaseline": "Ticket sales opening: January 6, 2025.",
+    "previous_edition": "See the 2024 edition",
     "date": "September 18-19, 2025 - Lille & online",
+    "missing_conferences": {
+      "subtitle": "Subscribe to {{link}} to discover replay videos this winter!",
+      "link": "our Youtube channel",
+      "subscribe": "Subscribe"
+    },
+    "see_review": {
+      "subtitle": "Discover a glimpse of our previous edition, and find all the highlights of the event in {{link}}.",
+      "link": "our review"
+    },
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Our selected speakers will be revealed in {{edition}}. Want to be part of them? {{link}}",
-      "subtitle_link": "Contact us!",
-      "title": "Our <strong>speakers</strong>"
+      "subtitle": "The call for papers will open in January 2025. {{link}} about the opening!",
+      "subtitle_link": "Stay updated",
+      "title": "Become a <strong>speaker</strong>",
+      "see_2024": "See 2024 speakers"
     },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
@@ -195,7 +207,7 @@
   "minuts_count": "{{count}} min",
   "missing_conferences": {
     "subtitle": "Watch the conference recordings on Youtube!",
-    "title": "<strong>Not registered in {{edition}}?</strong>",
+    "title": "<strong>Didn't attend the {{edition}} edition?</strong>",
     "watch_the_conferences": "Watch the conferences"
   },
   "nav": {
@@ -257,6 +269,7 @@
       "point_4": "Hire multi-skilled developers",
       "why_you_should_partner": "Why you should partner?"
     },
+    "become_sponsor": "Become sponsor in {{year}}",
     "they_trust_us": "They trusted us in {{year}}",
     "title": "<strong>Sponsorship</strong>"
   },

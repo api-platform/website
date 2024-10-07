@@ -99,13 +99,25 @@
     }
   },
   "2025": {
-    "baseline": "L'événement phare dédié à API Platform et son écosystème revient en 2025 !",
+    "baseline": "Rejoignez-nous les 18 et 19 septembre 2025, à Lille et en ligne, pour célébrer les 10 ans du framework API Platform.",
+    "subbaseline": "Ouverture de la billetterie : 6 janvier 2025.",
     "date": "18 et 19 septembre 2025 - Lille & en ligne",
+    "previous_edition": "Voir l'édition 2024",
+    "see_review": {
+      "subtitle": "Découvrez un aperçu de notre précédente édition en images, et retrouvez tous les moments forts de cet événement sur {{link}}.",
+      "link": "notre récap"
+    },
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
-      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement. Vous souhaitez proposer un sujet ? {{link}}",
-      "subtitle_link": "Contactez-nous !",
-      "title": "Nos <strong>speakers</strong>"
+      "subtitle": "Le call for papers ouvrira en janvier 2025. {{link}} sur l’ouverture des candidatures !",
+      "subtitle_link": "Restez informés",
+      "title": "Devenez <strong>speaker</strong>",
+      "see_2024": "Voir les speakers de 2024"
+    },
+    "missing_conferences": {
+      "subtitle": "Abonnez-vous à {{link}} pour découvrir les publications du replay cet hiver !",
+      "link": "notre chaîne Youtube",
+      "subscribe": "S'abonner"
     },
     "venue": {
       "subtitle": "L'API Platform Conference se déroulera à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pourrez acheter un billet pour suivre les conférences en ligne.",
@@ -245,6 +257,7 @@
       "point_4": "Recrutez un large vivier de devs expérimentés",
       "why_you_should_partner": "Pourquoi devenir partenaire ?"
     },
+    "become_sponsor": "Devenir sponsor en {{year}}",
     "they_trust_us": "Ils nous ont fait confiance en {{year}}",
     "title": "<strong>Sponsoring</strong>"
   },
