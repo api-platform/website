@@ -85,7 +85,7 @@ export default function Playground() {
         [STR],
         [
           `(function() {
-  return array_filter(json_decode(file_get_contents('/src/composer.lock'))->packages, fn($v) => $v->name === 'api-platform/core')[0]->version;
+  return array_filter(json_decode(file_get_contents('/src/composer.lock'))->packages, fn($v) => $v->name === 'api-platform/symfony')[0]->version;
 })()`,
         ]
       ) as string,
