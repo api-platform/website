@@ -166,13 +166,13 @@ const nextConfig = {
         return [
             {
                 source: "/con",
-                destination: "/con/2024",
-                permanent: true,
+                destination: "/con/2025",
+                permanent: false,
             },
             {
                 source: "/fr/con",
-                destination: "/fr/con/2024",
-                permanent: true,
+                destination: "/fr/con/2025",
+                permanent: false,
             },
             {
                 source: "/docs/",

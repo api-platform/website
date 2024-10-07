@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Navigation } from "types/con";
-import { currentEdition } from "data/con/editions";
+import { currentEdition, getPreviousEdition } from "data/con/editions";
 import BuyButton from "components/con/common/BuyButton";
 import ConLink from "components/con/common/ConLink";
 import Link from "components/common/Link";
@@ -104,7 +104,9 @@ export default function Nav({
       <div className="hidden | lg:block">
         {links?.map((link) => (
           <NavLink key={link.text} to={link.to.replace("{{locale}}", locale)}>
-            {t(link.text)}
+            {t(link.text, {
+              previous_edition: getPreviousEdition(edition || ""),
+            })}
           </NavLink>
         ))}
       </div>

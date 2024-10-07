@@ -25,6 +25,12 @@ export const editions: Edition[] = [
     startDate: "2024-09-19",
     endDate: "2024-09-20",
   },
+  {
+    year: "2025",
+    image: "2024",
+    startDate: "2025-09-18",
+    endDate: "2025-09-19",
+  },
 ];
 
 export function getPreviousEdition(currentEdition: string) {
@@ -35,6 +41,6 @@ export function getPreviousEdition(currentEdition: string) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-export const currentEdition: string = "2024";
+export const currentEdition: string = "2025";
 
 export default editions;

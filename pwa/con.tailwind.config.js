@@ -48,10 +48,32 @@ module.exports = {
           "0%, 100%": { "stroke-dashoffset": 12 },
           "100%": { "stroke-dashoffset": 0 },
         },
+        draw: {
+          "0%": { "stroke-dashoffset": 0 },
+          "100%": { "stroke-dashoffset": 730 },
+        },
+        "draw-opacity": {
+          "0%": { opacity: 0 },
+          "40%": { opacity: 0 },
+          "45%": { opacity: 1 },
+          "55%": { opacity: 1 },
+          "60%": { opacity: 0 },
+          "100%": { opacity: 0 },
+        },
+        "svg-shadow": {
+          "0%": {
+            opacity: 0.2,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
       animation: {
         web: "web 1s linear infinite",
         "web-invert": "web 1s linear infinite reverse",
+        draw: "draw 2.5s linear infinite, draw-opacity 3s linear infinite",
+        fade: "svg-shadow 2s ease-in-out infinite alternate",
       },
       backgroundImage: {
         "conf-gradient":
@@ -80,5 +102,6 @@ module.exports = {
   plugins: [
     require("./plugins/stroke-dasharray-plugin.js"),
     require("./plugins/lined-plugin.js"),
+    require("./plugins/animation-delay-plugin.js"),
   ],
 };
