@@ -8,14 +8,14 @@ interface ReviewItemProps extends PropsWithChildren {
   title: JSX.Element;
   imageId: string;
   edition: string;
-  big?: boolean;
+  size?: "xl" | "lg" | "base";
 }
 
 export default function ReviewItem({
   title,
   imageId,
   edition,
-  big,
+  size = "base",
   children,
 }: ReviewItemProps) {
   const animationLeft = useAnimation("left", undefined, undefined, undefined);
@@ -32,7 +32,9 @@ export default function ReviewItem({
     <div
       className={classNames(
         "flex flex-col items-center mt-0 mx-auto py-10 md:py-20 group | md:items-start md:translate-x-6 md:even:-translate-x-6",
-        big ? " max-w-[1100px] " : "max-w-5xl"
+        size === "lg" && "max-w-[1100px]",
+        size === "base" && "max-w-5xl",
+        size === "xl" && "max-w-[1280px]"
       )}
     >
       <div

@@ -23,7 +23,7 @@ type HomePageProps = {
   images: string[];
 };
 
-const HomePage = ({ speakers, partners, images }: HomePageProps) => {
+const HomePage = ({ speakers, partners }: HomePageProps) => {
   const { t, Translate, locale } = useContext(LanguageContext);
   const { isVisible } = useContext(SectionsContext);
   return (
@@ -246,6 +246,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 {t("last_places")}
               </BuyButton>
             )}
+            <Button className="pink" to={`/${locale}/con`}>
+              {t("back_to_current_edition")}
+            </Button>
           </div>
         </div>
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] right-[6%] top-[38%] -translate-y-1/2 -rotate-[4deg]" />
@@ -284,7 +287,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           ) : null}
         </div>
       </Section>
-      {
+      {currentEdition === "2024" && (
         <Section
           className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
           section="pricing"
@@ -321,7 +324,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
             </div>
           </div>
         </Section>
-      }
+      )}
       <Venue subtitle={t("2024.venue.subtitle")} />
       <Section section="sponsorship" className="py-8">
         <div className="container text-center">

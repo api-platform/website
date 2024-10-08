@@ -76,18 +76,66 @@
   },
   "2024": {
     "baseline": "The flagship conference dedicated to API Platform and its ecosystem is back in Lille, France, on 19 and 20 September 2024.",
-    "date": "September 19-29, 2024 - Lille & online",
+    "date": "September 19-20, 2024 - Lille & online",
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
       "subtitle": "The full schedule has just been unveiled. Take a look at the speakers and topics that will be on stage at the API Platform Conference 2024, and join us!",
       "subtitle_link": "Contact us!",
       "title": "Our <strong>speakers</strong>"
     },
+    "review": {
+      "subtitle_1": "Thank you for participating in the API Platform Conference 2024 and for your continued trust. This edition broke all records, on every level.",
+      "subtitle_2": "The API Platform Conference returns on September 18 and 19, 2025, in Lille and online. {{link}} for the opening of the CFP and ticket sales!",
+      "title": "Time for the PHP revolution!",
+      "link": "Stay tuned"
+    },
+    "aftermovie": {
+      "title": "Watch <strong>the aftermovie</strong>",
+      "subtitle": "Experience the atmosphere and testimonials from our lovely attendees!"
+    },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic French city. If you can't come to Lille, you can watch the event online.",
       "tip_title": "Important",
       "tip": "<p class='mb-2'>Hotel demand is very high in Lille at this time of year, so to make your travel easier, we have negotiated special prices.</p><p>Take a look at the available rooms on {{tip_link}}, get a 10% discount on your stay, and book them as soon as possible with this code:</p><p><strong class='inline-block mb-4 mt-2 p-2 border-2 border-blue'>TILLEULS24</strong></p><p class='my-2'>This code is valid for the following hotels: Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, and Le Rosa 3* for stays between 18th and 22nd September.</p><p class='text-blue-black/60 text-sm'>This discount is available until 4th September 2024.</p>",
       "tip_link": "this website"
+    },
+    "conferences": {
+      "tags": {
+        "security": "Security",
+        "performance": "Performance",
+        "archi": "Architecture",
+        "good-practices": "Good practices",
+        "society": "Society",
+        "feedback": "Feedback"
+      }
+    }
+  },
+  "2025": {
+    "baseline": "Join us on September 18 and 19, 2025, in Lille and online, to celebrate the 10th anniversary of the API Platform framework.",
+    "subbaseline": "Ticket sales opening: January 6, 2025.",
+    "previous_edition": "See the 2024 edition",
+    "date": "September 18-19, 2025 - Lille & online",
+    "missing_conferences": {
+      "subtitle": "Subscribe to {{link}} to discover replay videos this winter!",
+      "link": "our Youtube channel",
+      "subscribe": "Subscribe"
+    },
+    "see_review": {
+      "subtitle": "Discover a glimpse of our previous edition, and find all the highlights of the event in {{link}}.",
+      "link": "our review"
+    },
+    "our_speakers": {
+      "speaker": { "coming_soon": "coming soon" },
+      "subtitle": "The call for papers will open in January 2025. {{link}} about the opening!",
+      "subtitle_link": "Stay updated",
+      "title": "Become a <strong>speaker</strong>",
+      "see_2024": "See 2024 speakers"
+    },
+    "venue": {
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
+      "tip_title": "Important",
+      "tip": "Hotel rooms have been negotiated and pre-booked to make your travel easier. Hotel demand is very high in Lille at this time of year: take a look at the available rooms and book them as soon as possible {{tip_link}}",
+      "tip_link": "by following this link"
     }
   },
   "an_event_by": "an event by",
@@ -159,7 +207,7 @@
   "minuts_count": "{{count}} min",
   "missing_conferences": {
     "subtitle": "Watch the conference recordings on Youtube!",
-    "title": "<strong>Not registered in {{edition}}?</strong>",
+    "title": "<strong>Didn't attend the {{edition}} edition?</strong>",
     "watch_the_conferences": "Watch the conferences"
   },
   "nav": {
@@ -221,6 +269,7 @@
       "point_4": "Hire multi-skilled developers",
       "why_you_should_partner": "Why you should partner?"
     },
+    "become_sponsor": "Become sponsor in {{year}}",
     "they_trust_us": "They trusted us in {{year}}",
     "title": "<strong>Sponsorship</strong>"
   },

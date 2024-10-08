@@ -35,7 +35,7 @@ export const t =
       );
     });
 
-    currentKey = currentKey?.replace(/(\s)([:!?])/g, "$1\u00A0$2");
+    currentKey = currentKey?.replace(/(\s)(?!\u00A0)([:!?])/g, "\u00A0$2");
 
     return currentKey || key;
   };

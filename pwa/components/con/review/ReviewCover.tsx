@@ -32,7 +32,7 @@ export default function ReviewCover({
       <div className="absolute w-full h-screen border-b-4 border-b-blue bg-blue-black">
         <Image
           src={`/images/con/editions/${edition}.jpg`}
-          alt="Api platform con 2021 picture"
+          alt={`Api platform con ${edition} picture`}
           fill
           className="opacity-50 object-cover"
         />
@@ -44,7 +44,7 @@ export default function ReviewCover({
             {title}
           </span>
         </h1>
-        <div className="text-xl my-6 font-light">{baseline}</div>
+        <div className="text-xl my-6 font-light max-w-3xl">{baseline}</div>
         <div className="flex flex-col gap-4 | sm:flex-row">
           <Button onClick={scrollToList}>{t("review.button")}</Button>
           {button}

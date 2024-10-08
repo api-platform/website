@@ -24,8 +24,12 @@ const footer = [
         link: "/{{locale}}/con/2024/#venue",
       },
       {
-        title: "footer.the_event.links.pricing",
-        link: "/{{locale}}/con/2024/#pricing",
+        title: "footer.the_event.links.schedule",
+        link: "/{{locale}}/con/2024/schedule",
+      },
+      {
+        title: "footer.the_event.links.current_edition",
+        link: "/{{locale}}/con",
       },
     ],
   },
