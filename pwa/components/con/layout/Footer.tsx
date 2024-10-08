@@ -105,7 +105,7 @@ export default function Footer({
         <hr className="border-1 border-blue w-full" />
 
         <span className="text-sm font-light text-center my-5">
-          Copyright © 2023{" "}
+          Copyright © 2024{" "}
           <a
             href={`https://les-tilleuls.coop/${locale}`}
             target="_blank"

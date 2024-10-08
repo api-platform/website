@@ -79,7 +79,7 @@ export default function Footer() {
             <div className="text-xs font-light text-center | sm:text-left">
               <Logo className="h-8 text-blue" inline />
               <p className="mt-4">
-                Copyright © 2023{" "}
+                Copyright © 2024{" "}
                 <a
                   className="link text-blue-light"
                   href="https://dunglas.dev/"
