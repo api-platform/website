@@ -31,8 +31,8 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         className="flex flex-col text-white text-center justify-center items-center min-h-screen w-full relative overflow-hidden pt-12 pb-12"
         section="home"
       >
-        <div className="container relative z-10 flex flex-col items-center w-full md:flex-row md:gap-12">
-          <div className="w-4/5 my-6 md:mt-0 md:w-1/2 relative">
+        <div className="container relative z-10 flex flex-col items-center w-full md:flex-row md:gap-12 xl:gap-24">
+          <div className="w-4/5 my-6 md:mt-0 md:w-1/2 relative xl:w-[47%]">
             <Logo />
           </div>
           <div className="flex-1 flex flex-col items-center md:items-start">
