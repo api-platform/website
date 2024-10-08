@@ -79,7 +79,7 @@ export function getEditionEventData(edition: string) {
   const eventData = {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: `API Platform Conference ${edition}$`,
+    name: `API Platform Conference ${edition}`,
     description:
       "The international conference dedicated to API Platform and its ecosystem",
     url: `https://api-platform.com/con/${edition}/`,

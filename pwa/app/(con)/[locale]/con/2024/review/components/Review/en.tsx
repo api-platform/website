@@ -34,7 +34,7 @@ export default function ReviewList() {
           <p>
             On the agenda: quick exposure of a REST or GraphQL API from Eloquent
             models, addition of advanced API features (pagination, filters,
-            authentication, data validation), compatibility with Octane and
+            authentication, data validation), compatibility with Octane and{" "}
             <a
               className="link"
               href="https://frankenphp.dev/"
@@ -51,7 +51,7 @@ export default function ReviewList() {
             experience tailored to all development needs.
           </p>
           <Button className="square" size="small" to="/?s=laravel">
-            Discover API Platform Laravel
+            API Platform for Laravel
           </Button>
         </ReviewItem>
         <ReviewItem
@@ -341,7 +341,7 @@ export default function ReviewList() {
             size="small"
             to="mailto:events@les-tilleuls.coop"
           >
-            Become sponsor en 2025
+            Become sponsor in 2025
           </Button>
         </ReviewItem>
         <ReviewItem
