@@ -12,7 +12,7 @@ import LookingSponsorCard from "components/con/home/LookingSponsorCard";
 import { Partner, Speaker } from "types/con";
 import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
-import Section, { SectionsContext } from "components/con/home/Section";
+import Section from "components/con/home/Section";
 import PictureGallery from "components/con/common/PictureGallery";
 import Logo from "./Logo";
 import AfterMovie from "app/con/2024/components/AfterMovie";
@@ -25,7 +25,6 @@ type HomePageProps = {
 
 const HomePage = ({ speakers, partners, images }: HomePageProps) => {
   const { t, Translate, locale } = useContext(LanguageContext);
-  const { isVisible } = useContext(SectionsContext);
   return (
     <>
       <Section
@@ -33,7 +32,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         section="home"
       >
         <div className="container relative z-10 flex flex-col items-center w-full md:flex-row md:gap-12">
-          <div className="w-4/5 my-6 md:mt-0 md:h-[90vh] md:w-1/2 lg:w-3/5 content-center">
+          <div className="w-4/5 my-6 md:mt-0 md:w-1/2 relative">
             <Logo />
           </div>
           <div className="flex-1 flex flex-col items-center md:items-start">
@@ -49,11 +48,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               </Button>
             </div>
           </div>
-          <Web
-            className="absolute z-0 h-[80vh] -translate-x-1/2 -translate-y-1/2 top-[36%] left-[98%] opacity-60 pointer-events-none"
-            animated={true}
-            isVisible={isVisible("home")}
-          />
         </div>
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] right-[7%] top-[63%] -translate-y-1/2" />
       </Section>
