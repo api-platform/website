@@ -20,7 +20,7 @@ php:
     - "192.168.0.0/16"
   resources:
     requests:
-      cpu: 100m
+      cpu: 50m
       memory: 100Mi
 
 pwa:
@@ -32,10 +32,10 @@ pwa:
     tag: ""
   resources:
     requests:
-      memory: 1400Mi
-      cpu: 500m
+      memory: 150Mi
+      cpu: 50m
     limits:
-      memory: 1400Mi
+      memory: 300Mi
   podAnnotations:
     instrumentation.opentelemetry.io/inject-nodejs: "true"
 
