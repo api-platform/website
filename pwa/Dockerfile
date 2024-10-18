@@ -81,7 +81,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	fi  \
 	&& pnpm run prebuild
 
-ADD https://soyuka.me/contributors.json ./data/contributors.json
+# ADD https://soyuka.me/contributors.json ./data/contributors.json
 
 RUN --mount=type=secret,id=GITHUB_KEY \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
