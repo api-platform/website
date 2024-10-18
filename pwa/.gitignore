@@ -40,7 +40,6 @@ yarn-error.log*
 next-env.d.ts
 
 data/docs
-data/contributors.json
 
 public/schema/metadata/*.xsd
 
