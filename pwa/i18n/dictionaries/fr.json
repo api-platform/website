@@ -142,31 +142,52 @@
         "title": "Talk us about your favorite techno!"
       },
       "subject": {
-        "title": "Which subject could interest you?",
-        "feedback": {
-          "title": "Feedback",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "title": "Talk categories",
+        "subtitle": "We are looking forward to talks on (but not limited to) these topics:",
+        "button_subscribe": "Subscribe to our waiting list",
+        "categories": [
+          {
+          "icon": "api-platform-ecosystem",
+          "title": "API Platform and its ecosystem",
+          "points": [
+            "You have discovered new features, a use case, a migration story or a contribution to share with the API Platform framework.",
+            "You have built applications for real-world enterprise scenarios and your talk will showcase your development’s journey – from initial adoption to implementation.",
+            "You have used API Platform as a key tool in your API design."
+          ]
         },
-        "performance": {
-          "title": "Performance",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        {
+          "icon": "going-further-api-p",
+          "title": "Going further with API Platform",
+          "points": [
+            "<strong>JavaScript</strong> - API Platform is not only about PHP: in addition to its powerful admin generator, API Platform also features a client generator capable of scaffolding fully functional applications with Next.js, Nuxt.js, React/Redux, Vue.js, Quasar, and Vuetify for both PWAs and SPAs. Share your insights, contributions, and discoveries about it!",
+            "<strong>Devops</strong> - you host or you have deployed a project with API Platform: tell us about it!",
+            "Share your experiments on using <strong>AI</strong> on your web project."
+          ]
         },
-        "good_practices": {
-          "title": "Good practices",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        {
+          "icon": "franken-php",
+          "title": "FrankenPHP",
+          "points": [
+            "You’ve optimized your application’s performance or migrated it with FrankenPHP.",
+            "You’ve deployed FrankenPHP natively or using a cloud hosting solution. Share your feedback with us!"
+          ]
         },
-        "archi": {
-          "title": "Architecture",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        {
+          "icon": "frameworks",
+          "title": "Frameworks and tools",
+          "points": [
+            "Share with us your findings or best practices regarding tools from the PHP ecosystem.",
+            "Tell us about the tools and good practices you use to build your software’s architecture. "
+          ]
         },
-        "ia": {
-          "title": "IA",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        "security": {
-          "title": "Security",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        {
+          "icon": "society",
+          "title": "Society",
+          "points": [
+            "Different management, corporate culture, mental health, agility, or the struggle for greater diversity and inclusion in tech... We always open the floor to more cross-cutting topics during our event."
+          ]
         }
+        ]
       },
       "informations": "Informations",
       "point_1": "The API Platform Conference is an international event held in France, featuring two parallel tracks over two days in both English and French.",
@@ -174,7 +195,8 @@
       "point_3": "The event is hybrid: your talk will be streamed live online and recorded. Unless you advise otherwise, it will be published on our YouTube channel after the event.",
       "point_4": "Submitting multiple proposals is encouraged, but it does not necessarily increase your chances of selection.",
       "point_5": "While we prefer original content, submitting a previously presented conference topic is not grounds for elimination. Each talk is unique and never delivered in the same way.",
-      "button_subscribe": "Subscribe to our waiting list"
+      "point_6": "Speakers are expected to uphold the same Code of Conduct as attendees and staff.",
+      "button_subscribe": "Don't miss the CFP opening"
     }
   },
   "an_event_by": "Un événement organisé par",

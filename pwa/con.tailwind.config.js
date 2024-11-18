@@ -34,6 +34,9 @@ module.exports = {
         sans: ["var(--font-raleway)"],
         title: ["var(--font-poppins)"],
       },
+      boxShadow: {
+        floating: "0px 0px 80px rgb(0 0 0 / 0.15)",
+      },
       listStyleType: {
         circle: "circle",
       },
