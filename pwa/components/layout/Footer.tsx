@@ -1,5 +1,5 @@
 import Logo from "components/common/Logo";
-import { Github, Mastodon, Twitter } from "components/icons/social";
+import { Bluesky, Github, Mastodon, Twitter } from "components/icons/social";
 import footerData from "data/footer";
 import Link, { LinkProps } from "components/common/Link";
 import { PropsWithChildren } from "react";
@@ -110,11 +110,11 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://fosstodon.org/@ApiPlatform"
+                href="https://bsky.app/profile/api-platform.com"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <Mastodon className="h-5 w-5" />
+                <Bluesky className="h-5 w-5" />
               </a>
               <a
                 href="https://twitter.com/ApiPlatform"
@@ -122,6 +122,13 @@ export default function Footer() {
                 rel="noreferrer noopener"
               >
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://fosstodon.org/@ApiPlatform"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Mastodon className="h-5 w-5" />
               </a>
             </div>
           </div>

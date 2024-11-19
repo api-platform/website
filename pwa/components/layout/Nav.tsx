@@ -2,7 +2,7 @@
 import classNames from "classnames";
 import Logo from "components/common/Logo";
 import ThemeToggle from "components/common/ThemeToggle";
-import { Github, Mastodon, Twitter } from "components/icons/social";
+import { Bluesky, Github, Mastodon, Twitter } from "components/icons/social";
 import { usePathname } from "next/navigation";
 import NavLink from "./NavLink";
 import { useState, useEffect } from "react";
@@ -150,11 +150,11 @@ export default function Nav({ withPreheader = false }) {
                   <Github className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
                 <a
-                  href="https://fosstodon.org/@ApiPlatform"
+                  href="https://bsky.app/profile/api-platform.com"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  <Mastodon className="h-7 w-7 lg:h-4 lg:w-4" />
+                  <Bluesky className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
                 <a
                   href="https://twitter.com/ApiPlatform"
@@ -162,6 +162,13 @@ export default function Nav({ withPreheader = false }) {
                   rel="noreferrer noopener"
                 >
                   <Twitter className="h-7 w-7 lg:h-4 lg:w-4" />
+                </a>
+                <a
+                  href="https://fosstodon.org/@ApiPlatform"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <Mastodon className="h-7 w-7 lg:h-4 lg:w-4" />
                 </a>
               </div>
               <a

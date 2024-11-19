@@ -144,10 +144,8 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 edition: "2025",
                 link: (
                   <a
-                    href="https://forms.gle/kNpkFsEZshYnfJST6"
+                    href={`/${locale}/con/2025/call-for-papers`}
                     className="link"
-                    target="_blank"
-                    rel="noreferrer nooepener"
                   >
                     {t("2025.our_speakers.subtitle_link")}
                   </a>
@@ -164,8 +162,11 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               {t("speakers.see_all")}
             </Button>
           ) : null}
-          <Button className="mx-auto my-7" to={`/${locale}/con/2024/speakers`}>
-            {t("2025.our_speakers.see_2024")}
+          <Button
+            className="mx-auto my-7"
+            to={`/${locale}/con/2025/call-for-papers`}
+          >
+            {t("2025.our_speakers.cfp")}
           </Button>
         </div>
       </Section>

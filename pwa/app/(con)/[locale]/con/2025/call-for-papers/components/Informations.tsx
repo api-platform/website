@@ -35,7 +35,7 @@ export default function Informations() {
             {t("2025.cfp.informations")}
           </span>
           <ul className="flex flex-col gap-8 text-left text-lg">
-            {[1, 2, 3, 4, 5].map((index) => (
+            {[1, 2, 3, 4, 5, 6].map((index) => (
               <li key={index} className="flex flex-row gap-2">
                 <Arrow />
                 <p className="flex-1">{t(`2025.cfp.point_${index}`)}</p>

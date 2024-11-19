@@ -126,10 +126,10 @@
     },
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "The call for papers will open in January 2025. {{link}} about the opening!",
-      "subtitle_link": "Stay updated",
+      "subtitle": "The call for papers will open in January 2025. {{link}} about our speaker pack and expected topics.",
+      "subtitle_link": "Find out more",
       "title": "Become a <strong>speaker</strong>",
-      "see_2024": "See 2024 speakers"
+      "cfp": "More info about the CFP"
     },
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
@@ -138,7 +138,7 @@
       "tip_link": "by following this link"
     },
     "cfp": {
-      "title": "Call for proposals",
+      "title": "Call for papers",
       "subtitle": "The call for papers for API Platform Conference 2025 opens on January 6 and runs until March 23. Final speakers will be announced starting May 14. Submit your pitch, and with a bit of luck, you could join us for this special anniversary edition!",
       "package": {
         "title": "Speaker package",
