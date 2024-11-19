@@ -70,15 +70,6 @@ export default function Footer({
                 {t("follow_us")}
               </span>
               <a
-                href="https://mastodon.online/@cooptilleuls"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all hover:text-blue"
-              >
-                <i className="icon-mastodon mr-2" />
-                <span>Mastodon</span>
-              </a>
-              <a
                 href="https://twitter.com/ApiPlatform"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,6 +79,15 @@ export default function Footer({
                 <span>Twitter</span>
               </a>
               <a
+                href="https://bsky.app/profile/api-platform.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all hover:text-blue"
+              >
+                <i className="icon-mastodon mr-2" />
+                <span>Bluesky</span>
+              </a>
+              <a
                 href="https://fr.linkedin.com/company/les-tilleuls-coop"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -95,6 +95,15 @@ export default function Footer({
               >
                 <i className="icon-linkedin mr-2" />
                 <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://mastodon.online/@cooptilleuls"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all hover:text-blue"
+              >
+                <i className="icon-mastodon mr-2" />
+                <span>Mastodon</span>
               </a>
             </div>
           ) : null}

@@ -37,7 +37,9 @@
   "2022": {
     "baseline": "Le seul événement consacré au framework API Platform et à son écosystème",
     "date": "15 et 16 septembre 2022 - Lille & en ligne",
-    "our_speakers": { "subtitle": "Notre programmation est disponible !" },
+    "our_speakers": {
+      "subtitle": "Notre programmation est disponible !"
+    },
     "review": {
       "subtitle_1": "Merci de votre confiance et d'avoir suivi cette seconde édition.",
       "subtitle_2": "Nous espèrons que vous l'avez autant apprécié que nous avons pris plaisir à l'organiser.",
@@ -53,7 +55,9 @@
     "baseline": "La conférence internationale consacrée au framework API Platform et à son écosystème.",
     "date": "21 et 22 septembre 2023 - Lille & en ligne",
     "our_speakers": {
-      "speaker": { "coming_soon": "coming soon" },
+      "speaker": {
+        "coming_soon": "coming soon"
+      },
       "subtitle": "Le programme est sorti ! Architecture, rex, sécurité, tests ou bonnes pratiques : notre liste de conférencières et conférenciers couvre un large éventail de sujets à ne pas manquer en septembre !",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
@@ -76,7 +80,9 @@
     "baseline": "Le seul événement consacré à API Platform et son écosystème de retour les 19 et 20 septembre 2024, à Lille et en ligne.",
     "date": "19 et 20 septembre 2024 - Lille & en ligne",
     "our_speakers": {
-      "speaker": { "coming_soon": "Prochainement" },
+      "speaker": {
+        "coming_soon": "Prochainement"
+      },
       "subtitle": "Découvrez dès à présent les speakers qui monteront sur scène les 19 et 20 septembre prochains à Lille. Retours d'expérience, architecture, performances ou encore IA... Découvrez celles et ceux que vous rencontrerez prochainement !",
       "subtitle_link": "Contactez-nous !",
       "title": "Nos <strong>speakers</strong>"
@@ -108,11 +114,13 @@
       "link": "notre récap"
     },
     "our_speakers": {
-      "speaker": { "coming_soon": "Prochainement" },
-      "subtitle": "Le call for papers ouvrira en janvier 2025. {{link}} sur l’ouverture des candidatures !",
-      "subtitle_link": "Restez informés",
+      "speaker": {
+        "coming_soon": "Prochainement"
+      },
+      "subtitle": "Le call for papers ouvrira le 6 janvier 2025. {{link}} ainsi que les sujets que nous attendons",
+      "subtitle_link": "Découvrez notre pack speaker",
       "title": "Devenez <strong>speaker</strong>",
-      "see_2024": "Voir les speakers de 2024"
+      "cfp": "Plus d'infos sur le CFP"
     },
     "missing_conferences": {
       "subtitle": "Abonnez-vous à {{link}} pour découvrir les publications du replay cet hiver !",
@@ -124,6 +132,79 @@
       "tip_title": "Important",
       "tip": "Des chambres d’hôtels ont été spécialement négociées et bloquées pour faciliter votre déplacement à Lille. La demande hôtelière est très élevée à Lille à cette époque de l’année : jetez un œil aux chambres disponibles et réservez-les dès que possible {{tip_link}}",
       "tip_link": "en suivant ce lien"
+    },
+    "cfp": {
+      "title": "Call for papers",
+      "subtitle": "Le call for papers de l'API Platform Conference 2025 ouvrira du 6 janvier au 23 mars. Le programme sera annoncé à partir du 14 mai. Proposez-nous un sujet ! Avec un peu de chance, vous ferez partie des speakers de cette édition anniversaire.",
+      "package": {
+        "title": "Speaker package",
+        "subtitle": "Votre prise en charge en tant que speaker :",
+        "point_1": "Remboursement de votre transport.",
+        "point_2": "Accès au dîner des speakers, prévu le mercredi 17 septembre à 20h.",
+        "point_3": "Accès complet à la conférence et à la soirée d'anniversaire prévue le jeudi 18 septembre.",
+        "point_4": "Deux nuits d'hôtel sont prévues pour les speakers résidant en France, et trois nuits si vous vivez à l'étranger ou si votre trajet nécessite plus de 6 heures de voyage.",
+        "point_5": "Si votre société peut couvrir vos frais de déplacement et d’hôtel, nous serons ravis de la mentionner comme sponsor de l'événement. Ce soutien nous permet d'accueillir davantage de speakers internationaux, et d'améliorer encore votre expérience lors de la conférence.",
+        "point_6": "Un coffret cadeau."
+      },
+      "techno": {
+        "title": "Partagez-nous votre savoir !"
+      },
+      "subject": {
+        "title": "Thématiques",
+        "subtitle": "Nous recherchons des talks sur ces sujets (mais pas uniquement) :",
+        "button_subscribe": "Restez informé·e sur le CFP",
+        "categories": [
+          {
+            "icon": "api-platform-ecosystem",
+            "title": "API Platform et son écosystème",
+            "points": [
+              "Vous avez découvert de nouvelles fonctionnalités, vous avez un cas d'usage, une expérience de migration ou une contribution à partager avec le framework API Platform.",
+              "Vous avez utilisé API Platform dans le cadre d'un projet client, et votre talk présentera votre parcours de développement – de la mise en place au déploiement.",
+              "Vous avez utilisé API Platform comme un outil clé dans la conception de vos API."
+            ]
+          },
+          {
+            "icon": "going-further-api-p",
+            "title": "Aller plus loin avec API Platform",
+            "points": [
+              "<strong>JavaScript</strong> - API Platform n'est pas qu'un outil PHP : en plus de son générateur d'interfaces d'administration, API Platform propose également un générateur de client capable de créer des applications entièrement fonctionnelles avec Next.js, Nuxt.js, React/Redux, Vue.js, Quasar ou Vuetify. Partagez-nous vos contributions et découvertes à ce sujet !",
+              "<strong>DevOps</strong> - Vous hébergez ou avez déployé un projet avec API Platform : racontez-nous votre expérience !",
+              "Partagez vos expériences sur l'utilisation de l'<strong>IA</strong> dans votre projet web."
+            ]
+          },
+          {
+            "icon": "franken-php",
+            "title": "FrankenPHP",
+            "points": [
+              "Vous avez optimisé les performances de votre application ou l’avez migrée avec FrankenPHP.",
+              "Vous avez déployé FrankenPHP de manière native ou en utilisant une solution d’hébergement Cloud. Partagez vos retours !"
+            ]
+          },
+          {
+            "icon": "frameworks",
+            "title": "Frameworks et outils",
+            "points": [
+              "Partagez avec nous vos découvertes ou vos meilleures pratiques concernant les outils de l’écosystème PHP.",
+              "Parlez-nous des outils et des bonnes pratiques que vous utilisez pour construire l’architecture de vos applications. "
+            ]
+          },
+          {
+            "icon": "society",
+            "title": "Societé",
+            "points": [
+              "Management, RH, culture d'entreprise, santé mentale, agilité, combat pour une plus grande diversité et inclusion dans la tech... Nous laissons toujours la place à des sujets transversaux lors de notre événement."
+            ]
+          }
+        ]
+      },
+      "informations": "Informations",
+      "point_1": "L'API Platform Conference est une conférence internationale qui se déroule à Lille pendant deux jours, avec deux scènes parallèles, en anglais et en français.",
+      "point_2": "Les conférences durent 20 ou 40 min (questions/réponses incluses).",
+      "point_3": "L'événement est hybride : en plus de se dérouler à Lille, votre talk sera diffusé en direct sur Internet. Sauf mention contraire, votre conférence sera ensuite mise en ligne sur notre chaîne YouTube après l'événement",
+      "point_4": "Proposer de nombreux sujets est encouragé, mais n'augmente pas nécessairement vos chances de sélection.",
+      "point_5": "Nous préférons les sujets inédits, mais il n'est pas éliminatoire de proposer un sujet déjà donné dans une autre conférence : chaque talk est unique et peut évoluer au fil du temps.",
+      "point_6": "Les speakers sont soumis au même code de conduite que les participants et le staff.",
+      "button_subscribe": "Restez informé·e sur le CFP"
     }
   },
   "an_event_by": "Un événement organisé par",
@@ -215,7 +296,9 @@
     }
   },
   "or_follow_us": "ou suivez-nous sur nos réseaux",
-  "partners": { "title": "Nos <strong>partenaires</strong>" },
+  "partners": {
+    "title": "Nos <strong>partenaires</strong>"
+  },
   "pricing": {
     "certificate_needed": "Un justificatif sera demandé",
     "conference": {
@@ -238,8 +321,12 @@
       "subtitle": "Formez-vous au framework API Platform avec ses créateurs"
     }
   },
-  "review": { "button": "Revivez nos moments clés" },
-  "schedule": { "title": "Découvrez notre <strong>agenda</strong>" },
+  "review": {
+    "button": "Revivez nos moments clés"
+  },
+  "schedule": {
+    "title": "Découvrez notre <strong>agenda</strong>"
+  },
   "see_details": "Plus de détails",
   "speakers": {
     "see_all": "Voir tous les speakers",

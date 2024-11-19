@@ -124,5 +124,9 @@ span[class^='icon-'], span[class*=' icon-'],
 .icon-mastodon:before {
   content: '\e919';
 }
+.icon-bluesky:before {
+  content: '\e918';
+}
+
 
 
