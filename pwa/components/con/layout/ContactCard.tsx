@@ -55,8 +55,8 @@ export default function ContactCard() {
             </p>
             <div className="social__list white">
               <ContactIcon
-                url="https://mastodon.online/@cooptilleuls"
-                icon="mastodon"
+                url="https://bsky.app/profile/les-tilleuls.coop"
+                icon="bluesky"
               />
               <ContactIcon
                 url="https://twitter.com/ApiPlatform"
@@ -65,6 +65,10 @@ export default function ContactCard() {
               <ContactIcon
                 url="https://fr.linkedin.com/company/les-tilleuls-coop"
                 icon="linkedin"
+              />
+              <ContactIcon
+                url="https://mastodon.online/@cooptilleuls"
+                icon="mastodon"
               />
             </div>
           </div>

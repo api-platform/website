@@ -10,6 +10,7 @@ import { createContext, PropsWithChildren } from "react";
 type LanguageContextType = {
   locale: Locale;
   t: Awaited<ReturnType<typeof getTranslation>>;
+  getLocaleDictionary?: () => Awaited<ReturnType<typeof getDictionary>>;
   Translate: ({
     translationKey,
     translationParams,
@@ -61,9 +62,11 @@ export function LanguageProvider({
     );
   };
 
+  const getLocaleDictionary = () => dictionary;
+
   return (
     <LanguageContext.Provider
-      value={{ locale: locale, t: translate, Translate }}
+      value={{ locale: locale, t: translate, Translate, getLocaleDictionary }}
     >
       {children}
     </LanguageContext.Provider>

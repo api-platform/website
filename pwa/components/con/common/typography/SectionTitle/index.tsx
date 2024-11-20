@@ -39,10 +39,10 @@ export default function SectionTitle({
       ) : (
         <h2
           className={classnames(
-            "absolute select-none z-0 w-full left-1/2 bottom-16 -translate-x-1/2 scale-[2] text-6xl",
+            "absolute select-none z-0 w-full left-1/2 bottom-16 -translate-x-1/2 scale-[2]",
             dark ? "text-pink/20 opacity-80" : "text-blue/10",
             small
-              ? "text-4xl md:text-5xl/snug"
+              ? "text-4xl/snug md:text-5xl/snug"
               : "text-5xl/snug md:text-6xl/snug"
           )}
         >

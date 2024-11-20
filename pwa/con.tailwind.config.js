@@ -34,6 +34,9 @@ module.exports = {
         sans: ["var(--font-raleway)"],
         title: ["var(--font-poppins)"],
       },
+      boxShadow: {
+        floating: "0px 0px 80px rgb(0 0 0 / 0.15)",
+      },
       listStyleType: {
         circle: "circle",
       },
@@ -68,12 +71,17 @@ module.exports = {
             opacity: 1,
           },
         },
+        defile: {
+          "0%": { transform: "translateX(calc(-100%/3 - 1rem / 3))" },
+          "100%": { transform: "translateX(calc(2 * (-100%/3 - 1rem / 3)))" },
+        },
       },
       animation: {
         web: "web 1s linear infinite",
         "web-invert": "web 1s linear infinite reverse",
         draw: "draw 2.5s linear infinite, draw-opacity 3s linear infinite",
         fade: "svg-shadow 2s ease-in-out infinite alternate",
+        defile: "defile 60s linear infinite",
       },
       backgroundImage: {
         "conf-gradient":
