@@ -19,9 +19,9 @@ export default function Package() {
           />
         </div>
         <div className="bg-white max-w-xl p-8 flex-1 pt-20 lg:pt-8 lg:pl-20 -translate-y-12 lg:-translate-y-0 lg:-translate-x-12">
-          <span className="font-bold text-blue leading-tight font-title text-xl uppercase lined-left lined-blue relative">
+          <div className="font-bold text-blue leading-tight font-title text-xl uppercase lined-left lined-blue relative">
             {t("2025.cfp.package.subtitle")}
-          </span>
+          </div>
           <ul className="mb-30 text-left flex flex-col gap-3 mt-8">
             {[1, 2, 3, 4, 5, 6].map((index) => (
               <li key={index} className="flex items-baseline">
