@@ -7,6 +7,10 @@ const nav = {
       mobileOnly: true,
     },
     {
+      to: "/{{locale}}/con/2025/call-for-papers",
+      text: "nav.links.call_for_papers",
+    },
+    {
       to: "/{{locale}}/con/editions",
       text: "nav.links.previous_editions",
     },

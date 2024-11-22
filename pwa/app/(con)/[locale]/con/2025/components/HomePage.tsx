@@ -89,46 +89,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </PictureGallery>
         </div>
       </Section>
-      <div className="pb-12">
-        <AfterMovie />
-      </div>
-      <Section
-        section="missing"
-        className="relative z-10 text-center overflow-y-clip bg-white"
-      >
-        <div className="container text-center">
-          <SectionTitle>
-            <Translate
-              translationKey="missing_conferences.title"
-              translationParams={{ edition: "2024" }}
-            />
-          </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="2025.missing_conferences.subtitle"
-              translationParams={{
-                link: (
-                  <a
-                    className="link"
-                    href="https://www.youtube.com/@coopTilleuls"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t("2025.missing_conferences.link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <Button
-            className="mx-auto mb-10"
-            external
-            to="https://www.youtube.com/@coopTilleuls"
-          >
-            {t("2025.missing_conferences.subscribe")}
-          </Button>
-        </div>
-      </Section>
       <Section
         section="speakers"
         className="z-10 relative py-4 overflow-x-hidden text-white"
@@ -170,6 +130,30 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </Button>
         </div>
       </Section>
+      <Section
+        section="missing"
+        className="relative z-10 text-center overflow-y-clip bg-white"
+      >
+        <div className="container text-center">
+          <SectionTitle>
+            <Translate
+              translationKey="missing_conferences.title"
+              translationParams={{ edition: "2024" }}
+            />
+          </SectionTitle>
+          <SectionSubTitle>{t("missing_conferences.subtitle")}</SectionSubTitle>
+          <Button
+            className="mx-auto mb-10"
+            external
+            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSppJSvwSIeBexYZQWkN0bm"
+          >
+            {t("missing_conferences.watch_the_conferences")}
+          </Button>
+        </div>
+      </Section>
+      <div className="pb-12">
+        <AfterMovie />
+      </div>
       <Venue subtitle={t("2025.venue.subtitle")} />
       <Section section="sponsorship" className="py-8">
         <div className="container text-center">
