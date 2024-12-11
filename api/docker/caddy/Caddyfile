@@ -12,6 +12,13 @@ log {
 @distribution path_regexp ^/docs/distribution(?:/?)$
 redir @distribution /docs/symfony/
 
+# note that once 4.1 is out we may need to improve this
+@coreToSymfony path_regexp pathMatch ^/docs/core/(controllers|file-upload|fosuser-bundle|messenger|migrate-from-fosrestbundle|nelmio-api-doc|user)(?:/?)$
+redir @coreToSymfony /docs/symfony/{re.pathMatch.1}/
+
+@angular path_regexp pathMatch ^/docs/core/angularjs-integration(?:/?)$
+redir @angular /docs/core/angular-integration/
+
 @docsroot path_regexp ^/docs(/?)$
 redir @docsroot /docs/symfony/
 
