@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import useEventBriteModal from "hooks/con/useEventBriteModal";
 import Button, { ButtonProps } from "components/con/common/Button";
 import classNames from "classnames";
+import { LanguageContext } from "contexts/con/LanguageContext";
 
 interface BuyButtonProps extends ButtonProps {
   id: string;
 }
 
 function BuyButton({ children, id, className, ...props }: BuyButtonProps) {
-  useEventBriteModal(id);
+  //useEventBriteModal(id);
+  const { locale } = useContext(LanguageContext);
 
   return (
     <Button
       id={id}
+      to={`/${locale}/con/2025/tickets`}
       className={classNames("pink flex flex-row gap-1", className)}
       {...props}
     >

@@ -79,6 +79,7 @@ export type Track = {
 };
 
 export type Offer = {
+  type?: string;
   title: Record<string, string>;
   price: number;
   limitDate?: string;
