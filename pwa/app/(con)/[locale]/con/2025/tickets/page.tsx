@@ -1,9 +1,6 @@
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
-import Package from "./components/Package";
-import Informations from "./components/Informations";
-import Subject from "./components/Subject";
-import Technos from "./components/Techno";
+import RegisterPage from "./RegisterPage";
 
 type Props = {
   params: { locale: Locale };
@@ -27,12 +24,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: { params: { locale: Locale } }) {
-  return (
-    <div>
-      <Informations />
-      <Subject />
-      <Package />
-      <Technos />
-    </div>
-  );
+  return <RegisterPage />;
 }
