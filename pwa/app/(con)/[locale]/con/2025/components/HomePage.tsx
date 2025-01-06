@@ -12,7 +12,7 @@ import { Partner, Speaker } from "types/con";
 import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import Section from "components/con/home/Section";
-import prices from "data/con/2024/prices";
+import prices from "data/con/2025/prices";
 import Logo from "./Logo";
 import PricingCard from "components/con/home/Pricing/PricingCard";
 import BuyButton from "components/con/common/BuyButton";
