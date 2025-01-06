@@ -14,13 +14,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: {
-      absolute: dictionary[2025].title,
+      absolute: dictionary["call-for-papers"].title,
       template: `%s - API Platform Conference 2025`,
+    },
+    description: dictionary["call-for-papers"].description,
+    openGraph: {
+      title: `${dictionary["call-for-papers"].title} - API Platform Conference`,
+      description: dictionary["call-for-papers"].description,
+    },
+    twitter: {
+      title: `${dictionary["call-for-papers"].title} - API Platform Conference`,
+      description: dictionary["call-for-papers"].description,
     },
     alternates: {
       languages: {
-        en: locale === "en" ? undefined : "/con/2025",
-        fr: locale === "fr" ? undefined : "/fr/con/2025",
+        en: locale === "en" ? undefined : "/con/2025/call-for-papers",
+        fr: locale === "fr" ? undefined : "/fr/con/2025/call-for-papers",
       },
     },
   };

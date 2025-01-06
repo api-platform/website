@@ -25,22 +25,24 @@ export default function RegisterPage() {
     return true;
   };
 
-    const isPastOffer = (offer: Offer) => {
-      if (isActiveOffer(offer)) return false;
-      if (offer.startDate && dayjs(offer.startDate).isBefore(dayjs(), "day"))
-        return true;
-      return false;
-    };
+  const isPastOffer = (offer: Offer) => {
+    if (isActiveOffer(offer)) return false;
+    if (offer.startDate && dayjs(offer.startDate).isBefore(dayjs(), "day"))
+      return true;
+    return false;
+  };
 
-    const expectations =
-      getLocaleDictionary?.()[2025].tickets.expect.points || [];
+  const expectations =
+    getLocaleDictionary?.()[2025].tickets.expect.points || [];
 
   const onIframeLoaded = () => {
-    const iframe = document.getElementById("yurplan-widget-141690") as HTMLIFrameElement | null;
+    const iframe = document.getElementById(
+      "yurplan-widget-141690"
+    ) as HTMLIFrameElement | null;
     if (!iframe) return;
     const contenu = iframe.contentWindow?.document.body.scrollHeight;
     iframe.style.height = contenu + "px";
-  }
+  };
 
   return (
     <>
@@ -108,12 +110,22 @@ export default function RegisterPage() {
                   <div
                     className={classNames(
                       "font-bold uppercase md:mb-12 text-left md:text-center",
-                      isActiveOffer(p) ? "text-blue" : isPastOffer(p) ? "text-blue-black/30" : "text-blue-black"
+                      isActiveOffer(p)
+                        ? "text-blue"
+                        : isPastOffer(p)
+                        ? "text-blue-black/30"
+                        : "text-blue-black"
                     )}
                   >
                     {p.type}
                   </div>
-                  <p className={classNames(isPastOffer(p) ? "text-blue-black/30" : "text-blue-black/70")}>
+                  <p
+                    className={classNames(
+                      isPastOffer(p)
+                        ? "text-blue-black/30"
+                        : "text-blue-black/70"
+                    )}
+                  >
                     {t("2025.tickets.until_date", {
                       date: toLocaleDate(p.limitDate as string),
                     })}
@@ -124,7 +136,9 @@ export default function RegisterPage() {
                     "relative rounded-full border-4 size-8",
                     isActiveOffer(p)
                       ? "border-blue bg-blue before:h-screen before:w-1.5 before:md:w-screen before:absolute before:md:h-1.5 before:bottom-full before:-translate-x-1/2 before:md:-translate-x-0 before:md:right-full before:bg-blue before:left-1/2 before:md:left-auto before:md:top-1/2 before:md:-translate-y-1/2"
-                      : isPastOffer(p) ? "border-blue bg-white z-10" : "border-blue-black/30 bg-white"
+                      : isPastOffer(p)
+                      ? "border-blue bg-white z-10"
+                      : "border-blue-black/30 bg-white"
                   )}
                 />
               </div>
@@ -154,4 +168,3 @@ export default function RegisterPage() {
     </>
   );
 }
-
