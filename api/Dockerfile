@@ -123,6 +123,9 @@ ADD --chmod=500 https://caddyserver.com/api/download?os=linux&arch=$TARGETARCH&p
 
 COPY --link docker/caddy/Caddyfile /etc/caddy/Caddyfile
 
+#Create the log repository due this issue : https://github.com/caddyserver/caddy/issues/6766 
+RUN mkdir -p /var/log/caddy
+
 # Prod Caddy image
 FROM caddy_base AS caddy_prod
 
