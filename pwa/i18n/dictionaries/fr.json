@@ -152,7 +152,7 @@
           },
           {
             "title": "Rencontrez",
-            "text": "des centaines de participant·es ayant les mêmes besoins que vous."
+            "text": "des centaines de participant·es travaillant sur des problématiques similaires aux vôtres."
           },
           {
             "title": "Participez",
@@ -164,7 +164,7 @@
     },
     "cfp": {
       "title": "Call for papers",
-      "subtitle": "Le call for papers de l'API Platform Conference 2025 ouvrira du 7 janvier au 23 mars. Le programme sera annoncé à partir du 14 mai. Proposez-nous un sujet ! Avec un peu de chance, vous ferez partie des speakers de cette édition anniversaire.",
+      "subtitle": "Le call for papers de l'API Platform Conference 2025 vient d'ouvrir, et est ouvert jusqu'au au 23 mars. Le programme sera annoncé à partir du 14 mai. Proposez-nous un sujet ! Avec un peu de chance, vous ferez partie des speakers de cette édition anniversaire.",
       "package": {
         "title": "Speaker package",
         "subtitle": "Votre prise en charge en tant que speaker :",

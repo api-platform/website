@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import SectionTitle from "components/con/common/typography/SectionTitle";
 import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
@@ -36,13 +36,30 @@ export default function RegisterPage() {
     getLocaleDictionary?.()[2025].tickets.expect.points || [];
 
   const onIframeLoaded = () => {
+    console.log("loaded !");
+    const iframe = document.getElementById(
+      "yurplan-widget-141690"
+    ) as HTMLIFrameElement | null;
+    console.log("iframe ?", !!iframe);
+    if (!iframe) return;
+    const loader = document.getElementById("loader");
+    loader?.classList.add("hidden");
+
+    const contenu = iframe.contentWindow?.document.body.scrollHeight;
+    iframe.style.height = contenu + "px";
+  };
+
+  useEffect(() => {
     const iframe = document.getElementById(
       "yurplan-widget-141690"
     ) as HTMLIFrameElement | null;
     if (!iframe) return;
-    const contenu = iframe.contentWindow?.document.body.scrollHeight;
-    iframe.style.height = contenu + "px";
-  };
+    const handleLoad = () => {
+      const loader = document.getElementById("loader");
+      loader?.classList.add("hidden");
+    };
+    iframe.addEventListener("load", handleLoad, true);
+  }, []);
 
   return (
     <>
@@ -144,17 +161,38 @@ export default function RegisterPage() {
               </div>
             ))}
           </div>
-          <div className="yurplan-widget-container max-w-5xl container pb-40 md:pt-12 -mb-[180px]">
+          <svg
+            id="loader"
+            className="loader animate-spin mx-auto mt-8 size-10 text-blue"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          <div className="yurplan-widget-container max-w-5xl container pb-20 md:pt-12">
             <iframe
-              onLoad={() => onIframeLoaded()}
               title="yurplan"
               src={`https://yurplan.com/events/API-Platform-Conference-2025/138927/tickets/widget?widget=dGlja2V0aW5nV2lkZ2V0WXBfMTM2ODk5XzE0MTY5MA%3D%3D&from=widget_141690&wversion=1&culture=${locale}`}
               width="100%"
               height="100%"
               frameBorder="0"
               scrolling="no"
+              loading="eager"
               className="yurplan-widget"
-              style={{ height: "auto", clipPath: "inset(0px 0px 180px 0px);" }}
+              style={{ height: "auto" }}
               id="yurplan-widget-141690"
               data-id="141690"
             ></iframe>

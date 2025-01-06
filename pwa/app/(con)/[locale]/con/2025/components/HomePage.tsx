@@ -39,17 +39,14 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
             <p className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
               {t("2025.baseline")}
             </p>
-            <p className="flex-1 text-sm md:text-md font-extrabold pb-6 lg:text-lg md:text-left">
-              {t("2025.subbaseline")}
-            </p>
             <div className="flex gap-2">
               {currentEdition === "2025" && (
                 <BuyButton className="mr-2" id="cover">
                   {t("buy_tickets")}
                 </BuyButton>
               )}
-              <Button empty to={`/${locale}/con/2024/review`}>
-                {t("2025.previous_edition")}
+              <Button empty to={`/${locale}/con/2025/call-for-papers`}>
+                {t("2025.cfp.title")}
               </Button>
             </div>
           </div>
