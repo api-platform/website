@@ -137,6 +137,35 @@
       "tip": "Hotel rooms have been negotiated and pre-booked to make your travel easier. Hotel demand is very high in Lille at this time of year: take a look at the available rooms and book them as soon as possible {{tip_link}}",
       "tip_link": "by following this link"
     },
+    "tickets": {
+      "title": "Get your ticket for <strong>API Platform Conference 2025</strong>",
+      "subtitle": "Are you ready to celebrate the 10th anniversary of the API Platform framework?",
+      "until_date": "Until {{date}}",
+      "description": "The API Platform Conference is a two-day event showcasing the latest trends, best practices, and case studies surrounding API Platform and its ecosystem, including PHP, Symfony, JavaScript, AI, FrankenPHP, performance, or tools. With nearly 30 talks delivered in English and French, the conference is a must-attend for innovative companies, project leaders, and skilled developers.",
+      "description2": "If you're a developer, CTO, or decision-maker specializing in these technologies, this event is designed for you!",
+      "expect": {
+        "title": "What you can <strong>expect</strong> from the API Platform Conference?",
+        "points": [
+          {
+            "title": "Learn",
+            "text": "from the top speakers in our ecosystem."
+          },
+          {
+            "title": "Boost",
+            "text": "your brand by supporting the API Platform community."
+          },
+          {
+            "title": "Meet",
+            "text": "hundreds of passionate attendees."
+          },
+          {
+            "title": "Enjoy",
+            "text": "a friendly and welcoming event."
+          }
+        ]
+      },
+      "buy": "Buy your tickets"
+    },
     "cfp": {
       "title": "Call for papers",
       "subtitle": "The call for papers for API Platform Conference 2025 opens on January 7 and runs until March 23. Final speakers will be announced starting May 14. Submit your pitch, and with a bit of luck, you could join us for this special anniversary edition!",

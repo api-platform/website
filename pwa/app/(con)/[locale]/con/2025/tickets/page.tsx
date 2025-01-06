@@ -1,9 +1,6 @@
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
-import Package from "./components/Package";
-import Informations from "./components/Informations";
-import Subject from "./components/Subject";
-import Technos from "./components/Techno";
+import RegisterPage from "./RegisterPage";
 
 type Props = {
   params: { locale: Locale };
@@ -14,17 +11,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: {
-      absolute: dictionary["call-for-papers"].title,
+      absolute: dictionary.tickets.title,
       template: `%s - API Platform Conference 2025`,
     },
-    description: dictionary["call-for-papers"].description,
+    description: dictionary.tickets.description,
     openGraph: {
-      title: `${dictionary["call-for-papers"].title} - API Platform Conference`,
-      description: dictionary["call-for-papers"].description,
+      title: `${dictionary.tickets.title} - API Platform Conference`,
+      description: dictionary.tickets.description,
     },
     twitter: {
-      title: `${dictionary["call-for-papers"].title} - API Platform Conference`,
-      description: dictionary["call-for-papers"].description,
+      title: `${dictionary.tickets.title} - API Platform Conference`,
+      description: dictionary.tickets.description,
     },
     alternates: {
       languages: {
@@ -36,12 +33,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: { params: { locale: Locale } }) {
-  return (
-    <div>
-      <Informations />
-      <Subject />
-      <Package />
-      <Technos />
-    </div>
-  );
+  return <RegisterPage />;
 }
