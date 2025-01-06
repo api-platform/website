@@ -40,6 +40,10 @@
     "title": "Éditions précédentes",
     "description": "Découvrez toutes les précédentes éditions de l'API Platform Conference."
   },
+  "review": {
+    "title": "Récapitulatif",
+    "description": "Que s'est-il passé à l'API Platform Conference %edition% ?"
+  },
   "tickets": {
     "title": "Achetez votre billet !",
     "description": "Inscrivez-vous dès maintenant et rejoignez-nous à Lille les 18 et 19 septembre 2025 pour célébrer le 10e anniversaire d’API Platform !"
