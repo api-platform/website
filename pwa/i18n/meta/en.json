@@ -42,5 +42,13 @@
   "review": {
     "title": "Review",
     "description": "What happened at the API Platform Conference %edition%?"
+  },
+  "tickets": {
+    "title": "Buy your ticket!",
+    "description": "Register now and join us in Lille on 18 & 19 September 2025 to celebrate the 10th anniversary of API Platform at the API Platform Conference!"
+  },
+  "call-for-papers": {
+    "title": "Call for papers",
+    "description": "The Call for Papers for the API Platform Conference 2025 is now open! Submit your talk and join our lineup of talented speakers this September."
   }
 }
