@@ -55,7 +55,7 @@ export default function Informations() {
           className="mt-12"
           size="large"
           external
-          to="https://forms.gle/kNpkFsEZshYnfJST6"
+          to="https://conference-hall.io/api-platform-conference-2025-lille-and-online"
         >
           {t("2025.cfp.subject.button_subscribe")}
         </Button>

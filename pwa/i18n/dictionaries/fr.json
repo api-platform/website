@@ -95,9 +95,10 @@
     },
     "review": {
       "subtitle_1": "Nous vous remercions pour votre participation à l’API Platform Conference 2024 ainsi que pour votre confiance renouvelée. Cette édition a battu tous les records, sur tous les plans !",
-      "subtitle_2": "L'API Platform Conference revient les 18 et 19 septembre 2025 à Lille et en ligne. <br/>{{link}} sur l’ouverture du CFP et de la billetterie !",
+      "subtitle_2": "L'API Platform Conference revient les 18 et 19 septembre 2025 à Lille et en ligne. <br/>{{link}} et {{link2}} viennent d'ouvrir !",
       "title": "Place à la révolution PHP !",
-      "link": "Restez informés"
+      "link": "Le CFP",
+      "link2": "la billetterie"
     },
     "aftermovie": {
       "title": "Découvrez <strong>l'aftermovie</strong>",
@@ -181,7 +182,7 @@
       "subject": {
         "title": "Thématiques",
         "subtitle": "Nous recherchons des talks sur ces sujets (mais pas uniquement) :",
-        "button_subscribe": "Restez informé·e sur le CFP",
+        "button_subscribe": "Postulez au CFP",
         "categories": [
           {
             "icon": "api-platform-ecosystem",
@@ -233,7 +234,7 @@
       "point_4": "Proposer de nombreux sujets est encouragé, mais n'augmente pas nécessairement vos chances de sélection.",
       "point_5": "Nous préférons les sujets inédits, mais il n'est pas éliminatoire de proposer un sujet déjà donné dans une autre conférence : chaque talk est unique et peut évoluer au fil du temps.",
       "point_6": "Les speakers sont soumis au même code de conduite que les participants et le staff.",
-      "button_subscribe": "Restez informé·e sur le CFP"
+      "button_subscribe": "Postulez au CFP"
     }
   },
   "an_event_by": "Un événement organisé par",

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
 export default function ReviewCover() {
-  const { t, Translate } = useContext(LanguageContext);
+  const { t, Translate, locale } = useContext(LanguageContext);
   return (
     <ReviewCoverBase
       edition="2024"
@@ -19,11 +19,19 @@ export default function ReviewCover() {
               link: (
                 <a
                   className="font-bold underline"
-                  href="https://forms.gle/kNpkFsEZshYnfJST6"
+                  href="https://conference-hall.io/api-platform-conference-2025-lille-and-online"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   {t("2024.review.link")}
+                </a>
+              ),
+              link2: (
+                <a
+                  className="font-bold underline"
+                  href={`/${locale}/con/2025/tickets`}
+                >
+                  {t("2024.review.link2")}
                 </a>
               ),
             }}

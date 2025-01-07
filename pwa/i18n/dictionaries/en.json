@@ -63,7 +63,7 @@
     "review": {
       "subtitle_1": "Thank you for your trust and for being present at this conference.",
       "subtitle_2": "We hope you enjoyed this event as much as we did in organizing it.",
-      "subtitle_3": "The API Platform Conference will be back on September 19 and 20, 2024. {{link}}, join us!",
+      "subtitle_3": "The API Platform Conference will be back on September 19 and 20, 2024.{{link}}, join us!",
       "title": "All good things come in threes!",
       "link": "The Call for Papers (CFP) has just opened"
     },
@@ -85,9 +85,10 @@
     },
     "review": {
       "subtitle_1": "Thank you for participating in the API Platform Conference 2024 and for your continued trust. This edition broke all records, on every level.",
-      "subtitle_2": "The API Platform Conference returns on September 18 and 19, 2025, in Lille and online. {{link}} for the opening of the CFP and ticket sales!",
+      "subtitle_2": "The API Platform Conference returns on September 18 and 19, 2025, in Lille and online.<br/>{{link}} and {{link2}} are now open!",
       "title": "Time for the PHP revolution!",
-      "link": "Stay tuned"
+      "link": "The CFP",
+      "link2": "ticketing"
     },
     "aftermovie": {
       "title": "Watch <strong>the aftermovie</strong>",
@@ -185,7 +186,7 @@
       "subject": {
         "title": "Talk categories",
         "subtitle": "We are looking forward to talks on (but not limited to) these topics:",
-        "button_subscribe": "Subscribe to our waiting list",
+        "button_subscribe": "Submit your pitch",
         "categories": [
           {
             "icon": "api-platform-ecosystem",
@@ -237,7 +238,7 @@
       "point_4": "Submitting multiple proposals is encouraged, but it does not necessarily increase your chances of selection.",
       "point_5": "While we prefer original content, submitting a previously presented conference topic is not grounds for elimination. Each talk is unique and never delivered in the same way.",
       "point_6": "Speakers are expected to uphold the same Code of Conduct as attendees and staff.",
-      "button_subscribe": "Don't miss the CFP opening"
+      "button_subscribe": "Submit your pitch"
     }
   },
   "an_event_by": "an event by",

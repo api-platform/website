@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import useEventBriteModal from "hooks/con/useEventBriteModal";
 import Button, { ButtonProps } from "components/con/common/Button";
 import classNames from "classnames";
 import { LanguageContext } from "contexts/con/LanguageContext";
