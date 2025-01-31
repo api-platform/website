@@ -20,8 +20,6 @@ export default function Nav({ withPreheader = false }) {
 
   const version = current;
 
-  const withRyanHeader = true;
-
   const forceClose = () => {
     setOpen(false);
   };
