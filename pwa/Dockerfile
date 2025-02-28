@@ -7,7 +7,8 @@ RUN apk add --no-cache libc6-compat bash git
 
 WORKDIR /srv/app
 
-RUN corepack enable && \
+RUN npm install --global corepack@latest && \
+	corepack enable && \
 	corepack prepare --activate pnpm@latest && \
 	pnpm config -g set store-dir /.pnpm-store
 
@@ -17,6 +18,8 @@ RUN corepack enable && \
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 FROM php as php_documentation_generator
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -79,7 +82,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& pnpm run prebuild
+	&& npm i ts-node && npm run prebuild
 
 # ADD https://soyuka.me/contributors.json ./data/contributors.json
 
@@ -95,7 +98,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& pnpm run postbuild
+	&& npm i ts-node && npm run postbuild
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
