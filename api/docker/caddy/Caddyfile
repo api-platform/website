@@ -36,7 +36,7 @@ redir @versionold /docs/v{re.version.1}/distribution/
 @version path_regexp version ^/docs/v([^/]+)/?$
 redir @version /docs/v{re.version.1}/symfony/
 
-@version_current path_regexp path ^/docs/v4\.0/(.*)
+@version_current path_regexp path ^/docs/v4\.1/(.*)
 redir @version_current /docs/{re.path.1}
 
 @withoutExtension not path_regexp \.\w+$
