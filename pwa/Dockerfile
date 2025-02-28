@@ -18,6 +18,8 @@ RUN corepack enable && \
 
 FROM php as php_documentation_generator
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN apt-get update && apt-get install -y gnupg git libzip-dev zip
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 # this is used to preload data see phpwasm
