@@ -131,7 +131,7 @@
     "venue": {
       "subtitle": "L'API Platform Conference se déroulera à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pourrez acheter un billet pour suivre les conférences en ligne.",
       "tip_title": "Important",
-      "tip": "La demande hôtelière est très forte à Lille en septembre, alors pour faciliter votre venue à la conférence, nous avons négocié des tarifs spéciaux. Consultez les chambres disponibles sur {{tip_link}}, bénéficiez d'une réduction de 10 % sur votre séjour et réservez-les dès que possible avec ce code : TILLEULS25.<br/><br/>Ce code est valable pour les hôtels suivants : Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, et Le Rosa 3* pour des séjours entre le 17 et le 21 septembre.<br/><br/>Cette réduction est disponible jusqu'au 3 septembre 2025.",
+      "tip": "La demande hôtelière est très forte à Lille en septembre, alors pour faciliter votre venue à la conférence, nous avons négocié des tarifs spéciaux. Consultez les chambres disponibles sur {{tip_link}}, bénéficiez d'une réduction de 10 % sur votre séjour et réservez-les dès que possible avec ce code : <strong>TILLEULS25</strong><br/><br/>Ce code est valable pour les hôtels suivants : Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, et Le Rosa 3* pour des séjours entre le 17 et le 21 septembre.<br/><br/>Cette réduction est disponible jusqu'au 3 septembre 2025.",
       "tip_link": "ce site"
     },
     "tickets": {
