@@ -5,9 +5,6 @@ FROM node:18-alpine as builder_base
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat bash git
 
-RUN groupadd -r nodejs || true  
-RUN useradd -r -g nodejs nextjs || true 
-
 WORKDIR /srv/app
 
 RUN npm install --global corepack@latest && \
@@ -50,6 +47,9 @@ RUN pnpm fetch
 COPY --link . .
 RUN pnpm install --offline --frozen-lock
 
+RUN groupadd -r nodejs || true  
+RUN useradd -r -g nodejs nextjs || true 
+
 # Development image
 FROM deps as dev
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
@@ -66,6 +66,9 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
 FROM builder_base AS builder
+
+RUN groupadd -r nodejs || true  
+RUN useradd -r -g nodejs nextjs || true 
 
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
@@ -113,6 +116,9 @@ ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+
+RUN groupadd -r nodejs || true  
+RUN useradd -r -g nodejs nextjs || true 
 
 COPY --from=builder --link /srv/app/public ./public
 
