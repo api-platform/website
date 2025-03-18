@@ -132,7 +132,17 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </div>
         </Section>
       )}
-      <Venue subtitle={t("2025.venue.subtitle")} />
+      <Venue
+        subtitle={t("2025.venue.subtitle")}
+        tip_title={t("2025.venue.tip_title")}
+        tip={t("2025.venue.tip", {
+          tip_link: (
+            <a className="link" href="https://www.hotelsdelille.com/">
+              {t("2025.venue.tip_link")}
+            </a>
+          ),
+        })}
+      />
       <Section
         section="lastYear"
         className=" z-10 relative pb-10 overflow-y-clip"

@@ -1,4 +1,8 @@
-import { getSpeakerData, getAllSpeakerSlugs } from "api/con/speakers";
+import {
+  getSpeakerData,
+  getAllSpeakerSlugs,
+  getAllSpeakers,
+} from "api/con/speakers";
 import { getConferencesBySpeaker } from "api/con/conferences";
 import SpeakerPage from "./SpeakerPage";
 import { Locale, i18n } from "i18n/i18n-config";
@@ -55,11 +59,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const speaker = await getSpeaker(params.edition, params.slug, params.locale);
+  const allSpeakers = await getAllSpeakers(params.edition, params.locale);
+  const otherSpeakers = allSpeakers
+    .filter((s) => s.slug !== params.slug)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
   const conferences = await getConferencesBySpeaker(
     params.edition,
     speaker.id,
     params.locale as Locale
   );
 
-  return <SpeakerPage speakerData={speaker} conferences={conferences} />;
+  return (
+    <SpeakerPage
+      speakerData={speaker}
+      conferences={conferences}
+      edition={params.edition}
+      otherSpeakers={otherSpeakers}
+    />
+  );
 }

@@ -1,5 +1,5 @@
 import { getAllSpeakers } from "api/con/speakers";
-import { Locale, i18n } from "i18n/i18n-config";
+import { Locale } from "i18n/i18n-config";
 import SpeakersPage from "./SpeakersPage";
 
 const getSpeakers = async (edition: string, locale: Locale) => {

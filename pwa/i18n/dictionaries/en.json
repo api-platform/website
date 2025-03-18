@@ -135,8 +135,8 @@
     "venue": {
       "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
       "tip_title": "Important",
-      "tip": "Hotel rooms have been negotiated and pre-booked to make your travel easier. Hotel demand is very high in Lille at this time of year: take a look at the available rooms and book them as soon as possible {{tip_link}}",
-      "tip_link": "by following this link"
+      "tip": "Hotel demand is very high in Lille at this time of year, so to make your travel easier, we have negotiated special prices. Take a look at the available rooms on {{tip_link}}, get a 10% discount on your stay, and book them as soon as possible with this code: <strong>TILLEULS25</strong><br/><br/>This code is valid for the following hotels: Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, and Le Rosa 3* for stays between 17th and 21st September.<br/><br/>This discount is available until 3th September 2025.",
+      "tip_link": "this website"
     },
     "tickets": {
       "title": "Get your ticket for <strong>API Platform Conference 2025</strong>",
@@ -359,6 +359,7 @@
   "see_details": "See details",
   "speakers": {
     "see_all": "See all our speakers",
+    "others": "Our other speakers",
     "speaker_schedule": "{{speaker}}'s schedule",
     "subtitle": "Check out our speaker line up for the API Platform Conference 2024 and get the best resources on architecture, performance, security or best practices on PHP, JavaScript or API Design.",
     "title": "Meet our <strong>speakers</strong>"
