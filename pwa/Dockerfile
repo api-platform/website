@@ -49,11 +49,11 @@ RUN pnpm install --offline --frozen-lock
 
 # Development image
 FROM deps as dev
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./public/php-web.wasm
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playground/utils/
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.data ./public/php-web.data
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.wasm ./public/php-web.wasm
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.wasm ./app/playground/utils/
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.data.js /build/php-web.data.js
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
 
 EXPOSE 3000
@@ -66,11 +66,11 @@ FROM builder_base AS builder
 
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./public/php-web.wasm
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.wasm ./app/playground/utils/
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data.js /build/php-web.data.js
-COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.mjs /build/php-web.mjs
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.data ./public/php-web.data
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.wasm ./public/php-web.wasm
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.wasm ./app/playground/utils/
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.data.js /build/php-web.data.js
+COPY --from=phpwasm --link --chown=1001:1001 /build/php-web.mjs /build/php-web.mjs
 RUN sed '/--pre-js/r /build/php-web.data.js' /build/php-web.mjs > ./app/playground/utils/php-web.mjs
 
 ARG NEXT_ROOT_URL
@@ -115,9 +115,9 @@ COPY --from=builder --link /srv/app/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/standalone ./
-COPY --from=builder --link --chown=nextjs:nodejs /srv/app/public/* ./public/
-COPY --from=builder --link --chown=nextjs:nodejs /srv/app/.next/static ./.next/static
+COPY --from=builder --link --chown=1001:1001 /srv/app/.next/standalone ./
+COPY --from=builder --link --chown=1001:1001 /srv/app/public/* ./public/
+COPY --from=builder --link --chown=1001:1001 /srv/app/.next/static ./.next/static
 
 USER nextjs
 
