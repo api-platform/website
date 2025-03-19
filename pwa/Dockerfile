@@ -47,9 +47,6 @@ RUN pnpm fetch
 COPY --link . .
 RUN pnpm install --offline --frozen-lock
 
-RUN groupadd -r nodejs || true  
-RUN useradd -r -g nodejs nextjs || true 
-
 # Development image
 FROM deps as dev
 COPY --from=phpwasm --link --chown=nextjs:nodejs /build/php-web.data ./public/php-web.data
@@ -66,9 +63,6 @@ CMD ["sh", "-c", "pnpm install --offline --frozen-lock; pnpm dev"]
 
 
 FROM builder_base AS builder
-
-RUN groupadd -r nodejs || true  
-RUN useradd -r -g nodejs nextjs || true 
 
 COPY --link . .
 COPY --from=deps --link /srv/app/node_modules ./node_modules
@@ -116,9 +110,6 @@ ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
-RUN groupadd -r nodejs || true  
-RUN useradd -r -g nodejs nextjs || true 
 
 COPY --from=builder --link /srv/app/public ./public
 
