@@ -119,9 +119,9 @@ COPY --from=builder --link /srv/app/.next/standalone ./
 COPY --from=builder --link /srv/app/public/* ./public/
 COPY --from=builder --link /srv/app/.next/static ./.next/static
 
-RUN chown -R 1001:1001 ./
-RUN chown -R 1001:1001 ./public/
-RUN chown -R 1001:1001 ./.next/static
+RUN chown -R nextjs:nodejs ./
+RUN chown -R nextjs:nodejs ./public/
+RUN chown -R nextjs:nodejs ./.next/static
 
 USER nextjs
 
