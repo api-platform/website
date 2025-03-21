@@ -119,11 +119,11 @@ ARG TARGETARCH
 WORKDIR /srv/app
 
 # Download Caddy compiled with the Mercure and Vulcain modules
-ADD --chmod=500 https://caddyserver.com/api/download?os=linux&arch=$TARGETARCH&p=github.com/dunglas/mercure/caddy&p=github.com/dunglas/vulcain/caddy /usr/bin/caddy
+# ADD --chmod=500 https://caddyserver.com/api/download?os=linux&arch=$TARGETARCH&p=github.com/dunglas/mercure/caddy&p=github.com/dunglas/vulcain/caddy /usr/bin/caddy
 
 COPY --link docker/caddy/Caddyfile /etc/caddy/Caddyfile
 
-#Create the log repository due this issue : https://github.com/caddyserver/caddy/issues/6766 
+#Create the log repository due this issue : https://github.com/caddyserver/caddy/issues/6766
 RUN mkdir -p /var/log/caddy
 
 # Prod Caddy image
