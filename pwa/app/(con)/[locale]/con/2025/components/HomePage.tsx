@@ -183,7 +183,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           <SectionTitle>
             <Translate
               translationKey="missing_conferences.title"
-              translationParams={{ edition: "2025" }}
+              translationParams={{ edition: "2024" }}
             />
           </SectionTitle>
           <SectionSubTitle>{t("missing_conferences.subtitle")}</SectionSubTitle>
