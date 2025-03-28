@@ -23,7 +23,7 @@ export default function LayoutBase({
   return (
     <>
       <Nav edition={edition} nav={nav} isTicketingOpen={isTicketingOpen} />
-      <MobileNav nav={nav} />
+      <MobileNav nav={nav} edition={edition} />
       <div className="relative z-10">
         {children}
         <Footer

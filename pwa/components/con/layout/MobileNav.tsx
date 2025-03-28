@@ -6,12 +6,14 @@ import styles from "./MobileNav.module.css";
 import { Navigation } from "types/con";
 import ConLink from "../common/ConLink";
 import { LanguageContext } from "contexts/con/LanguageContext";
+import { getPreviousEdition } from "data/con/editions";
 
 interface MobileNavType {
   nav?: Navigation;
+  edition?: string;
 }
 
-export default function MobileNav({ nav }: MobileNavType) {
+export default function MobileNav({ nav, edition }: MobileNavType) {
   const pathname = usePathname();
   const [opened, setOpened] = useState(false);
   const { t } = useContext(LanguageContext);
@@ -67,7 +69,11 @@ export default function MobileNav({ nav }: MobileNavType) {
             )}
             onClick={toggleOpen}
           >
-            <ConLink href={link.to}>{t(link.text)}</ConLink>
+            <ConLink href={link.to}>
+              {t(link.text, {
+                previous_edition: getPreviousEdition(edition || ""),
+              })}
+            </ConLink>
           </div>
         ))}
       </div>
