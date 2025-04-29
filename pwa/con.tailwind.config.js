@@ -75,6 +75,14 @@ module.exports = {
           "0%": { transform: "translateX(calc(-100%/3 - 1rem / 3))" },
           "100%": { transform: "translateX(calc(2 * (-100%/3 - 1rem / 3)))" },
         },
+        float: {
+          "0%": {
+            transform: "rotate(0deg) translate3d(-3px, 0, 0) rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg) translate3d(-3px, 0, 0) rotate(-360deg);",
+          },
+        },
       },
       animation: {
         web: "web 1s linear infinite",
@@ -82,6 +90,8 @@ module.exports = {
         draw: "draw 2.5s linear infinite, draw-opacity 3s linear infinite",
         fade: "svg-shadow 2s ease-in-out infinite alternate",
         defile: "defile 60s linear infinite",
+        float: "float 4s linear infinite",
+        float2: "float 4.5s linear infinite reverse",
       },
       backgroundImage: {
         "conf-gradient":

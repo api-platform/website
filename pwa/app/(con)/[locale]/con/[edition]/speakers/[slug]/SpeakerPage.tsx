@@ -8,6 +8,7 @@ import SpeakerConferenceSlot from "./SpeakerConferenceSlot";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import Button from "components/con/common/Button";
 import SpeakerList from "components/con/speakers/SpeakerList";
+import SpeakerImage2025 from "components/con/speakers/SpeakerImage2025";
 
 interface SpeakerProps {
   speakerData: Speaker;
@@ -45,7 +46,11 @@ export default function SpeakerPageTemplate({
         </div>
         <div className="flex flex-col relative flex-wrap items-center bg-grey px-10 pb-10 pt-28 | lg:flex-row lg:items-start | sm:pb-20">
           <div className="w-72 h-72 | md:w-80 md:h-80 | lg:w-[400px] lg:h-[400px]">
-            <SpeakerImage big image={image} placeholder={placeholder} />
+            {edition === "2025" ? (
+              <SpeakerImage2025 speaker={speakerData} big image={image} />
+            ) : (
+              <SpeakerImage big image={image} placeholder={placeholder} />
+            )}
           </div>
           <div className="flex-1 | sm:px-6">
             <SpeakerDescription speaker={speakerData} />

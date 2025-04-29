@@ -5,6 +5,7 @@ import SpeakerSocialList from "./SpeakerSocialList";
 import SpeakerImage from "./SpeakerImage";
 import Overline from "components/con/common/typography/Overline";
 import Link from "components/common/Link";
+import SpeakerImage2025 from "./SpeakerImage2025";
 
 interface SpeakerProps {
   speaker: Speaker;
@@ -23,6 +24,8 @@ export default function SpeakerItem({
     speaker;
   const withSocial = social && (github || twitter);
 
+  const edition = speaker.edition;
+
   return (
     <div
       className={classNames(
@@ -38,11 +41,23 @@ export default function SpeakerItem({
           minified ? "flex flex-row items-center" : "text-center"
         )}
       >
-        <div
-          className={classNames(minified ? "w-20 h-20" : "mx-auto w-60 h-60")}
-        >
-          <SpeakerImage image={image} placeholder={placeholder} />
-        </div>
+        {edition === "2025" ? (
+          <div
+            className={classNames(minified ? "w-20 h-20" : "mx-auto w-64 h-64")}
+          >
+            <SpeakerImage2025
+              speaker={speaker}
+              image={image}
+              placeholder={placeholder}
+            />
+          </div>
+        ) : (
+          <div
+            className={classNames(minified ? "w-20 h-20" : "mx-auto w-60 h-60")}
+          >
+            <SpeakerImage image={image} placeholder={placeholder} />
+          </div>
+        )}
 
         <div
           className={classNames(
