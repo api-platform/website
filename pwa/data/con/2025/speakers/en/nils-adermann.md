@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: nils-adermann-2025
-number: 9
+number: 2
 name: Nils Adermann
 job: Co-Founder
 company: Packagist

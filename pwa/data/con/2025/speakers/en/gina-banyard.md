@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: gina-banyard-2025
-number: 10
+number: 7
 name: Gina Peter Banyard
 job: PHP Core developer
 github: https://github.com/girgias
@@ -15,7 +15,7 @@ path: M1,-0.00025 H0 V0.469 H0.159
 
 ## About Gina
 
-Gina Peter Banyard has been a PHP Core developer since 2019 and is financed by the PHP Foundation since 2022.
+Gina Peter Banyard has been a **PHP Core developer since 2019** and is financed by the PHP Foundation since 2022.
 
 She also maintains **the PHP Documentation** and used to be the lead translator for the French translation of it.
 

@@ -1,16 +1,21 @@
 ---
 type: speaker
 id: kevin-dunglas-2025
-number: 9
+number: 100
 name: Kévin Dunglas
-job: Software developer
-company: Sensiolabs
-twitter: https://twitter.com/imenezzine1
-github: 
+job: API Platform creator
+company: 
+twitter: https://twitter.com/dunglas
+github: https://github.com/dunglas
+bluesky: https://bsky.app/profile/dunglas.dev 
 ---
 
 ## About Kévin
 
-Imen is a passionate web developer specialized in PHP, especially in Symfony. With over 3 years of experience at Sensiolabs, her technical expertise combined with her passion for development has driven her to share her knowledge, whether it's through conferences or blogposts.
+Founder of Les-Tilleuls.coop, a French worker-owned cooperative, **Kévin specializes in designing critical web applications** — high-traffic, high-availability systems with strong interoperability.
 
-Outside of work, she enjoys spending time taking care of her 3 children, including her 18-month-old twins.
+An active open source contributor for over 20 years, he’s a core team member of the Symfony framework and the creator of API Platform, the Mercure.rocks and Vulcain.rocks protocols, and FrankenPHP.
+
+Kévin is also **an international speaker**, published author, box player, and proud cat dad to George.
+
+In a past life, he played in a punk band — and if you dig deep enough, you might still find a few of his music videos online.

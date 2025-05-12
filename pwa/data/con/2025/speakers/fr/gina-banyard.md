@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: gina-banyard-2025
-number: 10
+number: 7
 name: Gina Peter Banyard
 job: PHP Core developer
 github: https://github.com/girgias
@@ -15,8 +15,6 @@ path: M1,-0.00025 H0 V0.469 H0.159
 
 ## À propos de Gina
 
-Gina Peter Banyard est développeuse Core de PHP depuis 2019, et bénéficie du soutien financier de la PHP Foundation depuis 2022.
-
-Elle maintient également **la documentation officielle de PHP** et a été la principale traductrice de sa version française. 
+Gina Peter Banyard est **développeuse Core de PHP depuis 2019**, et bénéficie du soutien financier de la PHP Foundation depuis 2022. Elle maintient également **la documentation officielle de PHP** et a été la principale traductrice de sa version française. 
 
 Diplômée de l’Imperial College de Londres en mathématiques, elle aime jouer à des jeux de réflexion, au Richii Mahjong, et faire de la photographie pendant son temps libre.

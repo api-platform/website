@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: helvira-goma-2025
-number: 9
+number: 100
 name: Helvira Goma
 job: Computer Whisperer
 company: Sunday
@@ -13,4 +13,4 @@ github: https://github.com/HelviraG
 
 Chameleon-like, Helvira Goma lived multiple lives - from quality engineer to office manager - until she found her true calling: programming. 
 
-After a successful career change, she now divides her time between whispering in computers' ears and enticing others to join the other side through her community: Motiv'Her.
+After a successful career change, she now divides her time between **whispering in computers' ears** and enticing others to join the other side through her community: Motiv'Her.

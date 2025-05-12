@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: antoine-bluchet-2025
-number: 10
+number: 9
 name: Antoine Bluchet (Soyuka)
 job: API Platform Project Lead
 company: 
@@ -16,6 +16,6 @@ path: M1,-0.00025 H0 V0.469 H0.159
 
 ## À propos de Soyuka
 
-Développeur Full-Stack, **Antoine contribue aux logiciels libres depuis plus de 10 ans**. Auteur et mainteneur de modules JavaScript, il contribue également à Symfony et API Platform.
+Développeur full-stack, **Antoine contribue aux logiciels open source depuis plus de quinze ans**. Il est l’auteur et le mainteneur de plusieurs modules JavaScript, et contribue également à des frameworks PHP comme Symfony, Laravel et API Platform.
 
-Quand il n'est pas en train de bricoler sa moto, ou de jongler sur un monocycle, il est probablement en train de coder, d'écrire ou de préparer une nouvelle conférence impliquant de la programmation innovative !
+Quand il n’est pas en train de réparer ou de chevaucher sa moto, vous le trouverez probablement en train de coder, d’écrire, de prendre soin de sa famille, ou de préparer une nouvelle conférence.

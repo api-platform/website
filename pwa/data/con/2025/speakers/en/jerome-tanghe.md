@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: jerome-tanghe-2025
-number: 9
+number: 100
 name: Jérôme Tanghe
 job: Backend Developer
 company: Les-Tilleuls.coop
@@ -12,6 +12,6 @@ bluesky: https://bsky.app/profile/deuchnord.fr
 
 ## About Jérôme
 
-Jérôme started developing in high school, and he quickly became passionate about code. Today he works as a senior back-end developer at [Les-Tilleuls.coop](https://les-tilleuls.coop/en), and he’s an active contributor to API Platform.
+Jérôme discovered his passion for coding in high school and has been hooked ever since. Today, he works as a senior back-end developer at Les-Tilleuls.coop and actively contributes to PHP.
 
-Jérôme is also **a big fan of astronomy**, and he combined his two passions by creating **Kosmorro**, a program to calculate ephemerides. If you can’t find him in front of his computer, he’s probably outside looking through his telescope.
+A **dedicated astronomy enthusiast**, Jérôme brought his two passions together by creating Kosmorro, a program for calculating ephemerides. When he’s not at his keyboard, you’ll likely find him stargazing through his telescope.

@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: nils-adermann-2025
-number: 9
+number: 2
 name: Nils Adermann
 job: Co-Founder
 company: Packagist
@@ -16,4 +16,4 @@ Nils Adermann est le créateur de **Composer, le gestionnaire de dépendances po
 
 Fort de plus de vingt ans d’expérience sur des projets PHP open source et commerciaux, il connaît de première main les défis quotidiens auxquels les devs PHP sont confrontés. 
 
-Aujourd’hui, ses projets visent à améliorer l’expérience développeur autour de PHP et à offrir aux entreprises des outils pour en tirer le meilleur parti.
+Aujourd’hui, ses projets visent à **améliorer l’expérience développeur autour de PHP** et à offrir aux entreprises des outils pour en tirer le meilleur parti.

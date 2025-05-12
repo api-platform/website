@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: kevin-dunglas-2025
-number: 9
+number: 100
 name: Kévin Dunglas
 job: Creator
 company: API Platform
@@ -11,10 +11,10 @@ github: https://github.com/dunglas
 
 ## About Kévin
 
-Founder of [Les-Tilleuls.coop](https://les-tilleuls.coop/en) (a French worker-owned cooperative), Kévin is specialized in **designing critical web applications** (high traffic, high availability, interoperability).
+Co-fondateur de la coopérative [Les-Tilleuls.coop](https://les-tilleuls.coop/en), Kévin est spécialisé dans la **conception d'applications web critiques** : des systèmes à fort trafic, haute disponibilité et forte interopérabilité.
 
-He's a member of the Symfony framework core-team, and the creator of API Platform, of [Mercure.rocks](https://mercure.rocks/), [Vulcain.rocks](https://github.com/dunglas/vulcain) protocols and [FrankenPHP](https://frankenphp.dev/). He's an active contributor to more than a hundred Open Source projects including the PHP language, Laravel, Doctrine ORM, Prestashop and tools from the React and Kubernetes ecosystems.
+Contributeur actif à l'open source depuis plus de 20 ans, il est membre de la core team Symfony, le créateur d'API Platform, de [Mercure.rocks](https://mercure.rocks/), [Vulcain.rocks](https://github.com/dunglas/vulcain) et [FrankenPHP](https://frankenphp.dev/).
 
-Kévin is also an **international speaker, a lecturer and a book writer**.
+Kévin est également **conférencier international**, auteur, enseignant, passionné de boxe et père de George, son chat.
 
-In his younger years, he used to play in a punk band.
+Dans une vie antérieure, il jouait dans un groupe punk — et si vous cherchez bien, vous trouverez peut-être encore quelques-uns de ses morceaux sur Internet

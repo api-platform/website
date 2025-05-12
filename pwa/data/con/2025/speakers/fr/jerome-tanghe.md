@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: jerome-tanghe-2025
-number: 9
+number: 100
 name: Jérôme Tanghe
 job: Backend Developer developer
 company: Les-Tilleuls.coop

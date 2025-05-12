@@ -12,6 +12,6 @@ bluesky: https://bsky.app/profile/smainedev.bsky.social
 
 ## À propos de Smaïne
 
-Smaïne occupe le poste d’Engineering Manager chez Yousign. Après s’être reconverti il y a une dizaine d’années, il s’est découvert une véritable passion pour l’ingénierie logicielle et le développement d’applications.
+Smaïne occupe le poste d’Engineering Manager chez Yousign. Après s’être reconverti il y a une dizaine d’années, il s’est découvert **une véritable passion** pour l’ingénierie logicielle et le développement d’applications.
 
 Smaïne aime **transmettre et apprendre**, et s’implique activement dans la création de contenus, que ce soit par le biais de vidéos, d’articles, de conférences ou de formations, principalement autour de l’écosystème PHP et Symfony.

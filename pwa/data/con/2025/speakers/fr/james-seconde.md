@@ -17,6 +17,6 @@ path: M0,-0.00025 l1,0 v0.469 h-0.159
 
 ## À propos de James
 
-James est le spécialiste PHP Developer Advocate chez Vonage, un leader mondial des communications cloud. Fondateur du groupe d’utilisateurs PHP BrumPHP à Birmingham (UK), il a également animé la série de meetups Fusion et organisé la conférence TechMids Developer.
+James est Developer Advocate, **spécialiste de PHP**, chez Vonage, un leader mondial des communications cloud. Fondateur du groupe d’utilisateurs PHP BrumPHP à Birmingham (UK), il a également animé la série de meetups Fusion et organisé la conférence TechMids Developer.
 
-En tant que mentor, écrivain, conférencier et DJ à ses heures perdues, il intervient sur des sujets tels que PHP, JavaScript, DevOps, DevRel et la culture tech.
+En tant que **mentor, écrivain, conférencier et DJ** à ses heures perdues, il intervient sur des sujets tels que PHP, JavaScript, DevOps, DevRel et la culture tech.

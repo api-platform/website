@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: james-seconde-2025
-number: 10
+number: 100
 name: James Seconde
 job: Software Engineer
 company: Vonage
@@ -17,6 +17,6 @@ path: M0,-0.00025 l1,0 v0.469 h-0.159
 
 ## About James
 
-A trained actor with a curious background: from Theatre Studies, to Q/A, to Business Intelligence development, to full stack web development, James is the resident specialist PHP Developer Advocate at Global Cloud Communications giant Vonage. He founded Birmingham, UK's current PHP usergroup BrumPHP, hosted the Fusion Meetup Series, and organised the TechMids Developer Conference.
+A trained actor with a curious background: from Theatre Studies, to Q/A, to Business Intelligence development, to full stack web development, **James is the resident specialist PHP Developer Advocate** at Global Cloud Communications giant Vonage. He founded Birmingham, UK's current PHP usergroup BrumPHP, hosted the Fusion Meetup Series, and organised the TechMids Developer Conference.
 
-He mentors, writes and speaks on PHP, JavaScript, DevOps, DevRel and tech culture. He also pretends to be a DJ on the way.
+He **mentors, writes and speaks** on PHP, JavaScript, DevOps, DevRel and tech culture. He also pretends to be a DJ on the way.

@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: yoan-bernabeu-2025
-number: 100
+number: 8
 name: Yoan Bernabeu
 job: Content creator
 twitter: https://twitter.com/yOyO38

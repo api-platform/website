@@ -12,4 +12,6 @@ github: https://github.com/vinceAmstoutz
 
 ## About Vincent
 
-INCOMING
+Vincent is a bilingual speaker who presents in both French and English. He works as a Senior Developer at Les-Tilleuls.coop and **actively contributes to open-source projects**. He has recently worked on initiatives such as API Platform, FrankenPHP, Symfony, the AFUP website, and Sulu.
+
+Driven by **a passion for technical excellence**, Vincent focuses on clean code and software architecture, continually enriching his practices through regular reading of specialized literature.

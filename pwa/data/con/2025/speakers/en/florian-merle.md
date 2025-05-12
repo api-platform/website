@@ -1,10 +1,10 @@
 ---
 type: speaker
 id: florian-merle-2025
-number: 9
+number: 100
 name: Florian Merle
 job: Backend developer
-company: Akawaka
+company: AKAWAKA
 twitter: https://x.com/florianm__
 github: https://github.com/Florian-Merle
 ---
@@ -13,4 +13,4 @@ github: https://github.com/Florian-Merle
 
 Florian is a developer at AKAWAKA who enjoys working with PHP, Symfony, and Sylius.
 
-Passionate about open source, he has contributed to several packages within the PHP ecosystem.
+**Passionate about open source**, he has contributed to several packages within the PHP ecosystem.

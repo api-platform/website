@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: laura-durieux-2025
-number: 10
+number: 5
 name: Laura Durieux
 job: Senior Full-stack Developer
 twitter: https://x.com/devgirl__
@@ -19,4 +19,4 @@ Laura Durieux, a passionate developer with over six years of experience, is a gr
 
 A two-time gold medalist at WorldSkills Belgium and Medal of Excellence recipient at EuroSkills 2021, she also trained in Tokyo, developing Tabasco Japan's website in 2020.
 
-Since 2023, Laura shares her expertise on Twitch, hosted On est pas des iencli on RTBF, and has delivered talks across Europe on tech and women’s contributions to computing history.
+Since 2023, **Laura shares her expertise** on Twitch, hosted _On est pas des iencli_ on RTBF, and **has delivered talks across Europe** on tech and women’s contributions to computing history.

@@ -11,4 +11,4 @@ github: https://github.com/Darkweak
 
 ## About Sylvain
 
-Sylvain is a seasoned Golang developer, creator of the [Souin HTTP Cache](https://github.com/darkweak/souin), maintainer of Caddy's cache handler, and an active open-source contributor to projects like [Caddy](https://github.com/caddyserver), [Træfik](https://github.com/traefik), and [API Platform](https://github.com/api-platform).
+Sylvain is **a seasoned Golang developer** and a freelancer, creator of the [Souin HTTP Cache](https://github.com/darkweak/souin), maintainer of Caddy's cache handler, and an active open-source contributor to projects like [Caddy](https://github.com/caddyserver), [Træfik](https://github.com/traefik), and [API Platform](https://github.com/api-platform).
