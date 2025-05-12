@@ -24,6 +24,7 @@ export const generateStaticParams = async () => {
     { edition: "2022" },
     { edition: "2023" },
     { edition: "2024" },
+    { edition: "2025" },
   ];
 };
 

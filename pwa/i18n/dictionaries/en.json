@@ -107,7 +107,8 @@
         "archi": "Architecture",
         "good-practices": "Good practices",
         "society": "Society",
-        "feedback": "Feedback"
+        "feedback": "Feedback",
+        "tools": "Tools"
       }
     }
   },
@@ -361,6 +362,7 @@
     "see_all": "See all our speakers",
     "others": "Our other speakers",
     "speaker_schedule": "{{speaker}}'s schedule",
+    "no_date": "Full agenda coming soon",
     "subtitle": "Check out our speaker line up for the API Platform Conference 2024 and get the best resources on architecture, performance, security or best practices on PHP, JavaScript or API Design.",
     "title": "Meet our <strong>speakers</strong>"
   },

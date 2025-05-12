@@ -7,16 +7,20 @@ const nav = {
       mobileOnly: true,
     },
     {
-      to: "/{{locale}}/con/2025/call-for-papers",
-      text: "nav.links.call_for_papers",
-    },
-    {
-      to: "/{{locale}}/con/editions",
-      text: "nav.links.previous_editions",
-    },
-    {
-      to: "/{{locale}}/con/2024/review",
       text: "footer.previous_edition.links.review",
+      to: "/{{locale}}/con/2024/review",
+    },
+    {
+      to: "/{{locale}}/con/2025/speakers",
+      text: "nav.links.speakers",
+    },
+    {
+      to: "/{{locale}}/con/2025/#venue",
+      text: "nav.links.venue",
+    },
+    {
+      to: "/{{locale}}/con/2025/#pricing",
+      text: "nav.links.pricing",
     },
   ],
 };

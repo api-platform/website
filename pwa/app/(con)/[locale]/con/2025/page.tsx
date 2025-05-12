@@ -1,6 +1,6 @@
 import { getAllSpeakers } from "api/con/speakers";
 import { getAllEditionPictures } from "api/con/editions";
-import partners from "data/con/2024/partners";
+import partners from "data/con/2025/partners";
 import HomePage from "./components/HomePage";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";

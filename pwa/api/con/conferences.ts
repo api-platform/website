@@ -33,7 +33,6 @@ export const getConferencesBySpeaker = async (
   locale: Locale
 ) => {
   const conferences = await getAllConferences(edition, true, locale);
-
   return conferences
     .filter((conference) =>
       conference.speakers.find((speaker: Speaker) => speaker.id === speakerId)
