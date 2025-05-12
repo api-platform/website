@@ -45,9 +45,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                   {t("buy_tickets")}
                 </BuyButton>
               )}
-              <Button empty to={`/${locale}/con/2025/call-for-papers`}>
-                {t("2025.cfp.title")}
-              </Button>
             </div>
           </div>
         </div>
@@ -86,12 +83,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               {t("speakers.see_all")}
             </Button>
           ) : null}
-          <Button
-            className="mx-auto my-7"
-            to={`/${locale}/con/2025/call-for-papers`}
-          >
-            {t("2025.our_speakers.cfp")}
-          </Button>
         </div>
       </Section>
       {currentEdition === "2025" && (
@@ -206,9 +197,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
         <div className="bg-white text-center relative z-10 pt-40 pb-40">
           <div className="container text-center">
             <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              {t("sponsorship.they_trust_us", { year: "2024" })}
+              <Translate translationKey="partners.title" />
             </div>
-            <Partners data={partners} edition="2024" />
+            <Partners data={partners} edition="2025" />
           </div>
         </div>
       </Section>

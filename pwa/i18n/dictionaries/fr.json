@@ -254,7 +254,8 @@
       "good-practices": "Bonnes pratiques",
       "society": "Société",
       "feedback": "REX",
-      "ia": "IA"
+      "ia": "IA",
+      "tools": "Outils"
     }
   },
   "contact_us": "Contactez-nous !",
@@ -363,6 +364,7 @@
     "see_all": "Voir tous les speakers",
     "others": "Nos autres speakers",
     "speaker_schedule": "Agenda de {{speaker}}",
+    "no_date": "Date à venir",
     "subtitle": "La programmation complète vient de sortir. Découvrez les speakers et les sujets qui marqueront l'API Platform Con 2024, et rejoignez-nous !",
     "title": "Découvrez nos <strong>speakers</strong>"
   },

@@ -21,7 +21,7 @@ const footer = [
       },
       {
         title: "footer.the_event.links.speakers",
-        link: "/{{locale}}/con/2025/#speakers",
+        link: "/{{locale}}/con/2025/speakers",
       },
       {
         title: "footer.the_event.links.pricing",

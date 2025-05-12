@@ -37,6 +37,7 @@ export type Speaker = {
   twitter?: string;
   github?: string;
   mastodon?: string;
+  bluesky?: string;
   job: string;
   company?: string;
   number: number;
@@ -47,6 +48,7 @@ export type Speaker = {
   image: string;
   placeholder: string;
   url: string;
+  path?: string;
 };
 
 export type Conference = {
