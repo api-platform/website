@@ -10,10 +10,18 @@ interface PartnersProps extends PropsWithChildren {
 interface PartnersGridProps extends PropsWithChildren {
   edition: string;
   partners: Partner[];
-  small?: boolean;
+  size?: "small" | "medium" | "big" | "xl";
 }
 
-function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
+function PartnersGrid({ partners, edition, size = "big" }: PartnersGridProps) {
+  const imageSize =
+    size === "small"
+      ? 140
+      : size === "medium"
+      ? 160
+      : size === "xl"
+      ? 200
+      : 180;
   return (
     <div className="flex flex-col md:flex-row justify-center items-center flex-wrap py-6 border-dotted border-grey border-b-2">
       {partners.map(({ name, logo, link, edition: partnerEdition }) => (
@@ -29,12 +37,15 @@ function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
             rel="nofollow noreferrer noopener"
             className={classNames(
               "flex items-center justify-center flex-col",
-              small ? "max-w-[180px]" : " max-w-[240px]"
+              size === "small" && "max-w-[180px]",
+              size === "medium" && "max-w-[200]",
+              size === "big" && "max-w-[220px]",
+              size === "xl" && "max-w-[240px]"
             )}
           >
             <img
-              width={small ? 140 : 200}
-              height={small ? 140 : 200}
+              width={imageSize}
+              height={imageSize}
               src={`/images/con/${
                 partnerEdition || edition
               }/partners/${logo}.png`}
@@ -49,13 +60,24 @@ function PartnersGrid({ partners, edition, small = false }: PartnersGridProps) {
 }
 
 export default function Partners({ edition, data }: PartnersProps) {
-  const sponsors = data.filter((p) => p.rank < 3);
-  const partners = data.filter((p) => p.rank >= 3);
+  const gold = data.filter((p) => p.rank === 1);
+  const silver = data.filter((p) => p.rank === 2);
+  const bronze = data.filter((p) => p.rank === 3);
+  const partners = data.filter((p) => p.rank > 3);
+
   return (
     <div className="mb-12">
-      <PartnersGrid edition={edition} partners={sponsors} />
+      {gold.length > 0 ? (
+        <PartnersGrid edition={edition} partners={gold} size="xl" />
+      ) : null}
+      {silver.length > 0 ? (
+        <PartnersGrid edition={edition} partners={silver} />
+      ) : null}
+      {bronze.length > 0 ? (
+        <PartnersGrid edition={edition} partners={bronze} size="medium" />
+      ) : null}
       {partners.length > 0 ? (
-        <PartnersGrid edition={edition} partners={partners} small />
+        <PartnersGrid edition={edition} partners={partners} size="small" />
       ) : null}
     </div>
   );

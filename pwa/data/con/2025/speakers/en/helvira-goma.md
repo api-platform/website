@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: helvira-goma-2025
-number: 100
+number: 80
 name: Helvira Goma
 job: Computer Whisperer
 company: Sunday

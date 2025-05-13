@@ -44,6 +44,12 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Platform.sh",
+    logo: "platform-sh",
+    link: "https://platform.sh/",
+    rank: 3,
+  },
+  {
     name: "Bakslash",
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",

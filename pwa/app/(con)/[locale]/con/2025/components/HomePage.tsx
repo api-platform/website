@@ -76,8 +76,8 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               }}
             />
           </SectionSubTitle>
-          <SpeakerList speakers={speakers} max={6} />
-          {speakers.length > 6 ? (
+          <SpeakerList speakers={speakers} max={9} />
+          {speakers.length > 9 ? (
             <Button
               className="mx-auto my-7"
               to={`/${locale}/con/2025/speakers`}
