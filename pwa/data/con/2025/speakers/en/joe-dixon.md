@@ -3,7 +3,7 @@ type: speaker
 id: joe-dixon-2025
 number: 2
 name: Joe Dixon
-job: Sofware Developer
+job: Cloud Engineering Team Lead
 company: Laravel
 twitter: https://x.com/_joedixon
 github: https://github.com/joedixon

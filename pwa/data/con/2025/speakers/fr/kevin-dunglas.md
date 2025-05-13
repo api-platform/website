@@ -3,13 +3,14 @@ type: speaker
 id: kevin-dunglas-2025
 number: 80
 name: Kévin Dunglas
-job: Creator
-company: API Platform
+job: API Platform creator & CEO
+company: Les-Tilleuls.coop
 twitter: https://twitter.com/dunglas
 github: https://github.com/dunglas
+bluesky: https://bsky.app/profile/dunglas.dev
 ---
 
-## About Kévin
+## À propos de Kévin
 
 Co-fondateur de la coopérative [Les-Tilleuls.coop](https://les-tilleuls.coop/en), Kévin est spécialisé dans la **conception d'applications web critiques** : des systèmes à fort trafic, haute disponibilité et forte interopérabilité.
 

@@ -3,7 +3,8 @@ type: speaker
 id: alexandre-daubois-2025
 number: 100
 name: Alexandre Daubois
-job: Symfony Core Team
+job: CTO
+company: Les-Tilleuls.coop
 twitter: https://x.com/alexdaubois
 github: https://github.com/alexandre-daubois
 bluesky: https://bsky.app/profile/alexdaubois.bsky.social

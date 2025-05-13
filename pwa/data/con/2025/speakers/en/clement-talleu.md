@@ -3,7 +3,7 @@ type: speaker
 id: clement-talleu-2025
 number: 100
 name: Clément Talleu
-job: CTO
+job: Lead developer
 company: Les-Tilleuls.coop
 bluesky: https://bsky.app/profile/genialo.bsky.social
 github: https://github.com/clementtalleu

@@ -3,8 +3,8 @@ type: speaker
 id: antoine-bluchet-2025
 number: 9
 name: Antoine Bluchet (Soyuka)
-job: API Platform Project Lead
-company: 
+job: API Platform Project Lead & CTO
+company: Les-Tilleuls.coop
 twitter: https://twitter.com/s0yuka
 github: https://github.com/soyuka
 path: M1,-0.00025 H0 V0.469 H0.159

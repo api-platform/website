@@ -5,6 +5,7 @@ number: 3
 name: Tobias Petry
 job: Database Specialist
 twitter: https://x.com/tobias_petry
+bluesky: https://bsky.app/profile/tpetry.me
 github: https://github.com/tpetry
 ---
 
