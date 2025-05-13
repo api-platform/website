@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
   const speakers = await getSpeakers(params.edition, params.locale);
   // Fetch data directly in a Server Component
   // Forward fetched data to your Client Component
-  return <SpeakersPage speakers={speakers} />;
+  return <SpeakersPage speakers={speakers} edition={params.edition} />;
 }
 
 export const generateStaticParams = async () => {

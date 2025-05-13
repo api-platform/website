@@ -3,7 +3,7 @@ type: speaker
 id: jerome-tanghe-2025
 number: 100
 name: Jérôme Tanghe
-job: Backend Developer developer
+job: Backend Developer
 company: Les-Tilleuls.coop
 github: https://github.com/Deuchnord 
 mastodon: https://mamot.fr/@Deuchnord

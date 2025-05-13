@@ -9,6 +9,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Ibexa",
+    logo: "ibexa",
+    link: "https://www.ibexa.co/",
+    rank: 1,
+    highlight: true,
+  },
+  {
     name: "Emagma",
     logo: "emagma",
     link: "https://www.emagma.fr/",
@@ -72,6 +79,18 @@ const partners: Partner[] = [
     logo: "mongo-db",
     link: "https://www.mongodb.com/",
     highlight: true,
+    rank: 4,
+  },
+  {
+    name: "Euratechnologies",
+    logo: "euratechnologies",
+    link: "https://www.euratechnologies.com/",
+    rank: 4,
+  },
+  {
+    name: "Hotels de Lille",
+    logo: "hotels-de-lille",
+    link: "https://www.hotelsdelille.com/",
     rank: 4,
   },
 ];

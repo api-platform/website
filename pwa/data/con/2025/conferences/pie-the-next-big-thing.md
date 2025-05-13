@@ -2,7 +2,7 @@
 type: conference
 speakers: -alexandre-daubois-2025
 short: Installing and utilizing PHP extensions is about to become much easier.
-tag: 'tools'
+tag: tools
 ---
 
 # PIE: The Next Big Thing (🇺🇸)

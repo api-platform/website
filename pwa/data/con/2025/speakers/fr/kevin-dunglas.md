@@ -17,4 +17,4 @@ Contributeur actif à l'open source depuis plus de 20 ans, il est membre de la c
 
 Kévin est également **conférencier international**, auteur, enseignant, passionné de boxe et père de George, son chat.
 
-Dans une vie antérieure, il jouait dans un groupe punk — et si vous cherchez bien, vous trouverez peut-être encore quelques-uns de ses morceaux sur Internet
+Dans une vie antérieure, il jouait dans un groupe punk — et si vous cherchez bien, vous trouverez peut-être encore quelques-uns de ses morceaux sur Internet.
