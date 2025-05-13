@@ -48,14 +48,20 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.9.15
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
-        uses: google-github-actions/auth@v1
+        id: auth
+        uses: google-github-actions/auth@v2
         with:
+          token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Login to GAR
+        uses: docker/login-action@v3
         with:
-          project_id: ${{ secrets.gke-project }}
+          registry: europe-west1-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
         run: |
           gcloud --quiet auth configure-docker
@@ -64,7 +70,7 @@ jobs:
         id: docker-metadata
         uses: docker/metadata-action@v4
         with:
-          images: eu.gcr.io/${{ secrets.gke-project }}/website/php
+          images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php
           tags: |
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
@@ -78,10 +84,10 @@ jobs:
           tags: ${{ steps.docker-metadata.outputs.tags }}
           labels: ${{ steps.docker-metadata.outputs.labels }}
           cache-from: |
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/caddy:latest
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/php:latest
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/php:${{ github.sha }}
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:latest
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:latest
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:${{ github.sha }}
           cache-to: type=inline
     outputs:
       version: ${{ github.sha }}
@@ -99,14 +105,20 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.9.15
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
-        uses: google-github-actions/auth@v1
+        id: auth
+        uses: google-github-actions/auth@v2
         with:
+          token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Login to GAR
+        uses: docker/login-action@v3
         with:
-          project_id: ${{ secrets.gke-project }}
+          registry: europe-west1-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
         run: |
           gcloud --quiet auth configure-docker
@@ -115,7 +127,7 @@ jobs:
         id: docker-metadata
         uses: docker/metadata-action@v4
         with:
-          images: eu.gcr.io/${{ secrets.gke-project }}/website/caddy
+          images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy
           tags: |
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
@@ -129,10 +141,10 @@ jobs:
           tags: ${{ steps.docker-metadata.outputs.tags }}
           labels: ${{ steps.docker-metadata.outputs.labels }}
           cache-from: |
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/caddy:latest
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/php:latest
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/php:${{ github.sha }}
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:latest
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:latest
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:${{ github.sha }}
           cache-to: type=inline
     outputs:
       version: ${{ github.sha }}
@@ -150,14 +162,20 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.9.15
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
-        uses: google-github-actions/auth@v1
+        id: auth
+        uses: google-github-actions/auth@v2
         with:
+          token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Login to GAR
+        uses: docker/login-action@v3
         with:
-          project_id: ${{ secrets.gke-project }}
+          registry: europe-west1-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
         run: |
           gcloud --quiet auth configure-docker
@@ -166,7 +184,7 @@ jobs:
         id: docker-metadata
         uses: docker/metadata-action@v4
         with:
-          images: eu.gcr.io/${{ secrets.gke-project }}/website/pwa
+          images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa
           tags: |
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
@@ -196,8 +214,8 @@ jobs:
           build-args: |
             NEXT_ROOT_URL=${{ env.URL }} 
           cache-from: |
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:latest
-            type=registry,ref=eu.gcr.io/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa:latest
+            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
           cache-to: type=inline
           secrets: |
             "GITHUB_KEY=${{ secrets.gh-key }}"
