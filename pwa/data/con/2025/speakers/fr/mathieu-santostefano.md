@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: mathieu-santostefano-2025
-number: 100
+number: 80
 name: Mathieu Santostefano
 job: Symfony Core Team
 bluesky: https://bsky.app/profile/welcomattic.com

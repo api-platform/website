@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: kevin-dunglas-2025
-number: 100
+number: 80
 name: Kévin Dunglas
 job: Creator
 company: API Platform

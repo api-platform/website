@@ -1,7 +1,7 @@
 ---
 type: speaker
 id: xavier-leune-2025
-number: 100
+number: 80
 name: Xavier Leune
 job: Founder
 company: Alke Tech
