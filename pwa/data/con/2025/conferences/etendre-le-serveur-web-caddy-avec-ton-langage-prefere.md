@@ -2,7 +2,7 @@
 type: conference
 speakers: -sylvain-combraque-2025
 short: Étendre les fonctionnalités du serveur web Caddy avec PHP ou d'autres langages.
-tag: 'tools'
+tag: tools
 ---
 
 # Étendre le serveur web Caddy avec ton langage préféré (🇫🇷)

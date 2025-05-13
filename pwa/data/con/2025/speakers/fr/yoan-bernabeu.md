@@ -15,5 +15,5 @@ Yoan travaille dans la tech depuis près de 20 ans. Spécialisé dans le dévelo
 
 Convaincu que **la simplicité est un levier de qualité**, il accompagne les équipes dans leurs choix techniques et l’optimisation de leurs infrastructures. 
 
-Attaché au partage et à la transmission, il anime **une chaîne YouTube** dédiée aux développeur·euse·s.
+Attaché au partage et à la transmission, il anime [**une chaîne YouTube**](https://www.youtube.com/c/yoandevco) dédiée aux développeur·euse·s.
 

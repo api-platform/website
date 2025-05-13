@@ -2,7 +2,7 @@
 type: conference
 speakers: -imen-ezzine-2025
 short: Explorez l'histoire et l'évolution de l'injection de dépendances dans Symfony et son utilisation dans API Platform.
-tag: 'tools'
+tag: tools
 ---
 
 # Symfony et l'Injection de Dépendances : Du passé au futur (🇫🇷)

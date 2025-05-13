@@ -128,7 +128,7 @@
     },
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "The call for papers will open in January 2025. {{link}} about our speaker pack and expected topics.",
+      "subtitle": "Discover the speakers and topics coming to the stage at API Platform Conference 2025, learn from their insights and experience, and join us this September!",
       "subtitle_link": "Find out more",
       "title": "Become a <strong>speaker</strong>",
       "cfp": "More info about the CFP"
@@ -259,7 +259,8 @@
       "good-practices": "Good practices",
       "society": "Society",
       "feedback": "Feedback",
-      "ia": "AI"
+      "ia": "AI",
+      "tools": "Tools"
     }
   },
   "contact_us": "Contact us!",

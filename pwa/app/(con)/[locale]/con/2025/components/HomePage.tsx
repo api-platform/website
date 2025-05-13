@@ -56,7 +56,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
       >
         <div className="container text-center">
           <SectionTitle h1>
-            <Translate translationKey="2025.our_speakers.title" />
+            <Translate translationKey="speakers.title" />
           </SectionTitle>
           <SectionSubTitle>
             <Translate
@@ -65,8 +65,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 edition: "2025",
                 link: (
                   <a
-                    href={`/${locale}/con/2025/call-for-papers`}
+                    href="https://conference-hall.io/public/event/GMijW4ZrZDo6hzKeF1gk"
                     className="link"
+                    target="_blank"
+                    rel="noreferrer nooepener"
                   >
                     {t("2025.our_speakers.subtitle_link")}
                   </a>

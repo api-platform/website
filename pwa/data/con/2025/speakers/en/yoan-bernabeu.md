@@ -15,5 +15,5 @@ Yoan has been working in tech for nearly 20 years. Specializing in web developme
 
 Convinced that **simplicity drives quality**, he supports teams in making technical decisions and optimizing their infrastructure. 
 
-Passionate about sharing and knowledge transfer, he also runs a YouTube channel dedicated to developers.
+Passionate about sharing and knowledge transfer, he also runs [**a Youtube Channel**](https://www.youtube.com/c/yoandevco) dedicated to developers.
 

@@ -2,7 +2,7 @@
 type: conference
 speakers: -gina-banyard-2025
 short: Explorez l'évolution du système de types de PHP.
-tag: 'tools'
+tag: tools
 ---
 
 # Système de Types et relation de sous-typage en PHP (🇫🇷)
