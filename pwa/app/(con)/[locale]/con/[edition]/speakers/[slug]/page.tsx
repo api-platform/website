@@ -7,6 +7,7 @@ import { getConferencesBySpeaker } from "api/con/conferences";
 import SpeakerPage from "./SpeakerPage";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
+import { getRootUrl } from "utils";
 
 async function getSpeaker(slug: string, edition: string, locale: string) {
   const speaker = await getSpeakerData(slug, edition, locale);
@@ -43,6 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${speaker.name} - API Platform Conference`,
       description: DESCRIPTION,
+      images: [
+        {
+          url: `${getRootUrl()}/images/con/og-${edition}.png`,
+          width: 1200,
+          height: 630,
+          alt: `API Platform Conference ${edition}`,
+        },
+      ],
     },
     twitter: {
       title: `${speaker.name} - API Platform Conference`,
