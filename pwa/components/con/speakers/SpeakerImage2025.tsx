@@ -11,9 +11,10 @@ interface SpeakerImageProps {
 }
 
 function nameToAngle(name: string): number {
+  const nameToHash = name.substring(0, 12);
   let hash = 0;
-  for (let i = 0; i < name.length; i++) {
-    hash += name.charCodeAt(i);
+  for (let i = 0; i < nameToHash.length; i++) {
+    hash += nameToHash.charCodeAt(i);
   }
   let angle = hash % 360;
 
@@ -42,7 +43,6 @@ function nameToSize(name: string, min = 10, max = 30) {
 }
 
 function cssPositionOnCircle(angle: number) {
-  // angle en radians
   return {
     x: `calc(50% + ${Math.cos(angle) * 50}%)`,
     y: `calc(50% + ${Math.sin(angle) * 50}%)`,

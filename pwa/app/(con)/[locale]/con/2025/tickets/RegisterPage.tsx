@@ -27,8 +27,6 @@ export default function RegisterPage() {
 
   const isPastOffer = (offer: Offer) => {
     if (isActiveOffer(offer)) return false;
-    console.log(offer.startDate);
-    console.log(dayjs(offer.startDate).isBefore(dayjs(), "day"));
     if (offer.startDate && dayjs(offer.startDate).isBefore(dayjs(), "day"))
       return true;
     if (!offer.startDate) return true;
