@@ -6,6 +6,7 @@ const tags = {
   security: "#f16935",
   performance: "#e1017d",
   ia: "#209182",
+  tools: "#5e44e0",
   default: "#2FC1C1",
 };
 

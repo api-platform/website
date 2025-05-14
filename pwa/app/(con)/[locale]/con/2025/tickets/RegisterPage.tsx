@@ -29,25 +29,12 @@ export default function RegisterPage() {
     if (isActiveOffer(offer)) return false;
     if (offer.startDate && dayjs(offer.startDate).isBefore(dayjs(), "day"))
       return true;
+    if (!offer.startDate) return true;
     return false;
   };
 
   const expectations =
     getLocaleDictionary?.()[2025].tickets.expect.points || [];
-
-  const onIframeLoaded = () => {
-    console.log("loaded !");
-    const iframe = document.getElementById(
-      "yurplan-widget-141690"
-    ) as HTMLIFrameElement | null;
-    console.log("iframe ?", !!iframe);
-    if (!iframe) return;
-    const loader = document.getElementById("loader");
-    loader?.classList.add("hidden");
-
-    const contenu = iframe.contentWindow?.document.body.scrollHeight;
-    iframe.style.height = contenu + "px";
-  };
 
   useEffect(() => {
     const iframe = document.getElementById(

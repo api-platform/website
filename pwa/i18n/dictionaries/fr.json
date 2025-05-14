@@ -118,9 +118,9 @@
       "speaker": {
         "coming_soon": "Prochainement"
       },
-      "subtitle": "Le call for papers ouvrira le 7 janvier 2025. {{link}} ainsi que les sujets que nous attendons",
+      "subtitle": "Découvrez dès à présent les speakers qui monteront sur scène les 18 et 19 septembre prochains à Lille. Retours d'expérience, architecture, performance ou encore bonnes pratiques... Découvrez celles et ceux que vous rencontrerez prochainement !",
       "subtitle_link": "Découvrez notre pack speaker",
-      "title": "Devenez <strong>speaker</strong>",
+      "title": "Nos <strong>speakers</strong>",
       "cfp": "Plus d'infos sur le CFP"
     },
     "missing_conferences": {
@@ -254,7 +254,8 @@
       "good-practices": "Bonnes pratiques",
       "society": "Société",
       "feedback": "REX",
-      "ia": "IA"
+      "ia": "IA",
+      "tools": "Outils"
     }
   },
   "contact_us": "Contactez-nous !",
@@ -363,6 +364,7 @@
     "see_all": "Voir tous les speakers",
     "others": "Nos autres speakers",
     "speaker_schedule": "Agenda de {{speaker}}",
+    "no_date": "Date à venir",
     "subtitle": "La programmation complète vient de sortir. Découvrez les speakers et les sujets qui marqueront l'API Platform Con 2024, et rejoignez-nous !",
     "title": "Découvrez nos <strong>speakers</strong>"
   },

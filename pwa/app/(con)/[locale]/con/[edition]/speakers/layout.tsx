@@ -1,5 +1,6 @@
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
+import { getRootUrl } from "utils";
 
 type Props = {
   params: { locale: Locale; edition: string };
@@ -20,6 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${dictionary.speakers.title} - API Platform Conference`,
       description: DESCRIPTION,
+      images: [
+        {
+          url: `${getRootUrl()}/images/con/og-${edition}.png`,
+          width: 1200,
+          height: 630,
+          alt: `API Platform Conference ${edition}`,
+        },
+      ],
     },
     twitter: {
       title: `${dictionary.speakers.title} - API Platform Conference`,

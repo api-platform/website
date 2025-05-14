@@ -45,9 +45,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                   {t("buy_tickets")}
                 </BuyButton>
               )}
-              <Button empty to={`/${locale}/con/2025/call-for-papers`}>
-                {t("2025.cfp.title")}
-              </Button>
             </div>
           </div>
         </div>
@@ -59,7 +56,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
       >
         <div className="container text-center">
           <SectionTitle h1>
-            <Translate translationKey="2025.our_speakers.title" />
+            <Translate translationKey="speakers.title" />
           </SectionTitle>
           <SectionSubTitle>
             <Translate
@@ -68,8 +65,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                 edition: "2025",
                 link: (
                   <a
-                    href={`/${locale}/con/2025/call-for-papers`}
+                    href="https://conference-hall.io/public/event/GMijW4ZrZDo6hzKeF1gk"
                     className="link"
+                    target="_blank"
+                    rel="noreferrer nooepener"
                   >
                     {t("2025.our_speakers.subtitle_link")}
                   </a>
@@ -77,8 +76,8 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               }}
             />
           </SectionSubTitle>
-          <SpeakerList speakers={speakers} max={6} />
-          {speakers.length > 6 ? (
+          <SpeakerList speakers={speakers} max={9} />
+          {speakers.length > 9 ? (
             <Button
               className="mx-auto my-7"
               to={`/${locale}/con/2025/speakers`}
@@ -86,12 +85,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               {t("speakers.see_all")}
             </Button>
           ) : null}
-          <Button
-            className="mx-auto my-7"
-            to={`/${locale}/con/2025/call-for-papers`}
-          >
-            {t("2025.our_speakers.cfp")}
-          </Button>
         </div>
       </Section>
       {currentEdition === "2025" && (
@@ -203,12 +196,15 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <LookingSponsorCard />
         </div>
-        <div className="bg-white text-center relative z-10 pt-40 pb-40">
+        <div
+          id="partners"
+          className="bg-white text-center relative z-10 pt-40 pb-40"
+        >
           <div className="container text-center">
             <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              {t("sponsorship.they_trust_us", { year: "2024" })}
+              <Translate translationKey="partners.title" />
             </div>
-            <Partners data={partners} edition="2024" />
+            <Partners data={partners} edition="2025" />
           </div>
         </div>
       </Section>
