@@ -11,23 +11,21 @@ interface SpeakerImageProps {
 }
 
 function nameToAngle(name: string): number {
-  // Calcule l'angle (en degrés) de 0 à 360
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
     hash += name.charCodeAt(i);
   }
   let angle = hash % 360;
 
-  // Plages interdites (en degrés)
   const forbiddenZones: [number, number][] = [
     [60, 120],
     [240, 300],
   ];
 
-  // Corrige si dans une zone interdite
   for (const [start, end] of forbiddenZones) {
     if (angle >= start && angle < end) {
-      angle = end; // Déplace à la fin de la zone interdite
+      angle = end;
+      break;
     }
   }
 
@@ -55,7 +53,6 @@ function cssPositionOnCircle(angle: number) {
 
 export default function SpeakerImage({
   image,
-  placeholder,
   big = false,
   hoverable = true,
   speaker,
