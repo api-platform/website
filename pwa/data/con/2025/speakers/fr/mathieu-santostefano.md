@@ -3,7 +3,8 @@ type: speaker
 id: mathieu-santostefano-2025
 number: 80
 name: Mathieu Santostefano
-job: Symfony Core Team
+job: Tech Expert
+company: Sensiolabs
 bluesky: https://bsky.app/profile/welcomattic.com
 mastodon: https://phpc.social/@welcomattic
 github: https://github.com/welcomattic
