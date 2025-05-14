@@ -196,7 +196,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <LookingSponsorCard />
         </div>
-        <div className="bg-white text-center relative z-10 pt-40 pb-40">
+        <div
+          id="partners"
+          className="bg-white text-center relative z-10 pt-40 pb-40"
+        >
           <div className="container text-center">
             <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
               <Translate translationKey="partners.title" />

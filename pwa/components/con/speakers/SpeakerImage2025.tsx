@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Speaker } from "types/con";
+import Image from "next/image";
 
 interface SpeakerImageProps {
   image: string;
@@ -90,7 +91,7 @@ export default function SpeakerImage({
               className="aspect-square overflow-hidden w-[calc(400%/3)] pointer-events-none max-w-none absolute z-10 bottom-0 left-1/2 -translate-x-1/2"
               style={{ clipPath: `url(#clip-${speaker.id})` }}
             >
-              <img
+              <Image
                 src={image}
                 className={classNames(
                   "w-full h-full transition-all duration-500 will-change-transform origin-center",
@@ -98,6 +99,9 @@ export default function SpeakerImage({
                   hoverable && "group-hover:-rotate-2 group-hover:scale-110 "
                 )}
                 alt=""
+                fill
+                sizes={big ? "(max-width: 768px) 400px, 800px" : "400px"}
+                loading="lazy"
               />
             </div>
             <div
