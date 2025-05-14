@@ -47,7 +47,12 @@ export default function SpeakerPageTemplate({
         <div className="flex flex-col relative flex-wrap items-center bg-grey px-10 pb-10 pt-28 | lg:flex-row lg:items-start | sm:pb-20">
           <div className="w-72 h-72 | md:w-80 md:h-80 | lg:w-[400px] lg:h-[400px]">
             {edition === "2025" ? (
-              <SpeakerImage2025 speaker={speakerData} big image={image} />
+              <SpeakerImage2025
+                speaker={speakerData}
+                big
+                image={image}
+                placeholder={placeholder}
+              />
             ) : (
               <SpeakerImage big image={image} placeholder={placeholder} />
             )}

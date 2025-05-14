@@ -57,9 +57,10 @@ export default function SpeakerImage({
   big = false,
   hoverable = true,
   speaker,
+  placeholder,
 }: SpeakerImageProps) {
   if (speaker.edition === "2025") {
-    const { name } = speaker;
+    const { name, } = speaker;
     const angle = nameToAngle(name);
     const size = nameToSize(name);
     const pos = cssPositionOnCircle(angle);
@@ -100,8 +101,12 @@ export default function SpeakerImage({
                 )}
                 alt=""
                 fill
-                sizes={big ? "(max-width: 768px) 400px, 800px" : "400px"}
-                loading="lazy"
+                sizes={big ? "(max-width: 768px) 350px, 600px" : "350px"}
+                placeholder={
+                  placeholder
+                    ? (placeholder as `data:image/${string}`)
+                    : undefined
+                }
               />
             </div>
             <div
