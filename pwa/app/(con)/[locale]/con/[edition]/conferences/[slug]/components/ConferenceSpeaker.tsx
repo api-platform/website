@@ -44,7 +44,11 @@ const ConferenceSpeaker = ({ conference }: SpeakerProps) => {
                   )}
                 >
                   {conference.edition === "2025" ? (
-                    <SpeakerImage2025 speaker={speaker} image={image} />
+                    <SpeakerImage2025
+                      speaker={speaker}
+                      image={image}
+                      placeholder={placeholder}
+                    />
                   ) : (
                     <SpeakerImage image={image} placeholder={placeholder} />
                   )}
