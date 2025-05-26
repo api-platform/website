@@ -5,8 +5,10 @@ short: Une plongée essentielle dans l’histoire de la tech, à travers ses con
 tag: 'society'
 ---
 
-# Où sont passées les femmes de l'histoire de la tech ? (🇫🇷)
+# Où sont passées les femmes de l'histoire de la tech ? 2.0 (🇫🇷)
 
-Ada Lovelace, Hedy Lamarr, les « ENIAC Girls », Grace Hopper, Joan Clarke... Découlant du métier de calculatrice, le métier de développeur était considéré comme un métier de femme, tandis que la conception hardware était un métier d'homme. Cependant, qui sont ces femmes qui ont fait évoluer le monde de la tech ? **Pourquoi n'entendons-nous jamais parler d’elles ?** 
+Lors du premier chapitre, nous avons exploré **les contributions extraordinaires des femmes** à l’histoire de l’informatique. Mais saviez-vous que ce n’était que la partie émergée de l’iceberg ? En approfondissant ce sujet passionnant, j’ai découvert encore plus d’histoires incroyables à partager.
 
-Avec Laura Durieux, vous tenterez de remettre les pendules à l'heure, petit à petit, et de vous **offrir des modèles dans la tech** dont vous avez toujours eu besoin.
+Que dire de **la pionnière derrière le langage assembleur** ? Ou de **l’inventrice du STP**, sans lequel le World Wide Web n’aurait peut-être jamais vu le jour ? Et que dire de l’esprit brillant à l’origine de **l’architecture ARM** ?
+
+Rejoignez-moi pour un nouveau voyage à travers l’histoire de l’informatique, à la découverte des réalisations remarquables d’encore plus de femmes exceptionnelles.
