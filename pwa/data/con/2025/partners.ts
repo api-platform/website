@@ -37,6 +37,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "The NRB Group",
+    logo: "nrb",
+    link: "https://www.nrb.be/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
@@ -54,6 +61,13 @@ const partners: Partner[] = [
     logo: "bakslash",
     link: "https://twitter.com/BakslashHQ",
     rank: 3,
+  },
+  {
+    name: "Lior Chamla",
+    logo: "lior-chamla",
+    link: "https://learn.web-develop.me/",
+    rank: 3,
+    highlight: true,
   },
   {
     name: "Motiv'Her",
