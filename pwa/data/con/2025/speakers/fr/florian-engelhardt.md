@@ -7,6 +7,7 @@ job: Software engineer
 company: Datadog
 twitter: https://x.com/realFlowControl
 github: https://github.com/realFlowControl
+mastodon: https://phpc.social/@flowcontrol
 ---
 
 ## À propos de Florian
