@@ -5,7 +5,7 @@ short: Les designs patterns n'auront plus de secrets pour vous après cette conf
 tag: 'archi'
 ---
 
-# Design Pattern, le trésor est dans le vendor (🇫🇷)
+# Design Pattern, le trésor est dans le vendor (🇫🇷)
 
 Les design patterns ne sont pas que de simples concepts théoriques : ils sont au cœur des applications que nous utilisons au quotidien ! Mais comment les appliquer efficacement dans nos projets&nbsp;?
 

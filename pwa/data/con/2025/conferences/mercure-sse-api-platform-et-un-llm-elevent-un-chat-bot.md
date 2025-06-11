@@ -5,7 +5,7 @@ short: Comment intégrer un LLM dans un chatbot avec un client JS, une API PHP e
 tag: 'archi'
 ---
 
-# Mercure, SSE, API Platform et un LLM élèvent un chat(bot) (🇫🇷)
+# Mercure, SSE, API Platform et un LLM élèvent un chat(bot) (🇫🇷)
 
 Construire un chat temps réel avec Mercure, c'est le cas d'exemple basique mais parlant. Bien.
 

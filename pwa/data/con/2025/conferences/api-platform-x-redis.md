@@ -5,7 +5,7 @@ short: Un talk sur l'évolution d'API Platform, par son premier utilisateur.
 tag: 'archi'
 ---
 
-# API Platform x Redis (🇫🇷)
+# API Platform x Redis (🇫🇷)
 
 API Platform propose un large éventail d’outils. Initialement conçu comme un bundle Symfony, il s’est enrichi au fil des années pour prendre en charge de nombreuses technologies : GraphQL, MongoDB, Swagger, Laravel... Son architecture flexible permet aux développeurs et développeuses de l’adapter facilement à leurs besoins spécifiques, faisant de lui un framework particulièrement évolutif.
 

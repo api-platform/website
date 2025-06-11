@@ -5,7 +5,7 @@ short: Comparer et explorer les systèmes de ressources d'API Platform et de Syl
 tag: 'archi'
 ---
 
-# Une ressource pour un CRUD – API Platform & Sylius : une histoire d'amour (🇫🇷)
+# Une ressource pour un CRUD – API Platform & Sylius : une histoire d'amour (🇫🇷)
 
 Sylius est principalement connu comme un framework e-commerce. Ce qui est moins connu, c’est qu’il propose également **une approche puissante et extensible pour gérer des opérations CRUD**. Depuis sa version 2.0 et l’introduction de la Sylius Stack, ses bundles Resource et Grid peuvent être utilisés de manière indépendante dans des projets Symfony, permettant à n’importe quelle application d’en tirer parti.
 
