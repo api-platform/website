@@ -5,7 +5,7 @@ short: Une plongée essentielle dans l’histoire de la tech, à travers ses con
 tag: 'society'
 ---
 
-# Où sont passées les femmes de l'histoire de la tech ? 2.0 (🇫🇷)
+# Où sont passées les femmes de l'histoire de la tech ? 2.0 (🇫🇷)
 
 Lors du premier chapitre, nous avons exploré **les contributions extraordinaires des femmes** à l’histoire de l’informatique. Mais saviez-vous que ce n’était que la partie émergée de l’iceberg ? En approfondissant ce sujet passionnant, j’ai découvert encore plus d’histoires incroyables à partager.
 

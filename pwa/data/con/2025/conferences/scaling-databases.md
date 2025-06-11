@@ -5,7 +5,7 @@ short: Exploring different database server scaling strategies, with their advant
 tag: performance
 ---
 
-# Scaling Databases (🇺🇸)
+# Scaling Databases (🇺🇸)
 
 Running your database server on one server is easy. But scaling it is complex as **there are many different ways to do it and each one has their own shortcomings**. Most literature does never explain the precise advantages and disadvantages of each approach:
 

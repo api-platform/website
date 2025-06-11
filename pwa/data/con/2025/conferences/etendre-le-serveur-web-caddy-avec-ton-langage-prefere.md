@@ -5,7 +5,7 @@ short: Étendre les fonctionnalités du serveur web Caddy avec PHP ou d'autres l
 tag: tools
 ---
 
-# Étendre le serveur web Caddy avec ton langage préféré (🇫🇷)
+# Étendre le serveur web Caddy avec ton langage préféré (🇫🇷)
 
 Caddy est un serveur web utilisé dans bons nombres de projets open-source comme Symfony, Picosh et même Ruby on Rails. Il devient **un véritable standard** dans l'hébergement web et de nombreux modules sont basés dessus, FrankenPHP, le cache-handler, etc... 
 

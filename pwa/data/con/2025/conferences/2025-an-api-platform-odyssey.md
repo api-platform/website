@@ -5,7 +5,7 @@ short: How API Platform makes building HAL-compliant REST APIs faster and more e
 tag: archi
 ---
 
-# 2025, an API Platform Odyssey (🇺🇸)
+# 2025, an API Platform Odyssey (🇺🇸)
 
 I still remember working on a project that used a massive e-commerce Cloud Platform back in 2018. The array came back, and I loudly admitted, "what on earth does embedded mean?!". Nobody corrected me. Nobody even knew it was the HAL standard, or what HATEOAS meant.
 
