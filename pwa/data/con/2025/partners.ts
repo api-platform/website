@@ -70,6 +70,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "CBA",
+    logo: "cba",
+    link: "https://www.cbainfo.fr/",
+    rank: 3,
+    highlight: true,
+  },
+  {
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
