@@ -3,6 +3,10 @@ type: conference
 speakers: -gregory-planchat-2025
 short: Comment appliquer efficacement l’Event Storming à un projet API Platform.
 tag: 'archi'
+track: '3'
+date: '2025-09-18'
+start: '15:20'
+end: '16:00'
 ---
 
 # Et si on utilisait l'Event Storming dans nos projets API Platform ? (🇫🇷)

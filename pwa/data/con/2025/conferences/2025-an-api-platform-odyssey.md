@@ -3,6 +3,10 @@ type: conference
 speakers: -james-seconde-2025
 short: How API Platform makes building HAL-compliant REST APIs faster and more efficient.
 tag: archi
+track: '1'
+date: '2025-09-19'
+start: '15:30'
+end: '16:10'
 ---
 
 # 2025, an API Platform Odyssey (🇺🇸)

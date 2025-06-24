@@ -28,6 +28,10 @@
     "title": "Speakers",
     "description": "Discover the amazing speakers of the API Platform Conference!"
   },
+  "conferences": {
+    "title": "Conferences",
+    "description": "Discover the conferences given at the API Platform Conference %edition%!"
+  },
   "schedule": {
     "title": "Schedule",
     "description": "Take a look at the API Platform Conference schedule and choose your talks."

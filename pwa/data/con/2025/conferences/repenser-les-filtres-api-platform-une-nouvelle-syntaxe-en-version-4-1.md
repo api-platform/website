@@ -3,6 +3,10 @@ type: conference
 speakers: -vincent-amstoutz-2025
 short: Retour sur la refonte du système de filtres d'API Platform 4.1.
 tag: 'good-practices'
+track: '3'
+date: '2025-09-18'
+start: '17:20'
+end: '18:00'
 ---
 
 # Repenser les filtres API Platform : une nouvelle syntaxe en version 4.1 (🇫🇷)

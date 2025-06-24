@@ -3,6 +3,10 @@ type: conference
 speakers: -nathan-de-pachtere-2025
 short: Construire des applications évolutives et maintenables avec API Platform et Vue.js.
 tag: 'archi'
+track: '2'
+date: '2025-09-19'
+start: '10:20'
+end: '11:00'
 ---
 
 # Headless & Évolutive : concevoir une application découplée avec API Platform et Vue.js (🇫🇷)

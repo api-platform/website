@@ -3,6 +3,10 @@ type: conference
 speakers: -joe-dixon-2025
 short: When API Platform meets Laravel simplicity.
 tag: 'feedback'
+track: '1'
+date: '2025-09-19'
+start: '10:20'
+end: '11:00'
 ---
 
 # Deploying API Platform on Laravel Cloud (🇺🇸)

@@ -3,6 +3,10 @@ type: conference
 speakers: -nils-adermann-2025
 short: An overview of Composer in 2025 by its co-creator.
 tag: 'good-practices'
+track: '1'
+date: '2025-09-18'
+start: '11:20'
+end: '12:00'
 ---
 
 # Composer Best Practices 2025 (🇺🇸)

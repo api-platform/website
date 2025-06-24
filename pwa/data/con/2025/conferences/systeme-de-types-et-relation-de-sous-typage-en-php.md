@@ -3,6 +3,10 @@ type: conference
 speakers: -gina-banyard-2025
 short: Explorez l'évolution du système de types de PHP.
 tag: tools
+track: '2'
+date: '2025-09-19'
+start: '15:30'
+end: '16:10'
 ---
 
 # Système de Types et relation de sous-typage en PHP (🇫🇷)

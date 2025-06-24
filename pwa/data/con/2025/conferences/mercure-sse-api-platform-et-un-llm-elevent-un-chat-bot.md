@@ -3,6 +3,10 @@ type: conference
 speakers: -mathieu-santostefano-2025
 short: Comment intégrer un LLM dans un chatbot avec un client JS, une API PHP et Mercure.
 tag: 'archi'
+track: '2'
+date: '2025-09-18'
+start: '11:20'
+end: '12:00'
 ---
 
 # Mercure, SSE, API Platform et un LLM élèvent un chat(bot) (🇫🇷)

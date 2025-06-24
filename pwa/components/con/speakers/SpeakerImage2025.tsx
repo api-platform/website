@@ -9,6 +9,8 @@ interface SpeakerImageProps {
   hoverable?: boolean;
   big?: boolean;
   speaker: Speaker;
+  circles?: boolean;
+  id?: string;
 }
 
 function nameToAngle(name: string): number {
@@ -57,17 +59,22 @@ export default function SpeakerImage({
   big = false,
   hoverable = true,
   speaker,
+  circles = true,
   placeholder,
+  id,
 }: SpeakerImageProps) {
   if (speaker.edition === "2025") {
-    const { name, } = speaker;
+    const { name } = speaker;
     const angle = nameToAngle(name);
     const size = nameToSize(name);
     const pos = cssPositionOnCircle(angle);
     return (
       <>
         <svg width="0" height="0">
-          <clipPath id={`clip-${speaker.id}`} clipPathUnits="objectBoundingBox">
+          <clipPath
+            id={`clip-${speaker.id}${id}`}
+            clipPathUnits="objectBoundingBox"
+          >
             <path
               d={
                 speaker.path ||
@@ -90,7 +97,7 @@ export default function SpeakerImage({
           >
             <div
               className="aspect-square overflow-hidden w-[calc(400%/3)] pointer-events-none max-w-none absolute z-10 bottom-0 left-1/2 -translate-x-1/2"
-              style={{ clipPath: `url(#clip-${speaker.id})` }}
+              style={{ clipPath: `url(#clip-${speaker.id}${id})` }}
             >
               <Image
                 src={image}
@@ -109,43 +116,47 @@ export default function SpeakerImage({
                 }
               />
             </div>
-            <div
-              className={classNames(
-                "absolute aspect-square -translate-x-1/2 -translate-y-1/2 transition-all duration-700",
-                big && "scale-[150%]",
-                hoverable && "group-hover:scale-[200%]"
-              )}
-              style={{
-                left: pos.x,
-                top: pos.y,
-                width: `${size}%`,
-              }}
-            >
+            {circles && (
               <div
                 className={classNames(
-                  "bg-pink/20 animate-float rounded-full size-full",
-                  big && "scale-[150%]"
+                  "absolute z-10 aspect-square -translate-x-1/2 -translate-y-1/2 transition-all duration-700",
+                  big && "scale-[150%]",
+                  hoverable && "group-hover:scale-[200%]"
                 )}
-              />
-            </div>
-            <div
-              className={classNames(
-                "absolute z-20 aspect-square -translate-x-1/2 -translate-y-1/2 transition-all duration-700",
-                hoverable && "group-hover:scale-[40%]"
-              )}
-              style={{
-                left: pos.x2,
-                top: pos.y2,
-                width: `${50 - size}%`,
-              }}
-            >
+                style={{
+                  left: pos.x,
+                  top: pos.y,
+                  width: `${size}%`,
+                }}
+              >
+                <div
+                  className={classNames(
+                    "bg-pink/20 animate-float rounded-full size-full",
+                    big && "scale-[150%]"
+                  )}
+                />
+              </div>
+            )}
+            {circles && (
               <div
                 className={classNames(
-                  "bg-blue/30 animate-float2 rounded-full size-full",
-                  big && "scale-[60%]"
+                  "absolute z-20 aspect-square -translate-x-1/2 -translate-y-1/2 transition-all duration-700",
+                  hoverable && "group-hover:scale-[40%]"
                 )}
-              />
-            </div>
+                style={{
+                  left: pos.x2,
+                  top: pos.y2,
+                  width: `${50 - size}%`,
+                }}
+              >
+                <div
+                  className={classNames(
+                    "bg-blue/30 animate-float2 rounded-full size-full",
+                    big && "scale-[60%]"
+                  )}
+                />
+              </div>
+            )}
           </div>
         </div>
       </>
