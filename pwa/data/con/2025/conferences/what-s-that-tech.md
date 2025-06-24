@@ -3,6 +3,10 @@ type: conference
 speakers: -caneco-2025
 short: Join a fun, live-coded session where tech stack logos replace 'Who’s That Pokémon?', featuring fast-paced coding, playful UI, and interactive API demos.
 tag: 'archi'
+track: '1'
+date: '2025-09-18'
+start: '15:20'
+end: '16:00'
 ---
 
 # ¿What’s That Tech? (🇺🇸)

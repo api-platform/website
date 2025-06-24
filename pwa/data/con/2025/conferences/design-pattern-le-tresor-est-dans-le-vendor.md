@@ -3,6 +3,10 @@ type: conference
 speakers: -smaine-milianni-2025
 short: Les designs patterns n'auront plus de secrets pour vous après cette conférence.
 tag: 'archi'
+track: '2'
+date: '2025-09-18'
+start: '14:30'
+end: '15:10'
 ---
 
 # Design Pattern, le trésor est dans le vendor (🇫🇷)

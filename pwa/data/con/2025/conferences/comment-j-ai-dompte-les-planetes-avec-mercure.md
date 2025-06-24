@@ -3,6 +3,10 @@ type: conference
 speakers: -jerome-tanghe-2025
 short: Retour d'expérience sur l'intégration de Mercure dans une application Python d'astronomie.
 tag: 'feedback'
+track: '2'
+date: '2025-09-19'
+start: '11:30'
+end: '12:00'
 ---
 
 # Comment j'ai dompté les planètes avec Mercure (🇫🇷)

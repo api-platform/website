@@ -86,7 +86,7 @@ export const getConferenceData = async (
     slug,
     edition,
     description: contentHtml,
-    url: `/con/${edition}/conferences/${slug}`,
+    url: edition === '2025' ? `/con/${edition}/conferences/#${slug}` : `/con/${edition}/conferences/${slug}`,
     ...matterResult.data,
     title: unbreakable(extractTitleFromMarkdown(matterResult.content) || ""),
     speakers: withSpeakers ? fullSpeakers : speakers,

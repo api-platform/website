@@ -250,6 +250,7 @@
   "buy_tickets": "Buy tickets",
   "coming_soon": "Coming soon",
   "conferences": {
+    "title": "<strong>Conferences</strong>",
     "by_speaker": "by {{speaker}}",
     "see_speaker_details": "See speaker's details",
     "tags": {

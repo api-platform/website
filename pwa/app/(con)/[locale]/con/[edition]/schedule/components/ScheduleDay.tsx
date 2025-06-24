@@ -62,7 +62,7 @@ function ScheduleByTrack({
       {conferences.map((conference) => (
         <div key={`${conference.title} ${conference.start} ${conference.date}`}>
           {conference.type === "conference" ? (
-            <SlotItem conference={conference} />
+            <SlotItem conference={conference} id="mobile" />
           ) : (
             <ExtraSlotItem conference={conference} />
           )}
@@ -83,6 +83,7 @@ export default function ScheduleDay({
   conferences,
   tracks,
 }: ScheduleDayProps) {
+  console.log(tracks);
   const { locale } = useContext(LanguageContext);
   const times = conferences.reduce((acc, conference) => {
     if (!acc.includes(conference.start)) acc.push(conference.start);
@@ -131,7 +132,8 @@ export default function ScheduleDay({
               <div
                 className={classNames(
                   styles["track-header"],
-                  styles["schedule-grid"]
+                  styles["schedule-grid"],
+                  styles[`schedule-grid-${day.tracks.length}`]
                 )}
               >
                 {day.tracks.map((trackId) => {
@@ -152,7 +154,11 @@ export default function ScheduleDay({
               </div>
             ) : null}
             <div
-              className={classNames("grid gap-x-1", styles["schedule-grid"])}
+              className={classNames(
+                "grid gap-x-1",
+                styles["schedule-grid"],
+                styles[`schedule-grid-${day.tracks?.length}`]
+              )}
             >
               {times.map((time) => (
                 <div
@@ -174,7 +180,7 @@ export default function ScheduleDay({
                     style={{
                       gridColumn: conference.track
                         ? `track-${conference.track.id}`
-                        : "track-1 / track-2-end",
+                        : `track-1 / track-${day.tracks?.length}-end`,
                       gridRow: `time-${conference.start.replace(
                         ":",
                         ""
@@ -182,7 +188,7 @@ export default function ScheduleDay({
                     }}
                   >
                     {conference.type === "conference" ? (
-                      <SlotItem conference={conference} />
+                      <SlotItem conference={conference} id="desktop" />
                     ) : (
                       <ExtraSlotItem conference={conference} />
                     )}

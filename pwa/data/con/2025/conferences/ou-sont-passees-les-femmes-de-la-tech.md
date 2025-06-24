@@ -3,6 +3,10 @@ type: conference
 speakers: -laura-durieux-2025
 short: Une plongée essentielle dans l’histoire de la tech, à travers ses contributrices historiques.
 tag: 'society'
+track: '1'
+date: '2025-09-19'
+start: '14:40'
+end: '15:20'
 ---
 
 # Où sont passées les femmes de l'histoire de la tech ? 2.0 (🇫🇷)

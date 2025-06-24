@@ -3,6 +3,10 @@ type: conference
 speakers: -florian-merle-2025
 short: Comparer et explorer les systèmes de ressources d'API Platform et de Sylius.
 tag: 'archi'
+track: '3'
+date: '2025-09-18'
+start: '14:30'
+end: '15:10'
 ---
 
 # Une ressource pour un CRUD – API Platform & Sylius : une histoire d'amour (🇫🇷)

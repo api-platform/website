@@ -3,6 +3,10 @@ type: conference
 speakers: -helvira-goma-2025
 short: Explore the fear of becoming outdated as a developer and discover how to stay relevant without chasing every new tech trend.
 tag: 'society'
+track: '2'
+date: '2025-09-18'
+start: '16:30'
+end: '17:10'
 ---
 
 # Help! My Tech Skills Have an Expiration Date (🇺🇸)
