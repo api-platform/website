@@ -35,7 +35,7 @@ export default function SpeakerPageListTemplate({
             return (
               <div
                 key={conference.title}
-                className="flex flex-col-reverse md:flex-row text-center md:text-left gap-4 md:gap-12 border-b-2 border-dashed border-blue p-4 pt-8 sm:p-8  relative"
+                className="flex flex-col-reverse md:flex-row text-center md:text-left gap-4 md:gap-12 bg-white p-4 pt-8 sm:p-8 text-blue-black relative"
               >
                 <div id={conference.slug} className="absolute left-2 top-2 pt-20 -mt-20">
                 <Link href={`#${conference.slug}`}>
@@ -107,7 +107,7 @@ export default function SpeakerPageListTemplate({
                               <Fragment key={speaker.name}>
                                 <Link
                                   href={speaker.url}
-                                  className="font-semibold text-blue"
+                                  className="font-semibold text-blue-dark"
                                 >
                                   {speaker.name}
                                 </Link>
@@ -128,7 +128,7 @@ export default function SpeakerPageListTemplate({
                   </p>
                   <>
                     {day ? (
-                      <p className="text-blue uppercase font-light text-lg relative font-title leading-none">
+                      <p className="text-blue-dark uppercase font-light text-lg relative font-title leading-none">
                         <strong className="font-bold">
                           {day.title?.[locale]}
                         </strong>
