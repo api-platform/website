@@ -90,6 +90,12 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
+    name: "Symfony",
+    logo: "symfony",
+    link: "https://symfony.com/",
+    rank: 4,
+  },
+  {
     name: "ChtiteDev",
     logo: "chtitedev",
     link: "https://mobilizon.fr/@chtitedev",
