@@ -1,15 +1,15 @@
-@config "../../../../../../../../con.tailwind.config.js";
+@config "../../../../../../con.tailwind.config.js";
 
 .description h1 {
     @apply hidden;
 }
 
-.description h2 {
-    @apply font-semibold mb-4 mt-8;
+.description h2, .description h3 {
+    @apply font-semibold mb-2 mt-6;
 }
 
-.description p:not(last-child) {
-    @apply mb-10;
+.description p:not(:last-child) {
+    @apply mb-6;
 }
 
 .description a {
@@ -25,5 +25,5 @@
 }
 
 .description ul li:not(last-child) {
-    @apply mb-4;
+    @apply mb-2;
 }

@@ -30,6 +30,9 @@ async function getAllConRoutes() {
     for (const { edition } of editionsWithSchedules) {
       routes.push(createLocalePath(locale, `con/${edition}/schedule`));
     }
+    for (const { year: edition } of editions) {
+      routes.push(createLocalePath(locale, `con/${edition}/conferences`));
+    }
     for (const { edition } of editionsWithSpeakers) {
       routes.push(createLocalePath(locale, `con/${edition}/speakers`));
     }

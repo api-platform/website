@@ -3,6 +3,10 @@ type: conference
 speakers: -florian-engelhardt-2025
 short: Top tips for contributing to PHP core, demonstrated in a live coding session.
 tag: tools
+track: '1'
+date: '2025-09-18'
+start: '14:30'
+end: '15:10'
 ---
 
 # Growing the PHP Core—One Test at a Time (🇺🇸)

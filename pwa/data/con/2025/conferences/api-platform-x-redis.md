@@ -3,6 +3,10 @@ type: conference
 speakers: -clement-talleu-2025
 short: Un talk sur l'évolution d'API Platform, par son premier utilisateur.
 tag: 'archi'
+track: '1'
+date: '2025-09-18'
+start: '10:30'
+end: '10:50'
 ---
 
 # API Platform x Redis (🇫🇷)

@@ -29,6 +29,10 @@
     "title": "Speakers",
     "description": "Découvrez l'intégralité des speakers sélectionnés à l'API Platform Conference %edition%!"
   },
+  "conferences": {
+    "title": "Conferences",
+    "description": "Découvrez toutes les conférences données à l'API Platform Conference %edition%!"
+  },
   "schedule": {
     "title": "Agenda",
     "description": "Jetez un œil à l'agenda de l'API Platform Conference et choisissez les conférences auxquelles vous souhaitez assister !"

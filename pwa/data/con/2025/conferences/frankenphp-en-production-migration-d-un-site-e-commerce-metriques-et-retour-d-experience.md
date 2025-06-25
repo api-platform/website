@@ -3,6 +3,10 @@ type: conference
 speakers: -loic-cailleux-2025
 short: Retour d'expérience d'une migration d'un e-commerce vers FrankenPHP.
 tag: 'feedback'
+track: '2'
+date: '2025-09-18'
+start: '17:20'
+end: '18:00'
 ---
 
 # FrankenPHP en production, migration d’un site e-commerce, métriques et retour d'expérience (🇫🇷)

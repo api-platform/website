@@ -3,6 +3,10 @@ type: conference
 speakers: -tobias-petry-2025
 short: Exploring different database server scaling strategies, with their advantages and disadvantages.
 tag: performance
+track: '1'
+date: '2025-09-18'
+start: '16:30'
+end: '17:10'
 ---
 
 # Scaling Databases (🇺🇸)

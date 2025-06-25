@@ -245,6 +245,7 @@
   "last_places": "Dernières places disponibles!",
   "coming_soon": "Prochainement",
   "conferences": {
+    "title": "<strong>Conférences</strong>",
     "by_speaker": "par {{speaker}}",
     "see_speaker_details": "Plus d'infos",
     "tags": {
@@ -320,6 +321,7 @@
       "pricing": "Tarifs",
       "review": "Review",
       "schedule": "Agenda",
+      "conferences": "Talks",
       "speakers": "Speakers",
       "sponsorship": "Partenariat",
       "venue": "Le lieu",

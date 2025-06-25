@@ -3,6 +3,10 @@ type: conference
 speakers: -xavier-leune-2025
 short: Comment atteindre 180 000 requêtes par seconde avec PHP depuis un simple laptop.
 tag: 'performance'
+track: '2'
+date: '2025-09-18'
+start: '15:20'
+end: '16:00'
 ---
 
 # 180 000 requêtes par seconde expliqué simplement (🇫🇷)

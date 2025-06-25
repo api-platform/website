@@ -3,6 +3,10 @@ type: conference
 speakers: -jerome-tamarelle-2025
 short: Comment intégrer MongoDB avec API Platform pour simplifier le développement d'APIs modernes.
 tag: tools
+track: '3'
+date: '2025-09-18'
+start: '11:20'
+end: '12:00'
 ---
 
 # MongoDB : Demandez-en plus à votre base de données (🇫🇷)

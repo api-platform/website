@@ -3,6 +3,10 @@ type: conference
 speakers: -rob-landers-2025
 short: How to prevent cascading failures in complex systems.
 tag: good-practices
+track: '2'
+date: '2025-09-19'
+start: '16:40'
+end: '17:20'
 ---
 
 # A search for truth (🇺🇸)

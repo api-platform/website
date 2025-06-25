@@ -9,6 +9,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Sylius",
+    logo: "sylius",
+    link: "https://sylius.com/",
+    rank: 1,
+    highlight: true,
+  },
+  {
     name: "Ibexa",
     logo: "ibexa",
     link: "https://www.ibexa.co/",
@@ -80,6 +87,24 @@ const partners: Partner[] = [
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
+    rank: 4,
+  },
+  {
+    name: "Symfony",
+    logo: "symfony",
+    link: "https://symfony.com/",
+    rank: 4,
+  },
+  {
+    name: "ChtiteDev",
+    logo: "chtitedev",
+    link: "https://mobilizon.fr/@chtitedev",
+    rank: 4,
+  },
+  {
+    name: "WeLoveDevs",
+    logo: "we-love-dev",
+    link: "https://welovedevs.com/",
     rank: 4,
   },
   {

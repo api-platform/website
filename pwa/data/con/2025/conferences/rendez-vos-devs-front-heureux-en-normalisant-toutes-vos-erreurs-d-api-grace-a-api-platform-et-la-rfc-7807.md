@@ -3,6 +3,10 @@ type: conference
 speakers: -clement-herreman-2025
 short: Retour d'expérience sur la gestion des erreurs dans les API chez Exotec.
 tag: 'good-practices'
+track: '2'
+date: '2025-09-19'
+start: '14:40'
+end: '15:20'
 ---
 
 # Rendez vos devs front heureux en normalisant toutes vos erreurs d'API grâce à API Platform et la RFC 7807 (🇫🇷)

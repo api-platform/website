@@ -7,12 +7,12 @@ const nav = {
       mobileOnly: true,
     },
     {
-      text: "footer.previous_edition.links.review",
-      to: "/{{locale}}/con/2024/review",
-    },
-    {
       to: "/{{locale}}/con/2025/speakers",
       text: "nav.links.speakers",
+    },
+    {
+      to: "/{{locale}}/con/2025/conferences",
+      text: "nav.links.conferences",
     },
     {
       to: "/{{locale}}/con/2025/#venue",
@@ -21,6 +21,10 @@ const nav = {
     {
       to: "/{{locale}}/con/2025/#pricing",
       text: "nav.links.pricing",
+    },
+    {
+      to: "/{{locale}}/con/2025/schedule",
+      text: "nav.links.schedule",
     },
   ],
 };

@@ -10,9 +10,10 @@ import TagLabel from "components/con/conferences/TagLabel";
 interface SlotItemProps {
   conference: ExtraConference;
   animated?: boolean;
+  id?: string;
 }
 
-export default function SlotItem({ conference }: SlotItemProps) {
+export default function SlotItem({ conference, id }: SlotItemProps) {
   const { start, end, date, url, speakers, tag } = conference;
   const { Translate, locale } = useContext(LanguageContext);
 
@@ -26,7 +27,7 @@ export default function SlotItem({ conference }: SlotItemProps) {
       href={url}
       className="bg-grey flex flex-row items-center text-blue-black overflow-hidden relative w-full h-full px-2 py-3 min-h-[100px] text-left transition-all hover:bg-blue-light/30"
     >
-      {speakers.length ? <Avatar speakers={speakers} /> : null}
+      {speakers.length ? <Avatar id={id} speakers={speakers} /> : null}
       <div className="flex flex-col flex-1">
         <div className="flex flex-row gap-1">
           {tag
@@ -36,7 +37,7 @@ export default function SlotItem({ conference }: SlotItemProps) {
         <Overline className="opacity-70 lg:hidden">
           {getConferenceTimes(date, start, end)}
         </Overline>
-        <h3 className="font-title font-bold uppercase lined-left leading-tight">
+        <h3 className="font-title font-bold lined-left leading-tight">
           {title}
         </h3>
         <div className="text-sm">

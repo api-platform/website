@@ -3,6 +3,10 @@ type: conference
 speakers: -yoan-bernabeu-2025
 short: Migrer un Saas basé sur Apache/PHP vers FrankenPHP.
 tag: 'feedback'
+track: '2'
+date: '2025-09-19'
+start: '12:00'
+end: '12:20'
 ---
 
 # De Apache à FrankenPHP : simplifier notre infra sans douleur (🇫🇷)
