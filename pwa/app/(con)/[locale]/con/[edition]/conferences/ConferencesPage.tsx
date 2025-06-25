@@ -123,9 +123,9 @@ export default function SpeakerPageListTemplate({
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 flex-1">
-                  <p className="font-title font-bold text-2xl lined-blue lined-center md:after:left-0 md:after:translate-x-0">
+                  <h2 className="font-title font-bold text-2xl lined-blue lined-center md:after:left-0 md:after:translate-x-0">
                     {conference.title}
-                  </p>
+                  </h2>
                   <>
                     {day ? (
                       <p className="text-blue-dark uppercase font-light text-lg relative font-title leading-none">
@@ -154,7 +154,7 @@ export default function SpeakerPageListTemplate({
                         styles.description
                       )}
                       dangerouslySetInnerHTML={{
-                        __html: conference.description,
+                        __html: conference.description.replaceAll("h2>", "h3>"),
                       }}
                     />
                   ) : null}

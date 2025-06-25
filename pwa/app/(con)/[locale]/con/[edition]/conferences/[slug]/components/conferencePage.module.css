@@ -4,6 +4,10 @@
     @apply hidden;
 }
 
+.description h2 {
+    @apply font-semibold mb-4 mt-8;
+}
+
 .description p:not(last-child) {
     @apply mb-10;
 }

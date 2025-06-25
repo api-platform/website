@@ -11,4 +11,4 @@ tag: 'feedback'
 
 # API Platform, JsonEncoder and ESA for a skyrocketing API (🇺🇸)
 
-The subject of this conference will be announced shortly.
+The topic of the conference will be announced soon.

@@ -1,10 +1,10 @@
 ---
 type: conference
-speakers: -fabien-potencier-2025
+speakers: -antoine-bluchet-2025
 track: '1'
-date: '2025-09-19'
-start: '09:30'
-end: '10:10'
+date: '2025-09-18'
+start: '13:40'
+end: '14:20'
 short: TBA 
 tag: 'feedback'
 ---

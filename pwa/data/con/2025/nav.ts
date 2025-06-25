@@ -11,6 +11,10 @@ const nav = {
       text: "nav.links.speakers",
     },
     {
+      to: "/{{locale}}/con/2025/conferences",
+      text: "nav.links.conferences",
+    },
+    {
       to: "/{{locale}}/con/2025/#venue",
       text: "nav.links.venue",
     },

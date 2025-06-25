@@ -6,7 +6,7 @@ tag: 'feedback'
 track: '2'
 date: '2025-09-19'
 start: '11:30'
-end: '12:00'
+end: '11:50'
 ---
 
 # Comment j'ai dompté les planètes avec Mercure (🇫🇷)
