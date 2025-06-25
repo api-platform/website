@@ -6,7 +6,7 @@ tag: feedback
 track: '1'
 date: '2025-09-19'
 start: '11:30'
-end: '12:00'
+end: '11:50'
 ---
 
 # Supercharging Your API Platform Development Experience with AI (🇺🇸)

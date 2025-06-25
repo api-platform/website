@@ -10,7 +10,7 @@ start: '16:30'
 end: '17:10'
 ---
 
-# Comment Clever Cloud a repensé sa manière de déployer des applications PHP en intégrant FrankenPHP (🇫🇷)
+# Comment Clever Cloud a repensé sa manière de déployer des applications PHP avec FrankenPHP (🇫🇷)
 
 Cette année, **PHP fête ses 30 ans**. 
 

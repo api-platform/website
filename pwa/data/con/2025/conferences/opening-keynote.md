@@ -11,4 +11,4 @@ tag: 'feedback'
 
 # Opening Keynote (🇺🇸)
 
-The subject of this conference will be announced shortly.
+The topic of the conference will be announced soon

@@ -65,8 +65,8 @@ const extra = [
       fr: "Pause déjeuner",
     },
     date: "2025-09-19",
-    start: "12:30",
-    end: "14:00",
+    start: "12:20",
+    end: "13:50",
     type: "break",
   },
   {

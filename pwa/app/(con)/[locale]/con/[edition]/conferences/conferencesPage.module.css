@@ -4,8 +4,12 @@
     @apply hidden;
 }
 
+.description h2, .description h3 {
+    @apply font-semibold mb-2 mt-6;
+}
+
 .description p:not(:last-child) {
-    @apply mb-10;
+    @apply mb-6;
 }
 
 .description a {
@@ -21,5 +25,5 @@
 }
 
 .description ul li:not(last-child) {
-    @apply mb-4;
+    @apply mb-2;
 }
