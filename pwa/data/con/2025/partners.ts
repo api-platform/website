@@ -108,6 +108,12 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
+    name: "Larabelles",
+    logo: "larabelles",
+    link: "https://larabelles.com/",
+    rank: 4,
+  },
+  {
     name: "Laravel France",
     logo: "laravel-france",
     link: "https://laravel-france.com/",
