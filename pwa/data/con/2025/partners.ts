@@ -84,6 +84,12 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Fork it!",
+    logo: "forkit",
+    link: "https://www.forkit.community/",
+    rank: 3.5,
+  },
+  {
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
