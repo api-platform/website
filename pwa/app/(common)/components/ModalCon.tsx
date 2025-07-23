@@ -76,7 +76,7 @@ export default function ModalCon() {
             className="max-w-full mx-auto"
           />
           <div className="border-px mt-4 border-white py-1 px-2 font-bold text-sm text-white uppercase inline-block">
-            September 19-20, 2024 | Lille & online
+            September 18-19, 2025 | Lille & online
           </div>
           <button
             className="rounded-full bg-blue w-9 h-9 top-4 right-4 absolute text-white flex items-center justify-center"
@@ -104,13 +104,16 @@ export default function ModalCon() {
               The international conference on the API Platform Framework
             </p>
             <h2 className="text-blue-light text-2xl font-bold text-center">
-              Get ready for game-changing announcements for the PHP community!
+              Get ready for our special anniversary edition!
             </h2>
             <p className="font-light text-sm text-blue-black">
-              The API Platform Conference 2024 is happening soon, and it&apos;s close to selling out.<br/>API
-              Platform 4, Caddy web server, Xdebug, AI... Enjoy two days of
-              inspiring talks with our friendly community and our amazing
-              speakers.
+              Lear more about the event, register for the conference, and get
+              ready for two days of inspiration, ideas, and knowledge-sharing
+              with our incredible lineup of renowned specialists and advocates.
+              <br />
+              <br />
+              This edition is shaping up to be our biggest yet — secure your
+              seat now at the best price before we sell out!
             </p>
             <Button
               color="pink"
