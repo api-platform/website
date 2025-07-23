@@ -51,17 +51,23 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Upsun",
+    logo: "upsun",
+    link: "https://www.upsun.com/",
+    rank: 2,
+  },
+  {
+    name: "SMTP Labs",
+    logo: "smtp",
+    link: "https://smtp.dev/",
+    rank: 2,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
     rank: 3,
     highlight: true,
-  },
-  {
-    name: "Platform.sh",
-    logo: "platform-sh",
-    link: "https://platform.sh/",
-    rank: 3,
   },
   {
     name: "Bakslash",
@@ -105,6 +111,12 @@ const partners: Partner[] = [
     name: "ChtiteDev",
     logo: "chtitedev",
     link: "https://mobilizon.fr/@chtitedev",
+    rank: 4,
+  },
+  {
+    name: "PHP Brussels",
+    logo: "php-brussels",
+    link: "https://phpxbru.com/",
     rank: 4,
   },
   {
