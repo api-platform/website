@@ -37,6 +37,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Vonage",
+    logo: "vonage",
+    link: "https://www.vonage.com/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Private Packagist",
     logo: "packagist",
     link: "https://packagist.com/",
