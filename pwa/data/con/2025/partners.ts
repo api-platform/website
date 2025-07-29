@@ -39,7 +39,7 @@ const partners: Partner[] = [
   {
     name: "Vonage",
     logo: "vonage",
-    link: "https://www.vonage.com/",
+    link: "https://vonage.dev/APIPlatformConf",
     rank: 2,
     highlight: true,
   },
