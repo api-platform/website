@@ -39,7 +39,7 @@ const prices: Price[] = [
         },
         price: 239,
         startDate: "2025-07-30",
-        limitDate: "2025-09-23",
+        limitDate: "2025-09-19",
       },
       {
         title: {

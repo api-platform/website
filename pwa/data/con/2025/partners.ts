@@ -70,6 +70,13 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Clever Cloud",
+    logo: "clever-cloud",
+    link: "https://www.clever-cloud.com/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
