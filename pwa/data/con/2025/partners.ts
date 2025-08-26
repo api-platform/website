@@ -110,6 +110,12 @@ const partners: Partner[] = [
     rank: 3.5,
   },
   {
+    name: "Thomas Dutrion",
+    logo: "thomas-dutrion",
+    link: "https://tdutrion.dev/",
+    rank: 3.5,
+  },
+  {
     name: "Motiv'Her",
     logo: "motivher",
     link: "https://www.motivher.fr/",
