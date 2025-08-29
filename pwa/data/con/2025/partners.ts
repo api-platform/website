@@ -77,6 +77,12 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Akawaka",
+    logo: "akawaka",
+    link: "https://www.akawaka.fr/",
+    rank: 2,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
