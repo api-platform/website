@@ -77,6 +77,12 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Akawaka",
+    logo: "akawaka",
+    link: "https://www.akawaka.fr/",
+    rank: 2,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
@@ -107,6 +113,12 @@ const partners: Partner[] = [
     name: "Fork it!",
     logo: "forkit",
     link: "https://www.forkit.community/",
+    rank: 3.5,
+  },
+  {
+    name: "Thomas Dutrion",
+    logo: "thomas-dutrion",
+    link: "https://tdutrion.dev/",
     rank: 3.5,
   },
   {
