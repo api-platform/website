@@ -5,10 +5,10 @@ track: '1'
 date: '2025-09-19'
 start: '09:30'
 end: '10:10'
-short: TBA 
+short: How LLMs are changing the way we should build APIs.
 tag: 'feedback'
 ---
 
 # Opening Keynote (🇺🇸)
 
-The topic of the conference will be announced soon
+How LLMs are changing the way we should build APIs.
