@@ -103,17 +103,24 @@ export default function ModalCon() {
             <p className="text-xs uppercase text-gray-400">
               The international conference on the API Platform Framework
             </p>
-            <h2 className="text-blue-light text-2xl font-bold text-center">
-              Get ready for our special anniversary edition!
+            <h2 className="text-blue-light text-2xl font-bold">
+              Final tickets available before registration closes.
             </h2>
             <p className="font-light text-sm text-blue-black">
-              Lear more about the event, register for the conference, and get
-              ready for two days of inspiration, ideas, and knowledge-sharing
-              with our incredible lineup of renowned specialists and advocates.
+              Be part of the very first meeting with the{" "}
+              <a
+                className="link"
+                href="https://x.com/dunglas/status/1962814466027815094"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                FrankenPHP elePHPant plushies
+              </a>{" "}
+              in Lille.
               <br />
               <br />
               This edition is shaping up to be our biggest yet — secure your
-              seat now at the best price before we sell out!
+              seat now before we sell out.
             </p>
             <Button
               color="pink"

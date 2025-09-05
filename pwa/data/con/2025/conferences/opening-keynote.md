@@ -5,10 +5,10 @@ track: '1'
 date: '2025-09-18'
 start: '09:40'
 end: '10:20'
-short: TBA 
+short: Enhance your API Platform APIs with Go thanks to FrankenPHP. 
 tag: 'feedback'
 ---
 
 # Opening Keynote (🇺🇸)
 
-The topic of the conference will be announced soon
+Enhance your API Platform APIs with Go thanks to FrankenPHP.
