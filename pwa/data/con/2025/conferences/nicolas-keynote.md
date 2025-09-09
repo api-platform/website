@@ -5,10 +5,10 @@ track: '1'
 date: '2025-09-19'
 start: '13:50'
 end: '14:30'
-short: TBA 
+short: Config formats & Symfony - Let's talk about DX 
 tag: 'feedback'
 ---
 
 # Opening Keynote (🇺🇸)
 
-The topic of the conference will be announced soon
+Config formats & Symfony - Let's talk about DX
