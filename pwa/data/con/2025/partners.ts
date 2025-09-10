@@ -83,6 +83,12 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Perfect Core",
+    logo: "perfect-core",
+    link: "https://yce.perfectcorp.com/fr/ai-api?utm_source=event&utm_medium=website&utm_campaign=API_Conference&utm_content=2025",
+    rank: 2,
+  },
+  {
     name: "Darkwood",
     logo: "darkwood",
     link: "https://darkwood.com/",
