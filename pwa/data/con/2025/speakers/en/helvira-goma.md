@@ -3,8 +3,8 @@ type: speaker
 id: helvira-goma-2025
 number: 80
 name: Helvira Goma
-job: Computer Whisperer
-company: Sunday
+job: Founder
+company: Motiv'Her
 twitter: https://x.com/helvira_g
 github: https://github.com/HelviraG 
 ---
