@@ -21,8 +21,8 @@ const extra = [
   },
   {
     title: {
-      en: "Lunch break",
-      fr: "Pause déjeuner",
+      en: "Lunch break<p class='text-blue-black' style='text-transform: none'>20' Demo at Ibexa's booth: <span style='font-weight: 600'>Enhance your API for integrator with API Platform</span></p>",
+      fr: "Pause déjeuner<p class='text-blue-black' style='text-transform: none'>Démo de 20' au stand d'Ibexa : <span style='font-weight: 600'>Enhance your API for integrator with API Platform</span></p>",
     },
     date: "2025-09-18",
     start: "12:00",

@@ -26,7 +26,12 @@ function ExtraSlotItem({ conference }: { conference: ExtraConference }) {
         conference.type === "upcoming" && "bg-grey opacity-40"
       )}
     >
-      <span className="h6">{title}</span>
+      <div
+        className="h6"
+        dangerouslySetInnerHTML={{
+          __html: title,
+        }}
+      />
     </div>
   );
 }
@@ -83,7 +88,6 @@ export default function ScheduleDay({
   conferences,
   tracks,
 }: ScheduleDayProps) {
-  console.log(tracks);
   const { locale } = useContext(LanguageContext);
   const times = conferences.reduce((acc, conference) => {
     if (!acc.includes(conference.start)) acc.push(conference.start);
