@@ -9,7 +9,7 @@ twitter: https://x.com/helvira_g
 github: https://github.com/HelviraG 
 ---
 
-## About d'Helvira
+## About Helvira
 
 Chameleon-like, Helvira Goma lived multiple lives - from quality engineer to office manager - until she found her true calling: programming. 
 

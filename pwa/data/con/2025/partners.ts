@@ -83,6 +83,13 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Fairness",
+    logo: "fairness",
+    link: "https://fairness.coop/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Perfect Core",
     logo: "perfect-core",
     link: "https://yce.perfectcorp.com/fr/ai-api?utm_source=event&utm_medium=website&utm_campaign=API_Conference&utm_content=2025",
