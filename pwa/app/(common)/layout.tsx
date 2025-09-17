@@ -69,7 +69,7 @@ function RootLayout({
       className={`${poppins.variable} ${fira.variable} w-full light`}
     >
       <body className="bg-white dark:bg-blue-black">
-        <ModalCon />
+        {/*<ModalCon />*/}
         <Layout>{children}</Layout>
       </body>
     </html>
