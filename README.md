@@ -102,4 +102,5 @@ pnpm start
 1. Create a branch for the new version [in the `api-platform/docs` repository](https://github.com/api-platform/docs).
 2. Update the `DEFAULT_BRANCH` environement variable for super-linter in the docs `.github/workflows/ci.yml`
 3. Update [`consts.ts`](./pwa/consts.ts)
+4. Update [api-platform/docs-website](https://github.com/api-platform/docs-website) (see https://github.com/api-platform/docs-website/commit/60086e0dd308a8e4f1a1167a6fc17071c2258f9a) and run `node tools/menu.mjs`
 4. Update [Algolia crawler configuration](https://crawler.algolia.com/admin/crawlers/23316da5-88e8-4a30-ab16-d5ec5bd9133f/configuration/edit)
