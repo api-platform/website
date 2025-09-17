@@ -87,55 +87,6 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           ) : null}
         </div>
       </Section>
-      {currentEdition === "2025" && (
-        <Section
-          className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
-          section="pricing"
-        >
-          <div className="container relative z-10">
-            <SectionTitle dark>
-              <Translate translationKey="pricing.title" />
-            </SectionTitle>
-            <div className="max-w-4xl mx-auto flex flex-row flex-wrap justify-center">
-              {prices.map((price) => (
-                <PricingCard key={price.id} price={price} />
-              ))}
-              <div className="w-full self-center max-w-md mt-10 | lg:pl-10 lg:mt-0 lg:w-1/3">
-                <div className="p-5 dotted-corner flex flex-col items-center text-center bg-blue bg-blue-gradient shadow-md border-blue-dark border-4">
-                  <span className="font-bold text-white leading-tight font-title uppercase lined-center lined-white relative">
-                    {t("pricing.student")}
-                  </span>
-                  <div className="mt-2 text-blue-black/80 font-semibold">
-                    <Translate translationKey="pricing.free_ticket" />
-                  </div>
-                  <Button
-                    size="small"
-                    square
-                    className="white mt-2 mb-5"
-                    to="mailto:events@les-tilleuls.coop"
-                  >
-                    {t("contact_us")}
-                  </Button>
-                  <small className="text-xs text-blue-black/50 font-bold">
-                    *{t("pricing.certificate_needed")}
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
-      )}
-      <Venue
-        subtitle={t("2025.venue.subtitle")}
-        tip_title={t("2025.venue.tip_title")}
-        tip={t("2025.venue.tip", {
-          tip_link: (
-            <a className="link" href="https://www.hotelsdelille.com/">
-              {t("2025.venue.tip_link")}
-            </a>
-          ),
-        })}
-      />
       <Section
         section="lastYear"
         className=" z-10 relative pb-10 overflow-y-clip"
@@ -168,18 +119,31 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           ></iframe>
         </div>
       </Section>
+      <Venue
+        subtitle={t("2025.venue.subtitle")}
+        tip_title={t("2025.venue.tip_title")}
+        tip={t("2025.venue.tip", {
+          tip_link: (
+            <a className="link" href="https://www.hotelsdelille.com/">
+              {t("2025.venue.tip_link")}
+            </a>
+          ),
+        })}
+      />
       <Section
         section="missing"
-        className="relative bg-grey z-10 text-center overflow-y-clip"
+        className="relative z-10 text-center overflow-y-clip pt-4"
       >
         <div className="container text-center">
-          <SectionTitle>
+          <SectionTitle dark>
             <Translate
               translationKey="missing_conferences.title"
               translationParams={{ edition: "2024" }}
             />
           </SectionTitle>
-          <SectionSubTitle>{t("missing_conferences.subtitle")}</SectionSubTitle>
+          <SectionSubTitle dark>
+            {t("missing_conferences.subtitle")}
+          </SectionSubTitle>
           <Button
             className="mx-auto mb-10"
             external
@@ -189,23 +153,15 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </Button>
         </div>
       </Section>
-      <Section section="sponsorship" className="py-8">
+      <Section
+        section="partners"
+        className="bg-white text-center relative z-10 pb-40 pt-20"
+      >
         <div className="container text-center">
-          <SectionTitle dark>
-            <Translate translationKey="sponsorship.title" />
-          </SectionTitle>
-          <LookingSponsorCard />
-        </div>
-        <div
-          id="partners"
-          className="bg-white text-center relative z-10 pt-40 pb-40"
-        >
-          <div className="container text-center">
-            <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              <Translate translationKey="partners.title" />
-            </div>
-            <Partners data={partners} edition="2025" />
+          <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
+            <Translate translationKey="partners.title" />
           </div>
+          <Partners data={partners} edition="2025" />
         </div>
       </Section>
     </>
