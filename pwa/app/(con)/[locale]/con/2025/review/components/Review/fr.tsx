@@ -14,91 +14,73 @@ export default function ReviewList() {
     <section ref={reviewRef}>
       <div className="container">
         <ReviewItem
-          edition="2024"
-          imageId="laravel"
+          edition="2025"
+          imageId="10years"
           size="xl"
           title={
             <>
-              <strong>1</strong>
-              <span>annonce majeure</span>
+              <strong>10</strong>
+              <span>ans d'innovation</span>
             </>
           }
         >
           <LinedTitle className="mb-5">
-            Séisme dans l'écosystème PHP&nbsp;!
+            Et toujours de grandes ambitions pour l’écosystème PHP
           </LinedTitle>
           <p>
-            L’API Platform Conference a démarré avec une annonce de taille : le
-            support de Laravel est désormais disponible avec API Platform 4.
+            La keynote d’ouverture a dévoilé plusieurs annonces majeures :
+            FrankenPHP et API Platform vont bénéficier de nouvelles
+            fonctionnalités puissantes, notamment le support de gRPC (permettant
+            des API plus rapides et performantes), la possibilité d’écrire des
+            extensions PHP en Go, ainsi qu’une intégration avec des capacités
+            temps réel.
           </p>
           <p>
-            Au programme : exposition rapide d'une API REST ou GraphQL à partir
-            des modèles Eloquent, ajout de fonctionnalités natives et avancées
-            (pagination, filtres, authentification, validation des données),
-            compatibilité avec Octane et{" "}
-            <a
-              className="link"
-              href="https://frankenphp.dev/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              FrankenPHP
-            </a>{" "}
-            pour des performances optimales, ainsi que génération automatique de
-            documentation OpenAPI.
+            Ces innovations ouvrent de nouvelles perspectives passionnantes pour
+            la communauté PHP, notamment en termes de performance, de
+            scalabilité et d’interopérabilité avec d’autres technologies.
           </p>
-          <p>
-            API Platform offre, plus que jamais, une expérience de développement
-            simple, élégante et adaptée à tous les besoins.
-          </p>
-          <Button className="square" size="small" to="/?s=laravel">
-            Découvrir API Platform Laravel
-          </Button>
         </ReviewItem>
         <ReviewItem
-          edition="2024"
+          edition="2025"
           imageId="speakers"
           size="lg"
           title={
             <>
-              <strong>25</strong>
-              <span>conférences</span>
+              <strong>33</strong>
+              <span>Conférences</span>
             </>
           }
         >
           <LinedTitle className="mb-5">
-            Un partage de contenu inédit, adapté à chaque niveau.
+            Du contenu exclusif pour tous les niveaux
           </LinedTitle>
           <p>
-            Des figures internationales des écosystèmes PHP, JavaScript et Cloud
-            étaient présentes à Lille les 19 et 20 septembre derniers.
+            Les 18 et 19 septembre, Lille a été le point de rendez-vous des
+            grandes figures de l’écosystème PHP. Au programme : les dernières
+            innovations et tendances du web moderne, mises à l’honneur tout au
+            long de l’événement.
           </p>
-          <p>
-            Conférences sur l’IA, bonnes pratiques, performances et retours
-            d’expérience… Les dernières innovations, les tendances et meilleures
-            pratiques de développement étaient au cœur de cet événement.
-          </p>
-          <Button className="square" size="small" to="/fr/con/2024/speakers">
+          <Button className="square" size="small" to="/fr/con/2025/speakers">
             Voir tous les speakers
           </Button>
         </ReviewItem>
         <ReviewItem
-          edition="2024"
+          edition="2025"
           imageId="sponsors"
           size="xl"
           title={
             <>
-              <strong>25</strong>
+              <strong>33</strong>
               <span>partenaires</span>
             </>
           }
         >
           <LinedTitle className="mb-5">
-            Un soutien de taille qui contribue grandement au succès de la
-            conférence
+            Des soutiens venus de tous les horizons
           </LinedTitle>
           <p>
-            Merci à nos sponsors Gold :{" "}
+            Un immense merci à nos sponsors Gold :{" "}
             <a
               className="link"
               href="https://sensiolabs.com/fr/"
@@ -106,24 +88,6 @@ export default function ReviewList() {
               rel="noreferrer noopener"
             >
               Sensiolabs
-            </a>
-            ,{" "}
-            <a
-              className="link"
-              href="https://marmelab.com/react-admin/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              React-admin
-            </a>
-            ,{" "}
-            <a
-              className="link"
-              href="https://www.francetelevisions.fr/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              France Télévisions
             </a>
             ,{" "}
             <a
@@ -137,11 +101,11 @@ export default function ReviewList() {
             et{" "}
             <a
               className="link"
-              href="https://www.cgt.fr/"
+              href="https://www.ibexa.co/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              la CGT.
+              Ibexa
             </a>
             .
           </p>
@@ -149,11 +113,29 @@ export default function ReviewList() {
             Merci également à nos sponsors Silver :{" "}
             <a
               className="link"
-              href="https://www.emagma.fr/"
+              href="https://packagist.com/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              EMAGMA
+              Packagist
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://vonage.dev/APIPlatformConf"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Vonage
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.nrb.be/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              NRB Group
             </a>
             ,{" "}
             <a
@@ -176,20 +158,38 @@ export default function ReviewList() {
             ,{" "}
             <a
               className="link"
-              href="http://WeLoveDevs.com"
+              href="https://yce.perfectcorp.com/fr/ai-api?utm_source=event&utm_medium=website&utm_campaign=API_Conference&utm_content=2025"
               target="_blank"
               rel="noreferrer noopener"
             >
-              WeLoveDevs.com
+              Perfect Corp
             </a>
             ,{" "}
             <a
               className="link"
-              href="https://www.codein.fr/"
+              href="https://fairness.coop/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Codéin
+              Fairness
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://smtp.dev/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              SMTP Labs
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.emagma.fr/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Emagma
             </a>
             ,{" "}
             <a
@@ -203,16 +203,16 @@ export default function ReviewList() {
             et{" "}
             <a
               className="link"
-              href="https://fairness.coop/"
+              href="https://www.upsun.com/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Fairness
+              Upsun
             </a>
             .
           </p>
           <p>
-            Merci à nos sponsors Bronze :{" "}
+            Nous sommes reconnaissants du soutien de nos sponsors Bronze{" "}
             <a
               className="link"
               href="https://darkwood.com/"
@@ -224,11 +224,29 @@ export default function ReviewList() {
             ,{" "}
             <a
               className="link"
-              href="https://www.orbitale.io/en/"
+              href="https://baksla.sh/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              Orbitale.io
+              baksla.sh
+            </a>{" "}
+            ,{" "}
+            <a
+              className="link"
+              href="https://devcv.fr/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Sylvain Combraque
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.cbainfo.fr/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              CBA Informatique
             </a>{" "}
             et{" "}
             <a
@@ -242,28 +260,29 @@ export default function ReviewList() {
             .
           </p>
           <p>
-            Merci aussi à nos sponsors{" "}
+            Un grand merci à nos sponsors Copper :{" "}
             <a
               className="link"
-              href="https://twitter.com/BakslashHQ"
+              href="https://www.forkit.community/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              baksla.sh
+              Fork it!
             </a>{" "}
-            pour les tours de cou et{" "}
+            et{" "}
             <a
               className="link"
-              href="https://www.jlrecrutement.com/"
+              href="https://tdutrion.dev/"
               target="_blank"
               rel="noreferrer noopener"
             >
-              JL&nbsp;Recrutement
-            </a>{" "}
-            pour la soirée communautaire.
+              Thomas Dutrion
+            </a>
+            .
           </p>
           <p>
-            Enfin, saluons nos partenaires communautaires et média{" "}
+            Enfin, nous tenons à remercier nos partenaires communautaires et
+            médias :{" "}
             <a
               className="link"
               href="https://laravel-france.com/"
@@ -284,24 +303,6 @@ export default function ReviewList() {
             ,{" "}
             <a
               className="link"
-              href="https://www.archimag.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Archimag
-            </a>
-            ,{" "}
-            <a
-              className="link"
-              href="https://www.programmez.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Programmez!
-            </a>
-            ,{" "}
-            <a
-              className="link"
               href="https://symfony.com/"
               target="_blank"
               rel="noreferrer noopener"
@@ -311,20 +312,74 @@ export default function ReviewList() {
             ,{" "}
             <a
               className="link"
+              href="https://mobilizon.fr/@chtitedev"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              ChtiteDev
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://phpxbru.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              PHP Brussels
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://welovedevs.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              WeLoveDevs
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://larabelles.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Larabelles
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.archimag.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Archimag
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.jlrecrutement.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              JL Recrutement
+            </a>
+            ,{" "}
+            <a
+              className="link"
+              href="https://www.mongodb.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              MongoDB
+            </a>
+            ,{" "}
+            <a
+              className="link"
               href="https://www.euratechnologies.com/"
               target="_blank"
               rel="noreferrer noopener"
             >
               Euratechnologies
-            </a>{" "}
-            ,{" "}
-            <a
-              className="link"
-              href="https://www.bitexpert.de/de"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              BitExpert
             </a>{" "}
             et{" "}
             <a
@@ -346,35 +401,50 @@ export default function ReviewList() {
           </Button>
         </ReviewItem>
         <ReviewItem
-          edition="2024"
-          imageId="drink"
+          edition="2025"
+          imageId="elephant"
+          title={
+            <>
+              <strong>300</strong>
+              <span>elePHPants lâchés dans la nature</span>
+            </>
+          }
+        >
+          <LinedTitle className="mb-5">It’s alive!</LinedTitle>
+          <p>
+            Les elePHPants FrankenPHP ont vu le jour et rencontré leurs premiers
+            humains lors de la conférence. Ils ont été adoptés en un rien de
+            temps !
+          </p>
+          <p>
+            Nos petits monstres feront leur retour lors de prochains événements.
+            Restez à l’affût de leur prochaine apparition en nous suivant sur
+            les réseaux sociaux.
+          </p>
+        </ReviewItem>
+        <ReviewItem
+          edition="2025"
+          imageId="community"
           title={
             <>
               <strong>1</strong>
-              <span>apéro ensoleillé</span>
+              <span>fête d’anniversaire mémorable</span>
             </>
           }
         >
           <LinedTitle className="mb-5">
-            Arroser les retrouvailles de la communauté
+            Joyeux anniversaire API Platform !
           </LinedTitle>
           <p>
-            Cette année encore, la soirée communautaire était sponsorisée par le
-            cabinet{" "}
-            <a
-              className="link"
-              href="https://www.jlrecrutement.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              JL&nbsp;Recrutement
-            </a>
-            .
+            Nous avons célébré les 10 ans d’API Platform en musique, avec un
+            spectacle de magie, et soufflé les bougies sur un gâteau
+            d’anniversaire flamboyant !
           </p>
           <p>
-            Cerise sur le gâteau, le beau temps était au rendez-vous, nous
-            permettant de profiter de la majeure partie de la soirée en
-            terrasse, sous le soleil couchant.
+            Et comme chaque année, les boissons (et le fameux punch !) étaient
+            offerts par le cabinet{" "}
+            <a href="https://www.jlrecrutement.com/">JL Recrutement</a>. Un
+            immense merci à eux !
           </p>
         </ReviewItem>
       </div>

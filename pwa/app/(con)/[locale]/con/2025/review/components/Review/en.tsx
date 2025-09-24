@@ -37,10 +37,6 @@ export default function ReviewList() {
             community, particularly in terms of performance, scalability, and
             interoperability with other technologies.
           </p>
-          <p>
-            API Platform offers, more than ever, an elegant and optimized
-            experience tailored to all development needs.
-          </p>
         </ReviewItem>
         <ReviewItem
           edition="2025"
@@ -190,7 +186,7 @@ export default function ReviewList() {
               rel="noreferrer noopener"
             >
               Emagma
-            </a>{" "}
+            </a>
             ,{" "}
             <a
               className="link"
@@ -334,7 +330,7 @@ export default function ReviewList() {
               rel="noreferrer noopener"
             >
               WeLoveDevs
-            </a>{" "}
+            </a>
             ,{" "}
             <a
               className="link"
