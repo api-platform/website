@@ -13,6 +13,7 @@ import { LanguageContext } from "contexts/con/LanguageContext";
 import Section from "components/con/home/Section";
 import Cover from "components/con/home/Cover";
 import PictureGallery from "components/con/common/PictureGallery";
+import AfterMovie from "../../2025/components/AfterMovie";
 
 type HomePageProps = {
   speakers: Speaker[];
@@ -56,7 +57,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionSubTitle>
           <PictureGallery
             className="py-4"
-            link="https://www.flickr.com/photos/194052559@N02/albums/72177720320499314/"
+            link="https://www.flickr.com/photos/194052559@N02/albums/72177720329148577/"
           >
             {images.map((image: string) => (
               <Image
@@ -71,6 +72,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </PictureGallery>
         </div>
       </Section>
+      <div className="pb-12">
+        <AfterMovie />
+      </div>
       <Section
         section="missing"
         className="relative z-10 text-center overflow-y-clip"

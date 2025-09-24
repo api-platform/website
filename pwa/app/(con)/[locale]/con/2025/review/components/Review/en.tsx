@@ -27,10 +27,9 @@ export default function ReviewList() {
           <LinedTitle className="mb-5">Major announcements made</LinedTitle>
           <p>
             The opening keynote brought some major announcements: FrankenPHP and
-            API Platform are getting powerful new features — including support
-            for gRPC (enabling faster, high-performance APIs), the ability to
-            write PHP extensions in Go, and integration with real-time
-            capabilities.
+            API Platform are getting powerful new features including support for
+            gRPC (enabling faster, high-performance APIs), the ability to write
+            PHP extensions in Go.
           </p>
           <p>
             These innovations open up exciting new possibilities for the PHP
@@ -53,9 +52,11 @@ export default function ReviewList() {
             Exclusive content for all skill levels
           </LinedTitle>
           <p>
-            Lille welcomed key figures from the PHP ecosystem on September 18
-            and 19, as the latest innovations and trends in modern development
-            took center stage at the event.
+            On September 18 and 19, Lille became the meeting point for key
+            figures in the PHP ecosystem. The program featured the latest
+            innovations and trends in modern web development, highlighted
+            throughout the event by strong representation from communities and
+            personalities such as Symfony, Laravel, or Go.
           </p>
           <Button className="square" size="small" to="/con/2025/speakers">
             See all speakers

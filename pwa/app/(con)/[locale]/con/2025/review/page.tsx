@@ -6,6 +6,7 @@ import Image from "next/image";
 import PictureGallery from "components/con/common/PictureGallery";
 import { Locale, i18n } from "i18n/i18n-config";
 import { Metadata } from "next";
+import AfterMovie from "../components/AfterMovie";
 
 type Props = {
   params: { locale: Locale };
@@ -49,9 +50,12 @@ export default async function Page({ params }: { params: { locale: Locale } }) {
           <ReviewListEn />
         ) : null /*FIXME: find an other way to translate this page*/
       }
+      <div className="pb-12">
+        <AfterMovie />
+      </div>
       <PictureGallery
         className="pb-60 pt-12"
-        link="https://www.flickr.com/photos/194052559@N02/albums/72177720320499314"
+        link="https://www.flickr.com/photos/194052559@N02/albums/72177720329148577/"
       >
         {images.map((image: string) => (
           <Image
