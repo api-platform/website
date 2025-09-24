@@ -122,6 +122,13 @@
       "link": "our Youtube channel",
       "subscribe": "Subscribe"
     },
+    "review": {
+      "subtitle_1": "Thank you for attending the API Platform Conference 2025 and for your trust. We’ve just experienced the biggest edition ever. Let’s take a look at the highlights of this event.",
+      "subtitle_2": "Save the date for the API Platform Conference 2026, on September 17-18, in Lille and online. Ticket sales and the Call for Proposals (CFP) will open in January 2026.",
+      "title": "10 Years of API Platform Celebrated!",
+      "link": "The CFP",
+      "link2": "ticketing"
+    },
     "see_review": {
       "subtitle": "Discover a glimpse of our previous edition, and find all the highlights of the event in {{link}}.",
       "link": "our review"
@@ -242,8 +249,29 @@
       "button_subscribe": "Submit your pitch"
     }
   },
+  "2026": {
+    "baseline": "The flagship conference dedicated to API Platform and its ecosystem is coming back in 2026.",
+    "date": "September 17-18, 2026 - Lille & online",
+    "missing_conferences": {
+      "subtitle": "Subscribe to {{link}} to discover replay videos this winter!",
+      "link": "our Youtube channel",
+      "subscribe": "Subscribe"
+    },
+    "our_speakers": {
+      "speaker": { "coming_soon": "coming soon" },
+      "subtitle": "Our selected speakers will be revealed in {{edition}}. Want to be part of them? {{link}}",
+      "subtitle_link": "Contact us!",
+      "title": "Our <strong>speakers</strong>"
+    },
+    "venue": {
+      "subtitle": "The on-site edition will take place in Lille, meeting point of European cities and touristic capital of the Flemish region. If you can't come to Lille, you can watch the event online.",
+      "tip_title": "Important",
+      "tip": "Hotel demand is very high in Lille at this time of year, so to make your travel easier, we have negotiated special prices. Take a look at the available rooms on {{tip_link}}, get a 10% discount on your stay, and book them as soon as possible with this code: <strong>TILLEULS25</strong><br/><br/>This code is valid for the following hotels: Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, and Le Rosa 3* for stays between 17th and 21st September.<br/><br/>This discount is available until 7th September 2025.",
+      "tip_link": "this website"
+    }
+  },
   "an_event_by": "an event by",
-  "back_to_current_edition": "< Back to current edition",
+  "back_to_current_edition": "Back to current edition",
   "become_speaker": "Become speaker",
   "become_sponsor": "Become sponsor",
   "last_places": "Only a few tickets left!",

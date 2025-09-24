@@ -14,21 +14,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: {
-      absolute: dictionary[2025].title,
-      template: `%s - API Platform Conference 2025`,
+      absolute: dictionary[2026].title,
+      template: `%s - API Platform Conference 2026`,
     },
     alternates: {
       languages: {
-        en: locale === "en" ? undefined : "/con/2025",
-        fr: locale === "fr" ? undefined : "/fr/con/2025",
+        en: locale === "en" ? undefined : "/con/2026",
+        fr: locale === "fr" ? undefined : "/fr/con/2026",
       },
     },
   };
 }
 
 export default async function Page({ params }: { params: { locale: Locale } }) {
-  const speakers = await getAllSpeakers("2025", params.locale);
-  const images = (await getAllEditionPictures("2024")).slice(0, 6);
+  const speakers = await getAllSpeakers("2026", params.locale);
+  const images = (await getAllEditionPictures("2025")).slice(0, 6);
 
   return <HomePage speakers={speakers} partners={partners} images={images} />;
 }

@@ -35,7 +35,7 @@ export default function LookingSponsorCard() {
           to="mailto:events@les-tilleuls.coop"
           external
         >
-          {t("sponsorship.become_sponsor", { year: "2025" })}
+          {t("sponsorship.become_sponsor", { year: "2026" })}
         </Button>
       </div>
     </div>

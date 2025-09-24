@@ -2,7 +2,7 @@ const nav = {
   logoLink: "/",
   backLink: {
     to: "/con",
-    text: "Back to current edition",
+    text: "back_to_current_edition",
   },
   links: [
     {

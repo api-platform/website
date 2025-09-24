@@ -36,13 +36,13 @@ export default function EventsPage({ events }: EventsPageProps) {
       city: "Lille",
     },
     startDate: {
-      date: "2025-09-18",
+      date: "2026-09-17",
     },
     endDate: {
-      date: "2025-09-19",
+      date: "2026-09-18",
     },
     picture: `/images/con/og-2021.png`,
-    title: "API Platform Conference 2025",
+    title: "API Platform Conference 2026",
     slug: "api-con",
   };
 

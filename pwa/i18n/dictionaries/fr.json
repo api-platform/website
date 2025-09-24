@@ -110,6 +110,13 @@
     "subbaseline": "Ouverture de la billetterie : 7 janvier 2025.",
     "date": "18 et 19 septembre 2025 - Lille & en ligne",
     "previous_edition": "Voir l'édition 2024",
+    "review": {
+      "subtitle_1": "Merci d’avoir participé à l’API Platform Conference 2025 et pour votre confiance renouvelée. Ce fut notre plus grande édition à ce jour. Revenons ensemble sur les moments forts de cet événement.",
+      "subtitle_2": "L’API Platform Conference 2026 se tiendra les 17 et 18 septembre, à Lille et en ligne. La billetterie et l’appel à conférenciers (CFP) ouvriront en janvier 2026.",
+      "title": "Un anniversaire célébré comme il se doit !",
+      "link": "Le CFP",
+      "link2": "la billetterie"
+    },
     "see_review": {
       "subtitle": "Découvrez un aperçu de notre précédente édition en images, et retrouvez tous les moments forts de cet événement sur {{link}}.",
       "link": "notre récap"
@@ -237,8 +244,26 @@
       "button_subscribe": "Postulez au CFP"
     }
   },
+  "2026": {
+    "baseline": "L'événement phare dédié à API Platform et son écosystème revient en 2026 !",
+    "date": "17 et 18 septembre 2026 - Lille & en ligne",
+    "our_speakers": {
+      "speaker": { "coming_soon": "Prochainement" },
+      "subtitle": "Nos speakers sélectionnés seront annoncés très prochainement. Vous souhaitez proposer un sujet ? {{link}}",
+      "subtitle_link": "Contactez-nous !",
+      "title": "Nos <strong>speakers</strong>"
+    },
+    "missing_conferences": {
+      "subtitle": "Abonnez-vous à {{link}} pour découvrir les publications du replay cet hiver !",
+      "link": "notre chaîne Youtube",
+      "subscribe": "S'abonner"
+    },
+    "venue": {
+      "subtitle": "L'API Platform Conference se déroulera à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pourrez acheter un billet pour suivre les conférences en ligne."
+    }
+  },
   "an_event_by": "Un événement organisé par",
-  "back_to_current_edition": "< Retour à l'édition actuelle",
+  "back_to_current_edition": "Retour à l'édition actuelle",
   "become_speaker": "Devenir speaker",
   "become_sponsor": "Devenir sponsor",
   "buy_tickets": "S'inscrire",

@@ -40,6 +40,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               {t("2025.baseline")}
             </p>
             <div className="flex gap-2">
+              <Button className="pink" to={`/${locale}/con`}>
+                {t("back_to_current_edition")}
+              </Button>
               {currentEdition === "2025" && (
                 <BuyButton className="mr-2" id="cover">
                   {t("buy_tickets")}
