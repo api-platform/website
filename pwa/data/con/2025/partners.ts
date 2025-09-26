@@ -62,12 +62,14 @@ const partners: Partner[] = [
     logo: "upsun",
     link: "https://www.upsun.com/",
     rank: 2,
+    highlight: true,
   },
   {
     name: "SMTP Labs",
     logo: "smtp",
     link: "https://smtp.dev/",
     rank: 2,
+    highlight: true,
   },
   {
     name: "Clever Cloud",
@@ -81,13 +83,13 @@ const partners: Partner[] = [
     logo: "akawaka",
     link: "https://www.akawaka.fr/",
     rank: 2,
+    highlight: true,
   },
   {
     name: "Fairness",
     logo: "fairness",
     link: "https://fairness.coop/",
     rank: 2,
-    highlight: true,
   },
   {
     name: "Perfect Core",
@@ -100,7 +102,6 @@ const partners: Partner[] = [
     logo: "darkwood",
     link: "https://darkwood.com/",
     rank: 3,
-    highlight: true,
   },
   {
     name: "Bakslash",
@@ -113,7 +114,6 @@ const partners: Partner[] = [
     logo: "lior-chamla",
     link: "https://learn.web-develop.me/",
     rank: 3,
-    highlight: true,
   },
   {
     name: "CBA",

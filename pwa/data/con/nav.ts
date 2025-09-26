@@ -1,12 +1,12 @@
 const nav = {
   backLink: {
     to: "/con",
-    text: "Back to current edition",
+    text: "back_to_current_edition",
   },
   links: [
     {
-      to: "/con/editions",
-      text: "Previous editions",
+      to: "/con/2025/review",
+      text: "Review 2025",
     },
   ],
 };
