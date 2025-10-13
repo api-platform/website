@@ -103,6 +103,7 @@ jobs:
             JWT_PASSPHRASE=$(openssl rand -base64 32)
             JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
             helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
+              --reuse-values \
               --install \
               --create-namespace \
               --debug \
@@ -141,6 +142,7 @@ jobs:
               | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
             else
               helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
+                --reuse-values \
                 --install \
                 --create-namespace \
                 --debug \

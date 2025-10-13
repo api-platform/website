@@ -95,7 +95,7 @@ postgresql:
 
   pullPolicy: IfNotPresent
   image:
-    repository: bitnamilegacy/postgresql
+    repository: bitnami/postgresql
     tag: 13
 
 imagePullSecrets: []
