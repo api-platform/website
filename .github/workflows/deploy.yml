@@ -31,6 +31,9 @@ on:
       gh-key:
         description: Github authentication key
         required: true
+      pgpasswd:
+        description: PGPASSWORD 
+        required: true
       # cloudflare-api-token:
       #   description: Cloudflare API Token
       #   required: true
