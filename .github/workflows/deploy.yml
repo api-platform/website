@@ -39,7 +39,7 @@ on:
       #   required: true
 
 jobs:
-   meta:
+  meta:
     name: Meta
     runs-on: ubuntu-latest
     outputs:
@@ -50,7 +50,7 @@ jobs:
       release_name: ${{ steps.meta.outputs.release_name }}
       replica: ${{ steps.meta.outputs.replica }}
       url: ${{ steps.meta.outputs.url }}
-
+   
     steps:
       - name: Generate metadata
         id: meta
