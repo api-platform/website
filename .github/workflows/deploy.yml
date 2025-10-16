@@ -123,8 +123,8 @@ jobs:
       - name: HELM Deploy
         run: |
           set -o pipefail
-          # JWT_PASSPHRASE=$(openssl rand -base64 32)
-          # JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
+          JWT_PASSPHRASE=$(openssl rand -base64 32)
+          JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
           helm upgrade ${{  needs.meta.outputs.release_name }} ./helm/api-platform \
             --install \
             --create-namespace \
@@ -152,9 +152,9 @@ jobs:
             --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
             --set=ingress.tls[0].secretName=${{ needs.meta.outputs.release_name }}-website-ssl \
-            # --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
-            # --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
-            # --set=php.jwt.passphrase=$JWT_PASSPHRASE \
+            --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
+            --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
+            --set=php.jwt.passphrase=$JWT_PASSPHRASE \
             --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ env.URL }} \
             --set=next.rootUrl=${{ env.URL }} \
