@@ -39,12 +39,58 @@ on:
       #   required: true
 
 jobs:
+   meta:
+    name: Meta
+    runs-on: ubuntu-latest
+    outputs:
+      context: ${{ steps.meta.outputs.context }}
+      cors: ${{ steps.meta.outputs.cors }}
+      environment: ${{ steps.meta.outputs.environment }}
+      namespace: ${{ steps.meta.outputs.namespace }}
+      release_name: ${{ steps.meta.outputs.release_name }}
+      replica: ${{ steps.meta.outputs.replica }}
+      url: ${{ steps.meta.outputs.url }}
+
+    steps:
+      - name: Generate metadata
+        id: meta
+        run: |
+          set -o pipefail
+          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
+              # Tags are deployed in prod
+              echo "context=prod" >> "$GITHUB_ENV"
+              echo 'cors=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              echo "environment=prod" >> "$GITHUB_ENV"
+              echo "namespace=prod-website" >> "$GITHUB_ENV"
+              echo "release_name=website-prod" >> "$GITHUB_ENV"
+              echo "replica=1" >> "$GITHUB_ENV"
+              echo "url=api-platform.com" >> "$GITHUB_ENV"
+          else
+              echo "context=nonprod" >> "$GITHUB_ENV"
+              if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
+                  echo "environment=Preview"  >> "$GITHUB_ENV"
+                  echo release_name=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
+                  export release_name=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+              else
+                  echo "environment=Staging" >> "$GITHUB_ENV"
+                  echo "release_name=${{ github.ref_name }}" >> "$GITHUB_ENV"
+                  export release_name=${{ github.ref_name }}
+              fi
+              echo 'cors=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              echo "namespace=nonprod-website" >> "$GITHUB_ENV"
+              echo "replica=1" >> "$GITHUB_ENV"
+              echo "url=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
+          fi
+
+  
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
+    environment:
+      name: ${{ needs.meta.outputs.environment }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -71,101 +117,48 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami/
           helm repo add stable https://charts.helm.sh/stable/
           helm dependency build ./helm/api-platform
-      - name: Define namespace
-        run: |
-          set -o pipefail
-          if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
-              # Tags are deployed in prod
-              echo "CONTEXT=prod" >> "$GITHUB_ENV"
-              echo "RELEASE_NAME=website-prod" >> "$GITHUB_ENV"
-              echo "URL=api-platform.com" >> "$GITHUB_ENV"
-              echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
-              echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
-              echo "REPLICA=1" >> "$GITHUB_ENV"
-          else
-              CONTEXT=nonprod
-              if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-                  echo RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
-                  export RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-              else
-                  echo "RELEASE_NAME=${{ github.ref_name }}" >> "$GITHUB_ENV"
-                  export RELEASE_NAME=${{ github.ref_name }}
-              fi
-              echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
-              echo "REPLICA=1" >> "$GITHUB_ENV"
-              echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
-              echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
-          fi
       - name: HELM Deploy
         run: |
           set -o pipefail
-          if ! helm -n ${{ env.NAMESPACE }} status ${{ env.RELEASE_NAME }} &>/dev/null; then
-            JWT_PASSPHRASE=$(openssl rand -base64 32)
-            JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
-            helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
-              --reuse-values \
-              --install \
-              --create-namespace \
-              --debug \
-              --wait \
-              --atomic \
-              --namespace=${{ env.NAMESPACE }} \
-              --set=app.version=${{ github.sha }} \
-              --set=php.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php \
-              --set=php.image.tag=${{ inputs.docker-images-version }} \
-              --set=php.image.pullPolicy=Always \
-              --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
-              --set=caddy.image.tag=${{ inputs.docker-images-version }} \
-              --set=caddy.image.pullPolicy=Always \
-              --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
-              --set=pwa.image.tag=${{ inputs.docker-images-version }} \
-              --set=pwa.image.pullPolicy=Always \
-              --set=bucket.s3Upstream=storage.googleapis.com \
-              --set=bucket.s3Name=api-platform-website-v3 \
-              --set=service.type=NodePort \
-              --set=ingress.enabled=true \
-              --set=ingress.hosts[0].host=${{ env.URL }} \
-              --set=ingress.hosts[0].paths[0].path=/ \
-              --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-              --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
-              --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
-              --set=ingress.tls[0].secretName=${{ env.RELEASE_NAME }}-website-ssl \
-              --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
-              --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
-              --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-              --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
-              --set=php.host=${{ env.URL }} \
-              --set=next.rootUrl=${{ env.URL }} \
-              --set=github.key=${{ secrets.gh-key }} \
-              --set=postgresql.global.postgresql.auth.password=$(openssl rand -base64 32 | tr -d "=+/") \
-              --set=postgresql.global.postgresql.auth.username=website \
-              | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
-            else
-              helm upgrade ${{ env.RELEASE_NAME }} ./helm/api-platform \
-                --reuse-values \
-                --install \
-                --create-namespace \
-                --debug \
-                --wait \
-                --atomic \
-                --namespace=${{ env.NAMESPACE }} \
-                --set=app.version=${{ github.sha }} \
-                --set=php.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php \
-                --set=php.image.tag=${{ inputs.docker-images-version }} \
-                --set=php.image.pullPolicy=Always \
-                --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
-                --set=caddy.image.tag=${{ inputs.docker-images-version }} \
-                --set=caddy.image.pullPolicy=Always \
-                --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
-                --set=pwa.image.tag=${{ inputs.docker-images-version }} \
-                --set=pwa.image.pullPolicy=Always \
-                --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
-                --set=github.key=${{ secrets.gh-key }} \
-                --set=next.rootUrl=${{ env.URL }} \
-                --set=bucket.s3Upstream=storage.googleapis.com \
-                --set=bucket.s3Name=api-platform-website-v3 \
-                | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
-            fi
+          # JWT_PASSPHRASE=$(openssl rand -base64 32)
+          # JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
+          helm upgrade ${{  needs.meta.outputs.release_name }} ./helm/api-platform \
+            --install \
+            --create-namespace \
+            --debug \
+            --wait \
+            --atomic \
+            --namespace ${{ needs.meta.outputs.namespace }} \
+            --set=app.version=${{ github.sha }} \
+            --set=php.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php \
+            --set=php.image.tag=${{ inputs.docker-images-version }} \
+            --set=php.image.pullPolicy=Always \
+            --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
+            --set=caddy.image.tag=${{ inputs.docker-images-version }} \
+            --set=caddy.image.pullPolicy=Always \
+            --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
+            --set=pwa.image.tag=${{ inputs.docker-images-version }} \
+            --set=pwa.image.pullPolicy=Always \
+            --set=bucket.s3Upstream=storage.googleapis.com \
+            --set=bucket.s3Name=api-platform-website-v3 \
+            --set=service.type=NodePort \
+            --set=ingress.enabled=true \
+            --set=ingress.hosts[0].host=${{ needs.meta.outputs.url }} \
+            --set=ingress.hosts[0].paths[0].path=/ \
+            --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
+            --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
+            --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
+            --set=ingress.tls[0].secretName=${{ needs.meta.outputs.release_name }}-website-ssl \
+            # --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
+            # --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
+            # --set=php.jwt.passphrase=$JWT_PASSPHRASE \
+            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
+            --set=php.host=${{ env.URL }} \
+            --set=next.rootUrl=${{ env.URL }} \
+            --set=github.key=${{ secrets.gh-key }} \
+            --set=postgresql.global.postgresql.auth.password=${{ secrets.pgpasswd }} \
+            --set=postgresql.global.postgresql.auth.username=website \
+            | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
         if: failure()
         run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp

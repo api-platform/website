@@ -55,5 +55,6 @@ jobs:
       gke-credentials: ${{ secrets.GKE_SA_KEY }}
       gke-project: ${{ secrets.GKE_PROJECT }}
       gh-key: ${{ secrets.GH_KEY }}
+      pgpasswd: ${{ secrets.PGPASSWORD }}
       # cloudflare-api-token: ${{ secrets.CF_API_TOKEN }}
       # cloudflare-zone-id: ${{ secrets.CF_ZONE_ID }}
