@@ -83,14 +83,14 @@ jobs:
               REPLICA=1
               URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
           fi
-          echo "context=$CONTEXT" >> "$GITHUB_ENV"
-          echo "cors=$CORS" >> "$GITHUB_ENV"
-          echo "environment=$ENVIRONMENT" >> "$GITHUB_ENV"
-          echo "namespace=$NAMESPACE" >> "$GITHUB_ENV"
-          echo "release_name=$RELEASE_NAME" >> "$GITHUB_ENV"
-          echo "replica=$REPLICA" >> "$GITHUB_ENV"
-          echo "url=$URL" >> "$GITHUB_ENV"
-          cat $GITHUB_ENV
+          echo "context=$CONTEXT" >> "$GITHUB_OUTPUT"
+          echo "cors=$CORS" >> "$GITHUB_OUTPUT"
+          echo "environment=$ENVIRONMENT" >> "$GITHUB_OUTPUT"
+          echo "namespace=$NAMESPACE" >> "$GITHUB_OUTPUT"
+          echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
+          echo "replica=$REPLICA" >> "$GITHUB_OUTPUT"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          cat $GITHUB_OUTPUT
 
   
   deploy:
