@@ -84,6 +84,7 @@ jobs:
               URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
           fi
           echo "context=$CONTEXT" >> "$GITHUB_ENV"
+          echo "cors=$CORS" >> "$GITHUB_ENV"
           echo "environment=$ENVIRONMENT" >> "$GITHUB_ENV"
           echo "namespace=$NAMESPACE" >> "$GITHUB_ENV"
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_ENV"
@@ -98,9 +99,10 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+      pull-requests: 'write'
+    needs: ["meta"]
     environment:
       name: ${{ needs.meta.outputs.environment }}
-    needs: ["meta"]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -124,7 +126,7 @@ jobs:
       # https://github.com/helm/helm/issues/8036
       - name: Build helm dependencies
         run: |
-          #helm repo add bitnami https://charts.bitnami.com/bitnami/
+          helm repo add bitnami https://charts.bitnami.com/bitnami/
           helm repo add stable https://charts.helm.sh/stable/
           helm dependency build ./helm/api-platform
       - name: HELM Deploy
