@@ -62,7 +62,7 @@ jobs:
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
               CONTEXT=prod
-              CORS='["https://api-platform.com","http://localhost","https://localhost","http://localhost:3000"]'
+              echo 'cors=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               ENVIRONMENT=prod
               NAMESPACE=prod-website
               RELEASE_NAME=website-prod
@@ -77,18 +77,18 @@ jobs:
                   ENVIRONMENT=Staging
                   RELEASE_NAME=${{ github.ref_name }}
               fi
-              CORS='["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh","http://localhost","https://localhost","http://localhost:3000"]'
+               echo 'cors=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               NAMESPACE=nonprod-website
               REPLICA=1
               URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
           fi
           echo "context=$CONTEXT" >> "$GITHUB_ENV"
-          echo "cors=$CORS" >> "$GITHUB_ENV"
           echo "environment=$ENVIRONMENT" >> "$GITHUB_ENV"
           echo "namespace=$NAMESPACE" >> "$GITHUB_ENV"
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_ENV"
           echo "replica=$REPLICA" >> "$GITHUB_ENV"
           echo "url=$URL" >> "$GITHUB_ENV"
+          cat $GITHUB_ENV
 
   
   deploy:
