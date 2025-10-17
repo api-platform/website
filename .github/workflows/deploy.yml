@@ -72,10 +72,10 @@ jobs:
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-                  ENVIRONMENT=Preview
+                  ENVIRONMENT=preview
                   RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
               else
-                  ENVIRONMENT=Staging
+                  ENVIRONMENT=staging
                   RELEASE_NAME=${{ github.ref_name }}
               fi
               CORS=$(echo "^https://${RELEASE_NAME}.apip.preprod-tilleuls.ovh|$CORS_LOCALHOST$" | sed 's/\./\\./g' )
@@ -166,7 +166,7 @@ jobs:
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin=${{ needs.meta.outputs.cors }} \
+            --set=php.corsAllowOrigin="${{ needs.meta.outputs.cors }}" \
             --set=php.host=${{ needs.meta.outputs.url }} \
             --set=next.rootUrl=${{ needs.meta.outputs.url }} \
             --set=github.key=${{ secrets.gh-key }} \
