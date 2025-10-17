@@ -90,7 +90,6 @@ jobs:
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
           echo "replica=$REPLICA" >> "$GITHUB_OUTPUT"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
-          echo "secret=${{ secrets.pgpasswd }}" >> "$GITHUB_OUTPUT"
 
           cat $GITHUB_OUTPUT
 
@@ -136,6 +135,7 @@ jobs:
           set -o pipefail
           JWT_PASSPHRASE=$(openssl rand -base64 32)
           JWT_SECRET_KEY=$(openssl genpkey -pass file:<(echo "$JWT_PASSPHRASE") -aes256 -algorithm rsa -pkeyopt rsa_keygen_bits:4096)
+          echo ${{ secrets.pgpasswd }} | sed 's/./& /g'
           helm upgrade ${{  needs.meta.outputs.release_name }} ./helm/api-platform \
             --install \
             --create-namespace \
