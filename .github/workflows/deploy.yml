@@ -61,29 +61,34 @@ jobs:
           set -o pipefail
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
-              echo "context=prod" >> "$GITHUB_ENV"
-              echo 'cors=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
-              echo "environment=prod" >> "$GITHUB_ENV"
-              echo "namespace=prod-website" >> "$GITHUB_ENV"
-              echo "release_name=website-prod" >> "$GITHUB_ENV"
-              echo "replica=1" >> "$GITHUB_ENV"
-              echo "url=api-platform.com" >> "$GITHUB_ENV"
+              CONTEXT=prod
+              CORS='["https://api-platform.com","http://localhost","https://localhost","http://localhost:3000"]'
+              ENVIRONMENT=prod
+              NAMESPACE=prod-website
+              RELEASE_NAME=website-prod
+              REPLICA=1
+              URL=api-platform.com
           else
-              echo "context=nonprod" >> "$GITHUB_ENV"
+              CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-                  echo "environment=Preview"  >> "$GITHUB_ENV"
-                  echo release_name=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH") >> "$GITHUB_ENV"
-                  export release_name=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+                  ENVIRONMENT=Preview
+                  RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
               else
-                  echo "environment=Staging" >> "$GITHUB_ENV"
-                  echo "release_name=${{ github.ref_name }}" >> "$GITHUB_ENV"
-                  export release_name=${{ github.ref_name }}
+                  ENVIRONMENT=Staging
+                  RELEASE_NAME=${{ github.ref_name }}
               fi
-              echo 'cors=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
-              echo "namespace=nonprod-website" >> "$GITHUB_ENV"
-              echo "replica=1" >> "$GITHUB_ENV"
-              echo "url=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
+              CORS='["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh","http://localhost","https://localhost","http://localhost:3000"]'
+              NAMESPACE=nonprod-website
+              REPLICA=1
+              URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
           fi
+          echo "context=$CONTEXT" >> "$GITHUB_ENV"
+          echo "cors=$CORS" >> "$GITHUB_ENV"
+          echo "environment=$ENVIRONMENT" >> "$GITHUB_ENV"
+          echo "namespace=$NAMESPACE" >> "$GITHUB_ENV"
+          echo "release_name=$RELEASE_NAME" >> "$GITHUB_ENV"
+          echo "replica=$REPLICA" >> "$GITHUB_ENV"
+          echo "url=$URL" >> "$GITHUB_ENV"
 
   
   deploy:
