@@ -99,6 +99,7 @@ jobs:
       id-token: 'write'
     environment:
       name: ${{ needs.meta.outputs.environment }}
+    needs: ["meta"]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -160,6 +161,7 @@ jobs:
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
+            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(needs.meta.outputs.cors), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ env.URL }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
