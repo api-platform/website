@@ -59,10 +59,11 @@ jobs:
         id: meta
         run: |
           set -o pipefail
+          CORS_LOCALHOST="http://localhost|https://localhost|http://localhost:3000"
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               # Tags are deployed in prod
               CONTEXT=prod
-              echo 'cors=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              CORS=$(echo "^https://api-platform.com|$CORS_LOCALHOST$" | sed 's/\./\\./g' )
               ENVIRONMENT=prod
               NAMESPACE=prod-website
               RELEASE_NAME=website-prod
@@ -77,7 +78,7 @@ jobs:
                   ENVIRONMENT=Staging
                   RELEASE_NAME=${{ github.ref_name }}
               fi
-               echo 'cors=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              CORS=$(echo "^https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh|$CORS_LOCALHOST$" | sed 's/\./\\./g' )
               NAMESPACE=nonprod-website
               REPLICA=1
               URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
@@ -155,22 +156,22 @@ jobs:
             --set=ingress.hosts[0].host=${{ needs.meta.outputs.url }} \
             --set=ingress.hosts[0].paths[0].path=/ \
             --set=ingress.hosts[0].paths[0].pathType=ImplementationSpecific \
-            --set=ingress.tls[0].hosts[0]=${{ env.URL }} \
+            --set=ingress.tls[0].hosts[0]=${{ needs.meta.outputs.url }} \
             --set=ingress.annotations."cert-manager\.io/cluster-issuer"=letsencrypt-production \
             --set=ingress.tls[0].secretName=${{ needs.meta.outputs.release_name }}-website-ssl \
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(needs.meta.outputs.cors), '|') }}" | sed 's/\./\\./g')$" \
-            --set=php.host=${{ env.URL }} \
-            --set=next.rootUrl=${{ env.URL }} \
+            --set=php.corsAllowOrigin=${{ needs.meta.outputs.cors }} \
+            --set=php.host=${{ needs.meta.outputs.url }} \
+            --set=next.rootUrl=${{ needs.meta.outputs.url }} \
             --set=github.key=${{ secrets.gh-key }} \
             --set=postgresql.global.postgresql.auth.password=${{ secrets.pgpasswd }} \
             --set=postgresql.global.postgresql.auth.username=website \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
         if: failure()
-        run: kubectl get events --namespace=${{ env.NAMESPACE }} --sort-by .metadata.creationTimestamp
+        run: kubectl get events --namespace=${{ needs.meta.outputs.namespace  }} --sort-by .metadata.creationTimestamp
 
   links:
     name: Check for dead links
