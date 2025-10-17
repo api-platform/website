@@ -78,7 +78,7 @@ jobs:
                   ENVIRONMENT=Staging
                   RELEASE_NAME=${{ github.ref_name }}
               fi
-              CORS=$(echo "^https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh|$CORS_LOCALHOST$" | sed 's/\./\\./g' )
+              CORS=$(echo "^https://${RELEASE_NAME}.apip.preprod-tilleuls.ovh|$CORS_LOCALHOST$" | sed 's/\./\\./g' )
               NAMESPACE=nonprod-website
               REPLICA=1
               URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh
@@ -90,6 +90,8 @@ jobs:
           echo "release_name=$RELEASE_NAME" >> "$GITHUB_OUTPUT"
           echo "replica=$REPLICA" >> "$GITHUB_OUTPUT"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "secret=${{ secrets.pgpasswd }}" >> "$GITHUB_OUTPUT"
+
           cat $GITHUB_OUTPUT
 
   
@@ -168,7 +170,7 @@ jobs:
             --set=php.host=${{ needs.meta.outputs.url }} \
             --set=next.rootUrl=${{ needs.meta.outputs.url }} \
             --set=github.key=${{ secrets.gh-key }} \
-            --set=postgresql.global.postgresql.auth.password=${{ secrets.pgpasswd }} \
+            --set=postgresql.global.postgresql.auth.password="${{ secrets.pgpasswd }}" \
             --set=postgresql.global.postgresql.auth.username=website \
             | sed --unbuffered '/USER-SUPPLIED VALUES/,$d'
       - name: Debug kube events
