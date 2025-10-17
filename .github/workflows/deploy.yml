@@ -122,7 +122,7 @@ jobs:
       # https://github.com/helm/helm/issues/8036
       - name: Build helm dependencies
         run: |
-          helm repo add bitnami https://charts.bitnami.com/bitnami/
+          #helm repo add bitnami https://charts.bitnami.com/bitnami/
           helm repo add stable https://charts.helm.sh/stable/
           helm dependency build ./helm/api-platform
       - name: HELM Deploy
@@ -160,7 +160,6 @@ jobs:
             --set=php.jwt.secretKey="$JWT_SECRET_KEY" \
             --set=php.jwt.publicKey="$(openssl pkey -in <(echo "$JWT_SECRET_KEY") -passin file:<(echo "$JWT_PASSPHRASE") -pubout)" \
             --set=php.jwt.passphrase=$JWT_PASSPHRASE \
-            --set=php.corsAllowOrigin="^$(echo "${{ join(fromJSON(env.CORS), '|') }}" | sed 's/\./\\./g')$" \
             --set=php.host=${{ env.URL }} \
             --set=next.rootUrl=${{ env.URL }} \
             --set=github.key=${{ secrets.gh-key }} \
