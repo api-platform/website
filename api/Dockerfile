@@ -42,10 +42,6 @@ RUN set -eux; \
     ;
 
 ###> recipes ###
-###> doctrine/doctrine-bundle ###
-RUN set -eux; \
-    install-php-extensions pdo_pgsql
-###< doctrine/doctrine-bundle ###
 ###< recipes ###
 
 COPY --link docker/php/conf.d/app.ini $PHP_INI_DIR/conf.d/
