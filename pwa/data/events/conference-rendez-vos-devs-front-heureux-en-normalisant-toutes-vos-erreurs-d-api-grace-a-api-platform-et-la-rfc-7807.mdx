@@ -1,0 +1,26 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2025-09-19",
+    },
+    link: '/con/2025/conferences/rendez-vos-devs-front-heureux-en-normalisant-toutes-vos-erreurs-d-api-grace-a-api-platform-et-la-rfc-7807/',
+    picture: "https://img.youtube.com/vi/VVsbgWIUBWs/0.jpg",
+    speakers: [{
+        name: "Clément Herreman",
+        github: "clemherreman",
+    }],
+    video: "https://www.youtube.com/watch?v=VVsbgWIUBWs&list=PL3hoUDjLa7eT3v5dchifeESn5Fq7jelG7&index=22",
+};
+
+# Rendez vos devs front heureux en normalisant toutes vos erreurs d'API grâce à API Platform et la RFC 7807
+
+J’ai envie de partager un retour d’expérience sur le design des API chez Exotec, en attaquant un vrai point de friction : la gestion des erreurs. Comment bien documenter les cas limites ? Comment organiser son code pour gérer les erreurs facilement, les ranger proprement, et surtout les exposer clairement pour que les utilisateurs pigent vite ce qui cloche chez eux ?
+
+Mon objectif ultime : qu’une API sache expliquer à l’utilisateur pourquoi ça plante — avec une UX aux petits oignons qui lui permette de réagir vite et en autonomie.
+
+On fera un peu de théorie, mais surtout du concret : comment structurer son code ? Quelle hiérarchie d’exceptions adopter ? Où tracer la limite face aux erreurs cheloues ou carrément exotiques ?
