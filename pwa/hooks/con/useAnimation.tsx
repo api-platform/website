@@ -6,8 +6,9 @@ import useIntersection from "hooks/useIntersection";
 export type DirectionType = "bottom" | "left" | "right" | "top" | "scale";
 
 const fadeIn = (element: gsap.TweenTarget, duration: number, delay: number) => {
-  gsap.to(element, duration, {
+  gsap.to(element, {
     opacity: 1,
+    duration,
     x: 0,
     y: 0,
     scale: 1,
@@ -45,8 +46,9 @@ const fadeOut = (
       x = animationValue || +100;
   }
 
-  gsap.to(element, duration, {
+  gsap.to(element, {
     opacity: 0,
+    duration,
     x,
     y,
     scale,
