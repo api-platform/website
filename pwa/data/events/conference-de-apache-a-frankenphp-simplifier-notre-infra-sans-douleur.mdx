@@ -1,0 +1,26 @@
+export const meta = {
+    creator: "Les-Tilleuls.coop",
+    type: "conference",
+    venue: {
+        city: "Lille",
+        country: "France",
+    },
+    startDate: {
+        date: "2025-09-19",
+    },
+    link: '/con/2025/conferences/de-apache-a-frankenphp-simplifier-notre-infra-sans-douleur/',
+    picture: "https://img.youtube.com/vi/oScMLaCnx6g/0.jpg",
+    speakers: [{
+        name: "Yoan Bernabeu",
+        github: "yoanbernabeu",
+    }],
+    video: "https://www.youtube.com/watch?v=oScMLaCnx6g&list=PL3hoUDjLa7eT3v5dchifeESn5Fq7jelG7&index=2",
+};
+
+# De Apache à FrankenPHP : simplifier notre infra sans douleur
+
+Ce retour d’expérience présente la migration d’un SaaS, dans le monde agricole, d’une infrastructure basée sur Apache/PHP vers FrankenPHP, réalisée sans interruption de service et de manière totalement transparente pour les équipes de développement internes et freelances.
+
+Partant d’une architecture simple (Load Balancer manuel, Docker officiel Apache/PHP, tâches asynchrones via Supervisord), plusieurs limites étaient identifiées : gestion manuelle du HTTPS, lourdeur des images Docker, et manque de flexibilité. Après une phase de POC et d’expérimentation, la migration a été menée en deux étapes progressives. L’objectif était de simplifier l’infrastructure, d’automatiser la gestion du HTTPS et de réduire la taille des images, tout en maintenant les processus existants.
+
+Le talk détaillera les étapes clés de cette transition, les bénéfices observés, ainsi que les points d’attention découverts en cours de route.

@@ -87,6 +87,12 @@ export default async function Page({
     p: (
       props: Omit<React.HTMLAttributes<HTMLParagraphElement>, "className">
     ) => <p className="mb-8">{props.children}</p>,
+    ul: (
+      props: Omit<React.HTMLAttributes<HTMLUListElement>, "className">
+    ) => <ul className="list-disc list-inside mb-8">{props.children}</ul>,
+    li: (
+      props: Omit<React.HTMLAttributes<HTMLLIElement>, "className">
+    ) => <li className="mb-2">{props.children}</li>,
   };
   return (
     <div className="bg-gray-100 dark:bg-blue-black">
