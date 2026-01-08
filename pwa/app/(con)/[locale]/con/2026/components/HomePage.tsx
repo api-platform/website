@@ -31,7 +31,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
       >
         <div className="container relative z-10 flex flex-col items-center w-full md:flex-row md:gap-8">
           <div className="w-4/5 my-6 md:mt-0 md:w-1/2 xl:w-[60%] relative">
-            <img src="/images/con/2026/logo.webp" alt="Logo API Platform Conference 2026" className="scale-110 translate-y-[10%]" />
+            <img src="/images/con/2026/logo.svg" alt="Logo API Platform Conference 2026" className="scale-110 translate-y-[10%]" />
           </div>
           <div className="flex-1 flex flex-col items-center md:items-start">
             <p className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
