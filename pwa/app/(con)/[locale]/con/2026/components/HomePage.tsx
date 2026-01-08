@@ -5,13 +5,13 @@ import SectionTitle from "components/con/common/typography/SectionTitle";
 import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
 import Venue from "components/con/home/Venue";
 import Image from "next/image";
+import Wave from "components/con/common/Wave";
 import Partners from "components/con/home/Partners";
 import LookingSponsorCard from "components/con/home/LookingSponsorCard";
 import { Partner, Speaker } from "types/con";
 import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import Section from "components/con/home/Section";
-import Cover from "components/con/home/Cover";
 import PictureGallery from "components/con/common/PictureGallery";
 import AfterMovie from "../../2025/components/AfterMovie";
 
@@ -25,15 +25,27 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
   const { t, Translate, locale } = useContext(LanguageContext);
   return (
     <>
-      <Cover
-        date={t("2026.date")}
-        baseline={t("2026.baseline")}
-        button={
-          <Button className="pink" to={`/${locale}/con/2025/review`}>
-            {t("review.button")}
-          </Button>
-        }
-      />
+      <Section
+        className="flex flex-col text-white text-center justify-center items-center min-h-screen w-full relative overflow-hidden pt-12 pb-12"
+        section="home"
+      >
+        <div className="container relative z-10 flex flex-col items-center w-full md:flex-row md:gap-8">
+          <div className="w-4/5 my-6 md:mt-0 md:w-1/2 xl:w-[60%] relative">
+            <img src="/images/con/2026/logo.webp" alt="Logo API Platform Conference 2026" className="scale-110 translate-y-[10%]" />
+          </div>
+          <div className="flex-1 flex flex-col items-center md:items-start">
+            <p className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
+              {t("2026.baseline")}
+            </p>
+            <div className="flex gap-2">
+              <Button className="pink" to={`/${locale}/con/2025/review`}>
+                {t("review.button")}
+              </Button>
+            </div>
+          </div>
+        </div>
+        <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] left-1/2 top-[68%] -translate-y-1/2" />
+      </Section>
       <Section
         section="lastYear"
         className="bg-white z-10 relative pb-10 overflow-y-clip"
