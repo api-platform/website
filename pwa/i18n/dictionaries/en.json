@@ -250,7 +250,7 @@
     }
   },
   "2026": {
-    "baseline": "The flagship conference dedicated to API Platform and its ecosystem is coming back in 2026.",
+    "baseline": "The only conference dedicated to API Platform and its ecosystem is back on September 17–18, 2026!",
     "date": "September 17-18, 2026 - Lille & online",
     "missing_conferences": {
       "subtitle": "Subscribe to {{link}} to discover replay videos this winter!",
@@ -259,8 +259,8 @@
     },
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "Our selected speakers will be revealed in {{edition}}. Want to be part of them? {{link}}",
-      "subtitle_link": "Contact us!",
+      "subtitle": "The Call for Papers is open until March 22. {{link}}!",
+      "subtitle_link": "Submit your talk now!",
       "title": "Our <strong>speakers</strong>"
     },
     "venue": {
@@ -268,6 +268,91 @@
       "tip_title": "Important",
       "tip": "Hotel demand is very high in Lille at this time of year, so to make your travel easier, we have negotiated special prices. Take a look at the available rooms on {{tip_link}}, get a 10% discount on your stay, and book them as soon as possible with this code: <strong>TILLEULS25</strong><br/><br/>This code is valid for the following hotels: Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, and Le Rosa 3* for stays between 17th and 21st September.<br/><br/>This discount is available until 7th September 2025.",
       "tip_link": "this website"
+    },
+    "cfp": {
+      "button" : "Submit your talk",
+      "title": "Call for papers",
+      "subtitle": "The call for papers for API Platform Conference 2026 is open until March 22. Final speakers will be announced starting May 12. Submit your pitch, and with a bit of luck, you could join us in September!",
+      "package": {
+        "title": "Speaker package",
+        "subtitle": "Speaker package includes:",
+        "point_1": "Travel to Lille covered (A maximum amount may apply depending on your country of residence)",
+        "point_2": "Speakers' dinner on Wednesday, September 16",
+        "point_3": "Entrance to the conference and to the community party on Thursday 17th",
+        "point_4": "Two hotel nights for speakers based in France, or three nights for speakers coming from outside France",
+        "point_5": "If your employer can cover your travel and hotel, we’re happy to list them as a sponsor. Employer sponsorship allows us to invite more international speakers to the conference.",
+        "point_6": "A gift box with some customized surprises."
+      },
+      "techno": {
+        "title": "Talk us about your favorite techno!"
+      },
+      "subject": {
+        "title": "Talk categories",
+        "subtitle": "We are looking forward to talks on (but not limited to) these topics:",
+        "button_subscribe": "Submit your pitch",
+        "categories": [
+          {
+            "icon": "api-platform-ecosystem",
+            "title": "API Platform and its ecosystem",
+            "points": [
+              "You have discovered new features, a use case, a migration story or a contribution to share with the API Platform framework.",
+              "You have built applications for real-world enterprise scenarios and your talk will showcase your development’s journey – from initial adoption to implementation.",
+              "You have used API Platform as a key tool in your API design."
+            ]
+          },
+          {
+            "icon": "going-further-api-p",
+            "title": "Going further with API Platform",
+            "points": [
+              "<strong>JavaScript</strong> - API Platform is not only about PHP: in addition to its powerful admin generator, API Platform also features a client generator capable of scaffolding fully functional applications with Next.js, Nuxt.js, React/Redux, Vue.js, Quasar, and Vuetify for both PWAs and SPAs. Share your insights, contributions, and discoveries about it!",
+              "<strong>Devops</strong> - you host or you have deployed a project with API Platform: tell us about it!",
+              "Share your experiments on using <strong>AI</strong> on your web project."
+            ]
+          },
+          {
+            "icon": "franken-php",
+            "title": "High-Performance PHP with FrankenPHP",
+            "points": [
+              "You’ve optimized your application’s performance or migrated it with FrankenPHP.",
+              "You’ve deployed FrankenPHP natively or using a cloud hosting solution. Share your feedback with us!",
+              "You are leveraging FrankenPHP’s latest features to improve developer experience, extensibility, and background processing.",
+              "We also welcome talks on FrankenPHP’s runtime model, production usage, observability, deployment strategies, migrations to worker mode, ecosystem integrations, and lessons learned from real-world projects."
+            ]
+          },
+          {
+            "icon": "real-time",
+            "title": "Mercure & Real-Time Web",
+            "points": [
+              "We are interested in talks around Mercure and real-time web architectures, including real-world use cases, architectural choices, security considerations, and production feedback."
+            ]
+          },
+          {
+            "icon": "frameworks",
+            "title": "Frameworks and tools",
+            "points": [
+              "Share with us your findings or best practices regarding tools from the PHP ecosystem.",
+              "Tell us about the tools and good practices you use to build your software’s architecture. "
+            ]
+          },
+          {
+            "icon": "society",
+            "title": "Society",
+            "points": [
+              "Different management, corporate culture, mental health, agility, or the struggle for greater diversity and inclusion in tech... We always open the floor to more cross-cutting topics during our event."
+            ]
+          }
+        ]
+      },
+      "informations": "Informations",
+      "point_1": "The API Platform Conference is an international event held in France, featuring two parallel tracks over two days in both English and French.",
+      "point_2": "The talks are 20 or 40 min (Q&A included).",
+      "point_3": "Talks are limited to a maximum of two speakers for organizational reasons.",
+      "point_4": "AI can be a great help on a daily basis, but we encourage you to submit a talk that truly reflects your own voice and experience. We tend to recognize AI-generated content quite easily",
+      "point_5": "The event is hybrid: your talk will be streamed live online and recorded. Unless you advise otherwise, it will be published on our YouTube channel after the event.",
+      "point_6": "Submitting multiple proposals is encouraged, but it does not necessarily increase your chances of selection.",
+      "point_7": "While we prefer original content, submitting a previously presented conference topic is not grounds for elimination. Each talk is unique and never delivered in the same way.",
+      "point_8": "Speakers are expected to uphold the same Code of Conduct as attendees and staff.",
+      "button_subscribe": "Submit your pitch"
     }
   },
   "an_event_by": "an event by",
@@ -324,7 +409,8 @@
         "schedule": "Schedule",
         "speakers": "Speakers",
         "sponsorship": "Sponsorship",
-        "venue": "Venue"
+        "venue": "Venue",
+        "cfp": "Call for papers"
       },
       "title": "The event"
     }
