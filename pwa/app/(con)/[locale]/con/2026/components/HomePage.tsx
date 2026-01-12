@@ -44,7 +44,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
             <div className="flex gap-2">
               <Button
                 className="pink"
-                to={`/${locale}/con/2025/call-for-papers`}
+                to={`/${locale}/con/2026/call-for-papers`}
               >
                 {t("2026.cfp.button")}
               </Button>
