@@ -15,3 +15,4 @@ data:
   next-root-url: {{ .Values.next.rootUrl | quote }}
   bucket-s3-upstream: {{ .Values.bucket.s3Upstream | quote }}
   bucket-s3-name: {{ .Values.bucket.s3Name | quote }}
+  x-robots-tag: {{ .Values.caddy.xRobotsTag | quote }}

@@ -58,6 +58,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "api-platform.fullname" . }}
                   key: bucket-s3-name
+            - name: CADDY_X_ROBOTS_TAG
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "api-platform.fullname" . }}
+                  key: x-robots-tag
           ports:
             - name: http
               containerPort: 80

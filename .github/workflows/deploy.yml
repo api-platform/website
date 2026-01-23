@@ -82,6 +82,7 @@ jobs:
               echo 'CORS=["https://api-platform.com", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
               echo "NAMESPACE=prod-website" >> "$GITHUB_ENV"
               echo "REPLICA=1" >> "$GITHUB_ENV"
+              echo 'CADDY_X_ROBOTS_TAG="all"' >> "$GITHUB_ENV"
           else
               CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
@@ -95,6 +96,7 @@ jobs:
               echo "REPLICA=1" >> "$GITHUB_ENV"
               echo "NAMESPACE=nonprod-website" >> "$GITHUB_ENV"
               echo 'CORS=["https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh", "http://localhost", "https://localhost", "http://localhost:3000"]' >> "$GITHUB_ENV"
+              echo 'CADDY_X_ROBOTS_TAG="noindex, nofollow"' >> "$GITHUB_ENV"
           fi
       - name: HELM Deploy
         run: |
@@ -117,6 +119,7 @@ jobs:
               --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
               --set=caddy.image.tag=${{ inputs.docker-images-version }} \
               --set=caddy.image.pullPolicy=Always \
+              --set=caddy.xRobotsTag="${{ env.CADDY_X_ROBOTS_TAG }}" \
               --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
               --set=pwa.image.tag=${{ inputs.docker-images-version }} \
               --set=pwa.image.pullPolicy=Always \
@@ -158,6 +161,7 @@ jobs:
                 --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
                 --set=caddy.image.tag=${{ inputs.docker-images-version }} \
                 --set=caddy.image.pullPolicy=Always \
+                --set=caddy.xRobotsTag="${{ env.CADDY_X_ROBOTS_TAG }}" \
                 --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
                 --set=pwa.image.tag=${{ inputs.docker-images-version }} \
                 --set=pwa.image.pullPolicy=Always \
