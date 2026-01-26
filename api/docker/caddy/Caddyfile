@@ -66,3 +66,5 @@ handle {
 
     reverse_proxy http://{$PWA_UPSTREAM}
 }
+
+header X-Robots-Tag "{$CADDY_X_ROBOTS_TAG}"

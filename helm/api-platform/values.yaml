@@ -58,6 +58,7 @@ caddy:
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
+    xRobotsTag: "all"
   resources:
     requests:
       cpu: 100m
