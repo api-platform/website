@@ -119,7 +119,7 @@ jobs:
               --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
               --set=caddy.image.tag=${{ inputs.docker-images-version }} \
               --set=caddy.image.pullPolicy=Always \
-              --set=caddy.xRobotsTag="${{ env.CADDY_X_ROBOTS_TAG }}" \
+              --set=caddy.xRobotsTag=${{ env.CADDY_X_ROBOTS_TAG }} \
               --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
               --set=pwa.image.tag=${{ inputs.docker-images-version }} \
               --set=pwa.image.pullPolicy=Always \
@@ -161,7 +161,7 @@ jobs:
                 --set=caddy.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy \
                 --set=caddy.image.tag=${{ inputs.docker-images-version }} \
                 --set=caddy.image.pullPolicy=Always \
-                --set=caddy.xRobotsTag="${{ env.CADDY_X_ROBOTS_TAG }}" \
+                --set=caddy.xRobotsTag=${{ env.CADDY_X_ROBOTS_TAG }} \
                 --set=pwa.image.repository=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa \
                 --set=pwa.image.tag=${{ inputs.docker-images-version }} \
                 --set=pwa.image.pullPolicy=Always \
