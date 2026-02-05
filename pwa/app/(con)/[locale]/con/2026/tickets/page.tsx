@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: {
       absolute: dictionary.tickets.title,
-      template: `%s - API Platform Conference 2025`,
+      template: `%s - API Platform Conference 2026`,
     },
     description: dictionary.tickets.description,
     openGraph: {
@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       languages: {
-        en: locale === "en" ? undefined : "/con/2025/tickets",
-        fr: locale === "fr" ? undefined : "/fr/con/2025/tickets",
+        en: locale === "en" ? undefined : "/con/2026/tickets",
+        fr: locale === "fr" ? undefined : "/fr/con/2026/tickets",
       },
     },
   };

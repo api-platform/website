@@ -269,8 +269,37 @@
       "tip": "Hotel demand is very high in Lille at this time of year, so to make your travel easier, we have negotiated special prices. Take a look at the available rooms on {{tip_link}}, get a 10% discount on your stay, and book them as soon as possible with this code: <strong>TILLEULS25</strong><br/><br/>This code is valid for the following hotels: Arbre Voyageur BW Premier Collection 4*, Best Western Why Premier 4*, Boa BW Signature Collection 4*, La Valiz 3*, Kanai 3*, and Le Rosa 3* for stays between 17th and 21st September.<br/><br/>This discount is available until 7th September 2025.",
       "tip_link": "this website"
     },
+    "tickets": {
+      "title": "Get your ticket for <strong>API Platform Conference 2026</strong>",
+      "subtitle": "Join the API Platform community for two unmissable days!",
+      "until_date": "Until {{date}}",
+      "description": "The API Platform Conference is a two-day event showcasing the latest trends, best practices, and case studies surrounding API Platform and its ecosystem, including PHP, Symfony, JavaScript, AI, FrankenPHP, performance, or tools. With nearly 30 talks delivered in English and French, the conference is a must-attend for innovative companies, project leaders, and skilled developers.",
+      "description2": "If you're a developer, CTO, or decision-maker specializing in these technologies, this event is designed for you!",
+      "expect": {
+        "title": "What you can <strong>expect</strong> from the API Platform Conference?",
+        "points": [
+          {
+            "title": "Learn",
+            "text": "from the top speakers in our ecosystem."
+          },
+          {
+            "title": "Boost",
+            "text": "your brand by supporting the API Platform community."
+          },
+          {
+            "title": "Meet",
+            "text": "hundreds of passionate attendees."
+          },
+          {
+            "title": "Enjoy",
+            "text": "a friendly and welcoming event."
+          }
+        ]
+      },
+      "buy": "Buy your tickets"
+    },
     "cfp": {
-      "button" : "Submit your talk",
+      "button": "Submit your talk",
       "title": "Call for papers",
       "subtitle": "The call for papers for API Platform Conference 2026 is open until March 22. Final speakers will be announced starting May 12. Submit your pitch, and with a bit of luck, you could join us in September!",
       "package": {

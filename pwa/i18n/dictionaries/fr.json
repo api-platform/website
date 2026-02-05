@@ -262,6 +262,35 @@
     "venue": {
       "subtitle": "L'API Platform Conference se déroulera à Lille, capitale des Flandres et carrefour des plus grandes villes européennes. Si vous ne pouvez pas venir sur place, vous pourrez acheter un billet pour suivre les conférences en ligne."
     },
+    "tickets": {
+      "title": "S'inscrire à l'<strong>API Platform Conference 2026</strong>",
+      "subtitle": "Rejoignez la communauté d’API Platform pendant deux jours incontournables !",
+      "until_date": "Jusqu'au {{date}}",
+      "description": "L’API Platform Conference est un événement de deux jours mettant en avant les technologies tendances, bonnes pratiques et études de cas autour du framework API Platform et son écosystème : PHP, Symfony, JavaScript, IA, FrankenPHP, performance, architecture logicielle… Près de 30 conférences, en anglais et en français, sont programmées sur deux scènes parallèles, faisant de cet événement un rendez-vous incontournable du paysage tech européen.",
+      "description2": "Si vous êtes développeur·se, CTO ou décideur·se spécialisé·e dans les technologies citées, cet événement est fait pour vous !",
+      "expect": {
+        "title": "<strong>À quoi vous attendre</strong> en assistant à l’API Platform Conference ?",
+        "points": [
+          {
+            "title": "Enrichissez",
+            "text": "vos connaissances avec des speakers influents de notre écosystème."
+          },
+          {
+            "title": "Consolidez",
+            "text": "votre image de marque en soutenant un logiciel libre utilisé à travers le monde."
+          },
+          {
+            "title": "Rencontrez",
+            "text": "des centaines de participant·es travaillant sur des problématiques similaires aux vôtres."
+          },
+          {
+            "title": "Participez",
+            "text": "à un événement convivial et chaleureux, en route pour sa sixième édition."
+          }
+        ]
+      },
+      "buy": "Achetez vos tickets"
+    },
     "cfp": {
       "button": "Postulez au CFP",
       "title": "Call for papers",

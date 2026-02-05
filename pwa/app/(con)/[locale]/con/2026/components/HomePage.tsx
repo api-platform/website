@@ -14,6 +14,10 @@ import { LanguageContext } from "contexts/con/LanguageContext";
 import Section from "components/con/home/Section";
 import PictureGallery from "components/con/common/PictureGallery";
 import AfterMovie from "../../2025/components/AfterMovie";
+import BuyButton from "components/con/common/BuyButton";
+import { currentEdition } from "data/con/editions";
+import prices from "data/con/2026/prices";
+import PricingCard from "components/con/home/Pricing/PricingCard";
 
 type HomePageProps = {
   speakers: Speaker[];
@@ -42,8 +46,13 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
               {t("2026.baseline")}
             </p>
             <div className="flex gap-2">
+              {currentEdition === "2026" && (
+                <BuyButton className="mr-2" id="cover">
+                  {t("buy_tickets")}
+                </BuyButton>
+              )}
               <Button
-                className="pink"
+                className="empty"
                 to={`/${locale}/con/2026/call-for-papers`}
               >
                 {t("2026.cfp.button")}
@@ -91,38 +100,9 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </PictureGallery>
         </div>
       </Section>
-      <div className="pb-12">
-        <AfterMovie />
-      </div>
-      <Section
-        section="missing"
-        className="relative z-10 text-center overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle dark>
-            <Translate
-              translationKey="missing_conferences.title"
-              translationParams={{ edition: "2025" }}
-            />
-          </SectionTitle>
-          <SectionSubTitle dark>
-            <Translate
-              translationKey="2026.missing_conferences.subtitle"
-              translationParams={{ link: t("2026.missing_conferences.link") }}
-            />
-          </SectionSubTitle>
-          <Button
-            className="mx-auto mb-10"
-            external
-            to="https://www.youtube.com/playlist?list=PL3hoUDjLa7eSppJSvwSIeBexYZQWkN0bm"
-          >
-            {t("2026.missing_conferences.subscribe")}
-          </Button>
-        </div>
-      </Section>
       <Section
         section="speakers"
-        className="bg-white z-10 relative py-4 overflow-x-hidden"
+        className="bg-grey z-10 relative py-4 overflow-x-hidden"
       >
         <div className="container text-center">
           <SectionTitle h1>
@@ -155,6 +135,44 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           ) : null}
         </div>
       </Section>
+      {currentEdition === "2026" && (
+        <Section
+          className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
+          section="pricing"
+        >
+          <div className="container relative z-10">
+            <SectionTitle dark>
+              <Translate translationKey="pricing.title" />
+            </SectionTitle>
+            <div className="max-w-4xl mx-auto flex flex-row flex-wrap justify-center">
+              {prices.map((price) => (
+                <PricingCard key={price.id} price={price} />
+              ))}
+              <div className="w-full self-center max-w-md mt-10 | lg:pl-10 lg:mt-0 lg:w-1/3">
+                <div className="p-5 dotted-corner flex flex-col items-center text-center bg-blue bg-blue-gradient shadow-md border-blue-dark border-4">
+                  <span className="font-bold text-white leading-tight font-title uppercase lined-center lined-white relative">
+                    {t("pricing.student")}
+                  </span>
+                  <div className="mt-2 text-blue-black/80 font-semibold">
+                    <Translate translationKey="pricing.free_ticket" />
+                  </div>
+                  <Button
+                    size="small"
+                    square
+                    className="white mt-2 mb-5"
+                    to="mailto:events@les-tilleuls.coop"
+                  >
+                    {t("contact_us")}
+                  </Button>
+                  <small className="text-xs text-blue-black/50 font-bold">
+                    *{t("pricing.certificate_needed")}
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+      )}
       <Venue subtitle={t("2026.venue.subtitle")} />
       <Section section="sponsorship" className="py-8">
         <div className="container text-center">
