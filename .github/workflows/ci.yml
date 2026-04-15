@@ -18,6 +18,8 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
+    env:
+      GITHUB_KEY: ${{ secrets.GH_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
