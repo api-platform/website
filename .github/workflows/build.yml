@@ -23,13 +23,13 @@ on:
     secrets:
       gke-credentials:
         description: Google Kubernetes Engine Credentials as JSON
-        required: true
+        required: false
       gke-project:
         description: Google Kubernetes Engine Project
-        required: true
+        required: false
       gh-key:
         description: GitHub Key
-        required: true
+        required: false
     outputs:
       version:
         description: The Docker Image Version
@@ -52,22 +52,26 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
         id: auth
+        if: inputs.push
         uses: google-github-actions/auth@v2
         with:
           token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
       - name: Login to GAR
+        if: inputs.push
         uses: docker/login-action@v3
         with:
           registry: europe-west1-docker.pkg.dev
           username: oauth2accesstoken
           password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
+        if: inputs.push
         run: |
           gcloud --quiet auth configure-docker
           gcloud container clusters get-credentials ${{ inputs.gke-cluster }} --zone ${{ inputs.gke-zone }}
       - name: Docker metadata
         id: docker-metadata
+        if: inputs.push
         uses: docker/metadata-action@v4
         with:
           images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php
@@ -81,13 +85,9 @@ jobs:
           target: php_prod
           pull: true
           push: ${{ inputs.push }}
-          tags: ${{ steps.docker-metadata.outputs.tags }}
-          labels: ${{ steps.docker-metadata.outputs.labels }}
-          cache-from: |
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:latest
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:latest
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:${{ github.sha }}
+          tags: ${{ inputs.push && steps.docker-metadata.outputs.tags || '' }}
+          labels: ${{ inputs.push && steps.docker-metadata.outputs.labels || '' }}
+          cache-from: ${{ inputs.push && format('type=registry,ref=europe-west1-docker.pkg.dev/{0}/website/php:latest', secrets.gke-project) || '' }}
           cache-to: type=inline
     outputs:
       version: ${{ github.sha }}
@@ -109,22 +109,26 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
         id: auth
+        if: inputs.push
         uses: google-github-actions/auth@v2
         with:
           token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
       - name: Login to GAR
+        if: inputs.push
         uses: docker/login-action@v3
         with:
           registry: europe-west1-docker.pkg.dev
           username: oauth2accesstoken
           password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
+        if: inputs.push
         run: |
           gcloud --quiet auth configure-docker
           gcloud container clusters get-credentials ${{ inputs.gke-cluster }} --zone ${{ inputs.gke-zone }}
       - name: Docker metadata
         id: docker-metadata
+        if: inputs.push
         uses: docker/metadata-action@v4
         with:
           images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy
@@ -138,13 +142,9 @@ jobs:
           target: caddy_prod
           pull: true
           push: ${{ inputs.push }}
-          tags: ${{ steps.docker-metadata.outputs.tags }}
-          labels: ${{ steps.docker-metadata.outputs.labels }}
-          cache-from: |
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:latest
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:latest
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/caddy:${{ github.sha }}
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/php:${{ github.sha }}
+          tags: ${{ inputs.push && steps.docker-metadata.outputs.tags || '' }}
+          labels: ${{ inputs.push && steps.docker-metadata.outputs.labels || '' }}
+          cache-from: ${{ inputs.push && format('type=registry,ref=europe-west1-docker.pkg.dev/{0}/website/caddy:latest', secrets.gke-project) || '' }}
           cache-to: type=inline
     outputs:
       version: ${{ github.sha }}
@@ -166,22 +166,26 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Auth gcloud
         id: auth
+        if: inputs.push
         uses: google-github-actions/auth@v2
         with:
           token_format: access_token
           credentials_json: ${{ secrets.gke-credentials }}
       - name: Login to GAR
+        if: inputs.push
         uses: docker/login-action@v3
         with:
           registry: europe-west1-docker.pkg.dev
           username: oauth2accesstoken
           password: ${{ steps.auth.outputs.access_token }}
       - name: Configure gcloud
+        if: inputs.push
         run: |
           gcloud --quiet auth configure-docker
           gcloud container clusters get-credentials ${{ inputs.gke-cluster }} --zone ${{ inputs.gke-zone }}
       - name: Docker metadata
         id: docker-metadata
+        if: inputs.push
         uses: docker/metadata-action@v4
         with:
           images: europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa
@@ -189,12 +193,11 @@ jobs:
             type=raw,value=${{ github.sha }},priority=9999
             ${{ inputs.tags }}
       - name: Define URL
-        run: |       
+        run: |
           set -o pipefail
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
               echo "URL=api-platform.com" >> "$GITHUB_ENV"
           else
-              CONTEXT=nonprod
               if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
                   export RELEASE_NAME=pr-$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
               else
@@ -203,19 +206,17 @@ jobs:
               echo "URL=$RELEASE_NAME.apip.preprod-tilleuls.ovh" >> "$GITHUB_ENV"
           fi
       - name: Build and push
-        uses: docker/build-push-action@v4    
+        uses: docker/build-push-action@v4
         with:
           context: ./pwa
           target: prod
           pull: true
           push: ${{ inputs.push }}
-          tags: ${{ steps.docker-metadata.outputs.tags }}
-          labels: ${{ steps.docker-metadata.outputs.labels }}
+          tags: ${{ inputs.push && steps.docker-metadata.outputs.tags || '' }}
+          labels: ${{ inputs.push && steps.docker-metadata.outputs.labels || '' }}
           build-args: |
-            NEXT_ROOT_URL=${{ env.URL }} 
-          cache-from: |
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa:latest
-            type=registry,ref=europe-west1-docker.pkg.dev/${{ secrets.gke-project }}/website/pwa:${{ github.sha }}
+            NEXT_ROOT_URL=${{ env.URL }}
+          cache-from: ${{ inputs.push && format('type=registry,ref=europe-west1-docker.pkg.dev/{0}/website/pwa:latest', secrets.gke-project) || '' }}
           cache-to: type=inline
           secrets: |
             "GITHUB_KEY=${{ secrets.gh-key }}"

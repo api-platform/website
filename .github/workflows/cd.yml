@@ -3,36 +3,19 @@ name: CD
 on:
   workflow_dispatch: ~
   push:
-    branches:
-      - main
-      - staging
-  # Deploy if "deploy" label exists
-  pull_request:
-    types: [ reopened, synchronize, labeled ]
+  pull_request: ~
 
 # Do not use concurrency to prevent simultaneous helm deployments
 jobs:
-  remove-deploy-label:
-    name: Remove deploy label
-    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: mondeja/remove-labels-gh-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            deploy
-
   build:
     name: Build
-    if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy'))
     uses: ./.github/workflows/build.yml
     with:
       tags: |
         type=ref,event=pr,prefix=pr-,priority=1000
         type=edge,branch=$repo.default_branch,priority=900
         type=raw,value=latest,enable={{is_default_branch}},priority=900
-      push: true
+      push: ${{ github.event_name != 'pull_request' }}
       gke-cluster: api-platform-demo
       gke-zone: europe-west1-c
     secrets:
@@ -40,11 +23,10 @@ jobs:
       gke-project: ${{ secrets.GKE_PROJECT }}
       gh-key: ${{ secrets.GH_KEY }}
 
-
   deploy:
     name: Deploy
     needs: [ build ]
-    if: github.event_name != 'pull_request' || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'deploy'))
+    if: github.event_name != 'pull_request'
     uses: ./.github/workflows/deploy.yml
     with:
       environment: prod

@@ -78,26 +78,26 @@ ENV NEXT_ROOT_URL=$NEXT_ROOT_URL
 # RUN echo $NEXT_ROOT_URL
 
 RUN --mount=type=secret,id=GITHUB_KEY \
-	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY 2>/dev/null || true) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
-		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
-	fi  \
+		echo "Warning: GITHUB_KEY not set, contributors data may be incomplete" ; \
+	fi \
 	&& npm i ts-node && npm run prebuild
 
 # ADD https://soyuka.me/contributors.json ./data/contributors.json
 
 RUN --mount=type=secret,id=GITHUB_KEY \
-	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY 2>/dev/null || true) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
-		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
-	fi  \
+		echo "Warning: GITHUB_KEY not set, contributors data may be incomplete" ; \
+	fi \
 	&& npx next telemetry disable && pnpm run build
 
 RUN --mount=type=secret,id=GITHUB_KEY \
-	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
+	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY 2>/dev/null || true) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
-		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
-	fi  \
+		echo "Warning: GITHUB_KEY not set, contributors data may be incomplete" ; \
+	fi \
 	&& npm i ts-node && npm run postbuild
 
 # Production image, copy all the files and run next
