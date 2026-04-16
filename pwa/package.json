@@ -50,7 +50,7 @@
     "remark-mdx-frontmatter": "^3.0.0",
     "rxjs": "^7.8.2",
     "sharp": "^0.34.5",
-    "shiki": "^0.14.7",
+    "shiki": "^1.29.2",
     "swagger-ui": "^5.32.4",
     "unist-util-visit": "^4.1.2",
     "yaml": "^2.8.3"
