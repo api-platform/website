@@ -88,5 +88,34 @@
     "@babel/core": "^7.19.0",
     "@popperjs/core": "^2.11.6"
   },
+  "pnpm": {
+    "overrides": {
+      "braces": "^3.0.3",
+      "cross-spawn": "^7.0.5",
+      "jws": "^3.2.3",
+      "minimatch": "^3.1.4",
+      "serialize-javascript": "^7.0.5",
+      "immutable": "^3.8.3",
+      "flatted": "^3.4.2",
+      "picomatch": "^2.3.2",
+      "lodash": "^4.18.0",
+      "micromatch": "^4.0.8",
+      "js-yaml": "^4.1.1",
+      "markdown-it": "^14.1.1",
+      "ajv": "^6.14.0",
+      "brace-expansion": "^1.1.13",
+      "nanoid": "^3.3.8",
+      "octokit": "^3.1.2",
+      "@octokit/plugin-throttling": "^8.2.0",
+      "@octokit/request-error": "^5.1.1",
+      "@octokit/request": "^8.4.1",
+      "@octokit/plugin-paginate-rest": "^9.2.2",
+      "@octokit/webhooks": "^10.9.2",
+      "estree-util-value-to-estree": "^3.3.3",
+      "@babel/runtime": "^7.26.10",
+      "diff": "^5.2.2",
+      "protocol-buffers-schema": "^3.6.1"
+    }
+  },
   "packageManager": "pnpm@9.15.9"
 }
