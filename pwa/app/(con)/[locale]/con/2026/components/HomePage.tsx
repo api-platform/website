@@ -51,54 +51,10 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
                   {t("buy_tickets")}
                 </BuyButton>
               )}
-              <Button
-                className="empty"
-                to={`/${locale}/con/2026/call-for-papers`}
-              >
-                {t("2026.cfp.button")}
-              </Button>
             </div>
           </div>
         </div>
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] left-1/2 top-[68%] -translate-y-1/2" />
-      </Section>
-      <Section
-        section="lastYear"
-        className="bg-white z-10 relative pb-10 overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle>
-            <Translate translationKey="last_edition.title" />
-          </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="last_edition.subtitle"
-              translationParams={{
-                edition: "2025",
-                link: (
-                  <a href={`/${locale}/con/2025/review`} className="link">
-                    {t("last_edition.subtitle_link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <PictureGallery
-            className="py-4"
-            link="https://www.flickr.com/photos/194052559@N02/albums/72177720329148577/"
-          >
-            {images.map((image: string) => (
-              <Image
-                className="object-cover"
-                key={image}
-                fill
-                src={image}
-                alt=""
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
-              />
-            ))}
-          </PictureGallery>
-        </div>
       </Section>
       <Section
         section="speakers"
@@ -110,18 +66,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <SectionSubTitle>
             <Translate
-              translationKey="2026.our_speakers.subtitle"
-              translationParams={{
-                edition: "2026",
-                link: (
-                  <a
-                    href={`/${locale}/con/2026/call-for-papers`}
-                    className="link"
-                  >
-                    {t("2026.our_speakers.subtitle_link")}
-                  </a>
-                ),
-              }}
+              translationKey="2026.our_speakers.subtitle2"
             />
           </SectionSubTitle>
           <SpeakerList speakers={speakers} max={9} />

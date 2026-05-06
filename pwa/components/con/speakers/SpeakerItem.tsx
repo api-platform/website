@@ -41,7 +41,7 @@ export default function SpeakerItem({
           minified ? "flex flex-row items-center" : "text-center"
         )}
       >
-        {edition === "2025" ? (
+        {edition === "2025" || edition === "2026" ? (
           <div
             className={classNames(minified ? "w-20 h-20" : "mx-auto w-64 h-64")}
           >

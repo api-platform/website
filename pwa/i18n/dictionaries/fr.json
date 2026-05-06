@@ -250,7 +250,8 @@
     "date": "17 et 18 septembre 2026 - Lille & en ligne",
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
-      "subtitle": "Le call for papers est ouvert jusqu'au 22 mars. {{link}} !",
+      "subtitle": "Rejoignez nos experts pour concevoir des logiciels durables, propulsés par les technologies les plus avancées d'aujourd'hui.",
+      "subtitle2": "Le programme est plus dense que jamais : entre l'explosion de l'IA, la maturité de FrankenPHP et les enjeux de résilience, les conférences planifiées proposent un équilibre entre prouesse technique et le pragmatisme métier.",
       "subtitle_link": "Proposez dès maintenant un sujet",
       "title": "Nos <strong>speakers</strong>"
     },

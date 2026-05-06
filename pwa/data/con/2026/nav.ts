@@ -7,12 +7,16 @@ const nav = {
       mobileOnly: true,
     },
     {
-      to: "/{{locale}}/con/2026/call-for-papers",
-      text: "nav.links.call_for_papers",
-    },
-    {
       to: "/{{locale}}/con/2025/review",
       text: "footer.previous_edition.links.review",
+    },
+    {
+      to: "/{{locale}}/con/2026/conferences",
+      text: "nav.links.conferences",
+    },
+    {
+      to: "/{{locale}}/con/2026/speakers",
+      text: "nav.links.speakers",
     },
     {
       to: "/{{locale}}/con/2026/#pricing",
