@@ -9,7 +9,7 @@
 }
 
 .description p:not(:last-child) {
-    @apply mb-6;
+    @apply mb-4;
 }
 
 .description a {
@@ -21,9 +21,9 @@
 }
 
 .description ul {
-    @apply list-disc text-left pl-7;
+    @apply list-disc text-left pl-7 mb-8;
 }
 
 .description ul li:not(last-child) {
-    @apply mb-2;
+    @apply mb-1;
 }

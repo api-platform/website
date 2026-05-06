@@ -21,9 +21,9 @@
 }
 
 .description ul {
-    @apply list-disc text-left pl-7;
+    @apply list-disc text-left pl-7 mb-6;
 }
 
-.description ul li:not(last-child) {
+.description ul li {
     @apply mb-4;
 }

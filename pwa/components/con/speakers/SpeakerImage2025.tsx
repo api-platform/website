@@ -63,7 +63,7 @@ export default function SpeakerImage({
   placeholder,
   id,
 }: SpeakerImageProps) {
-  if (speaker.edition === "2025") {
+  if (speaker.edition === "2025" || speaker.edition === "2026") {
     const { name } = speaker;
     const angle = nameToAngle(name);
     const size = nameToSize(name);

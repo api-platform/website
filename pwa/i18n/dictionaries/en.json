@@ -259,7 +259,8 @@
     },
     "our_speakers": {
       "speaker": { "coming_soon": "coming soon" },
-      "subtitle": "The Call for Papers is open until March 22. {{link}}!",
+      "subtitle": "Meet our experts and build with them software that lasts, using today’s most cutting-edge tools.",
+      "subtitle2:" : "With a lineup denser than ever, the conference bridges the gap between technical excellence and business pragmatism, focusing on the future of AI, FrankenPHP, and resilient architectures",
       "subtitle_link": "Submit your talk now!",
       "title": "Our <strong>speakers</strong>"
     },
