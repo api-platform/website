@@ -3,7 +3,6 @@ import { useContext, useEffect } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import SectionTitle from "components/con/common/typography/SectionTitle";
 import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
-import Script from "next/script";
 import prices from "data/con/2025/prices";
 import { Offer } from "types/con";
 import dayjs from "dayjs";
@@ -40,12 +39,35 @@ export default function RegisterPage() {
     const iframe = document.getElementById(
       "yurplan-widget-141690"
     ) as HTMLIFrameElement | null;
-    if (!iframe) return;
     const handleLoad = () => {
       const loader = document.getElementById("loader");
       loader?.classList.add("hidden");
     };
-    iframe.addEventListener("load", handleLoad, true);
+    iframe?.addEventListener("load", handleLoad, true);
+
+    const SRC = "https://assets.yurplan.com/yurplan-v1/dist/widget.js";
+    const getYp = () =>
+      (window as unknown as { YurPlanWidgets?: { init: () => void } })
+        .YurPlanWidgets;
+
+    if (getYp()) {
+      getYp()?.init();
+    } else if (!document.querySelector(`script[src="${SRC}"]`)) {
+      const script = document.createElement("script");
+      script.src = SRC;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) getYp()?.init();
+    };
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      iframe?.removeEventListener("load", handleLoad, true);
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
 
   return (
@@ -184,10 +206,6 @@ export default function RegisterPage() {
               data-id="141690"
             ></iframe>
           </div>
-          <Script
-            type="text/javascript"
-            src="https://assets.yurplan.com/yurplan-v1/dist/widget.js"
-          />
         </div>
       </div>
     </>
