@@ -16,4 +16,6 @@ Mathias is a lead developer, consultant, and Symfony trainer who has spent years
 
 His track record includes four pivotal years working alongside the creators of Symfony, API Platform, Mercure, and FrankenPHP. 
 
-As a dedicated **open-source advocate**, he focuses his contributions on the Symfony framework, specifically its data serialization system. Mathias specializes in architecting fast, robust, and maintainable API solutions. And if you ever trigger the 'PHPStorm vs. VSCode' debate, don't be surprised when he simply answers: VIM.
+As a dedicated **open-source advocate**, he focuses his contributions on the Symfony framework, specifically its data serialization system. 
+
+Mathias specializes in architecting fast, robust, and maintainable API solutions. And if you ever trigger the 'PHPStorm vs. VSCode' debate, don't be surprised when he simply answers: VIM.
