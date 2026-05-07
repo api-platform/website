@@ -7,9 +7,8 @@ RUN apk add --no-cache libc6-compat bash git
 
 WORKDIR /srv/app
 
-RUN npm install --global corepack@latest && \
-	corepack enable && \
-	corepack prepare --activate pnpm@latest && \
+RUN corepack enable && \
+	corepack prepare pnpm@9.15.4 --activate && \
 	pnpm config -g set store-dir /.pnpm-store
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -82,7 +81,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& npm i ts-node && npm run prebuild
+	&& pnpm add ts-node && pnpm run prebuild
 
 # ADD https://soyuka.me/contributors.json ./data/contributors.json
 
@@ -98,7 +97,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
 	fi  \
-	&& npm i ts-node && npm run postbuild
+	&& pnpm add ts-node && pnpm run postbuild
 
 # Production image, copy all the files and run next
 FROM node:18-alpine AS prod
