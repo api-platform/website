@@ -9,7 +9,7 @@ short: Une exploration des configurations offertes par API Platform, notamment s
 tag: 'good-practices'
 ---
 
-# Générer une documentation d’API aux petits oignons (🇫🇷) 
+# Générer une documentation d’API aux petits oignons 🇫🇷 
 
 API Platform permet de créer une API hypermédia moderne et propose nativement une description auto-générée de votre API. Cette documentation d’API est accessible dans le format OpenAPI (anciennement Swagger), ou encore Hydra, assurant une intégration avec les autres systèmes.
 

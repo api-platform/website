@@ -9,7 +9,7 @@ start: '10:20'
 end: '11:00'
 ---
 
-# Deploying API Platform on Laravel Cloud (🇺🇸)
+# Deploying API Platform on Laravel Cloud 🇺🇸
 
 Modern APIs demand speed, scalability, and simplicity without compromising on developer experience.
 

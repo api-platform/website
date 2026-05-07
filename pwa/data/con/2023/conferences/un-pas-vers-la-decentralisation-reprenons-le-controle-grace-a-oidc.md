@@ -9,7 +9,7 @@ short: Partez à la découverte d'OpenID Connect avec API Platform.
 tag: feedback
 ---
 
-# Un pas vers la décentralisation, reprenons le contrôle grâce à OIDC ! (🇫🇷) 
+# Un pas vers la décentralisation, reprenons le contrôle grâce à OIDC ! 🇫🇷 
 
 À l’heure du Linked Data, il nous faut **penser nos applications différemment**, avant tout de manière plus sécurisée. Fini le temps où l’on se connecte indépendamment sur chaque site, où l’on gère un mot de passe différent par site, où nos données transitent de manière non sécurisée, il nous faut une authentification pleinement sécurisée !
 

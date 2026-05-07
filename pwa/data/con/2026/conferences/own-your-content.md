@@ -6,7 +6,7 @@ tag: archi
 track: '1'
 ---
 
-# Own your content (🇺🇸)
+# Own your content 🇺🇸
 
 In this keynote we are having a critical look at **how the web went wrong**. How we went from using common and open protocols to create a rich digital culture, to an environment were everything seems to turn into **walled gardens and platforms**, controlled by “big tech”, and algorithms, that can, at a whim, scupper your business.
 

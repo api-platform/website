@@ -6,7 +6,7 @@ tag: good-practices
 track: '1'
 ---
 
-# Running FrankenPHP Locally with DDEV (🇺🇸)
+# Running FrankenPHP Locally with DDEV 🇺🇸
 
 DDEV offers a powerful yet accessible approach to **containerized development**. In this session, we will walk through setting up a DDEV environment explicitly for FrankenPHP. 
 

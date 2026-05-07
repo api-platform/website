@@ -6,7 +6,7 @@ tag: good-practices
 track: '1'
 ---
 
-# No OSS, No Users: Why Investing in Open Source Matters (🇺🇸)
+# No OSS, No Users: Why Investing in Open Source Matters 🇺🇸
 
 At MongoDB, I help maintain **the open-source tools** that help PHP developers use our product. Without active, stable OSS, we shrimply wouldn’t have any users.
 

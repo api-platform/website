@@ -6,7 +6,7 @@ tag: performance
 track: '1'
 ---
 
-# REX : Passer un CMS legacy en worker mode (🇫🇷)
+# REX : Passer un CMS legacy en worker mode 🇫🇷
 
 Le worker mode, on en parle beaucoup mais peu ont osé franchir le pas sur des applications existantes. Et pour cause : c'est un **changement de paradigme complet**, bien loin d'un simple changement de runtime.
 

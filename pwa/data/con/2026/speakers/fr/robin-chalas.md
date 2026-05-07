@@ -5,6 +5,7 @@ number: 100
 name: Robin Chalas
 job: Co-founder
 company: Bakslash
+bluesky: https://bsky.app/profile/chalasr.bsky.social
 twitter: https://twitter.com/chalas_r
 github: https://github.com/chalasr
 ---

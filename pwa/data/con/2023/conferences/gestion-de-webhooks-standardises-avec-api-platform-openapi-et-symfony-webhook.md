@@ -9,7 +9,7 @@ short: Comment implémenter une gestion de webhooks respectueuse des standards d
 tag: archi
 ---
 
-# Gestion de webhooks standardisés avec API Platform, OpenAPI et Symfony Webhook (🇫🇷)
+# Gestion de webhooks standardisés avec API Platform, OpenAPI et Symfony Webhook 🇫🇷
 
 Les webhooks offrent une approche simple, flexible et élégante de répondre à un enjeu métier commun à bon nombre d'entreprises : celui d’informer un tiers qu'un événement s'est produit en lui transmettant les informations qui en découlent, de sorte à ce qu'il puisse en tirer parti de manière automatisée et sans avoir besoin de venir les chercher par lui-même.
 

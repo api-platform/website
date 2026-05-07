@@ -9,7 +9,7 @@ short: Améliorez la performance de vos requêtes complexes en reliant une Mater
 tag: performance
 ---
 
-# Comment utiliser une Materialized View PostgreSQL avec API Platform ? (🇫🇷)
+# Comment utiliser une Materialized View PostgreSQL avec API Platform ? 🇫🇷
 
 Vos données s'entassent dans vos tables et vos requêtes en lecture sont de plus en plus longues à exécuter ? Certaines requêtes comprenant des calculs complexes ou bien de multiples jointures vous causent des problèmes de performance ?
 

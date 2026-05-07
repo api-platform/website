@@ -1,6 +1,6 @@
 ---
 type: speaker
-id: benjamin-georgeaut-2026
+id: benjamin-georgeault-2026
 number: 100
 name: Benjamin Georgeaut
 job: Lead Developer

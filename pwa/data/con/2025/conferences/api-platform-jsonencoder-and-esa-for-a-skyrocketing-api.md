@@ -9,7 +9,7 @@ short: Streamline API Performance with JsonStreamer & ESA
 tag: 'performance'
 ---
 
-# API Platform, JsonStreamer and ESA for a skyrocketing API (🇺🇸)
+# API Platform, JsonStreamer and ESA for a skyrocketing API 🇺🇸
 
 When building APIs with API Platform, JSON is king — and Symfony's Serializer is at the heart of it all. But once your API starts returning large documents (think thousands of items), performance hits hard.
 

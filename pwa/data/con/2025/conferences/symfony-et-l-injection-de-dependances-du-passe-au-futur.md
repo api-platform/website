@@ -9,7 +9,7 @@ start: '16:40'
 end: '17:20'
 ---
 
-# Symfony et l'Injection de Dépendances : Du passé au futur (🇫🇷)
+# Symfony et l'Injection de Dépendances : Du passé au futur 🇫🇷
 
 L'Injection de Dépendances est **un pilier fondamental de Symfony**. Depuis ses premières versions, le framework a révolutionné la gestion des services et des dépendances grâce à son conteneur d'injection de dépendances et son évolution constante vers plus de simplicité et de performance.
 

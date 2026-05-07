@@ -24,7 +24,7 @@ const footer = [
         link: "/{{locale}}/con/2026/#venue",
       },
       {
-        link: "/{{locale}}/con/2025/conferences",
+        link: "/{{locale}}/con/2026/conferences",
         title: "nav.links.conferences",
       },
       {

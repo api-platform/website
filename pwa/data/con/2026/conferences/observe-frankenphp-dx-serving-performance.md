@@ -6,7 +6,7 @@ tag: performance
 track: '1'
 ---
 
-# Observe FrankenPHP: DX Serving Performance (🇺🇸)
+# Observe FrankenPHP: DX Serving Performance 🇺🇸
 
 Every application has an engine: the runtime that executes your code. In PHP, it’s this invisible foundation working behind the scenes… Then one day, **production goes down**.
 

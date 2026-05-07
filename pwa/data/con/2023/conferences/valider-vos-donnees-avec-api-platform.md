@@ -9,7 +9,7 @@ short: Plongée dans la validation dans le framework API Platform
 tag: security
 ---
 
-# Valider vos données avec API Platform (🇫🇷) 
+# Valider vos données avec API Platform 🇫🇷 
 
 API Platform intègre le composant validator de Symfony afin de valider nos ressources après leur déserialization. Mais est-ce que ça ne serait pas intéressant de pouvoir valider le contenu de nos requêtes avant même l’instanciation de nos ressources ?
 

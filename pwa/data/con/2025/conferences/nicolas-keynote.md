@@ -9,6 +9,6 @@ short: Config formats & Symfony - Let's talk about DX
 tag: 'feedback'
 ---
 
-# Opening Keynote (🇺🇸)
+# Opening Keynote 🇺🇸
 
 Config formats & Symfony - Let's talk about DX

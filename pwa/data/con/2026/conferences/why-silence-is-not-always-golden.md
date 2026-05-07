@@ -6,7 +6,7 @@ tag: society
 track: '1'
 ---
 
-# Why Silence Is Not Always Golden (🇺🇸)
+# Why Silence Is Not Always Golden 🇺🇸
 
 Some developers cannot write a single line of code without music. Others are convinced that absolute silence is the only way to think.
 

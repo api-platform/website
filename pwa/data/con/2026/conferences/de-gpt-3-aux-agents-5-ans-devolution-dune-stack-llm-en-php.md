@@ -6,7 +6,7 @@ tag: feedback
 track: '1'
 ---
 
-# De GPT-3 aux agents : 5 ans d'évolution d'une stack LLM en PHP (🇫🇷)
+# De GPT-3 aux agents : 5 ans d'évolution d'une stack LLM en PHP 🇫🇷
 
 En 2021, l'effet "magique" : nous intégrons GPT-3 à notre SaaS SEO (stack Symfony/API Platform). Un simple appel à une API, un prompt, et nous avons des suggestions de titres dans notre application.
 

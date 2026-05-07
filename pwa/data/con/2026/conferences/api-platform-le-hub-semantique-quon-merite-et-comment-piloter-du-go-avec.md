@@ -6,7 +6,7 @@ tag: tools
 track: '1'
 ---
 
-# API Platform : Le Hub Sémantique qu'on mérite (et comment piloter du Go avec) (🇫🇷)
+# API Platform : Le Hub Sémantique qu'on mérite (et comment piloter du Go avec) 🇫🇷
 
 Faire du microservice, c'est souvent troquer une stack cohérente contre une armée de petits services qui parlent tous un dialecte potentiellement différent. On choisit Go pour la perf brute (et parce que c'est cool), mais on finit avec des **APIs "plates"** qui ont perdu toute la richesse sémantique qu'on aime tant dans l'écosystème PHP.
 

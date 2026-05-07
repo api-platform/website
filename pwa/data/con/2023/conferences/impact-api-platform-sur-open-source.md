@@ -9,7 +9,7 @@ short: Comment le framework API Platform sert de socle pour de nombreux projets 
 tag: archi
 ---
 
-# L'impact d'API Platform sur l'Open Source (🇫🇷)
+# L'impact d'API Platform sur l'Open Source 🇫🇷
 
 Avec sa version 3, API Platform est encore plus souple et toujours aussi facile d’utilisation pour vos API. Vitesse, respect des standards, documentation automatique, pourquoi s’en passer ? À travers cette conférence, nous verrons quelques cas d'usage de ce framework :
 

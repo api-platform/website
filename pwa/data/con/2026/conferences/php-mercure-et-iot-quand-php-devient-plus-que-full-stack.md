@@ -6,7 +6,7 @@ tag: tools
 track: '1'
 ---
 
-# PHP, Mercure et IoT – Quand PHP devient plus que Full Stack (🇫🇷)
+# PHP, Mercure et IoT – Quand PHP devient plus que Full Stack 🇫🇷
 
 Quand on parle IoT ou informatique embarquée, on pense à C/C++, Javascript, Python mais pas à PHP… **Réparons cet affront** en étudiant ensemble les possibilités que nous offre PHP dans le monde de l’embarqué !
 

@@ -6,7 +6,7 @@ tag: good-practices
 track: '1'
 ---
 
-# DDD x API Platform: 4 years later (🇺🇸)
+# DDD x API Platform: 4 years later 🇺🇸
 
 In 2022, we explored how **Domain-Driven Design** principles could be applied with API Platform 3, which helped making API Platform better.
 

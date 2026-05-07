@@ -9,7 +9,7 @@ start: '11:30'
 end: '11:50'
 ---
 
-# Une API multi-tenant sans encombres avec API Platform, Symfony et PostgreSQL (🇫🇷)
+# Une API multi-tenant sans encombres avec API Platform, Symfony et PostgreSQL 🇫🇷
 
 Il existe de nombreuses manières d'implémenter **une architecture multi-tenant** avec chacune différents avantages et inconvénients.
 

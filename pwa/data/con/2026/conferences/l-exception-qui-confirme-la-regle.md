@@ -6,7 +6,7 @@ tag: tools
 track: '1'
 ---
 
-# L'exception qui confirme la règle (🇫🇷)
+# L'exception qui confirme la règle 🇫🇷
 
 **“Everything fails all the time.”** — une vérité universelle, aussi valable en développement. Un appel API échoue, une requête SQL déraille… et soudain, une Exception surgit un peu comme un Pokémon sauvage. À ce moment-là, deux choix s’offrent à nous : 
 

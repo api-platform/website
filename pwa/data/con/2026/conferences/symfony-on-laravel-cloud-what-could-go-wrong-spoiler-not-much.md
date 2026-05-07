@@ -6,7 +6,7 @@ tag: archi
 track: '1'
 ---
 
-# Symfony on Laravel Cloud: What Could Go Wrong? (Spoiler: Not Much) (🇺🇸)
+# Symfony on Laravel Cloud: What Could Go Wrong? (Spoiler: Not Much) 🇺🇸
 
 Laravel Cloud is initially built for Laravel. **Symfony is not Laravel**. So when our team decided to deploy our Symfony application on Laravel Cloud, eyebrows were raised, including our own.
 In this talk, we'll walk through what happened next: the assumptions we challenged, the surprises we didn't expect, and why the experience turned out to be far smoother than anyone predicted.

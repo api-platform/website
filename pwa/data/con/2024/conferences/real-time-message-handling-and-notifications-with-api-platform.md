@@ -9,7 +9,7 @@ short: Create a modern architecture for message handling and real-time notificat
 tag: 'performance'
 ---
 
-# Real-time message handling and notifications with API Platform (🇺🇸)
+# Real-time message handling and notifications with API Platform 🇺🇸
 
 To meet the current demands for responsiveness and scalability in web applications and APIs, we will explore how to build a modern architecture for message handling using API Platform, Symfony Messenger and Mercure. Our goal is to establish **a robust workflow** that enables message processing and real time user notifications.
 

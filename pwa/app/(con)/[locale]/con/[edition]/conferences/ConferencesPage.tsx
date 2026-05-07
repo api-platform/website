@@ -123,7 +123,7 @@ export default function SpeakerPageListTemplate({
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 flex-1">
+                <div className="flex flex-col gap-2 flex-1 items-center md:items-start">
                           <div className="flex flex-row gap-1">
                             {conference.tag
                               ? conference.tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)

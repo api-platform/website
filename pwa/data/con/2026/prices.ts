@@ -19,7 +19,7 @@ const prices: Price[] = [
           en: "2 days on-site event <br>(Early bird)</br>",
         },
         price: 139,
-        limitDate: "2026-05-11",
+        limitDate: "2026-05-06",
       },
       {
         type: "Regular",
@@ -28,7 +28,7 @@ const prices: Price[] = [
           en: "2 days on-site event <br>(Regular)</br>",
         },
         price: 179,
-        startDate: "2026-05-12",
+        startDate: "2026-05-07",
         limitDate: "2026-07-27",
       },
       {

@@ -9,7 +9,7 @@ short: Let's explore a new feature of API Platform
 tag: good-practices
 ---
 
-# Create the DTO System of your Dreams: stateOptions + entityClass (🇺🇸) 
+# Create the DTO System of your Dreams: stateOptions + entityClass 🇺🇸 
 
 One of the best features of API Platform is the ability to add #[ApiResource] above an entity and... bam! You have a fully-functional API! Though, if you want to have full control and peak clarity, nothing beats creating a dedicated DTO class.
 

@@ -9,7 +9,7 @@ start: '17:20'
 end: '18:00'
 ---
 
-# FrankenPHP en production, migration d’un site e-commerce, métriques et retour d'expérience (🇫🇷)
+# FrankenPHP en production, migration d’un site e-commerce, métriques et retour d'expérience 🇫🇷
 
 PHP améliore ses performances à chaque nouvelle version, et nos applications deviennent de moins en moins gourmandes en ressources. De son côté, FrankenPHP promet un gain de performance supplémentaire par rapport à une configuration classique avec php-fpm.
 

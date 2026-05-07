@@ -14,9 +14,13 @@ L'API Platform Conference 2025 a rassemblé 700 personnes (400 sur place et 300 
 
 L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), capitale des Flandres et point central de grandes villes européennes. Les conférences ont lieu à [Euratechnologies](https://www.euratechnologies.com/), le plus grand incubateur de start-ups en Europe. En plus d'être organisées à Lille, les conférences sont retransmises en direct sur internet à partir d'un lien privé et nominatif.
 
+## Est-ce que je peux obtenir un visa pour participer à la conférence ?
+
+Si vous avez acheté un billet pour l'édition sur place, nous pouvons vous faire parvenir une lettre d'invitation sur demande. Cette lettre ne garantit pas l'obtention du visa et ne constitue en aucun cas un soutien financier, une prise en charge du voyage ou une responsabilité juridique de la part des organisateurs. Une question à ce sujet ? [Écrivez-nous](mailto:events@les-tilleuls.coop).
+
 ## Il y a t-il un code de conduite ?
 
-L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite page](/con/2026/code-de-conduite/) pour plus d'informations.
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite](/con/2026/code-de-conduite/) pour plus d'informations.
 
 ## Il y a t-il une salle d'allaitement pendant l'événement ?
 

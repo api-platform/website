@@ -9,6 +9,6 @@ short: Enhance your API Platform APIs with Go thanks to FrankenPHP.
 tag: 'feedback'
 ---
 
-# Opening Keynote (🇺🇸)
+# Opening Keynote 🇺🇸
 
 Enhance your API Platform APIs with Go thanks to FrankenPHP.
