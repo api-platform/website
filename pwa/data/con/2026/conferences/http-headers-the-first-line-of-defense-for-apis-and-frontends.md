@@ -6,7 +6,7 @@ tag: security
 track: '1'
 ---
 
-# HTTP Headers: The First Line of Defense for APIs and Frontends (🇺🇸)
+# HTTP Headers: The First Line of Defense for APIs and Frontends 🇺🇸
 
 Server-side security like **authentication** and **data validation** is crucial, but we often overlook the browser's role as the final line of defense. HTTP security headers act as **firewall rules** for the client by dictating which resources are trusted and how they should be isolated.
 

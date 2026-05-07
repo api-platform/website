@@ -1,13 +1,13 @@
 ---
 type: conference
 speakers: -imen-ezzine-2026
-          -benjamin-georgeaut-2026
+          -benjamin-georgeault-2026
 short: "Comment découper un monolithe sans y laisser des plumes ? Un retour d'expérience à deux voix sur l'utilisation d'API Platform pour orchestrer une architecture distribuée."
 tag: archi
 track: '1'
 ---
 
-# Passer d'un monolithe à une galaxie d'applications : Réussir sa transition avec API Platform (🇫🇷)
+# Passer d'un monolithe à une galaxie d'applications : Réussir sa transition avec API Platform 🇫🇷
 
 Face à une équipe en pleine expansion, nous avons fait le choix de découper notre monolithe Symfony en plusieurs applications distinctes, gravitant autour d'une application centrale. 
 

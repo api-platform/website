@@ -9,7 +9,7 @@ start: '16:30'
 end: '17:10'
 ---
 
-# Help! My Tech Skills Have an Expiration Date (🇺🇸)
+# Help! My Tech Skills Have an Expiration Date 🇺🇸
 
 One day, you’re a cutting-edge developer. The next, you blink, and suddenly your favorite framework is “legacy,” job postings demand skills you’ve never heard of, and juniors are asking if you "really used jQuery back in the day."
 

@@ -9,6 +9,6 @@ short: How LLMs are changing the way we should build APIs.
 tag: 'feedback'
 ---
 
-# Opening Keynote (🇺🇸)
+# Opening Keynote 🇺🇸
 
 How LLMs are changing the way we should build APIs.

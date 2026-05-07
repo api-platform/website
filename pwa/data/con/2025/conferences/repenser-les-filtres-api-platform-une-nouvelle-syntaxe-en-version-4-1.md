@@ -9,7 +9,7 @@ start: '17:20'
 end: '18:00'
 ---
 
-# Repenser les filtres API Platform : une nouvelle syntaxe en version 4.1 (🇫🇷)
+# Repenser les filtres API Platform : une nouvelle syntaxe en version 4.1 🇫🇷
 
 API Platform 4.1 est sorti en mars avec un nouveau système de filtres, dont une syntaxe inspirée des avancées introduites précédemment, lors de la prise en charge de Laravel dans la version 4.0 du framework. Dans ce talk, nous verrons **ma contribution à cette transformation**, de l'identification des limites de l'approche précédente, en passant par la conception et la mise en œuvre d'une solution simplifiée pour les développeurs API Platform.
 

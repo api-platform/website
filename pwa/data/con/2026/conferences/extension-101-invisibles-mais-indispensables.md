@@ -6,7 +6,7 @@ tag: archi
 track: '1'
 ---
 
-# Extension 101 : Invisibles mais indispensables (🇫🇷)
+# Extension 101 : Invisibles mais indispensables 🇫🇷
 
 Vous avez sûrement déjà croisé des noms comme **ext-json**, **ext-mbstring**, ou **ext-libxml** dans vos fichiers composer.json, sans forcément comprendre ce qu’ils font — à part qu’ils sont indispensables au bon fonctionnement de vos applications.
 

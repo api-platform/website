@@ -6,7 +6,7 @@ tag: archi
 track: '1'
 ---
 
-# From Zend Framework 1 to API Platform 4: Migration recipe (🇺🇸)
+# From Zend Framework 1 to API Platform 4: Migration recipe 🇺🇸
 
 Migrating a large, complex legacy application is never just a technical challenge, it's a matter of finding the right equations between **business constraints, team capacity**, and **long-term maintainability**.
 

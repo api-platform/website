@@ -6,7 +6,7 @@ tag: ia
 track: '1'
 ---
 
-# UX DataTables : réinventer les tableaux avec Symfony, API Platform et Mercure (🇫🇷)
+# UX DataTables : réinventer les tableaux avec Symfony, API Platform et Mercure 🇫🇷
 
 Construire **des tableaux de données** complexes, filtrables et performants est souvent une tâche répétitive et chronophage.
 

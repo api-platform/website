@@ -9,7 +9,7 @@ short: Discover how the new version of API Platform makes subresources easier to
 tag: archi
 ---
 
-# Subresources, the easy way with API Platform 3 (🇺🇸)
+# Subresources, the easy way with API Platform 3 🇺🇸
 
 If you ever played with APIs, you might have encountered resources that belong to other resources. This kind of resource is named **subresource**.
 

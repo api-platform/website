@@ -6,7 +6,7 @@ tag: security
 track: '1'
 ---
 
-# Des APIs sécurisées sans perdre la tête (🇫🇷)
+# Des APIs sécurisées sans perdre la tête 🇫🇷
 
 La sécurisation d'une API n'a pas toujours été facile, mais ces dernières années, **l'authentification a été standardisée**. Des solutions modernes et robustes ont vu le jour.
 

@@ -6,7 +6,7 @@ tag: ia
 track: '1'
 ---
 
-# Love Humans, Use AI (🇺🇸)
+# Love Humans, Use AI 🇺🇸
 
 The developer role is shifting. We specify, delegate, refine, and orchestrate more than we type actual lines of code. And honestly? It's incredible. But it's also... weird?
 Because between the productivity gains and the hype, **something gets lost**: us. This talk isn't anti-AI, quite the opposite. It's **pro-human**. We'll explore the uncomfortable questions: What happens to the junior devs who never struggle through their first bug? If AI trains on AI output, where does that leave us? And when the code writes itself, what exactly are we here for?

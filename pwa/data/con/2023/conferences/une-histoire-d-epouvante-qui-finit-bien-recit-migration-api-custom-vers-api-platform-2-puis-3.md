@@ -9,7 +9,7 @@ short: Quand la migration vers API Platform 3 apporte son lot de péripéties
 tag: feedback
 ---
 
-# Une histoire d'épouvante qui finit bien : récit d'une migration d'une API custom vers API Platform 2.x puis 3 (🇫🇷) 
+# Une histoire d'épouvante qui finit bien : récit d'une migration d'une API custom vers API Platform 2.x puis 3 🇫🇷 
 
 Lancer un nouveau projet avec API Platform 3 est une démarche bien documentée et relativement simple. Cependant, **migrer une API déjà bien établie vers API Platform 2 devient déjà plus complexe**. Et lorsque vient le moment de passer à la version 3, cela devient presque comme créer une toute nouvelle API.
 

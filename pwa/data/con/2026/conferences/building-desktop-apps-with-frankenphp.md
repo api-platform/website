@@ -6,7 +6,7 @@ tag: archi
 track: '1'
 ---
 
-# Building Desktop Apps with FrankenPHP (🇺🇸)
+# Building Desktop Apps with FrankenPHP 🇺🇸
 
 HP on the desktop sounds like a bad idea. Until it works.
 

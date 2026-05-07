@@ -9,7 +9,7 @@ short: When technology and ethics meet.
 tag: 'society'
 ---
 
-# Evil Tech: How Devs Became Villains (🇺🇸) 
+# Evil Tech: How Devs Became Villains 🇺🇸 
 
 Once upon a time, developers were the unsung heroes of our world. The stereotypical developer, with glasses perched on the nose and an innate talent for science, even inspired the alter egos of superheroes.
 

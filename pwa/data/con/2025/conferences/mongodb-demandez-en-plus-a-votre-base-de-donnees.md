@@ -9,7 +9,7 @@ start: '11:20'
 end: '12:00'
 ---
 
-# MongoDB : Demandez-en plus à votre base de données (🇫🇷)
+# MongoDB : Demandez-en plus à votre base de données 🇫🇷
 
 MongoDB n’est pas juste une base de données. Depuis ses débuts chez 10gen, pensée comme une solution API, elle a toujours mis les développeurs au centre. Résultat : une base NoSQL flexible et puissante, parfaite pour répondre aux besoins des APIs modernes.
 

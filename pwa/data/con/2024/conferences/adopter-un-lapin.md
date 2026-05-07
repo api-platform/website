@@ -9,7 +9,7 @@ short: Utiliser RabbitMQ avec Symfony et API Platform.
 tag: 'feedback'
 ---
 
-# Adopter un lapin (🇫🇷) 
+# Adopter un lapin 🇫🇷 
 
 RabbitMQ, vous en avez certainement entendu parler, mais franchement, ces histoires d'exchange, de queue, de binding, de topic, de fanout, ce n'est pas toujours très clair. Et de toutes façons, vous ne pensez pas trop en avoir besoin ! 
 

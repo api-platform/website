@@ -9,7 +9,7 @@ short: Explore leveraging Caddy's flagship features to strengthen your website.
 tag: 'archi'
 ---
 
-# Maximizing your APIs in Production with the Caddy Web Server (🇺🇸) 
+# Maximizing your APIs in Production with the Caddy Web Server 🇺🇸 
 
 Caddy is the web server that underpins API Platform and gives your PHP site its interface with the Web. 
 

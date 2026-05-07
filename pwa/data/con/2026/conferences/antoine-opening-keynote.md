@@ -6,6 +6,6 @@ tag: feedback
 track: '1'
 ---
 
-# Opening Keynote (🇺🇸)
+# Opening Keynote 🇺🇸
 
 This talk topic will be announced shortly.

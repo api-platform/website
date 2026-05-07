@@ -6,7 +6,7 @@ tag: tools
 track: '1'
 ---
 
-# Building a framework by accident (🇺🇸)
+# Building a framework by accident 🇺🇸
 
 For the past three years — and by **total accident** — I've had the chance to work on the most impactful project of my programming career. 
 

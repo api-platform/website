@@ -11,6 +11,10 @@ github: https://github.com/mtarld
 
 ## À propos de Mathias
 
-Co-fondateur de l’agence Bakslash, Mathias est **un aficionado de l’Open Source**. Il contribue régulièrement à Symfony et API Platform, et il est l’auteur de plusieurs librairies reliées à ces frameworks. 
+Expert en architecture API et formateur PHP/Symfony, Mathias a forgé son expérience au cœur même de l'écosystème.
 
-Même s’il n’a pas (encore) une énorme barbe de développeur, il adore travailler avec Emacs, VI, et Bash.
+Il a passé quatre années déterminantes à collaborer étroitement avec les créateurs de Symfony, d'API Platform, de Mercure et de FrankenPHP.
+
+**Passionné d'open source**, il est un contributeur actif du framework Symfony, avec une spécialisation marquée sur les problématiques de sérialisation.
+
+Son objectif : concevoir des solutions aussi véloces que maintenables. Et si vous l'interrogez sur le duel PHPStorm vs VSCode, il vous répondra invariablement : VIM.

@@ -1,8 +1,8 @@
 ---
 type: speaker
-id: benjamin-georgeaut-2026
+id: benjamin-georgeault-2026
 number: 100
-name: Benjamin Georgeaut
+name: Benjamin Georgeault
 job: Lead Developer
 company: SensioLabs
 mastodon: https://mastodon.social/@wedgesama

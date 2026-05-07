@@ -9,7 +9,7 @@ short: Comment API Platform occupe une place centrale dans la nouvelle architect
 tag: archi
 ---
 
-# API Platform, opendata et schemaless API (🇫🇷) 
+# API Platform, opendata et schemaless API 🇫🇷 
 
 Dans ce talk vous apprendrez ce que les élections françaises, les résultats du bac ou encore les ventes de médicaments ont en commun. 
 

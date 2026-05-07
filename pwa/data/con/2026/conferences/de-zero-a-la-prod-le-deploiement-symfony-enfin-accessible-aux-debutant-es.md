@@ -6,7 +6,7 @@ tag: feedback
 track: '1'
 ---
 
-# De zéro à la prod : le déploiement Symfony enfin accessible aux débutant·es (🇫🇷)
+# De zéro à la prod : le déploiement Symfony enfin accessible aux débutant·es 🇫🇷
 
 Beaucoup de devs Symfony savent construire une application, mais **bloquent au moment de la mise en ligne**. Le fossé entre le local et la production (serveur, conteneurs, certificats) reste immense pour les novices.
 

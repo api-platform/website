@@ -9,7 +9,7 @@ short: Comment les attributs offrent des fonctionnalités avancées avec peu de 
 tag: 'archi'
 ---
 
-# API Platform, des développeurs d'attributs ? (🇫🇷) 
+# API Platform, des développeurs d'attributs ? 🇫🇷 
 
 Les développeurs et développeuses API Platform, il faut qu’on l’admette, écrivent beaucoup d’attributs. C’est même une des forces du framework : grâce à quelques (ok, parfois des dizaines) lignes d’annotations bien placées, notre application peut profiter de fonctionnalités avancées et complexes qui nécessiteraient des heures à développer intégralement.
 

@@ -9,7 +9,7 @@ short: Développer une app avec PHP, JavaScript et l'IA.
 tag: 'good-practices,ia'
 ---
 
-# L'IA au service de vos projets API Platform (🇫🇷) 
+# L'IA au service de vos projets API Platform 🇫🇷 
 
 Les IA dans le dev, tout le monde en parle, les utilise, parfois maladroitement, parfois un peu trop.
 

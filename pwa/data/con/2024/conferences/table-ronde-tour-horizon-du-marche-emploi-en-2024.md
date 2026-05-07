@@ -11,7 +11,7 @@ short: Nos experts décryptent ensemble le marché de l'emploi dans la tech en 2
 tag: 'society'
 ---
 
-# Table ronde : tour d’horizon du marché de l’emploi en 2024 (🇫🇷)
+# Table ronde : tour d’horizon du marché de l’emploi en 2024 🇫🇷
 
 Le marché de l'emploi est-il vraiment en crise ? 
 

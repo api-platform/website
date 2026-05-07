@@ -9,7 +9,7 @@ short: Discover API Platform 4.2 Innovations
 tag: 'feedback'
 ---
 
-# How API Platform 4.2 is Redefining API Development (🇺🇸)
+# How API Platform 4.2 is Redefining API Development 🇺🇸
 
 API Platform 4.2 marks a major step forward, focusing on developer experience and performance. In this session, I'll guide you through its most impactful new features, all demonstrated on a real-world Symfony application.
 
