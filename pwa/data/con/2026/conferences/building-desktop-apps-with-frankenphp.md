@@ -8,7 +8,7 @@ track: '1'
 
 # Building Desktop Apps with FrankenPHP 🇺🇸
 
-HP on the desktop sounds like a bad idea. Until it works.
+PHP on the desktop sounds like a bad idea. Until it works.
 
 FrankenPHP isn't just a Caddy module, it's a Go library you can embed anywhere. FrankenWails combines it with Wails, Go's answer to Electron. The result: native desktop apps where PHP handles the backend, HTML/CSS/JS handles the UI, and Go is the glue. No Node.js, no Electron, no server. Just a single binary.
 
