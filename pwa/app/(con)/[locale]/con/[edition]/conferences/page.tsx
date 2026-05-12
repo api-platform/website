@@ -1,7 +1,7 @@
 import { Locale } from "i18n/i18n-config";
 import ConferencesPage from "./ConferencesPage";
 import { getAllConferenceSlugs, getConferenceData } from "api/con/conferences";
-import { getConferenceDate, sortByStartDate } from "utils/con";
+import { sortBySpeakerRank, sortByStartDate } from "utils/con";
 
 const getConferences = async (edition: string, locale: Locale) => {
   const conferencesSlugs = await getAllConferenceSlugs(edition);
@@ -20,7 +20,9 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const conferences = await getConferences(params.edition, params.locale);
-  const sortedConferences = conferences.sort(sortByStartDate);
+  const sortedConferences = conferences
+    .sort(sortBySpeakerRank)
+    .sort(sortByStartDate);
   const days = (await import(`data/con/${params.edition}/days`)).default;
   // Fetch data directly in a Server Component
   // Forward fetched data to your Client Component

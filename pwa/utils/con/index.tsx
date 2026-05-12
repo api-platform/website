@@ -19,6 +19,17 @@ export const sortByStartDate: (
   return 0;
 };
 
+export const sortBySpeakerRank: (
+  conference1: Conference,
+  conference2: Conference
+) => 1 | -1 | 0 = (conference1, conference2) => {
+  const rank1 = conference1.speakers[0]?.number || 0;
+  const rank2 = conference2.speakers[0]?.number || 0;
+  if (rank1 > rank2) return -1;
+  if (rank2 > rank1) return 1;
+  return 0;
+};
+
 export const toLocaleDate: (date: string) => string = (date) =>
   dayjs(date).format("ll");
 
