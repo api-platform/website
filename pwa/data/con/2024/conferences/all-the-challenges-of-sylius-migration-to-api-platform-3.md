@@ -9,7 +9,7 @@ short: The challenges of migrating Sylius to API Platform 3
 tag: 'feedback'
 ---
 
-# All the Challenges of Sylius Migration to API Platform 3 (🇺🇸)
+# All the Challenges of Sylius Migration to API Platform 3 🇺🇸
 
 Migrating Sylius to API Platform 3 is no small feat. In this presentation, we will discuss **the many challenges we faced** during this complex transition and the innovative solutions we used to overcome them. This journey began with a clear goal: to leverage the robust capabilities of API Platform 3 to improve the performance and scalability of Sylius. In this talk, I will share the critical steps we took, the obstacles we encountered, and the strategies we used to overcome these challenges.
 

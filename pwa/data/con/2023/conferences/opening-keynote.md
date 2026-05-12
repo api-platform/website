@@ -8,7 +8,7 @@ end: '09:50'
 short: Let’s start the API Platform Conference 2023!
 ---
 
-# Opening keynote (🇺🇸)
+# Opening keynote 🇺🇸
 
 
 The API Platform community is constantly working to improve the framework's performance, developer experience, and ease of deployment in production.

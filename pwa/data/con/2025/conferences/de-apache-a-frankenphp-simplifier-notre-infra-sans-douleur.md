@@ -9,7 +9,7 @@ start: '12:00'
 end: '12:20'
 ---
 
-# De Apache à FrankenPHP : simplifier notre infra sans douleur (🇫🇷)
+# De Apache à FrankenPHP : simplifier notre infra sans douleur 🇫🇷
 
 Ce retour d'expérience présente **la migration d'un SaaS**, dans le monde agricole, d'une infrastructure basée sur Apache/PHP vers FrankenPHP, réalisée sans interruption de service et de manière totalement transparente pour les équipes de développement internes et freelances.
 

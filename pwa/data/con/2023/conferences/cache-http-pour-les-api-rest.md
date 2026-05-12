@@ -9,7 +9,7 @@ short: La clé d'une mise en cache réussie pour vos API REST
 tag: performance
 ---
 
-# Cache HTTP pour les API REST (🇫🇷)
+# Cache HTTP pour les API REST 🇫🇷
 
 L'utilisation d'un reverse proxy de mise en cache permet de “scaler” vos API tout en améliorant leur temps de réponse. La clé d'une mise en cache réussie est de faire en sorte que votre API REST utilise correctement HTTP et emploie les bonnes instructions de cache.
 

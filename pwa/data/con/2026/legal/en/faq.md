@@ -14,6 +14,10 @@ The 2025 API Platform Conference gathered 700 attendees (400 on-site and 300 onl
 
 The API Platform Conference takes place in [Lille](https://en.lilletourism.com/), meeting point of big European cities. The conferences are held in [Euratechnologies](https://www.euratechnologies.com/), the 1st startup incubator and accelerator in Europe. All conferences will be streamed online.
 
+## Can I obtain a visa to attend the conference?
+
+If you have purchased a ticket for the in-person event, we can provide an invitation letter upon request. Please note that this letter does not guarantee visa approval and does not constitute financial sponsorship, travel support, or legal responsibility on the part of the organizers. Any questions? [Contact us](mailto:events@les-tilleuls.coop).
+
 ## Is there a Code of Conduct?
 
 The API Platform Conference is dedicated to providing **an inclusive experience for everyone**. Take a look at our [Code of Conduct page](/con/2026/code-of-conduct/).

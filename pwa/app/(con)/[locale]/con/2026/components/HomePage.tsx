@@ -4,7 +4,6 @@ import SpeakerList from "components/con/speakers/SpeakerList";
 import SectionTitle from "components/con/common/typography/SectionTitle";
 import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
 import Venue from "components/con/home/Venue";
-import Image from "next/image";
 import Wave from "components/con/common/Wave";
 import Partners from "components/con/home/Partners";
 import LookingSponsorCard from "components/con/home/LookingSponsorCard";
@@ -12,20 +11,18 @@ import { Partner, Speaker } from "types/con";
 import { useContext } from "react";
 import { LanguageContext } from "contexts/con/LanguageContext";
 import Section from "components/con/home/Section";
-import PictureGallery from "components/con/common/PictureGallery";
-import AfterMovie from "../../2025/components/AfterMovie";
 import BuyButton from "components/con/common/BuyButton";
 import { currentEdition } from "data/con/editions";
 import prices from "data/con/2026/prices";
 import PricingCard from "components/con/home/Pricing/PricingCard";
+import LogoTilleuls from "components/con/common/LogoTilleuls";
 
 type HomePageProps = {
   speakers: Speaker[];
   partners: Partner[];
-  images: string[];
 };
 
-const HomePage = ({ speakers, partners, images }: HomePageProps) => {
+const HomePage = ({ speakers, partners }: HomePageProps) => {
   const { t, Translate, locale } = useContext(LanguageContext);
   return (
     <>
@@ -45,60 +42,27 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
             <p className="flex-1 text-lg md:text-xl font-extrabold pb-6 lg:text-3xl md:text-left">
               {t("2026.baseline")}
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-col">
+              <div className="flex items-center justify-center flex-row gap-2 mb-2">
+                <span className="text-sm whitespace-nowrap">{t("an_event_by_short")}</span>
+                <a
+                  className="text-center w-52 -mr-16"
+                  href={`https://les-tilleuls.coop/${locale}`}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <LogoTilleuls secondColor="#fff" width="60%" />
+                </a>
+              </div>
               {currentEdition === "2026" && (
                 <BuyButton className="mr-2" id="cover">
                   {t("buy_tickets")}
                 </BuyButton>
               )}
-              <Button
-                className="empty"
-                to={`/${locale}/con/2026/call-for-papers`}
-              >
-                {t("2026.cfp.button")}
-              </Button>
             </div>
           </div>
         </div>
         <Wave className="absolute opacity-30 z-0 bottom-0 h-[60vh] left-1/2 top-[68%] -translate-y-1/2" />
-      </Section>
-      <Section
-        section="lastYear"
-        className="bg-white z-10 relative pb-10 overflow-y-clip"
-      >
-        <div className="container text-center">
-          <SectionTitle>
-            <Translate translationKey="last_edition.title" />
-          </SectionTitle>
-          <SectionSubTitle>
-            <Translate
-              translationKey="last_edition.subtitle"
-              translationParams={{
-                edition: "2025",
-                link: (
-                  <a href={`/${locale}/con/2025/review`} className="link">
-                    {t("last_edition.subtitle_link")}
-                  </a>
-                ),
-              }}
-            />
-          </SectionSubTitle>
-          <PictureGallery
-            className="py-4"
-            link="https://www.flickr.com/photos/194052559@N02/albums/72177720329148577/"
-          >
-            {images.map((image: string) => (
-              <Image
-                className="object-cover"
-                key={image}
-                fill
-                src={image}
-                alt=""
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
-              />
-            ))}
-          </PictureGallery>
-        </div>
       </Section>
       <Section
         section="speakers"
@@ -110,18 +74,7 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           </SectionTitle>
           <SectionSubTitle>
             <Translate
-              translationKey="2026.our_speakers.subtitle"
-              translationParams={{
-                edition: "2026",
-                link: (
-                  <a
-                    href={`/${locale}/con/2026/call-for-papers`}
-                    className="link"
-                  >
-                    {t("2026.our_speakers.subtitle_link")}
-                  </a>
-                ),
-              }}
+              translationKey="2026.our_speakers.subtitle2"
             />
           </SectionSubTitle>
           <SpeakerList speakers={speakers} max={9} />
@@ -184,22 +137,25 @@ const HomePage = ({ speakers, partners, images }: HomePageProps) => {
           ),
         })}
       />
-      <Section section="sponsorship" className="py-8">
-        <div className="container text-center">
-          <SectionTitle dark>
-            <Translate translationKey="sponsorship.title" />
-          </SectionTitle>
-          <LookingSponsorCard />
-        </div>
-        <div className="bg-white text-center relative z-10 pt-40 pb-40">
-          <div className="container text-center">
-            <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
-              {t("sponsorship.they_trust_us", { year: "2025" })}
-            </div>
-            <Partners data={partners} edition="2025" />
-          </div>
-        </div>
-      </Section>
+            <Section section="sponsorship" className="py-8">
+              <div className="container text-center">
+                <SectionTitle dark>
+                  <Translate translationKey="sponsorship.title" />
+                </SectionTitle>
+                <LookingSponsorCard />
+              </div>
+              <div
+                id="partners"
+                className="bg-white text-center relative z-10 pt-40 pb-40"
+              >
+                <div className="container text-center">
+                  <div className="lined-center lined-blue font-bold uppercase text-2xl text-blue font-title">
+                    <Translate translationKey="partners.title" />
+                  </div>
+                  <Partners data={partners} edition="2026" />
+                </div>
+              </div>
+            </Section>
     </>
   );
 };

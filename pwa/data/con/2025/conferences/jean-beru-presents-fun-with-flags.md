@@ -9,7 +9,7 @@ start: '11:30'
 end: '11:50'
 ---
 
-# Jean-Beru presents: Fun with flags (🇺🇸)
+# Jean-Beru presents: Fun with flags 🇺🇸
 
 **Feature Flags**... We often hear about them, but few applications actually take the plunge and use them daily. Why should we add this concept to your application if it risks making it more complex?
 

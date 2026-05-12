@@ -9,7 +9,7 @@ short: Discover the time-saving benefits of API Platform for your web projects
 tag: good-practices
 ---
 
-# Developing an API without API Platform (🇺🇸)
+# Developing an API without API Platform 🇺🇸
 
 Sure, API Platform is great, but have you ever tried developing an API without it? In this conference, I will show you how you can start from a Symfony application and, with a few dozen lines, mimic the top features of API Platform. I will show you how to start with a simple solution for your API needings.
 

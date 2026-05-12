@@ -9,7 +9,7 @@ short: Learn how FrankenPHP simplifies your deployments.
 tag: 'feedback'
 ---
 
-# Binary Brewing: Automating FrankenPHP Builds (🇺🇸) 
+# Binary Brewing: Automating FrankenPHP Builds 🇺🇸 
 
 Explore the fusion of FrankenPHP, Raspberry Pi, and GitLab CI. Join me in uncovering how we automated the creation of standalone binaries for PHP applications using FrankenPHP, transforming the deployment process into an easy one click solution. Key Takeaways:
 

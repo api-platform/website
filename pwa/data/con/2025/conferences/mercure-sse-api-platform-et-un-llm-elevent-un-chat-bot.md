@@ -9,7 +9,7 @@ start: '11:20'
 end: '12:00'
 ---
 
-# Mercure, SSE, API Platform et un LLM élèvent un chat(bot) (🇫🇷)
+# Mercure, SSE, API Platform et un LLM élèvent un chat(bot) 🇫🇷
 
 Construire un chat temps réel avec Mercure, c'est le cas d'exemple basique mais parlant. Bien.
 

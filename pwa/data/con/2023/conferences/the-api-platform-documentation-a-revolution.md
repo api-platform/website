@@ -9,7 +9,7 @@ short: Explore API Platform 3.2's innovations with a core team member
 tag: feedback
 ---
 
-# API Platform revolution (🇺🇸)
+# API Platform revolution 🇺🇸
 
 API Platform 3.2 is out but what's new? 
 

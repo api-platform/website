@@ -10,7 +10,7 @@ short: Comment les coopératives luttent contre les inégalités
 tag: society
 ---
 
-# Le modèle coopératif, un puissant outil de lutte pour l’égalité en entreprise (🇫🇷)
+# Le modèle coopératif, un puissant outil de lutte pour l’égalité en entreprise 🇫🇷
 
 Parler d’égalité et de mixité au travail c’est bien, mais **agir concrètement est plus que nécessaire**. La parité dans les équipes tech suffit-elle vraiment à effacer les inégalités ? La formation des managers sur le sujet permet-elle réellement de donner une vraie place aux femmes dans les équipes ? Est-il normal de brandir sa politique de non-discrimination comme un argument marketing alors qu’il s’agit simplement d’appliquer le cadre légal ?
 

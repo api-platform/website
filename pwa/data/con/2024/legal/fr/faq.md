@@ -14,7 +14,7 @@ L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), 
 
 ## Il y a t-il un code de conduite ?
 
-L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite page](/con/2024/code-de-conduite/) pour plus d'informations.
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite](/con/2024/code-de-conduite/) pour plus d'informations.
 
 ## Il y a t-il une salle d'allaitement pendant l'événement ?
 

@@ -9,7 +9,7 @@ short: Découvrez des méthodes pour tester des API externes.
 tag: 'feedback'
 ---
 
-# Comment tester une API externe en ayant 0 mocks ? (🇫🇷) 
+# Comment tester une API externe en ayant 0 mocks ? 🇫🇷 
 
 À une époque où les APIs externes prennent de plus en plus de place, nos tests se retrouvent dépendants de ces dernières.
 

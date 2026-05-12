@@ -9,7 +9,7 @@ short: Take a look at new tools to enhance the Serializer component.
 tag: 'performance'
 ---
 
-# Making API Platform serialization superfast (🇺🇸) 
+# Making API Platform serialization superfast 🇺🇸 
 
 Serialization plays **an essential role** in any web application, particularly in the context of APIs, as it is one of the pivots of the HTTP request/response cycle.
 

@@ -9,7 +9,7 @@ start: '10:30'
 end: '10:50'
 ---
 
-# How Laravel Cloud Uses FrankenPHP in Production (🇺🇸)
+# How Laravel Cloud Uses FrankenPHP in Production 🇺🇸
 
 Laravel Cloud is a deployment platform built specifically to run Laravel applications **with maximum efficiency and reliability**. Its infrastructure is optimized at every layer to support Laravel workloads with a strong focus on performance, scalability, and developer experience.
 

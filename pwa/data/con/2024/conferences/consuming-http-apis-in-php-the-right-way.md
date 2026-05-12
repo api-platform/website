@@ -9,7 +9,7 @@ short: Master PHP server-to-server communication with SOLID principles and key t
 tag: good-practices,archi
 ---
 
-# Consuming HTTP APIs in PHP the Right Way! (🇺🇸)
+# Consuming HTTP APIs in PHP the Right Way! 🇺🇸
 
 Server-to-server communication via HTTP requests should be straightforward, but it often presents unexpected challenges.
 

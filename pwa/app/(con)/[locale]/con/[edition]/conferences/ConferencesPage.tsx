@@ -9,6 +9,7 @@ import SpeakerImage from "components/con/speakers/SpeakerImage";
 import classNames from "classnames";
 import { getConferenceDate } from "utils/con";
 import Link from "next/link";
+import TagLabel from "components/con/conferences/TagLabel";
 
 interface ConferencesProps {
   conferences: Conference[];
@@ -21,7 +22,7 @@ export default function SpeakerPageListTemplate({
   edition,
   days,
 }: ConferencesProps) {
-  const is2025 = edition === "2025";
+  const is2025 = edition === "2025" || edition === "2026";
   const { t, locale, Translate } = useContext(LanguageContext);
   return (
     <div className="container flex flex-col items-center pt-10 | sm:pt-20">
@@ -122,7 +123,12 @@ export default function SpeakerPageListTemplate({
                     />
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 flex-1">
+                <div className="flex flex-col gap-2 flex-1 items-center md:items-start">
+                          <div className="flex flex-row gap-1">
+                            {conference.tag
+                              ? conference.tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)
+                              : null}
+                          </div>
                   <h2 className="font-title font-bold text-2xl lined-blue lined-center md:after:left-0 md:after:translate-x-0">
                     {conference.title}
                   </h2>

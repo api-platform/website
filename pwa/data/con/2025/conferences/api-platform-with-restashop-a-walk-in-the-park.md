@@ -9,7 +9,7 @@ start: '15:20'
 end: '16:00'
 ---
 
-# API Platform in PrestaShop, a walk in the park? (🇺🇸)
+# API Platform in PrestaShop, a walk in the park? 🇺🇸
 
 In PrestaShop 9 we developed **a new modern API build on the CQRS architecture** which is the base for our migration these recent years. 
 
