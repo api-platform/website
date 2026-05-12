@@ -3,7 +3,7 @@ type: speaker
 id: damien-fernandes-2026
 number: 100
 name: Damien Fernandes
-job: Lead Developer
+job: Senior Developer
 company: Vivlio
 github: https://github.com/damienfern
 bluesky: https://bsky.app/profile/damienfern.fr
