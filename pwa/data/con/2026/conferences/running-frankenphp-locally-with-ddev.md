@@ -3,7 +3,10 @@ type: conference
 speakers: -stephan-hochdorfer-2026
 short: Seamless, containerized FrankenPHP development made easy.
 tag: good-practices
-track: '1'
+track: '2'
+date: '2026-09-17'
+start: '17:40'
+end: '18:00'
 ---
 
 # Running FrankenPHP Locally with DDEV 🇺🇸

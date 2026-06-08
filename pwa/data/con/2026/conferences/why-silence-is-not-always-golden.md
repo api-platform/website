@@ -3,7 +3,10 @@ type: conference
 speakers: -helvira-goma-2026
 short: "Stop choosing your coding playlist out of habit. Explore the cognitive science behind music and silence to intentionally engineer your ultimate state of flow."
 tag: society
-track: '1'
+track: '2'
+date: '2026-09-18'
+start: '11:00'
+end: '11:40'
 ---
 
 # Why Silence Is Not Always Golden 🇺🇸

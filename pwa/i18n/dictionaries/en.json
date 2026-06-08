@@ -397,6 +397,8 @@
     "title": "<strong>Talks</strong>",
     "by_speaker": "by {{speaker}}",
     "see_speaker_details": "See speaker's details",
+    "view_list": "List",
+    "view_agenda": "Agenda",
     "tags": {
       "security": "Security",
       "performance": "Performance",

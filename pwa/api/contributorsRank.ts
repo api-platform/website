@@ -145,29 +145,42 @@ export const getAllContributors = async () => {
     );
     const allContributors = await Promise.all(
       sortedContributors.map(async (contributor) => {
-        const { data } = await octokit.rest.users.getByUsername({
-          username: contributor.login || "",
-        });
-        if (data.blog) {
-          data.blog = addHttpsToUrls(data.blog);
-        }
+        try {
+          const { data } = await octokit.rest.users.getByUsername({
+            username: contributor.login || "",
+          });
+          if (data.blog) {
+            data.blog = addHttpsToUrls(data.blog);
+          }
 
-        return {
-          login: data.login,
-          repos: contributor.repos,
-          rank: contributor.rank,
-          contributions: contributor.contributions,
-          isCoreTeam: contributor.isCoreTeam,
-          avatar_url: contributor.avatar_url,
-          bio: data.bio,
-          name: data.name,
-          location: data.location,
-          company: data.company,
-          blog: data.blog,
-        };
+          return {
+            login: data.login,
+            repos: contributor.repos,
+            rank: contributor.rank,
+            contributions: contributor.contributions,
+            isCoreTeam: contributor.isCoreTeam,
+            avatar_url: contributor.avatar_url,
+            bio: data.bio,
+            name: data.name,
+            location: data.location,
+            company: data.company,
+            blog: data.blog,
+          };
+        } catch (e: any) {
+          // Some accounts (e.g. the Copilot bot) have no public user
+          // profile and return 404. Skip them instead of failing the
+          // whole run, which would wipe the entire dataset.
+          if (e?.status === 404) {
+            console.warn(
+              `Skipping contributor without a user profile: ${contributor.login}`
+            );
+            return null;
+          }
+          throw e;
+        }
       })
     );
-    return allContributors;
+    return allContributors.filter(Boolean);
   } catch (e) {
     console.error(e);
     return [];

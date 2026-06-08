@@ -4,6 +4,9 @@ speakers: -florent-morselli-2026
 short: "Master CSP, CORS, and isolation policies with Symfony and API Platform to build a robust client-side shield against modern web vulnerabilities."
 tag: security
 track: '1'
+date: '2026-09-18'
+start: '11:50'
+end: '12:10'
 ---
 
 # HTTP Headers: The First Line of Defense for APIs and Frontends 🇺🇸

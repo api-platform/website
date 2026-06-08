@@ -4,6 +4,9 @@ speakers: -yoan-bernabeu-2026
 short: Du local à la production en une seule commande.
 tag: feedback
 track: '1'
+date: '2026-09-17'
+start: '10:50'
+end: '11:10'
 ---
 
 # De zéro à la prod : le déploiement Symfony enfin accessible aux débutant·es 🇫🇷
