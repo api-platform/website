@@ -3,7 +3,10 @@ type: conference
 speakers: -mathieu-santostefano-2026
 short: "De OAuth2 à Keycloak en passant par Symfony, découvrez comment implémenter des standards de sécurité modernes pour vos APIs sans y laisser votre santé mentale."
 tag: security
-track: '1'
+track: '2'
+date: '2026-09-17'
+start: '16:50'
+end: '17:30'
 ---
 
 # Des APIs sécurisées sans perdre la tête 🇫🇷

@@ -4,6 +4,9 @@ speakers: -abdellah-el-ghailani-2026
 short: Keep your APIs fast and resilient when legacy backends are slow.
 tag: feedback
 track: '1'
+date: '2026-09-18'
+start: '15:50'
+end: '16:30'
 ---
 
 # Building Resilient Architecture : Event-Driven Design with API Platform, Messenger & Redis 🇺🇸

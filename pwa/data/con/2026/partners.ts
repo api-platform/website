@@ -2,6 +2,13 @@ import { Partner } from "types/con";
 
 const partners: Partner[] = [
   {
+    name: "France tv",
+    logo: "france-tv",
+    link: "https://www.francetelevisions.fr/",
+    rank: 1,
+    highlight: true,
+  },
+  {
     name: "SensioLabs",
     logo: "sensiolabs",
     link: "https://sensiolabs.com/fr/",
@@ -40,6 +47,18 @@ const partners: Partner[] = [
     logo: "bearstudio",
     link: "https://www.bearstudio.fr/",
     rank: 2,
+  },
+  {
+    name: "Emagma",
+    logo: "emagma",
+    link: "https://www.emagma.fr/",
+    rank: 4,
+  },
+  {
+    name: "Human Coders",
+    logo: "human-coders",
+    link: "https://www.humancoders.com/",
+    rank: 4,
   },
   {
     name: "BitExpert",

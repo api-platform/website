@@ -1,14 +1,14 @@
 ---
 type: conference
-speakers: -antoine-bluchet-2026
+speakers: -nicolas-grekas-2026
 short: TBA
 tag: feedback
 track: '1'
 date: '2026-09-17'
-start: '14:00'
-end: '14:40'
+start: '14:50'
+end: '15:30'
 ---
 
-# Opening Keynote 🇺🇸
+# Nicolas's talk 🇺🇸
 
 This talk topic will be announced shortly.

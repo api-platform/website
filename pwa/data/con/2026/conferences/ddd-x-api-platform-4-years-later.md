@@ -4,6 +4,9 @@ speakers: -mathias-arlaud-2026
 short: "When business complexity outgrows the defaults. Discover how to use API Platform 4 and DDD to build robust architectures, on and off the framework's rails."
 tag: good-practices
 track: '1'
+date: '2026-09-17'
+start: '16:00'
+end: '16:40'
 ---
 
 # DDD x API Platform: 4 years later 🇺🇸
