@@ -46,7 +46,7 @@ const extra = [
     },
     date: "2026-09-17",
     start: "18:10",
-    end: "24:00",
+    end: "23:45",
     type: "break",
   },
   {

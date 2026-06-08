@@ -28,7 +28,7 @@ export default function SlotItem({ conference, id }: SlotItemProps) {
       className="bg-grey flex flex-row items-center text-blue-black overflow-hidden relative w-full h-full px-2 py-3 min-h-[100px] text-left transition-all hover:bg-blue-light/30"
     >
       {speakers.length ? <Avatar id={id} speakers={speakers} /> : null}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 pr-2">
         <div className="flex flex-row gap-1">
           {tag
             ? tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)
