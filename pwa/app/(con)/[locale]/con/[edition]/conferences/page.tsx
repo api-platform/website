@@ -2,6 +2,7 @@ import { Locale } from "i18n/i18n-config";
 import ConferencesPage from "./ConferencesPage";
 import { getAllConferenceSlugs, getConferenceData } from "api/con/conferences";
 import { sortBySpeakerRank, sortByStartDate } from "utils/con";
+import { Conference, Track } from "types/con";
 
 const getConferences = async (edition: string, locale: Locale) => {
   const conferencesSlugs = await getAllConferenceSlugs(edition);
@@ -24,9 +25,29 @@ export default async function Page({ params }: Props) {
     .sort(sortBySpeakerRank)
     .sort(sortByStartDate);
   const days = (await import(`data/con/${params.edition}/days`)).default;
+  const tracks = (await import(`data/con/${params.edition}/tracks`)).default;
+  const extra = (
+    await import(`data/con/${params.edition}/extraConferences`)
+  ).default.map((c: any) => ({
+    ...c,
+    track: c.track && tracks.find((t: Track) => t.id === c.track),
+  }));
+
+  const scheduleConferences = [
+    ...sortedConferences,
+    ...(extra as Conference[]),
+  ];
   // Fetch data directly in a Server Component
   // Forward fetched data to your Client Component
-  return <ConferencesPage days={days} conferences={sortedConferences} edition={params.edition} />;
+  return (
+    <ConferencesPage
+      days={days}
+      conferences={sortedConferences}
+      scheduleConferences={scheduleConferences}
+      tracks={tracks}
+      edition={params.edition}
+    />
+  );
 }
 
 export const generateStaticParams = async () => {

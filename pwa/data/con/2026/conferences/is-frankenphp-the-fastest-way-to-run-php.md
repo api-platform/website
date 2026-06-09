@@ -4,6 +4,9 @@ speakers: -benjamin-eberlei-2026
 short: "Beyond the hype: compare FrankenPHP against FPM and Swoole with real benchmarks to discover the true performance gains of the worker mode."
 tag: tools
 track: '1'
+date: '2026-09-18'
+start: '11:00'
+end: '11:40'
 ---
 
 # Is FrankenPHP the Fastest Way to Run PHP? 🇺🇸

@@ -3,7 +3,10 @@ type: conference
 speakers: -damien-fernandes-2026
 short: "Vous les croisez tous les jours dans vos composer.json. Il est temps de démystifier les extensions PHP, de comprendre leurs rouages et d'apprendre à créer la vôtre."
 tag: archi
-track: '1'
+track: '2'
+date: '2026-09-18'
+start: '15:50'
+end: '16:30'
 ---
 
 # Extension 101 : Invisibles mais indispensables 🇫🇷

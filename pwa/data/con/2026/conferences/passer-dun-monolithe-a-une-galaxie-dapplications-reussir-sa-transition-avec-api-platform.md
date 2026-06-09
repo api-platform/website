@@ -4,7 +4,10 @@ speakers: -imen-ezzine-2026
           -benjamin-georgeault-2026
 short: "Comment découper un monolithe sans y laisser des plumes ? Un retour d'expérience à deux voix sur l'utilisation d'API Platform pour orchestrer une architecture distribuée."
 tag: archi
-track: '1'
+track: '2'
+date: '2026-09-17'
+start: '14:50'
+end: '15:30'
 ---
 
 # Passer d'un monolithe à une galaxie d'applications : Réussir sa transition avec API Platform 🇫🇷

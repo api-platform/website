@@ -4,9 +4,12 @@ speakers: -abdellah-el-ghailani-2026
 short: Keep your APIs fast and resilient when legacy backends are slow.
 tag: feedback
 track: '1'
+date: '2026-09-18'
+start: '15:50'
+end: '16:30'
 ---
 
-# Building Resilient Architecture : Event-Driven Design with API Platform, Messenger & Redis 🇺🇸
+# Building Resilient Architecture : Event‑Driven Design with API Platform, Messenger & Redis 🇺🇸
 
 Modern enterprise systems can't afford to be fragile. When a critical downstream service is slow, an ERP takes 3 seconds to respond, or traffic spikes unexpectedly, your API needs to keep serving gracefully.
 

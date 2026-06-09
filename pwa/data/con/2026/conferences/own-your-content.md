@@ -4,6 +4,9 @@ speakers: -derick-rethans-2026
 short: "Reclaim the open web. Explore how ActivityPub and the Fediverse offer a sustainable, decentralized path forward to finally own your digital content."
 tag: archi
 track: '1'
+date: '2026-09-18'
+start: '09:50'
+end: '10:30'
 ---
 
 # Own your content 🇺🇸

@@ -393,6 +393,8 @@
     "title": "<strong>Conférences</strong>",
     "by_speaker": "par {{speaker}}",
     "see_speaker_details": "Plus d'infos",
+    "view_list": "Liste",
+    "view_agenda": "Agenda",
     "tags": {
       "security": "Sécurité",
       "performance": "Performance",

@@ -3,7 +3,10 @@ type: conference
 speakers: -tanguy-lemarie-2026
 short: "Associez API Platform, Mercure et UX DataTables pour transformer vos grilles de données statiques en interfaces réactives et temps réel, le tout nativement sous Symfony."
 tag: ia
-track: '1'
+track: '2'
+date: '2026-09-18'
+start: '11:50'
+end: '12:10'
 ---
 
 # UX DataTables : réinventer les tableaux avec Symfony, API Platform et Mercure 🇫🇷
