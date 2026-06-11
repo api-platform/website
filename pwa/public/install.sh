@@ -12,7 +12,7 @@ set -e
 REPO="api-platform/api-platform"
 
 if [ -z "${BIN_DIR}" ]; then
-	BIN_DIR="${HOME}/.api-platform"
+	BIN_DIR="${HOME}/.local/bin"
 fi
 
 DEST="${BIN_DIR}/api-platform"
