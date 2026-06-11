@@ -1,6 +1,7 @@
 "use client";
 
 import InstallCode from "./symfony/Install.mdx";
+import PwaCode from "./symfony/Pwa.mdx";
 import ExposeCode from "./symfony/Expose.mdx";
 import PlugCode from "./symfony/Plug.mdx";
 import NativeCode from "./symfony/Native.mdx";
@@ -15,9 +16,13 @@ export default function TimelineSymfony() {
     <div className="relative dark:bg-blue-black">
       <TimelineStepTitle step={1}>Install the framework</TimelineStepTitle>
       <StepContent>
-        Install Docker and optionally GitHub CLI.
+        Install Docker, then scaffold a project with the API Platform CLI.
         <CodeBlock title="Install">
           <InstallCode />
+        </CodeBlock>
+        Start the Next.js Progressive Web App in another terminal:
+        <CodeBlock title="Start the PWA">
+          <PwaCode />
         </CodeBlock>
       </StepContent>
       <StepContent className="sm:mt-32">
