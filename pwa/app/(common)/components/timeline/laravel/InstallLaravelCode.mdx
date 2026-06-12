@@ -1,4 +1,7 @@
 ```bash
-composer create-project laravel/laravel my-api-platform-laravel-app
-cd my-api-platform-laravel-app
+# Install the api-platform CLI (detects your OS/arch)
+curl -fsSL https://api-platform.com/install.sh | sh
+# Scaffold a Laravel project with the React-admin frontend
+api-platform my-app --framework=laravel --with-admin
+cd my-app
 ```

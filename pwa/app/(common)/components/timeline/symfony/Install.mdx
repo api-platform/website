@@ -1,6 +1,6 @@
 ```bash
-gh repo create --clone --template api-platform/api-platform my-api --public # or --private
-cd my-api
-docker compose up
-open https://localhost
+# Install the api-platform CLI (detects your OS/arch)
+curl -fsSL https://api-platform.com/install.sh | sh
+# Scaffold the project (API + Next.js PWA, Docker)
+api-platform my-api --framework=symfony --with-docker --with-pwa
 ```
