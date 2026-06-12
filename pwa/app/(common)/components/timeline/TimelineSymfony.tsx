@@ -1,6 +1,7 @@
 "use client";
 
 import InstallCode from "./symfony/Install.mdx";
+import DockerCode from "./symfony/Docker.mdx";
 import PwaCode from "./symfony/Pwa.mdx";
 import ExposeCode from "./symfony/Expose.mdx";
 import PlugCode from "./symfony/Plug.mdx";
@@ -15,13 +16,25 @@ export default function TimelineSymfony() {
   return (
     <div className="relative dark:bg-blue-black">
       <TimelineStepTitle step={1}>Install the framework</TimelineStepTitle>
-      <StepContent>
-        Install Docker, then scaffold a project with the API Platform CLI.
-        <CodeBlock title="Install">
+      <StepContent className="md:min-h-72">
+        Scaffold a project with the API Platform CLI.
+        <CodeBlock title="Install the project">
           <InstallCode />
         </CodeBlock>
-        Start the Next.js Progressive Web App in another terminal:
-        <CodeBlock title="Start the PWA">
+      </StepContent>
+      <StepContent className="md:min-h-64">
+        Start the containers with Docker Compose.
+        <CodeBlock title="Run with Docker Compose">
+          <DockerCode />
+        </CodeBlock>
+      </StepContent>
+      <StepContent className="md:min-h-64">
+        If you scaffolded with{" "}
+        <code className="bg-gray-200 px-1 py-0.5 text-base dark:bg-blue-black">
+          --with-pwa
+        </code>
+        , start the Next.js Progressive Web App in another terminal.
+        <CodeBlock title="Run the PWA">
           <PwaCode />
         </CodeBlock>
       </StepContent>
@@ -37,14 +50,6 @@ export default function TimelineSymfony() {
           className="link"
         >
           Docker Compose
-        </Link>{" "}
-        or{" "}
-        <Link
-          href="/docs/deployment/kubernetes/"
-          className="link"
-          prefetch={false}
-        >
-          Kubernetes
         </Link>{" "}
         are also pre-installed.
       </StepContent>
