@@ -19,6 +19,17 @@ export default function TimelineSymfony() {
         <CodeBlock title="Install">
           <InstallCode />
         </CodeBlock>
+        <p className="mt-6">
+          Starting a new project? Use the API Platform CLI to scaffold a full{" "}
+          <Link href="/?s=symfony" prefetch={false} className="link">
+            Symfony
+          </Link>{" "}
+          or{" "}
+          <Link href="/?s=laravel" prefetch={false} className="link">
+            Laravel
+          </Link>{" "}
+          application.
+        </p>
       </StepContent>
       <TimelineStepTitle step={2}>
         Define the resources
