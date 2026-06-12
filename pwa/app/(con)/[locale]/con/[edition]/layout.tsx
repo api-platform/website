@@ -3,8 +3,11 @@ import LayoutBase from "components/con/layout/LayoutBase";
 import ContactCard from "components/con/layout/ContactCard";
 import type { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
-import { i18n } from "i18n/i18n-config";
+import { i18n, Locale } from "i18n/i18n-config";
 import { getRootUrl } from "utils";
+import { getAllSpeakers } from "api/con/speakers";
+import { getAllConferences } from "api/con/conferences";
+import { currentEdition } from "data/con/editions";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -68,13 +71,25 @@ async function EditionLayout({
   children: React.ReactNode;
   params: {
     edition: string;
+    locale: string;
   };
 }) {
-  const { edition } = params;
+  const { edition, locale } = params;
   const nav = await import(`data/con/${edition}/nav`);
   const footer = await import(`data/con/${edition}/footer`);
 
-  const eventData = getEditionEventData(edition);
+  const resolvedLocale = (locale || i18n.defaultLocale) as Locale;
+  // Only the upcoming edition benefits from rich speaker/talk structured data
+  // (Google does not surface past events). Skipping the fetch for past
+  // editions keeps the build lean.
+  const isCurrentEdition = edition === currentEdition;
+  const speakers = isCurrentEdition
+    ? await getAllSpeakers(edition, resolvedLocale)
+    : [];
+  const talks = isCurrentEdition
+    ? await getAllConferences(edition, true, resolvedLocale)
+    : [];
+  const eventData = getEditionEventData(edition, speakers, talks);
 
   return (
     <LayoutBase edition={edition} nav={nav.default} footer={footer.default}>

@@ -35,7 +35,9 @@ export default function SlotItem({ conference, id }: SlotItemProps) {
             : null}
         </div>
         <Overline className="opacity-70 lg:hidden">
-          {getConferenceTimes(date, start, end)}
+          <time dateTime={`${date}T${start}`}>
+            {getConferenceTimes(date, start, end)}
+          </time>
         </Overline>
         <h3 className="font-title font-bold lined-left leading-tight">
           {title}

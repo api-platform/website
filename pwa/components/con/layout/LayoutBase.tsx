@@ -25,7 +25,7 @@ export default function LayoutBase({
       <Nav edition={edition} nav={nav} isTicketingOpen={isTicketingOpen} />
       <MobileNav nav={nav} edition={edition} />
       <div className="relative z-10">
-        {children}
+        <main>{children}</main>
         <Footer
           links={footer}
           withSocial={withSocialFooter}
