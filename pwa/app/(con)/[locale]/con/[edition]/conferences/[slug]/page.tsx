@@ -30,7 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .replace("%name%", SPEAKERS)
     .replace("%edition%", params.edition);
 
-  const URL = `${getRootUrl()}/${params.locale}/con/${params.edition}/${params.slug}`;
+  const URL = `${getRootUrl()}/${params.locale}/con/${params.edition}/${
+    params.slug
+  }`;
 
   return {
     title: conference.title,
@@ -39,13 +41,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${conference.title} - API Platform Conference`,
       description: DESCRIPTION,
       url: URL,
-      type: 'website',
+      type: "website",
       images: [
         {
           url: `${getRootUrl()}/images/con/og-${params.edition}.png`,
           width: 1200,
           height: 630,
-          alt: `API Platform Conference ${params.edition}`
+          alt: `API Platform Conference ${params.edition}`,
         },
       ],
     },

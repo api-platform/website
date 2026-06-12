@@ -1,4 +1,4 @@
-import { Conference } from "types/con";
+import { Conference, Speaker } from "types/con";
 import dayjs from "dayjs";
 import humanizeDuration from "./humanize-duration";
 import { editions } from "data/con/editions";
@@ -84,8 +84,13 @@ export function localeDuration(
   return humanizeDuration(ms, params);
 }
 
-export function getEditionEventData(edition: string) {
+export function getEditionEventData(
+  edition: string,
+  speakers: Speaker[] = [],
+  talks: Conference[] = []
+) {
   const currentEdition = editions.find((e) => e.year === edition);
+  const rootUrl = getRootUrl();
 
   const eventData = {
     "@context": "https://schema.org",
@@ -121,7 +126,58 @@ export function getEditionEventData(edition: string) {
       },
     ],
     image: `${getRootUrl()}/images/con/og-${edition}`,
+    ...(speakers.length
+      ? {
+          performer: speakers.map((speaker) => ({
+            "@type": "Person",
+            name: speaker.name,
+            ...(speaker.job ? { jobTitle: speaker.job } : {}),
+            image: `${rootUrl}${speaker.image}`,
+            url: `${rootUrl}${speaker.url}`,
+          })),
+        }
+      : {}),
+    ...(talks.length
+      ? { subEvent: talks.map((talk) => getTalkSubEventData(talk, rootUrl)) }
+      : {}),
   };
 
   return eventData;
+}
+
+/**
+ * schema.org structured data for a single talk, modeled as a nested `Event`
+ * (no `@context` — it is embedded as a `subEvent` of the edition's conference).
+ */
+function getTalkSubEventData(conference: Conference, rootUrl: string) {
+  const { date, start, end, title } = conference;
+
+  const description = (conference.short || conference.description || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const talkUrl = conference.url ? `${rootUrl}${conference.url}` : undefined;
+
+  return {
+    "@type": "Event",
+    name: title,
+    ...(description ? { description } : {}),
+    ...(date && start ? { startDate: `${date}T${start}:00` } : {}),
+    ...(date && end ? { endDate: `${date}T${end}:00` } : {}),
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    ...(talkUrl ? { url: talkUrl } : {}),
+    ...(conference.speakers?.length
+      ? {
+          performer: conference.speakers.map((speaker) => ({
+            "@type": "Person",
+            name: speaker.name,
+            ...(speaker.job ? { jobTitle: speaker.job } : {}),
+            ...(speaker.image ? { image: `${rootUrl}${speaker.image}` } : {}),
+            ...(speaker.url ? { url: `${rootUrl}${speaker.url}` } : {}),
+          })),
+        }
+      : {}),
+  };
 }

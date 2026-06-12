@@ -85,6 +85,7 @@ export default function RegisterPage() {
               <img
                 className="relative"
                 src="/images/con/2024/review/pic-06.jpg"
+                alt="API Platform Conference 2024"
               />
             </div>
             <div className="flex-1 relative bg-white shadow-floating dotted-corner p-12 pt-24 lg:pt-12 lg:pl-24 lg:-translate-x-12 leading-relaxed font-light">
