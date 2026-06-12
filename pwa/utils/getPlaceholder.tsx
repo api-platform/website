@@ -1,7 +1,10 @@
 import sharp from "sharp";
-import { cache } from "react";
+import { memoizeAsync } from "utils/memoizeAsync";
 
-export const getPlaceholder = cache(async (imagePath: string) => {
+// Memoized at the process level (not React's per-render cache): during the
+// build the same speaker images are requested across many pages, and Sharp
+// (native image processing) is expensive. This ensures one resize per image.
+export const getPlaceholder = memoizeAsync(async (imagePath: string) => {
   try {
     // Redimensionner l'image à une taille très petite
     const resizedImageBuffer = await sharp(imagePath)

@@ -2,6 +2,8 @@
 **/*.md
 #Do not ignore speakers and conferences
 !data/**/*.md
+data/docs
+data/docs/**
 **/._*
 **/.dockerignore
 **/.DS_Store
@@ -20,3 +22,9 @@ node_modules/
 .editorconfig
 .env.*.local
 .env.local
+
+out/
+core/
+core.temp/
+docs.temp/
+.next/
