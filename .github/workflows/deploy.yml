@@ -191,6 +191,6 @@ jobs:
               fi
           fi
       - name: Check for dead links
-        uses: lycheeverse/lychee-action@v1.8.0
+        uses: lycheeverse/lychee-action@v2.8.0
         with:
           args: --verbose --no-progress https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh
