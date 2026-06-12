@@ -1,0 +1,8 @@
+# Customer/reference websites that reject automated requests with HTTP 403
+# (bot protection / WAF). The links are valid for real users; lychee just
+# can't reach them. Patterns are regexes matched against the full URL.
+^https?://(www\.)?decathlon\.fr
+^https?://(www\.)?vestiairecollective\.com
+^https?://(www\.)?cartier\.com
+^https?://(www\.)?volvocars\.com
+^https?://gitlab\.com/mobicoop

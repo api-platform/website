@@ -21,11 +21,7 @@ export default function Admin() {
             </ListPoint>
             <ListPoint direction="left">
               <strong>Hydra</strong> and{" "}
-              <Link
-                href="/docs/admin/openapi/"
-                prefetch={false}
-                className="link"
-              >
+              <Link href="/docs/admin/" prefetch={false} className="link">
                 <strong>OpenAPI</strong>
               </Link>{" "}
               compatible

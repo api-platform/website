@@ -86,6 +86,7 @@ RUN --mount=type=secret,id=GITHUB_KEY \
 # ADD https://soyuka.me/contributors.json ./data/contributors.json
 
 RUN --mount=type=secret,id=GITHUB_KEY \
+	--mount=type=cache,target=/srv/app/.next/cache \
 	export GITHUB_KEY=$(cat /run/secrets/GITHUB_KEY) ; \
 	if [ -z "$GITHUB_KEY" ]; then \
 		 echo "Please set the GITHUB_KEY secret" && exit 1 ; \
