@@ -27,7 +27,7 @@ export default function SpeakerItem({
   const edition = speaker.edition;
 
   return (
-    <div
+    <article
       className={classNames(
         "flex flex-col text-center",
         minified && "w-full max-w-xs"
@@ -85,6 +85,6 @@ export default function SpeakerItem({
         </div>
       </Link>
       {withSocial && !minified ? <SpeakerSocialList speaker={speaker} /> : null}
-    </div>
+    </article>
   );
 }

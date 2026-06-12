@@ -141,7 +141,7 @@ export default function SpeakerPageListTemplate({
             {conferences.map((conference, i) => {
               const day = days.find((day: Day) => day.date === conference.date);
               return (
-                <div
+                <article
                   key={conference.title}
                   className="flex flex-col-reverse md:flex-row text-center md:text-left gap-4 md:gap-12 bg-white p-4 pt-8 sm:p-8 text-blue-black relative"
                 >
@@ -261,11 +261,19 @@ export default function SpeakerPageListTemplate({
                       ) : null}
                       {conference.date ? (
                         <p className="text-sm font-title">
-                          {getConferenceDate(
-                            conference.date,
-                            conference.start,
-                            conference.end
-                          )}
+                          <time
+                            dateTime={
+                              conference.start
+                                ? `${conference.date}T${conference.start}`
+                                : conference.date
+                            }
+                          >
+                            {getConferenceDate(
+                              conference.date,
+                              conference.start,
+                              conference.end
+                            )}
+                          </time>
                         </p>
                       ) : null}
                     </>
@@ -284,7 +292,7 @@ export default function SpeakerPageListTemplate({
                       />
                     ) : null}
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>

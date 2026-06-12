@@ -7,6 +7,7 @@ import { i18n, Locale } from "i18n/i18n-config";
 import { getRootUrl } from "utils";
 import { getAllSpeakers } from "api/con/speakers";
 import { getAllConferences } from "api/con/conferences";
+import { currentEdition } from "data/con/editions";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -78,8 +79,16 @@ async function EditionLayout({
   const footer = await import(`data/con/${edition}/footer`);
 
   const resolvedLocale = (locale || i18n.defaultLocale) as Locale;
-  const speakers = await getAllSpeakers(edition, resolvedLocale);
-  const talks = await getAllConferences(edition, true, resolvedLocale);
+  // Only the upcoming edition benefits from rich speaker/talk structured data
+  // (Google does not surface past events). Skipping the fetch for past
+  // editions keeps the build lean.
+  const isCurrentEdition = edition === currentEdition;
+  const speakers = isCurrentEdition
+    ? await getAllSpeakers(edition, resolvedLocale)
+    : [];
+  const talks = isCurrentEdition
+    ? await getAllConferences(edition, true, resolvedLocale)
+    : [];
   const eventData = getEditionEventData(edition, speakers, talks);
 
   return (
