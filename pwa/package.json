@@ -35,7 +35,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "mapbox-gl": "^2.15.0",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^14.1.1",
     "negotiator": "^0.6.3",
     "next": "13.5.6",
     "next-themes": "npm:@wits/next-themes@^0.2.16",
