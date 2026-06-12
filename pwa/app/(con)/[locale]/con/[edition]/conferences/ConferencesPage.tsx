@@ -206,6 +206,7 @@ export default function SpeakerPageListTemplate({
                           <SpeakerImage
                             image={speaker.image}
                             placeholder={speaker.placeholder}
+                            alt={speaker.name}
                           />
                         </div>
                       );

@@ -54,7 +54,12 @@ export default function SpeakerPageTemplate({
                 placeholder={placeholder}
               />
             ) : (
-              <SpeakerImage big image={image} placeholder={placeholder} />
+              <SpeakerImage
+                big
+                image={image}
+                placeholder={placeholder}
+                alt={name}
+              />
             )}
           </div>
           <div className="flex-1 | sm:px-6">

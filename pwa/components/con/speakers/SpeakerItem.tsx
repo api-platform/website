@@ -55,7 +55,7 @@ export default function SpeakerItem({
           <div
             className={classNames(minified ? "w-20 h-20" : "mx-auto w-60 h-60")}
           >
-            <SpeakerImage image={image} placeholder={placeholder} />
+            <SpeakerImage image={image} placeholder={placeholder} alt={name} />
           </div>
         )}
 
