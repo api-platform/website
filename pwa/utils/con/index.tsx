@@ -84,6 +84,18 @@ export function localeDuration(
   return humanizeDuration(ms, params);
 }
 
+const CONF_PLACE = {
+  "@type": "Place",
+  name: "Euratechnologies",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lille",
+    addressRegion: "Hauts de France",
+    postalCode: "59000",
+    streetAddress: "Place de Saintignon, 165 avenue de Bretagne",
+  },
+};
+
 export function getEditionEventData(
   edition: string,
   speakers: Speaker[] = [],
@@ -109,17 +121,7 @@ export function getEditionEventData(
       url: "https://les-tilleuls.coop/en",
     },
     location: [
-      {
-        "@type": "Place",
-        name: "Euratechnologies",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Lille",
-          addressRegion: "Hauts de France",
-          postalCode: "59000",
-          streetAddress: "Place de Saintignon, 165 avenue de Bretagne",
-        },
-      },
+      CONF_PLACE,
       {
         "@type": "VirtualLocation",
         url: `https://api-platform.com/con/${edition}/`,
@@ -167,6 +169,7 @@ function getTalkSubEventData(conference: Conference, rootUrl: string) {
     ...(date && end ? { endDate: `${date}T${end}:00` } : {}),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: CONF_PLACE,
     ...(talkUrl ? { url: talkUrl } : {}),
     ...(conference.speakers?.length
       ? {
