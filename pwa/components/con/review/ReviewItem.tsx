@@ -53,7 +53,7 @@ export default function ReviewItem({
         >
           <Image
             src={`/images/con/${edition}/review/${imageId}.jpg`}
-            alt=""
+            alt={`API Platform Conference ${edition}`}
             fill
             sizes="(max-width: 640px) 80vw, (max-width: 1024px) 360px, 500px"
             className="object-cover"

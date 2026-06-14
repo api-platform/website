@@ -44,7 +44,7 @@ export default function LastEdition({
           <Image
             fill
             sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, (max-width: 1536px) 300px, 400px"
-            alt=""
+            alt={`API Platform Conference ${edition}`}
             key={`pic${i}`}
             src={`/images/con/${edition}/pic-0${i + 1}.jpg`}
           />

@@ -106,7 +106,7 @@ export default function SpeakerImage({
                   big && "scale-110",
                   hoverable && "group-hover:-rotate-2 group-hover:scale-110 "
                 )}
-                alt=""
+                alt={speaker.name}
                 fill
                 sizes={big ? "(max-width: 768px) 350px, 600px" : "350px"}
                 placeholder={

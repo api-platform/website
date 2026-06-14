@@ -48,7 +48,7 @@ export default function Avatar({
         ) : (
           <Image
             key={speaker.name}
-            alt=""
+            alt={speaker.name}
             className="absolute rounded-full -translate-x-1/2 -translate-y-1/2 object-cover"
             src={speaker.image}
             width={getSize(speakers.length)}

@@ -51,7 +51,11 @@ const ConferenceSpeaker = ({ conference }: SpeakerProps) => {
                       placeholder={placeholder}
                     />
                   ) : (
-                    <SpeakerImage image={image} placeholder={placeholder} />
+                    <SpeakerImage
+                      image={image}
+                      placeholder={placeholder}
+                      alt={name}
+                    />
                   )}
                 </div>
 

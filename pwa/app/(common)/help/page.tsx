@@ -170,6 +170,33 @@ export default async function Page() {
           />
         </div>
       </div>
+      <div>
+        <div className="container xl:max-w-5xl flex flew-row items-center relative gap-16 py-12">
+          <div className="flex-1 max-w-2xl py-6 mx-auto text-center">
+            <Heading size="lg" level="h2" overline="AI coding agents">
+              Teach AI agents the <strong>canonical way</strong>
+            </Heading>
+            <p className="mt-4">
+              The API Platform Skillset teaches AI coding agents the canonical
+              API Platform 4.x way, with 15 skills covering both Symfony and
+              Laravel. Install the Claude Code plugin to keep your agents
+              aligned with framework best practices.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-4">
+              <Button
+                external
+                href="https://github.com/api-platform/skillset"
+                size="medium"
+              >
+                Get the skillset
+              </Button>
+              <Button href="/docs/core/ai-agents" size="medium" empty>
+                Learn more
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="bg-blue-extralight/50 dark:bg-blue-dark dark:text-white after:absolute after:w-full after:h-80 after:top-full after:left-0 after:bg-blue-extralight/50 after:dark:bg-blue-dark">
         <div className="container xl:max-w-5xl flex flew-row items-center relative gap-16 pt-12">
           <img

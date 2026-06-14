@@ -29,8 +29,8 @@ export default function SpeakerPageTemplate({
 
   return (
     <>
-      <div className="container xl:max-w-8xl flex flex-col items-center pt-10 pb-32 | sm:pt-20">
-        <div className="text-white pb-14">
+      <article className="container xl:max-w-8xl flex flex-col items-center pt-10 pb-32 | sm:pt-20">
+        <header className="text-white pb-14">
           <SectionTitle h1 dark lined>
             <strong>{name}</strong>
           </SectionTitle>
@@ -43,7 +43,7 @@ export default function SpeakerPageTemplate({
               </>
             ) : null}
           </p>
-        </div>
+        </header>
         <div className="flex flex-col relative flex-wrap items-center bg-grey px-10 pb-10 pt-28 | lg:flex-row lg:items-start | sm:pb-20">
           <div className="w-72 h-72 | md:w-80 md:h-80 | lg:w-[400px] lg:h-[400px]">
             {edition === "2025" || edition === "2026" ? (
@@ -54,7 +54,12 @@ export default function SpeakerPageTemplate({
                 placeholder={placeholder}
               />
             ) : (
-              <SpeakerImage big image={image} placeholder={placeholder} />
+              <SpeakerImage
+                big
+                image={image}
+                placeholder={placeholder}
+                alt={name}
+              />
             )}
           </div>
           <div className="flex-1 | sm:px-6">
@@ -74,8 +79,8 @@ export default function SpeakerPageTemplate({
             </div>
           ) : null}
         </div>
-      </div>
-      <div className="container flex flex-col items-center pt-12 pb-44 max-w-6xl text-white">
+      </article>
+      <section className="container flex flex-col items-center pt-12 pb-44 max-w-6xl text-white">
         <div className="lined-center lined-blue font-bold uppercase text-2xl text-white font-title">
           <Translate translationKey="speakers.others" />
         </div>
@@ -88,7 +93,7 @@ export default function SpeakerPageTemplate({
         >
           {t("speakers.see_all")}
         </Button>
-      </div>
+      </section>
     </>
   );
 }
