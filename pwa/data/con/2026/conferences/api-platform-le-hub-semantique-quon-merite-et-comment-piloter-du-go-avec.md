@@ -2,7 +2,7 @@
 type: conference
 speakers: -matthieu-werner-2026
 short: "Alliez la richesse d'API Platform à la puissance brute de Go. Un REX pragmatique sur l'orchestration de microservices via des DTOs, Jane PHP et AutoMapper."
-tag: tools
+tag: 'tools,archi'
 track: '2'
 date: '2026-09-18'
 start: '13:50'

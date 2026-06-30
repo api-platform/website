@@ -2,7 +2,7 @@
 type: conference
 speakers: -diana-scharf-2026
 short: "If the recent AI boom makes your job feel weird, you're not alone. A pro-human exploration of what we lose, what we gain, and why developers still matter."
-tag: ia
+tag: 'ia,society'
 track: '1'
 date: '2026-09-17'
 start: '16:50'

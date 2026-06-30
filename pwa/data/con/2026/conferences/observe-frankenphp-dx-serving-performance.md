@@ -2,7 +2,7 @@
 type: conference
 speakers: -alexandre-daubois-2026
 short: "From blind panics to real-time insights: a live deep dive into tracking memory leaks and tuning FrankenPHP workers without the hassle."
-tag: performance
+tag: 'performance,tools'
 track: '1'
 date: '2026-09-17'
 start: '11:40'

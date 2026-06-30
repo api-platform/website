@@ -2,7 +2,7 @@
 type: conference
 speakers: -yoan-bernabeu-2026
 short: Du local à la production en une seule commande.
-tag: feedback
+tag: 'tools,archi'
 track: '1'
 date: '2026-09-17'
 start: '10:50'

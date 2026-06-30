@@ -2,7 +2,7 @@
 type: conference
 speakers: -robin-chalas-2026
 short: "Tackling 10 years of technical debt in under 6 months. Discover the practical steps, AI levers, and architectural choices to safely modernize your legacy PHP applications."
-tag: archi
+tag: 'feedback,tools'
 track: '2'
 date: '2026-09-17'
 start: '11:40'

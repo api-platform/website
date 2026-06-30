@@ -2,7 +2,7 @@
 type: conference
 speakers: -sebastien-rogier-2026
 short: "D'une usine à gaz à un système d'agents asynchrones : comment abstraire, orchestrer et fiabiliser 40 000 requêtes IA par jour en PHP."
-tag: feedback
+tag: 'ia,feedback'
 track: '2'
 date: '2026-09-18'
 start: '09:50'

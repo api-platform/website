@@ -2,7 +2,7 @@
 type: conference
 speakers: -smaine-milianni-2026
 short: L'art de dompter, structurer et observer ses exceptions avec PHP et Symfony.
-tag: tools
+tag: 'good-practices,archi'
 track: '2'
 date: '2026-09-18'
 start: '14:40'
