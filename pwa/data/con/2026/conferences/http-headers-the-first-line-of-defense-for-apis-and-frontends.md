@@ -2,7 +2,7 @@
 type: conference
 speakers: -florent-morselli-2026
 short: "Master CSP, CORS, and isolation policies with Symfony and API Platform to build a robust client-side shield against modern web vulnerabilities."
-tag: security
+tag: 'security,good-practices'
 track: '1'
 date: '2026-09-18'
 start: '11:50'

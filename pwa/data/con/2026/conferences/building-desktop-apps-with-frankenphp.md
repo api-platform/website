@@ -2,7 +2,7 @@
 type: conference
 speakers: -johan-janssens-2026
 short: "PHP on the desktop sounds crazy—until it works. Discover how to combine FrankenPHP and Wails to build fast, native desktop applications within a single binary."
-tag: archi
+tag: 'archi,tools'
 track: '1'
 date: '2026-09-18'
 start: '09:00'

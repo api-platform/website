@@ -2,7 +2,7 @@
 type: conference
 speakers: -antoine-bluchet-2026
 short: TBA
-tag: feedback
+tag: 'feedback,ia'
 track: '1'
 date: '2026-09-17'
 start: '14:00'

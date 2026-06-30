@@ -2,7 +2,7 @@
 type: conference
 speakers: -brent-roose-2026
 short: "An accidental journey into modern software design. Uncover the lessons learned and the core features behind the Tempest framework."
-tag: tools
+tag: 'archi,tools'
 track: '1'
 date: '2026-09-18'
 start: '14:40'

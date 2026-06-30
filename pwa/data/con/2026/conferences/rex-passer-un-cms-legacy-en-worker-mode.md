@@ -2,7 +2,7 @@
 type: conference
 speakers: -xavier-leune-2026
 short: "RoadRunner ou FrankenPHP ? Plongée au cœur du worker mode avec le REX d'un grand média. Chiffres à l'appui, découvrez comment changer de paradigme sur une application existante."
-tag: performance
+tag: 'performance,feedback'
 track: '2'
 date: '2026-09-17'
 start: '16:00'

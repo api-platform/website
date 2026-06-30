@@ -2,7 +2,7 @@
 type: conference
 speakers: -benjamin-eberlei-2026
 short: "Beyond the hype: compare FrankenPHP against FPM and Swoole with real benchmarks to discover the true performance gains of the worker mode."
-tag: tools
+tag: 'performance,tools'
 track: '1'
 date: '2026-09-18'
 start: '11:00'
