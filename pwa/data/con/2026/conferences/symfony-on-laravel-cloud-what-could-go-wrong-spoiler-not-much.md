@@ -2,7 +2,7 @@
 type: conference
 speakers: -jeremy-nikolic-2026
 short: "Deploying Symfony on a Laravel-first infrastructure sounds like trouble. Discover why this unconventional pairing is actually a surprisingly smooth, production-ready match."
-tag: archi
+tag: 'tools,archi'
 track: '2'
 date: '2026-09-17'
 start: '10:50'

@@ -43,10 +43,16 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
-    name: "BearStudio",
-    logo: "bearstudio",
-    link: "https://www.bearstudio.fr/",
+    name: "Peinture",
+    logo: "peinture",
+    link: "https://www.peinture.app/",
     rank: 2,
+  },
+  {
+    name: "Caddy",
+    logo: "caddy",
+    link: "https://caddyserver.com/",
+    rank: 3,
   },
   {
     name: "Emagma",

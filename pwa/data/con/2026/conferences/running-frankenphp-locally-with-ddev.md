@@ -2,7 +2,7 @@
 type: conference
 speakers: -stephan-hochdorfer-2026
 short: Seamless, containerized FrankenPHP development made easy.
-tag: good-practices
+tag: 'tools,good-practices'
 track: '2'
 date: '2026-09-17'
 start: '17:40'

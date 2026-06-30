@@ -2,7 +2,7 @@
 type: conference
 speakers: -pauline-vos-2026
 short: "Drawing from MongoDB's experience, discover why investing in open-source tools is essential for user adoption and how to convince your leadership to make the leap."
-tag: good-practices
+tag: 'feedback,society'
 track: '1'
 date: '2026-09-18'
 start: '13:50'
