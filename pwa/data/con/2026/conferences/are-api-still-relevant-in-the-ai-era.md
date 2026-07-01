@@ -9,6 +9,6 @@ start: '14:00'
 end: '14:40'
 ---
 
-# Opening Keynote 🇺🇸
+# Are APIs Still Relevant in the AI Era 🇺🇸
 
 This talk topic will be announced shortly.
