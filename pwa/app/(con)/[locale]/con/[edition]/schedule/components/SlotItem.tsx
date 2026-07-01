@@ -29,11 +29,6 @@ export default function SlotItem({ conference, id }: SlotItemProps) {
     >
       {speakers.length ? <Avatar id={id} speakers={speakers} /> : null}
       <div className="flex flex-col flex-1 pr-2">
-        <div className="flex flex-row gap-1">
-          {tag
-            ? tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)
-            : null}
-        </div>
         <Overline className="opacity-70 lg:hidden">
           <time dateTime={`${date}T${start}`}>
             {getConferenceTimes(date, start, end)}
