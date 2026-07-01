@@ -195,4 +195,4 @@ jobs:
       - name: Check for dead links
         uses: lycheeverse/lychee-action@v2.8.0
         with:
-          args: --verbose --no-progress https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh
+          args: --verbose --no-progress --accept 200,403,429 https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh

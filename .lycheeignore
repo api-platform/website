@@ -6,3 +6,7 @@
 ^https?://(www\.)?cartier\.com
 ^https?://(www\.)?volvocars\.com
 ^https?://gitlab\.com/mobicoop
+
+# Reference websites that are reachable in a browser but intermittently
+# time out from CI (slow response). Not a 403, so not covered by --accept.
+^https?://(www\.)?boltcms\.io
