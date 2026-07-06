@@ -5,9 +5,9 @@ speakers: -imen-ezzine-2026
 short: "Comment découper un monolithe sans y laisser des plumes ? Un retour d'expérience à deux voix sur l'utilisation d'API Platform pour orchestrer une architecture distribuée."
 tag: 'feedback,archi'
 track: '2'
-date: '2026-09-17'
-start: '14:50'
-end: '15:30'
+date: '2026-09-18'
+start: '09:00'
+end: '09:40'
 ---
 
 # Passer d'un monolithe à une galaxie d'applications : Réussir sa transition avec API Platform 🇫🇷
