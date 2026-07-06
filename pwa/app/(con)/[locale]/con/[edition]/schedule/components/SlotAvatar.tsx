@@ -20,7 +20,8 @@ export default function Avatar({
     if (2 === total) return id === "mobile" ? 60 : 40;
     return 50;
   };
-  const is2025 = speakers[0].edition === "2025";
+  const is2025 =
+    speakers[0].edition === "2025" || speakers[0].edition === "2026";
   return (
     <div
       className={`relative ${is2025 && id !== "mobile" ? "w-24" : "w-32"} mr-2`}
@@ -47,7 +48,7 @@ export default function Avatar({
         ) : (
           <Image
             key={speaker.name}
-            alt=""
+            alt={speaker.name}
             className="absolute rounded-full -translate-x-1/2 -translate-y-1/2 object-cover"
             src={speaker.image}
             width={getSize(speakers.length)}

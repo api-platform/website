@@ -9,7 +9,7 @@ short: Retour d'expérience d'une mission complexe où base de données et API f
 tag: feedback
 ---
 
-# Remplacer une base de données par une API sans toucher l’existant, Mission Impossible ? (🇫🇷)
+# Remplacer une base de données par une API sans toucher l’existant, Mission Impossible ? 🇫🇷
 
 "Votre mission, si vous l’acceptez, est de remplacer notre base de données par une API sans toucher le code existant. Vous devez accomplir cette mission dans le minimum de temps imparti et votre solution doit être scalable."
 

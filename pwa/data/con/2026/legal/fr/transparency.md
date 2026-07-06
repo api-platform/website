@@ -4,7 +4,7 @@ type: legal
 
 # Transparence des revenus
 
-L'API Platform Conference est financé par seulement deux sources de revenus : [la vente de billets](#pricing) et [la vente de sponsoring](#partners) à des entreprises en échange de visibilité.
+L'API Platform Conference est financé par seulement deux sources de revenus : [la vente de billets](#pricing) et [la vente de sponsoring](#sponsorship) à des entreprises en échange de visibilité.
 
 De plus, en organisant cet événement, nous avons voulu **le rendre financièrement accessible à tous** (par exemple, les billets sont **gratuits pour les étudiantes, les étudiants et les personnes en recherche d'emploi**). Cependant, la réalisation de cette journée implique différents coûts :
 

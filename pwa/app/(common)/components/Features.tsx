@@ -53,11 +53,7 @@ export default function Features() {
             </Link>
           </FeatureItem>
           <FeatureItem Icon={icons.CaddyIcon} index={5}>
-            <Link
-              className="link"
-              href="/docs/distribution/caddy/#configuring-the-caddy-web-server"
-              prefetch={false}
-            >
+            <Link className="link" href="/docs/symfony/caddy/" prefetch={false}>
               Caddy server
             </Link>{" "}
             integration HTTPS & HTTP/3

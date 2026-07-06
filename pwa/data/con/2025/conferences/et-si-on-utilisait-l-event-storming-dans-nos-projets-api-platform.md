@@ -9,7 +9,7 @@ start: '15:20'
 end: '16:00'
 ---
 
-# Et si on utilisait l'Event Storming dans nos projets API Platform ? (🇫🇷)
+# Et si on utilisait l'Event Storming dans nos projets API Platform ? 🇫🇷
 
 L'Event Storming est une méthode collaborative de conception d'applications. Elle permet de mieux comprendre et de structurer les processus métier, en les organisant par domaines. Contrairement au CRUD, qui se concentre sur la base de données, **l'Event Storming se focalise sur l'utilisateur et son parcours**, ce qui est idéal pour construire des interfaces efficaces.
 

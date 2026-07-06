@@ -79,12 +79,37 @@ export default async function Page({ params }: Props) {
     params.locale as Locale
   );
 
+  const rootUrl = getRootUrl();
+  const personData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: speaker.name,
+    ...(speaker.job ? { jobTitle: speaker.job } : {}),
+    ...(speaker.company
+      ? { worksFor: { "@type": "Organization", name: speaker.company } }
+      : {}),
+    image: `${rootUrl}${speaker.image}`,
+    url: `${rootUrl}${speaker.url}`,
+    sameAs: [
+      speaker.github,
+      speaker.twitter,
+      speaker.mastodon,
+      speaker.bluesky,
+    ].filter(Boolean),
+  };
+
   return (
-    <SpeakerPage
-      speakerData={speaker}
-      conferences={conferences}
-      edition={params.edition}
-      otherSpeakers={otherSpeakers}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }}
+      />
+      <SpeakerPage
+        speakerData={speaker}
+        conferences={conferences}
+        edition={params.edition}
+        otherSpeakers={otherSpeakers}
+      />
+    </>
   );
 }

@@ -18,7 +18,7 @@ Des chambres d'hôtel ont été bloquées pour vous à un tarif réduit. [Jetez-
 
 ## Il y a t-il un code de conduite ?
 
-L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite page](/con/2023/code-de-conduite/) pour plus d'informations.
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite](/con/2023/code-de-conduite/) pour plus d'informations.
 
 ## Il y a t-il une salle d'allaitement pendant l'événement ?
 

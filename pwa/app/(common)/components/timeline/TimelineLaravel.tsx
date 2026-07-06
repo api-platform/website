@@ -16,36 +16,35 @@ export default function TimelineLaravel() {
       <TimelineStepTitle step={1}>Install the framework</TimelineStepTitle>
       <StepContent className="pb-24">
         <p className="font-semibold text-blue text-2xl mb-4 leading-tight">
-          Installing Laravel
+          Scaffold a project
         </p>
-        <CodeBlock title="Install Laravel">
+        <CodeBlock title="Create a Laravel project">
           <InstallLaravelCode />
         </CodeBlock>
-        API Platform can be installed easily on new and existing Laravel
-        projects. If you already have an existing project, skip directly to the
-        next section.
+        This creates a new Laravel application with API Platform and a
+        ready-to-use React-admin interface. Already have a project?{" "}
+        <Link href="/docs/laravel/" prefetch={false} className="link">
+          Add API Platform to an existing Laravel app
+        </Link>{" "}
+        with{" "}
+        <code className="bg-gray-200 px-1 py-0.5 text-base dark:bg-blue-black">
+          composer require api-platform/laravel
+        </code>
+        .
       </StepContent>
       <StepContent>
         <p className="font-semibold text-blue text-2xl mb-4 leading-tight">
-          Installing API Platform
+          Run the app
         </p>
-        <CodeBlock title="Install API Platform">
+        <CodeBlock title="Start the development server">
           <InstallCode />
         </CodeBlock>
         <p>
-          In your Laravel project, install the API Platform integration for
-          Laravel.
+          Start the Vite dev server and the built-in PHP web server, then open
+          the admin.
         </p>
       </StepContent>
       <StepContent className="mt-24">
-        <p>
-          If it's not already done, run{" "}
-          <code className="bg-gray-200 px-1 py-0.5 text-base dark:bg-blue-black">
-            php artisan serve
-          </code>{" "}
-          to start the built-in web server.
-        </p>
-        <br />
         <p className="font-semibold text-blue text-2xl mb-4 leading-tight">
           Your development environment is ready!{" "}
         </p>

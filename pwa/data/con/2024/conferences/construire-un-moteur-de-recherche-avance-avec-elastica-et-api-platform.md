@@ -9,7 +9,7 @@ short: Présentation de l'intégration d'Elastica dans API Platform.
 tag: 'feedback'
 ---
 
-# Construire un moteur de recherche avancé avec Elastica et API Platform (🇫🇷) 
+# Construire un moteur de recherche avancé avec Elastica et API Platform 🇫🇷 
 
 Lorsque la recherche textuelle dans la base de données ne suffit plus, il est souvent recommandé d'utiliser un moteur de recherche comme Elasticsearch. Malheureusement il est fastidieux de construire des requêtes avancées avec de simples tableaux PHP. C’est ici qu’Elastica vient à notre secours.
 

@@ -9,7 +9,7 @@ start: '12:00'
 end: '12:20'
 ---
 
-# PIE: The Next Big Thing (🇺🇸)
+# PIE: The Next Big Thing 🇺🇸
 
 There are revolutions afoot that you may not even be aware of. When many like to shout that PHP is dead, many of us know that it comes from a reputation of yesteryear. That the language has evolved with such velocity in recent years that it is **more than ever an extremely competitive choice**, not only for the web, but also for CLI applications for example.
 

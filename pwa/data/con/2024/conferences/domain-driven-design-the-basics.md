@@ -9,7 +9,7 @@ short: Learn more about the DDD approach.
 tag: 'archi'
 ---
 
-# Domain-Driven Design: The Basics (🇺🇸) 
+# Domain-Driven Design: The Basics 🇺🇸 
 
 So you’ve heard people talk about Domain-Driven Design. But what is it? What is the blue book? And what is the red book? How can it be applied to your project? 
 

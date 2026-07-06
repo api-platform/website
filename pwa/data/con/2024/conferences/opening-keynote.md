@@ -9,6 +9,6 @@ short: TBA
 tag: 'feedback'
 ---
 
-# Opening Keynote (🇺🇸)
+# Opening Keynote 🇺🇸
 
 The subject of this conference will be announced shortly.

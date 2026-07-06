@@ -4,7 +4,7 @@ type: legal
 
 # Revenues transparency
 
-API Platform Con is financed by only two sources of revenues: [ticketing](#pricing) and [sales of sponsor packages](#partners) to tech companies in exchange for visibility.
+API Platform Con is financed by only two sources of revenues: [ticketing](#pricing) and [sales of sponsor packages](#sponsorship) to tech companies in exchange for visibility.
 
 Also, by organizing this event, we wanted to be **financially accessible for everyone**. For instance, online tickets are **free for students and unemployed developers**. However, making this day has various costs:
 

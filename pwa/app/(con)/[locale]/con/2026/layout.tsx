@@ -5,8 +5,10 @@ import nav from "data/con/2026/nav";
 import footer from "data/con/2026/footer";
 import { Metadata } from "next";
 import { getEditionEventData } from "utils/con";
-import { i18n } from "i18n/i18n-config";
+import { i18n, Locale } from "i18n/i18n-config";
 import { getRootUrl } from "utils";
+import { getAllSpeakers } from "api/con/speakers";
+import { getAllConferences } from "api/con/conferences";
 
 type Props = {
   params: { edition: string; locale: string };
@@ -38,15 +40,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function EditionLayout({ children }: { children: React.ReactNode }) {
-  const eventData = getEditionEventData("2026");
+async function EditionLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  const locale = (params?.locale || i18n.defaultLocale) as Locale;
+  const speakers = await getAllSpeakers("2026", locale);
+  const talks = await getAllConferences("2026", true, locale);
+  const eventData = getEditionEventData("2026", speakers, talks);
   return (
-    <LayoutBase
-      edition="2026"
-      nav={nav}
-      footer={footer}
-      isTicketingOpen={false}
-    >
+    <LayoutBase edition="2026" nav={nav} footer={footer} isTicketingOpen>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventData) }}

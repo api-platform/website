@@ -18,7 +18,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <Providers>
-          <Nav withPreheader={false} />
+          <Nav withPreheader={true} />
         </Providers>
         {children}
       </div>

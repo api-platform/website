@@ -25,20 +25,9 @@ export const openSourceData: Reference[] = [
     highlight: 1,
   },
   {
-    name: "Kbin",
-    logo: "kbin",
-    link: "https://kbin.pub/en",
-    highlight: 1,
-  },
-  {
     name: "QOwnNotes",
     logo: "qownnotes",
     link: "https://www.qownnotes.org/",
-  },
-  {
-    name: "MBT Bundle",
-    logo: "mbt-bundle",
-    link: "https://mbtbundle.org/",
   },
   {
     name: "Mobicoop",
@@ -47,15 +36,10 @@ export const openSourceData: Reference[] = [
     highlight: 1,
   },
   {
-    name: "PartKeepr",
-    logo: "partkeepr",
-    link: "https://partkeepr.org/",
-    highlight: 1,
-  },
-  {
     name: "Sylius",
     logo: "sylius",
     link: "https://sylius.com/",
+    highlight: 1,
   },
   {
     name: "French Government",
@@ -71,6 +55,12 @@ export const openSourceData: Reference[] = [
     name: "Parti de gauche",
     logo: "parti-de-gauche",
     link: "https://github.com/LePartiDeGauche/adherents-platform",
+  },
+  {
+    name: "Prestashop",
+    logo: "prestashop",
+    link: "https://prestashop.fr/",
+    highlight: 1,
   },
 ];
 

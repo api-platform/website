@@ -16,8 +16,20 @@ const footer = [
     title: "footer.the_event.title",
     links: [
       {
+        title: "footer.the_event.links.speakers",
+        link: "/{{locale}}/con/2026/speakers",
+      },
+      {
         title: "footer.the_event.links.venue",
         link: "/{{locale}}/con/2026/#venue",
+      },
+      {
+        link: "/{{locale}}/con/2026/conferences",
+        title: "nav.links.conferences",
+      },
+      {
+        link: "/{{locale}}/con/2026/#pricing",
+        title: "nav.links.pricing",
       },
     ],
   },

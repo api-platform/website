@@ -9,7 +9,7 @@ short: An exploration of the 1BRC.
 tag: 'performance'
 ---
 
-# Processing One Billion Rows in PHP (🇺🇸) 
+# Processing One Billion Rows in PHP 🇺🇸 
 
 The 1brc is "a fun exploration of how quickly 1B rows from a text file can be aggregated with Java", but let's face it, we should be able to do this in PHP too, right? 
 

@@ -9,7 +9,7 @@ start: '14:30'
 end: '15:10'
 ---
 
-# Growing the PHP Core—One Test at a Time (🇺🇸)
+# Growing the PHP Core—One Test at a Time 🇺🇸
 
 Ever dreamt of becoming **a PHP core contributor** but felt overwhelmed by the prospect of creating RFCs, maintaining extensions, or writing C code? Worry no more! In this talk, you'll discover **how to make a meaningful impact** on the PHP core by writing tests without the need to write C code. 
 

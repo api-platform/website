@@ -9,7 +9,7 @@ start: '10:20'
 end: '11:00'
 ---
 
-# Headless & Évolutive : concevoir une application découplée avec API Platform et Vue.js (🇫🇷)
+# Headless & Évolutive : concevoir une application découplée avec API Platform et Vue.js 🇫🇷
 
 Une architecture entièrement découplée offre flexibilité, évolutivité, scalabilité et intégration fluide avec des services tiers. Cette conférence explore comment construire une API robuste avec Symfony et API Platform, permettant à des outils d'automatisation et agents IA d’interagir facilement avec le produit.
 Côté frontend, Vue.js est utilisé exclusivement pour consommer l’API, garantissant une séparation claire des responsabilités.

@@ -9,7 +9,7 @@ short: Découverte de Storybook, un outil open source facilitant la création et
 tag: 'good-practices'
 ---
 
-# Développer des composants en isolation avec Storybook (🇫🇷) 
+# Développer des composants en isolation avec Storybook 🇫🇷 
 
 L'approche par composants, permise par les frameworks front comme React ou Vue, révolutionne la productivité des développeurs et développeuses. Mais comment fabriquer un composant en isolation ? Storybook, utilisé notamment sur API Platform Admin et React-Admin, est votre ami pour développer en JS. 
 

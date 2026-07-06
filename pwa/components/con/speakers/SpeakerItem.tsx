@@ -27,7 +27,7 @@ export default function SpeakerItem({
   const edition = speaker.edition;
 
   return (
-    <div
+    <article
       className={classNames(
         "flex flex-col text-center",
         minified && "w-full max-w-xs"
@@ -41,7 +41,7 @@ export default function SpeakerItem({
           minified ? "flex flex-row items-center" : "text-center"
         )}
       >
-        {edition === "2025" ? (
+        {edition === "2025" || edition === "2026" ? (
           <div
             className={classNames(minified ? "w-20 h-20" : "mx-auto w-64 h-64")}
           >
@@ -55,7 +55,7 @@ export default function SpeakerItem({
           <div
             className={classNames(minified ? "w-20 h-20" : "mx-auto w-60 h-60")}
           >
-            <SpeakerImage image={image} placeholder={placeholder} />
+            <SpeakerImage image={image} placeholder={placeholder} alt={name} />
           </div>
         )}
 
@@ -85,6 +85,6 @@ export default function SpeakerItem({
         </div>
       </Link>
       {withSocial && !minified ? <SpeakerSocialList speaker={speaker} /> : null}
-    </div>
+    </article>
   );
 }

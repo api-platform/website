@@ -14,7 +14,7 @@ function BuyButton({ children, id, className, ...props }: BuyButtonProps) {
   return (
     <Button
       id={id}
-      to={`/${locale}/con/2025/tickets`}
+      to={`/${locale}/con/2026/tickets`}
       className={classNames("pink flex flex-row gap-1", className)}
       {...props}
     >

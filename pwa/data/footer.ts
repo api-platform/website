@@ -31,6 +31,10 @@ const footer: FooterPart[] = [
         url: "https://symfonycasts.com/screencast/api-platform?cid=apip",
       },
       {
+        title: "AI coding-agent skills",
+        url: "/docs/core/ai-agents/",
+      },
+      {
         title: "Stack Overflow",
         url: "https://stackoverflow.com/questions/tagged/api-platform.com",
       },

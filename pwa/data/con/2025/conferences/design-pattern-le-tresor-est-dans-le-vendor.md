@@ -9,7 +9,7 @@ start: '14:30'
 end: '15:10'
 ---
 
-# Design Pattern, le trésor est dans le vendor (🇫🇷)
+# Design Pattern, le trésor est dans le vendor 🇫🇷
 
 Les design patterns ne sont pas que de simples concepts théoriques : ils sont au cœur des applications que nous utilisons au quotidien ! Mais comment les appliquer efficacement dans nos projets&nbsp;?
 

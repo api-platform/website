@@ -28,14 +28,11 @@ export default function SlotItem({ conference, id }: SlotItemProps) {
       className="bg-grey flex flex-row items-center text-blue-black overflow-hidden relative w-full h-full px-2 py-3 min-h-[100px] text-left transition-all hover:bg-blue-light/30"
     >
       {speakers.length ? <Avatar id={id} speakers={speakers} /> : null}
-      <div className="flex flex-col flex-1">
-        <div className="flex flex-row gap-1">
-          {tag
-            ? tag.split(",").map((t) => <TagLabel key={t} small tag={t} />)
-            : null}
-        </div>
+      <div className="flex flex-col flex-1 pr-2">
         <Overline className="opacity-70 lg:hidden">
-          {getConferenceTimes(date, start, end)}
+          <time dateTime={`${date}T${start}`}>
+            {getConferenceTimes(date, start, end)}
+          </time>
         </Overline>
         <h3 className="font-title font-bold lined-left leading-tight">
           {title}

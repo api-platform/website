@@ -14,9 +14,13 @@ L'API Platform Conference 2025 a rassemblé 700 personnes (400 sur place et 300 
 
 L'API Platform Conference se déroule à [Lille](https://en.lilletourism.com/), capitale des Flandres et point central de grandes villes européennes. Les conférences ont lieu à [Euratechnologies](https://www.euratechnologies.com/), le plus grand incubateur de start-ups en Europe. En plus d'être organisées à Lille, les conférences sont retransmises en direct sur internet à partir d'un lien privé et nominatif.
 
+## Est-ce que je peux obtenir un visa pour participer à la conférence ?
+
+Si vous avez acheté un billet pour l'édition sur place, nous pouvons vous faire parvenir une lettre d'invitation sur demande. Cette lettre ne garantit pas l'obtention du visa et ne constitue en aucun cas un soutien financier, une prise en charge du voyage ou une responsabilité juridique de la part des organisateurs. Une question à ce sujet ? [Écrivez-nous](mailto:events@les-tilleuls.coop).
+
 ## Il y a t-il un code de conduite ?
 
-L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite page](/con/2026/code-de-conduite/) pour plus d'informations.
+L'API Platform Conference s'engage à offrir une **expérience inclusive à ses participants et participantes**. Lisez notre [Code de Conduite](/con/2026/code-de-conduite/) pour plus d'informations.
 
 ## Il y a t-il une salle d'allaitement pendant l'événement ?
 
@@ -53,11 +57,11 @@ Si vous participez à l'édition sur place, votre convocation vous sera égaleme
 
 ## Quand démarre l'événement ?
 
-L'ouverture des portes est prévue le **18 septembre à partir de 08h30**, la keynote d'ouverture démarrera à 9h30. Le jour J, présentez-vous à l'accueil de l'événement avec une pièce d'identité : vous recevrez en échange votre badge vous donnant accès à l'événement ainsi qu'à la soirée d'anniversaire.
+L'ouverture des portes est prévue le **17 septembre à partir de 08h30**, la keynote d'ouverture démarrera à 9h30. Le jour J, présentez-vous à l'accueil de l'événement avec une pièce d'identité : vous recevrez en échange votre badge vous donnant accès à l'événement ainsi qu'à la soirée d'anniversaire.
 
 ## Comment puis-je acheter un billet ? Est-ce que je peux en acheter un sur place ?
 
-Vous pouvez acheter votre place [sur notre site web](#pricing). Vous pouvez également acheter votre place le jour de l'événement à l'accueil badge. 
+Vous pouvez acheter votre place [sur notre site web](/con/2026/tickets/). Vous pouvez également acheter votre place le jour de l'événement à l'accueil badge.
 
 ## Puis-je rejoindre et quitter l'événement à tout moment ?
 

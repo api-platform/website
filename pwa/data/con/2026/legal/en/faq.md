@@ -14,6 +14,10 @@ The 2025 API Platform Conference gathered 700 attendees (400 on-site and 300 onl
 
 The API Platform Conference takes place in [Lille](https://en.lilletourism.com/), meeting point of big European cities. The conferences are held in [Euratechnologies](https://www.euratechnologies.com/), the 1st startup incubator and accelerator in Europe. All conferences will be streamed online.
 
+## Can I obtain a visa to attend the conference?
+
+If you have purchased a ticket for the in-person event, we can provide an invitation letter upon request. Please note that this letter does not guarantee visa approval and does not constitute financial sponsorship, travel support, or legal responsibility on the part of the organizers. Any questions? [Contact us](mailto:events@les-tilleuls.coop).
+
 ## Is there a Code of Conduct?
 
 The API Platform Conference is dedicated to providing **an inclusive experience for everyone**. Take a look at our [Code of Conduct page](/con/2026/code-of-conduct/).
@@ -50,11 +54,11 @@ Your invitation with your personal access will be sent a couple of hours before 
 
 ## When does the event start?
 
-The doors will open on **September 18 at 08:30 AM** and the opening keynote will start at 09:30 AM. After presenting a piece of ID at the reception desk, you will receive your access badge.
+The doors will open on **September 17 at 08:30 AM** and the opening keynote will start at 09:30 AM. After presenting a piece of ID at the reception desk, you will receive your access badge.
 
 ## How do I buy my ticket? Can I buy it at the registration desk?
 
-You can buy your ticket on [our website](#pricing). You can also buy tickets at our registration desk.
+You can buy your ticket on [our website](/con/2026/tickets). You can also buy tickets at our registration desk.
 
 ## Can I join and leave the event at any time?
 

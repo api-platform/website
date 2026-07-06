@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       languages: {
-        en: locale === "en" ? undefined : "/con/2025/call-for-papers",
-        fr: locale === "fr" ? undefined : "/fr/con/2025/call-for-papers",
+        en: locale === "en" ? undefined : "/con/2025/tickets",
+        fr: locale === "fr" ? undefined : "/fr/con/2025/tickets",
       },
     },
   };

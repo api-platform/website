@@ -5,7 +5,7 @@ import Link from "components/common/Link";
 export default function Preheader() {
   return (
     <Link
-      href="/con/2025"
+      href="/con/2026"
       rel="noreferrer"
       className="block relative overflow-hidden bg-blue-black border-b-blue border-b-2 bg-conf-gradient text-white py-2 w-full z-50"
     >
@@ -65,7 +65,7 @@ export default function Preheader() {
             The conference dedicated to API Platform and its ecosystem
           </p>
           <div className="text-lg">
-            <strong className="font-bold">Sep 18, 19 2025</strong> | Lille &
+            <strong className="font-bold">Sep 17, 18 2026</strong> | Lille &
             online
           </div>
         </div>

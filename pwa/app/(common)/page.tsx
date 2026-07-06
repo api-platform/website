@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ClientGenerator from "./components/ClientGenerator";
 import Cover from "./components/cover/Cover";
 import Admin from "./components/Admin";
@@ -16,13 +17,17 @@ export default async function Page() {
 
   return (
     <>
-      <Cover />
+      <Suspense>
+        <Cover />
+      </Suspense>
       <section className="container text-center min-h-screen">
         <Heading size="xl" overline="API Platform Framework" level="h2">
           The <strong>easiest way</strong> to create your{" "}
           <strong>web API</strong>
         </Heading>
-        <Timeline />
+        <Suspense>
+          <Timeline />
+        </Suspense>
       </section>
       <div className="lg:mb-24">
         <ClientGenerator />

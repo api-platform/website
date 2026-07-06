@@ -7,6 +7,8 @@ interface SpeakerImageProps {
   placeholder?: string;
   hoverable?: boolean;
   big?: boolean;
+  /** Accessible name for the photo (usually the speaker's name). Leave empty for decorative placeholders. */
+  alt?: string;
 }
 
 export default function SpeakerImage({
@@ -14,6 +16,7 @@ export default function SpeakerImage({
   placeholder,
   big = false,
   hoverable = true,
+  alt = "",
 }: SpeakerImageProps) {
   return (
     <div className="w-full h-full relative">
@@ -33,7 +36,7 @@ export default function SpeakerImage({
           <Image
             src={image}
             className="rounded-full object-cover"
-            alt=""
+            alt={alt}
             fill
             sizes={big ? "(max-width: 768px) 240px, 440px" : "240px"}
             loading="lazy"

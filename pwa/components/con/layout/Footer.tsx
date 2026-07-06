@@ -21,7 +21,7 @@ export default function Footer({
 }: FooterProps) {
   const { t, locale } = useContext(LanguageContext);
   return (
-    <div className="text-white w-full relative overflow-hidden">
+    <footer className="text-white w-full relative overflow-hidden">
       <div className="container flex flex-col min-h-[500px] pt-48 z-10">
         <div className="flex flex-col items-center mt-16 p-5 flex-wrap w-full | lg:flex-row lg:items-start lg:gap-16">
           <div className="flex items-center justify-center flex-col mb-5 | lg:mb-0 lg:mr-auto ">
@@ -114,7 +114,7 @@ export default function Footer({
         <hr className="border-1 border-blue w-full" />
 
         <span className="text-sm font-light text-center my-5">
-          Copyright © 2024{" "}
+          Copyright © {new Date().getFullYear()}{" "}
           <a
             href={`https://les-tilleuls.coop/${locale}`}
             target="_blank"
@@ -126,6 +126,6 @@ export default function Footer({
         </span>
       </div>
       <Wave className="absolute w-[1200px] max-w-7xl -top-28 left-1/2 -translate-x-1/2 opacity-50 | xl:w-full" />
-    </div>
+    </footer>
   );
 }

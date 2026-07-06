@@ -22,7 +22,7 @@ function nameToAngle(name: string): number {
   let angle = hash % 360;
 
   const forbiddenZones: [number, number][] = [
-    [60, 120],
+    [60, 140],
     [240, 300],
   ];
 
@@ -63,7 +63,7 @@ export default function SpeakerImage({
   placeholder,
   id,
 }: SpeakerImageProps) {
-  if (speaker.edition === "2025") {
+  if (speaker.edition === "2025" || speaker.edition === "2026") {
     const { name } = speaker;
     const angle = nameToAngle(name);
     const size = nameToSize(name);
@@ -106,7 +106,7 @@ export default function SpeakerImage({
                   big && "scale-110",
                   hoverable && "group-hover:-rotate-2 group-hover:scale-110 "
                 )}
-                alt=""
+                alt={speaker.name}
                 fill
                 sizes={big ? "(max-width: 768px) 350px, 600px" : "350px"}
                 placeholder={

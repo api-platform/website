@@ -1,4 +1,4 @@
-import { Conference } from "types/con";
+import { Conference, Speaker } from "types/con";
 import dayjs from "dayjs";
 import humanizeDuration from "./humanize-duration";
 import { editions } from "data/con/editions";
@@ -16,6 +16,17 @@ export const sortByStartDate: (
     : dayjs();
   if (date1.isBefore(date2)) return -1;
   if (date1.isAfter(date2)) return 1;
+  return 0;
+};
+
+export const sortBySpeakerRank: (
+  conference1: Conference,
+  conference2: Conference
+) => 1 | -1 | 0 = (conference1, conference2) => {
+  const rank1 = conference1.speakers[0]?.number || 0;
+  const rank2 = conference2.speakers[0]?.number || 0;
+  if (rank1 > rank2) return -1;
+  if (rank2 > rank1) return 1;
   return 0;
 };
 
@@ -73,8 +84,25 @@ export function localeDuration(
   return humanizeDuration(ms, params);
 }
 
-export function getEditionEventData(edition: string) {
+const CONF_PLACE = {
+  "@type": "Place",
+  name: "Euratechnologies",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lille",
+    addressRegion: "Hauts de France",
+    postalCode: "59000",
+    streetAddress: "Place de Saintignon, 165 avenue de Bretagne",
+  },
+};
+
+export function getEditionEventData(
+  edition: string,
+  speakers: Speaker[] = [],
+  talks: Conference[] = []
+) {
   const currentEdition = editions.find((e) => e.year === edition);
+  const rootUrl = getRootUrl();
 
   const eventData = {
     "@context": "https://schema.org",
@@ -93,24 +121,66 @@ export function getEditionEventData(edition: string) {
       url: "https://les-tilleuls.coop/en",
     },
     location: [
-      {
-        "@type": "Place",
-        name: "Euratechnologies",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Lille",
-          addressRegion: "Hauts de France",
-          postalCode: "59000",
-          streetAddress: "Place de Saintignon, 165 avenue de Bretagne",
-        },
-      },
+      CONF_PLACE,
       {
         "@type": "VirtualLocation",
         url: `https://api-platform.com/con/${edition}/`,
       },
     ],
     image: `${getRootUrl()}/images/con/og-${edition}`,
+    ...(speakers.length
+      ? {
+          performer: speakers.map((speaker) => ({
+            "@type": "Person",
+            name: speaker.name,
+            ...(speaker.job ? { jobTitle: speaker.job } : {}),
+            image: `${rootUrl}${speaker.image}`,
+            url: `${rootUrl}${speaker.url}`,
+          })),
+        }
+      : {}),
+    ...(talks.length
+      ? { subEvent: talks.map((talk) => getTalkSubEventData(talk, rootUrl)) }
+      : {}),
   };
 
   return eventData;
+}
+
+/**
+ * schema.org structured data for a single talk, modeled as a nested `Event`
+ * (no `@context` — it is embedded as a `subEvent` of the edition's conference).
+ */
+function getTalkSubEventData(conference: Conference, rootUrl: string) {
+  const { date, start, end, title } = conference;
+
+  const description = (conference.short || conference.description || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const talkUrl = conference.url ? `${rootUrl}${conference.url}` : undefined;
+
+  return {
+    "@type": "Event",
+    name: title,
+    ...(description ? { description } : {}),
+    ...(date && start ? { startDate: `${date}T${start}:00` } : {}),
+    ...(date && end ? { endDate: `${date}T${end}:00` } : {}),
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: CONF_PLACE,
+    ...(talkUrl ? { url: talkUrl } : {}),
+    ...(conference.speakers?.length
+      ? {
+          performer: conference.speakers.map((speaker) => ({
+            "@type": "Person",
+            name: speaker.name,
+            ...(speaker.job ? { jobTitle: speaker.job } : {}),
+            ...(speaker.image ? { image: `${rootUrl}${speaker.image}` } : {}),
+            ...(speaker.url ? { url: `${rootUrl}${speaker.url}` } : {}),
+          })),
+        }
+      : {}),
+  };
 }
