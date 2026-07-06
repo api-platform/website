@@ -22,7 +22,7 @@ function nameToAngle(name: string): number {
   let angle = hash % 360;
 
   const forbiddenZones: [number, number][] = [
-    [60, 120],
+    [60, 140],
     [240, 300],
   ];
 
