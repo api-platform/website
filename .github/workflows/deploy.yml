@@ -195,4 +195,8 @@ jobs:
       - name: Check for dead links
         uses: lycheeverse/lychee-action@v2.8.0
         with:
+          # Pin to a pre-Rustls lychee build: 0.23+ ignores --insecure and rejects
+          # the cluster-managed cert on *.apip.preprod-tilleuls.ovh (UnknownIssuer).
+          # 0.15.0 uses OpenSSL + system CAs, so the check works as it did before.
+          lycheeVersion: v0.15.0
           args: --verbose --no-progress --insecure --accept 200,403,429 https://${{ env.RELEASE_NAME}}.apip.preprod-tilleuls.ovh
