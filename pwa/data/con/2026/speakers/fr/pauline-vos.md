@@ -14,3 +14,5 @@ github: https://github.com/paulinevos
 Pauline est ingénieure logicielle senior chez MongoDB, où elle maintient et développe des logiciels open source pour l'écosystème PHP. 
 
 Elle apprécie **le design logiciel de qualité (Clean Code)** et cherche toujours à être aussi efficace (paresseuse) que possible.
+
+La venue de Pauline à l’API Platform Conference est sponsorisée par [MongoDB](https://www.mongodb.com/), que nous remercions chaleureusement pour leur soutien.

@@ -9,6 +9,13 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "Laravel",
+    logo: "laravel",
+    link: "https://laravel.com/",
+    rank: 1,
+    highlight: true,
+  },
+  {
     name: "SensioLabs",
     logo: "sensiolabs",
     link: "https://sensiolabs.com/fr/",
@@ -75,7 +82,7 @@ const partners: Partner[] = [
   {
     name: "DevIT Jobs",
     logo: "devit",
-    link: "https://devitjobs.uk/",
+    link: "https://devitjobs.fr/jobs/Machine-Learning/all",
     rank: 4,
   },
   {
@@ -94,6 +101,20 @@ const partners: Partner[] = [
     name: "Larabelles",
     logo: "larabelles",
     link: "https://larabelles.com/",
+    rank: 4,
+  },
+  {
+    name: "Laravel France",
+    logo: "laravel-france",
+    link: "https://laravel-france.com/",
+    highlight: true,
+    rank: 4,
+  },
+  {
+    name: "MongoDB",
+    logo: "mongo-db",
+    link: "https://www.mongodb.com/",
+    highlight: true,
     rank: 4,
   },
   {
