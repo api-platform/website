@@ -56,6 +56,20 @@ const partners: Partner[] = [
     rank: 2,
   },
   {
+    name: "Private Packagist",
+    logo: "packagist",
+    link: "https://packagist.com/",
+    rank: 2,
+    highlight: true,
+  },
+  {
+    name: "URSCOP Hauts de France",
+    logo: "urscop",
+    link: "https://www.les-scop-hautsdefrance.coop/",
+    rank: 2,
+    highlight: true,
+  },
+  {
     name: "Caddy",
     logo: "caddy",
     link: "https://caddyserver.com/",

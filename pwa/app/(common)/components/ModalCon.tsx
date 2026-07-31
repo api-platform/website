@@ -76,7 +76,7 @@ export default function ModalCon() {
             className="max-w-full mx-auto"
           />
           <div className="border-px mt-4 border-white py-1 px-2 font-bold text-sm text-white uppercase inline-block">
-            September 18-19, 2025 | Lille & online
+            September 17-18, 2026 | Lille & online
           </div>
           <button
             className="rounded-full bg-blue w-9 h-9 top-4 right-4 absolute text-white flex items-center justify-center"
@@ -104,23 +104,10 @@ export default function ModalCon() {
               The international conference on the API Platform Framework
             </p>
             <h2 className="text-blue-light text-2xl font-bold">
-              Final tickets available before registration closes.
+              Secure your seat now before we sell out!
             </h2>
             <p className="font-light text-sm text-blue-black">
-              Be part of the very first meeting with the{" "}
-              <a
-                className="link"
-                href="https://x.com/dunglas/status/1962814466027815094"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                FrankenPHP elePHPant plushies
-              </a>{" "}
-              in Lille.
-              <br />
-              <br />
-              This edition is shaping up to be our biggest yet — secure your
-              seat now before we sell out.
+              Join the event where Symfony and Laravel communities gather to share their expertise.
             </p>
             <Button
               color="pink"
