@@ -9,6 +9,6 @@ start: '10:00'
 end: '10:40'
 ---
 
-# Simpler, Smarter, Faster: Redefining Real-Time for the AI Era 🇺🇸
+# Opening Keynote 🇺🇸
 
 This talk topic will be announced shortly.
