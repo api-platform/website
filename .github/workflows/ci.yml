@@ -85,10 +85,12 @@ jobs:
       contents: 'read'
       id-token: 'write'
     env:
-      GITHUB_KEY: ${{ secrets.GH_KEY }}
+      # Falls back to the run token on forks, where the personal token is absent:
+      # the contributors fetch during the PWA build is rate-limited without one.
+      GITHUB_KEY: ${{ secrets.GH_KEY || secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Pull images
         run: docker compose pull --ignore-pull-failures || true
       - name: Start services
@@ -121,11 +123,9 @@ jobs:
         run: docker compose exec -T php bin/phpunit
       - name: Doctrine Schema Validator
         run: docker compose exec -T php bin/console doctrine:schema:validate
-      # gcloud does not work with Python 3.10 because collections. Mappings were removed in Python 3.10.
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.9.15
-      - name: Setup gcloud
-        uses: google-github-actions/setup-gcloud@v1
+      # Helm came from the gcloud SDK, itself pinned to an old Python. Nothing in
+      # this job calls gcloud, so it is installed directly instead.
+      - name: Setup Helm
+        uses: azure/setup-helm@9bc31f4ebc9c6b171d7bfbaa5d006ae7abdb4310 # v5.0.1
       - name: Lint Helm
         run: helm lint ./helm/api-platform/
