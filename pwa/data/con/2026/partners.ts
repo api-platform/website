@@ -118,6 +118,12 @@ const partners: Partner[] = [
     rank: 4,
   },
   {
+    name: "Typesense",
+    logo: "typesense",
+    link: "https://typesense.org/",
+    rank: 4,
+  },
+  {
     name: "Laravel France",
     logo: "laravel-france",
     link: "https://laravel-france.com/",
