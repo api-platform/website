@@ -155,6 +155,12 @@ const partners: Partner[] = [
     link: "https://www.hotelsdelille.com/",
     rank: 4,
   },
+  {
+    name: "Archimag",
+    logo: "archimag",
+    link: "https://www.archimag.com/",
+    rank: 4,
+  },
 ];
 
 export default partners;
