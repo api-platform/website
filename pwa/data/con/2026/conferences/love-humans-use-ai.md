@@ -4,9 +4,9 @@ speakers: -diana-scharf-2026
 short: "If the recent AI boom makes your job feel weird, you're not alone. A pro-human exploration of what we lose, what we gain, and why developers still matter."
 tag: 'ia,society'
 track: '1'
-date: '2026-09-17'
-start: '16:50'
-end: '17:30'
+date: '2026-09-18'
+start: '13:50'
+end: '14:30'
 ---
 
 # Love Humans, Use AI 🇺🇸

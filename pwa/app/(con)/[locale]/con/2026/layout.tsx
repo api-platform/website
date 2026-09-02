@@ -57,6 +57,12 @@ async function EditionLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventData) }}
       />
+      <script
+        src="https://chatbot.con.api-platform.com/widget.js"
+        data-apicon-widget
+        data-accent="#2FC1C1"
+        defer
+      ></script>
       {children}
       <ContactCard />
     </LayoutBase>

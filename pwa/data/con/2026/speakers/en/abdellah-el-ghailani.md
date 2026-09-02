@@ -3,7 +3,7 @@ type: speaker
 id: abdellah-el-ghailani-2026
 number: 80
 name: Abdellah El Ghailani
-job: Freelance Solution Architect
+job: Solutions Architect
 company: 
 github: https://github.com/elghailani
 path: M0,-0.00025 l1,0 v0.469 h-0.159

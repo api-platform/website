@@ -4,9 +4,9 @@ speakers: -pauline-vos-2026
 short: "Drawing from MongoDB's experience, discover why investing in open-source tools is essential for user adoption and how to convince your leadership to make the leap."
 tag: 'feedback,society'
 track: '1'
-date: '2026-09-18'
-start: '13:50'
-end: '14:30'
+date: '2026-09-17'
+start: '16:50'
+end: '17:30'
 ---
 
 # No OSS, No Users: Why Investing in Open Source Matters 🇺🇸
