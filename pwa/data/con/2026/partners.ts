@@ -70,10 +70,16 @@ const partners: Partner[] = [
     highlight: true,
   },
   {
+    name: "CoopTech",
+    logo: "cooptech",
+    link: "https://cooptech.fr/",
+    rank: 2,
+  },
+  {
     name: "Caddy",
     logo: "caddy",
     link: "https://caddyserver.com/",
-    rank: 3,
+    rank: 2,
   },
   {
     name: "Emagma",
