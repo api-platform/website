@@ -18,11 +18,11 @@ You need to use a valid github token to retrieve the list of contributors.
 2. Select scopes `public_repo`, `read:org` and `read:user`, generate the token and copy it.
 3. If you use "pnpm dev" on the folder pwa to launch the project, add a new `.env.local` file on the root of pwa folder, and set your token as an environment variable named `GITHUB_KEY`. 
 
-If you use docker, create a file "secret_github_key" at the root of the project with your token inside:
+If you use docker, export your token as a `GITHUB_KEY` environment variable, which the compose file reads to build the images:
 
 ```console
-# Create the secret_github_key file
-echo "YOUR_GITHUB_TOKEN" > secret_github_key
+# Export the token for the current shell
+export GITHUB_KEY=YOUR_GITHUB_TOKEN
 ```
 
 > **❗Core team badges restriction**: You need to be a member of API Platform organization to retrieve API Platform teams. You can still locally launch the project, but the badges of the core team members will not appear.
@@ -38,8 +38,8 @@ git clone https://github.com/api-platform/website.git
 # Change directory
 cd website
 
-# Create the github_key file
-echo YOUR_GITHUB_TOKEN > secret_github_key
+# Export the GitHub token
+export GITHUB_KEY=YOUR_GITHUB_TOKEN
 
 # Install and run the project locally
 docker compose up -d
