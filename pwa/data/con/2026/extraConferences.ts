@@ -21,8 +21,8 @@ const extra = [
   },
   {
     title: {
-      en: "Lunch break",
-      fr: "Pause déjeuner",
+      en: "Lunch break<p class='text-blue-black' style='text-transform: none'>From 12h30 to 12h50 :  <span style='font-weight: 600'>\"Une Certaine Idée de la Tech\" - À La French (with Mehdi Medjaoui, room 2)</span></p>",
+      fr: "Pause déjeuner<p class='text-blue-black' style='text-transform: none'>De 12h30 à 12h50 : <span style='font-weight: 600'>\"Une Certaine Idée de la Tech\" - À La French (avec Mehdi Medjaoui, salle 2)</span></p>",
     },
     date: "2026-09-17",
     start: "12:20",
