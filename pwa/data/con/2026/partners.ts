@@ -167,6 +167,12 @@ const partners: Partner[] = [
     link: "https://www.archimag.com/",
     rank: 4,
   },
+  {
+    name: "A la French",
+    logo: "a-la-french",
+    link: "https://www.youtube.com/@alafrench/",
+    rank: 4,
+  },
 ];
 
 export default partners;
