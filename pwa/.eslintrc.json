@@ -14,7 +14,18 @@
     "@typescript-eslint/no-explicit-any": "off",
     "prettier/prettier": [
       "warn"
-    ]
+    ],
+    "getter-return": "error",
+    "no-const-assign": "error",
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-func-assign": "error",
+    "no-import-assign": "error",
+    "no-obj-calls": "error",
+    "no-setter-return": "error",
+    "no-unreachable": "error",
+    "use-isnan": "error",
+    "valid-typeof": "error"
   },
   "settings": {
    "next": {
