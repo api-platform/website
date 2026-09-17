@@ -27,10 +27,6 @@ const footer = [
         link: "/{{locale}}/con/2026/conferences",
         title: "nav.links.conferences",
       },
-      {
-        link: "/{{locale}}/con/2026/#pricing",
-        title: "nav.links.pricing",
-      },
     ],
   },
   {
