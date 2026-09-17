@@ -52,7 +52,7 @@ async function EditionLayout({
   const talks = await getAllConferences("2026", true, locale);
   const eventData = getEditionEventData("2026", speakers, talks);
   return (
-    <LayoutBase edition="2026" nav={nav} footer={footer} isTicketingOpen>
+    <LayoutBase edition="2026" nav={nav} footer={footer} isTicketingOpen={false}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventData) }}

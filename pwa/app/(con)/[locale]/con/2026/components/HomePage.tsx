@@ -54,11 +54,11 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
                   <LogoTilleuls secondColor="#fff" width="60%" />
                 </a>
               </div>
-              {currentEdition === "2026" && (
+              {/*currentEdition === "2026" && (
                 <BuyButton className="mr-2" id="cover">
                   {t("buy_tickets")}
                 </BuyButton>
-              )}
+              )*/}
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
           ) : null}
         </div>
       </Section>
-      {currentEdition === "2026" && (
+      {/* currentEdition === "2026" && (
         <Section
           className="relative py-10 before:bg-grey before:h-[calc(100%-500px)] before:absolute before:left-0 before:bottom-0 before:w-full after:bg-wave2 after:w-[1300px] after:h-[800px] after:absolute after:top-24 after:left-1/2 after:bg-top after:bg-contain after:opacity-50 after:bg-no-repeat after:-translate-x-1/2 after:rotate-6"
           section="pricing"
@@ -125,7 +125,7 @@ const HomePage = ({ speakers, partners }: HomePageProps) => {
             </div>
           </div>
         </Section>
-      )}
+      )*/}
       <Venue
         subtitle={t("2026.venue.subtitle")}
         tip_title={t("2026.venue.tip_title")}
