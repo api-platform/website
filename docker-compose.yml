@@ -88,4 +88,4 @@ volumes:
 
 secrets:
   GITHUB_KEY:
-    file: ./secret_github_key
+    environment: GITHUB_KEY
