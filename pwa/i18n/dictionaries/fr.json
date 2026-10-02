@@ -248,6 +248,11 @@
   "2026": {
     "baseline": "L'événement phare dédié à API Platform et son écosystème est de retour les 17 et 18 septembre à Lille !",
     "date": "17 et 18 septembre 2026 - Lille & en ligne",
+    "review": {
+      "subtitle_1": "Merci de votre présence à l'API Platform Conference 2026, ainsi que pour votre soutien et votre enthousiasme durant ces deux jours de conférence.",
+      "subtitle_2": "Notre événement sera de retour en septembre 2027 à Lille et en ligne. Comme chaque année, la billetterie et le CFP ouvriront en janvier 2027.",
+      "title": "Une édition tournée vers l'avenir."
+    },
     "our_speakers": {
       "speaker": { "coming_soon": "Prochainement" },
       "subtitle": "Rejoignez nos experts pour concevoir des logiciels durables, propulsés par les technologies les plus avancées d'aujourd'hui.",
@@ -405,6 +410,11 @@
       "ia": "IA",
       "tools": "Outils"
     }
+  },
+  "con_home": {
+    "baseline": "La conférence internationale dédiée à API Platform et son écosystème",
+    "date": "Lille & en ligne",
+    "review": "Review 2026"
   },
   "contact_us": "Contactez-nous !",
   "days_count": "{{count}} jour",

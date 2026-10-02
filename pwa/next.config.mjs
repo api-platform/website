@@ -165,16 +165,6 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: "/con",
-                destination: "/con/2026",
-                permanent: false,
-            },
-            {
-                source: "/fr/con",
-                destination: "/fr/con/2026",
-                permanent: false,
-            },
-            {
                 source: "/docs/",
                 destination: "/docs/symfony/",
                 permanent: true,

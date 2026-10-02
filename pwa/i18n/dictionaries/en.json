@@ -252,6 +252,11 @@
   "2026": {
     "baseline": "The only conference dedicated to API Platform and its ecosystem is back on September 17–18, 2026!",
     "date": "September 17-18, 2026 - Lille & online",
+    "review": {
+      "subtitle_1": "Thank you for making API Platform Conference 2026 possible, and for your support and enthusiasm during these two days of conference.",
+      "subtitle_2": "Our event will be back in September 2027 in Lille and online. As every year, tickets and the CFP will open in January 2027.",
+      "title": "An edition looking into the future."
+    },
     "missing_conferences": {
       "subtitle": "Subscribe to {{link}} to discover replay videos this winter!",
       "link": "our Youtube channel",
@@ -409,6 +414,11 @@
       "ia": "AI",
       "tools": "Tools"
     }
+  },
+  "con_home": {
+    "baseline": "The international conference dedicated to API Platform and its ecosystem",
+    "date": "Lille & online",
+    "review": "2026 review"
   },
   "contact_us": "Contact us!",
   "days_count": "{{count}} day",
