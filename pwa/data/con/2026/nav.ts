@@ -1,5 +1,9 @@
 const nav = {
   logoLink: "/",
+  backLink: {
+    to: "/con",
+    text: "back_to_current_edition",
+  },
   links: [
     {
       to: "/{{locale}}/con/2026/",
@@ -15,12 +19,12 @@ const nav = {
       text: "nav.links.conferences",
     },
     {
-      to: "/{{locale}}/con/2026/#venue",
-      text: "nav.links.venue",
+      to: "/{{locale}}/con/2026/review",
+      text: "Review 2026",
     },
     {
-      to: "/{{locale}}/con/2026/schedule",
-      text: "nav.links.schedule",
+      to: "/{{locale}}/con/2026",
+      text: "Archive 2026",
     },
   ],
 };

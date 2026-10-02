@@ -86,7 +86,8 @@ export default function EventsPage({ events }: EventsPageProps) {
       </div>
       <div className="container">
         {!type || type.toLowerCase() === "conference" ? (
-          <div className="mb-12">
+          <></>
+          /*<div className="mb-12">
             <Heading
               level="h2"
               size="lg"
@@ -101,7 +102,7 @@ export default function EventsPage({ events }: EventsPageProps) {
                 description="The flagship event dedicated to API Platform and its ecosystem! Get ready for two days of ideas and knowledge-sharing with our incredible lineup of renowned PHP, JavaScript, and API specialists."
               />
             </div>
-          </div>
+          </div>*/
         ) : null}
         {Object.keys(eventsByYear)
           .sort()

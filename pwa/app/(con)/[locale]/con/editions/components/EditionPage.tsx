@@ -9,9 +9,9 @@ import SectionSubTitle from "components/con/common/typography/SectionSubtitle";
 import { LanguageContext } from "contexts/con/LanguageContext";
 
 export default function Editions() {
-  const previousEditions = editions.filter(
-    (edition) => edition.year !== currentEdition
-  );
+  const previousEditions = editions
+    .filter((edition) => edition.year !== currentEdition)
+    .sort((a, b) => Number(b.year) - Number(a.year));
   const { t, Translate } = useContext(LanguageContext);
   return (
     <>
