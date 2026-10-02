@@ -360,8 +360,8 @@ export default function ReviewList() {
             Comme chaque année, la soirée communautaire s'est déroulée aux Sales
             Mômes, avec le précieux soutien du cabinet{" "}
             <a href="https://www.jlrecrutement.com/">JL Recrutement</a>.
-            Boissons, Boissons, Boissons, Boissons, frites et rigolades : le
-            cocktail parfait pour clôturer la journée de l'événement.
+            Boissons, frites et rigolades : le cocktail parfait pour clôturer la
+            journée de l'événement.
           </p>
         </ReviewItem>
         <ReviewItem
