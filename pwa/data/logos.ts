@@ -237,6 +237,11 @@ export const otherData: Reference[] = [
     link: "https://www.microdon.org/",
   },
   {
+    name: "Namra10",
+    logo: "namra10",
+    link: "https://www.namra10.com/",
+  },
+  {
     name: "Oney",
     logo: "oney",
     link: "https://www.oney.fr/",
