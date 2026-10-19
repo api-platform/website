@@ -19,6 +19,9 @@ redir @coreToSymfony /docs/symfony/{re.pathMatch.1}/
 @angular path_regexp pathMatch ^/docs/core/angularjs-integration(?:/?)$
 redir @angular /docs/core/client-integration/
 
+@llms path_regexp llms ^/(llms(?:-full)?\.txt)$
+redir @llms /docs/{re.llms.1}
+
 @docsroot path_regexp ^/docs(/?)$
 redir @docsroot /docs/symfony/
 
