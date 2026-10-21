@@ -1,3 +1,4 @@
+
 import { Reference } from "types";
 
 export const openSourceData: Reference[] = [
@@ -386,5 +387,10 @@ export const otherData: Reference[] = [
     name: "YouSign",
     logo: "yousign",
     link: "https://yousign.com/",
+  },
+  {
+    name: "Aoptia",
+    logo: "aoptia",
+    link: "https://aoptia.fr/",
   },
 ];
