@@ -390,7 +390,7 @@ export const otherData: Reference[] = [
   },
   {
     name: "Aoptia",
-    logo: "aoptia",
+    logo: "aoptia-logo",
     link: "https://aoptia.fr/",
   },
 ];
